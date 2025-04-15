@@ -15,10 +15,10 @@
 <body>
     <div id="app">
         <div class="lyrics-container">
-            <div v-for="(line, index) in parsedLyrics" :key="index" class="lyric-line">
+            <div v-for="(line, index) in parsedLyrics" class="lyric-line">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
-                    <span v-for="(char, charIndex) in line.text" :key="charIndex" class="lyric-char"
+                    <span v-for="(char, charIndex) in line.text" class="lyric-char"
                         :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1 }"
                         :style="getCharStyle(index, charIndex)">
                         {{ char }}
