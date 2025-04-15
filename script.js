@@ -17,6 +17,7 @@ let App = createApp({
     const songShownName = ref("");
     // 新增歌曲列表相关
     const songList = ref([]);
+    const charProgress = ref(0);
 
     // 监听歌曲变化
     watch(songFileName, (newVal) => {
@@ -99,6 +100,8 @@ let App = createApp({
           if (noElapseSpeed) {
             //一般無流逝速度
             const [_, mm, ss, text] = noElapseSpeed;
+            // const textSplit = text.split("|");
+            // console.log(textSplit);
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: text.trim(),
@@ -107,9 +110,11 @@ let App = createApp({
           } else if (withElapseSpeed) {
             //有流逝速度
             const [_, mm, ss, speed, text] = withElapseSpeed;
+            // const textSplit = text.split("|");
+            // console.log(textSplit);
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
-              text: text.trim(),
+              text: text.trim().replace("|", ""),
               elapseSpeed: parseFloat(speed),
             };
           } else if (SongInterludeWithSpeed) {
@@ -172,7 +177,6 @@ let App = createApp({
       }
     }
 
-
     // 确保返回对象包含所有需要导出的内容
     return {
       songList,
@@ -199,17 +203,19 @@ let App = createApp({
         const elapsed = (currentTime.value - line.time) * line.elapseSpeed;
         const progress = Math.min(1, elapsed / lineDuration);
 
-        const charProgress = Math.max(
+        charProgress.value = Math.max(
           0,
           Math.min(1, progress * line.text.length - charIndex)
         );
 
         scrollToLineIndex(currentLineIndex.value);
+
         if (line.isEnd == true)
           return { "--progress": 100 + "%", "font-size": 20 + "px" };
-        else return { "--progress": charProgress * 100 + "%" };
+        else return { "--progress": charProgress.value * 100 + "%" };
       },
       isCurrentLine: (index) => index === currentLineIndex.value,
+      isCompletedChar: () => charProgress.value === 1,
       togglePlay: () => {
         isPlaying.value ? audio.value.pause() : audio.value.play();
         isPlaying.value = !isPlaying.value;

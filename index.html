@@ -19,6 +19,7 @@
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <span v-for="(char, charIndex) in line.text" :key="charIndex" class="lyric-char"
+                        :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1 }"
                         :style="getCharStyle(index, charIndex)">
                         {{ char }}
                     </span>
@@ -42,6 +43,7 @@
                 <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime"
                     class="song-player">
                 </audio>
+                {{ currentTime }}
             </div>
         </div>
     </div>
