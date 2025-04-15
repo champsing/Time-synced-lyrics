@@ -21,6 +21,7 @@ body {
   scroll-behavior: smooth;
   /* 平滑滚动 */
   scroll-snap-type: y proximity;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -78,17 +79,24 @@ body {
 
 }
 
-.player-container-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+.song-info-flex {
+  background: rgba(35, 31, 31, 0.7);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  bottom: 3%;
+  right: 1%;
+  position: fixed;
 }
 
 .song-title {
     font-size: 2rem;
-    
+    font-weight: bold;
     text-align: center;
     color: #fff;
     font-family: Noto Sans;
@@ -99,15 +107,4 @@ body {
     text-align: center;
     color: #fff;
     font-family: Noto Sans;
-}
-
-
-.song-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
 }

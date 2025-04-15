@@ -9,7 +9,20 @@
 
 <body>
     <div id="app">
-        <div class="song-info">
+
+        <div class="lyrics-container">
+            <div v-for="(line, index) in parsedLyrics" :key="index" class="lyric-line">
+                <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
+                    :class="{ 'active': isCurrentLine(index) }">
+                    <span v-for="(char, charIndex) in line.text" :key="charIndex" class="lyric-char"
+                        :style="getCharStyle(index, charIndex)">
+                        {{ char }}
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="song-info-flex">
             <select v-model="songFileName">
                 <option v-for="song in songList" :value="song">
                     {{ song }}
@@ -21,26 +34,12 @@
             <div class="song-artist">
                 {{ songArtistName? songArtistName : "Various Artist" }}
             </div>
-        </div>
-
-        <div class="player-container-flex">
             <div class="player-container">
-                <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime" class="song-player">
+                <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime"
+                    class="song-player">
                 </audio>
             </div>
-            <div class="lyrics-container">
-                <div v-for="(line, index) in parsedLyrics" :key="index" class="lyric-line"
-                    >
-                    <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button" :class="{ 'active': isCurrentLine(index) }">
-                        <span v-for="(char, charIndex) in line.text" :key="charIndex" class="lyric-char"
-                            :style="getCharStyle(index, charIndex)">
-                            {{ char }}
-                        </span>
-                    </button>
-                </div>
-            </div>
         </div>
-
     </div>
     <script src="script.js"></script>
 </body>
