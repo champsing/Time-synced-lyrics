@@ -172,6 +172,7 @@ let App = createApp({
       }
     }
 
+
     // 确保返回对象包含所有需要导出的内容
     return {
       songList,
@@ -203,6 +204,7 @@ let App = createApp({
           Math.min(1, progress * line.text.length - charIndex)
         );
 
+        scrollToLineIndex(currentLineIndex.value);
         if (line.isEnd == true)
           return { "--progress": 100 + "%", "font-size": 20 + "px" };
         else return { "--progress": charProgress * 100 + "%" };

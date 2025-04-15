@@ -14,7 +14,6 @@
 
 <body>
     <div id="app">
-
         <div class="lyrics-container">
             <div v-for="(line, index) in parsedLyrics" :key="index" class="lyric-line">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
