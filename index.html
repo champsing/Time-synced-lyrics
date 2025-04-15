@@ -10,6 +10,11 @@
 <body>
     <div id="app">
         <div class="song-info">
+            <select v-model="songFileName">
+                <option v-for="song in songList" :value="song">
+                    {{ song }}
+                </option>
+            </select>
             <div class="song-title">
                 {{ songShownName? songShownName : songFileName }}
             </div>
@@ -17,10 +22,10 @@
                 {{ songArtistName? songArtistName : "Various Artist" }}
             </div>
         </div>
-        
+
         <div class="player-container-flex">
             <div class="player-container">
-                <audio controls ref="audio" id="audio" src="" @timeupdate="updateTime" class="song-player">
+                <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime" class="song-player">
                 </audio>
             </div>
             <div class="lyrics-container">

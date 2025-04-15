@@ -1,43 +1,61 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-let songFileName = "Kenshi Yonezu - KANDEN";
-
-let source = document.getElementById("audio");
-source.src = "./mp3/" + songFileName + ".mp3";
-
 let App = createApp({
   setup() {
     // 歌词数据
     const lrcContent = ref("");
-    const loading = ref(true);
     const error = ref(null);
     const currentTime = ref(0);
     const isPlaying = ref(false);
     const audio = ref(null);
     const lyricsContainer = ref(null);
+    // 初始化歌曲文件名（空值）
+    const songFileName = ref("");
     const lyricFile = ref("./lrc/" + songFileName + ".lrc");
     const songArtistName = ref("");
     const defaultElapseSpeed = ref(1.5); // 默认流逝速度
     const songShownName = ref("");
+    // 新增歌曲列表相关
+    const songList = ref([]);
+
+    // 监听歌曲变化
+    watch(songFileName, (newVal) => {
+      if (audio.value && newVal) {
+        lyricFile.value = `./lrc/${newVal}.lrc`;
+        autoLoadLrc();
+      }
+    });
+
+    onMounted(async () => {
+      await loadSongList();
+      autoLoadLrc();
+    });
+
+    // 加载歌曲列表
+    const loadSongList = async () => {
+      try {
+        const response = await fetch("./song_list.json");
+        if (!response.ok) throw new Error("載入失敗");
+        songList.value = await response.json();
+        if (songList.value.length > 0) {
+          songFileName.value = songList.value[0];
+        }
+      } catch (err) {
+        error.value = "歌曲列表載入失敗：" + err.message;
+      }
+    };
 
     // 自动加载同目录下的 lyrics.lrc
     const autoLoadLrc = async () => {
       try {
-        loading.value = true;
         const response = await fetch(lyricFile.value);
         if (!response.ok) throw new Error("File not found");
         lrcContent.value = await response.text();
         console.log(lrcContent.value);
       } catch (err) {
         error.value = `Failed to load lyrics: ${err.message}`;
-      } finally {
-        loading.value = false;
       }
     };
-
-    onMounted(() => {
-      autoLoadLrc();
-    });
 
     // 解析歌词
     const parsedLyrics = computed(() => {
@@ -148,7 +166,6 @@ let App = createApp({
     function jumpToCurrentLine(index) {
       const line = parsedLyrics.value[index];
       if (line) {
-        console.log(line + index);
         scrollToLineIndex(index);
         if (!isPlaying.value) audio.value.play();
         audio.value.currentTime = line.time;
@@ -157,18 +174,18 @@ let App = createApp({
 
     // 确保返回对象包含所有需要导出的内容
     return {
+      songList,
       songFileName,
       songShownName,
       songArtistName,
-      autoLoadLrc,
       parsedLyrics,
-      loading,
       error,
       currentLineIndex, // 必须导出
       currentTime,
       isPlaying,
       audio,
       lyricsContainer,
+      autoLoadLrc,
       jumpToCurrentLine,
       scrollToLineIndex,
       getCharStyle: (lineIndex, charIndex) => {
