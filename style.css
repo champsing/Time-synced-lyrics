@@ -1,6 +1,6 @@
 /* 添加完整 CSS 确保可见性 */
 body {
-  background: rgb(171, 136, 136);
+  background: rgb(98, 157, 146);
   color: white;
   min-height: 100vh;
   display: flex;
@@ -12,26 +12,28 @@ body {
 
 .lyrics-container {
   text-align: center;
-  background: rgba(0, 0, 20, 0.7);
+  background: rgba(59, 58, 58, 0.7);
   padding: 1rem;
+  width: 600px;
   border-radius: 12px;
   overflow-y: auto;
   /* 启用垂直滚动 */
   scroll-behavior: smooth;
   /* 平滑滚动 */
   scroll-snap-type: y proximity;
+  margin-bottom: 2rem;
 }
 
 .lyric-line {
   margin: 1rem 0;
   opacity: 0.3;
   transition: opacity 0.3s;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-.lyric-line.active {
+.lyric-line {
   opacity: 1;
-  font-size: 2rem;
+  font-size: 1.5rem !important; 
 }
 
 .lyric-char {
@@ -47,24 +49,14 @@ body {
   );
 }
 
-/* 底部进度条 */
-.lyric-char::after {
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #fff;
-  color: #00fffc;
-  transition: width 0.1s linear;
-}
+
 
 .lyric-char.active::after {
   width: 100%;
 }
 
 .lyric-button {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-family: Noto Sans JP;
   background: transparent;
   border: none;
@@ -72,7 +64,14 @@ body {
   cursor: pointer;
 }
 
-
+.lyric-button.active {
+  font-size: 1.75rem;
+  font-family: Noto Sans JP;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
 
 .song-player {
   margin-top: 1rem;
