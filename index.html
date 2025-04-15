@@ -36,7 +36,7 @@
                 {{ songShownName? songShownName : songFileName }}
             </div>
             <div class="song-artist">
-                {{ songArtistName? songArtistName : "Various Artist" }}
+                {{ songArtistName? songArtistName : "Various Artists" }}
             </div>
             <div class="player-container">
                 <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime"
