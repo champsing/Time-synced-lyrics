@@ -1,0 +1,114 @@
+/* 添加完整 CSS 确保可见性 */
+body {
+  background: rgb(171, 136, 136);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: system-ui;
+}
+
+.lyrics-container {
+  text-align: center;
+  background: rgba(0, 0, 20, 0.7);
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-y: auto;
+  /* 启用垂直滚动 */
+  scroll-behavior: smooth;
+  /* 平滑滚动 */
+  scroll-snap-type: y proximity;
+}
+
+.lyric-line {
+  margin: 1rem 0;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+  font-size: 1.2rem;
+}
+
+.lyric-line.active {
+  opacity: 1;
+  font-size: 2rem;
+}
+
+.lyric-char {
+  position: relative;
+  color: transparent;
+  transition: all 0.2s ease;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    #fff var(--progress, 0),
+    #aaa var(--progress, 0)
+  );
+}
+
+/* 底部进度条 */
+.lyric-char::after {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  color: #00fffc;
+  transition: width 0.1s linear;
+}
+
+.lyric-char.active::after {
+  width: 100%;
+}
+
+.lyric-button {
+  font-size: 25px;
+  font-family: Noto Sans JP;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+
+.song-player {
+  margin-top: 1rem;
+
+}
+
+.player-container-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.song-title {
+    font-size: 2rem;
+    
+    text-align: center;
+    color: #fff;
+    font-family: Noto Sans;
+}
+
+.song-artist {
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    font-family: Noto Sans;
+}
+
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
