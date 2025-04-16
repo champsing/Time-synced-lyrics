@@ -67,7 +67,7 @@ let App = createApp({
         .map((line) => {
           const noElapseSpeed = line.match(/\[(\d+):(\d+\.\d+)\](.*)/); //Example: [00:01.00]XXX
           const withElapseSpeed = line.match(
-            /\[(\d+):(\d+\.\d+), (\d+\.+\d+)\](.*)/
+            /\[(\d+):(\d+\.\d+), {(.*)}\](.*)/
           ); //Example: [00:01.00, 0.5]XXX
           const SongInterludeWithSpeed = line.match(
             /\[(\d+):(\d+\.\d+), (\d+\.+\d+), INTERLUDE\]/
@@ -100,46 +100,49 @@ let App = createApp({
           if (noElapseSpeed) {
             //一般無流逝速度
             const [_, mm, ss, text] = noElapseSpeed;
-            // const textSplit = text.split("|");
-            // console.log(textSplit);
+            const textSplit = text.split("|");
+
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
-              text: text.trim(),
-              elapseSpeed: defaultElapseSpeed.value, // 默认流逝速度 1.5
+              text: textSplit,
+              elapseSpeed: [defaultElapseSpeed.value], // 默认流逝速度 1.5
             };
           } else if (withElapseSpeed) {
             //有流逝速度
             const [_, mm, ss, speed, text] = withElapseSpeed;
-            // const textSplit = text.split("|");
-            // console.log(textSplit);
+            const textSplit = text.split("|");
+            const speedSplit = speed
+              .split(",")
+              .map((s) => parseFloat(s.trim()));
+
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
-              text: text.trim().replace("|", ""),
-              elapseSpeed: parseFloat(speed),
+              text: textSplit,
+              elapseSpeed: speedSplit,
             };
           } else if (SongInterludeWithSpeed) {
             //這行是有定義流逝速度的間奏
             const [_, mm, ss, speed] = SongInterludeWithSpeed;
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
-              text: "● ● ●".trim(),
-              elapseSpeed: parseFloat(speed),
+              text: ["● ● ●"],
+              elapseSpeed: [parseFloat(speed)],
             };
           } else if (SongInterludeWithoutSpeed) {
             //這行是沒有定義流逝速度的間奏
             const [_, mm, ss] = SongInterludeWithoutSpeed;
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
-              text: "● ● ●".trim(),
-              elapseSpeed: defaultElapseSpeed.value,
+              text: ["● ● ●"],
+              elapseSpeed: [defaultElapseSpeed.value],
             };
           } else if (isSongEnd) {
             //歌曲結束
             const [_, mm, ss] = isSongEnd;
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
-              text: "作者：" + songArtistName.value.trim(),
-              elapseSpeed: 1000,
+              text: ["作者：", songArtistName.value.trim()],
+              elapseSpeed: [1000],
               isEnd: true,
             };
           } else return null;
@@ -193,22 +196,38 @@ let App = createApp({
       autoLoadLrc,
       jumpToCurrentLine,
       scrollToLineIndex,
-      getCharStyle: (lineIndex, charIndex) => {
+      getCharStyle: (lineIndex, phraseIndex, charIndex) => {
         if (lineIndex !== currentLineIndex.value) return {};
 
         const line = parsedLyrics.value[lineIndex];
         const nextLine = parsedLyrics.value[lineIndex + 1];
         const lineDuration =
           (nextLine?.time || audio.value.duration) - line.time;
-        const elapsed = (currentTime.value - line.time) * line.elapseSpeed;
-        const progress = Math.min(1, elapsed / lineDuration);
+        const averageCharDuration = lineDuration / line.text.join("").length;
 
-        charProgress.value = Math.max(
-          0,
-          Math.min(1, progress * line.text.length - charIndex)
+        for (let i = 0; i < phraseIndex; i++) {
+          charIndex += line.text[i].length;
+        }
+
+        charProgress.value = Math.min(
+          1,
+          ((currentTime.value - line.time) / averageCharDuration) *
+            line.elapseSpeed[phraseIndex] -
+            (charIndex + 1) // need further adjust
         );
 
+        if (charProgress.value < 0) charProgress.value = 0;
+
         scrollToLineIndex(currentLineIndex.value);
+
+        // console.log(
+        //   charIndex + 1,
+        //   ((currentTime.value - line.time) / averageCharDuration - (charIndex + 1)) *
+        //     line.elapseSpeed[phraseIndex],
+        //   line.elapseSpeed[phraseIndex],
+        //   charProgress.value
+        // );
+        console.log(line.elapseSpeed[phraseIndex]);
 
         if (line.isEnd == true)
           return { "--progress": 100 + "%", "font-size": 20 + "px" };

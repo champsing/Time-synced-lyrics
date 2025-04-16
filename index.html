@@ -18,10 +18,12 @@
             <div v-for="(line, index) in parsedLyrics" class="lyric-line">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
-                    <span v-for="(char, charIndex) in line.text" class="lyric-char"
-                        :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1 }"
-                        :style="getCharStyle(index, charIndex)">
-                        {{ char }}
+                    <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
+                        <span v-for="(char, charIndex) in phrase" class="lyric-char"
+                            :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1 }"
+                            :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
+                            {{ char }}
+                        </span>
                     </span>
                 </button>
             </div>
