@@ -30,6 +30,7 @@
         </div>
 
         <div class="song-info-flex">
+            {{ parsedLyrics }}
             <select v-model="songFileName">
                 <option v-for="song in songList" :value="song">
                     {{ song }}
