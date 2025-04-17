@@ -76,9 +76,9 @@ let App = createApp({
             /\[(\d+):(\d+\.\d+), INTERLUDE\]/
           ); //Example: [00:01.00, INTERLUDE]
           const songEnd = line.match(/\[(\d+):(\d+\.\d+), END\]/); //Example: [00:01.00, END]
-          const songArtist = line.match(/\[ar\](.*)/); //Example: [ar]XXX
-          const defaultElapseSpeedRegex = line.match(/\[dfelpspd\](\d+\.\d+)/); //Example: [dfelpspd]1.25
-          const songShownNameRegex = line.match(/\[ti\](.*)/); //Example: [ti]XXX
+          const songArtist = line.match(/\[ar\:(.*)\]/); //Example: [ar]XXX
+          const defaultElapseSpeedRegex = line.match(/\[dfelpspd:(\d+\.\d+)\]/); //Example: [dfelpspd]1.25
+          const songShownNameRegex = line.match(/\[ti\:(.*)\]/); //Example: [ti]XXX
 
           if (songArtist) {
             //歌手資訊
