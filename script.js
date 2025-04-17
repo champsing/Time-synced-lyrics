@@ -106,7 +106,8 @@ let App = createApp({
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: textSplit,
-              elapseSpeed: [defaultElapseSpeed.value], // 默认流逝速度 1.5
+              elapseSpeed: [defaultElapseSpeed.value],
+              // 默认流逝速度 1.5
             };
           } else if (withElapseSpeed) {
             //有流逝速度
@@ -129,6 +130,7 @@ let App = createApp({
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: ["● ● ●"],
               elapseSpeed: [parseFloat(speed)],
+              type: "interlude",
             };
           } else if (SongInterludeWithoutSpeed) {
             //這行是沒有定義流逝速度的間奏
@@ -137,6 +139,7 @@ let App = createApp({
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: ["● ● ●"],
               elapseSpeed: [defaultElapseSpeed.value],
+              type: "interlude",
             };
           } else if (songEnd) {
             //歌曲結束
@@ -145,7 +148,7 @@ let App = createApp({
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: ["作者：", songArtistName.value.trim()],
               elapseSpeed: [1000],
-              isEnd: true,
+              type: "end",
             };
           } else return null;
         })
@@ -213,12 +216,10 @@ let App = createApp({
       )
         charProgress.value = 0;
 
-      if (line.isEnd == true)
+      if (line.type == "end")
         return { "--progress": 100 + "%", "font-size": 20 + "px" };
       else return { "--progress": charProgress.value * 100 + "%" };
     }
-
-
 
     // 确保返回对象包含所有需要导出的内容
     return {
@@ -240,6 +241,7 @@ let App = createApp({
       getCharStyle,
       isCurrentLine: (index) => index === currentLineIndex.value,
       isCompletedChar: () => charProgress.value === 1,
+      isInterlude: (index) => parsedLyrics.value[index].type === "interlude",
       togglePlay: () => {
         isPlaying.value ? audio.value.pause() : audio.value.play();
         isPlaying.value = !isPlaying.value;
@@ -250,14 +252,3 @@ let App = createApp({
     };
   },
 }).mount("#app");
-
-
-// console.log(showCurrentTime.value);
-
-// let showCurrentTimeCheckbox = document.getElementById(
-//   "showCurrentTimeCheckbox"
-// );
-// showCurrentTimeCheckbox.addEventListener("click", () => {
-//   showCurrentTime.value = !showCurrentTime.value;
-//   console.log(showCurrentTime.value);
-// });

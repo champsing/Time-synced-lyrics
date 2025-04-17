@@ -15,7 +15,7 @@
 <body>
     <div id="app">
         <div class="lyrics-container">
-            <div v-for="(line, index) in parsedLyrics" class="lyric-line">
+            <div v-for="(line, index) in parsedLyrics" class="lyric-line" :class="{ 'interlude': isInterlude(index) }">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
