@@ -115,7 +115,7 @@ let App = createApp({
               .replaceAll("df", defaultElapseSpeed.value)
               .split(",")
               .map((s) => parseFloat(s.trim()));
-            
+
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: textSplit,
@@ -162,6 +162,10 @@ let App = createApp({
         }
       }
       return -1;
+    });
+
+    watch(currentLineIndex, (newVal) => {
+      scrollToLineIndex(newVal);
     });
 
     function scrollToLineIndex(index) {
