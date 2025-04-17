@@ -22,7 +22,7 @@
                         <span v-for="(char, charIndex) in phrase" class="lyric-char"
                             :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1 }"
                             :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
-                            {{ char }} 
+                            {{ char }}
                         </span>
                     </span>
                 </button>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="song-info-flex">
-            {{ parsedLyrics }}
+
             <select v-model="songFileName">
                 <option v-for="song in songList" :value="song">
                     {{ song }}
@@ -46,8 +46,8 @@
                 <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime"
                     class="song-player">
                 </audio>
-                {{ currentTime }}
             </div>
+
         </div>
     </div>
     <script src="script.js"></script>

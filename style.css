@@ -1,6 +1,6 @@
 /* 添加完整 CSS 确保可见性 */
 body {
-  background: rgb(98, 157, 146);
+  background: rgb(92, 149, 125);
   color: white;
   min-height: 100vh;
   display: flex;
@@ -14,7 +14,7 @@ body {
   text-align: center;
   background: rgba(59, 58, 58, 0.7);
   padding: 1rem;
-  width: fit-content;
+  width: 600px;
   border-radius: 12px;
   overflow-y: auto;
   /* 启用垂直滚动 */
