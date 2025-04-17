@@ -22,7 +22,7 @@
                         <span v-for="(char, charIndex) in phrase" class="lyric-char"
                             :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1 }"
                             :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
-                            {{ char }}
+                            {{ char }} 
                         </span>
                     </span>
                 </button>

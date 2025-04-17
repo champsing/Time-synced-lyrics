@@ -180,6 +180,29 @@ let App = createApp({
       }
     }
 
+    function getCharStyle(lineIndex, phraseIndex, charIndex) {
+      if (lineIndex !== currentLineIndex.value) return {};
+
+      const line = parsedLyrics.value[lineIndex];
+      const nextLine = parsedLyrics.value[lineIndex + 1];
+      const lineDuration = (nextLine?.time || audio.value.duration) - line.time;
+      // const array = [];
+      // const totalLength = [];
+      // for (i = 0; i < line.text.length; i++) {
+      //   for (j = 0; j < i; j++) {
+      //       totalLength[i] += line.text[j].length;
+      //       console.log(totalLength.value)
+      //   }
+      //   array[i] = totalLength[i] / line.text.join("").length;
+      //   console.log(array.value)
+      //   return array;
+      // }
+
+      if (line.isEnd == true)
+        return { "--progress": 100 + "%", "font-size": 20 + "px" };
+      else return { "--progress": charProgress.value * 100 + "%" };
+    }
+
     // 确保返回对象包含所有需要导出的内容
     return {
       songList,
@@ -196,43 +219,7 @@ let App = createApp({
       autoLoadLrc,
       jumpToCurrentLine,
       scrollToLineIndex,
-      getCharStyle: (lineIndex, phraseIndex, charIndex) => {
-        if (lineIndex !== currentLineIndex.value) return {};
-
-        const line = parsedLyrics.value[lineIndex];
-        const nextLine = parsedLyrics.value[lineIndex + 1];
-        const lineDuration =
-          (nextLine?.time || audio.value.duration) - line.time;
-        const averageCharDuration = lineDuration / line.text.join("").length;
-
-        for (let i = 0; i < phraseIndex; i++) {
-          charIndex += line.text[i].length;
-        }
-
-        charProgress.value = Math.min(
-          1,
-          ((currentTime.value - line.time) / averageCharDuration) *
-            line.elapseSpeed[phraseIndex] -
-            (charIndex + 1) // need further adjust
-        );
-
-        if (charProgress.value < 0) charProgress.value = 0;
-
-        scrollToLineIndex(currentLineIndex.value);
-
-        // console.log(
-        //   charIndex + 1,
-        //   ((currentTime.value - line.time) / averageCharDuration - (charIndex + 1)) *
-        //     line.elapseSpeed[phraseIndex],
-        //   line.elapseSpeed[phraseIndex],
-        //   charProgress.value
-        // );
-        console.log(line.elapseSpeed[phraseIndex]);
-
-        if (line.isEnd == true)
-          return { "--progress": 100 + "%", "font-size": 20 + "px" };
-        else return { "--progress": charProgress.value * 100 + "%" };
-      },
+      getCharStyle,
       isCurrentLine: (index) => index === currentLineIndex.value,
       isCompletedChar: () => charProgress.value === 1,
       togglePlay: () => {
