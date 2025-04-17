@@ -18,6 +18,7 @@ let App = createApp({
     // 新增歌曲列表相关
     const songList = ref([]);
     const charProgress = ref(0);
+    const showCurrentTime = ref(false);
 
     // 监听歌曲变化
     watch(songFileName, (newVal) => {
@@ -217,6 +218,8 @@ let App = createApp({
       else return { "--progress": charProgress.value * 100 + "%" };
     }
 
+
+
     // 确保返回对象包含所有需要导出的内容
     return {
       songList,
@@ -230,6 +233,7 @@ let App = createApp({
       isPlaying,
       audio,
       lyricsContainer,
+      showCurrentTime,
       autoLoadLrc,
       jumpToCurrentLine,
       scrollToLineIndex,
@@ -246,3 +250,14 @@ let App = createApp({
     };
   },
 }).mount("#app");
+
+
+// console.log(showCurrentTime.value);
+
+// let showCurrentTimeCheckbox = document.getElementById(
+//   "showCurrentTimeCheckbox"
+// );
+// showCurrentTimeCheckbox.addEventListener("click", () => {
+//   showCurrentTime.value = !showCurrentTime.value;
+//   console.log(showCurrentTime.value);
+// });
