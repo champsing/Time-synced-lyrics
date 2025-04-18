@@ -15,7 +15,7 @@
 <body>
     <div id="app">
         <div class="lyrics-container">
-            <div v-for="(line, index) in parsedLyrics" class="lyric-line" :class="{ 'interlude': isInterlude(index) }">
+            <div v-for="(line, index) in parsedLyrics" class="lyric-line">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
@@ -47,10 +47,10 @@
                 </audio>
             </div>
             <div>
-                <input type="checkbox" id="showCurrentTimeCheckbox" v-model="showCurrentTime"/>
-                <label for="showCurrentTimeCheckbox">顯示現在時間刻</label> 
+                <input type="checkbox" id="showCurrentTimeCheckbox" v-model="showCurrentTime" />
+                <label for="showCurrentTimeCheckbox">顯示現在時間刻</label>
                 <span v-if="showCurrentTime">：{{ currentTime }}</span>
-              </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

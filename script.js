@@ -241,7 +241,6 @@ let App = createApp({
       getCharStyle,
       isCurrentLine: (index) => index === currentLineIndex.value,
       isCompletedChar: () => charProgress.value === 1,
-      isInterlude: (index) => parsedLyrics.value[index].type === "interlude",
       togglePlay: () => {
         isPlaying.value ? audio.value.pause() : audio.value.play();
         isPlaying.value = !isPlaying.value;
