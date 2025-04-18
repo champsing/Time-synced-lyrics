@@ -20,7 +20,7 @@
                     :class="{ 'active': isCurrentLine(index) }">
                     <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
                         <span v-for="(char, charIndex) in phrase" class="lyric-char"
-                            :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1 }"
+                            :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1, 'kiai': isKiai(line) }"
                             :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
                             {{ char }}
                         </span>

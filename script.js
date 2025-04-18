@@ -70,6 +70,12 @@ let App = createApp({
           const withElapseSpeed = line.match(
             /\[(\d+):(\d+\.\d+), {(.*)}\](.*)/
           ); //Example: [00:01.00, 0.5]XXX
+          const noElapseSpeedKiai = line.match(
+            /\[(\d+):(\d+\.\d+), KIAI\](.*)/
+          ); //Example: [00:01.00]XXX
+          const withElapseSpeedKiai = line.match(
+            /\[(\d+):(\d+\.\d+), {(.*)}, KIAI\](.*)/
+          ); //Example: [00:01.00, 0.5]XXX
           const SongInterludeWithSpeed = line.match(
             /\[(\d+):(\d+\.\d+), (\d+\.+\d+), INTERLUDE\]/
           ); //Example: [00:01.00, 2.0, INTERLUDE]
@@ -122,6 +128,34 @@ let App = createApp({
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: textSplit,
               elapseSpeed: speedSplit,
+            };
+          }
+          if (noElapseSpeedKiai) {
+            //一般無流逝速度
+            const [_, mm, ss, text] = noElapseSpeedKiai;
+            const textSplit = text.split("|");
+
+            return {
+              time: parseFloat(mm) * 60 + parseFloat(ss),
+              text: textSplit,
+              elapseSpeed: [defaultElapseSpeed.value],
+              type: 'kiai',
+              // 默认流逝速度 1.5
+            };
+          } else if (withElapseSpeedKiai) {
+            //有流逝速度
+            const [_, mm, ss, speed, text] = withElapseSpeedKiai;
+            const textSplit = text.split("|");
+            const speedSplit = speed
+              .replaceAll("df", defaultElapseSpeed.value)
+              .split(",")
+              .map((s) => parseFloat(s.trim()));
+
+            return {
+              time: parseFloat(mm) * 60 + parseFloat(ss),
+              text: textSplit,
+              elapseSpeed: speedSplit,
+              type: 'kiai',
             };
           } else if (SongInterludeWithSpeed) {
             //這行是有定義流逝速度的間奏
@@ -240,6 +274,7 @@ let App = createApp({
       scrollToLineIndex,
       getCharStyle,
       isCurrentLine: (index) => index === currentLineIndex.value,
+      isKiai: (line) => line.type === "kiai",
       isCompletedChar: () => charProgress.value === 1,
       togglePlay: () => {
         isPlaying.value ? audio.value.pause() : audio.value.play();

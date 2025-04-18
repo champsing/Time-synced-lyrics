@@ -64,7 +64,7 @@ body {
   font-weight: bold;
 }
 
-.lyric-char.completed {
+.lyric-char.completed.kiai {
   stroke: beige;
   stroke-width: 0.5px;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
