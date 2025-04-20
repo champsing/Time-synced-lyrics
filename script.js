@@ -139,7 +139,7 @@ let App = createApp({
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: textSplit,
               elapseSpeed: [defaultElapseSpeed.value],
-              type: 'kiai',
+              type: "kiai",
               // 默认流逝速度 1.5
             };
           } else if (withElapseSpeedKiai) {
@@ -155,7 +155,7 @@ let App = createApp({
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: textSplit,
               elapseSpeed: speedSplit,
-              type: 'kiai',
+              type: "kiai",
             };
           } else if (SongInterludeWithSpeed) {
             //這行是有定義流逝速度的間奏
