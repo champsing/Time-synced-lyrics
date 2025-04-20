@@ -42,7 +42,7 @@
                 {{ songArtistName? songArtistName : "Various Artists" }}
             </div>
             <div class="player-container">
-                <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime"
+                <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime" volume="0.2"
                     class="song-player">
                 </audio>
             </div>
