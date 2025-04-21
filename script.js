@@ -7,8 +7,7 @@ let App = createApp({
     const error = ref(null);
     const currentTime = ref(0);
     const songDuration = ref(0);
-    const formattedCurrentTime = ref(formatTime(currentTime.value));
-    const formattedSongDuration = ref(formatTime(songDuration.value));
+
     const songArtistName = ref("");
     const defaultElapseSpeed = ref(1.5); // 默认流逝速度
     const songShownName = ref("");
@@ -21,6 +20,15 @@ let App = createApp({
     const currentSong = ref(songList.value[0]);
     const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc");
     const charProgress = ref(0);
+
+    function formatTime(seconds) {
+      const min = Math.floor(seconds / 60);
+      const sec = Math.floor(seconds % 60);
+      return `${min}:${sec.toString().padStart(2, "0")}`;
+    }
+
+    const formattedCurrentTime = ref(formatTime(currentTime.value));
+    const formattedSongDuration = ref(formatTime(songDuration.value));
 
     // 加载歌曲列表
     const loadSongList = async () => {
@@ -209,8 +217,7 @@ let App = createApp({
 
       const line = parsedLyrics.value[lineIndex];
       const nextLine = parsedLyrics.value[lineIndex + 1];
-      const lineDuration =
-        (nextLine?.time || songDuration) - line.time;
+      const lineDuration = (nextLine?.time || songDuration) - line.time;
       const averageCharDuration = lineDuration / line.text.join("").length;
 
       for (let i = 0; i < phraseIndex; i++) {
@@ -297,7 +304,7 @@ let App = createApp({
     // 在歌曲切換時更新播放器
     watch(currentSong, (newVal) => {
       player.value.loadVideoById(newVal.id);
-      currentTime.value = 0;      
+      currentTime.value = 0;
       player.value.pauseVideo();
       songDuration.value = player.value.getDuration();
       lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
@@ -311,12 +318,6 @@ let App = createApp({
         // if (!isPlaying.value) audio.value.play();
         player.value.seekTo(line.time);
       }
-    }
-
-    function formatTime(seconds) {
-      const min = Math.floor(seconds / 60);
-      const sec = Math.floor(seconds % 60);
-      return `${min}:${sec.toString().padStart(2, '0')}`;
     }
 
     // 确保返回对象包含所有需要导出的内容
