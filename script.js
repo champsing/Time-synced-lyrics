@@ -14,23 +14,22 @@ let App = createApp({
     const songList = ref([
       {
         name: "Kenshi Yonezu - Campanella",
-        id: "XeFQJ6-XoD",
       },
     ]);
     const currentSong = ref(songList.value[0]);
-    const lyricFile = ref("./lrc/" + currentSong.name + ".lrc");
+    const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc");
     const charProgress = ref(0);
     const showCurrentTime = ref(false);
 
     // 加载歌曲列表
     const loadSongList = async () => {
       try {
-        const response = await fetch("./song_list.json");
+        const response = await fetch("./public/song_list.json");
         if (!response.ok) throw new Error("載入失敗");
         songList.value = await response.json();
         if (songList.value.length > 0) {
           currentSong.value = songList.value[0];
-          lyricFile.value = `./lrc/${currentSong.value.name}.lrc`;
+          lyricFile.value = `./public/lrc/${currentSong.value.name}.lrc`;
         }
       } catch (err) {
         error.value = "歌曲列表載入失敗：" + err.message;
@@ -204,14 +203,13 @@ let App = createApp({
       });
     }
 
-
-
     function getCharStyle(lineIndex, phraseIndex, charIndex) {
       if (lineIndex !== currentLineIndex.value) return {};
 
       const line = parsedLyrics.value[lineIndex];
       const nextLine = parsedLyrics.value[lineIndex + 1];
-      const lineDuration = (nextLine?.time || player.value.getDuration()) - line.time;
+      const lineDuration =
+        (nextLine?.time || player.value.getDuration()) - line.time;
       const averageCharDuration = lineDuration / line.text.join("").length;
 
       for (let i = 0; i < phraseIndex; i++) {
@@ -250,7 +248,7 @@ let App = createApp({
           playerVars: {
             enablejsapi: 1,
             playsinline: 1,
-        },
+          },
           events: {
             onReady: onPlayerReady,
             onStateChange: onPlayerStateChange,
@@ -278,7 +276,9 @@ let App = createApp({
       if (event.data === YT.PlayerState.PLAYING) {
         const updateTime = () => {
           if (player.value && player.value.getCurrentTime) {
-            currentTime.value = parseFloat(player.value.getCurrentTime().toFixed(6));
+            currentTime.value = parseFloat(
+              player.value.getCurrentTime().toFixed(6)
+            );
             requestAnimationFrame(updateTime);
           }
         };
@@ -297,7 +297,7 @@ let App = createApp({
       player.value.loadVideoById(newVal.id);
       currentTime.value = 0;
       player.value.pauseVideo();
-      lyricFile.value = `./lrc/${newVal.name}.lrc`;
+      lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
       autoLoadLrc();
     });
 
@@ -307,7 +307,6 @@ let App = createApp({
         scrollToLineIndex(index);
         // if (!isPlaying.value) audio.value.play();
         player.value.seekTo(line.time);
-
       }
     }
 
