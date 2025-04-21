@@ -7,6 +7,8 @@ let App = createApp({
     const error = ref(null);
     const currentTime = ref(0);
     const songDuration = ref(0);
+    const formattedCurrentTime = ref(formatTime(currentTime.value));
+    const formattedSongDuration = ref(formatTime(songDuration.value));
     const songArtistName = ref("");
     const defaultElapseSpeed = ref(1.5); // 默认流逝速度
     const songShownName = ref("");
@@ -295,9 +297,9 @@ let App = createApp({
     // 在歌曲切換時更新播放器
     watch(currentSong, (newVal) => {
       player.value.loadVideoById(newVal.id);
-      currentTime.value = 0;
-      songDuration.value = player.value.getDuration();
+      currentTime.value = 0;      
       player.value.pauseVideo();
+      songDuration.value = player.value.getDuration();
       lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
       autoLoadLrc();
     });
@@ -329,6 +331,8 @@ let App = createApp({
       currentLineIndex, // 必须导出
       currentTime,
       songDuration,
+      formattedCurrentTime,
+      formattedSongDuration,
       autoLoadLrc,
       formatTime,
       jumpToCurrentLine,
