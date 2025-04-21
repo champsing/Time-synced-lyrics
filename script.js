@@ -7,31 +7,20 @@ let App = createApp({
     const error = ref(null);
     const currentTime = ref(0);
     const isPlaying = ref(false);
-    const audio = ref(null);
-    const lyricsContainer = ref(null);
-    // 初始化歌曲文件名（空值）
-    const songFileName = ref("");
-    const lyricFile = ref("./lrc/" + songFileName + ".lrc");
     const songArtistName = ref("");
     const defaultElapseSpeed = ref(1.5); // 默认流逝速度
     const songShownName = ref("");
     // 新增歌曲列表相关
-    const songList = ref([]);
+    const songList = ref([
+      {
+        name: "Kenshi Yonezu - Campanella",
+        id: "XeFQJ6-XoD",
+      },
+    ]);
+    const currentSong = ref(songList.value[0]);
+    const lyricFile = ref("./lrc/" + currentSong.name + ".lrc");
     const charProgress = ref(0);
     const showCurrentTime = ref(false);
-
-    // 监听歌曲变化
-    watch(songFileName, (newVal) => {
-      if (audio.value && newVal) {
-        lyricFile.value = `./lrc/${newVal}.lrc`;
-        autoLoadLrc();
-      }
-    });
-
-    onMounted(async () => {
-      await loadSongList();
-      autoLoadLrc();
-    });
 
     // 加载歌曲列表
     const loadSongList = async () => {
@@ -40,7 +29,8 @@ let App = createApp({
         if (!response.ok) throw new Error("載入失敗");
         songList.value = await response.json();
         if (songList.value.length > 0) {
-          songFileName.value = songList.value[0];
+          currentSong.value = songList.value[0];
+          lyricFile.value = `./lrc/${currentSong.value.name}.lrc`;
         }
       } catch (err) {
         error.value = "歌曲列表載入失敗：" + err.message;
@@ -214,21 +204,14 @@ let App = createApp({
       });
     }
 
-    function jumpToCurrentLine(index) {
-      const line = parsedLyrics.value[index];
-      if (line) {
-        scrollToLineIndex(index);
-        if (!isPlaying.value) audio.value.play();
-        audio.value.currentTime = line.time;
-      }
-    }
+
 
     function getCharStyle(lineIndex, phraseIndex, charIndex) {
       if (lineIndex !== currentLineIndex.value) return {};
 
       const line = parsedLyrics.value[lineIndex];
       const nextLine = parsedLyrics.value[lineIndex + 1];
-      const lineDuration = (nextLine?.time || audio.value.duration) - line.time;
+      const lineDuration = (nextLine?.time || player.value.getDuration()) - line.time;
       const averageCharDuration = lineDuration / line.text.join("").length;
 
       for (let i = 0; i < phraseIndex; i++) {
@@ -255,10 +238,84 @@ let App = createApp({
       else return { "--progress": charProgress.value * 100 + "%" };
     }
 
+    const player = ref(null);
+
+    // 初始化 YouTube 播放器
+    const initPlayer = () => {
+      const onYouTubeIframeAPIReady = () => {
+        player.value = new YT.Player("player", {
+          width: "300",
+          height: "200",
+          videoId: "XeFQJ6-XoD0",
+          playerVars: {
+            enablejsapi: 1,
+            playsinline: 1,
+        },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      };
+
+      if (!window.YT) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+      } else {
+        onYouTubeIframeAPIReady();
+      }
+    };
+
+    const onPlayerReady = (event) => {
+      console.log("播放器已準備好");
+    };
+
+    const onPlayerStateChange = (event) => {
+      if (event.data === YT.PlayerState.PLAYING) {
+        const updateTime = () => {
+          if (player.value && player.value.getCurrentTime) {
+            currentTime.value = parseFloat(player.value.getCurrentTime().toFixed(6));
+            requestAnimationFrame(updateTime);
+          }
+        };
+        requestAnimationFrame(updateTime);
+      }
+    };
+
+    onMounted(async () => {
+      await loadSongList();
+      autoLoadLrc();
+      initPlayer(); // 初始化播放器
+    });
+
+    // 在歌曲切換時更新播放器
+    watch(currentSong, (newVal) => {
+      player.value.loadVideoById(newVal.id);
+      currentTime.value = 0;
+      player.value.pauseVideo();
+      lyricFile.value = `./lrc/${newVal.name}.lrc`;
+      autoLoadLrc();
+    });
+
+    function jumpToCurrentLine(index) {
+      const line = parsedLyrics.value[index];
+      if (line) {
+        scrollToLineIndex(index);
+        // if (!isPlaying.value) audio.value.play();
+        player.value.seekTo(line.time);
+
+      }
+    }
+
     // 确保返回对象包含所有需要导出的内容
     return {
       songList,
-      songFileName,
+      player,
+      currentSong,
       songShownName,
       songArtistName,
       parsedLyrics,
@@ -266,8 +323,6 @@ let App = createApp({
       currentLineIndex, // 必须导出
       currentTime,
       isPlaying,
-      audio,
-      lyricsContainer,
       showCurrentTime,
       autoLoadLrc,
       jumpToCurrentLine,
@@ -276,13 +331,6 @@ let App = createApp({
       isCurrentLine: (index) => index === currentLineIndex.value,
       isKiai: (line) => line.type === "kiai",
       isCompletedChar: () => charProgress.value === 1,
-      togglePlay: () => {
-        isPlaying.value ? audio.value.pause() : audio.value.play();
-        isPlaying.value = !isPlaying.value;
-      },
-      updateTime: () => {
-        currentTime.value = audio.value.currentTime;
-      },
     };
   },
 }).mount("#app");

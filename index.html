@@ -30,29 +30,30 @@
         </div>
 
         <div class="song-info-flex">
-            <select v-model="songFileName">
+            <select v-model="currentSong">
                 <option v-for="song in songList" :value="song">
-                    {{ song }}
+                    {{ song.name }}
                 </option>
             </select>
             <div class="song-title">
-                {{ songShownName? songShownName : songFileName }}
+                {{ songShownName? songShownName : currentSong.name }}
             </div>
             <div class="song-artist">
                 {{ songArtistName? songArtistName : "Various Artists" }}
             </div>
-            <div class="player-container">
-                <audio controls ref="audio" id="audio" :src="`./mp3/${songFileName}.mp3`" @timeupdate="updateTime" volume="0.2"
-                    class="song-player">
-                </audio>
-            </div>
+
             <div>
                 <input type="checkbox" id="showCurrentTimeCheckbox" v-model="showCurrentTime" />
                 <label for="showCurrentTimeCheckbox">顯示現在時間刻</label>
                 <span v-if="showCurrentTime">：{{ currentTime }}</span>
             </div>
+            <div class="player-container">
+                <div id="player"></div>
+            </div>
         </div>
+
     </div>
+
     <script src="script.js"></script>
 </body>
 

@@ -1,6 +1,18 @@
 [
-    "Kenshi Yonezu - Campanella",
-    "Kenshi Yonezu - KANDEN",
-    "Shytaupe - It's myself",
-    "Kiro Akiyama - SKETCH"
+  {
+    "name": "Kenshi Yonezu - Campanella",
+    "id": "XeFQJ6-XoD0"
+  },
+  {
+    "name": "Kenshi Yonezu - KANDEN",
+    "id": "UFQEttrn6CQ"
+  },
+  {
+    "name": "Shytaupe - It's myself",
+    "id": "ySD7YVvd6Xw"
+  },
+  {
+    "name": "Kiro Akiyama - SKETCH",
+    "id": "JwmGruvGt_I"
+  }
 ]
