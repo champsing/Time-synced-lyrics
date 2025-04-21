@@ -64,9 +64,7 @@
             </div>
 
             <div>
-                <input type="checkbox" id="showCurrentTimeCheckbox" v-model="showCurrentTime" />
-                <label for="showCurrentTimeCheckbox">顯示現在時間刻</label>
-                <span v-if="showCurrentTime">：{{ currentTime }}</span>
+                <span class="play-time">{{ formatTime(currentTime) }} / {{ formatTime(songDuration) }} </span>
             </div>
             <div class="player-container">
                 <div id="player"></div>

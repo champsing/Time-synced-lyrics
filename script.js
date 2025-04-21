@@ -6,6 +6,7 @@ let App = createApp({
     const lrcContent = ref("");
     const error = ref(null);
     const currentTime = ref(0);
+    const songDuration = ref(0);
     const isPlaying = ref(false);
     const songArtistName = ref("");
     const defaultElapseSpeed = ref(1.5); // 默认流逝速度
@@ -19,7 +20,6 @@ let App = createApp({
     const currentSong = ref(songList.value[0]);
     const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc");
     const charProgress = ref(0);
-    const showCurrentTime = ref(false);
 
     // 加载歌曲列表
     const loadSongList = async () => {
@@ -209,7 +209,7 @@ let App = createApp({
       const line = parsedLyrics.value[lineIndex];
       const nextLine = parsedLyrics.value[lineIndex + 1];
       const lineDuration =
-        (nextLine?.time || player.value.getDuration()) - line.time;
+        (nextLine?.time || songDuration) - line.time;
       const averageCharDuration = lineDuration / line.text.join("").length;
 
       for (let i = 0; i < phraseIndex; i++) {
@@ -270,12 +270,13 @@ let App = createApp({
 
     const onPlayerReady = (event) => {
       console.log("播放器已準備好");
+      songDuration.value = player.value.getDuration();
     };
 
     const onPlayerStateChange = (event) => {
       if (event.data === YT.PlayerState.PLAYING) {
         const updateTime = () => {
-          if (player.value && player.value.getCurrentTime) {
+          if (player.value && player.value.getCurrentTime()) {
             currentTime.value = parseFloat(
               player.value.getCurrentTime().toFixed(6)
             );
@@ -296,6 +297,7 @@ let App = createApp({
     watch(currentSong, (newVal) => {
       player.value.loadVideoById(newVal.id);
       currentTime.value = 0;
+      songDuration.value = player.value.getDuration();
       player.value.pauseVideo();
       lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
       autoLoadLrc();
@@ -310,6 +312,12 @@ let App = createApp({
       }
     }
 
+    function formatTime(seconds) {
+      const min = Math.floor(seconds / 60);
+      const sec = Math.floor(seconds % 60);
+      return `${min}:${sec.toString().padStart(2, '0')}`;
+    }
+
     // 确保返回对象包含所有需要导出的内容
     return {
       songList,
@@ -321,9 +329,9 @@ let App = createApp({
       error,
       currentLineIndex, // 必须导出
       currentTime,
-      isPlaying,
-      showCurrentTime,
+      songDuration,
       autoLoadLrc,
+      formatTime,
       jumpToCurrentLine,
       scrollToLineIndex,
       getCharStyle,

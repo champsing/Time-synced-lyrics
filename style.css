@@ -105,3 +105,11 @@ body {
   color: #fff;
   font-family: Noto Sans;
 }
+
+.play-time {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #94a4cb;
+  font-family: Source Sans Pro;
+}
