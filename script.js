@@ -7,7 +7,6 @@ let App = createApp({
     const error = ref(null);
     const currentTime = ref(0);
     const songDuration = ref(0);
-    const isPlaying = ref(false);
     const songArtistName = ref("");
     const defaultElapseSpeed = ref(1.5); // 默认流逝速度
     const songShownName = ref("");
