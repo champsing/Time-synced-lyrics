@@ -36,8 +36,8 @@
 
 <body>
     <div class="layout-container">
-        <div class="title">水星音樂電臺</div>
         <div id="app">
+            <div class="title">水星音樂電臺</div>
             <div class="lyrics-container">
                 <div v-for="(line, index) in parsedLyrics" class="lyric-line">
                     <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"

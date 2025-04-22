@@ -168,6 +168,5 @@ body {
   justify-content: center;
   color: #1fa4c5;
   margin-top: 0.5rem;
-  margin-left: 3rem;
-  text-shadow: 0 3px 5px #0ecd9780;
+  text-shadow: 0 1px 3px #0ecd97;
 }
