@@ -2,33 +2,33 @@ const { createApp, ref, computed, onMounted, watch } = Vue;
 
 let App = createApp({
   setup() {
-    // 歌词数据
-    const lrcContent = ref("");
+    const lrcContent = ref(""); // 歌詞內容
     const error = ref(null);
-    const currentTime = ref(0);
-    const songDuration = ref(0);
-    const songArtistName = ref("");
-    const defaultElapseSpeed = ref(1.5); // 默认流逝速度
-    const songShownName = ref("");
-    // 新增歌曲列表相关
+    const currentTime = ref(0); // 現在播放時間
+    const songDuration = ref(0); // 歌曲總長度
+    const songArtistName = ref(""); // 歌手名稱
+    const songLyricistName = ref(""); // 作詞者名稱
+    const defaultElapseSpeed = ref(1.5); // 預設流逝速度
+    const songShownName = ref(""); // 歌曲顯示名稱
+    // 歌曲列表
     const songList = ref([
       {
         name: "Kenshi Yonezu - Campanella",
       },
     ]);
-    const currentSong = ref(songList.value[0]);
-    const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc");
-    const charProgress = ref(0);
-    const translation = ref([]);
+    const currentSong = ref(songList.value[0]); // 當前歌曲
+    const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc"); // 歌詞檔案路徑
+    const charProgress = ref(0); // 當前字元進度
+    const translation = ref([]); // 翻譯文字列表
     const translationText = computed(() => {
       if (translation.value[currentLineIndex.value].text) {
         return translation.value[currentLineIndex.value].text;
       } else {
         return "";
       }
-    });
-    const translationAuthor = ref("");
-    const translationCite = ref(null);
+    }); // 翻譯文字
+    const translationAuthor = ref(""); // 翻譯作者
+    const translationCite = ref(null); // 翻譯出處
 
     // 加载歌曲列表
     const loadSongList = async () => {
@@ -87,19 +87,27 @@ let App = createApp({
           const songTranslate = line.match(/\[(\d+), TRANSLATE\](.*)/); //Example: [1, TRANSLATE]
           const songTranslateAuthor = line.match(/\[translate_author\:(.*)\]/); //Example: [translate_author:XXX]
           const songTranslateCite = line.match(/\[translate_cite\:(.*)\]/); //Example: [translate_cite:XXX]
+          const songLyricist = line.match(/\[lyricist\:(.*)\]/); //Example: [lyricist:XXX]
+          const songLyricistIsArtist = line.match(/\[lyricist=ar\]/); //Example: [lyricist=ar]
 
           if (songArtist) {
             //歌手資訊
             const [_, artist] = songArtist;
             songArtistName.value = artist.trim();
             return null;
-          } else if (defaultElapseSpeedRegex) {
-            //默認流逝速度值
-            const [_, dfelpspd] = defaultElapseSpeedRegex;
-            defaultElapseSpeed.value = parseFloat(dfelpspd);
+          } else if (songLyricist) {
+            //作詞者
+            const [_, lyricist] = songLyricist;
+            songLyricistName.value = lyricist.trim();
             return null;
-          } else if (songShownNameRegex) {
-            //默認流逝速度值
+          } else if (songLyricistIsArtist) {
+            //藝人自己作詞
+            songLyricistName.value = songArtistName.value.trim();
+            return null;
+          }
+
+          if (songShownNameRegex) {
+            //歌曲顯示名稱
             const [_, title] = songShownNameRegex;
             songShownName.value = title.trim();
             return null;
@@ -123,8 +131,13 @@ let App = createApp({
             return null;
           }
 
-          if (noElapseSpeed) {
-            //一般無流逝速度
+          if (defaultElapseSpeedRegex) {
+            //預設流逝速度值
+            const [_, dfelpspd] = defaultElapseSpeedRegex;
+            defaultElapseSpeed.value = parseFloat(dfelpspd);
+            return null;
+          } else if (noElapseSpeed) {
+            //無流逝速度歌詞
             const [_, mm, ss, text] = noElapseSpeed;
             const textSplit = text.split("|");
 
@@ -132,10 +145,10 @@ let App = createApp({
               time: parseFloat(mm) * 60 + parseFloat(ss),
               text: textSplit,
               elapseSpeed: [defaultElapseSpeed.value],
-              // 默认流逝速度 1.5
+              // 預設流逝速度 1.5
             };
           } else if (withElapseSpeed) {
-            //有流逝速度
+            //有流逝速度歌詞
             const [_, mm, ss, speed, text] = withElapseSpeed;
             const textSplit = text.split("|");
             const speedSplit = speed
@@ -150,7 +163,7 @@ let App = createApp({
             };
           }
           if (noElapseSpeedKiai) {
-            //一般無流逝速度
+            //一般無流逝速度的歌曲高潮
             const [_, mm, ss, text] = noElapseSpeedKiai;
             const textSplit = text.split("|");
 
@@ -159,10 +172,10 @@ let App = createApp({
               text: textSplit,
               elapseSpeed: [defaultElapseSpeed.value],
               type: "kiai",
-              // 默认流逝速度 1.5
+              // 預設流逝速度 1.5
             };
           } else if (withElapseSpeedKiai) {
-            //有流逝速度
+            //有流逝速度的歌曲高潮
             const [_, mm, ss, speed, text] = withElapseSpeedKiai;
             const textSplit = text.split("|");
             const speedSplit = speed
@@ -199,7 +212,7 @@ let App = createApp({
             const [_, mm, ss] = songEnd;
             return {
               time: parseFloat(mm) * 60 + parseFloat(ss),
-              text: ["作者：", songArtistName.value.trim()],
+              text: ["作者：", songLyricistName.value.trim()],
               elapseSpeed: [1000],
               type: "end",
             };
@@ -208,7 +221,7 @@ let App = createApp({
         .filter((line) => line && line.text);
     });
 
-    // 新增 currentLineIndex 计算属性
+    // 新增 currentLineIndex 計算屬性
     const currentLineIndex = computed(() => {
       const lyrics = parsedLyrics.value;
       if (!lyrics || !lyrics.length) return -1;
@@ -242,17 +255,6 @@ let App = createApp({
       return `${min}:${sec.toString().padStart(2, "0")}`;
     }
 
-    // 在歌曲切換時更新播放器
-    watch(currentSong, (newVal) => {
-      player.value.loadVideoById(newVal.id);
-      player.value.pauseVideo();
-      currentTime.value = 0;
-      songDuration.value = 0;
-      translation.value = [];
-      lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
-      autoLoadLrc();
-    });
-
     function getCharStyle(lineIndex, phraseIndex, charIndex) {
       if (lineIndex !== currentLineIndex.value) return {};
       const line = parsedLyrics.value[lineIndex];
@@ -268,7 +270,7 @@ let App = createApp({
         1,
         ((currentTime.value - line.time) / averageCharDuration) *
           line.elapseSpeed[phraseIndex] -
-          charIndex // need further adjust
+          charIndex
       );
 
       if (
@@ -348,10 +350,20 @@ let App = createApp({
       const line = parsedLyrics.value[index];
       if (line) {
         scrollToLineIndex(index);
-        // if (!isPlaying.value) audio.value.play();
         player.value.seekTo(line.time);
       }
     }
+
+    // 在歌曲切換時更新播放器
+    watch(currentSong, (newVal) => {
+      player.value.loadVideoById(newVal.id);
+      player.value.pauseVideo();
+      currentTime.value = 0;
+      songDuration.value = 0;
+      translation.value = [];
+      lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
+      autoLoadLrc();
+    });
 
     // 确保返回对象包含所有需要导出的内容
     return {
@@ -360,9 +372,10 @@ let App = createApp({
       currentSong,
       songShownName,
       songArtistName,
+      songLyricistName,
       parsedLyrics,
       error,
-      currentLineIndex, // 必须导出
+      currentLineIndex,
       formattedCurrentTime,
       formattedSongDuration,
       currentTime,
