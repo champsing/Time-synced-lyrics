@@ -47,6 +47,17 @@ let App = createApp({
 
     // 自动加载同目录下的 lyrics.lrc
     const autoLoadLrc = async () => {
+      currentTime.value = 0;
+      songDuration.value = 0;
+      songArtistName.value = "";
+      songLyricistName.value = "";
+      songShownName.value = "";
+      defaultElapseSpeed.value = 1.5;
+      charProgress.value = 0;
+      translationAuthor.value = "";
+      translation.value = [];
+      translationText.value = "";
+      translationCite.value = null;
       try {
         const response = await fetch(lyricFile.value);
         if (!response.ok) throw new Error("File not found");
@@ -60,18 +71,6 @@ let App = createApp({
     // 解析歌词
     const parsedLyrics = computed(() => {
       if (!lrcContent.value) return [];
-
-      currentTime.value = 0;
-      songDuration.value = 0;
-      songArtistName.value = "";
-      songLyricistName.value = "";
-      songShownName.value = "";
-      defaultElapseSpeed.value = 1.5;
-      charProgress.value = 0;
-      translationAuthor.value = "";
-      translation.value = [];
-      translationText.value = "";
-      translationCite.value = null;
 
       return lrcContent.value
         .split("\n")
@@ -288,9 +287,10 @@ let App = createApp({
       if (
         charProgress.value < 0 ||
         charIndex >
-          Math.floor(((currentTime.value - line.time) / averageCharDuration) *
-            line.elapseSpeed[phraseIndex])
-
+          Math.floor(
+            ((currentTime.value - line.time) / averageCharDuration) *
+              line.elapseSpeed[phraseIndex]
+          )
       )
         charProgress.value = 0;
 
