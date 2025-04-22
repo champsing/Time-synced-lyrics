@@ -37,58 +37,58 @@
 <body>
     <div class="layout-container">
         <div class="title">水星音樂電臺</div>
-    <div id="app">
-        <div class="lyrics-container">
-            <div v-for="(line, index) in parsedLyrics" class="lyric-line">
-                <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
-                    :class="{ 'active': isCurrentLine(index) }">
-                    <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
-                        <span v-for="(char, charIndex) in phrase" class="lyric-char"
-                            :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1, 'kiai': isKiai(line) }"
-                            :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
-                            {{ char }}
+        <div id="app">
+            <div class="lyrics-container">
+                <div v-for="(line, index) in parsedLyrics" class="lyric-line">
+                    <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
+                        :class="{ 'active': isCurrentLine(index) }">
+                        <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
+                            <span v-for="(char, charIndex) in phrase" class="lyric-char"
+                                :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1, 'kiai': isKiai(line) }"
+                                :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
+                                {{ char }}
+                            </span>
                         </span>
-                    </span>
-                </button>
-            </div>
-        </div>
-        <div class="right-container">
-            <select v-model="currentSong">
-                <option v-for="song in songList" :value="song">
-                    {{ song.name }}
-                </option>
-            </select>
-            <div class="song-info-flex">
-                <div class="song-title">
-                    {{ songShownName? songShownName : currentSong.name }}
-                </div>
-                <div class="song-artist">
-                    {{ songArtistName? songArtistName : "Various Artists" }}
-                </div>
-
-                <div>
-                    <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
+                    </button>
                 </div>
             </div>
-
-            <div class="player-container">
-                <div id="player"></div>
-            </div>
-            <div v-if="currentSong.translation == true" class="translate-container">
-                <div class="translation-text">{{ translationText }}</div>
-
-                <div class="translate-author">
-                    <div v-if="translationCite !== null">
-                        <a :href="translationCite" target="_blank" rel="noopener noreferrer"
-                            class="translate-author-with-link">翻譯作者：{{ translationAuthor }}</a>
+            <div class="right-container">
+                <select v-model="currentSong">
+                    <option v-for="song in songList" :value="song">
+                        {{ song.name }}
+                    </option>
+                </select>
+                <div class="song-info-flex">
+                    <div class="song-title">
+                        {{ songShownName? songShownName : currentSong.name }}
                     </div>
-                    <div class="translate-author-without-link" v-else>
-                        翻譯作者：{{ translationAuthor }}
+                    <div class="song-artist">
+                        {{ songArtistName? songArtistName : "Various Artists" }}
+                    </div>
+
+                    <div>
+                        <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
                     </div>
                 </div>
+
+                <div class="player-container">
+                    <div id="player"></div>
+                </div>
+                <div v-if="currentSong.translation == true" class="translate-container">
+                    <div class="translation-text">{{ translationText }}</div>
+
+                    <div class="translate-author">
+                        <div v-if="translationCite !== null">
+                            <a :href="translationCite" target="_blank" rel="noopener noreferrer"
+                                class="translate-author-with-link">翻譯作者：{{ translationAuthor }}</a>
+                        </div>
+                        <div class="translate-author-without-link" v-else>
+                            翻譯作者：{{ translationAuthor }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <script src="script.js"></script>
 </body>
