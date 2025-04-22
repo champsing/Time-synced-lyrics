@@ -7,7 +7,6 @@ let App = createApp({
     const error = ref(null);
     const currentTime = ref(0);
     const songDuration = ref(0);
-
     const songArtistName = ref("");
     const defaultElapseSpeed = ref(1.5); // 默认流逝速度
     const songShownName = ref("");
@@ -216,7 +215,7 @@ let App = createApp({
     watch(currentSong, (newVal) => {
       player.value.loadVideoById(newVal.id);
       currentTime.value = 0;
-      songDuration.value = player.value.getDuration();
+      songDuration.value = 0;
       player.value.pauseVideo();
       lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
       autoLoadLrc();
@@ -224,7 +223,6 @@ let App = createApp({
 
     function getCharStyle(lineIndex, phraseIndex, charIndex) {
       if (lineIndex !== currentLineIndex.value) return {};
-
       const line = parsedLyrics.value[lineIndex];
       const nextLine = parsedLyrics.value[lineIndex + 1];
       const lineDuration = (nextLine?.time || songDuration) - line.time;
@@ -291,7 +289,7 @@ let App = createApp({
     };
 
     const onPlayerStateChange = (event) => {
-      if (songDuration.value === 0) {
+      if (event.data === YT.PlayerState.BUFFERING && songDuration.value === 0) {
         // 這是第一次載入歌曲，獲取歌曲長度
         songDuration.value = player.value.getDuration();
         formattedSongDuration.value = formatTime(songDuration.value);
@@ -335,6 +333,8 @@ let App = createApp({
       currentLineIndex, // 必须导出
       formattedCurrentTime,
       formattedSongDuration,
+      currentTime,
+      songDuration,
       autoLoadLrc,
       jumpToCurrentLine,
       scrollToLineIndex,
