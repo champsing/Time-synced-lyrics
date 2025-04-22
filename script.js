@@ -61,6 +61,18 @@ let App = createApp({
     const parsedLyrics = computed(() => {
       if (!lrcContent.value) return [];
 
+      currentTime.value = 0;
+      songDuration.value = 0;
+      songArtistName.value = "";
+      songLyricistName.value = "";
+      songShownName.value = "";
+      defaultElapseSpeed.value = 1.5;
+      charProgress.value = 0;
+      translationAuthor.value = "";
+      translation.value = [];
+      translationText.value = "";
+      translationCite.value = null;
+
       return lrcContent.value
         .split("\n")
         .map((line) => {
@@ -357,13 +369,10 @@ let App = createApp({
 
     // 在歌曲切換時更新播放器
     watch(currentSong, (newVal) => {
-      player.value.loadVideoById(newVal.id);
-      player.value.pauseVideo();
-      currentTime.value = 0;
-      songDuration.value = 0;
-      translation.value = [];
       lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
       autoLoadLrc();
+      player.value.loadVideoById(newVal.id);
+      player.value.pauseVideo();
     });
 
     // 确保返回对象包含所有需要导出的内容

@@ -108,6 +108,20 @@ body {
   font-family: Source Sans Pro;
 }
 
+.right-big-container {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 30%;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  margin-bottom: 1rem;
+}
+
 .right-container {
   background: rgba(205, 155, 155, 0.7);
   border-radius: 12px;
@@ -118,9 +132,6 @@ body {
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
-  right: 3%;
-  bottom: 3%;
-  position: fixed;
 }
 
 .translate-container {
@@ -132,13 +143,14 @@ body {
   justify-content: right;
   align-items: center;
   gap: 0.5rem;
+  width: fit-content;
 }
 
 .translation-text {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  color: #4feed6;
+  color: #82d9cc;
   font-family: Noto Sans;
 }
 
@@ -150,23 +162,6 @@ body {
   font-size: 0.7rem;
   font-weight: bold;
   text-align: center;
-  color: #32bbed;
+  color: #52d289;
   font-family: Noto Sans;
-}
-
-.layout-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-}
-
-.title {
-  font-size: 4rem;
-  font-weight: bold;
-  text-align: center;
-  justify-content: center;
-  color: #1fa4c5;
-  margin-top: 0.5rem;
-  text-shadow: 0 1px 3px #0ecd97;
 }
