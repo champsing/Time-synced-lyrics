@@ -276,8 +276,9 @@ let App = createApp({
       if (
         charProgress.value < 0 ||
         charIndex >
-          ((currentTime.value - line.time) / averageCharDuration) *
-            line.elapseSpeed[phraseIndex]
+          Math.floor(((currentTime.value - line.time) / averageCharDuration) *
+            line.elapseSpeed[phraseIndex])
+
       )
         charProgress.value = 0;
 
