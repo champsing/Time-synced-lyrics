@@ -7,24 +7,6 @@ body {
   font-family: system-ui;
 }
 
-.layout-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-}
-
-.title {
-  font-size: 4rem;
-  font-weight: bold;
-  text-align: center;
-  justify-content: center;
-  color: #1fa4c5;
-  margin-top: 0.5rem;
-  margin-left: 3rem;
-  text-shadow: 0 3px 5px #0ecd9780;
-}
-
 .lyrics-container {
   text-align: center;
   background: rgba(59, 58, 58, 0.7);
@@ -170,4 +152,22 @@ body {
   text-align: center;
   color: #32bbed;
   font-family: Noto Sans;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  color: #1fa4c5;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  text-shadow: 0 3px 5px #0ecd9780;
 }
