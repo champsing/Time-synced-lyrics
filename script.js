@@ -21,15 +21,6 @@ let App = createApp({
     const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc");
     const charProgress = ref(0);
 
-    function formatTime(seconds) {
-      const min = Math.floor(seconds / 60);
-      const sec = Math.floor(seconds % 60);
-      return `${min}:${sec.toString().padStart(2, "0")}`;
-    }
-
-    const formattedCurrentTime = ref(formatTime(currentTime.value));
-    const formattedSongDuration = ref(formatTime(songDuration.value));
-
     // 加载歌曲列表
     const loadSongList = async () => {
       try {
@@ -212,6 +203,25 @@ let App = createApp({
       });
     }
 
+    const formattedCurrentTime = ref(formatTime(currentTime.value));
+    const formattedSongDuration = ref(formatTime(songDuration.value));
+
+    function formatTime(seconds) {
+      const min = Math.floor(seconds / 60);
+      const sec = Math.floor(seconds % 60);
+      return `${min}:${sec.toString().padStart(2, "0")}`;
+    }
+
+    // 在歌曲切換時更新播放器
+    watch(currentSong, (newVal) => {
+      player.value.loadVideoById(newVal.id);
+      currentTime.value = 0;
+      songDuration.value = player.value.getDuration();
+      player.value.pauseVideo();
+      lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
+      autoLoadLrc();
+    });
+
     function getCharStyle(lineIndex, phraseIndex, charIndex) {
       if (lineIndex !== currentLineIndex.value) return {};
 
@@ -278,16 +288,19 @@ let App = createApp({
 
     const onPlayerReady = (event) => {
       console.log("播放器已準備好");
-      songDuration.value = player.value.getDuration();
     };
 
     const onPlayerStateChange = (event) => {
+      if (songDuration.value === 0) {
+        // 這是第一次載入歌曲，獲取歌曲長度
+        songDuration.value = player.value.getDuration();
+        formattedSongDuration.value = formatTime(songDuration.value);
+      }
       if (event.data === YT.PlayerState.PLAYING) {
         const updateTime = () => {
           if (player.value && player.value.getCurrentTime()) {
-            currentTime.value = parseFloat(
-              player.value.getCurrentTime().toFixed(6)
-            );
+            currentTime.value = player.value.getCurrentTime();
+            formattedCurrentTime.value = formatTime(currentTime.value);
             requestAnimationFrame(updateTime);
           }
         };
@@ -299,16 +312,6 @@ let App = createApp({
       await loadSongList();
       autoLoadLrc();
       initPlayer(); // 初始化播放器
-    });
-
-    // 在歌曲切換時更新播放器
-    watch(currentSong, (newVal) => {
-      player.value.loadVideoById(newVal.id);
-      currentTime.value = 0;
-      player.value.pauseVideo();
-      songDuration.value = player.value.getDuration();
-      lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
-      autoLoadLrc();
     });
 
     function jumpToCurrentLine(index) {
@@ -330,12 +333,9 @@ let App = createApp({
       parsedLyrics,
       error,
       currentLineIndex, // 必须导出
-      currentTime,
-      songDuration,
       formattedCurrentTime,
       formattedSongDuration,
       autoLoadLrc,
-      formatTime,
       jumpToCurrentLine,
       scrollToLineIndex,
       getCharStyle,
