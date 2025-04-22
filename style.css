@@ -3,18 +3,35 @@ body {
   background: rgb(54, 84, 86);
   color: white;
   min-height: 100vh;
-  display: flex;
-  align-items: left;
-  justify-content: left;
+
   margin: 0;
   font-family: system-ui;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: left;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  color: #1fa4c5;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  text-shadow: 0 3px 5px #0ecd9780;
 }
 
 .lyrics-container {
   text-align: center;
   background: rgba(59, 58, 58, 0.7);
   padding: 1rem;
-  width: 850px;
+  width: 60%;
   border-radius: 12px;
   overflow-y: auto;
   /* 启用垂直滚动 */
@@ -72,8 +89,8 @@ body {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-.song-player {
-  margin-top: 1rem;
+.player-container {
+  margin-top: 0.5rem;
 }
 
 .song-info-flex {
@@ -85,8 +102,7 @@ body {
   justify-content: right;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
-
+  width: 85%;
 }
 
 .song-title {
@@ -122,11 +138,10 @@ body {
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
-  top: 10%;
-  right: 4%;
+  right: 3%;
+  bottom: 3%;
   position: fixed;
 }
-
 
 .translate-container {
   background: rgba(35, 31, 31, 0.7);
@@ -137,7 +152,6 @@ body {
   justify-content: right;
   align-items: center;
   gap: 0.5rem;
-
 }
 
 .translation-text {
@@ -146,7 +160,6 @@ body {
   text-align: center;
   color: #4feed6;
   font-family: Noto Sans;
-  
 }
 
 .translate-author {

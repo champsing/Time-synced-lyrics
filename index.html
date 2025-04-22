@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-    <title>時間同步歌詞 Time-Synced Lyrics</title>
+    <title>水星電臺</title>
     <link rel="icon" type="image/svg+xml" href="./public/og_image/music.png" />
     <link rel="canonical" href="https://mercuryland.online/" />
     <meta charset="UTF-8" />
-    <meta name="description" content="自動生成同步播放時間滾動的歌詞的網頁工具" />
+    <meta name="description" content="同步播放時間滾動的歌詞的網頁音樂播放器" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="時間同步歌詞 Time-Synced Lyrics" />
-    <meta property="og:description" content="自動生成同步播放時間滾動的歌詞的網頁工具" />
+    <meta property="og:title" content="水星電臺" />
+    <meta property="og:description" content="同步播放時間滾動的歌詞的網頁音樂播放器" />
     <meta property="og:url" content="https://mercuryland.online/" />
     <meta property="og:site_name" content="時間同步歌詞" />
     <meta property="og:image" content="/public/og_image/music.png" />
@@ -35,6 +35,8 @@
 </head>
 
 <body>
+    <div class="layout-container">
+        <div class="title">水星音樂電臺</div>
     <div id="app">
         <div class="lyrics-container">
             <div v-for="(line, index) in parsedLyrics" class="lyric-line">
@@ -51,12 +53,12 @@
             </div>
         </div>
         <div class="right-container">
+            <select v-model="currentSong">
+                <option v-for="song in songList" :value="song">
+                    {{ song.name }}
+                </option>
+            </select>
             <div class="song-info-flex">
-                <select v-model="currentSong">
-                    <option v-for="song in songList" :value="song">
-                        {{ song.name }}
-                    </option>
-                </select>
                 <div class="song-title">
                     {{ songShownName? songShownName : currentSong.name }}
                 </div>
@@ -67,8 +69,6 @@
                 <div>
                     <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
                 </div>
-
-
             </div>
 
             <div class="player-container">
@@ -88,10 +88,8 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
+    </div>
     <script src="script.js"></script>
 </body>
 
