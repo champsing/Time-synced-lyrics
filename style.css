@@ -86,9 +86,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
-  top: 10%;
-  right: 4%;
-  position: fixed;
+
 }
 
 .song-title {
@@ -112,4 +110,53 @@ body {
   text-align: center;
   color: #94a4cb;
   font-family: Source Sans Pro;
+}
+
+.right-container {
+  background: rgba(205, 155, 155, 0.7);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  top: 10%;
+  right: 4%;
+  position: fixed;
+}
+
+
+.translate-container {
+  background: rgba(35, 31, 31, 0.7);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  gap: 0.5rem;
+
+}
+
+.translation-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #4feed6;
+  font-family: Noto Sans;
+  
+}
+
+.translate-author {
+  margin-top: 1.1rem;
+}
+
+.translate-author-with-link {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+  color: #32bbed;
+  font-family: Noto Sans;
 }

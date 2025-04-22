@@ -19,6 +19,16 @@ let App = createApp({
     const currentSong = ref(songList.value[0]);
     const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc");
     const charProgress = ref(0);
+    const translation = ref([]);
+    const translationText = computed(() => {
+      if (translation.value[currentLineIndex.value].text) {
+        return translation.value[currentLineIndex.value].text;
+      } else {
+        return "";
+      }
+    });
+    const translationAuthor = ref("");
+    const translationCite = ref(null);
 
     // 加载歌曲列表
     const loadSongList = async () => {
@@ -74,6 +84,9 @@ let App = createApp({
           const songArtist = line.match(/\[ar\:(.*)\]/); //Example: [ar]XXX
           const defaultElapseSpeedRegex = line.match(/\[dfelpspd:(\d+\.\d+)\]/); //Example: [dfelpspd]1.25
           const songShownNameRegex = line.match(/\[ti\:(.*)\]/); //Example: [ti]XXX
+          const songTranslate = line.match(/\[(\d+), TRANSLATE\](.*)/); //Example: [1, TRANSLATE]
+          const songTranslateAuthor = line.match(/\[translate_author\:(.*)\]/); //Example: [translate_author:XXX]
+          const songTranslateCite = line.match(/\[translate_cite\:(.*)\]/); //Example: [translate_cite:XXX]
 
           if (songArtist) {
             //歌手資訊
@@ -89,6 +102,24 @@ let App = createApp({
             //默認流逝速度值
             const [_, title] = songShownNameRegex;
             songShownName.value = title.trim();
+            return null;
+          } else if (songTranslate) {
+            //翻譯文字
+            const [_, lineIndex, text] = songTranslate;
+            translation.value.push({
+              time: parseInt(lineIndex),
+              text: text,
+            });
+            return null;
+          } else if (songTranslateAuthor) {
+            //翻譯作者
+            const [_, author] = songTranslateAuthor;
+            translationAuthor.value = author.trim();
+            return null;
+          } else if (songTranslateCite) {
+            //翻譯出處
+            const [_, cite] = songTranslateCite;
+            translationCite.value = cite.trim();
             return null;
           }
 
@@ -214,9 +245,10 @@ let App = createApp({
     // 在歌曲切換時更新播放器
     watch(currentSong, (newVal) => {
       player.value.loadVideoById(newVal.id);
+      player.value.pauseVideo();
       currentTime.value = 0;
       songDuration.value = 0;
-      player.value.pauseVideo();
+      translation.value = [];
       lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
       autoLoadLrc();
     });
@@ -335,6 +367,10 @@ let App = createApp({
       formattedSongDuration,
       currentTime,
       songDuration,
+      translation,
+      translationText,
+      translationAuthor,
+      translationCite,
       autoLoadLrc,
       jumpToCurrentLine,
       scrollToLineIndex,

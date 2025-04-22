@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>時間同步歌詞 Time-Synced Lyrics</title>
     <link rel="icon" type="image/svg+xml" href="./public/og_image/music.png" />
@@ -49,29 +50,49 @@
                 </button>
             </div>
         </div>
+        <div class="right-container">
+            <div class="song-info-flex">
+                <select v-model="currentSong">
+                    <option v-for="song in songList" :value="song">
+                        {{ song.name }}
+                    </option>
+                </select>
+                <div class="song-title">
+                    {{ songShownName? songShownName : currentSong.name }}
+                </div>
+                <div class="song-artist">
+                    {{ songArtistName? songArtistName : "Various Artists" }}
+                </div>
 
-        <div class="song-info-flex">
-            <select v-model="currentSong">
-                <option v-for="song in songList" :value="song">
-                    {{ song.name }}
-                </option>
-            </select>
-            <div class="song-title">
-                {{ songShownName? songShownName : currentSong.name }}
-            </div>
-            <div class="song-artist">
-                {{ songArtistName? songArtistName : "Various Artists" }}
+                <div>
+                    <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
+                </div>
+
+
             </div>
 
-            <div>
-                <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
-            </div>
             <div class="player-container">
                 <div id="player"></div>
             </div>
+            <div v-if="currentSong.translation == true" class="translate-container">
+                <div class="translation-text">{{ translationText }}</div>
+
+                <div class="translate-author">
+                    <div v-if="translationCite !== null">
+                        <a :href="translationCite" target="_blank" rel="noopener noreferrer"
+                            class="translate-author-with-link">翻譯作者：{{ translationAuthor }}</a>
+                    </div>
+                    <div class="translate-author-without-link" v-else>
+                        翻譯作者：{{ translationAuthor }}
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
+
 
     <script src="script.js"></script>
 </body>
+
 </html>
