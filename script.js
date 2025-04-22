@@ -260,7 +260,7 @@ let App = createApp({
         player.value = new YT.Player("player", {
           width: "300",
           height: "200",
-          videoId: "XeFQJ6-XoD0",
+          videoId: currentSong.value.id,
           playerVars: {
             enablejsapi: 1,
             playsinline: 1,
