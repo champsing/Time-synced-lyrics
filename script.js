@@ -20,13 +20,9 @@ let App = createApp({
     const lyricFile = ref("./public/lrc/" + currentSong.name + ".lrc"); // 歌詞檔案路徑
     const charProgress = ref(0); // 當前字元進度
     const translation = ref([]); // 翻譯文字列表
-    const translationText = computed(() => {
-      if (translation.value[currentLineIndex.value].text) {
-        return translation.value[currentLineIndex.value].text;
-      } else {
-        return "";
-      }
-    }); // 翻譯文字
+    const translationText = ref(
+      computed(() => getCurrentLineTranslation(currentLineIndex.value))
+    ); // 翻譯文字
     const translationAuthor = ref(""); // 翻譯作者
     const translationCite = ref(null); // 翻譯出處
 
@@ -47,17 +43,6 @@ let App = createApp({
 
     // 自动加载同目录下的 lyrics.lrc
     const autoLoadLrc = async () => {
-      currentTime.value = 0;
-      songDuration.value = 0;
-      songArtistName.value = "";
-      songLyricistName.value = "";
-      songShownName.value = "";
-      defaultElapseSpeed.value = 1.5;
-      charProgress.value = 0;
-      translationAuthor.value = "";
-      translation.value = [];
-      translationText.value = "";
-      translationCite.value = null;
       try {
         const response = await fetch(lyricFile.value);
         if (!response.ok) throw new Error("File not found");
@@ -70,6 +55,18 @@ let App = createApp({
 
     // 解析歌词
     const parsedLyrics = computed(() => {
+      // 清空所有資料和翻譯文字 要跟歌詞一起才能清空
+      songArtistName.value = "";
+      songLyricistName.value = "";
+      songShownName.value = "";
+      defaultElapseSpeed.value = 1.5;
+      currentTime.value = 0;
+      songDuration.value = 0;
+      translationAuthor.value = "";
+      translation.value = [];
+      translationText.value = "";
+      translationCite.value = null;
+
       if (!lrcContent.value) return [];
 
       return lrcContent.value
@@ -248,6 +245,15 @@ let App = createApp({
     watch(currentLineIndex, (newVal) => {
       scrollToLineIndex(newVal);
     });
+
+    function getCurrentLineTranslation(lineIndex) {
+      if (lineIndex < 0) return null;
+      if (translation.value[lineIndex].text) {
+        return translation.value[lineIndex].text;
+      } else {
+        return "";
+      }
+    }
 
     function scrollToLineIndex(index) {
       const currentLineId = document.getElementById(index);
