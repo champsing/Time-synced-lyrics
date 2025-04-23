@@ -1,6 +1,6 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-const VERSION = "1.1.0a-20250423"; // 版本號
+const VERSION = "1.1.0b-20250423"; // 版本號
 
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
@@ -17,7 +17,7 @@ let App = createApp({
     // 歌曲列表
     const songList = ref([
       {
-        name: "Kenshi Yonezu - Campanella",
+        name: "",
       },
     ]);
     const currentSong = ref(songList.value[0]); // 當前歌曲
@@ -252,11 +252,9 @@ let App = createApp({
 
     function getCurrentLineTranslation(lineIndex) {
       if (lineIndex < 0) return null;
-      if (translation.value[lineIndex].text) {
+      if (translation.value[lineIndex]?.text) {
         return translation.value[lineIndex].text;
-      } else {
-        return "";
-      }
+      } else return "";
     }
 
     function scrollToLineIndex(index) {
