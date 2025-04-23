@@ -1,5 +1,9 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
+const VERSION = "1.1.0a-20250423"; // 版本號
+
+document.getElementById("version").innerText = `播放器版本：${VERSION}`;
+
 let App = createApp({
   setup() {
     const lrcContent = ref(""); // 歌詞內容

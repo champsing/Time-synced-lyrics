@@ -35,7 +35,7 @@
 </head>
 
 <body>
-
+    <div style="text-align: right;" id="version">播放器版本：</div>
     <div id="app">
         <div class="lyrics-container">
             <div v-for="(line, index) in parsedLyrics" class="lyric-line">
@@ -51,6 +51,7 @@
                 </button>
             </div>
         </div>
+        
         <div class="right-big-container">
             <div class="right-container">
                 <select v-model="currentSong">
@@ -76,7 +77,6 @@
                 </div>
 
             </div>
-
 
             <div v-if="currentSong.translation == true" class="translate-container">
                 <div class="translation-text">{{ translationText }}</div>
