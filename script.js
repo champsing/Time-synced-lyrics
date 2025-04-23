@@ -377,6 +377,7 @@ let App = createApp({
 
     // 在歌曲切換時更新播放器
     watch(currentSong, (newVal) => {
+      player.value.pauseVideo();
       lyricFile.value = `./public/lrc/${newVal.name}.lrc`;
       autoLoadLrc();
       player.value.loadVideoById(newVal.id);
