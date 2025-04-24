@@ -1,6 +1,6 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-const VERSION = "1.1.0c-20250424"; // 版本號
+const VERSION = "1.2.0a-20250425"; // 版本號
 
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
