@@ -1,25 +1,52 @@
 [
-  {
-    "name": "Vaundy - Shiwaawase",
-    "id": "JwmGruvGt_I",
-    "translation": true
-  },
-  {
-    "name": "Kenshi Yonezu - Campanella",
-    "id": "XeFQJ6-XoD0",
-    "translation": true
-  },
-  {
-    "name": "Kenshi Yonezu - KANDEN",
-    "id": "UFQEttrn6CQ"
-  },
-  {
-    "name": "Shytaupe - It's myself",
-    "id": "ySD7YVvd6Xw"
-  },
-  {
-    "name": "Kiro Akiyama - SKETCH",
-    "id": "CpYZYjy8ELk",
-    "translation": true
-  }
+    {
+        "name": "Vaundy - Shiwaawase",
+        "id": "JwmGruvGt_I",
+        "artist": "Vaundy",
+        "title": "しわあわせ",
+        "lyricist_is_artist": true,
+        "translation": {
+            "available": true,
+            "author": "995GOLDFISH",
+            "cite": "https://www.995goldfish.com/2021/11/vaundy_22.html",
+            "modified": true
+        }
+    },
+    {
+        "name": "Kenshi Yonezu - Campanella",
+        "id": "XeFQJ6-XoD0",
+        "artist": "米津玄師",
+        "title": "カンパネルラ",
+        "lyricist_is_artist": true,
+        "translation": {
+            "available": true,
+            "author": "Alice／箱庭博物館",
+            "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
+            "modified": true
+        }
+    },
+    {
+        "name": "Kenshi Yonezu - KANDEN",
+        "id": "UFQEttrn6CQ",
+        "artist": "米津玄師",
+        "title": "感電",
+        "lyricist_is_artist": true
+    },
+    {
+        "name": "Shytaupe - It's myself",
+        "id": "ySD7YVvd6Xw",
+        "artist": "Shytaupe",
+        "title": "It's myself",
+        "lyricist_is_artist": true
+    },
+    {
+        "name": "Kiro Akiyama - SKETCH",
+        "id": "CpYZYjy8ELk",
+        "artist": "秋山黄色",
+        "title": "SKETCH",
+        "translation": {
+            "available": true,
+            "author": "香榭"
+        }
+    }
 ]

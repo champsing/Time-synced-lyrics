@@ -108,7 +108,7 @@
             </div>
 
             <div v-if="toggleTranslation">
-                <div v-if="currentSong.translation == true" class="translate-container">
+                <div v-if="currentSong.translation?.available == true" class="translate-container">
                     <div class="translation-text">{{ translationText }}</div>
 
                     <div class="translate-author">
