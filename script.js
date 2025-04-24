@@ -1,6 +1,6 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-const VERSION = "1.1.0b-20250423"; // 版本號
+const VERSION = "1.1.0c-20250424"; // 版本號
 
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
@@ -29,6 +29,8 @@ let App = createApp({
     ); // 翻譯文字
     const translationAuthor = ref(""); // 翻譯作者
     const translationCite = ref(null); // 翻譯出處
+    const toggleTranslation = ref(true); // 是否顯示翻譯文字
+    const scrollToCurrentLine = ref(true); // 是否滾動到當前行
 
     // 加载歌曲列表
     const loadSongList = async () => {
@@ -247,7 +249,7 @@ let App = createApp({
     });
 
     watch(currentLineIndex, (newVal) => {
-      scrollToLineIndex(newVal);
+      if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
     });
 
     function getCurrentLineTranslation(lineIndex) {
@@ -276,7 +278,12 @@ let App = createApp({
 
     function getCharStyle(lineIndex, phraseIndex, charIndex) {
       if (lineIndex !== currentLineIndex.value) return {};
+
       const line = parsedLyrics.value[lineIndex];
+
+      if (line.type == "end")
+        return { "--progress": 100 + "%", "font-size": 20 + "px" };
+
       const nextLine = parsedLyrics.value[lineIndex + 1];
       const lineDuration = (nextLine?.time || songDuration) - line.time;
       const averageCharDuration = lineDuration / line.text.join("").length;
@@ -299,12 +306,11 @@ let App = createApp({
             ((currentTime.value - line.time) / averageCharDuration) *
               line.elapseSpeed[phraseIndex]
           )
-      )
+      ) {
         charProgress.value = 0;
+      }
 
-      if (line.type == "end")
-        return { "--progress": 100 + "%", "font-size": 20 + "px" };
-      else return { "--progress": charProgress.value * 100 + "%" };
+      return { "--progress": charProgress.value * 100 + "%" };
     }
 
     const player = ref(null);
@@ -403,6 +409,8 @@ let App = createApp({
       translationText,
       translationAuthor,
       translationCite,
+      scrollToCurrentLine,
+      toggleTranslation,
       autoLoadLrc,
       jumpToCurrentLine,
       scrollToLineIndex,
@@ -413,3 +421,37 @@ let App = createApp({
     };
   },
 }).mount("#app");
+
+function showModal(modal) {
+  modal.style.display = "block";
+}
+
+function hideModal(modal) {
+  modal.style.display = "none";
+}
+
+// Get the modal
+let settingModal = document.getElementById("setting-modal-container");
+
+// Get the button that opens the modal
+let settingBtn = document.getElementById("setting-btn");
+
+// Get the <span> element that closes the modal
+let settingCloseBtn = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+settingBtn.onclick = function () {
+  showModal(settingModal);
+};
+
+// When the user clicks on <span> (x), close the modal
+settingCloseBtn.onclick = function () {
+  hideModal(settingModal);
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == settingModal) {
+    hideModal(settingModal);
+  }
+};

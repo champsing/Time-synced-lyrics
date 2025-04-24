@@ -51,14 +51,13 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="right-big-container">
             <div class="right-container">
-                <select v-model="currentSong">
-                    <option v-for="song in songList" :value="song">
-                        {{ song.name }}
-                    </option>
-                </select>
+                <button id="setting-btn" class="settings-button">
+                    <span>設定</span>
+                </button>
+
                 <div class="song-info-flex">
                     <div class="song-title">
                         {{ songShownName? songShownName : currentSong.name }}
@@ -76,22 +75,58 @@
                     <div id="player"></div>
                 </div>
 
-            </div>
 
-            <div v-if="currentSong.translation == true" class="translate-container">
-                <div class="translation-text">{{ translationText }}</div>
 
-                <div class="translate-author">
-                    <div v-if="translationCite !== null">
-                        <a :href="translationCite" target="_blank" rel="noopener noreferrer"
-                            class="translate-author-with-link">翻譯作者：{{ translationAuthor }}
-                        </a>
+                <!-- The Modal -->
+                <div id="setting-modal-container" class="modal">
+
+                    <!-- Modal content -->
+                    <div id="setting-modal-content" class="modal-content">
+                        <span class="close">&times;</span>
+
+                        <div id="song-select-container" class="settings-entry">
+                            <label for="song-select">歌曲：</label>
+                            <select v-model="currentSong" id="song-select">
+                                <option v-for="song in songList" :value="song">
+                                    {{ song.name }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div id="toggle-scroll-to-current-line-container" class="settings-entry">
+                            <input type="checkbox" id="toggle-scroll-to-current-line" v-model="scrollToCurrentLine" />
+                            <label for="toggle-scroll-to-current-line">自動滾動到當前行</label><br />
+                        </div>
+
+                        <div id="toggle-enable-translation-container" class="settings-entry">
+                            <input type="checkbox" id="toggle-enable-translation" v-model="toggleTranslation" />
+                            <label for="toggle-enable-translation">開啟翻譯</label><br />
+                        </div>
                     </div>
-                    <div class="translate-author-without-link" v-else>
-                        翻譯作者：{{ translationAuthor }}
-                    </div>
+
                 </div>
             </div>
+
+            <div v-if="toggleTranslation">
+                <div v-if="currentSong.translation == true" class="translate-container">
+                    <div class="translation-text">{{ translationText }}</div>
+
+                    <div class="translate-author">
+                        <div v-if="translationCite !== null">
+                            <a :href="translationCite" target="_blank" rel="noopener noreferrer"
+                                class="translate-author-with-link">翻譯作者：{{ translationAuthor }}
+                            </a>
+                        </div>
+                        <div class="translate-author-without-link" v-else>
+                            翻譯作者：{{ translationAuthor }}
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="translate-container">
+                    <span>本歌曲尚未提供翻譯</span>
+                </div>
+            </div>
+
         </div>
     </div>
     <script src="script.js"></script>
