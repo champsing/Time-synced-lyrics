@@ -112,7 +112,9 @@ const app = createApp({
             try {
                 // 載入歌曲列表
                 songList.value = await loadSongList();
-                songList.value = songList.value.filter((song) => song.available == true);
+                songList.value = songList.value.filter(
+                    (song) => song.available == true
+                );
                 currentSong.value = songList.value[0];
 
                 // 初始化播放器
