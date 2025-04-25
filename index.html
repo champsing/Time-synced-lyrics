@@ -121,11 +121,11 @@
                         <div v-if="currentSong.translation.cite !== null">
                             <a :href="currentSong.translation.cite" target="_blank" rel="noopener noreferrer"
                                 class="translate-author-with-link">
-                                翻譯作者：{{ currentSong.translation.author }}
+                                翻譯作者：{{ translationAuthor }}
                             </a>
                         </div>
                         <div class="translate-author-without-link" v-else>
-                            翻譯作者：{{ currentSong.translation.author }}
+                            翻譯作者：{{ translationAuthor }}
                         </div>
                     </div>
                 </div>

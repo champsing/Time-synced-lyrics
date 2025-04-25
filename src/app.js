@@ -52,6 +52,13 @@ const app = createApp({
             );
         });
 
+        const translationAuthor = computed(() => {
+            if (!currentSong.value.translation?.author) return "";
+            if (currentSong.value.translation?.modified === true)
+                return currentSong.value.translation?.author + "〔已修改〕";
+            else return currentSong.value.translation?.author;
+        });
+
         // 方法
         const jumpToCurrentLine = (index) => {
             const line = jsonMappingContent.value[index];
@@ -151,6 +158,10 @@ const app = createApp({
             translationText.value = "";
         });
 
+        watch(currentLineIndex, (newVal) => {
+            if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
+        });
+
         return {
             jsonMappingContent,
             currentTime,
@@ -163,6 +174,7 @@ const app = createApp({
             formattedSongDuration,
             currentLineIndex,
             translationText,
+            translationAuthor,
             initModal,
             initYouTubePlayer,
             jumpToCurrentLine,
