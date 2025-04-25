@@ -1,6 +1,6 @@
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "1.2.0b";
+const BASE_VERSION = "1.2.0c";
 const BUILD_DATE = new Date().toISOString().slice(0, 10).replace(/-/g, "");
 
 // 組合版本號：基礎版本 + 構建日期 + commit 前12位
@@ -12,3 +12,4 @@ export const DEFAULT_ELAPSE_SPEED = 1.5;
 export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";
 export const SONGLIST_PATH = "./public/song_list.json";
 export const MAPPINGS_BASE_PATH = "./public/mappings/";
+export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/"

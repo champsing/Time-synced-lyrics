@@ -1,5 +1,19 @@
 [
     {
+        "name": "amazarashi - Cassiopeia Keiryuujo",
+        "id": "pTwSEgflLq0",
+        "artist": "amazarashi",
+        "title": "カシオピア係留所",
+        "lyricist": "秋田ひろむ",
+        "album": {
+            "name": "永遠市",
+            "link": "cCJ7CCq"
+        },
+        "translation": {},
+        "default_elapse_speed": 1.1
+    },
+    {
+        "available": true,
         "name": "Vaundy - Shiwaawase",
         "id": "JwmGruvGt_I",
         "artist": "Vaundy",
@@ -13,10 +27,15 @@
         "default_elapse_speed": 1.5
     },
     {
+        "available": true,
         "name": "Kenshi Yonezu - Campanella",
         "id": "XeFQJ6-XoD0",
         "artist": "米津玄師",
         "title": "カンパネルラ",
+        "album": {
+            "name": "STRAY SHEEP",
+            "link": "qvB12nv"
+        },
         "translation": {
             "available": true,
             "author": "Alice／箱庭博物館",
@@ -26,10 +45,15 @@
         "default_elapse_speed": 1.5
     },
     {
+        "available": true,
         "name": "Kenshi Yonezu - KANDEN",
         "id": "UFQEttrn6CQ",
         "artist": "米津玄師",
         "title": "感電",
+        "album": {
+            "name": "STRAY SHEEP",
+            "link": "qvB12nv"
+        },
         "translation": {
             "available": true,
             "author": "Alice／箱庭博物館",
@@ -38,18 +62,28 @@
         "default_elapse_speed": 1.05
     },
     {
+        "available": true,
         "name": "Shytaupe - It's myself",
         "id": "ySD7YVvd6Xw",
         "artist": "シャイトップ",
+        "album": {
+            "name": "It's myself",
+            "link": "3HkuEse"
+        },
         "title": "It's myself",
         "lyricist": "佐々木　想",
         "default_elapse_speed": 1.5
     },
     {
+        "available": true,
         "name": "Kiro Akiyama - SKETCH",
         "id": "CpYZYjy8ELk",
         "artist": "秋山黄色",
         "title": "SKETCH",
+        "album": {
+            "name": "Good Night Mare",
+            "link": "43VsTEF"
+        },
         "translation": {
             "available": true,
             "author": "香榭"
