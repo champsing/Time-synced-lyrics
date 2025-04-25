@@ -36,14 +36,15 @@
 
 <body>
     <div style="text-align: right; margin-right: 1%;" id="version">播放器版本：</div>
+
     <div id="app">
         <div class="lyrics-container">
-            <div v-for="(line, index) in parsedLyrics" class="lyric-line">
+            <div v-for="(line, index) in jsonMappingContent" class="lyric-line">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
                         <span v-for="(char, charIndex) in phrase" class="lyric-char"
-                            :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < parsedLyrics.length - 1, 'kiai': isKiai(line) }"
+                            :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < jsonMappingContent.length - 1, 'kiai': isKiai(line) }"
                             :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
                             {{ char }}
                         </span>
@@ -53,6 +54,7 @@
         </div>
 
         <div class="right-big-container">
+
             <div class="right-container">
                 <button id="setting-btn" class="settings-button">
                     <span>設定</span>
@@ -60,10 +62,10 @@
 
                 <div class="song-info-flex">
                     <div class="song-title">
-                        {{ songShownName? songShownName : currentSong.name }}
+                        {{ currentSong.title? currentSong.title : currentSong.name }}
                     </div>
                     <div class="song-artist">
-                        {{ songArtistName? songArtistName : "Various Artists" }}
+                        {{ currentSong.artist? currentSong.artist : "Various Artists" }}
                     </div>
 
                     <div>
@@ -88,7 +90,7 @@
                             <label for="song-select">歌曲：</label>
                             <select v-model="currentSong" id="song-select">
                                 <option v-for="song in songList" :value="song">
-                                    {{ song.name }}
+                                    {{ song.artist }} - {{ song.title }}
                                 </option>
                             </select>
                         </div>
@@ -112,13 +114,14 @@
                     <div class="translation-text">{{ translationText }}</div>
 
                     <div class="translate-author">
-                        <div v-if="translationCite !== null">
-                            <a :href="translationCite" target="_blank" rel="noopener noreferrer"
-                                class="translate-author-with-link">翻譯作者：{{ translationAuthor }}
+                        <div v-if="currentSong.translation.cite !== null">
+                            <a :href="currentSong.translation.cite" target="_blank" rel="noopener noreferrer"
+                                class="translate-author-with-link">
+                                翻譯作者：{{ currentSong.translation.author }}
                             </a>
                         </div>
                         <div class="translate-author-without-link" v-else>
-                            翻譯作者：{{ translationAuthor }}
+                            翻譯作者：{{ currentSong.translation.author }}
                         </div>
                     </div>
                 </div>

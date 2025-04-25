@@ -10,7 +10,8 @@
             "author": "995GOLDFISH",
             "cite": "https://www.995goldfish.com/2021/11/vaundy_22.html",
             "modified": true
-        }
+        },
+        "default_elapse_speed": 1.5
     },
     {
         "name": "Kenshi Yonezu - Campanella",
@@ -23,21 +24,24 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
             "modified": true
-        }
+        },
+        "default_elapse_speed": 1.5
     },
     {
         "name": "Kenshi Yonezu - KANDEN",
         "id": "UFQEttrn6CQ",
         "artist": "米津玄師",
         "title": "感電",
-        "lyricist_is_artist": true
+        "lyricist_is_artist": true,
+        "default_elapse_speed": 1.05
     },
     {
         "name": "Shytaupe - It's myself",
         "id": "ySD7YVvd6Xw",
-        "artist": "Shytaupe",
+        "artist": "シャイトップ",
         "title": "It's myself",
-        "lyricist_is_artist": true
+        "lyricist": "佐々木　想",
+        "default_elapse_speed": 1.5
     },
     {
         "name": "Kiro Akiyama - SKETCH",
@@ -47,6 +51,7 @@
         "translation": {
             "available": true,
             "author": "香榭"
-        }
+        },
+        "default_elapse_speed": 1.1
     }
 ]
