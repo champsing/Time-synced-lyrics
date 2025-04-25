@@ -2,282 +2,282 @@
     {
         "time": "00:19.64",
         "text": "逃げ出したい夜の往来 行方は未だ不明",
-        "translation": ""
+        "translation": "好想逃走在夜的大街上　去向依舊不明"
     },
     {
         "time": "00:24.46",
         "text": "回り回って虚しくって 困っちゃったワンワンワン",
-        "translation": ""
+        "translation": "兜來轉去空虛起來　真是困擾啊汪汪汪"
     },
     {
         "time": "00:29.08",
         "text": "失った|つもりもないが |何か足りない気分",
         "pace": [1.05, 0.9, 1.0],
-        "translation": ""
+        "translation": "沒打算追丟　卻感到缺少了些什麼"
     },
     {
         "time": "00:33.65",
         "text": "ちょっと変にハイになって |吹かし込んだ四輪車",
         "pace": [1.15, 1.14],
-        "translation": ""
+        "translation": "有些奇怪的 high 了起來　在引擎空轉的汽車裡"
     },
     {
         "time": "00:39.34",
         "text": "兄弟よ|如何かしよう",
         "pace": [1.1, 0.98],
-        "translation": ""
+        "translation": "兄弟啊　做些什麼吧"
     },
     {
         "time": "00:41.74",
         "text": "もう何も考えない様",
         "pace": [1.1],
-        "translation": ""
+        "translation": "別再多想"
     },
     {
         "time": "00:44.00",
         "text": "銀河系の外れへと |さようなら",
         "pace": [1.1, 1.2],
-        "translation": ""
+        "translation": "現在向銀河系的盡頭　道聲再見"
     },
     {
         "time": "00:48.68",
         "text": "真実も |道徳も",
         "pace": [1.05, 1.1],
-        "translation": ""
+        "translation": "即使在真實　和道德"
     },
     {
         "time": "00:50.71",
         "text": "動作しないイカれた夜でも",
-        "translation": ""
+        "translation": "都不運作的瘋狂夜晚"
     },
-    { "time": "00:53.18", "text": "僕ら手を叩いて笑い合う", "translation": "" },
+    { "time": "00:53.18", "text": "僕ら手を叩いて笑い合う", "translation": "我們也拍著手相視而笑" },
     {
         "time": "00:57.41",
         "text": "誰にも|知られ|ないまま",
-        "pace": [1.6, 1.7, 1.9],
-        "translation": ""
+        "pace": [2.0, 1.8, 2.0],
+        "translation": "沒有任何人發現"
     },
     {
         "time": "01:04.23",
         "text": "たった一瞬の このきらめきを",
-        "translation": ""
+        "translation": "僅此一瞬的　這道耀眼"
     },
     {
         "time": "01:08.78",
         "text": "食べ尽くそう二人で くたばるまで",
-        "translation": ""
+        "translation": "讓我們全數吞下　直到兩人筋疲力竭"
     },
     {
         "time": "01:13.47",
         "text": "そして幸運を 僕らに祈りを",
-        "translation": ""
+        "translation": "接著便祝我們好運"
     },
     {
         "time": "01:18.05",
         "text": "まだ行こう 誰も追いつけないくらいのスピードで",
         "pace": [1.2],
-        "translation": ""
+        "translation": "再次用誰也追不上的速度向前"
     },
     {
         "time": "01:23.82",
         "text": "稲妻|の様に生きていたいだけ",
         "pace": [1.0, 1.1],
-        "translation": ""
+        "translation": "只想活得像一道閃電"
     },
-    { "time": "01:27.78", "text": "お前はどうしたい？", "translation": "" },
+    { "time": "01:27.78", "text": "お前はどうしたい？", "translation": "你想怎麼做？" },
     {
         "time": "01:30.35",
         "text": "返事はいらない",
         "pace": [1.7],
-        "translation": ""
+        "translation": "不必告訴我"
     },
     { "time": "01:33.31", "type": "interlude", "pace": 1.2 },
     {
         "time": "01:41.29",
         "text": "転がした車窓と情景 動機は未だ不明",
-        "translation": ""
+        "translation": "滾動的車窗和情景　動機依舊不明"
     },
     {
         "time": "01:46.00",
         "text": "邪魔臭くて|苛ついて |迷い|込んだ|ニャンニャンニャン",
         "pace": [0.9, 0.8, 0.9, 0.95, 1.0],
-        "translation": ""
+        "translation": "真是麻煩令人焦躁　誤入迷途啦喵喵喵"
     },
     {
         "time": "01:50.73",
         "text": "ここいらで落とした財布 誰か見ませんでした？",
-        "translation": ""
+        "translation": "掉在這裡的錢包　有沒有誰看見？"
     },
     {
         "time": "01:55.40",
         "text": "馬鹿みたいについてないね 茶化してくれ|ハイウェイ・スター",
         "pace": [1.1, 1.115],
-        "translation": ""
+        "translation": "運氣糟得像個笨蛋　挖苦我吧公路之星"
     },
-    { "time": "02:00.93", "text": "よう相棒 もう一丁", "translation": "" },
+    { "time": "02:00.93", "text": "よう相棒 もう一丁", "translation": "嘿搭擋　再來啊" },
     {
         "time": "02:03.24",
         "text": "漫画みたいな喧嘩しようよ",
-        "translation": ""
+        "translation": "讓我們像漫畫那樣爭吵"
     },
     {
         "time": "02:05.49",
         "text": "酒落になんないくらいのやつを お試しで",
         "pace": [1.5],
-        "translation": ""
+        "translation": "試試那些　不能亂開玩笑的事兒"
     },
-    { "time": "02:10.36", "text": "正論と 暴論の", "translation": "" },
+    { "time": "02:10.36", "text": "正論と 暴論の", "translation": "就從這連確論　或謬論" },
     {
         "time": "02:12.37",
         "text": "分類さえ出来やしない街を",
-        "translation": ""
+        "translation": "都無法分辨的城市"
     },
     {
         "time": "02:14.81",
         "text": "抜け出して互いに笑い合う",
         "pace": [1.1],
-        "translation": ""
+        "translation": "逃出去吧　相視而笑的我們"
     },
     {
         "time": "02:18.98",
         "text": "目指すのは メロウな|エンディング",
         "pace": [1.5, 1.55],
-        "translation": ""
+        "translation": "目標是　熟甜完滿的劇終"
     },
     {
         "time": "02:25.78",
         "text": "それは心臓を 刹那に揺らすもの",
-        "translation": ""
+        "translation": "那是在剎那間　撼動心臟的東西"
     },
     {
         "time": "02:30.56",
         "text": "追いかけた途端に 見失っちゃうの",
-        "translation": ""
+        "translation": "卻是一追上去　就會追丟"
     },
     {
         "time": "02:35.02",
         "text": "きっと永遠が どっかにあるんだと",
-        "translation": ""
+        "translation": "一定在某處　有著所謂的永遠"
     },
     {
         "time": "02:39.66",
         "text": "明後日を 探し回るのも |悪くはないでしょう",
         "pace": [1.05, 1.07],
-        "translation": ""
+        "translation": "那麼就改天　再到處去找找也不壞吧"
     },
     {
         "time": "02:45.22",
         "text": "お前がどっかに消えた朝より",
         "pace": [1.07],
-        "translation": ""
+        "translation": "比起你突然從哪消失的早晨"
     },
-    { "time": "02:49.32", "text": "こんな夜の方が", "translation": "" },
+    { "time": "02:49.32", "text": "こんな夜の方が", "translation": "我更寧願選擇" },
     {
         "time": "02:51.70",
         "text": "まだ|ましさ",
         "pace": [1.05, 1.07],
-        "translation": ""
+        "translation": "這樣的夜晚"
     },
     {
         "time": "02:54.21",
         "text": "肺に睡蓮 遠くのサイレン",
-        "translation": ""
+        "translation": "肺生睡蓮　遠處警報"
     },
     {
         "time": "02:59.00",
         "text": "響き合う境界線",
         "pace": [2.1],
-        "translation": ""
+        "translation": "共鳴的邊界"
     },
     {
         "time": "03:03.51",
         "text": "愛し合う様に 喧嘩しようぜ",
-        "translation": ""
+        "translation": "讓我們如彼此相愛般的　來吵架吧"
     },
     {
         "time": "03:08.07",
         "text": "遺る瀬無さ引っさげて",
         "pace": [2.0],
-        "translation": ""
+        "translation": "強行驅使這份鬱悶不樂"
     },
     {
         "time": "03:12.92",
         "text": "肺に睡蓮 遠くのサイレン",
-        "translation": ""
+        "translation": "肺生睡蓮　遠處警報"
     },
     {
         "time": "03:17.31",
         "text": "響き合う境界線",
         "pace": [2.1],
-        "translation": ""
+        "translation": "共鳴的邊界"
     },
     {
         "time": "03:22.17",
         "text": "愛し合う様に 喧嘩しようぜ",
-        "translation": ""
+        "translation": "讓我們如彼此相愛般的　來吵架吧"
     },
     {
         "time": "03:26.57",
         "text": "遺る瀬無さ引っさげて",
         "pace": [2.15],
-        "translation": ""
+        "translation": "強行驅使這份鬱悶不樂"
     },
     {
         "time": "03:33.38",
         "text": "たった一瞬の このきらめきを",
-        "translation": ""
+        "translation": "僅此一瞬的　這道耀眼"
     },
     {
         "time": "03:37.91",
         "text": "食べ尽くそう二人で くたばるまで",
-        "translation": ""
+        "translation": "讓我們全數吞下　直到兩人筋疲力竭"
     },
     {
         "time": "03:42.54",
         "text": "そして幸運を 僕らに祈りを",
-        "translation": ""
+        "translation": "接著便祝我們好運"
     },
     {
         "time": "03:47.33",
         "text": "まだ行こう 誰も追いつけないくらいのスピードで",
         "pace": [1.1],
-        "translation": ""
+        "translation": "再次用誰也追不上的速度向前"
     },
     {
         "time": "03:51.78",
         "text": "それは心臓を 刹那に揺らすもの",
         "pace": [1.1],
-        "translation": ""
+        "translation": "那是在剎那間　撼動心臟的東西"
     },
     {
         "time": "03:56.68",
         "text": "追いかけた途端に 見失っちゃうの",
         "pace": [1.1],
-        "translation": ""
+        "translation": "卻是一追上去　就會追丟"
     },
     {
         "time": "04:01.23",
         "text": "きっと永遠が どっかにあるんだと",
-        "translation": ""
+        "translation": "一定在某處　有著所謂的永遠"
     },
     {
         "time": "04:05.89",
         "text": "明後日を 探し回るのも |悪くはないでしょう",
         "pace": [1.05, 1.07],
-        "translation": ""
+        "translation": "那麼就改天　再到處去找找也不壞吧"
     },
     {
         "time": "04:11.31",
         "text": "稲妻の様に生きていたいだけ",
         "pace": [1.07],
-        "translation": ""
+        "translation": "只想活得像一道閃電"
     },
-    { "time": "04:15.62", "text": "お前はどうしたい？", "translation": "" },
+    { "time": "04:15.62", "text": "お前はどうしたい？", "translation": "你想怎麼做？" },
     {
         "time": "04:17.96",
         "text": "返事はいらない",
         "pace": [1.7],
-        "translation": ""
+        "translation": "不必告訴我"
     },
     { "time": "04:20.94", "type": "end" }
 ]

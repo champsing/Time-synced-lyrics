@@ -4,7 +4,6 @@
         "id": "JwmGruvGt_I",
         "artist": "Vaundy",
         "title": "しわあわせ",
-        "lyricist_is_artist": true,
         "translation": {
             "available": true,
             "author": "995GOLDFISH",
@@ -18,7 +17,6 @@
         "id": "XeFQJ6-XoD0",
         "artist": "米津玄師",
         "title": "カンパネルラ",
-        "lyricist_is_artist": true,
         "translation": {
             "available": true,
             "author": "Alice／箱庭博物館",
@@ -32,7 +30,11 @@
         "id": "UFQEttrn6CQ",
         "artist": "米津玄師",
         "title": "感電",
-        "lyricist_is_artist": true,
+        "translation": {
+            "available": true,
+            "author": "Alice／箱庭博物館",
+            "cite": "http://alicepika.blog.fc2.com/blog-entry-647.html"
+        },
         "default_elapse_speed": 1.05
     },
     {
