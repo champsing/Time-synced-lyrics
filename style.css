@@ -183,13 +183,22 @@ body {
     position: absolute;
     background: rgba(69, 90, 71, 0.906);
     margin: auto;
-    left: 25%;
+    left: 30%;
     top: 30%;
     text-align: center;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
+    width: 40%;
   }
+}
+
+.general-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: 0.5rem;
 }
 
 /* The Close Button */
