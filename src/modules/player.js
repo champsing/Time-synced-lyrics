@@ -34,7 +34,7 @@ export const initYouTubePlayer = (vueContext) => {
     });
   };
 
-  const onPlayerReady = (event) => {
+  const onPlayerReady = () => {
     console.log("播放器已準備好");
   };
 
