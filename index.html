@@ -17,8 +17,14 @@
     <meta property="og:image:width" content="2048" />
     <meta property="og:image:height" content="2048" />
     <meta property="og:image:type" content="image/png" />
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/tailwind.css">
+    <link rel="preconnect" src="https://unpkg.com/">
+    </link>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/npm/vuestic-ui@1.10.3/dist/vuestic-ui.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vuestic-ui@1.10.3/dist/iife/main.min.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,22 +34,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 
-<body>
-    <div style="text-align: right; margin-right: 1%;" id="version">播放器版本：</div>
+<body class="!bg-[#365456] !text-white min-h-screen !m-0">
+    <div class="text-right mt-1 mr-2" id="version">播放器版本：</div>
 
     <div id="app">
-        <div class="lyrics-container">
-            <div v-for="(line, index) in jsonMappingContent" class="lyric-line">
+        <div class="lyrics-container text-center bg-[#3b3a3a] p-4 w-3/5 overflow-y-auto mt-4 mb-8 relative">
+            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
-                        <span v-for="(char, charIndex) in phrase" class="lyric-char"
+                        <span v-for="(char, charIndex) in phrase" class="lyric-char relative text-transparent bg-clip-text"
                             :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < jsonMappingContent.length - 1, 'kiai': isKiai(line) }"
                             :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
                             {{ char }}

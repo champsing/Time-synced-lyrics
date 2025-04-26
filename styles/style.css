@@ -1,46 +1,22 @@
 /* 添加完整 CSS 确保可见性 */
 body {
-  background: rgb(54, 84, 86);
-  color: white;
-  min-height: 100vh;
-  margin: 0;
+  background: #365456;
   font-family: system-ui;
 }
 
 .lyrics-container {
-  text-align: center;
-  background: rgba(59, 58, 58, 0.7);
-  padding: 1rem;
-  width: 60%;
   border-radius: 12px;
-  overflow-y: auto;
-  /* 启用垂直滚动 */
   scroll-behavior: smooth;
-  /* 平滑滚动 */
   scroll-snap-type: y proximity;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
   left: 10%;
-  position: relative;
 }
 
 .lyric-line {
-  margin: 1rem 0;
-  opacity: 0.3;
   transition: opacity 0.3s;
-  font-size: 1rem;
-}
-
-.lyric-line {
-  opacity: 1;
-  font-size: 1.5rem !important;
 }
 
 .lyric-char {
-  position: relative;
-  color: transparent;
   transition: all 0.2s ease;
-  background-clip: text;
   -webkit-background-clip: text;
   background-image: linear-gradient(
     to right,
