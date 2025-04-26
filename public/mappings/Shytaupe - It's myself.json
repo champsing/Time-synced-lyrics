@@ -1,94 +1,141 @@
 [
     {
         "time": "00:05.00",
-        "text": "Goodbye |これまでの僕よ",
-        "pace": [5.5, 2.0],
+        "text": [
+            {"phrase": "Goodbye", "duration": 0},
+            {"phrase": "これまでの僕よ", "duration": 0}
+        ],
         "translation": ""
     },
-    { "time": "00:09.42", "text": "少しは強くなれたかい？", "translation": "" },
+    {
+        "time": "00:09.42",
+        "text": [
+            {"phrase": "少しは強くなれたかい？", "duration": 0}
+        ],
+        "translation": ""
+    },
     {
         "time": "00:13.38",
-        "text": "いつも始まりは信じることから",
+        "text": [
+            {"phrase": "いつも始まりは信じることから", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "00:17.56",
-        "text": "やるべき|事は知ってる",
-        "pace": [1.8, 1.6],
+        "text": [
+            {"phrase": "やるべき", "duration": 0},
+            {"phrase": "事は知ってる", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "00:21.00",
-        "text": "Alright, alright, alright, eh",
+        "text": [
+            {"phrase": "Alright, alright, alright, eh", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "00:29.85",
-        "text": "Good Luck |これからの僕よ",
-        "pace": [4.0, 2.4],
+        "text": [
+            {"phrase": "Good Luck", "duration": 0},
+            {"phrase": "これからの僕よ", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "00:33.90",
-        "text": "いらぬプライドは放して",
-        "pace": [1.6],
+        "text": [
+            {"phrase": "いらぬプライドは放して", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "00:37.67",
-        "text": "無くせぬものを|拳に込めたら",
-        "pace": [1.5, 1.2],
+        "text": [
+            {"phrase": "無くせぬものを", "duration": 0},
+            {"phrase": "拳に込めたら", "duration": 0}
+        ],
         "translation": ""
     },
-    { "time": "00:42.01", "text": "自分のことを知れる？", "translation": "" },
+    {
+        "time": "00:42.01",
+        "text": [
+            {"phrase": "自分のことを知れる？", "duration": 0}
+        ],
+        "translation": ""
+    },
     {
         "time": "00:45.95",
-        "text": "Oh oh oh|\u3000眠らない|心を",
-        "pace": [2.6, 2.0, 1.4],
+        "text": [
+            {"phrase": "Oh oh oh", "duration": 0},
+            {"phrase": "　", "duration": 0},
+            {"phrase": "眠らない", "duration": 0},
+            {"phrase": "心を", "duration": 0}
+        ],
         "kiai": true,
         "translation": ""
     },
     {
         "time": "00:53.82",
-        "text": "oh oh oh |時は満ちたぞ",
-        "pace": [2.0, 1.5],
+        "text": [
+            {"phrase": "oh oh oh", "duration": 0},
+            {"phrase": "時は満ちたぞ", "duration": 0}
+        ],
         "translation": ""
     },
-    { "time": "01:00.48", "text": "I will rock me", "translation": "" },
+    {
+        "time": "01:00.48",
+        "text": [
+            {"phrase": "I will rock me", "duration": 0}
+        ],
+        "translation": ""
+    },
     {
         "time": "01:02.35",
-        "text": "いつだって It's myself |唱えてる",
-        "pace": [1.5, 1.2],
+        "text": [
+            {"phrase": "いつだって It's myself", "duration": 0},
+            {"phrase": "唱えてる", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "01:08.20",
-        "text": "そんな僕もまた",
-        "pace": [1.3],
+        "text": [
+            {"phrase": "そんな僕もまた", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "01:10.10",
-        "text": "迷いが増え |涙も枯れ",
-        "pace": [1.7, 1.3],
+        "text": [
+            {"phrase": "迷いが増え", "duration": 0},
+            {"phrase": "涙も枯れ", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "01:14.10",
-        "text": "怖くても 震える|掌を",
-        "pace": [1.3, 1.15],
+        "text": [
+            {"phrase": "怖くても 震える", "duration": 0},
+            {"phrase": "掌を", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "01:18.60",
-        "text": "強く|握って ライオンになって",
-        "pace": [1.5, 1.2],
+        "text": [
+            {"phrase": "強く", "duration": 0},
+            {"phrase": "握って ライオンになって", "duration": 0}
+        ],
         "translation": ""
     },
     {
         "time": "01:22.64",
-        "text": "全てを守れるか",
-        "pace": [1.55],
+        "text": [
+            {"phrase": "全てを守れるか", "duration": 0}
+        ],
         "translation": ""
     },
     { "time": "01:26.00", "type": "end" }
