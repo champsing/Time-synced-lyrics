@@ -3,21 +3,27 @@
         "time": "00:05.00",
         "text": [
             {"phrase": "Goodbye", "duration": 0},
-            {"phrase": "これまでの僕よ", "duration": 0}
+            {"phrase": "これまでの", "duration": 0},
+            {"phrase": "僕よ", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "00:09.42",
         "text": [
-            {"phrase": "少しは強くなれたかい？", "duration": 0}
+            {"phrase": "少しは", "duration": 0},
+            {"phrase": "強く", "duration": 0},
+            {"phrase": "なれたかい？", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "00:13.38",
         "text": [
-            {"phrase": "いつも始まりは信じることから", "duration": 0}
+            {"phrase": "いつも", "duration": 0},
+            {"phrase": "始まりは", "duration": 0},
+            {"phrase": "信じる", "duration": 0},
+            {"phrase": "ことから", "duration": 0}
         ],
         "translation": ""
     },
@@ -25,7 +31,8 @@
         "time": "00:17.56",
         "text": [
             {"phrase": "やるべき", "duration": 0},
-            {"phrase": "事は知ってる", "duration": 0}
+            {"phrase": "事は", "duration": 0},
+            {"phrase": "知ってる", "duration": 0}
         ],
         "translation": ""
     },
@@ -40,29 +47,36 @@
         "time": "00:29.85",
         "text": [
             {"phrase": "Good Luck", "duration": 0},
-            {"phrase": "これからの僕よ", "duration": 0}
+            {"phrase": "これからの", "duration": 0},
+            {"phrase": "僕よ", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "00:33.90",
         "text": [
-            {"phrase": "いらぬプライドは放して", "duration": 0}
+            {"phrase": "いらぬ", "duration": 0},
+            {"phrase": "プライドは", "duration": 0},
+            {"phrase": "放して", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "00:37.67",
         "text": [
-            {"phrase": "無くせぬものを", "duration": 0},
-            {"phrase": "拳に込めたら", "duration": 0}
+            {"phrase": "無くせぬ", "duration": 0},
+            {"phrase": "ものを", "duration": 0},
+            {"phrase": "拳に", "duration": 0},
+            {"phrase": "込めたら", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "00:42.01",
         "text": [
-            {"phrase": "自分のことを知れる？", "duration": 0}
+            {"phrase": "自分の", "duration": 0},
+            {"phrase": "ことを", "duration": 0},
+            {"phrase": "知れる？", "duration": 0}
         ],
         "translation": ""
     },
@@ -72,16 +86,16 @@
             {"phrase": "Oh oh oh", "duration": 0},
             {"phrase": "　", "duration": 0},
             {"phrase": "眠らない", "duration": 0},
-            {"phrase": "心を", "duration": 0}
+            {"phrase": "心を", "duration": 0, "kiai": true}
         ],
-        "kiai": true,
         "translation": ""
     },
     {
         "time": "00:53.82",
         "text": [
             {"phrase": "oh oh oh", "duration": 0},
-            {"phrase": "時は満ちたぞ", "duration": 0}
+            {"phrase": "時は", "duration": 0},
+            {"phrase": "満ちたぞ", "duration": 0}
         ],
         "translation": ""
     },
@@ -95,7 +109,8 @@
     {
         "time": "01:02.35",
         "text": [
-            {"phrase": "いつだって It's myself", "duration": 0},
+            {"phrase": "いつだって", "duration": 0},
+            {"phrase": "It's myself", "duration": 0},
             {"phrase": "唱えてる", "duration": 0}
         ],
         "translation": ""
@@ -103,22 +118,27 @@
     {
         "time": "01:08.20",
         "text": [
-            {"phrase": "そんな僕もまた", "duration": 0}
+            {"phrase": "そんな", "duration": 0},
+            {"phrase": "僕も", "duration": 0},
+            {"phrase": "また", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "01:10.10",
         "text": [
-            {"phrase": "迷いが増え", "duration": 0},
-            {"phrase": "涙も枯れ", "duration": 0}
+            {"phrase": "迷いが", "duration": 0},
+            {"phrase": "増え", "duration": 0},
+            {"phrase": "涙も", "duration": 0},
+            {"phrase": "枯れ", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "01:14.10",
         "text": [
-            {"phrase": "怖くても 震える", "duration": 0},
+            {"phrase": "怖くても", "duration": 0},
+            {"phrase": "震える", "duration": 0},
             {"phrase": "掌を", "duration": 0}
         ],
         "translation": ""
@@ -127,14 +147,17 @@
         "time": "01:18.60",
         "text": [
             {"phrase": "強く", "duration": 0},
-            {"phrase": "握って ライオンになって", "duration": 0}
+            {"phrase": "握って", "duration": 0},
+            {"phrase": "ライオンに", "duration": 0},
+            {"phrase": "なって", "duration": 0}
         ],
         "translation": ""
     },
     {
         "time": "01:22.64",
         "text": [
-            {"phrase": "全てを守れるか", "duration": 0}
+            {"phrase": "全てを", "duration": 0},
+            {"phrase": "守れるか", "duration": 0}
         ],
         "translation": ""
     },

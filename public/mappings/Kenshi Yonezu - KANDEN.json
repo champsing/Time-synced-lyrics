@@ -2,17 +2,24 @@
     {
         "time": "00:19.64",
         "text": [
-            { "phrase": "逃げ出したい夜の往来 行方は未だ不明", "duration": 0 }
+            { "phrase": "逃げ出したい", "duration": 0 },
+            { "phrase": "夜の", "duration": 0 },
+            { "phrase": "往来", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "行方は", "duration": 0 },
+            { "phrase": "未だ", "duration": 0 },
+            { "phrase": "不明", "duration": 0 }
         ],
         "translation": "好想逃走在夜的大街上　去向依舊不明"
     },
     {
         "time": "00:24.46",
         "text": [
-            {
-                "phrase": "回り回って虚しくって 困っちゃったワンワンワン",
-                "duration": 0
-            }
+            { "phrase": "回り回って", "duration": 0 },
+            { "phrase": "虚しくって", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "困っちゃった", "duration": 0 },
+            { "phrase": "ワンワンワン", "duration": 0 }
         ],
         "translation": "兜來轉去空虛起來　真是困擾啊汪汪汪"
     },
@@ -21,15 +28,23 @@
         "text": [
             { "phrase": "失った", "duration": 0 },
             { "phrase": "つもりもないが", "duration": 0 },
-            { "phrase": "何か足りない気分", "duration": 0 }
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "何か", "duration": 0 },
+            { "phrase": "足りない", "duration": 0 },
+            { "phrase": "気分", "duration": 0 }
         ],
         "translation": "沒打算追丟　卻感到缺少了些什麼"
     },
     {
         "time": "00:33.65",
         "text": [
-            { "phrase": "ちょっと変にハイになって", "duration": 0 },
-            { "phrase": "吹かし込んだ四輪車", "duration": 0 }
+            { "phrase": "ちょっと", "duration": 0 },
+            { "phrase": "変に", "duration": 0 },
+            { "phrase": "ハイに", "duration": 0 },
+            { "phrase": "なって", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "吹かし込んだ", "duration": 0 },
+            { "phrase": "四輪車", "duration": 0 }
         ],
         "translation": "有些奇怪的 high 了起來　在引擎空轉的汽車裡"
     },
@@ -37,19 +52,28 @@
         "time": "00:39.34",
         "text": [
             { "phrase": "兄弟よ", "duration": 0 },
-            { "phrase": "如何かしよう", "duration": 0 }
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "如何か", "duration": 0 },
+            { "phrase": "しよう", "duration": 0 }
         ],
         "translation": "兄弟啊　做些什麼吧"
     },
     {
         "time": "00:41.74",
-        "text": [{ "phrase": "もう何も考えない様", "duration": 0 }],
+        "text": [
+            { "phrase": "もう", "duration": 0 },
+            { "phrase": "何も", "duration": 0 },
+            { "phrase": "考えない", "duration": 0 },
+            { "phrase": "様", "duration": 0 }
+        ],
         "translation": "別再多想"
     },
     {
         "time": "00:44.00",
         "text": [
-            { "phrase": "銀河系の外れへと", "duration": 0 },
+            { "phrase": "銀河系の", "duration": 0 },
+            { "phrase": "外れへと", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
             { "phrase": "さようなら", "duration": 0 }
         ],
         "translation": "現在向銀河系的盡頭　道聲再見"
@@ -58,18 +82,28 @@
         "time": "00:48.68",
         "text": [
             { "phrase": "真実も", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
             { "phrase": "道徳も", "duration": 0 }
         ],
         "translation": "即使在真實　和道德"
     },
     {
         "time": "00:50.71",
-        "text": [{ "phrase": "動作しないイカれた夜でも", "duration": 0 }],
+        "text": [
+            { "phrase": "動作しない", "duration": 0 },
+            { "phrase": "イカれた", "duration": 0 },
+            { "phrase": "夜でも", "duration": 0 }
+        ],
         "translation": "都不運作的瘋狂夜晚"
     },
     {
         "time": "00:53.18",
-        "text": [{ "phrase": "僕ら手を叩いて笑い合う", "duration": 0 }],
+        "text": [
+            { "phrase": "僕ら", "duration": 0 },
+            { "phrase": "手を", "duration": 0 },
+            { "phrase": "叩いて", "duration": 0 },
+            { "phrase": "笑い合う", "duration": 0 }
+        ],
         "translation": "我們也拍著手相視而笑"
     },
     {
@@ -83,28 +117,47 @@
     },
     {
         "time": "01:04.23",
-        "text": [{ "phrase": "たった一瞬の このきらめきを", "duration": 0 }],
+        "text": [
+            { "phrase": "たった", "duration": 0 },
+            { "phrase": "一瞬の", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "この", "duration": 0 },
+            { "phrase": "きらめきを", "duration": 0 }
+        ],
         "translation": "僅此一瞬的　這道耀眼"
     },
     {
         "time": "01:08.78",
         "text": [
-            { "phrase": "食べ尽くそう二人で くたばるまで", "duration": 0 }
+            { "phrase": "食べ尽くそう", "duration": 0 },
+            { "phrase": "二人で", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "くたばる", "duration": 0 },
+            { "phrase": "まで", "duration": 0 }
         ],
         "translation": "讓我們全數吞下　直到兩人筋疲力竭"
     },
     {
         "time": "01:13.47",
-        "text": [{ "phrase": "そして幸運を 僕らに祈りを", "duration": 0 }],
+        "text": [
+            { "phrase": "そして", "duration": 0 },
+            { "phrase": "幸運を", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "僕らに", "duration": 0 },
+            { "phrase": "祈りを", "duration": 0 }
+        ],
         "translation": "接著便祝我們好運"
     },
     {
         "time": "01:18.05",
         "text": [
-            {
-                "phrase": "まだ行こう 誰も追いつけないくらいのスピードで",
-                "duration": 0
-            }
+            { "phrase": "まだ", "duration": 0 },
+            { "phrase": "行こう", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "誰も", "duration": 0 },
+            { "phrase": "追いつけない", "duration": 0 },
+            { "phrase": "くらいの", "duration": 0 },
+            { "phrase": "スピードで", "duration": 0 }
         ],
         "translation": "再次用誰也追不上的速度向前"
     },
@@ -112,25 +165,39 @@
         "time": "01:23.82",
         "text": [
             { "phrase": "稲妻", "duration": 0 },
-            { "phrase": "の様に生きていたいだけ", "duration": 0 }
+            { "phrase": "の様に", "duration": 0 },
+            { "phrase": "生きて", "duration": 0 },
+            { "phrase": "いたいだけ", "duration": 0 }
         ],
         "translation": "只想活得像一道閃電"
     },
     {
         "time": "01:27.78",
-        "text": [{ "phrase": "お前はどうしたい？", "duration": 0 }],
+        "text": [
+            { "phrase": "お前は", "duration": 0 },
+            { "phrase": "どうしたい？", "duration": 0 }
+        ],
         "translation": "你想怎麼做？"
     },
     {
         "time": "01:30.35",
-        "text": [{ "phrase": "返事はいらない", "duration": 0 }],
+        "text": [
+            { "phrase": "返事は", "duration": 0 },
+            { "phrase": "いらない", "duration": 0 }
+        ],
         "translation": "不必告訴我"
     },
     { "time": "01:33.31", "type": "interlude" },
     {
         "time": "01:41.29",
         "text": [
-            { "phrase": "転がした車窓と情景 動機は未だ不明", "duration": 0 }
+            { "phrase": "転がした", "duration": 0 },
+            { "phrase": "車窓と", "duration": 0 },
+            { "phrase": "情景", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "動機は", "duration": 0 },
+            { "phrase": "未だ", "duration": 0 },
+            { "phrase": "不明", "duration": 0 }
         ],
         "translation": "滾動的車窗和情景　動機依舊不明"
     },
@@ -138,9 +205,12 @@
         "time": "01:46.00",
         "text": [
             { "phrase": "邪魔臭くて", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
             { "phrase": "苛ついて", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
             { "phrase": "迷い", "duration": 0 },
             { "phrase": "込んだ", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
             { "phrase": "ニャンニャンニャン", "duration": 0 }
         ],
         "translation": "真是麻煩令人焦躁　誤入迷途啦喵喵喵"
@@ -148,77 +218,125 @@
     {
         "time": "01:50.73",
         "text": [
-            {
-                "phrase": "ここいらで落とした財布 誰か見ませんでした？",
-                "duration": 0
-            }
+            { "phrase": "ここいらで", "duration": 0 },
+            { "phrase": "落とした", "duration": 0 },
+            { "phrase": "財布", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "誰か", "duration": 0 },
+            { "phrase": "見ませんでした？", "duration": 0 }
         ],
         "translation": "掉在這裡的錢包　有沒有誰看見？"
     },
     {
         "time": "01:55.40",
         "text": [
-            { "phrase": "馬鹿みたいについてないね", "duration": 0 },
-            { "phrase": "茶化してくれハイウェイ・スター", "duration": 0 }
+            { "phrase": "馬鹿みたいに", "duration": 0 },
+            { "phrase": "ついてないね", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "茶化してくれ", "duration": 0 },
+            { "phrase": "ハイウェイ・スター", "duration": 0 }
         ],
         "translation": "運氣糟得像個笨蛋　挖苦我吧公路之星"
     },
     {
         "time": "02:00.93",
-        "text": [{ "phrase": "よう相棒 もう一丁", "duration": 0 }],
+        "text": [
+            { "phrase": "よう", "duration": 0 },
+            { "phrase": "相棒", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "もう", "duration": 0 },
+            { "phrase": "一丁", "duration": 0 }
+        ],
         "translation": "嘿搭擋　再來啊"
     },
     {
         "time": "02:03.24",
-        "text": [{ "phrase": "漫画みたいな喧嘩しようよ", "duration": 0 }],
+        "text": [
+            { "phrase": "漫画みたいな", "duration": 0 },
+            { "phrase": "喧嘩", "duration": 0 },
+            { "phrase": "しようよ", "duration": 0 }
+        ],
         "translation": "讓我們像漫畫那樣爭吵"
     },
     {
         "time": "02:05.49",
         "text": [
-            { "phrase": "酒落になんないくらいのやつを お試しで", "duration": 0 }
+            { "phrase": "酒落に", "duration": 0 },
+            { "phrase": "なんない", "duration": 0 },
+            { "phrase": "くらいの", "duration": 0 },
+            { "phrase": "やつを", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "お試しで", "duration": 0 }
         ],
         "translation": "試試那些　不能亂開玩笑的事兒"
     },
     {
         "time": "02:10.36",
-        "text": [{ "phrase": "正論と 暴論の", "duration": 0 }],
+        "text": [
+            { "phrase": "正論と", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "暴論の", "duration": 0 }
+        ],
         "translation": "就從這連確論　或謬論"
     },
     {
         "time": "02:12.37",
-        "text": [{ "phrase": "分類さえ出来やしない街を", "duration": 0 }],
+        "text": [
+            { "phrase": "分類さえ", "duration": 0 },
+            { "phrase": "出来やしない", "duration": 0 },
+            { "phrase": "街を", "duration": 0 }
+        ],
         "translation": "都無法分辨的城市"
     },
     {
         "time": "02:14.81",
-        "text": [{ "phrase": "抜け出して互いに笑い合う", "duration": 0 }],
+        "text": [
+            { "phrase": "抜け出して", "duration": 0 },
+            { "phrase": "互いに", "duration": 0 },
+            { "phrase": "笑い合う", "duration": 0 }
+        ],
         "translation": "逃出去吧　相視而笑的我們"
     },
     {
         "time": "02:18.98",
         "text": [
             { "phrase": "目指すのは", "duration": 0 },
-            { "phrase": "メロウなエンディング", "duration": 0 }
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "メロウな", "duration": 0 },
+            { "phrase": "エンディング", "duration": 0 }
         ],
         "translation": "目標是　熟甜完滿的劇終"
     },
     {
         "time": "02:25.78",
-        "text": [{ "phrase": "それは心臓を 刹那に揺らすもの", "duration": 0 }],
+        "text": [
+            { "phrase": "それは", "duration": 0 },
+            { "phrase": "心臓を", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "刹那に", "duration": 0 },
+            { "phrase": "揺らす", "duration": 0 },
+            { "phrase": "もの", "duration": 0 }
+        ],
         "translation": "那是在剎那間　撼動心臟的東西"
     },
     {
         "time": "02:30.56",
         "text": [
-            { "phrase": "追いかけた途端に 見失っちゃうの", "duration": 0 }
+            { "phrase": "追いかけた", "duration": 0 },
+            { "phrase": "途端に", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "見失っちゃうの", "duration": 0 }
         ],
         "translation": "卻是一追上去　就會追丟"
     },
     {
         "time": "02:35.02",
         "text": [
-            { "phrase": "きっと永遠が どっかにあるんだと", "duration": 0 }
+            { "phrase": "きっと", "duration": 0 },
+            { "phrase": "永遠が", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "どっかに", "duration": 0 },
+            { "phrase": "あるんだと", "duration": 0 }
         ],
         "translation": "一定在某處　有著所謂的永遠"
     },
@@ -226,18 +344,30 @@
         "time": "02:39.66",
         "text": [
             { "phrase": "明後日を", "duration": 0 },
-            { "phrase": "探し回るのも 悪くはないでしょう", "duration": 0 }
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "探し回るのも", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "悪くは", "duration": 0 },
+            { "phrase": "ないでしょう", "duration": 0 }
         ],
         "translation": "那麼就改天　再到處去找找也不壞吧"
     },
     {
         "time": "02:45.22",
-        "text": [{ "phrase": "お前がどっかに消えた朝より", "duration": 0 }],
+        "text": [
+            { "phrase": "お前が", "duration": 0 },
+            { "phrase": "どっかに", "duration": 0 },
+            { "phrase": "消えた", "duration": 0 },
+            { "phrase": "朝より", "duration": 0 }
+        ],
         "translation": "比起你突然從哪消失的早晨"
     },
     {
         "time": "02:49.32",
-        "text": [{ "phrase": "こんな夜の方が", "duration": 0 }],
+        "text": [
+            { "phrase": "こんな", "duration": 0 },
+            { "phrase": "夜の方が", "duration": 0 }
+        ],
         "translation": "我更寧願選擇"
     },
     {
@@ -250,87 +380,152 @@
     },
     {
         "time": "02:54.21",
-        "text": [{ "phrase": "肺に睡蓮 遠くのサイレン", "duration": 0 }],
+        "text": [
+            { "phrase": "肺に", "duration": 0 },
+            { "phrase": "睡蓮", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "遠くの", "duration": 0 },
+            { "phrase": "サイレン", "duration": 0 }
+        ],
         "translation": "肺生睡蓮　遠處警報"
     },
     {
         "time": "02:59.00",
-        "text": [{ "phrase": "響き合う境界線", "duration": 0 }],
+        "text": [
+            { "phrase": "響き合う", "duration": 0 },
+            { "phrase": "境界線", "duration": 0 }
+        ],
         "translation": "共鳴的邊界"
     },
     {
         "time": "03:03.51",
-        "text": [{ "phrase": "愛し合う様に 喧嘩しようぜ", "duration": 0 }],
+        "text": [
+            { "phrase": "愛し合う様に", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "喧嘩しようぜ", "duration": 0 }
+        ],
         "translation": "讓我們如彼此相愛般的　來吵架吧"
     },
     {
         "time": "03:08.07",
-        "text": [{ "phrase": "遺る瀬無さ引っさげて", "duration": 0 }],
+        "text": [
+            { "phrase": "遺る瀬無さ", "duration": 0 },
+            { "phrase": "引っさげて", "duration": 0 }
+        ],
         "translation": "強行驅使這份鬱悶不樂"
     },
     {
         "time": "03:12.92",
-        "text": [{ "phrase": "肺に睡蓮 遠くのサイレン", "duration": 0 }],
+        "text": [
+            { "phrase": "肺に", "duration": 0 },
+            { "phrase": "睡蓮", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "遠くの", "duration": 0 },
+            { "phrase": "サイレン", "duration": 0 }
+        ],
         "translation": "肺生睡蓮　遠處警報"
     },
     {
         "time": "03:17.31",
-        "text": [{ "phrase": "響き合う境界線", "duration": 0 }],
+        "text": [
+            { "phrase": "響き合う", "duration": 0 },
+            { "phrase": "境界線", "duration": 0 }
+        ],
         "translation": "共鳴的邊界"
     },
     {
         "time": "03:22.17",
-        "text": [{ "phrase": "愛し合う様に 喧嘩しようぜ", "duration": 0 }],
+        "text": [
+            { "phrase": "愛し合う様に", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "喧嘩しようぜ", "duration": 0 }
+        ],
         "translation": "讓我們如彼此相愛般的　來吵架吧"
     },
     {
         "time": "03:26.57",
-        "text": [{ "phrase": "遺る瀬無さ引っさげて", "duration": 0 }],
+        "text": [
+            { "phrase": "遺る瀬無さ", "duration": 0 },
+            { "phrase": "引っさげて", "duration": 0 }
+        ],
         "translation": "強行驅使這份鬱悶不樂"
     },
     {
         "time": "03:33.38",
-        "text": [{ "phrase": "たった一瞬の このきらめきを", "duration": 0 }],
+        "text": [
+            { "phrase": "たった", "duration": 0 },
+            { "phrase": "一瞬の", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "この", "duration": 0 },
+            { "phrase": "きらめきを", "duration": 0 }
+        ],
         "translation": "僅此一瞬的　這道耀眼"
     },
     {
         "time": "03:37.91",
         "text": [
-            { "phrase": "食べ尽くそう二人で くたばるまで", "duration": 0 }
+            { "phrase": "食べ尽くそう", "duration": 0 },
+            { "phrase": "二人で", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "くたばる", "duration": 0 },
+            { "phrase": "まで", "duration": 0 }
         ],
         "translation": "讓我們全數吞下　直到兩人筋疲力竭"
     },
     {
         "time": "03:42.54",
-        "text": [{ "phrase": "そして幸運を 僕らに祈りを", "duration": 0 }],
+        "text": [
+            { "phrase": "そして", "duration": 0 },
+            { "phrase": "幸運を", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "僕らに", "duration": 0 },
+            { "phrase": "祈りを", "duration": 0 }
+        ],
         "translation": "接著便祝我們好運"
     },
     {
         "time": "03:47.33",
         "text": [
-            {
-                "phrase": "まだ行こう 誰も追いつけないくらいのスピードで",
-                "duration": 0
-            }
+            { "phrase": "まだ", "duration": 0 },
+            { "phrase": "行こう", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "誰も", "duration": 0 },
+            { "phrase": "追いつけない", "duration": 0 },
+            { "phrase": "くらいの", "duration": 0 },
+            { "phrase": "スピードで", "duration": 0 }
         ],
         "translation": "再次用誰也追不上的速度向前"
     },
     {
         "time": "03:51.78",
-        "text": [{ "phrase": "それは心臓を 刹那に揺らすもの", "duration": 0 }],
+        "text": [
+            { "phrase": "それは", "duration": 0 },
+            { "phrase": "心臓を", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "刹那に", "duration": 0 },
+            { "phrase": "揺らす", "duration": 0 },
+            { "phrase": "もの", "duration": 0 }
+        ],
         "translation": "那是在剎那間　撼動心臟的東西"
     },
     {
         "time": "03:56.68",
         "text": [
-            { "phrase": "追いかけた途端に 見失っちゃうの", "duration": 0 }
+            { "phrase": "追いかけた", "duration": 0 },
+            { "phrase": "途端に", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "見失っちゃうの", "duration": 0 }
         ],
         "translation": "卻是一追上去　就會追丟"
     },
     {
         "time": "04:01.23",
         "text": [
-            { "phrase": "きっと永遠が どっかにあるんだと", "duration": 0 }
+            { "phrase": "きっと", "duration": 0 },
+            { "phrase": "永遠が", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "どっかに", "duration": 0 },
+            { "phrase": "あるんだと", "duration": 0 }
         ],
         "translation": "一定在某處　有著所謂的永遠"
     },
@@ -338,23 +533,37 @@
         "time": "04:05.89",
         "text": [
             { "phrase": "明後日を", "duration": 0 },
-            { "phrase": "探し回るのも 悪くはないでしょう", "duration": 0 }
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "探し回るのも", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "悪くは", "duration": 0 },
+            { "phrase": "ないでしょう", "duration": 0 }
         ],
         "translation": "那麼就改天　再到處去找找也不壞吧"
     },
     {
         "time": "04:11.31",
-        "text": [{ "phrase": "稲妻の様に生きていたいだけ", "duration": 0 }],
+        "text": [
+            { "phrase": "稲妻の様に", "duration": 0 },
+            { "phrase": "生きて", "duration": 0 },
+            { "phrase": "いたいだけ", "duration": 0 }
+        ],
         "translation": "只想活得像一道閃電"
     },
     {
         "time": "04:15.62",
-        "text": [{ "phrase": "お前はどうしたい？", "duration": 0 }],
+        "text": [
+            { "phrase": "お前は", "duration": 0 },
+            { "phrase": "どうしたい？", "duration": 0 }
+        ],
         "translation": "你想怎麼做？"
     },
     {
         "time": "04:17.96",
-        "text": [{ "phrase": "返事はいらない", "duration": 0 }],
+        "text": [
+            { "phrase": "返事は", "duration": 0 },
+            { "phrase": "いらない", "duration": 0 }
+        ],
         "translation": "不必告訴我"
     },
     { "time": "04:20.94", "type": "end" }
