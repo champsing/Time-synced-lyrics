@@ -17,6 +17,7 @@ body {
 
 .lyric-phrase {
   transition: all 0.2s ease;
+  display: inline-block;
   -webkit-background-clip: text;
   background-image: linear-gradient(
     to right,
@@ -29,6 +30,7 @@ body {
   .lyric-phrase {
     transition: all 0.2s ease;
     -webkit-background-clip: text;
+    transform-origin: right;
     background-image: linear-gradient(
       to right,
       #fff var(--progress, 0),

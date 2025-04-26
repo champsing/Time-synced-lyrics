@@ -69,6 +69,7 @@ const app = createApp({
         };
 
         const getPhraseStyle = (lineIndex, phraseIndex) => {
+            if (lineIndex !== currentLineIndex.value) return {};
             // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
             const line = jsonMappingContent.value?.[lineIndex];
 
@@ -93,12 +94,6 @@ const app = createApp({
                 const rawProgress =
                     (currentTime.value - lineTime - delay / 1000) /
                     (duration / 1000);
-                //   console.log(rawProgress);
-                console.log(
-                    line.text[phraseIndex],
-                    currentTime.value - lineTime,
-                    delay / 1000
-                );
                 phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
             }
 
@@ -108,7 +103,7 @@ const app = createApp({
             }
 
             return {
-                transform: "matrix(1, 0, 0, 1, 0, -2)",
+                transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
                 "--progress": `${phraseProgressValue * 100}%`,
             };
         };

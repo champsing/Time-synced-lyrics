@@ -1,6 +1,6 @@
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "1.4.0a";
+const BASE_VERSION = "1.4.0b";
 const BUILD_DATE = new Date().toISOString().slice(0, 10).replace(/-/g, "");
 
 // 組合版本號：基礎版本 + 構建日期 + commit 前12位
