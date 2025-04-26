@@ -151,6 +151,7 @@ const app = createApp({
                 await lyricResponse.json(),
                 currentSong
             );
+            console.log(jsonMappingContent.value);
 
             // 切換YouTube視頻
             window.ytPlayer.loadVideoById(newSong.id);
