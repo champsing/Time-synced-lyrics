@@ -1,6 +1,6 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-import { VERSION } from "./modules/config.js";
+import { VERSION, ALBUM_GOOGLE_LINK_BASE } from "./modules/config.js";
 import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
 import { initYouTubePlayer } from "./modules/player.js";
 import { loadSongList, getLyricFilePath } from "./modules/songList.js";
@@ -170,6 +170,7 @@ const app = createApp({
         });
 
         return {
+            ALBUM_GOOGLE_LINK_BASE,
             jsonMappingContent,
             currentTime,
             songDuration,

@@ -70,8 +70,17 @@
                     <div class="song-title">
                         {{ currentSong.title? currentSong.title : currentSong.name }}
                     </div>
+
+                    <div class="inline song-album text-sm bg-amber-700">
+                        <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
+                            v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
+                            {{ currentSong.album? currentSong.album?.name: "單曲" }}
+                        </a>
+                        <span v-else>{{ currentSong.album? currentSong.album.name: "單曲" }}</span>
+                    </div>
                     <div class="song-artist">
                         {{ currentSong.artist? currentSong.artist : "未知的作者" }}
+
                     </div>
 
                     <div>

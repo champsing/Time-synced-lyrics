@@ -86,6 +86,12 @@ body {
     font-family: Noto Sans;
 }
 
+.song-album {
+    font-family: Poppins, Noto Sans;
+    padding: 8px;
+    border-radius: 12px;
+}
+
 .play-time {
     font-size: 1.2rem;
     font-weight: bold;
