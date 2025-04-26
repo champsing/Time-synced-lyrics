@@ -78,7 +78,7 @@
         "text": "君を憶えていたい",
         "translation": "將你永遠牢記"
     },
-    { "time": "01:11.30", "type": "interlude", "pace": 1.2 },
+    { "time": "01:11.30", "type": "interlude", "pace": [1.2] },
     { "time": "01:18.47", "text": "カムパネルラ", "translation": "康帕內拉" },
     {
         "time": "01:20.30",
@@ -164,7 +164,7 @@
         "pace": [2.0],
         "translation": "獨留我在　萬籟俱寂"
     },
-    { "time": "02:11.10", "type": "interlude", "pace": 1.1 },
+    { "time": "02:11.10", "type": "interlude", "pace": [1.1] },
     {
         "time": "02:25.15",
         "text": "光を|受け止めて",
@@ -210,7 +210,7 @@
         "text": "輝きのその一つ",
         "translation": "也是其中一道光芒"
     },
-    { "time": "02:54.94", "type": "interlude", "pace": 1.1 },
+    { "time": "02:54.94", "type": "interlude", "pace": [1.1] },
     {
         "time": "03:02.73",
         "text": "あの人の言う通り",
@@ -280,6 +280,6 @@
         "translation": "將你永遠牢記"
     },
     { "time": "03:39.90", "text": "カムパネルラ", "translation": "康帕內拉" },
-    { "time": "03:41.34", "type": "interlude", "pace": 1.1 },
+    { "time": "03:41.34", "type": "interlude", "pace": [1.1] },
     { "time": "03:53.43", "type": "end" }
 ]

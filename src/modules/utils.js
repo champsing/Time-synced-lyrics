@@ -33,10 +33,14 @@ export const parseLyrics = (jsonMappingContent, currentSong) => {
 
             if (line.type === "interlude") {
                 line.text = "● ● ●";
-                line.pace = [DEFAULT_ELAPSE_SPEED]
             }
+
             if (line.type === "end") {
-                line.text = `作者：${currentSong.value.lyricist?.trim() || currentSong.value.artist?.trim() || "未知的作者"}`;
+                line.text = `作者：${
+                    currentSong.value.lyricist?.trim() ||
+                    currentSong.value.artist?.trim() ||
+                    "未知的作者"
+                }`;
                 line.pace = [1000];
             }
 

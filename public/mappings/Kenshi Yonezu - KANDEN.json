@@ -91,7 +91,7 @@
         "pace": [1.7],
         "translation": "不必告訴我"
     },
-    { "time": "01:33.31", "type": "interlude", "pace": 1.2 },
+    { "time": "01:33.31", "type": "interlude", "pace": [1.2] },
     {
         "time": "01:41.29",
         "text": "転がした車窓と情景 動機は未だ不明",
