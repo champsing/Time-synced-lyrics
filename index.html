@@ -95,7 +95,7 @@
                             <div id="song-select-container" class="settings-entry">
                                 <label for="song-select">歌曲：</label>
                                 <select v-model="currentSong" id="song-select">
-                                    <option v-for="song in songList" :value="song">
+                                    <option v-for="song in songList" :value="song" style="color: black;">
                                         {{ song.artist }} - {{ song.title }}
                                     </option>
                                 </select>
