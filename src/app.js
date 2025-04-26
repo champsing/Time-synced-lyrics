@@ -132,7 +132,8 @@ const app = createApp({
                 );
                 jsonMappingContent.value = parseLyrics(
                     await lyricResponse.json(),
-                    currentSong
+                    currentSong,
+                    songDuration
                 );
 
                 // 初始化模態框
@@ -150,7 +151,8 @@ const app = createApp({
             const lyricResponse = await fetch(getLyricFilePath(newSong.name));
             jsonMappingContent.value = parseLyrics(
                 await lyricResponse.json(),
-                currentSong
+                currentSong,
+                songDuration
             );
             console.log(jsonMappingContent.value);
 
@@ -185,8 +187,8 @@ const app = createApp({
             jumpToCurrentLine,
             getPhraseStyle,
             isCurrentLine: (index) => index === currentLineIndex.value,
-            isKiai: (line) => line.kiai === true,
-            isCompletedPhrase: () => phraseProgress.value >= 1,
+            isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
+            isCompletedPhrase: () => phraseProgress.value == 1,
         };
     },
 });

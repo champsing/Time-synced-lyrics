@@ -1,249 +1,245 @@
 /* 添加完整 CSS 确保可见性 */
 body {
-  background: #365456;
-  font-family: system-ui;
+    background: #365456;
+    font-family: system-ui;
 }
 
 .lyrics-container {
-  border-radius: 12px;
-  scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
-  left: 10%;
+    border-radius: 12px;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    left: 10%;
 }
 
 .lyric-line {
-  transition: opacity 0.3s;
+    transition: opacity 0.3s;
 }
 
 .lyric-phrase {
-  transition: all 0.2s ease;
-  display: inline-block;
-  -webkit-background-clip: text;
-  background-image: linear-gradient(
-    to right,
-    #fff 0,
-    #aaa 0
-  );
+    transition: all 0.2s ease;
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #fff 0, #aaa 0);
 }
 
 .lyric-button.active {
-  .lyric-phrase {
-    transition: all 0.2s ease;
-    -webkit-background-clip: text;
-    transform-origin: right;
-    background-image: linear-gradient(
-      to right,
-      #fff var(--progress, 0),
-      #aaa var(--progress, 0)
-    );
-  }
+    .lyric-phrase {
+        transition: all 0.2s ease;
+        -webkit-background-clip: text;
+        transform-origin: right;
+        background-image: linear-gradient(
+            to right,
+            #fff var(--progress, 0),
+            #aaa var(--progress, 0)
+        );
+    }
 }
 
 .lyric-button {
-  font-size: 1.5rem;
-  font-family: Noto Sans JP, Noto Sans TC, Noto Sans;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+    font-size: 1.5rem;
+    font-family: Noto Sans JP, Noto Sans TC, Noto Sans;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 .lyric-button.active {
-  font-size: 2rem;
-  font-weight: bold;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .lyric-phrase.completed.kiai {
-  stroke: beige;
-  stroke-width: 0.5px;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    stroke: beige;
+    stroke-width: 0.5px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .player-container {
-  margin-top: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .song-info-flex {
-  background: rgba(35, 31, 31, 0.7);
-  border-radius: 12px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  align-items: center;
-  gap: 0.5rem;
-  width: 85%;
+    background: rgba(35, 31, 31, 0.7);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    gap: 0.5rem;
+    width: 85%;
 }
 
 .song-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  text-align: center;
-  color: #fff;
-  font-family: Poppins, Noto Sans;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    font-family: Poppins, Noto Sans;
 }
 
 .song-artist {
-  font-size: 1rem;
-  text-align: center;
-  color: #fff;
-  font-family: Noto Sans;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    font-family: Noto Sans;
 }
 
 .play-time {
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  color: #94a4cb;
-  font-family: Source Sans Pro;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #94a4cb;
+    font-family: Source Sans Pro;
 }
 
 .right-big-container {
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  width: 30%;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  margin-bottom: 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 30%;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    margin-bottom: 1rem;
 }
 
 .right-container {
-  background: #443737b3;
-  border-radius: 12px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+    background: #443737b3;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 .translate-container {
-  background: rgba(35, 31, 31, 0.7);
-  border-radius: 12px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  align-items: center;
-  gap: 0.5rem;
-  width: fit-content;
+    background: rgba(35, 31, 31, 0.7);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
 }
 
 .translation-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  color: #82d9cc;
-  font-family: Noto Sans;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #82d9cc;
+    font-family: Noto Sans;
 }
 
 .translate-author {
-  margin-top: 1.1rem;
+    margin-top: 1.1rem;
 }
 
 .translate-author-with-link {
-  font-size: 0.7rem;
-  font-weight: bold;
-  text-align: center;
-  color: #52d289;
-  font-family: Noto Sans;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+    color: #52d289;
+    font-family: Noto Sans;
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-bottom: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  transition: transform 0.3s ease-in-out;
-  .modal-content {
-    position: absolute;
-    background: rgba(69, 90, 71, 0.906);
-    margin: auto;
-    left: 30%;
-    top: 30%;
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%;
-  }
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-bottom: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    transition: transform 0.3s ease-in-out;
+    .modal-content {
+        position: absolute;
+        background: rgba(69, 90, 71, 0.906);
+        margin: auto;
+        left: 30%;
+        top: 30%;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%;
+    }
 }
 
 .general-controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.2rem;
-  margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    margin-top: 0.5rem;
 }
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .settings-entry {
-  text-align: center;
-  font-size: 1.25rem;
-  margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
 }
 
 .settings-button {
-  position: relative;
-  right: 0%;
-  min-width: 50%;
-  background: transparent;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 10px 20px;
+    position: relative;
+    right: 0%;
+    min-width: 50%;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
 }
 .settings-button span {
-  color: #ffffff;
-  background-color: transparent;
+    color: #ffffff;
+    background-color: transparent;
 
-  mix-blend-mode: difference;
+    mix-blend-mode: difference;
 }
 .settings-button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 52px;
-  height: 100%;
-  border-radius: 50px;
-  background: black;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 52px;
+    height: 100%;
+    border-radius: 50px;
+    background: black;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .settings-button:hover:before {
-  background: black;
-  width: 100%;
+    background: black;
+    width: 100%;
 }

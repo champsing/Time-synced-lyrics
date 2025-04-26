@@ -1,165 +1,298 @@
 [
     {
         "time": "00:33.04",
-        "text": "生後|間も|ない|詩を|引き連れ| |桑の|枝に|旋律|を|括り付け",
-        "duration": [900, 400, 450, 500, 1000, 2750, 500, 700, 900, 700, 1500],
+        "text": [
+            { "phrase": "生後", "duration": 900 },
+            { "phrase": "間も", "duration": 400 },
+            { "phrase": "ない", "duration": 450 },
+            { "phrase": "詩を", "duration": 500 },
+            { "phrase": "引き連れ", "duration": 1000 },
+            { "phrase": "　", "duration": 2750 },
+            { "phrase": "桑の", "duration": 500 },
+            { "phrase": "枝に", "duration": 700 },
+            { "phrase": "旋律", "duration": 900 },
+            { "phrase": "を", "duration": 700 },
+            { "phrase": "括り付け", "duration": 1500 }
+        ],
         "translation": ""
     },
     {
         "time": "00:44.64",
-        "text": "制服の|丈に|似合わない| 言葉らを|鞄に|忍ばせて",
+        "text": [
+            { "phrase": "制服の", "duration": 0 },
+            { "phrase": "丈に", "duration": 0 },
+            { "phrase": "似合わない", "duration": 0 },
+            { "phrase": "　", "duration": 0 },
+            { "phrase": "言葉らを", "duration": 0 },
+            { "phrase": "鞄に", "duration": 0 },
+            { "phrase": "忍ばせて", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "00:53.55",
-        "text": "カシオピア|係留所の|灯りの下",
+        "text": [
+            { "phrase": "カシオピア", "duration": 0 },
+            { "phrase": "係留所の", "duration": 0 },
+            { "phrase": "灯りの下", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "00:58.79",
-        "text": "逃れられない君の影の常に逆に 進むべき光",
+        "text": [
+            {
+                "phrase": "逃れられない君の影の常に逆に 進むべき光",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "01:10.27",
-        "text": "生まれながらに記されてた 足元にある宇宙の影絵",
+        "text": [
+            {
+                "phrase": "生まれながらに記されてた 足元にある宇宙の影絵",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "01:19.27",
-        "text": "カシオピア係留所の灯りの下",
+        "text": [{ "phrase": "カシオピア係留所の灯りの下", "duration": 0 }],
         "translation": ""
     },
     {
         "time": "01:24.88",
-        "text": "秘めた意志 急かす未知 受け取って手渡すこと",
+        "text": [
+            {
+                "phrase": "秘めた意志 急かす未知 受け取って手渡すこと",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "01:36.38",
-        "text": "身を焦がした この好奇心が身を滅ぼすと",
+        "text": [
+            {
+                "phrase": "身を焦がした この好奇心が身を滅ぼすと",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
-    { "time": "01:44.76", "text": "知ったとしても", "translation": "" },
+    {
+        "time": "01:44.76",
+        "text": [{ "phrase": "知ったとしても", "duration": 0 }],
+        "translation": ""
+    },
     {
         "time": "01:48.01",
-        "text": "消えたりしなくて どうせ灰になるなら いっそ書きとめて",
+        "text": [
+            { "phrase": "消えたりしなくて", "duration": 0 },
+            { "phrase": "どうせ灰になるなら", "duration": 0 },
+            { "phrase": "いっそ書きとめて", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "01:56.22",
-        "text": "深く沈める 冷たくなる 胸の奥の方 胸の奥の方",
+        "text": [
+            { "phrase": "深く沈める", "duration": 0 },
+            { "phrase": "冷たくなる", "duration": 0 },
+            { "phrase": "胸の奥の方", "duration": 0 },
+            { "phrase": "胸の奥の方", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "02:08.04",
-        "text": "この世にあるほとんどのものが 成し遂げた奴らの血の跡としたら",
+        "text": [
+            {
+                "phrase": "この世にあるほとんどのものが 成し遂げた奴らの血の跡としたら",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "02:19.23",
-        "text": "この痛みだけは彼らと似ている",
+        "text": [{ "phrase": "この痛みだけは彼らと似ている", "duration": 0 }],
         "translation": ""
     },
     {
         "time": "02:25.19",
-        "text": "躊躇せず それを書き足せ その痛みは共通言語だ",
+        "text": [
+            { "phrase": "躊躇せず", "duration": 0 },
+            { "phrase": "それを書き足せ", "duration": 0 },
+            { "phrase": "その痛みは共通言語だ", "duration": 0 }
+        ],
         "translation": ""
     },
-    { "time": "02:32.55", "type": "interlude"},
-
+    { "time": "02:32.55", "type": "interlude" },
     {
         "time": "02:44.44",
-        "text": "夜空を塞ぐ星座に睨まれて 大きなものの一部だと悟った",
+        "text": [
+            {
+                "phrase": "夜空を塞ぐ星座に睨まれて 大きなものの一部だと悟った",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "02:55.88",
-        "text": "だけど迷い、選ぶ意志は 自分の中にあると知って",
+        "text": [
+            {
+                "phrase": "だけど迷い、選ぶ意志は 自分の中にあると知って",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "03:04.91",
-        "text": "カシオピア係留所の灯りの下",
+        "text": [{ "phrase": "カシオピア係留所の灯りの下", "duration": 0 }],
         "translation": ""
     },
     {
         "time": "03:10.57",
-        "text": "届かないならそれでいい 果たせないことが辛いよ",
+        "text": [
+            { "phrase": "届かないならそれでいい", "duration": 0 },
+            { "phrase": "果たせないことが辛いよ", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "03:22.08",
-        "text": "願うことも吹き消したとき 訪れた闇",
+        "text": [
+            { "phrase": "願うことも吹き消したとき 訪れた闇", "duration": 0 }
+        ],
         "translation": ""
     },
-    { "time": "03:30.56", "text": "でも本当は", "translation": "" },
+    {
+        "time": "03:30.56",
+        "text": [{ "phrase": "でも本当は", "duration": 0 }],
+        "translation": ""
+    },
     {
         "time": "03:33.74",
-        "text": "消えたりしなくて どうせ灰になるなら いっそ書きとめて",
+        "text": [
+            { "phrase": "消えたりしなくて", "duration": 0 },
+            { "phrase": "どうせ灰になるなら", "duration": 0 },
+            { "phrase": "いっそ書きとめて", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "03:42.10",
-        "text": "深く沈める 冷たくなる 胸の奥の方 胸の奥の方",
+        "text": [
+            { "phrase": "深く沈める", "duration": 0 },
+            { "phrase": "冷たくなる", "duration": 0 },
+            { "phrase": "胸の奥の方", "duration": 0 },
+            { "phrase": "胸の奥の方", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "03:53.73",
-        "text": "長い旅路 多くの涙と 苦悩の果てに やっと見つけた",
+        "text": [
+            { "phrase": "長い旅路", "duration": 0 },
+            { "phrase": "多くの涙と", "duration": 0 },
+            { "phrase": "苦悩の果てに", "duration": 0 },
+            { "phrase": "やっと見つけた", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "04:04.87",
-        "text": "原型も時に 容易く盗まれて",
+        "text": [
+            { "phrase": "原型も時に", "duration": 0 },
+            { "phrase": "容易く盗まれて", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "04:10.86",
-        "text": "痛てえと笑い それを書き足せ その痛みは共通言語だ",
+        "text": [
+            { "phrase": "痛てえと笑い", "duration": 0 },
+            { "phrase": "それを書き足せ", "duration": 0 },
+            { "phrase": "その痛みは共通言語だ", "duration": 0 }
+        ],
         "translation": ""
     },
-    { "time": "04:18.38", "type": "interlude"},
+    { "time": "04:18.38", "type": "interlude" },
     {
         "time": "04:41.55",
-        "text": "それはまだ空が語る以前の 願い達が残した書置き",
+        "text": [
+            {
+                "phrase": "それはまだ空が語る以前の 願い達が残した書置き",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "04:53.02",
-        "text": "痛みの堆積が歴史だ それが僕らの最初の武器",
+        "text": [
+            { "phrase": "痛みの堆積が歴史だ", "duration": 0 },
+            { "phrase": "それが僕らの最初の武器", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "05:02.03",
-        "text": "カシオピア係留所の灯りの下",
+        "text": [{ "phrase": "カシオピア係留所の灯りの下", "duration": 0 }],
         "translation": ""
     },
     {
         "time": "05:08.00",
-        "text": "息を止めないで どうせ灰になるなら いっそ燃やして",
+        "text": [
+            { "phrase": "息を止めないで", "duration": 0 },
+            { "phrase": "どうせ灰になるなら", "duration": 0 },
+            { "phrase": "いっそ燃やして", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "05:16.32",
-        "text": "駆動する鼓動 残さず遺す 胸の奥の方 胸の奥の方",
+        "text": [
+            { "phrase": "駆動する鼓動", "duration": 0 },
+            { "phrase": "残さず遺す", "duration": 0 },
+            { "phrase": "胸の奥の方", "duration": 0 },
+            { "phrase": "胸の奥の方", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "05:28.08",
-        "text": "この世にあるほとんどのものが 成し遂げた奴らの血の跡としたら",
+        "text": [
+            {
+                "phrase": "この世にあるほとんどのものが 成し遂げた奴らの血の跡としたら",
+                "duration": 0
+            }
+        ],
         "translation": ""
     },
     {
         "time": "05:39.08",
-        "text": "それに立つこの言葉は 過去の誰とも違う",
+        "text": [
+            { "phrase": "それに立つこの言葉は", "duration": 0 },
+            { "phrase": "過去の誰とも違う", "duration": 0 }
+        ],
         "translation": ""
     },
     {
         "time": "05:45.23",
-        "text": "自惚れて それを書き足せ その痛みは共通言語だ",
+        "text": [
+            { "phrase": "自惚れて", "duration": 0 },
+            { "phrase": "それを書き足せ", "duration": 0 },
+            { "phrase": "その痛みは共通言語だ", "duration": 0 }
+        ],
         "translation": ""
     },
-    { "time": "05:52.65", "type": "interlude"},
-    { "time": "06:15.36", "type": "end"}
+    { "time": "05:52.65", "type": "interlude" },
+    { "time": "06:15.36", "type": "end" }
 ]

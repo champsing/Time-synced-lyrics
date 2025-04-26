@@ -11,7 +11,6 @@
             "link": "cCJ7CCq"
         },
         "translation": {},
-        "default_elapse_speed": 1.1,
         "default_phrase_duration": 1000
     },
     {
@@ -26,7 +25,7 @@
             "cite": "https://www.995goldfish.com/2021/11/vaundy_22.html",
             "modified": true
         },
-        "default_elapse_speed": 1.5
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -44,7 +43,7 @@
             "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
             "modified": true
         },
-        "default_elapse_speed": 1.5
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -61,7 +60,7 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-647.html"
         },
-        "default_elapse_speed": 1.05
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -74,7 +73,7 @@
         },
         "title": "It's myself",
         "lyricist": "佐々木　想",
-        "default_elapse_speed": 1.5
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -90,6 +89,6 @@
             "available": true,
             "author": "香榭"
         },
-        "default_elapse_speed": 1.1
+        "default_phrase_duration": 1000
     }
 ]
