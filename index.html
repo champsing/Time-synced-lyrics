@@ -55,7 +55,15 @@
                         :class="{ 'completed': isCurrentLine(index) && isCompletedPhrase() && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
                         {{ t.phrase }}
                     </span>
-                    <!-- <div>For background voice</div> -->
+                    <div v-if="line.background_voice !== undefined">
+                        <span v-for="(bvt, phraseIndex) in line.background_voice.text" :key="phraseIndex"
+                            class="lyric-phrase background-voices relative text-transparent bg-clip-text text-sm"
+                            :duration="line.duration[phraseIndex]" :delay="line.delay[phraseIndex]"
+                            :style="getBackgroundPhraseStyle(index, phraseIndex)"
+                            :class="{ 'completed': isCurrentLine(index) && isCompletedPhrase() && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
+                            {{ bvt.phrase }}
+                        </span>
+                    </div>
                 </button>
             </div>
         </div>
@@ -71,16 +79,18 @@
                         {{ currentSong.title? currentSong.title : currentSong.name }}
                     </div>
 
-                    <div class="inline song-album text-sm bg-amber-700">
-                        <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
-                            v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
-                            {{ currentSong.album? currentSong.album?.name: "單曲" }}
-                        </a>
-                        <span v-else>{{ currentSong.album? currentSong.album.name: "單曲" }}</span>
-                    </div>
+
                     <div class="song-artist">
                         {{ currentSong.artist? currentSong.artist : "未知的作者" }}
 
+                    </div>
+
+                    <div class="inline song-album text-sm bg-amber-700">
+                        <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
+                            v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
+                            {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
+                        </a>
+                        <span v-else>{{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}</span>
                     </div>
 
                     <div>
@@ -130,7 +140,13 @@
 
             <div v-if="toggleTranslation">
                 <div v-if="currentSong.translation?.available == true" class="translate-container">
-                    <div class="translation-text">{{ translationText }}</div>
+                    <div class="translation-text">
+                        {{ translationText }}
+                        <div class="background-translation-text">
+                            {{ backgroundTranslationText }}
+                        </div>
+                    </div>
+
 
                     <div class="translate-author">
                         <div v-if="currentSong.translation.cite !== null">

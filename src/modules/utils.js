@@ -25,6 +25,39 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 line.time = parseFloat(mm) * 60 + parseFloat(ss);
             }
 
+            if (line.background_voice) {
+                const bgTimeMatch =
+                    line.background_voice?.time.match(/(\d+):(\d+\.\d+)/);
+                if (bgTimeMatch) {
+                    const [_, mm, ss] = bgTimeMatch;
+                    line.background_voice.time =
+                        parseFloat(mm) * 60 + parseFloat(ss);
+                }
+
+                line.background_voice.duration = new Array(
+                    line.background_voice.text.length
+                ).fill(0);
+                line.background_voice.duration = line.background_voice.text.map(
+                    (phr) =>
+                        phr.duration ||
+                        currentSong.value.default_phrase_duration ||
+                        DEFAULT_DURATION,
+                    0,
+                    line.background_voice.text.length
+                );
+
+                line.background_voice.delay = new Array(
+                    line.background_voice.duration.length
+                ).fill(0);
+                let accumulated = 0;
+                for (let i = 0; i < line.background_voice.delay.length; i++) {
+                    line.background_voice.delay[i] = accumulated;
+                    if (i < line.background_voice.duration.length - 1) {
+                        accumulated += line.background_voice.duration[i];
+                    }
+                }
+            }
+
             if (line.type === "interlude") {
                 const interludeDuration =
                     jsonMappingContent[index + 1].time - line.time;
@@ -44,17 +77,15 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 ];
             }
 
-            if (!line.duration) {
-                line.duration = new Array(line.text.length).fill(0);
-                line.duration = line.text.map(
-                    (phr) =>
-                        phr.duration ||
-                        currentSong.value.default_phrase_duration ||
-                        DEFAULT_DURATION,
-                    0,
-                    line.text.length
-                );
-            }
+            line.duration = new Array(line.text.length).fill(0);
+            line.duration = line.text.map(
+                (phr) =>
+                    phr.duration ||
+                    currentSong.value.default_phrase_duration ||
+                    DEFAULT_DURATION,
+                0,
+                line.text.length
+            );
 
             line.delay = new Array(line.duration.length).fill(0);
             let accumulated = 0;

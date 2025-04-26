@@ -52,6 +52,15 @@ const app = createApp({
             );
         });
 
+        const backgroundTranslationText = computed(() => {
+            if (!jsonMappingContent.value[currentLineIndex.value] || currentLineIndex.value === -1)
+                return "";
+            return (
+                jsonMappingContent.value[currentLineIndex.value].background_voice?.translation ||
+                ""
+            );
+        });
+
         const translationAuthor = computed(() => {
             if (!currentSong.value.translation?.author) return "";
             if (currentSong.value.translation?.modified === true)
@@ -66,6 +75,41 @@ const app = createApp({
                 window.ytPlayer.seekTo(line.time);
                 scrollToLineIndex(index);
             }
+        };
+
+        const getBackgroundPhraseStyle = (lineIndex, phraseIndex) => {
+            if (lineIndex !== currentLineIndex.value) return {};
+            // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
+            const line = jsonMappingContent.value?.[lineIndex];
+
+            // 若 line.background_voice 不存在，直接返回空樣式
+            if (!line.background_voice) return {};
+
+            // 安全存取 line.time，若不存在則給默認值 0
+            const lineTime = line.background_voice.time || 0;
+
+            // 安全存取陣列元素，避免 phraseIndex 超出範圍
+            const delay = line.background_voice.delay?.[phraseIndex] || 0;
+            const duration = line.background_voice.duration?.[phraseIndex] || 0;
+
+            // 計算進度（加入防呆避免除以零）
+            let phraseProgressValue = 0;
+            if (duration > 0) {
+                const rawProgress =
+                    (currentTime.value - lineTime - delay / 1000) /
+                    (duration / 1000);
+                phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
+            }
+
+            // 若時間未到延遲時間，進度設為 0
+            if (currentTime.value - lineTime < delay / 1000) {
+                phraseProgressValue = 0;
+            }
+
+            return {
+                transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
+                "--progress": `${phraseProgressValue * 100}%`,
+            };
         };
 
         const getPhraseStyle = (lineIndex, phraseIndex) => {
@@ -182,13 +226,16 @@ const app = createApp({
             formattedSongDuration,
             currentLineIndex,
             translationText,
+            backgroundTranslationText,
             translationAuthor,
             initModal,
             initYouTubePlayer,
             jumpToCurrentLine,
             getPhraseStyle,
+            getBackgroundPhraseStyle,
             isCurrentLine: (index) => index === currentLineIndex.value,
             isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
+            isBackgroundKiai: (line, phraseIndex) => line.background_voice.text[phraseIndex].kiai,
             isCompletedPhrase: () => phraseProgress.value == 1,
         };
     },
