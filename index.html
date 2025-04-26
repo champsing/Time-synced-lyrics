@@ -48,11 +48,12 @@
             <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
-                    <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex">
-                        <span v-for="(char, charIndex) in phrase" class="lyric-char relative text-transparent bg-clip-text"
-                            :class="{ 'completed': isCurrentLine(index) && isCompletedChar() && index < jsonMappingContent.length - 1, 'kiai': isKiai(line) }"
-                            :style="getCharStyle(index, phraseIndex, charIndex)" :key="charIndex">
-                            {{ char }}
+                    <span v-for="(phrase, phraseIndex) in line.text" :key="phraseIndex"
+                        class="relative text-transparent bg-clip-text" :duration="line.duration[phraseIndex]"
+                        :delay="line.delay[phraseIndex]">
+                        <span :style="getPhraseStyle(currentLineIndex, phraseIndex)" class="lyric-phrase"
+                            :class="{ 'completed': isCurrentLine(index) && isCompletedPhrase() && index < jsonMappingContent.length - 1, 'kiai': isKiai(line) }">
+                            {{ phrase }}
                         </span>
                     </span>
                 </button>
@@ -60,7 +61,7 @@
         </div>
 
         <div class="right-big-container">
-
+            {{ currentTime }}
             <div class="right-container">
                 <button id="setting-btn" class="settings-button">
                     <span>設定</span>

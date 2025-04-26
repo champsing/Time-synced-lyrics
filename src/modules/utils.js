@@ -1,4 +1,4 @@
-import { DEFAULT_ELAPSE_SPEED } from "./config.js";
+import { DEFAULT_DURATION, DEFAULT_ELAPSE_SPEED } from "./config.js";
 
 export const formatTime = (seconds) => {
     const min = Math.floor(seconds / 60);
@@ -18,18 +18,12 @@ export const parseLyrics = (jsonMappingContent, currentSong) => {
     if (!jsonMappingContent) return [];
 
     return jsonMappingContent
-        .map((line) => {
+        .map((line, index) => {
             const timeMatch = line.time.match(/(\d+):(\d+\.\d+)/);
             if (timeMatch) {
                 const [_, mm, ss] = timeMatch;
                 line.time = parseFloat(mm) * 60 + parseFloat(ss);
             }
-
-            if (!line.pace)
-                line.pace = [
-                    currentSong.value.default_elapse_speed ||
-                        DEFAULT_ELAPSE_SPEED,
-                ];
 
             if (line.type === "interlude") {
                 line.text = "● ● ●";
@@ -41,10 +35,28 @@ export const parseLyrics = (jsonMappingContent, currentSong) => {
                     currentSong.value.artist?.trim() ||
                     "未知的作者"
                 }`;
-                line.pace = [1000];
             }
 
             line.text = line.text.split("|"); // can't add .toString() since it will not work properly. (["a,b,c"] rather than ["a","b","c"])
+
+            if (!line.duration) {
+                line.duration = line.text.slice();
+                line.duration.fill(
+                    currentSong.value.default_phrase_duration ||
+                        DEFAULT_DURATION,
+                    0,
+                    line.text.length
+                );
+            }
+
+            line.delay = new Array(line.duration.length).fill(0);
+            let accumulated = 0;
+            for (let i = 0; i < line.delay.length; i++) {
+              line.delay[i] = accumulated;
+              if (i < line.duration.length - 1) {
+                accumulated += line.duration[i];
+              }
+            }
 
             return {
                 ...line,

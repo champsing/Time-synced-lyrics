@@ -15,14 +15,26 @@ body {
   transition: opacity 0.3s;
 }
 
-.lyric-char {
+.lyric-phrase {
   transition: all 0.2s ease;
   -webkit-background-clip: text;
   background-image: linear-gradient(
     to right,
-    #fff var(--progress, 0),
-    #aaa var(--progress, 0)
+    #fff 0,
+    #aaa 0
   );
+}
+
+.lyric-button.active {
+  .lyric-phrase {
+    transition: all 0.2s ease;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
+      to right,
+      #fff var(--progress, 0),
+      #aaa var(--progress, 0)
+    );
+  }
 }
 
 .lyric-button {
@@ -39,7 +51,7 @@ body {
   font-weight: bold;
 }
 
-.lyric-char.completed.kiai {
+.lyric-phrase.completed.kiai {
   stroke: beige;
   stroke-width: 0.5px;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);

@@ -23,7 +23,7 @@ const app = createApp({
         const currentSong = ref(songList.value[0]);
         const scrollToCurrentLine = ref(true);
         const toggleTranslation = ref(true);
-        const charProgress = ref(0);
+        const phraseProgress = ref(0);
 
         // 計算屬性
         const formattedCurrentTime = computed(() =>
@@ -68,43 +68,49 @@ const app = createApp({
             }
         };
 
-        const getCharStyle = (lineIndex, phraseIndex, charIndex) => {
-            if (lineIndex !== currentLineIndex.value) return {};
+        const getPhraseStyle = (lineIndex, phraseIndex) => {
+            // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
+            const line = jsonMappingContent.value?.[lineIndex];
 
-            const line = jsonMappingContent.value[lineIndex];
+            // 若 line 不存在，直接返回空樣式
+            if (!line) return {};
 
-            if (line.type == "end")
-                return { "--progress": 100 + "%", "font-size": 20 + "px" };
-
-            const nextLine = jsonMappingContent.value[lineIndex + 1];
-            const lineDuration = (nextLine?.time || songDuration) - line.time;
-            const averageCharDuration =
-                lineDuration / line.text.join("").length;
-
-            for (let i = 0; i < phraseIndex; i++) {
-                charIndex += line.text[i].length;
+            // 使用 Optional Chaining 檢查 line.type
+            if (line.type === "end") {
+                return { "--progress": "100%", "font-size": "20px" };
             }
 
-            charProgress.value = Math.min(
-                1,
-                ((currentTime.value - line.time) / averageCharDuration) *
-                    line.pace[phraseIndex] -
-                    charIndex
-            );
+            // 安全存取 line.time，若不存在則給默認值 0
+            const lineTime = line.time || 0;
 
-            if (
-                charProgress.value < 0 ||
-                charIndex >
-                    Math.floor(
-                        ((currentTime.value - line.time) /
-                            averageCharDuration) *
-                            line.pace[phraseIndex]
-                    )
-            ) {
-                charProgress.value = 0;
+            // 安全存取陣列元素，避免 phraseIndex 超出範圍
+            const delay = line.delay?.[phraseIndex] || 0;
+            const duration = line.duration?.[phraseIndex] || 0;
+
+            // 計算進度（加入防呆避免除以零）
+            let phraseProgressValue = 0;
+            if (duration > 0) {
+                const rawProgress =
+                    (currentTime.value - lineTime - delay / 1000) /
+                    (duration / 1000);
+                //   console.log(rawProgress);
+                console.log(
+                    line.text[phraseIndex],
+                    currentTime.value - lineTime,
+                    delay / 1000
+                );
+                phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
             }
 
-            return { "--progress": charProgress.value * 100 + "%" };
+            // 若時間未到延遲時間，進度設為 0
+            if (currentTime.value - lineTime < delay / 1000) {
+                phraseProgressValue = 0;
+            }
+
+            return {
+                transform: "matrix(1, 0, 0, 1, 0, -2)",
+                "--progress": `${phraseProgressValue * 100}%`,
+            };
         };
 
         // 初始化流程
@@ -182,10 +188,10 @@ const app = createApp({
             initModal,
             initYouTubePlayer,
             jumpToCurrentLine,
-            getCharStyle,
+            getPhraseStyle,
             isCurrentLine: (index) => index === currentLineIndex.value,
             isKiai: (line) => line.kiai === true,
-            isCompletedChar: () => charProgress.value >= 1,
+            isCompletedPhrase: () => phraseProgress.value >= 1,
         };
     },
 });

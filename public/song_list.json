@@ -1,5 +1,6 @@
 [
     {
+        "available": true,
         "name": "amazarashi - Cassiopeia Keiryuujo",
         "id": "pTwSEgflLq0",
         "artist": "amazarashi",
@@ -10,7 +11,8 @@
             "link": "cCJ7CCq"
         },
         "translation": {},
-        "default_elapse_speed": 1.1
+        "default_elapse_speed": 1.1,
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
