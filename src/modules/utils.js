@@ -1,3 +1,5 @@
+import { DEFAULT_ELAPSE_SPEED } from "./config.js";
+
 export const formatTime = (seconds) => {
     const min = Math.floor(seconds / 60);
     const sec = Math.floor(seconds % 60);
@@ -29,7 +31,10 @@ export const parseLyrics = (jsonMappingContent, currentSong) => {
                         DEFAULT_ELAPSE_SPEED,
                 ];
 
-            if (line.type === "interlude") line.text = "● ● ●";
+            if (line.type === "interlude") {
+                line.text = "● ● ●";
+                line.pace = [DEFAULT_ELAPSE_SPEED]
+            }
             if (line.type === "end") {
                 line.text = `作者：${currentSong.value.lyricist?.trim() || currentSong.value.artist?.trim() || "未知的作者"}`;
                 line.pace = [1000];
