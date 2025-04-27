@@ -53,11 +53,14 @@ const app = createApp({
         });
 
         const backgroundTranslationText = computed(() => {
-            if (!jsonMappingContent.value[currentLineIndex.value] || currentLineIndex.value === -1)
+            if (
+                !jsonMappingContent.value[currentLineIndex.value] ||
+                currentLineIndex.value === -1
+            )
                 return "";
             return (
-                jsonMappingContent.value[currentLineIndex.value].background_voice?.translation ||
-                ""
+                jsonMappingContent.value[currentLineIndex.value]
+                    .background_voice?.translation || ""
             );
         });
 
@@ -96,13 +99,12 @@ const app = createApp({
             let phraseProgressValue = 0;
             if (duration > 0) {
                 const rawProgress =
-                    (currentTime.value - lineTime - delay / 1000) /
-                    (duration / 1000);
+                    (currentTime.value - lineTime - delay) / duration;
                 phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
             }
 
             // 若時間未到延遲時間，進度設為 0
-            if (currentTime.value - lineTime < delay / 1000) {
+            if (currentTime.value - lineTime < delay) {
                 phraseProgressValue = 0;
             }
 
@@ -129,20 +131,19 @@ const app = createApp({
             const lineTime = line.time || 0;
 
             // 安全存取陣列元素，避免 phraseIndex 超出範圍
-            const delay = line.delay?.[phraseIndex] || 0;
-            const duration = line.duration?.[phraseIndex] || 0;
+            const delay = line.delay?.[phraseIndex] / 100 || 0;
+            const duration = line.duration?.[phraseIndex] / 100 || 0;
 
             // 計算進度（加入防呆避免除以零）
             let phraseProgressValue = 0;
             if (duration > 0) {
                 const rawProgress =
-                    (currentTime.value - lineTime - delay / 1000) /
-                    (duration / 1000);
+                    (currentTime.value - lineTime - delay) / duration;
                 phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
             }
 
             // 若時間未到延遲時間，進度設為 0
-            if (currentTime.value - lineTime < delay / 1000) {
+            if (currentTime.value - lineTime < delay) {
                 phraseProgressValue = 0;
             }
 
@@ -234,7 +235,8 @@ const app = createApp({
             getBackgroundPhraseStyle,
             isCurrentLine: (index) => index === currentLineIndex.value,
             isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
-            isBackgroundKiai: (line, phraseIndex) => line.background_voice.text[phraseIndex].kiai,
+            isBackgroundKiai: (line, phraseIndex) =>
+                line.background_voice.text[phraseIndex].kiai,
             isCompletedPhrase: () => phraseProgress.value == 1,
         };
     },
