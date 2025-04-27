@@ -1,287 +1,476 @@
 [
     {
         "time": "00:02.28",
-        "text": "久しぶりに|君の笑った顔を見た|気がした",
-        "pace": [1.2, 1.15, 1.19],
+        "text": [
+            {"phrase": "久しぶりに", "duration": 0},
+            {"phrase": "君の", "duration": 0},
+            {"phrase": "笑った", "duration": 0},
+            {"phrase": "顔を", "duration": 0},
+            {"phrase": "見た", "duration": 0},
+            {"phrase": "気がした", "duration": 0}
+        ],
         "translation": "總有一種隔了很久才看見你的笑容的感覺"
     },
     {
         "time": "00:07.39",
-        "text": "胸に灯れ 出来る限り |slow motion",
-        "pace": [1.15, 1.3],
+        "text": [
+            {"phrase": "胸に", "duration": 0},
+            {"phrase": "灯れ", "duration": 0},
+            {"phrase": "出来る限り", "duration": 0},
+            {"phrase": "slow motion", "duration": 0}
+        ],
         "translation": "用盡可能慢的動作點亮胸口吧"
     },
     { "time": "00:12.60", "type": "interlude" },
     {
         "time": "00:17.39",
-        "text": "この短い夜が最後になるならきっと会いに行くんだ",
+        "text": [
+            {"phrase": "この", "duration": 0},
+            {"phrase": "短い夜が", "duration": 0},
+            {"phrase": "最後に", "duration": 0},
+            {"phrase": "なるなら", "duration": 0},
+            {"phrase": "きっと", "duration": 0},
+            {"phrase": "会いに", "duration": 0},
+            {"phrase": "行くんだ", "duration": 0}
+        ],
         "translation": "如果這個短暫的夜晚是最後的話，我一定會去見你"
     },
     {
         "time": "00:22.80",
-        "text": "僕ですら|そう思うのさ のうのうと",
-        "pace": [1.1, 1.25, 1.15],
+        "text": [
+            {"phrase": "僕ですら", "duration": 0},
+            {"phrase": "そう", "duration": 0},
+            {"phrase": "思うのさ", "duration": 0},
+            {"phrase": "のうのうと", "duration": 0}
+        ],
         "translation": "連我都這麼悠然自得地認為著"
     },
     {
         "time": "00:27.55",
-        "text": "抱きしめ合っている 隙に泣いてしまうくらい",
+        "text": [
+            {"phrase": "抱きしめ", "duration": 0},
+            {"phrase": "合っている", "duration": 0},
+            {"phrase": "隙に", "duration": 0},
+            {"phrase": "泣いてしまう", "duration": 0},
+            {"phrase": "くらい", "duration": 0}
+        ],
         "translation": "如同在相擁彼此的角落裡哭泣般"
     },
     {
         "time": "00:32.65",
-        "text": "痛みを話すこともできない",
-        "pace": [1.15],
+        "text": [
+            {"phrase": "痛みを", "duration": 0},
+            {"phrase": "話すこと", "duration": 0},
+            {"phrase": "もできない", "duration": 0}
+        ],
         "translation": "卻連訴說痛苦都做不到"
     },
     {
         "time": "00:35.08",
-        "text": "弱点のある君がこんなに好きなのに",
+        "text": [
+            {"phrase": "弱点の", "duration": 0},
+            {"phrase": "ある", "duration": 0},
+            {"phrase": "君が", "duration": 0},
+            {"phrase": "こんなに", "duration": 0},
+            {"phrase": "好きなのに", "duration": 0}
+        ],
         "translation": "明明我如此喜歡著擁有缺點的你"
     },
     {
         "time": "00:38.77",
-        "text": "ああ 絵に描いて",
-        "pace": [1.15],
+        "text": [
+            {"phrase": "ああ", "duration": 0},
+            {"phrase": "絵に", "duration": 0},
+            {"phrase": "描いて", "duration": 0}
+        ],
         "translation": "啊啊，描繪著圖畫"
     },
     {
         "time": "00:41.10",
-        "text": "渡すべきなんだよ",
-        "pace": [1.15],
+        "text": [
+            {"phrase": "渡すべき", "duration": 0},
+            {"phrase": "なんだよ", "duration": 0}
+        ],
         "translation": "本應該將其交付與你"
     },
     {
         "time": "00:43.25",
-        "text": "この僕の想いも 笑う前に",
+        "text": [
+            {"phrase": "この", "duration": 0},
+            {"phrase": "僕の", "duration": 0},
+            {"phrase": "想いも", "duration": 0},
+            {"phrase": "笑う", "duration": 0},
+            {"phrase": "前に", "duration": 0}
+        ],
         "translation": "在你開始嘲笑我的想念之前"
     },
     {
         "time": "00:47.64",
-        "text": "「居なくならないでね」",
-        "pace": [1.15],
+        "text": [
+            {"phrase": "「居なくならないでね」", "duration": 0}
+        ],
         "kiai": true,
         "translation": "「請不要消失不見」"
     },
     {
         "time": "00:50.60",
-        "text": "「君こそね」",
-        "pace": [1.5],
+        "text": [
+            {"phrase": "「君こそね」", "duration": 0}
+        ],
         "translation": "「你才是呢」"
     },
     {
         "time": "00:52.95",
-        "text": "能天気に|約束して|肩を叩く",
-        "pace": [1.3, 1.4, 1.2],
+        "text": [
+            {"phrase": "能天気に", "duration": 0},
+            {"phrase": "約束して", "duration": 0},
+            {"phrase": "肩を", "duration": 0},
+            {"phrase": "叩く", "duration": 0}
+        ],
         "translation": "你我肩碰著肩，輕率地約定著"
     },
     {
         "time": "00:58.00",
-        "text": "きまってどちらかが破るのさ",
-        "pace": [1.35],
+        "text": [
+            {"phrase": "きまって", "duration": 0},
+            {"phrase": "どちらかが", "duration": 0},
+            {"phrase": "破るのさ", "duration": 0}
+        ],
         "translation": "反正最後一定會有一方打破承諾"
     },
     {
         "time": "01:03.00",
-        "text": "今回もまた僕じゃなかっただけ",
-        "pace": [1.15],
+        "text": [
+            {"phrase": "今回も", "duration": 0},
+            {"phrase": "また", "duration": 0},
+            {"phrase": "僕じゃなかった", "duration": 0},
+            {"phrase": "だけ", "duration": 0}
+        ],
         "translation": "只是這次仍然不是我"
     },
     {
         "time": "01:08.23",
-        "text": "震えた手|はサインを|作ってた",
-        "pace": [1.8, 1.6, 1.2],
+        "text": [
+            {"phrase": "震えた", "duration": 0},
+            {"phrase": "手は", "duration": 0},
+            {"phrase": "サインを", "duration": 0},
+            {"phrase": "作ってた", "duration": 0}
+        ],
         "translation": "顫抖著的手做出了手勢"
     },
     {
         "time": "01:13.46",
-        "text": "僕は何度もそれを見落とした",
-        "pace": [1.3],
+        "text": [
+            {"phrase": "僕は", "duration": 0},
+            {"phrase": "何度も", "duration": 0},
+            {"phrase": "それを", "duration": 0},
+            {"phrase": "見落とした", "duration": 0}
+        ],
         "translation": "我無數次都遺漏了它"
     },
     {
         "time": "01:18.88",
-        "text": "ねえ約束なんて「守る」っていうただの合図さ",
-        "pace": [1.4],
+        "text": [
+            {"phrase": "ねえ", "duration": 0},
+            {"phrase": "約束なんて", "duration": 0},
+            {"phrase": "「守る」って", "duration": 0},
+            {"phrase": "いう", "duration": 0},
+            {"phrase": "ただの", "duration": 0},
+            {"phrase": "合図さ", "duration": 0}
+        ],
         "translation": "吶，約定只不過是意味著「守護」的暗號啊"
     },
     {
         "time": "01:23.95",
-        "text": "本当はただ手を繋ぎたいだけ",
-        "pace": [1.35],
+        "text": [
+            {"phrase": "本当は", "duration": 0},
+            {"phrase": "ただ", "duration": 0},
+            {"phrase": "手を", "duration": 0},
+            {"phrase": "繋ぎたい", "duration": 0},
+            {"phrase": "だけ", "duration": 0}
+        ],
         "translation": "實際上我只是想牽起你的手而已"
     },
     { "time": "01:29.30", "type": "interlude" },
     {
         "time": "01:39.14",
-        "text": "もう一番側で君を見ていたいと思えば思うほど",
+        "text": [
+            {"phrase": "もう", "duration": 0},
+            {"phrase": "一番側で", "duration": 0},
+            {"phrase": "君を", "duration": 0},
+            {"phrase": "見ていたいと", "duration": 0},
+            {"phrase": "思えば", "duration": 0},
+            {"phrase": "思うほど", "duration": 0}
+        ],
         "translation": "越是想著要在你身旁注視著你"
     },
     {
         "time": "01:44.48",
-        "text": "居れない理由も|色濃くなる|のそういうもん|さ",
-        "pace": [1.7, 1.8, 1.4, 1.09],
+        "text": [
+            {"phrase": "居れない", "duration": 0},
+            {"phrase": "理由も", "duration": 0},
+            {"phrase": "色濃く", "duration": 0},
+            {"phrase": "なるの", "duration": 0},
+            {"phrase": "そういうもんさ", "duration": 0}
+        ],
         "translation": "就連無法繼續待著的理由也像色彩增厚般逐漸增加啊"
     },
     {
         "time": "01:49.70",
-        "text": "優しさを受け取ったままに",
-        "pace": [1.35],
+        "text": [
+            {"phrase": "優しさを", "duration": 0},
+            {"phrase": "受け取った", "duration": 0},
+            {"phrase": "ままに", "duration": 0}
+        ],
         "translation": "能做到單方面接受溫柔的人"
     },
     {
         "time": "01:52.35",
-        "text": "出来る人はそんなにいない",
-        "pace": [1.3],
+        "text": [
+            {"phrase": "出来る人は", "duration": 0},
+            {"phrase": "そんなに", "duration": 0},
+            {"phrase": "いない", "duration": 0}
+        ],
         "translation": "並沒有想像中的那麼多"
     },
     {
         "time": "01:54.70",
-        "text": "自分自身を誰かと思えば痛くしない？",
-        "pace": [1.5],
-        "translation": "把自己想像成別人難道不感到痛苦嗎？"
+        "text": [
+            {"phrase": "自分自身を", "duration": 0},
+            {"phrase": "誰かと", "duration": 0},
+            {"phrase": "思えば", "duration": 0},
+            {"phrase": "痛くしない？", "duration": 0}
+        ],
+        "translation": "把自己想像成別人就不會感到痛苦了嗎？"
     },
     {
         "time": "01:59.80",
-        "text": "ああ| 繊細で",
-        "pace": [1.4, 1.3],
+        "text": [
+            {"phrase": "ああ", "duration": 0},
+            {"phrase": "繊細で", "duration": 0}
+        ],
         "translation": "啊，我的眼中"
     },
     {
         "time": "02:02.20",
-        "text": "美しい心模様が映っているの 僕の目には",
+        "text": [
+            {"phrase": "美しい", "duration": 0},
+            {"phrase": "心模様が", "duration": 0},
+            {"phrase": "映っているの", "duration": 0},
+            {"phrase": "僕の", "duration": 0},
+            {"phrase": "目には", "duration": 0}
+        ],
         "translation": "纖細地描繪出了美麗的內心世界"
     },
     {
         "time": "02:08.70",
-        "text": "他人の痛みで顔が歪む",
-        "pace": [1.15],
+        "text": [
+            {"phrase": "他人の", "duration": 0},
+            {"phrase": "痛みで", "duration": 0},
+            {"phrase": "顔が", "duration": 0},
+            {"phrase": "歪む", "duration": 0}
+        ],
         "kiai": true,
         "translation": "因為他人的疼痛而表情扭曲"
     },
     {
         "time": "02:14.00",
-        "text": "君はいつどこで笑うのさ",
-        "pace": [1.15],
+        "text": [
+            {"phrase": "君は", "duration": 0},
+            {"phrase": "いつ", "duration": 0},
+            {"phrase": "どこで", "duration": 0},
+            {"phrase": "笑うのさ", "duration": 0}
+        ],
         "translation": "你是在何時何地笑出來的啊"
     },
     {
         "time": "02:19.12",
-        "text": "傷の数ばかり数えてた",
-        "pace": [1.2],
+        "text": [
+            {"phrase": "傷の", "duration": 0},
+            {"phrase": "数ばかり", "duration": 0},
+            {"phrase": "数えてた", "duration": 0}
+        ],
         "translation": "數算著傷口的數量"
     },
     {
         "time": "02:24.22",
-        "text": "どうしてその|痛みには気付かない？",
-        "pace": [2.4, 1.2],
+        "text": [
+            {"phrase": "どうして", "duration": 0},
+            {"phrase": "その", "duration": 0},
+            {"phrase": "痛みには", "duration": 0},
+            {"phrase": "気付かない？", "duration": 0}
+        ],
         "translation": "為什麼你就是無法注意到這份痛楚呢？"
     },
     {
         "time": "02:29.33",
-        "text": "僕らは|自分勝手な|フリをして",
-        "pace": [2.4, 1.4, 1.3],
+        "text": [
+            {"phrase": "僕らは", "duration": 0},
+            {"phrase": "自分勝手な", "duration": 0},
+            {"phrase": "フリをして", "duration": 0}
+        ],
         "translation": "我們假裝著擅自作主的模樣"
     },
     {
         "time": "02:34.43",
-        "text": "人の事ばかり|考える",
-        "pace": [1.5, 1.3],
+        "text": [
+            {"phrase": "人の事", "duration": 0},
+            {"phrase": "ばかり", "duration": 0},
+            {"phrase": "考える", "duration": 0}
+        ],
         "translation": "總是想著人與人間的事"
     },
     {
         "time": "02:39.82",
-        "text": "ねえ 幸せだってちょっとくらいは痛みが|するから",
-        "pace": [1.45, 1.4],
+        "text": [
+            {"phrase": "ねえ", "duration": 0},
+            {"phrase": "幸せだって", "duration": 0},
+            {"phrase": "ちょっとくらいは", "duration": 0},
+            {"phrase": "痛みが", "duration": 0},
+            {"phrase": "するから", "duration": 0}
+        ],
         "translation": "吶，即使是幸福也會略帶疼痛"
     },
     {
         "time": "02:44.94",
-        "text": "不幸くらいでは離せない 分かるかな",
-        "pace": [1.5],
+        "text": [
+            {"phrase": "不幸くらいでは", "duration": 0},
+            {"phrase": "離せない", "duration": 0},
+            {"phrase": "分かるかな", "duration": 0}
+        ],
         "translation": "我們總是脫離不了不幸 你能明白嗎？"
     },
     {
         "time": "02:50.80",
-        "text": "別の心が欲しいとか",
-        "pace": [1.25],
+        "text": [
+            {"phrase": "別の", "duration": 0},
+            {"phrase": "心が", "duration": 0},
+            {"phrase": "欲しいとか", "duration": 0}
+        ],
         "translation": "別總是說「想要一副別的心靈」"
     },
     {
         "time": "02:55.70",
-        "text": "悲しいこと言うもんじゃないよ",
-        "pace": [1.25],
+        "text": [
+            {"phrase": "悲しい", "duration": 0},
+            {"phrase": "こと", "duration": 0},
+            {"phrase": "言うもん", "duration": 0},
+            {"phrase": "じゃないよ", "duration": 0}
+        ],
         "translation": "這種讓人傷心的話啊"
     },
     {
         "time": "03:00.92",
-        "text": "顔も自分じゃ見れないでしょう",
+        "text": [
+            {"phrase": "顔も", "duration": 0},
+            {"phrase": "自分じゃ", "duration": 0},
+            {"phrase": "見れない", "duration": 0},
+            {"phrase": "でしょう", "duration": 0}
+        ],
         "translation": "相信你連自己都無法正視自己的臉龐吧"
     },
     {
         "time": "03:05.09",
-        "text": "心を映す|鏡が|いるんだよ",
-        "pace": [1.1, 1.025, 1.1],
+        "text": [
+            {"phrase": "心を", "duration": 0},
+            {"phrase": "映す", "duration": 0},
+            {"phrase": "鏡が", "duration": 0},
+            {"phrase": "いるんだよ", "duration": 0}
+        ],
         "translation": "我有面映照出內心的鏡子"
     },
     {
         "time": "03:10.82",
-        "text": "ねえ どうかな",
-        "pace": [1.6],
+        "text": [
+            {"phrase": "ねえ", "duration": 0},
+            {"phrase": "どうかな", "duration": 0}
+        ],
         "translation": "吶，看起來如何？"
     },
     {
         "time": "03:14.44",
-        "text": "「居なくなら|ないでね」",
-        "pace": [1.2, 1.1],
+        "text": [
+            {"phrase": "「居なくなら", "duration": 0},
+            {"phrase": "ないでね」", "duration": 0}
+        ],
         "translation": "「請不要消失不見」"
     },
     {
         "time": "03:18.20",
-        "text": "「君こそね」",
-        "pace": [1.4],
+        "text": [
+            {"phrase": "「君こそね」", "duration": 0}
+        ],
         "translation": "「你才是呢」"
     },
     {
         "time": "03:20.46",
-        "text": "能天気に|約束して|肩を叩く",
-        "pace": [1.3, 1.4, 1.2],
+        "text": [
+            {"phrase": "能天気に", "duration": 0},
+            {"phrase": "約束して", "duration": 0},
+            {"phrase": "肩を", "duration": 0},
+            {"phrase": "叩く", "duration": 0}
+        ],
         "translation": "你我肩碰著肩，輕率地約定著"
     },
     {
         "time": "03:25.57",
-        "text": "きまってどちらかが破るのさ",
-        "pace": [1.35],
+        "text": [
+            {"phrase": "きまって", "duration": 0},
+            {"phrase": "どちらかが", "duration": 0},
+            {"phrase": "破るのさ", "duration": 0}
+        ],
         "translation": "反正最後一定會有一方打破承諾"
     },
     {
         "time": "03:30.62",
-        "text": "そんな当たり前|を包むものが愛なんだろう",
-        "pace": [1.45, 1.2],
+        "text": [
+            {"phrase": "そんな", "duration": 0},
+            {"phrase": "当たり前", "duration": 0},
+            {"phrase": "を", "duration": 0},
+            {"phrase": "包むものが", "duration": 0},
+            {"phrase": "愛なんだろう", "duration": 0}
+        ],
         "translation": "包圍如此理所當然的肯定是愛吧"
     },
     {
         "time": "03:35.74",
-        "text": "どうやら|僕のほうが|君のこと",
-        "pace": [2.0, 1.5, 1.3],
+        "text": [
+            {"phrase": "どうやら", "duration": 0},
+            {"phrase": "僕の", "duration": 0},
+            {"phrase": "ほうが", "duration": 0},
+            {"phrase": "君のこと", "duration": 0}
+        ],
         "translation": "看來我終能好好地"
     },
     {
         "time": "03:40.85",
-        "text": "上手に絵に描いて|渡せそうだ",
-        "pace": [1.5, 1.44],
+        "text": [
+            {"phrase": "上手に", "duration": 0},
+            {"phrase": "絵に", "duration": 0},
+            {"phrase": "描いて", "duration": 0},
+            {"phrase": "渡せそうだ", "duration": 0}
+        ],
         "translation": "將這幅畫作畫好交給你"
     },
     {
         "time": "03:46.29",
-        "text": "ねえ少し|驚いてしまうかもしれないけど",
-        "pace": [2.0, 1.4],
+        "text": [
+            {"phrase": "ねえ", "duration": 0},
+            {"phrase": "少し", "duration": 0},
+            {"phrase": "驚いて", "duration": 0},
+            {"phrase": "しまう", "duration": 0},
+            {"phrase": "かもしれないけど", "duration": 0}
+        ],
         "translation": "吶，說出來你或許會嚇一跳也說不定"
     },
     {
         "time": "03:51.41",
-        "text": "君はこんなに椅麗に笑ってたんだよ",
-        "pace": [1.33],
+        "text": [
+            {"phrase": "君は", "duration": 0},
+            {"phrase": "こんなに", "duration": 0},
+            {"phrase": "椅麗に", "duration": 0},
+            {"phrase": "笑ってたんだよ", "duration": 0}
+        ],
         "translation": "但你正如此漂亮地露出微笑呢"
     },
     { "time": "03:56.05", "type": "end" }

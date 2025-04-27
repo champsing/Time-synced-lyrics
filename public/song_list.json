@@ -1,5 +1,6 @@
 [
     {
+        "available": true,
         "name": "amazarashi - Cassiopeia Keiryuujo",
         "id": "pTwSEgflLq0",
         "artist": "amazarashi",
@@ -9,8 +10,12 @@
             "name": "永遠市",
             "link": "cCJ7CCq"
         },
-        "translation": {},
-        "default_elapse_speed": 1.1
+        "translation": {
+            "available": true,
+            "author": "Alice／箱庭博物館",
+            "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
+        },
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -24,7 +29,11 @@
             "cite": "https://www.995goldfish.com/2021/11/vaundy_22.html",
             "modified": true
         },
-        "default_elapse_speed": 1.5
+        "album": {
+            "name": "replica",
+            "link": "UGs6ebR"
+        },
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -42,7 +51,7 @@
             "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
             "modified": true
         },
-        "default_elapse_speed": 1.5
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -59,7 +68,7 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-647.html"
         },
-        "default_elapse_speed": 1.05
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
@@ -72,12 +81,12 @@
         },
         "title": "It's myself",
         "lyricist": "佐々木　想",
-        "default_elapse_speed": 1.5
+        "default_phrase_duration": 1000
     },
     {
         "available": true,
         "name": "Kiro Akiyama - SKETCH",
-        "id": "H4pIbNfYdhI",
+        "id": "M0cHair48Jg",
         "artist": "秋山黄色",
         "title": "SKETCH",
         "album": {
@@ -88,6 +97,6 @@
             "available": true,
             "author": "香榭"
         },
-        "default_elapse_speed": 1.1
+        "default_phrase_duration": 1000
     }
 ]

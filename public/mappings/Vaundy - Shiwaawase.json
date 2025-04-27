@@ -1,235 +1,413 @@
 [
     {
         "time": "00:35.59",
-        "text": "僕の時価総額400円の心臓と",
+        "text": [
+            { "phrase": "僕の", "duration": 0 },
+            { "phrase": "時価総額400円の", "duration": 0 },
+            { "phrase": "心臓と", "duration": 0 }
+        ],
         "translation": "我那市價總共400日圓的心臟 以及"
     },
     {
         "time": "00:41.77",
-        "text": "絵に描いたような|君の綺麗な心臓を",
-        "pace": [2.0, 1.5],
+        "text": [
+            { "phrase": "絵に", "duration": 0 },
+            { "phrase": "描いたような", "duration": 0 },
+            { "phrase": "君の", "duration": 0 },
+            { "phrase": "綺麗な", "duration": 0 },
+            { "phrase": "心臓を", "duration": 0 }
+        ],
         "translation": "如同繪畫一般漂亮的 你的心臟"
     },
     {
         "time": "00:47.79",
-        "text": "合わせてできたしわの|数が",
-        "pace": [1.6, 1.4],
+        "text": [
+            { "phrase": "合わせて", "duration": 0 },
+            { "phrase": "できた", "duration": 0 },
+            { "phrase": "しわの", "duration": 0 },
+            { "phrase": "数が", "duration": 0 }
+        ],
         "translation": "兩者合起來而成的皺紋多寡"
     },
     {
         "time": "00:52.73",
-        "text": "僕達の未来の|価値だ",
-        "pace": [1.8, 1.9],
+        "text": [
+            { "phrase": "僕達の", "duration": 0 },
+            { "phrase": "未来の", "duration": 0 },
+            { "phrase": "価値だ", "duration": 0 }
+        ],
         "translation": "便是我們未來的價值"
     },
     {
         "time": "00:59.32",
-        "text": "残された時間が|少ないのなら",
-        "pace": [1.5, 1.1],
+        "text": [
+            { "phrase": "残された", "duration": 0 },
+            { "phrase": "時間が", "duration": 0 },
+            { "phrase": "少ないのなら", "duration": 0 }
+        ],
         "translation": "如果時間所剩不多"
     },
     {
         "time": "01:02.31",
-        "text": "崩れてく時間が|増えてくのなら",
-        "pace": [1.5, 1.1],
+        "text": [
+            { "phrase": "崩れてく", "duration": 0 },
+            { "phrase": "時間が", "duration": 0 },
+            { "phrase": "増えてくのなら", "duration": 0 }
+        ],
         "translation": "如果逐漸崩毀的時間越來越多"
     },
     {
         "time": "01:05.29",
-        "text": "零さないようにあわせて",
-        "pace": [1.52],
+        "text": [
+            { "phrase": "零さないように", "duration": 0 },
+            { "phrase": "あわせて", "duration": 0 }
+        ],
         "translation": "為了不讓它散落而聚集起來"
     },
     {
         "time": "01:11.19",
-        "text": "変わらない |変わ|れないよ| 僕ら",
-        "pace": [1.5, 1.2, 1.18, 1.3],
-        "kiai": true,
+        "text": [
+            { "phrase": "変わらない", "duration": 0, "kiai": true },
+            { "phrase": "変わ", "duration": 0 },
+            { "phrase": "れないよ", "duration": 0 },
+            { "phrase": "僕ら", "duration": 0, "kiai": true }
+        ],
         "translation": "一成不變 什麼都無法改變啊 我們"
     },
     {
         "time": "01:18.50",
-        "text": "今も|しっかり|握っている",
-        "pace": [1.3, 1.22, 1.2],
+        "text": [
+            { "phrase": "今も", "duration": 0 },
+            { "phrase": "しっかり", "duration": 0 },
+            { "phrase": "握っている", "duration": 0 }
+        ],
         "translation": "現在也緊緊的掌握著"
     },
     {
         "time": "01:23.36",
-        "text": "ちぎれない |ちぎ|らないよ| 僕ら",
-        "pace": [1.5, 1.2, 1.18, 1.3],
+        "text": [
+            { "phrase": "ちぎれない", "duration": 0 },
+            { "phrase": "ちぎ", "duration": 0 },
+            { "phrase": "らないよ", "duration": 0 },
+            { "phrase": "僕ら", "duration": 0 }
+        ],
         "translation": "無法斬斷的 不會被分開的唷 我們"
     },
     {
         "time": "01:30.48",
-        "text": "今もしっかり|繋いでる|手",
-        "pace": [1.3, 1.25, 1.27],
+        "text": [
+            { "phrase": "今も", "duration": 0 },
+            { "phrase": "しっかり", "duration": 0 },
+            { "phrase": "繋いでる", "duration": 0 },
+            { "phrase": "手", "duration": 0 }
+        ],
         "translation": "直到現在也緊緊握著手"
     },
     { "time": "01:37.20", "type": "interlude" },
     {
         "time": "01:47.72",
-        "text": "僕の一生分なり続けている心拍と",
-        "pace": [1.6],
+        "text": [
+            { "phrase": "僕の", "duration": 0 },
+            { "phrase": "一生分", "duration": 0 },
+            { "phrase": "なり続けてる", "duration": 0 },
+            { "phrase": "心拍と", "duration": 0 }
+        ],
         "translation": "用我的一生延續下去的心跳及"
     },
     {
         "time": "01:53.82",
-        "text": "透き通るような|君の綺麗な一拍を",
-        "pace": [1.9, 1.6],
+        "text": [
+            { "phrase": "透き通るような", "duration": 0 },
+            { "phrase": "君の", "duration": 0 },
+            { "phrase": "綺麗な", "duration": 0 },
+            { "phrase": "一拍を", "duration": 0 }
+        ],
         "translation": "清澈透亮的 你那美麗的一拍"
     },
     {
         "time": "01:59.80",
-        "text": "合わせ|てできた|波の数だけ",
-        "pace": [2.0, 1.8, 1.4],
+        "text": [
+            { "phrase": "合わせて", "duration": 0 },
+            { "phrase": "できた", "duration": 0 },
+            { "phrase": "波の", "duration": 0 },
+            { "phrase": "数だけ", "duration": 0 }
+        ],
         "translation": "結合而成的波紋數"
     },
     {
         "time": "02:04.73",
-        "text": "僕達は|揺らめき|あってた",
-        "pace": [1.5, 1.6, 1.62],
+        "text": [
+            { "phrase": "僕達は", "duration": 0 },
+            { "phrase": "揺らめき", "duration": 0 },
+            { "phrase": "あってた", "duration": 0 }
+        ],
         "translation": "我們搖曳晃蕩著"
     },
     {
         "time": "02:11.12",
-        "text": "過ぎていく時が|早すぎるのなら",
-        "pace": [1.5, 1.1],
+        "text": [
+            { "phrase": "過ぎていく", "duration": 0 },
+            { "phrase": "時が", "duration": 0 },
+            { "phrase": "早すぎるのなら", "duration": 0 }
+        ],
         "translation": "時間如果流逝得太快"
     },
     {
         "time": "02:14.37",
-        "text": "有り余る隙間が|悲しいのなら",
-        "pace": [1.5, 1.1],
+        "text": [
+            { "phrase": "有り余る", "duration": 0 },
+            { "phrase": "隙間が", "duration": 0 },
+            { "phrase": "悲しいのなら", "duration": 0 }
+        ],
         "translation": "如果有多餘的閒暇而難過的話"
     },
     {
         "time": "02:17.24",
-        "text": "零さない|ように|あわせて",
-        "pace": [1.5, 1.55, 1.6],
+        "text": [
+            { "phrase": "零さない", "duration": 0 },
+            { "phrase": "ように", "duration": 0 },
+            { "phrase": "あわせて", "duration": 0 }
+        ],
         "translation": "為了不讓它散落而聚合起來"
     },
     {
         "time": "02:23.19",
-        "text": "変わらない |変わ|れないよ| 僕ら",
-        "pace": [1.5, 1.2, 1.18, 1.3],
+        "text": [
+            { "phrase": "変わらない", "duration": 0 },
+            { "phrase": "変わ", "duration": 0 },
+            { "phrase": "れないよ", "duration": 0 },
+            { "phrase": "僕ら", "duration": 0 }
+        ],
         "translation": "一成不變 什麼都無法改變啊 我們"
     },
     {
         "time": "02:30.56",
-        "text": "今も|しっかり|握っている",
-        "pace": [1.3, 1.22, 1.2],
+        "text": [
+            { "phrase": "今も", "duration": 0 },
+            { "phrase": "しっかり", "duration": 0 },
+            { "phrase": "握っている", "duration": 0 }
+        ],
         "translation": "直到現在也緊緊握著手"
     },
     {
         "time": "02:35.30",
-        "text": "ちぎれない |ちぎ|らないよ| 僕ら",
-        "pace": [1.5, 1.2, 1.18, 1.3],
+        "text": [
+            { "phrase": "ちぎれない", "duration": 0 },
+            { "phrase": "ちぎ", "duration": 0 },
+            { "phrase": "らないよ", "duration": 0 },
+            { "phrase": "僕ら", "duration": 0 }
+        ],
         "translation": "無法斬斷的 不會被分開的唷 我們"
     },
     {
         "time": "02:42.74",
-        "text": "今も|しっかり繋いでる",
-        "pace": [1.3, 1.2],
+        "text": [
+            { "phrase": "今も", "duration": 0 },
+            { "phrase": "しっかり", "duration": 0 },
+            { "phrase": "繋いでる", "duration": 0 }
+        ],
         "translation": "直到現在也緊緊連繫在一起"
     },
     {
         "time": "02:47.44",
-        "text": "重なるひびを|僕達は",
-        "pace": [1.5, 1.3],
+        "text": [
+            { "phrase": "重なる", "duration": 0 },
+            { "phrase": "ひびを", "duration": 0 },
+            { "phrase": "僕達は", "duration": 0 }
+        ],
         "translation": "交疊的時日中我們將"
     },
     {
         "time": "02:50.41",
-        "text": "流るるひびも|僕達は",
-        "pace": [1.5, 1.3],
+        "text": [
+            { "phrase": "流るる", "duration": 0 },
+            { "phrase": "ひびも", "duration": 0 },
+            { "phrase": "僕達は", "duration": 0 }
+        ],
         "translation": "流動的時光中我們將"
     },
     {
         "time": "02:53.38",
-        "text": "思い出すことも|なくなって",
-        "pace": [1.5, 1.1],
+        "text": [
+            { "phrase": "思い出す", "duration": 0 },
+            { "phrase": "ことも", "duration": 0 },
+            { "phrase": "なくなって", "duration": 0 }
+        ],
         "translation": "會變得什麼都無法回想起來"
     },
     {
         "time": "02:56.35",
-        "text": "しまうんだろう しまうんだろう|って",
-        "pace": [1.5, 1.2],
+        "text": [
+            { "phrase": "しまうんだろう", "duration": 0 },
+            { "phrase": "しまうんだろうって", "duration": 0 }
+        ],
         "translation": "會變成這樣吧 會變成這樣吧.....我想"
     },
     {
         "time": "02:59.44",
-        "text": "重なるひびを|僕達は",
-        "pace": [1.5, 1.3],
+        "text": [
+            { "phrase": "重なる", "duration": 0 },
+            { "phrase": "ひびを", "duration": 0 },
+            { "phrase": "僕達は", "duration": 0 }
+        ],
         "translation": "交疊的時日中我們將"
     },
     {
         "time": "03:02.40",
-        "text": "流るるひびも|僕達は",
-        "pace": [1.5, 1.3],
+        "text": [
+            { "phrase": "流るる", "duration": 0 },
+            { "phrase": "ひびも", "duration": 0 },
+            { "phrase": "僕達は", "duration": 0 }
+        ],
         "translation": "流動的時光中我們將"
     },
     {
         "time": "03:05.43",
-        "text": "思い出すことも|なくなって",
-        "pace": [1.5, 1.1],
+        "text": [
+            { "phrase": "思い出す", "duration": 0 },
+            { "phrase": "ことも", "duration": 0 },
+            { "phrase": "なくなって", "duration": 0 }
+        ],
         "translation": "會變得什麼都無法回想起來"
     },
     {
         "time": "03:08.25",
-        "text": "そんな |しわあわせで",
-        "pace": [2.5, 1.8],
-        "kiai": true,
+        "text": [
+            { "phrase": "そんな", "duration": 0, "kiai": true },
+            { "phrase": "しわあわせで", "duration": 0 }
+        ],
         "translation": "就那樣 將我們的皺紋合起來"
     },
     {
         "time": "03:12.92",
-        "text": "変わらない |変わ|れないよ| 僕ら",
-        "pace": [1.5, 1.2, 1.18, 1.3],
+        "text": [
+            { "phrase": "変わらない", "duration": 0 },
+            { "phrase": "変わ", "duration": 0 },
+            { "phrase": "れないよ", "duration": 0 },
+            { "phrase": "僕ら", "duration": 0 }
+        ],
         "translation": "一成不變 什麼都無法改變啊 我們"
     },
     {
         "time": "03:20.01",
-        "text": "今も|しっかり|握っている",
-        "pace": [1.3, 1.22, 1.2],
+        "text": [
+            { "phrase": "今も", "duration": 0 },
+            { "phrase": "しっかり", "duration": 0 },
+            { "phrase": "握っている", "duration": 0 }
+        ],
         "translation": "直到現在也緊緊握著手"
     },
     {
         "time": "03:24.78",
-        "text": "ちぎれない |ちぎ|らないよ| 僕ら",
-        "pace": [1.5, 1.2, 1.18, 1.3],
+        "text": [
+            { "phrase": "ちぎれない", "duration": 0 },
+            { "phrase": "ちぎ", "duration": 0 },
+            { "phrase": "らないよ", "duration": 0 },
+            { "phrase": "僕ら", "duration": 0 }
+        ],
         "translation": "無法斬斷的 不會被分開的唷 我們"
     },
     {
         "time": "03:31.91",
-        "text": "今もしっかり|繋|いでる手",
-        "pace": [1.3, 1.2, 1.1],
+        "text": [
+            { "phrase": "今も", "duration": 0 },
+            { "phrase": "しっかり", "duration": 0 },
+            { "phrase": "繋", "duration": 0 },
+            { "phrase": "いでる", "duration": 0 },
+            { "phrase": "手", "duration": 0 }
+        ],
         "translation": "直到現在也緊緊連繫在一起"
     },
     {
         "time": "03:36.94",
-        "text": "溢れ出す|願い込めて|僕らは",
-        "pace": [1.5, 1.0, 1.015],
-        "kiai": true,
-        "translation": "我們懷著滿溢而出的願望"
+        "text": [
+            { "phrase": "溢れ出す", "duration": 0 },
+            { "phrase": "願い込めて", "duration": 0, "kiai": true },
+            { "phrase": "僕らは", "duration": 0 }
+        ],
+        "translation": "我們懷著滿溢而出的願望",
+        "background_voice": {
+            "time": "03:36.94",
+            "text": [
+                { "phrase": "重なる", "duration": 800 },
+                { "phrase": "ひびを", "duration": 800 },
+                { "phrase": "僕達は", "duration": 1000 },
+                { "phrase": "　", "duration": 100 },
+                { "phrase": "流るる", "duration": 800 },
+                { "phrase": "ひびも", "duration": 800 },
+                { "phrase": "僕達は", "duration": 1000 }
+            ],
+            "translation": "交疊的時日中我們將 流動的時光中我們將"
+        }
     },
     {
         "time": "03:42.89",
-        "text": "今から|君の|見てる方へと",
-        "pace": [1.5, 1.15, 1.1],
-        "translation": "現在就向著你注視的方向"
+        "text": [
+            { "phrase": "今から", "duration": 0 },
+            { "phrase": "君の", "duration": 0 },
+            { "phrase": "見てる", "duration": 0 },
+            { "phrase": "方へと", "duration": 0 }
+        ],
+        "translation": "現在就向著你注視的方向",
+        "background_voice": {
+            "time": "03:42.89",
+            "text": [
+                { "phrase": "思い出す", "duration": 800 },
+                { "phrase": "ことも", "duration": 800 },
+                { "phrase": "なくなって", "duration": 1000 },
+                { "phrase": "　", "duration": 100 },
+                { "phrase": "しまうんだろう", "duration": 1200 },
+                { "phrase": "　", "duration": 100 },
+                { "phrase": "しまうんだろう", "duration": 1200 },
+                { "phrase": "って", "duration": 200 }
+            ],
+            "translation": "會變得什麼都無法回想起來 會變成這樣吧 會變成這樣吧.....我想"
+        }
     },
     {
         "time": "03:48.82",
-        "text": "やるせない夢が|覚めた頃に",
-        "pace": [1.5, 1.22],
-        "kiai": true,
-        "translation": "從鬱悶未解的夢中醒來之時"
+        "text": [
+            { "phrase": "やるせない", "duration": 0 },
+            { "phrase": "夢が", "duration": 0 },
+            { "phrase": "覚めた頃に", "duration": 0, "kiai": true }
+        ],
+        "translation": "從鬱悶未解的夢中醒來之時",
+        "background_voice": {
+            "time": "03:48.82",
+            "text": [
+                { "phrase": "重なる", "duration": 800 },
+                { "phrase": "ひびを", "duration": 800 },
+                { "phrase": "僕達は", "duration": 1000 },
+                { "phrase": "　", "duration": 100 },
+                { "phrase": "流るる", "duration": 800 },
+                { "phrase": "ひびも", "duration": 800 },
+                { "phrase": "僕達は", "duration": 1000 }
+            ],
+            "translation": "交疊的時日中我們將 流動的時光中我們將"
+        }
     },
     {
         "time": "03:55.98",
-        "text": "また しわをあわ|せ|て",
-        "pace": [3.0, 2.0, 1.4],
-        "translation": "再一次 將我們的皺紋結合起來"
+        "text": [
+            { "phrase": "また", "duration": 0 },
+            { "phrase": "しわを", "duration": 0 },
+            { "phrase": "あわせて", "duration": 0 }
+        ],
+        "translation": "再一次 將我們的皺紋結合起來",
+        "background_voice": {
+            "time": "03:54.70",
+            "text": [
+                { "phrase": "思い出す", "duration": 800 },
+                { "phrase": "ことも", "duration": 800 },
+                { "phrase": "なくなって", "duration": 1000 },
+                { "phrase": "　", "duration": 100 },
+                { "phrase": "しまうんだろう", "duration": 1200 },
+                { "phrase": "　", "duration": 100 },
+                { "phrase": "しまうんだろう", "duration": 1200 },
+                { "phrase": "って", "duration": 200 }
+            ],
+            "translation": "會變得什麼都無法回想起來 會變成這樣吧 會變成這樣吧.....我想"
+        }
     },
     { "time": "04:07.00", "type": "interlude" },
     { "time": "04:42.04", "type": "end" }
