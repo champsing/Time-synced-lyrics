@@ -133,15 +133,15 @@
                                 </label>
                                 <label for="toggle-scroll-to-current-line">自動滾動到當前行</label><br />
                             </div>
+                            <div id="toggle-enable-translation-container mt-4" class="setting-entry">
+                                <label class="switch mr-2">
+                                    <input type="checkbox" id="toggle-enable-translation" v-model="toggleTranslation" />
+                                    <span class="slider round"></span>
+                                </label>
+                                <label for="toggle-enable-translation">開啟翻譯</label><br />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="toggle-enable-translation-container mt-4" class="toggle-translation">
-                    <label class="switch mr-2">
-                        <input type="checkbox" id="toggle-enable-translation" v-model="toggleTranslation" />
-                        <span class="slider round"></span>
-                    </label>
-                    <label for="toggle-enable-translation">開啟翻譯</label><br />
                 </div>
             </div>
 

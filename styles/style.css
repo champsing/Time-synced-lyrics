@@ -234,11 +234,6 @@ body {
     cursor: pointer;
 }
 
-.toggle-translation {
-    text-align: center;
-    font-size: 1.2rem;
-}
-
 .settings-entry {
     text-align: center;
     font-size: 1.25rem;
