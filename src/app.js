@@ -206,7 +206,6 @@ const app = createApp({
             // 清空所有資料和翻譯文字 要跟歌詞一起才能清空
             currentTime.value = 0;
             songDuration.value = 0;
-            translationText.value = "";
         });
 
         watch(currentLineIndex, (newVal) => {
