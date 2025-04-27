@@ -60,7 +60,7 @@
                     </div>
 
                     <div v-if="line.background_voice !== undefined" class="background-vocals">
-                        <span v-for="(bvt, phraseIndex) in line.background_voice.text" :key="phraseIndex"
+                        <span v-for="(bvt, phraseIndex) in line.background_voice.text" v-if="isCurrentLine(index)" :key="phraseIndex"
                             class="lyric-phrase relative text-transparent bg-clip-text text-sm"
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getBackgroundPhraseStyle(index, phraseIndex)"
