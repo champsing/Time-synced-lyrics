@@ -90,8 +90,9 @@
                             v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
                             {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
                         </a>
-                        <span v-else>{{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲"
-                            }}</span>
+                        <span v-else>
+                            {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
+                        </span>
                     </div>
 
                     <div>
