@@ -27,7 +27,7 @@
         "default_elapse_speed": 1.5
     },
     {
-        "available": true,
+        "available": false,
         "name": "Kenshi Yonezu - Campanella",
         "id": "XeFQJ6-XoD0",
         "artist": "米津玄師",
@@ -45,7 +45,7 @@
         "default_elapse_speed": 1.5
     },
     {
-        "available": true,
+        "available": false,
         "name": "Kenshi Yonezu - KANDEN",
         "id": "UFQEttrn6CQ",
         "artist": "米津玄師",
@@ -62,7 +62,7 @@
         "default_elapse_speed": 1.05
     },
     {
-        "available": true,
+        "available": false,
         "name": "Shytaupe - It's myself",
         "id": "ySD7YVvd6Xw",
         "artist": "シャイトップ",
@@ -75,7 +75,7 @@
         "default_elapse_speed": 1.5
     },
     {
-        "available": true,
+        "available": false,
         "name": "Kiro Akiyama - SKETCH",
         "id": "H4pIbNfYdhI",
         "artist": "秋山黄色",

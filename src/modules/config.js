@@ -1,7 +1,8 @@
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "1.3.2";
-const BUILD_DATE = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+const BASE_VERSION = "2.0.0b";
+const BUILD_DATE = new Date(Date.now() + 28800000).toISOString().slice(0, 10).replace(/-/g, "");
+// 3600.000 * 8 = 28800.000, to insure UTC+8.
 
 // 組合版本號：基礎版本 + 構建日期 + commit 前12位
 export const VERSION = COMMIT_ID
