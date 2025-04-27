@@ -36,7 +36,7 @@
             { "phrase": "カシオピア", "duration": 136 },
             { "phrase": "係留所の", "duration": 136 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "灯り", "duration": 70 },
+            { "phrase": "灯り", "duration": 70, "kiai": true },
             { "phrase": "の下", "duration": 56 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
@@ -63,11 +63,11 @@
             { "phrase": "ながらに", "duration": 72 },
             { "phrase": "記され", "duration": 80 },
             { "phrase": "てた", "duration": 64 },
-            { "phrase": "　", "duration": 128 },
-            { "phrase": "足元に", "duration": 135 },
+            { "phrase": "　", "duration": 200 },
+            { "phrase": "足元に", "duration": 105 },
             { "phrase": "ある", "duration": 67 },
             { "phrase": "宇宙の", "duration": 100 },
-            { "phrase": "影絵", "duration": 112 }
+            { "phrase": "影絵", "duration": 82 }
         ],
         "translation": "天生就被記載上　腳邊有著某個宇宙的剪影"
     },
@@ -116,7 +116,7 @@
         "time": "01:44.58",
         "text": [
             { "phrase": "知った", "duration": 120 },
-            { "phrase": "としても", "duration": 90 }
+            { "phrase": "としても", "duration": 90, "kiai": true }
         ],
         "translation": "將會摧毀自己"
     },

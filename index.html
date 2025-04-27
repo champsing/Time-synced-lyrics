@@ -60,8 +60,8 @@
                     </div>
 
                     <div v-if="line.background_voice !== undefined" class="background-vocals">
-                        <span v-for="(bvt, phraseIndex) in line.background_voice.text" v-if="isCurrentLine(index)" :key="phraseIndex"
-                            class="lyric-phrase relative text-transparent bg-clip-text text-sm"
+                        <span v-for="(bvt, phraseIndex) in line.background_voice.text" v-if="isCurrentLine(index)"
+                            :key="phraseIndex" class="lyric-phrase relative text-transparent bg-clip-text text-sm"
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getBackgroundPhraseStyle(index, phraseIndex)"
                             :class="{ 'active': isBackgroundActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
@@ -126,20 +126,22 @@
                             </div>
 
                             <div id="toggle-scroll-to-current-line-container" class="settings-entry">
-                                <input type="checkbox" id="toggle-scroll-to-current-line"
-                                    v-model="scrollToCurrentLine" />
+                                <label class="switch mr-1">
+                                    <input type="checkbox" id="toggle-scroll-to-current-line"
+                                        v-model="scrollToCurrentLine">
+                                    <span class="slider round"></span>
+                                </label>
                                 <label for="toggle-scroll-to-current-line">自動滾動到當前行</label><br />
                             </div>
-
-                            <div id="toggle-enable-translation-container" class="settings-entry">
-                                <input type="checkbox" id="toggle-enable-translation" v-model="toggleTranslation" />
-                                <label for="toggle-enable-translation">開啟翻譯</label><br />
-                            </div>
                         </div>
-
-
                     </div>
-
+                </div>
+                <div id="toggle-enable-translation-container mt-4" class="toggle-translation">
+                    <label class="switch mr-2">
+                        <input type="checkbox" id="toggle-enable-translation" v-model="toggleTranslation" />
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="toggle-enable-translation">開啟翻譯</label><br />
                 </div>
             </div>
 
