@@ -131,8 +131,9 @@ const app = createApp({
             const lineTime = line.time || 0;
 
             // 安全存取陣列元素，避免 phraseIndex 超出範圍
-            const delay = line.delay?.[phraseIndex] / 100 || 0;
-            const duration = line.duration?.[phraseIndex] / 100 || 0;
+            // 這裡的單位已經是秒了，直接使用不用再除以 100
+            const delay = line.delay?.[phraseIndex] || 0;
+            const duration = line.duration?.[phraseIndex] || 0;
 
             // 計算進度（加入防呆避免除以零）
             let phraseProgressValue = 0;

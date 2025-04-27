@@ -17,8 +17,8 @@ export const scrollToLineIndex = (index) => {
 export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
     if (!jsonMappingContent) return [];
 
-    return jsonMappingContent
-        .map((line, index) => {
+    const parsedLyrics = jsonMappingContent
+        .map((line) => {
             const timeMatch = line.time.match(/(\d+):(\d+\.\d+)/);
             if (timeMatch) {
                 const [_, mm, ss] = timeMatch;
@@ -39,7 +39,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 ).fill(0);
                 line.background_voice.duration = line.background_voice.text.map(
                     (phr) =>
-                        phr.duration ||
+                        phr.duration / 100 ||
                         currentSong.value.default_phrase_duration ||
                         DEFAULT_DURATION,
                     0,
@@ -59,9 +59,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
             }
 
             if (line.type === "interlude") {
-                const interludeDuration =
-                    jsonMappingContent[index + 1].time - line.time;
-                line.text = [{ phrase: "● ● ●", duration: interludeDuration }];
+                line.text = [{ phrase: "● ● ●", duration: 0 }, { phrase: "", duration: 0 }];
             }
 
             if (line.type === "end") {
@@ -80,7 +78,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
             line.duration = new Array(line.text.length).fill(0);
             line.duration = line.text.map(
                 (phr) =>
-                    phr.duration ||
+                    phr.duration / 100 || // json 中的 duration 值單位是厘秒，秒的 1/100 倍
                     currentSong.value.default_phrase_duration ||
                     DEFAULT_DURATION,
                 0,
@@ -101,4 +99,16 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
             };
         })
         .filter((line) => line && line.text);
+
+    return parsedLyrics.map((line, index) => {
+        if (line.type === "interlude") {
+            const interludeDuration =
+                jsonMappingContent[index + 1].time - line.time;
+            line.duration = [interludeDuration];
+            line.delay = [0];
+        }
+        return {
+            ...line,
+        };
+    });
 };
