@@ -1,6 +1,6 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-import { VERSION } from "./modules/config.js";
+import { VERSION, ALBUM_GOOGLE_LINK_BASE } from "./modules/config.js";
 import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
 import { initYouTubePlayer } from "./modules/player.js";
 import { loadSongList, getLyricFilePath } from "./modules/songList.js";
@@ -23,7 +23,7 @@ const app = createApp({
         const currentSong = ref(songList.value[0]);
         const scrollToCurrentLine = ref(true);
         const toggleTranslation = ref(true);
-        const charProgress = ref(0);
+        const phraseProgress = ref(0);
 
         // 計算屬性
         const formattedCurrentTime = computed(() =>
@@ -52,6 +52,18 @@ const app = createApp({
             );
         });
 
+        const backgroundTranslationText = computed(() => {
+            if (
+                !jsonMappingContent.value[currentLineIndex.value] ||
+                currentLineIndex.value === -1
+            )
+                return "";
+            return (
+                jsonMappingContent.value[currentLineIndex.value]
+                    .background_voice?.translation || ""
+            );
+        });
+
         const translationAuthor = computed(() => {
             if (!currentSong.value.translation?.author) return "";
             if (currentSong.value.translation?.modified === true)
@@ -68,43 +80,78 @@ const app = createApp({
             }
         };
 
-        const getCharStyle = (lineIndex, phraseIndex, charIndex) => {
+        const getBackgroundPhraseStyle = (lineIndex, phraseIndex) => {
             if (lineIndex !== currentLineIndex.value) return {};
+            // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
+            const line = jsonMappingContent.value?.[lineIndex];
 
-            const line = jsonMappingContent.value[lineIndex];
+            // 若 line.background_voice 不存在，直接返回空樣式
+            if (!line.background_voice) return {};
 
-            if (line.type == "end")
-                return { "--progress": 100 + "%", "font-size": 20 + "px" };
+            // 安全存取 line.time，若不存在則給默認值 0
+            const lineTime = line.background_voice.time || 0;
 
-            const nextLine = jsonMappingContent.value[lineIndex + 1];
-            const lineDuration = (nextLine?.time || songDuration) - line.time;
-            const averageCharDuration =
-                lineDuration / line.text.join("").length;
+            // 安全存取陣列元素，避免 phraseIndex 超出範圍
+            const delay = line.background_voice.delay?.[phraseIndex] || 0;
+            const duration = line.background_voice.duration?.[phraseIndex] || 0;
 
-            for (let i = 0; i < phraseIndex; i++) {
-                charIndex += line.text[i].length;
+            // 計算進度（加入防呆避免除以零）
+            let phraseProgressValue = 0;
+            if (duration > 0) {
+                const rawProgress =
+                    (currentTime.value - lineTime - delay) / duration;
+                phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
             }
 
-            charProgress.value = Math.min(
-                1,
-                ((currentTime.value - line.time) / averageCharDuration) *
-                    line.pace[phraseIndex] -
-                    charIndex
-            );
-
-            if (
-                charProgress.value < 0 ||
-                charIndex >
-                    Math.floor(
-                        ((currentTime.value - line.time) /
-                            averageCharDuration) *
-                            line.pace[phraseIndex]
-                    )
-            ) {
-                charProgress.value = 0;
+            // 若時間未到延遲時間，進度設為 0
+            if (currentTime.value - lineTime < delay) {
+                phraseProgressValue = 0;
             }
 
-            return { "--progress": charProgress.value * 100 + "%" };
+            return {
+                transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
+                "--progress": `${phraseProgressValue * 100}%`,
+            };
+        };
+
+        const getPhraseStyle = (lineIndex, phraseIndex) => {
+            if (lineIndex !== currentLineIndex.value) return {};
+            // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
+            const line = jsonMappingContent.value?.[lineIndex];
+
+            // 若 line 不存在，直接返回空樣式
+            if (!line) return {};
+
+            // 使用 Optional Chaining 檢查 line.type
+            if (line.type === "end") {
+                return { "--progress": "100%", "font-size": "20px" };
+            }
+
+            // 安全存取 line.time，若不存在則給默認值 0
+            const lineTime = line.time || 0;
+
+            // 安全存取陣列元素，避免 phraseIndex 超出範圍
+            // 這裡的單位已經是秒了，直接使用不用再除以 100
+            const delay = line.delay?.[phraseIndex] || 0;
+            const duration = line.duration?.[phraseIndex] || 0;
+
+            // 計算進度（加入防呆避免除以零）
+            let phraseProgressValue = 0;
+            if (duration > 0) {
+                const rawProgress =
+                    (currentTime.value - lineTime - delay) / duration;
+                phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
+            }
+
+            // 若時間未到延遲時間，進度設為 0
+            if (currentTime.value - lineTime < delay) {
+                phraseProgressValue = 0;
+            }
+
+            return {
+                transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
+                "--progress": `${phraseProgressValue * 100}%`,
+            };
         };
 
         // 初始化流程
@@ -131,7 +178,8 @@ const app = createApp({
                 );
                 jsonMappingContent.value = parseLyrics(
                     await lyricResponse.json(),
-                    currentSong
+                    currentSong,
+                    songDuration
                 );
 
                 // 初始化模態框
@@ -149,9 +197,12 @@ const app = createApp({
             const lyricResponse = await fetch(getLyricFilePath(newSong.name));
             jsonMappingContent.value = parseLyrics(
                 await lyricResponse.json(),
-                currentSong
+                currentSong,
+                songDuration
             );
             console.log(jsonMappingContent.value);
+
+            jumpToCurrentLine(0);
 
             // 切換YouTube視頻
             window.ytPlayer.loadVideoById(newSong.id);
@@ -159,7 +210,6 @@ const app = createApp({
             // 清空所有資料和翻譯文字 要跟歌詞一起才能清空
             currentTime.value = 0;
             songDuration.value = 0;
-            translationText.value = "";
         });
 
         watch(currentLineIndex, (newVal) => {
@@ -167,6 +217,7 @@ const app = createApp({
         });
 
         return {
+            ALBUM_GOOGLE_LINK_BASE,
             jsonMappingContent,
             currentTime,
             songDuration,
@@ -178,14 +229,18 @@ const app = createApp({
             formattedSongDuration,
             currentLineIndex,
             translationText,
+            backgroundTranslationText,
             translationAuthor,
             initModal,
             initYouTubePlayer,
             jumpToCurrentLine,
-            getCharStyle,
+            getPhraseStyle,
+            getBackgroundPhraseStyle,
             isCurrentLine: (index) => index === currentLineIndex.value,
-            isKiai: (line) => line.kiai === true,
-            isCompletedChar: () => charProgress.value >= 1,
+            isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
+            isBackgroundKiai: (line, phraseIndex) =>
+                line.background_voice.text[phraseIndex].kiai,
+            isCompletedPhrase: () => phraseProgress.value == 1,
         };
     },
 });

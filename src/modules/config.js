@@ -9,8 +9,8 @@ export const VERSION = COMMIT_ID
     ? `${BASE_VERSION}-${BUILD_DATE}-${COMMIT_ID.slice(0, 12)}`
     : `${BASE_VERSION}-${BUILD_DATE}-dev`;
 
-export const DEFAULT_ELAPSE_SPEED = 1.5;
+export const DEFAULT_DURATION = 1000;
 export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";
 export const SONGLIST_PATH = "./public/song_list.json";
 export const MAPPINGS_BASE_PATH = "./public/mappings/";
-export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/"
+export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/";

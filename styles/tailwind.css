@@ -7,13 +7,16 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-teal-800: oklch(43.7% 0.078 188.216);
-    --color-teal-900: oklch(38.6% 0.063 188.416);
-    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-cyan-500: oklch(71.5% 0.143 215.221);
+    --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-white: #fff;
     --spacing: 0.25rem;
-    --text-base: 1rem;
-    --text-base--line-height: calc(1.5 / 1);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --default-transition-duration: 150ms;
@@ -192,6 +195,9 @@
   .block {
     display: block;
   }
+  .inline {
+    display: inline;
+  }
   .table {
     display: table;
   }
@@ -226,6 +232,9 @@
   .bg-\[\#3b3a3a\] {
     background-color: #3b3a3a;
   }
+  .bg-amber-700 {
+    background-color: var(--color-amber-700);
+  }
   .bg-clip-text {
     background-clip: text;
   }
@@ -241,6 +250,10 @@
   .\!text-2xl {
     font-size: var(--text-2xl) !important;
     line-height: var(--tw-leading, var(--text-2xl--line-height)) !important;
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .\!text-white {
     color: var(--color-white) !important;

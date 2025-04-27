@@ -1,164 +1,499 @@
 [
     {
-        "time": "00:33.04",
-        "text": "生後間もない詩を引き連れ 桑の枝に旋律を括り付け",
-        "translation": ""
+        "time": "00:32.84",
+        "text": [
+            { "phrase": "生後", "duration": 70 },
+            { "phrase": "間も", "duration": 48 },
+            { "phrase": "ない", "duration": 64 },
+            { "phrase": "詩を", "duration": 86 },
+            { "phrase": "引き連れ", "duration": 134 },
+            { "phrase": "　", "duration": 180 },
+            { "phrase": "桑の枝に", "duration": 180 },
+            { "phrase": "旋律を", "duration": 134 },
+            { "phrase": "括り付け", "duration": 152 }
+        ],
+        "translation": "出生後不久就帶領著詩文　將旋律綁在桑樹的樹枝上"
     },
     {
-        "time": "00:44.64",
-        "text": "制服の丈に似合わない 言葉らを鞄に忍ばせて",
-        "translation": ""
+        "time": "00:44.30",
+        "text": [
+            { "phrase": "制服", "duration": 86 },
+            { "phrase": "の丈に", "duration": 112 },
+            { "phrase": "似合わ", "duration": 66 },
+            { "phrase": "ない", "duration": 54 },
+            { "phrase": "　", "duration": 135 },
+            { "phrase": "言葉", "duration": 60 },
+            { "phrase": "らを", "duration": 90 },
+            { "phrase": "鞄に", "duration": 95 },
+            { "phrase": "忍ばせて", "duration": 175 }
+        ],
+        "translation": "制服尺寸不合身　話語藏進包包裡"
     },
     {
-        "time": "00:53.55",
-        "text": "カシオピア係留所の灯りの下",
-        "translation": ""
+        "time": "00:53.42",
+        "text": [
+            { "phrase": "カシオピア", "duration": 136 },
+            { "phrase": "係留所の", "duration": 160 },
+            { "phrase": "灯り", "duration": 70 },
+            { "phrase": "の下", "duration": 136 }
+        ],
+        "translation": "在仙后座停泊處的燈光之下"
     },
     {
-        "time": "00:58.79",
-        "text": "逃れられない君の影の常に逆に 進むべき光",
-        "translation": ""
+        "time": "00:58.66",
+        "text": [
+            { "phrase": "逃れられない", "duration": 196 },
+            { "phrase": "君の", "duration": 70 },
+            { "phrase": "影の", "duration": 70 },
+            { "phrase": "", "duration": 240 },
+            { "phrase": "常に", "duration": 72 },
+            { "phrase": "逆に", "duration": 118 },
+            { "phrase": "進む", "duration": 96 },
+            { "phrase": "べき", "duration": 52 },
+            { "phrase": "光", "duration": 116 }
+        ],
+        "translation": "面對無法逃離的你的影子　光應該要總是背道而行"
     },
     {
-        "time": "01:10.27",
-        "text": "生まれながらに記されてた 足元にある宇宙の影絵",
-        "translation": ""
+        "time": "01:10.04",
+        "text": [
+            { "phrase": "生まれ", "duration": 64 },
+            { "phrase": "ながらに", "duration": 72 },
+            { "phrase": "記されてた", "duration": 214 },
+            { "phrase": "　", "duration": 128 },
+            { "phrase": "足元に", "duration": 135 },
+            { "phrase": "ある", "duration": 67 },
+            { "phrase": "宇宙の", "duration": 100 },
+            { "phrase": "影絵", "duration": 112 }
+        ],
+        "translation": "天生就被記載上　腳邊有著某個宇宙的剪影"
     },
     {
-        "time": "01:19.27",
-        "text": "カシオピア係留所の灯りの下",
-        "translation": ""
+        "time": "01:18.96",
+        "text": [
+            { "phrase": "カシオピア", "duration": 136 },
+            { "phrase": "係留所の", "duration": 160 },
+            { "phrase": "灯り", "duration": 70 },
+            { "phrase": "の下", "duration": 136 }
+        ],
+        "translation": "在仙后座停泊處的燈光之下"
     },
     {
-        "time": "01:24.88",
-        "text": "秘めた意志 急かす未知 受け取って手渡すこと",
-        "translation": ""
+        "time": "01:24.72",
+        "text": [
+            { "phrase": "秘めた", "duration": 166 },
+            { "phrase": "意志", "duration": 90 },
+            { "phrase": "　", "duration": 20 },
+            { "phrase": "急かす", "duration": 119 },
+            { "phrase": "未知 ", "duration": 150 },
+            { "phrase": "　", "duration": 26 },
+            { "phrase": "受け", "duration": 78 },
+            { "phrase": "取って", "duration": 208 },
+            { "phrase": "手渡す", "duration": 139 },
+            { "phrase": "こと", "duration": 60 }
+        ],
+        "translation": "秘藏的意志　催促的未知　接收並傳遞下去"
     },
     {
-        "time": "01:36.38",
-        "text": "身を焦がした この好奇心が身を滅ぼすと",
-        "translation": ""
+        "time": "01:36.18",
+        "text": [
+            { "phrase": "身を", "duration": 92 },
+            { "phrase": "焦がした ", "duration": 150 },
+            { "phrase": "　", "duration": 40 },
+            { "phrase": "この", "duration": 38 },
+            { "phrase": "好奇心が", "duration": 190 },
+            { "phrase": "　", "duration": 40 },
+            { "phrase": "身を", "duration": 58 },
+            { "phrase": "滅ぼすと", "duration": 200 }
+        ],
+        "translation": "即使知道　焦躁難耐的　這份好奇心"
     },
-    { "time": "01:44.76", "text": "知ったとしても", "translation": "" },
     {
-        "time": "01:48.01",
-        "text": "消えたりしなくて どうせ灰になるなら いっそ書きとめて",
-        "translation": ""
+        "time": "01:44.58",
+        "text": [
+            { "phrase": "知った", "duration": 120 },
+            { "phrase": "としても", "duration": 90 }
+        ],
+        "translation": "將會摧毀自己"
+    },
+    {
+        "time": "01:47.78",
+        "text": [
+            { "phrase": "消え", "duration": 62 },
+            { "phrase": "たり", "duration": 60 },
+            { "phrase": "しなくて", "duration": 100 },
+            { "phrase": "　", "duration": 40 },
+            { "phrase": "どうせ", "duration": 56 },
+            { "phrase": "灰に", "duration": 58 },
+            { "phrase": "なるなら", "duration": 86 },
+            { "phrase": "　", "duration": 70 },
+            { "phrase": "いっそ", "duration": 60 },
+            { "phrase": "書きとめて", "duration": 150 }
+        ],
+        "translation": "也不願任其消失　既然最後都會化為灰燼　不如就寫個盡興"
     },
     {
         "time": "01:56.22",
-        "text": "深く沈める 冷たくなる 胸の奥の方 胸の奥の方",
-        "translation": ""
+        "text": [
+            { "phrase": "深く", "duration": 64 },
+            { "phrase": "沈める ", "duration": 144 },
+            { "phrase": "　", "duration": 100 },
+            { "phrase": "冷たく", "duration": 110 },
+            { "phrase": "なる ", "duration": 70 },
+            { "phrase": "　", "duration": 80 },
+            { "phrase": "胸の", "duration": 60 },
+            { "phrase": "奥の", "duration": 66 },
+            { "phrase": "方", "duration": 80 },
+            { "phrase": "　", "duration": 80 },
+            { "phrase": "胸の", "duration": 60 },
+            { "phrase": "奥の", "duration": 70 },
+            { "phrase": "方", "duration": 80 }
+        ],
+        "translation": "那些深深沉於　逐漸冷卻的　心底深處之物　心底深處之物"
     },
     {
-        "time": "02:08.04",
-        "text": "この世にあるほとんどのものが 成し遂げた奴らの血の跡としたら",
-        "translation": ""
+        "time": "02:07.80",
+        "text": [
+            { "phrase": "この", "duration": 56 },
+            { "phrase": "世に", "duration": 76 },
+            { "phrase": "ある", "duration": 36 },
+            { "phrase": "", "duration": 100 },
+            { "phrase": "ほとんどの", "duration": 140 },
+            { "phrase": "ものが ", "duration": 90 },
+            { "phrase": "　", "duration": 30 },
+            { "phrase": "成し遂げた", "duration": 88 },
+            { "phrase": "奴らの", "duration": 120 },
+            { "phrase": "", "duration": 80 },
+            { "phrase": "血の", "duration": 50 },
+            { "phrase": "跡と", "duration": 68 },
+            { "phrase": "したら", "duration": 82 }
+        ],
+        "translation": "若這世上大部分的東西　都是達成使命之人留下的血跡"
     },
     {
-        "time": "02:19.23",
-        "text": "この痛みだけは彼らと似ている",
-        "translation": ""
+        "time": "02:18.96",
+        "text": [
+            { "phrase": "この", "duration": 60 },
+            { "phrase": "痛み", "duration": 86 },
+            { "phrase": "だけは", "duration": 70 },
+            { "phrase": "", "duration": 60 },
+            { "phrase": "彼らと", "duration": 129 },
+            { "phrase": "似ている", "duration": 86 }
+        ],
+        "translation": "那我只有痛楚與他們相似"
     },
     {
-        "time": "02:25.19",
-        "text": "躊躇せず それを書き足せ その痛みは共通言語だ",
-        "translation": ""
-    },
-    { "time": "02:32.55", "type": "interlude"},
-
-    {
-        "time": "02:44.44",
-        "text": "夜空を塞ぐ星座に睨まれて 大きなものの一部だと悟った",
-        "translation": ""
-    },
-    {
-        "time": "02:55.88",
-        "text": "だけど迷い、選ぶ意志は 自分の中にあると知って",
-        "translation": ""
+        "time": "02:25.00",
+        "text": [
+            { "phrase": "躊躇せず", "duration": 138 },
+            { "phrase": "　", "duration": 60 },
+            { "phrase": "それを", "duration": 60 },
+            { "phrase": "書き足せ", "duration": 80 },
+            { "phrase": "　", "duration": 20 },
+            { "phrase": "その", "duration": 40 },
+            { "phrase": "痛みは", "duration": 136 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "共通言語だ", "duration": 160 }
+        ],
+        "translation": "不帶躊躇地　添寫上去吧　那份痛楚即是我們的共通語言啊"
     },
     {
-        "time": "03:04.91",
-        "text": "カシオピア係留所の灯りの下",
-        "translation": ""
+        "time": "02:32.62",
+        "type": "interlude"
     },
     {
-        "time": "03:10.57",
-        "text": "届かないならそれでいい 果たせないことが辛いよ",
-        "translation": ""
+        "time": "02:44.26",
+        "text": [
+            { "phrase": "夜空を", "duration": 90 },
+            { "phrase": "塞ぐ", "duration": 92 },
+            { "phrase": "星座に", "duration": 100 },
+            { "phrase": "睨まれて", "duration": 102 },
+            { "phrase": "　", "duration": 200 },
+            { "phrase": "大きな", "duration": 70 },
+            { "phrase": "ものの", "duration": 122 },
+            { "phrase": "一部だと", "duration": 122 },
+            { "phrase": "悟った", "duration": 132 }
+        ],
+        "translation": "被堵塞夜空的星座給盯上　便領悟自己只是滄海一粟"
     },
     {
-        "time": "03:22.08",
-        "text": "願うことも吹き消したとき 訪れた闇",
-        "translation": ""
-    },
-    { "time": "03:30.56", "text": "でも本当は", "translation": "" },
-    {
-        "time": "03:33.74",
-        "text": "消えたりしなくて どうせ灰になるなら いっそ書きとめて",
-        "translation": ""
-    },
-    {
-        "time": "03:42.10",
-        "text": "深く沈める 冷たくなる 胸の奥の方 胸の奥の方",
-        "translation": ""
-    },
-    {
-        "time": "03:53.73",
-        "text": "長い旅路 多くの涙と 苦悩の果てに やっと見つけた",
-        "translation": ""
+        "time": "02:55.84",
+        "text": [
+            { "phrase": "だけど", "duration": 72 },
+            { "phrase": "迷い、", "duration": 76 },
+            { "phrase": "選ぶ", "duration": 66 },
+            { "phrase": "意志は ", "duration": 46 },
+            { "phrase": "　", "duration": 200 },
+            { "phrase": "自分の", "duration": 134 },
+            { "phrase": "中に", "duration": 83 },
+            { "phrase": "あると", "duration": 83 },
+            { "phrase": "知って", "duration": 122 }
+        ],
+        "translation": "儘管迷惘，也明白　選擇權就在自己心中"
     },
     {
-        "time": "04:04.87",
-        "text": "原型も時に 容易く盗まれて",
-        "translation": ""
+        "time": "03:04.66",
+        "text": [
+            { "phrase": "カシオピア", "duration": 150 },
+            { "phrase": "係留所の", "duration": 166 },
+            { "phrase": "灯りの", "duration": 98 },
+            { "phrase": "下", "duration": 54 }
+        ],
+        "translation": "在仙后座停泊處的燈光之下"
     },
     {
-        "time": "04:10.86",
-        "text": "痛てえと笑い それを書き足せ その痛みは共通言語だ",
-        "translation": ""
-    },
-    { "time": "04:18.38", "type": "interlude"},
-    {
-        "time": "04:41.55",
-        "text": "それはまだ空が語る以前の 願い達が残した書置き",
-        "translation": ""
-    },
-    {
-        "time": "04:53.02",
-        "text": "痛みの堆積が歴史だ それが僕らの最初の武器",
-        "translation": ""
-    },
-    {
-        "time": "05:02.03",
-        "text": "カシオピア係留所の灯りの下",
-        "translation": ""
+        "time": "03:10.34",
+        "text": [
+            { "phrase": "届か", "duration": 106 },
+            { "phrase": "な", "duration": 61 },
+            { "phrase": "い", "duration": 121 },
+            { "phrase": "ならそれで", "duration": 146 },
+            { "phrase": "い ", "duration": 51 },
+            { "phrase": "い ", "duration": 50 },
+            { "phrase": "　", "duration": 50 },
+            { "phrase": "果たせ", "duration": 94 },
+            { "phrase": "な", "duration": 62 },
+            { "phrase": "い", "duration": 122 },
+            { "phrase": "ことが", "duration": 96 },
+            { "phrase": "辛いよ", "duration": 94 }
+        ],
+        "translation": "抵達不了也沒有關係　畢竟前功盡棄多麼難受"
     },
     {
-        "time": "05:08.00",
-        "text": "息を止めないで どうせ灰になるなら いっそ燃やして",
-        "translation": ""
+        "time": "03:21.88",
+        "text": [
+            { "phrase": "願う", "duration": 104 },
+            { "phrase": "ことも", "duration": 78 },
+            { "phrase": "", "duration": 100 },
+            { "phrase": "吹き消した", "duration": 148 },
+            { "phrase": "とき ", "duration": 40 },
+            { "phrase": "　", "duration": 100 },
+            { "phrase": "訪れた", "duration": 142 },
+            { "phrase": "闇", "duration": 38 }
+        ],
+        "translation": "當連願望都被吹散時　黑暗隨即降臨"
+    },
+    {
+        "time": "03:30.38",
+        "text": [
+            { "phrase": "でも", "duration": 78 },
+            { "phrase": "本当は", "duration": 134 }
+        ],
+        "translation": "但其實"
+    },
+    {
+        "time": "03:33.50",
+        "text": [
+            { "phrase": "消え", "duration": 62 },
+            { "phrase": "たり", "duration": 60 },
+            { "phrase": "しなくて", "duration": 100 },
+            { "phrase": "　", "duration": 40 },
+            { "phrase": "どうせ", "duration": 56 },
+            { "phrase": "灰に", "duration": 58 },
+            { "phrase": "なるなら", "duration": 86 },
+            { "phrase": "　", "duration": 70 },
+            { "phrase": "いっそ", "duration": 60 },
+            { "phrase": "書きとめて", "duration": 150 }
+        ],
+        "translation": "也不願任其消失　既然最後都會化為灰燼　不如就寫個盡興"
+    },
+    {
+        "time": "03:41.92",
+        "text": [
+            { "phrase": "深く", "duration": 64 },
+            { "phrase": "沈める ", "duration": 144 },
+            { "phrase": "　", "duration": 100 },
+            { "phrase": "冷たく", "duration": 110 },
+            { "phrase": "なる ", "duration": 70 },
+            { "phrase": "　", "duration": 80 },
+            { "phrase": "胸の", "duration": 60 },
+            { "phrase": "奥の", "duration": 66 },
+            { "phrase": "方", "duration": 80 },
+            { "phrase": "　", "duration": 80 },
+            { "phrase": "胸の", "duration": 60 },
+            { "phrase": "奥の", "duration": 70 },
+            { "phrase": "方", "duration": 80 }
+        ],
+        "translation": "那些深深沉於　逐漸冷卻的　心底深處之物　心底深處之物"
+    },
+    {
+        "time": "03:53.48",
+        "text": [
+            { "phrase": "長い", "duration": 80 },
+            { "phrase": "旅路", "duration": 110 },
+            { "phrase": "　", "duration": 94 },
+            { "phrase": "多くの", "duration": 84 },
+            { "phrase": "涙と", "duration": 130 },
+            { "phrase": "　", "duration": 62 },
+            { "phrase": "苦悩の", "duration": 106 },
+            { "phrase": "果てに", "duration": 98 },
+            { "phrase": "　", "duration": 62 },
+            { "phrase": "やっと", "duration": 88 },
+            { "phrase": "見つけた", "duration": 108 }
+        ],
+        "translation": "漫長旅途　與無數眼淚　在苦惱的盡頭　終於找到的"
+    },
+    {
+        "time": "04:04.70",
+        "text": [
+            { "phrase": "原型も", "duration": 94 },
+            { "phrase": "時に", "duration": 94 },
+            { "phrase": "　", "duration": 100 },
+            { "phrase": "容易く", "duration": 94 },
+            { "phrase": "盗まれて", "duration": 106 }
+        ],
+        "translation": "根源有時也會　被輕易盜取"
+    },
+    {
+        "time": "04:10.58",
+        "text": [
+            { "phrase": "痛てえと", "duration": 82 },
+            { "phrase": "笑い ", "duration": 112 },
+            { "phrase": "　", "duration": 60 },
+            { "phrase": "それを", "duration": 60 },
+            { "phrase": "書き足せ", "duration": 80 },
+            { "phrase": "　", "duration": 20 },
+            { "phrase": "その", "duration": 40 },
+            { "phrase": "痛みは", "duration": 136 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "共通言語だ", "duration": 160 }
+        ],
+        "translation": "笑著喊痛地　添寫上去吧　那份痛楚即是我們的共通語言啊"
+    },
+    {
+        "time": "04:18.60",
+        "type": "interlude"
+    },
+    {
+        "time": "04:41.36",
+        "text": [
+            { "phrase": "それは", "duration": 72 },
+            { "phrase": "まだ", "duration": 28 },
+            { "phrase": "空が", "duration": 76 },
+            { "phrase": "語る", "duration": 94 },
+            { "phrase": "以前の", "duration": 132 },
+            { "phrase": "　", "duration": 180 },
+            { "phrase": "願い達が", "duration": 188 },
+            { "phrase": "残した", "duration": 122 },
+            { "phrase": "書置き", "duration": 142 }
+        ],
+        "translation": "那是在天空尚未述說之前　心願們就留下的遺言"
+    },
+    {
+        "time": "04:52.92",
+        "text": [
+            { "phrase": "痛みの", "duration": 72 },
+            { "phrase": "堆積が", "duration": 106 },
+            { "phrase": "歴史だ", "duration": 140 },
+            { "phrase": "　", "duration": 142 },
+            { "phrase": "それが", "duration": 116 },
+            { "phrase": "僕らの", "duration": 134 },
+            { "phrase": "最初の", "duration": 112 },
+            { "phrase": "武器", "duration": 62 }
+        ],
+        "translation": "痛楚堆積成為歷史　即是我們最初握有的武器"
+    },
+    {
+        "time": "05:01.76",
+        "text": [
+            { "phrase": "カシオピア", "duration": 152 },
+            { "phrase": "係留所の", "duration": 162 },
+            { "phrase": "灯りの", "duration": 84 },
+            { "phrase": "下", "duration": 90 }
+        ],
+        "translation": "在仙后座停泊處的燈光之下"
+    },
+    {
+        "time": "05:07.64",
+        "text": [
+            { "phrase": "息を", "duration": 62 },
+            { "phrase": "止め", "duration": 60 },
+            { "phrase": "ないで", "duration": 100 },
+            { "phrase": "　", "duration": 40 },
+            { "phrase": "どうせ", "duration": 56 },
+            { "phrase": "灰に", "duration": 58 },
+            { "phrase": "なるなら", "duration": 86 },
+            { "phrase": "　", "duration": 70 },
+            { "phrase": "いっそ", "duration": 60 },
+            { "phrase": "燃や", "duration": 40 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "して", "duration": 70 }
+        ],
+        "translation": "不要停止呼吸　既然最後都會化為灰燼　不如就燃燒自己"
     },
     {
         "time": "05:16.32",
-        "text": "駆動する鼓動 残さず遺す 胸の奥の方 胸の奥の方",
-        "translation": ""
+        "text": [
+            { "phrase": "駆動する", "duration": 120 },
+            { "phrase": "鼓動 ", "duration": 100 },
+            { "phrase": "　", "duration": 80 },
+            { "phrase": "残さず", "duration": 120 },
+            { "phrase": "遺す", "duration": 134 },
+            { "phrase": "　", "duration": 40 },
+            { "phrase": "胸の", "duration": 60 },
+            { "phrase": "奥の", "duration": 66 },
+            { "phrase": "方", "duration": 80 },
+            { "phrase": "　", "duration": 40 },
+            { "phrase": "胸の", "duration": 60 },
+            { "phrase": "奥の", "duration": 80 },
+            { "phrase": "方", "duration": 80 }
+        ],
+        "translation": "跳動著的心跳　不遺留地留下　心底深處之物　心底深處之物"
     },
     {
-        "time": "05:28.08",
-        "text": "この世にあるほとんどのものが 成し遂げた奴らの血の跡としたら",
-        "translation": ""
+        "time": "05:27.82",
+        "text": [
+            { "phrase": "この", "duration": 56 },
+            { "phrase": "世に", "duration": 76 },
+            { "phrase": "ある", "duration": 36 },
+            { "phrase": "", "duration": 100 },
+            { "phrase": "ほとんどの", "duration": 140 },
+            { "phrase": "ものが ", "duration": 90 },
+            { "phrase": "　", "duration": 30 },
+            { "phrase": "成し遂げた", "duration": 88 },
+            { "phrase": "奴らの", "duration": 120 },
+            { "phrase": "", "duration": 80 },
+            { "phrase": "血の", "duration": 50 },
+            { "phrase": "跡と", "duration": 68 },
+            { "phrase": "したら", "duration": 82 }
+        ],
+        "translation": "若這世上大部分的東西　都是達成使命之人留下的血跡"
     },
     {
-        "time": "05:39.08",
-        "text": "それに立つこの言葉は 過去の誰とも違う",
-        "translation": ""
+        "time": "05:38.84",
+        "text": [
+            { "phrase": "それに", "duration": 60 },
+            { "phrase": "立つ", "duration": 36 },
+            { "phrase": "この ", "duration": 40 },
+            { "phrase": "言葉は ", "duration": 120 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "過去の", "duration": 50 },
+            { "phrase": "誰とも", "duration": 104 },
+            { "phrase": "違う", "duration": 52 }
+        ],
+        "translation": "那麼立於其上的這些話語　便和過去的誰都不同"
     },
     {
-        "time": "05:45.23",
-        "text": "自惚れて それを書き足せ その痛みは共通言語だ",
-        "translation": ""
+        "time": "05:45.08",
+        "text": [
+            { "phrase": "自惚れて", "duration": 110 },
+            { "phrase": "　", "duration": 100 },
+            { "phrase": "それを", "duration": 60 },
+            { "phrase": "書き足せ", "duration": 80 },
+            { "phrase": "　", "duration": 20 },
+            { "phrase": "その", "duration": 40 },
+            { "phrase": "痛みは", "duration": 136 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "共通言語だ", "duration": 160 }
+        ],
+        "translation": "自我陶醉地　添寫上去吧　那份痛楚即是我們的共通語言啊"
     },
-    { "time": "05:52.65", "type": "interlude"},
-    { "time": "06:15.36", "type": "end"}
+    {
+        "time": "05:52.55",
+        "type": "interlude"
+    },
+    {
+        "time": "06:22.50",
+        "type": "end"
+    }
 ]
