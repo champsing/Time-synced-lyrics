@@ -83,14 +83,14 @@
     {
         "time": "01:24.72",
         "text": [
-            { "phrase": "秘めた", "duration": 166 },
+            { "phrase": "秘めた", "duration": 120 },
             { "phrase": "意志", "duration": 90 },
-            { "phrase": "　", "duration": 20 },
+            { "phrase": "　", "duration": 40 },
             { "phrase": "急かす", "duration": 119 },
-            { "phrase": "未知 ", "duration": 150 },
+            { "phrase": "未知 ", "duration": 150, "kiai": true },
             { "phrase": "　", "duration": 26 },
-            { "phrase": "受け", "duration": 78 },
-            { "phrase": "取って", "duration": 208 },
+            { "phrase": "受け", "duration": 78, "kiai": true },
+            { "phrase": "取って", "duration": 208, "kiai": true },
             { "phrase": "手渡す", "duration": 139 },
             { "phrase": "こと", "duration": 60 }
         ],
@@ -99,14 +99,14 @@
     {
         "time": "01:36.18",
         "text": [
-            { "phrase": "身を", "duration": 92 },
-            { "phrase": "焦がした ", "duration": 150 },
-            { "phrase": "　", "duration": 40 },
+            { "phrase": "身を", "duration": 72 },
+            { "phrase": "焦がした ", "duration": 100 },
+            { "phrase": "　", "duration": 80 },
             { "phrase": "この", "duration": 38 },
             { "phrase": "好奇心が", "duration": 190 },
-            { "phrase": "　", "duration": 40 },
+            { "phrase": "　", "duration": 80 },
             { "phrase": "身を", "duration": 58 },
-            { "phrase": "滅ぼすと", "duration": 200 }
+            { "phrase": "滅ぼすと", "duration": 150, "kiai": true }
         ],
         "translation": "即使知道　焦躁難耐的　這份好奇心"
     },
@@ -166,8 +166,8 @@
             { "phrase": "成し遂げた", "duration": 88 },
             { "phrase": "奴らの", "duration": 120 },
             { "phrase": "", "duration": 80 },
-            { "phrase": "血の", "duration": 50 },
-            { "phrase": "跡と", "duration": 68 },
+            { "phrase": "血の", "duration": 50, "kiai": true },
+            { "phrase": "跡と", "duration": 68, "kiai": true },
             { "phrase": "したら", "duration": 82 }
         ],
         "translation": "若這世上大部分的東西　都是達成使命之人留下的血跡"
@@ -176,10 +176,10 @@
         "time": "02:18.96",
         "text": [
             { "phrase": "この", "duration": 60 },
-            { "phrase": "痛み", "duration": 86 },
+            { "phrase": "痛み", "duration": 86, "kiai": true },
             { "phrase": "だけは", "duration": 70 },
             { "phrase": "", "duration": 60 },
-            { "phrase": "彼らと", "duration": 129 },
+            { "phrase": "彼らと", "duration": 109 },
             { "phrase": "似ている", "duration": 86 }
         ],
         "translation": "那我只有痛楚與他們相似"
@@ -187,7 +187,7 @@
     {
         "time": "02:25.00",
         "text": [
-            { "phrase": "躊躇せず", "duration": 138 },
+            { "phrase": "躊躇せず", "duration": 138, "kiai": true },
             { "phrase": "　", "duration": 60 },
             { "phrase": "それを", "duration": 60 },
             { "phrase": "書き足せ", "duration": 80 },
@@ -195,7 +195,7 @@
             { "phrase": "その", "duration": 40 },
             { "phrase": "痛みは", "duration": 136 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "共通言語だ", "duration": 160 }
+            { "phrase": "共通言語だ", "duration": 160, "kiai": true }
         ],
         "translation": "不帶躊躇地　添寫上去吧　那份痛楚即是我們的共通語言啊"
     },
