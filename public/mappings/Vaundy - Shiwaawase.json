@@ -356,11 +356,11 @@
             "text": [
                 { "phrase": "思い出す", "duration": 80 },
                 { "phrase": "ことも", "duration": 80 },
-                { "phrase": "なくなって", "duration": 100 },
+                { "phrase": "なくなって", "duration": 100, "kiai": true },
                 { "phrase": "　", "duration": 10 },
                 { "phrase": "しまうんだろう", "duration": 120 },
                 { "phrase": "　", "duration": 10 },
-                { "phrase": "しまうんだろう", "duration": 120 },
+                { "phrase": "しまうんだろう", "duration": 120, "kiai": true },
                 { "phrase": "", "duration": 40 },
                 { "phrase": "って", "duration": 20 }
             ],

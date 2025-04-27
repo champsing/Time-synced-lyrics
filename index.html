@@ -45,22 +45,26 @@
 
     <div id="app">
         <div class="lyrics-container text-center bg-[#3b3a3a] p-4 w-3/5 overflow-y-auto mt-4 mb-8 relative">
-            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl">
+            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
+                :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary }">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
-                    <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
-                        class="lyric-phrase relative text-transparent bg-clip-text"
-                        :duration="line.duration[phraseIndex]" :delay="line.delay[phraseIndex]"
-                        :style="getPhraseStyle(index, phraseIndex)"
-                        :class="{ 'completed': isCurrentLine(index) && isCompletedPhrase() && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
-                        {{ t.phrase }}
-                    </span>
-                    <div v-if="line.background_voice !== undefined">
+                    <div class="primary-vocals">
+                        <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
+                            class="lyric-phrase relative text-transparent bg-clip-text"
+                            :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
+                            :style="getPhraseStyle(index, phraseIndex)"
+                            :class="{ 'active': isActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
+                            {{ t.phrase }}
+                        </span>
+                    </div>
+
+                    <div v-if="line.background_voice !== undefined" class="background-vocals">
                         <span v-for="(bvt, phraseIndex) in line.background_voice.text" :key="phraseIndex"
-                            class="lyric-phrase background-voices relative text-transparent bg-clip-text text-sm"
-                            :duration="line.duration[phraseIndex]" :delay="line.delay[phraseIndex]"
+                            class="lyric-phrase relative text-transparent bg-clip-text text-sm"
+                            :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getBackgroundPhraseStyle(index, phraseIndex)"
-                            :class="{ 'completed': isCurrentLine(index) && isCompletedPhrase() && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
+                            :class="{ 'active': isBackgroundActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
                             {{ bvt.phrase }}
                         </span>
                     </div>
@@ -79,24 +83,23 @@
                         {{ currentSong.title? currentSong.title : currentSong.name }}
                     </div>
 
-
                     <div class="song-artist">
                         {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
 
                     </div>
 
-                    <div class="inline song-album text-sm bg-amber-700">
-                        <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
-                            v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
-                            {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
-                        </a>
-                        <span v-else>
-                            {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
-                        </span>
-                    </div>
-
-                    <div>
+                    <div class="mt-2">
                         <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
+                        <div class="inline song-album text-sm bg-amber-700 ml-7">
+                            <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
+                                v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
+                                {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
+                            </a>
+                            <span v-else>
+                                {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
+                            </span>
+                        </div>
+
                     </div>
                 </div>
 

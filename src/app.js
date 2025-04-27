@@ -23,7 +23,6 @@ const app = createApp({
         const currentSong = ref(songList.value[0]);
         const scrollToCurrentLine = ref(true);
         const toggleTranslation = ref(true);
-        const phraseProgress = ref(0);
 
         // 計算屬性
         const formattedCurrentTime = computed(() =>
@@ -240,7 +239,23 @@ const app = createApp({
             isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
             isBackgroundKiai: (line, phraseIndex) =>
                 line.background_voice.text[phraseIndex].kiai,
-            isCompletedPhrase: () => phraseProgress.value == 1,
+            isActivePhrase: (line, phraseIndex) => {
+                return (
+                    currentTime.value - line.time > line.delay?.[phraseIndex] &&
+                    currentTime.value - line.time - line.delay?.[phraseIndex] <
+                        line.duration?.[phraseIndex]
+                );
+            },
+            isBackgroundActivePhrase: (line, phraseIndex) => {
+                return (
+                    currentTime.value - line.background_voice?.time >
+                        line.background_voice?.delay[phraseIndex] &&
+                    currentTime.value -
+                        line.background_voice?.time -
+                        line.background_voice?.delay[phraseIndex] <
+                        line.background_voice?.duration[phraseIndex]
+                );
+            },
         };
     },
 });

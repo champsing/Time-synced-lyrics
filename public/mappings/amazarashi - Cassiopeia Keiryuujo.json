@@ -19,10 +19,11 @@
         "text": [
             { "phrase": "制服", "duration": 86 },
             { "phrase": "の丈に", "duration": 112 },
-            { "phrase": "似合わ", "duration": 66 },
+            { "phrase": "似合わ", "duration": 66, "kiai": true },
             { "phrase": "ない", "duration": 54 },
             { "phrase": "　", "duration": 135 },
-            { "phrase": "言葉", "duration": 60 },
+            { "phrase": "言", "duration": 30 },
+            { "phrase": "葉", "duration": 30 },
             { "phrase": "らを", "duration": 90 },
             { "phrase": "鞄に", "duration": 95 },
             { "phrase": "忍ばせて", "duration": 175 }
@@ -35,7 +36,7 @@
             { "phrase": "カシオピア", "duration": 136 },
             { "phrase": "係留所の", "duration": 160 },
             { "phrase": "灯り", "duration": 70 },
-            { "phrase": "の下", "duration": 136 }
+            { "phrase": "の下", "duration": 36 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
     },
@@ -59,7 +60,8 @@
         "text": [
             { "phrase": "生まれ", "duration": 64 },
             { "phrase": "ながらに", "duration": 72 },
-            { "phrase": "記されてた", "duration": 214 },
+            { "phrase": "記され", "duration": 80 },
+            { "phrase": "てた", "duration": 64 },
             { "phrase": "　", "duration": 128 },
             { "phrase": "足元に", "duration": 135 },
             { "phrase": "ある", "duration": 67 },
