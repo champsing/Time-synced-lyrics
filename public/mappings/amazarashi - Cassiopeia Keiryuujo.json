@@ -91,9 +91,9 @@
             { "phrase": "急かす", "duration": 119 },
             { "phrase": "未知 ", "duration": 150, "kiai": true },
             { "phrase": "　", "duration": 26 },
-            { "phrase": "受け", "duration": 78, "kiai": true },
-            { "phrase": "取って", "duration": 208, "kiai": true },
-            { "phrase": "手渡す", "duration": 139 },
+            { "phrase": "受け", "duration": 78 },
+            { "phrase": "取って", "duration": 208 },
+            { "phrase": "手渡す", "duration": 139, "kiai": true },
             { "phrase": "こと", "duration": 60 }
         ],
         "translation": "秘藏的意志　催促的未知　接收並傳遞下去"
@@ -105,7 +105,7 @@
             { "phrase": "焦がした ", "duration": 100 },
             { "phrase": "　", "duration": 80 },
             { "phrase": "この", "duration": 38 },
-            { "phrase": "好奇心が", "duration": 190 },
+            { "phrase": "好奇心が", "duration": 190, "kiai": true },
             { "phrase": "　", "duration": 80 },
             { "phrase": "身を", "duration": 58 },
             { "phrase": "滅ぼすと", "duration": 150, "kiai": true }
@@ -116,7 +116,7 @@
         "time": "01:44.58",
         "text": [
             { "phrase": "知った", "duration": 120 },
-            { "phrase": "としても", "duration": 90, "kiai": true }
+            { "phrase": "としても", "duration": 90 }
         ],
         "translation": "將會摧毀自己"
     },
@@ -128,7 +128,7 @@
             { "phrase": "しなくて", "duration": 100 },
             { "phrase": "　", "duration": 40 },
             { "phrase": "どうせ", "duration": 56 },
-            { "phrase": "灰に", "duration": 58 },
+            { "phrase": "灰に", "duration": 58, "kiai": true },
             { "phrase": "なるなら", "duration": 86 },
             { "phrase": "　", "duration": 70 },
             { "phrase": "いっそ", "duration": 60 },
@@ -195,9 +195,9 @@
             { "phrase": "書き足せ", "duration": 80 },
             { "phrase": "　", "duration": 20 },
             { "phrase": "その", "duration": 40 },
-            { "phrase": "痛みは", "duration": 136 },
-            { "phrase": "", "duration": 20 },
-            { "phrase": "共通言語だ", "duration": 160, "kiai": true }
+            { "phrase": "痛みは", "duration": 106 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "共通言語だ", "duration": 170, "kiai": true }
         ],
         "translation": "不帶躊躇地　添寫上去吧　那份痛楚即是我們的共通語言啊"
     },
@@ -282,7 +282,7 @@
         "time": "03:30.38",
         "text": [
             { "phrase": "でも", "duration": 78 },
-            { "phrase": "本当は", "duration": 134 }
+            { "phrase": "本当は", "duration": 134, "kiai": true }
         ],
         "translation": "但其實"
     },
@@ -308,11 +308,11 @@
             { "phrase": "深く", "duration": 64 },
             { "phrase": "沈める ", "duration": 144 },
             { "phrase": "　", "duration": 100 },
-            { "phrase": "冷たく", "duration": 110 },
+            { "phrase": "冷たく", "duration": 110, "kiai": true },
             { "phrase": "なる ", "duration": 70 },
             { "phrase": "　", "duration": 80 },
             { "phrase": "胸の", "duration": 60 },
-            { "phrase": "奥の", "duration": 66 },
+            { "phrase": "奥の", "duration": 70 },
             { "phrase": "方", "duration": 80 },
             { "phrase": "　", "duration": 80 },
             { "phrase": "胸の", "duration": 60 },
@@ -330,7 +330,7 @@
             { "phrase": "多くの", "duration": 84 },
             { "phrase": "涙と", "duration": 130 },
             { "phrase": "　", "duration": 62 },
-            { "phrase": "苦悩の", "duration": 106 },
+            { "phrase": "苦悩の", "duration": 106, "kiai": true },
             { "phrase": "果てに", "duration": 98 },
             { "phrase": "　", "duration": 62 },
             { "phrase": "やっと", "duration": 88 },
@@ -353,15 +353,15 @@
         "time": "04:10.58",
         "text": [
             { "phrase": "痛てえと", "duration": 82 },
-            { "phrase": "笑い ", "duration": 112 },
+            { "phrase": "笑い ", "duration": 112, "kiai": true },
             { "phrase": "　", "duration": 60 },
             { "phrase": "それを", "duration": 60 },
             { "phrase": "書き足せ", "duration": 80 },
             { "phrase": "　", "duration": 20 },
             { "phrase": "その", "duration": 40 },
-            { "phrase": "痛みは", "duration": 136 },
+            { "phrase": "痛みは", "duration": 106 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "共通言語だ", "duration": 160 }
+            { "phrase": "共通言語だ", "duration": 170 }
         ],
         "translation": "笑著喊痛地　添寫上去吧　那份痛楚即是我們的共通語言啊"
     },
@@ -378,7 +378,7 @@
             { "phrase": "語る", "duration": 94 },
             { "phrase": "以前の", "duration": 132 },
             { "phrase": "　", "duration": 180 },
-            { "phrase": "願い達が", "duration": 188 },
+            { "phrase": "願い達が", "duration": 188, "kiai": true },
             { "phrase": "残した", "duration": 122 },
             { "phrase": "書置き", "duration": 142 }
         ],
@@ -389,11 +389,11 @@
         "text": [
             { "phrase": "痛みの", "duration": 72 },
             { "phrase": "堆積が", "duration": 106 },
-            { "phrase": "歴史だ", "duration": 140 },
+            { "phrase": "歴史だ", "duration": 140, "kiai": true },
             { "phrase": "　", "duration": 142 },
-            { "phrase": "それが", "duration": 116 },
-            { "phrase": "僕らの", "duration": 134 },
-            { "phrase": "最初の", "duration": 112 },
+            { "phrase": "それが", "duration": 106 },
+            { "phrase": "僕らの", "duration": 124 },
+            { "phrase": "最初の", "duration": 102 },
             { "phrase": "武器", "duration": 62 }
         ],
         "translation": "痛楚堆積成為歷史　即是我們最初握有的武器"
@@ -413,17 +413,17 @@
         "time": "05:07.64",
         "text": [
             { "phrase": "息を", "duration": 62 },
-            { "phrase": "止め", "duration": 60 },
-            { "phrase": "ないで", "duration": 100 },
+            { "phrase": "止め", "duration": 60, "kiai": true },
+            { "phrase": "ないで", "duration": 100, "kiai": true },
             { "phrase": "　", "duration": 40 },
             { "phrase": "どうせ", "duration": 56 },
             { "phrase": "灰に", "duration": 58 },
             { "phrase": "なるなら", "duration": 86 },
             { "phrase": "　", "duration": 70 },
             { "phrase": "いっそ", "duration": 60 },
-            { "phrase": "燃や", "duration": 40 },
-            { "phrase": "", "duration": 20 },
-            { "phrase": "して", "duration": 70 }
+            { "phrase": "燃や", "duration": 40, "kiai": true },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "して", "duration": 70, "kiai": true }
         ],
         "translation": "不要停止呼吸　既然最後都會化為灰燼　不如就燃燒自己"
     },
@@ -434,7 +434,7 @@
             { "phrase": "鼓動 ", "duration": 100 },
             { "phrase": "　", "duration": 80 },
             { "phrase": "残さず", "duration": 120 },
-            { "phrase": "遺す", "duration": 134 },
+            { "phrase": "遺す", "duration": 134, "kiai": true },
             { "phrase": "　", "duration": 40 },
             { "phrase": "胸の", "duration": 60 },
             { "phrase": "奥の", "duration": 66 },
@@ -456,8 +456,8 @@
             { "phrase": "ほとんどの", "duration": 140 },
             { "phrase": "ものが ", "duration": 90 },
             { "phrase": "　", "duration": 30 },
-            { "phrase": "成し遂げた", "duration": 88 },
-            { "phrase": "奴らの", "duration": 120 },
+            { "phrase": "成し遂げた", "duration": 88, "kiai": true },
+            { "phrase": "奴らの", "duration": 120, "kiai": true },
             { "phrase": "", "duration": 80 },
             { "phrase": "血の", "duration": 50 },
             { "phrase": "跡と", "duration": 68 },
@@ -482,15 +482,15 @@
     {
         "time": "05:45.08",
         "text": [
-            { "phrase": "自惚れて", "duration": 110 },
+            { "phrase": "自惚れて", "duration": 110, "kiai": true },
             { "phrase": "　", "duration": 100 },
             { "phrase": "それを", "duration": 60 },
             { "phrase": "書き足せ", "duration": 80 },
             { "phrase": "　", "duration": 20 },
             { "phrase": "その", "duration": 40 },
-            { "phrase": "痛みは", "duration": 136 },
+            { "phrase": "痛みは", "duration": 106 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "共通言語だ", "duration": 160 }
+            { "phrase": "共通言語だ", "duration": 170, "kiai": true }
         ],
         "translation": "自我陶醉地　添寫上去吧　那份痛楚即是我們的共通語言啊"
     },
