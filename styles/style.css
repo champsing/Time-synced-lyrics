@@ -68,7 +68,7 @@ body {
     justify-content: right;
     align-items: center;
     gap: 0.5rem;
-    width: 85%;
+    width: max-content;
 }
 
 .song-title {

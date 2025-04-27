@@ -201,6 +201,8 @@ const app = createApp({
             );
             console.log(jsonMappingContent.value);
 
+            jumpToCurrentLine(0);
+
             // 切換YouTube視頻
             window.ytPlayer.loadVideoById(newSong.id);
             window.ytPlayer.pauseVideo();
