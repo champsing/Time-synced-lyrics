@@ -34,9 +34,10 @@
         "time": "00:53.42",
         "text": [
             { "phrase": "カシオピア", "duration": 136 },
-            { "phrase": "係留所の", "duration": 160 },
+            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70 },
-            { "phrase": "の下", "duration": 36 }
+            { "phrase": "の下", "duration": 56 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
     },
@@ -74,9 +75,10 @@
         "time": "01:18.96",
         "text": [
             { "phrase": "カシオピア", "duration": 136 },
-            { "phrase": "係留所の", "duration": 160 },
+            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70 },
-            { "phrase": "の下", "duration": 136 }
+            { "phrase": "の下", "duration": 56 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
     },
@@ -224,12 +226,12 @@
             { "phrase": "だけど", "duration": 72 },
             { "phrase": "迷い、", "duration": 76 },
             { "phrase": "選ぶ", "duration": 66 },
-            { "phrase": "意志は ", "duration": 46 },
-            { "phrase": "　", "duration": 200 },
-            { "phrase": "自分の", "duration": 134 },
+            { "phrase": "意志は ", "duration": 56 },
+            { "phrase": "　", "duration": 205 },
+            { "phrase": "自分の", "duration": 134, "kiai": true },
             { "phrase": "中に", "duration": 83 },
             { "phrase": "あると", "duration": 83 },
-            { "phrase": "知って", "duration": 122 }
+            { "phrase": "知って", "duration": 82 }
         ],
         "translation": "儘管迷惘，也明白　選擇權就在自己心中"
     },
@@ -237,7 +239,8 @@
         "time": "03:04.66",
         "text": [
             { "phrase": "カシオピア", "duration": 150 },
-            { "phrase": "係留所の", "duration": 166 },
+            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "灯りの", "duration": 98 },
             { "phrase": "下", "duration": 54 }
         ],
@@ -399,7 +402,8 @@
         "time": "05:01.76",
         "text": [
             { "phrase": "カシオピア", "duration": 152 },
-            { "phrase": "係留所の", "duration": 162 },
+            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "灯りの", "duration": 84 },
             { "phrase": "下", "duration": 90 }
         ],
