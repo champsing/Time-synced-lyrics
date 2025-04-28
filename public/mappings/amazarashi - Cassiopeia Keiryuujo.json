@@ -354,7 +354,7 @@
         "text": [
             { "phrase": "痛てえと", "duration": 82 },
             { "phrase": "笑い ", "duration": 112, "kiai": true },
-            { "phrase": "　", "duration": 60 },
+            { "phrase": "　", "duration": 50 },
             { "phrase": "それを", "duration": 60 },
             { "phrase": "書き足せ", "duration": 80 },
             { "phrase": "　", "duration": 20 },
@@ -379,7 +379,8 @@
             { "phrase": "以前の", "duration": 132 },
             { "phrase": "　", "duration": 180 },
             { "phrase": "願い達が", "duration": 188, "kiai": true },
-            { "phrase": "残した", "duration": 122 },
+            { "phrase": "残した", "duration": 82 },
+            { "phrase": "", "duration": 40 },
             { "phrase": "書置き", "duration": 142 }
         ],
         "translation": "那是在天空尚未述說之前　心願們就留下的遺言"
@@ -421,7 +422,7 @@
             { "phrase": "なるなら", "duration": 86 },
             { "phrase": "　", "duration": 70 },
             { "phrase": "いっそ", "duration": 60 },
-            { "phrase": "燃や", "duration": 40, "kiai": true },
+            { "phrase": "燃や", "duration": 50, "kiai": true },
             { "phrase": "", "duration": 40 },
             { "phrase": "して", "duration": 70, "kiai": true }
         ],
