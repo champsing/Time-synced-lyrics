@@ -88,6 +88,14 @@
 
                     </div>
 
+                    <div v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs" style="padding: 5px; border-radius:  5px;">
+                        INSTRUMENTAL
+                    </div>
+
+                    <div v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs" style="padding: 5px; border-radius:  5px;">
+                        THE FIRST TAKE
+                    </div>
+
                     <div class="mt-2">
                         <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
                         <div class="inline song-album text-sm bg-amber-700 ml-7">
@@ -121,6 +129,23 @@
                                 <select v-model="currentSong" id="song-select">
                                     <option v-for="song in songList" :value="song" style="color: black;">
                                         {{ song.artist }} - {{ song.title }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div id="song-select-container" class="settings-entry">
+                                <label for="song-version-select">版本：</label>
+                                <select v-model="songVersion" id="song-version-select">
+                                    <option value="default" style="color: black;">
+                                        原曲
+                                    </option>
+                                    <option v-if="queryAlternativeVersion(THE_FIRST_TAKE)" :value="THE_FIRST_TAKE"
+                                        style="color: black;">
+                                        The First Take 版本
+                                    </option>
+                                    <option v-if="queryAlternativeVersion(INSTRUMENTAL)" :value="INSTRUMENTAL"
+                                        style="color: black;">
+                                        伴唱帶 (Instrumental)
                                     </option>
                                 </select>
                             </div>
