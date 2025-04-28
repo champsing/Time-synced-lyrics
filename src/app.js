@@ -1,6 +1,11 @@
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
-import { VERSION, ALBUM_GOOGLE_LINK_BASE } from "./modules/config.js";
+import {
+    VERSION,
+    ALBUM_GOOGLE_LINK_BASE,
+    INSTRUMENTAL,
+    THE_FIRST_TAKE,
+} from "./modules/config.js";
 import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
 import { initYouTubePlayer } from "./modules/player.js";
 import { loadSongList, getLyricFilePath } from "./modules/songList.js";
@@ -20,6 +25,7 @@ const app = createApp({
                 name: "",
             },
         ]);
+        const songVersion = ref("default");
         const currentSong = ref(songList.value[0]);
         const scrollToCurrentLine = ref(true);
         const toggleTranslation = ref(true);
@@ -203,7 +209,8 @@ const app = createApp({
 
             jumpToCurrentLine(0);
 
-            // 切換YouTube視頻
+            songVersion.value = "default";
+
             window.ytPlayer.loadVideoById(newSong.id);
             window.ytPlayer.pauseVideo();
             // 清空所有資料和翻譯文字 要跟歌詞一起才能清空
@@ -215,12 +222,36 @@ const app = createApp({
             if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
         });
 
+        watch(songVersion, (newVal) => {
+            if (!currentSong.value.alternative_versions) return;
+
+            // 切換YouTube視頻
+            if (newVal == THE_FIRST_TAKE)
+                window.ytPlayer.loadVideoById(
+                    currentSong.value.alternative_versions.filter(
+                        (x) => x.type === THE_FIRST_TAKE
+                    )[0].id
+                );
+            else if (newVal == INSTRUMENTAL)
+                window.ytPlayer.loadVideoById(
+                    currentSong.value.alternative_versions.filter(
+                        (x) => x.type === INSTRUMENTAL
+                    )[0].id
+                );
+            else window.ytPlayer.loadVideoById(currentSong.value.id);
+
+            window.ytPlayer.pauseVideo();
+        });
+
         return {
             ALBUM_GOOGLE_LINK_BASE,
+            THE_FIRST_TAKE,
+            INSTRUMENTAL,
             jsonMappingContent,
             currentTime,
             songDuration,
             songList,
+            songVersion,
             currentSong,
             scrollToCurrentLine,
             toggleTranslation,
@@ -255,6 +286,11 @@ const app = createApp({
                         line.background_voice?.delay[phraseIndex] <
                         line.background_voice?.duration[phraseIndex]
                 );
+            },
+            queryAlternativeVersion: (version) => {
+                return currentSong.value.alternative_versions?.filter(
+                    (x) => x.type === version
+                )[0];
             },
         };
     },
