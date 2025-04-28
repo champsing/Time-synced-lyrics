@@ -322,7 +322,7 @@
         "text": [
             { "phrase": "他人の", "duration": 78 },
             { "phrase": "", "duration": 40 },
-            { "phrase": "痛みで", "duration": 116 },
+            { "phrase": "痛みで", "duration": 150 },
             { "phrase": "顔が", "duration": 108, "kiai": true },
             { "phrase": "歪む", "duration": 84, "kiai": true }
         ],
@@ -382,7 +382,7 @@
             { "phrase": "", "duration": 20 },
             { "phrase": "事", "duration": 100 },
             { "phrase": "ばかり", "duration": 101 },
-            { "phrase": "考", "duration": 70 },
+            { "phrase": "考", "duration": 90 },
             { "phrase": "える", "duration": 60 }
 
         ],
@@ -420,6 +420,7 @@
     {
         "time": "02:56.54",
         "text": [
+            { "phrase": "", "duration": 20 },
             { "phrase": "別の", "duration": 112 },
             { "phrase": "心が", "duration": 140 },
             { "phrase": "欲しい", "duration": 80 },
@@ -450,7 +451,7 @@
             { "phrase": "ない", "duration": 58 },
             { "phrase": "でしょう", "duration": 61 }
         ],
-        "translation": "相信你連自己都無法正視自己的臉龐吧"
+        "translation": "相信你連自己的臉龐都無法正視吧"
     },
     {
         "time": "03:11.21",
@@ -458,7 +459,7 @@
             { "phrase": "心を", "duration": 120 },
             { "phrase": "映す", "duration": 100 },
             { "phrase": "", "duration": 33 },
-            { "phrase": "鏡が", "duration": 162 },
+            { "phrase": "鏡が", "duration": 172 },
             { "phrase": "いる", "duration": 51 },
             { "phrase": "んだよ", "duration": 85 }
         ],
