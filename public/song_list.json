@@ -15,10 +15,10 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
         },
-        "default_phrase_duration": 1000
+        "default_phrase_duration": 100
     },
     {
-        "available": true,
+        "available": false,
         "name": "Vaundy - Shiwaawase",
         "id": "JwmGruvGt_I",
         "artist": "Vaundy",
@@ -33,7 +33,7 @@
             "name": "replica",
             "link": "UGs6ebR"
         },
-        "default_phrase_duration": 1000
+        "default_phrase_duration": 100
     },
     {
         "available": false,
@@ -51,7 +51,7 @@
             "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
             "modified": true
         },
-        "default_phrase_duration": 1000
+        "default_phrase_duration": 100
     },
     {
         "available": false,
@@ -68,7 +68,7 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-647.html"
         },
-        "default_phrase_duration": 1000
+        "default_phrase_duration": 100
     },
     {
         "available": false,
@@ -81,10 +81,10 @@
         },
         "title": "It's myself",
         "lyricist": "佐々木　想",
-        "default_phrase_duration": 1000
+        "default_phrase_duration": 100
     },
     {
-        "available": false,
+        "available": true,
         "name": "Kiro Akiyama - SKETCH",
         "id": "M0cHair48Jg",
         "artist": "秋山黄色",
@@ -97,6 +97,6 @@
             "available": true,
             "author": "香榭"
         },
-        "default_phrase_duration": 1000
+        "default_phrase_duration": 100
     }
 ]
