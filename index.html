@@ -88,12 +88,15 @@
 
                     </div>
 
-                    <div v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs" style="padding: 5px; border-radius:  5px;">
-                        INSTRUMENTAL
-                    </div>
+                    <!-- 歌曲不同版本的徽章 -->
+                    <div v-if="songVersion !== 'default'" class="alternative-version-badge" style="padding: 5px; border-radius: 5px;">
+                        <div v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs">
+                            INSTRUMENTAL
+                        </div>
 
-                    <div v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs" style="padding: 5px; border-radius:  5px;">
-                        THE FIRST TAKE
+                        <div v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs">
+                            THE FIRST TAKE
+                        </div>
                     </div>
 
                     <div class="mt-2">
@@ -133,9 +136,10 @@
                                 </select>
                             </div>
 
-                            <div id="song-select-container" class="settings-entry">
+                            <div id="song-version-select-container" class="settings-entry">
                                 <label for="song-version-select">版本：</label>
                                 <select v-model="songVersion" id="song-version-select">
+                                    <!-- 歌曲的不同版本 -->
                                     <option value="default" style="color: black;">
                                         原曲
                                     </option>
