@@ -32,13 +32,15 @@
         "default_phrase_duration": 100,
         "is_duet": false,
         "alternative_versions": [
-            {"type": "the_first_take", "id": "XXXX"},
-            {"type": "instrumental", "id": "XXXX"}
+            {"type": "the_first_take", "id": "XXXX"}, // optional
+            {"type": "instrumental", "id": "XXXX"} // optional
         ],
-        "credit": {
-            "vocalist": "Kiro Akiyama",
-            "lyricist_and_songwriting": "Kiro Akiyama",
-            "arrangement": "Kiro Akiyama、川口圭太"
+        "credits": {
+            "vocalist": "秋田ひろむ",
+            "lyricist": "XXXXXX", // optional
+            "song_writing": "XXXXXX", // optional
+            "lyricist_and_songwriting": "秋田ひろむ",
+            "arrangement": "出羽良彰"
         }
     },
 ...
@@ -68,11 +70,11 @@
 | ↳ `type`                     | string  | ✓    | 版本類型 (e.g. "instrumental")       |
 | ↳ `id`                       | string  | ✓    | YouTube 影片 ID                      |
 | `credits`                    | object  |      | 歌曲的製作名單                       |
-| ↳ `vocalist`                 | string  | ✓    | 主唱姓名                             |
-| ↳ `lyricist`                 | string  | ✓    | 作詞姓名                             |
-| ↳ `songwriting`              | string  | ✓    | 作曲姓名                             |
-| ↳ `lyricist_and_songwriting` | string  | ✓    | 詞曲創作姓名                         |
-| ↳ `arrangement`              | string  | ✓    | 編曲姓名                             |
+| ↳ `vocalist`                 | string  |      | 主唱姓名                             |
+| ↳ `lyricist`                 | string  |      | 作詞姓名                             |
+| ↳ `songwriting`              | string  |      | 作曲姓名                             |
+| ↳ `lyricist_and_songwriting` | string  |      | 詞曲創作姓名                         |
+| ↳ `arrangement`              | string  |      | 編曲姓名                             |
 
 WIP
 
