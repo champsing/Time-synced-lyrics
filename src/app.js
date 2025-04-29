@@ -29,6 +29,7 @@ const app = createApp({
         const currentSong = ref(songList.value[0]);
         const scrollToCurrentLine = ref(true);
         const toggleTranslation = ref(true);
+        const togglePronounciation = ref(false);
 
         // 計算屬性
         const formattedCurrentTime = computed(() =>
@@ -253,6 +254,7 @@ const app = createApp({
             songDuration,
             songList,
             songVersion,
+            togglePronounciation,
             currentSong,
             scrollToCurrentLine,
             toggleTranslation,

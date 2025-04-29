@@ -83,7 +83,15 @@
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getPhraseStyle(index, phraseIndex)"
                             :class="{ 'active': isActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
-                            {{ t.phrase }}
+                            <span v-if="t.pronounciation && togglePronounciation">
+                                <ruby>
+                                    {{ t.phrase }}
+                                    <rp>(</rp>
+                                    <rt>{{ t.pronounciation }}</rt>
+                                    <rp>)</rp>
+                                </ruby>
+                            </span>
+                            <span v-else>{{ t.phrase }}</span>
                         </span>
                     </div>
 
@@ -93,7 +101,15 @@
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getBackgroundPhraseStyle(index, phraseIndex)"
                             :class="{ 'active': isBackgroundActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
-                            {{ bvt.phrase }}
+                            <span v-if="bvt.pronounciation && togglePronounciation">
+                                <ruby>
+                                    {{ bvt.phrase }}
+                                    <rp>(</rp>
+                                    <rt class="text-sm">{{ bvt.pronounciation }}</rt>
+                                    <rp>)</rp>
+                                </ruby>
+                            </span>
+                            <span v-else>{{ bvt.phrase }}</span>
                         </span>
                     </div>
                 </button>
@@ -201,6 +217,14 @@
                                     <span class="slider round"></span>
                                 </label>
                                 <label for="toggle-enable-translation">開啟翻譯</label><br />
+                            </div>
+                            <div id="toggle-enable-pronounciation-container mt-4" class="settings-entry">
+                                <label class="switch mr-2">
+                                    <input type="checkbox" id="toggle-enable-pronounciation"
+                                        v-model="togglePronounciation" />
+                                    <span class="slider round"></span>
+                                </label>
+                                <label for="toggle-enable-pronounciation">顯示假名讀音</label><br />
                             </div>
                         </div>
                     </div>

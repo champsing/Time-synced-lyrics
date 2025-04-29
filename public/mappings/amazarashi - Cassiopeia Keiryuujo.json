@@ -2,28 +2,41 @@
     {
         "time": "00:32.84",
         "text": [
-            { "phrase": "生後", "duration": 70 },
-            { "phrase": "間も", "duration": 48 },
+            { "phrase": "生後", "duration": 70, "pronounciation": "せいご" },
+            { "phrase": "間", "duration": 24, "pronounciation": "ま" },
+            { "phrase": "も", "duration": 24 },
             { "phrase": "ない", "duration": 64 },
-            { "phrase": "詩を", "duration": 86 },
-            { "phrase": "引き連れ", "duration": 134 },
+            { "phrase": "詩", "duration": 43, "pronounciation": "うた" },
+            { "phrase": "を", "duration": 43 },
+            { "phrase": "引", "duration": 33, "pronounciation": "ひ" },
+            { "phrase": "き", "duration": 33 },
+            { "phrase": "連", "duration": 33, "pronounciation": "つ" },
+            { "phrase": "れ", "duration": 33 },
             { "phrase": "　", "duration": 180 },
-            { "phrase": "桑の枝に", "duration": 180 },
-            { "phrase": "旋律を", "duration": 134 },
-            { "phrase": "括り付け", "duration": 152 }
+            { "phrase": "桑", "duration": 45, "pronounciation": "" },
+            { "phrase": "の", "duration": 45 },
+            { "phrase": "枝", "duration": 45, "pronounciation": "" },
+            { "phrase": "に", "duration": 45 },
+            { "phrase": "旋律", "duration": 67, "pronounciation": "せんりつ" },
+            { "phrase": "を", "duration": 67 },
+            { "phrase": "括", "duration": 38, "pronounciation": "くく" },
+            { "phrase": "り", "duration": 38 },
+            { "phrase": "付", "duration": 38, "pronounciation": "つ" },
+            { "phrase": "け", "duration": 38 }
         ],
         "translation": "出生後不久就帶領著詩文　將旋律綁在桑樹的樹枝上"
     },
     {
         "time": "00:44.30",
         "text": [
-            { "phrase": "制服", "duration": 86 },
-            { "phrase": "の丈に", "duration": 112 },
-            { "phrase": "似合わ", "duration": 66, "kiai": true },
-            { "phrase": "ない", "duration": 54 },
-            { "phrase": "　", "duration": 135 },
-            { "phrase": "言", "duration": 30 },
-            { "phrase": "葉", "duration": 30 },
+            { "phrase": "制服", "duration": 86, "pronounciation": "せいふく" },
+            { "phrase": "の", "duration": 37 },
+            { "phrase": "丈", "duration": 37, "pronounciation": "たけ" },
+            { "phrase": "に", "duration": 37 },
+            { "phrase": "似合", "duration": 50, "kiai": true, "pronounciation": "にあ" },
+            { "phrase": "わない", "duration": 70, "kiai": true },
+            { "phrase": "　", "duration": 145 },
+            { "phrase": "言葉", "duration": 60, "pronounciation": "ことば" },
             { "phrase": "らを", "duration": 90 },
             { "phrase": "鞄に", "duration": 95 },
             { "phrase": "忍ばせて", "duration": 175 }
@@ -33,7 +46,7 @@
     {
         "time": "00:53.42",
         "text": [
-            { "phrase": "カシオピア", "duration": 136 },
+            { "phrase": "カシオピア", "duration": 126 },
             { "phrase": "係留所の", "duration": 136 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70, "kiai": true },
@@ -178,11 +191,11 @@
         "time": "02:18.96",
         "text": [
             { "phrase": "この", "duration": 60 },
-            { "phrase": "痛み", "duration": 86, "kiai": true },
+            { "phrase": "痛み", "duration": 76, "kiai": true },
             { "phrase": "だけは", "duration": 70 },
             { "phrase": "", "duration": 60 },
             { "phrase": "彼らと", "duration": 109 },
-            { "phrase": "似ている", "duration": 86 }
+            { "phrase": "似ている", "duration": 96 }
         ],
         "translation": "那我只有痛楚與他們相似"
     },
@@ -472,11 +485,11 @@
             { "phrase": "それに", "duration": 60 },
             { "phrase": "立つ", "duration": 36 },
             { "phrase": "この ", "duration": 40 },
-            { "phrase": "言葉は ", "duration": 120 },
-            { "phrase": "", "duration": 40 },
+            { "phrase": "言葉は ", "duration": 80 },
+            { "phrase": "", "duration": 50 },
             { "phrase": "過去の", "duration": 50 },
             { "phrase": "誰とも", "duration": 104 },
-            { "phrase": "違う", "duration": 52 }
+            { "phrase": "違う", "duration": 82 }
         ],
         "translation": "那麼立於其上的這些話語　便和過去的誰都不同"
     },
