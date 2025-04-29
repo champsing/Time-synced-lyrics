@@ -47,7 +47,8 @@
         "time": "00:53.42",
         "text": [
             { "phrase": "カシオピア", "duration": 126 },
-            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            { "phrase": "の", "duration": 34 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70, "kiai": true },
             { "phrase": "の下", "duration": 56 }

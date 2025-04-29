@@ -5,6 +5,7 @@
         "id": "pTwSEgflLq0",
         "artist": "amazarashi",
         "title": "カシオピア係留所",
+        "subtitle": "漫画「チ。」とのコラボ曲",
         "album": {
             "name": "永遠市",
             "link": "cCJ7CCq"
@@ -27,6 +28,7 @@
         "id": "JwmGruvGt_I",
         "artist": "Vaundy",
         "title": "しわあわせ",
+        "subtitle": "専門学校 首都医校、大阪医専、\n名古屋医専の2021年度TVCMソング",
         "translation": {
             "available": true,
             "author": "995GOLDFISH",
@@ -89,13 +91,14 @@
     {
         "available": false,
         "name": "Shytaupe - It's myself",
+        "title": "It's myself",
+        "subtitle": "TVアニメ「WIND BREAKER Season 2」\nエンディングテーマ",
         "id": "ySD7YVvd6Xw",
         "artist": "シャイトップ",
         "album": {
             "name": "It's myself",
             "link": "3HkuEse"
         },
-        "title": "It's myself",
         "lyricist": "佐々木　想",
         "default_phrase_duration": 100
     },
@@ -105,6 +108,7 @@
         "id": "M0cHair48Jg",
         "artist": "秋山黄色",
         "title": "SKETCH",
+        "subtitle": "TVアニメ「僕のヒーローアカデミア」6期EDテーマ",
         "album": {
             "name": "Good Night Mare",
             "link": "43VsTEF"
@@ -117,7 +121,7 @@
         "credits": {
             "vocalist": "Kiro Akiyama",
             "lyricist_and_songwriting": "Kiro Akiyama",
-            "arrangement": "Kiro Akiyama、川口圭太"
+            "arrangement": "Kiro Akiyama\n、川口圭太"
         }
     }
 ]

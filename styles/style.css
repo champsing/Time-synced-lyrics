@@ -89,6 +89,10 @@ body {
     font-family: Poppins, Noto Sans;
 }
 
+.song-subtitle {
+    white-space: pre-wrap;
+}
+
 .song-artist {
     font-size: 1rem;
     text-align: center;
@@ -215,6 +219,10 @@ body {
         border: 1px solid #888;
         width: 40%;
     }
+}
+
+.credit-list {
+    white-space: pre-wrap;
 }
 
 .general-controls {

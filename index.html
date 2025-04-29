@@ -127,6 +127,9 @@
                     <div class="song-title">
                         {{ currentSong.title? currentSong.title : currentSong.name }}
                     </div>
+                    <div class="song-subtitle text-sm text-wrap" v-if="currentSong.subtitle">
+                        {{ currentSong.subtitle? currentSong.subtitle : "" }}
+                    </div>
 
                     <div class="song-artist">
                         <button v-if="currentSong.credits" id="credit-btn" class="underline-when-hover">
