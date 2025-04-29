@@ -37,7 +37,12 @@
             "name": "replica",
             "link": "UGs6ebR"
         },
-        "default_phrase_duration": 100
+        "default_phrase_duration": 100,
+        "credits": {
+            "vocalist": "Vaundy",
+            "lyricist_and_songwriting": "Vaundy",
+            "arrangement": "Vaundy"
+        }
     },
     {
         "available": false,
@@ -55,7 +60,14 @@
             "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
             "modified": true
         },
-        "default_phrase_duration": 100
+        "default_phrase_duration": 100,
+        "credits": {
+            "vocalist": "米津玄師",
+            "guitar": "米津玄師",
+            "bass": "須藤 優",
+            "lyricist_and_songwriting": "米津玄師",
+            "arrangement": "米津玄師、Yuta Bandoh"
+        }
     },
     {
         "available": false,
