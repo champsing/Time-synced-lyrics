@@ -5,7 +5,6 @@
         "id": "pTwSEgflLq0",
         "artist": "amazarashi",
         "title": "カシオピア係留所",
-        "lyricist": "秋田ひろむ",
         "album": {
             "name": "永遠市",
             "link": "cCJ7CCq"
@@ -15,7 +14,12 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
         },
-        "default_phrase_duration": 100
+        "default_phrase_duration": 100,
+        "credits": {
+            "vocalist": "秋田ひろむ",
+            "lyricist_and_songwriting": "秋田ひろむ",
+            "arrangement": "出羽良彰"
+        }
     },
     {
         "available": false,
@@ -97,6 +101,11 @@
             "available": true,
             "author": "香榭"
         },
-        "default_phrase_duration": 100
+        "default_phrase_duration": 100,
+        "credits": {
+            "vocalist": "Kiro Akiyama",
+            "lyricist_and_songwriting": "Kiro Akiyama",
+            "arrangement": "Kiro Akiyama、川口圭太"
+        }
     }
 ]

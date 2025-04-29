@@ -52,7 +52,8 @@
         </div>
 
         <div id="giticon" class="mt-1 ml-2 outline bg-indigo-300 outline-indigo-300" style="border-radius: 5px;">
-            <a href="https://github.com/champsing/time-synced-lyrics" target="_blank" referrerpolicy="noreferrer noopener" aria-label="Champsing TSL Repo" title="GitHub">
+            <a href="https://github.com/champsing/time-synced-lyrics" target="_blank"
+                referrerpolicy="noreferrer noopener" aria-label="Champsing TSL Repo" title="GitHub">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" height="40" width="50"
                     aria-labelledby="title" aria-describedby="desc" role="img"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -112,7 +113,11 @@
                     </div>
 
                     <div class="song-artist">
-                        {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
+                        <button v-if="currentSong.credits" id="credit-btn" class="underline-when-hover">
+                            {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
+                        </button>
+                        <span v-else> {{ currentSong.artist? currentSong.artist : "未知的創作者" }} </span>
+
                         <!-- 歌曲不同版本的徽章 -->
                         <div v-if="songVersion !== 'default'" class="alternative-version-badge inline ml-2">
                             <span v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs"
@@ -129,7 +134,7 @@
 
                     <div class="mt-2">
                         <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
-                        <div class="inline song-album text-sm bg-amber-700 ml-7">
+                        <div class="inline song-album underline-when-hover text-sm bg-amber-700 ml-7">
                             <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
                                 v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
                                 {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
@@ -152,8 +157,8 @@
                 <div id="setting-modal-container" class="modal">
 
                     <!-- Modal content -->
-                    <div id="setting-modal-content" class="modal-content">
-                        <span class="close">&times;</span>
+                    <div id="setting-modal-content" class="setting-modal-content">
+                        <span class="close" id="setting-modal-close-btn">&times;</span>
                         <div class="general-controls">
                             <div id="song-select-container" class="settings-entry">
                                 <label for="song-select">歌曲：</label>
@@ -200,6 +205,60 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="credit-modal-container" class="modal">
+
+                    <!-- Modal content -->
+                    <div id="credit-modal-content" class="credit-modal-content" style="text-align: left;">
+                        <span class="close" id="credit-modal-close-btn">&times;</span>
+                        <div class="artist-banner text-center">
+                            <span id="artist">演出藝人</span>
+                            <div class="text-2xl font-bold">
+                                {{ currentSong.artist }}
+                            </div>
+                        </div>
+
+                        <hr class="m-4" />
+
+                        <div class="mt-2 credit-list grid grid-cols-3" v-if="currentSong.credits"
+                            style="font-family: Poppins, Noto Sans;">
+                            <!-- 演職員名單 需要可以再加 -->
+                            <div id="vocalist" v-if="currentSong.credits.vocalist">
+                                <span id="artist">主唱</span>
+                                <div class="text-2xl font-bold mt-1.5">
+                                    {{ currentSong.credits.vocalist? currentSong.credits.vocalist : "主唱" }}
+                                </div>
+                            </div>
+                            <div id="lyricist" v-if="currentSong.credits.lyricist">
+                                <span id="artist">作詞</span>
+                                <div class="text-2xl font-bold mt-1.5">
+                                    {{ currentSong.credits.lyricist? currentSong.credits.lyricist : "作詞" }}
+                                </div>
+                            </div>
+                            <div id="songwriting" v-if="currentSong.credits.songwriting">
+                                <span id="artist">作曲</span>
+                                <div class="text-2xl font-bold mt-1.5">
+                                    {{ currentSong.credits.songwriting?
+                                    currentSong.credits.songwriting : "作曲" }}
+                                </div>
+                            </div>
+                            <div id="lyricist-songwriting" v-if="currentSong.credits.lyricist_and_songwriting">
+                                <span id="artist">詞曲創作</span>
+                                <div class="text-2xl font-bold mt-1.5">
+                                    {{ currentSong.credits.lyricist_and_songwriting?
+                                    currentSong.credits.lyricist_and_songwriting : "詞曲創作" }}
+                                </div>
+                            </div>
+                            <div id="arrangement" v-if="currentSong.credits.arrangement">
+                                <span id="artist">編曲</span>
+                                <div class="text-2xl font-bold mt-1.5">
+                                    {{ currentSong.credits.arrangement?
+                                    currentSong.credits.arrangement : "編曲" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div v-if="toggleTranslation">
@@ -215,7 +274,7 @@
                     <div class="translate-author">
                         <div v-if="currentSong.translation.cite">
                             <a :href="currentSong.translation.cite" target="_blank" rel="noopener noreferrer"
-                                class="translate-author-with-link">
+                                class="translate-author-with-link underline-when-hover">
                                 翻譯作者：{{ translationAuthor }}
                             </a>
                         </div>

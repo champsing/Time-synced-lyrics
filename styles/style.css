@@ -102,7 +102,7 @@ body {
     border-radius: 12px;
 }
 
-.song-album:hover {
+.underline-when-hover:hover {
     text-decoration: underline;
 }
 
@@ -180,10 +180,6 @@ body {
     font-family: Noto Sans;
 }
 
-.translate-author-with-link:hover {
-    text-decoration: underline;
-}
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -197,9 +193,20 @@ body {
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     transition: transform 0.3s ease-in-out;
-    .modal-content {
+    .setting-modal-content {
         position: absolute;
         background: rgba(69, 90, 71, 0.906);
+        margin: auto;
+        left: 30%;
+        top: 30%;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%;
+    }
+    .credit-modal-content {
+        position: absolute;
+        background: rgb(66, 94, 84);
         margin: auto;
         left: 30%;
         top: 30%;

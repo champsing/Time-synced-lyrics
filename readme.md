@@ -34,7 +34,12 @@
         "alternative_versions": [
             {"type": "the_first_take", "id": "XXXX"},
             {"type": "instrumental", "id": "XXXX"}
-        ]
+        ],
+        "credit": {
+            "vocalist": "Kiro Akiyama",
+            "lyricist_and_songwriting": "Kiro Akiyama",
+            "arrangement": "Kiro Akiyama、川口圭太"
+        }
     },
 ...
 ]
@@ -42,26 +47,32 @@
 
 ### 歌曲屬性說明
 
-| 屬性                      | 類型    | 必填 | 說明                                 |
-| ------------------------- | ------- | ---- | ------------------------------------ |
-| `available`               | boolean | ✓    | 是否啟用該歌曲                       |
-| `name`                    | string  | ✓    | 完整顯示名稱 (e.g. "artist - title") |
-| `id`                      | string  | ✓    | YouTube 影片 ID                      |
-| `artist`                  | string  | ✓    | 歌手/團體名稱                        |
-| `title`                   | string  | ✓    | 歌曲標題（不含歌手名）               |
-| `lyricist`                | string  |      | 作詞者                               |
-| `album`                   | object  |      | 專輯資訊                             |
-| ↳ `name`                  | string  | ✓    | 專輯名稱                             |
-| ↳ `link`                  | string  |      | 專輯連結代碼                         |
-| `translation`             | object  |      | 翻譯資訊                             |
-| ↳ `available`             | boolean | ✓    | 是否有翻譯                           |
-| ↳ `author`                | string  |      | 翻譯作者                             |
-| ↳ `cite`                  | string  |      | 翻譯出處連結                         |
-| `default_phrase_duration` | number  |      | 預設片語持續時間(ms)                 |
-| `is_duet`                 | boolean |      | 是否為對唱歌曲                       |
-| `alternative_versions`    | array   |      | 替代版本列表                         |
-| ↳ `type`                  | string  | ✓    | 版本類型 (e.g. "instrumental")       |
-| ↳ `id`                    | string  | ✓    | YouTube 影片 ID                      |
+| 屬性                         | 類型    | 必填 | 說明                                 |
+| ---------------------------- | ------- | ---- | ------------------------------------ |
+| `available`                  | boolean | ✓    | 是否啟用該歌曲                       |
+| `name`                       | string  | ✓    | 完整顯示名稱 (e.g. "artist - title") |
+| `id`                         | string  | ✓    | YouTube 影片 ID                      |
+| `artist`                     | string  | ✓    | 歌手/團體名稱                        |
+| `title`                      | string  | ✓    | 歌曲標題（不含歌手名）               |
+| `lyricist`                   | string  |      | 作詞者                               |
+| `album`                      | object  |      | 專輯資訊                             |
+| ↳ `name`                     | string  | ✓    | 專輯名稱                             |
+| ↳ `link`                     | string  |      | 專輯連結代碼                         |
+| `translation`                | object  |      | 翻譯資訊                             |
+| ↳ `available`                | boolean | ✓    | 是否有翻譯                           |
+| ↳ `author`                   | string  |      | 翻譯作者                             |
+| ↳ `cite`                     | string  |      | 翻譯出處連結                         |
+| `default_phrase_duration`    | number  |      | 預設片語持續時間(ms)                 |
+| `is_duet`                    | boolean |      | 是否為對唱歌曲                       |
+| `alternative_versions`       | array   |      | 替代版本列表                         |
+| ↳ `type`                     | string  | ✓    | 版本類型 (e.g. "instrumental")       |
+| ↳ `id`                       | string  | ✓    | YouTube 影片 ID                      |
+| `credits`                    | object  |      | 歌曲的製作名單                       |
+| ↳ `vocalist`                 | string  | ✓    | 主唱姓名                             |
+| ↳ `lyricist`                 | string  | ✓    | 作詞姓名                             |
+| ↳ `songwriting`              | string  | ✓    | 作曲姓名                             |
+| ↳ `lyricist_and_songwriting` | string  | ✓    | 詞曲創作姓名                         |
+| ↳ `arrangement`              | string  | ✓    | 編曲姓名                             |
 
 WIP
 
