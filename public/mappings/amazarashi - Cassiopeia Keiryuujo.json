@@ -173,7 +173,7 @@
         "time": "02:07.80",
         "text": [
             { "phrase": "この", "duration": 56 },
-            { "phrase": "世に", "duration": 76 },
+            { "phrase": "世に", "duration": 66 },
             { "phrase": "ある", "duration": 36 },
             { "phrase": "", "duration": 100 },
             { "phrase": "ほとんどの", "duration": 140 },
@@ -343,12 +343,12 @@
             { "phrase": "　", "duration": 94 },
             { "phrase": "多くの", "duration": 84 },
             { "phrase": "涙と", "duration": 130 },
-            { "phrase": "　", "duration": 62 },
-            { "phrase": "苦悩の", "duration": 106, "kiai": true },
-            { "phrase": "果てに", "duration": 98 },
+            { "phrase": "　", "duration": 52 },
+            { "phrase": "苦悩の", "duration": 96, "kiai": true },
+            { "phrase": "果てに", "duration": 88 },
             { "phrase": "　", "duration": 62 },
             { "phrase": "やっと", "duration": 88 },
-            { "phrase": "見つけた", "duration": 108 }
+            { "phrase": "見つけた", "duration": 128 }
         ],
         "translation": "漫長旅途　與無數眼淚　在苦惱的盡頭　終於找到的"
     },
@@ -358,7 +358,7 @@
             { "phrase": "原型も", "duration": 94 },
             { "phrase": "時に", "duration": 94 },
             { "phrase": "　", "duration": 100 },
-            { "phrase": "容易く", "duration": 94 },
+            { "phrase": "容易く", "duration": 90 },
             { "phrase": "盗まれて", "duration": 106 }
         ],
         "translation": "根源有時也會　被輕易盜取"
@@ -368,7 +368,7 @@
         "text": [
             { "phrase": "痛てえと", "duration": 82 },
             { "phrase": "笑い ", "duration": 112, "kiai": true },
-            { "phrase": "　", "duration": 50 },
+            { "phrase": "　", "duration": 40 },
             { "phrase": "それを", "duration": 60 },
             { "phrase": "書き足せ", "duration": 80 },
             { "phrase": "　", "duration": 20 },
@@ -392,7 +392,8 @@
             { "phrase": "語る", "duration": 94 },
             { "phrase": "以前の", "duration": 132 },
             { "phrase": "　", "duration": 180 },
-            { "phrase": "願い達が", "duration": 188, "kiai": true },
+            { "phrase": "願い達が", "duration": 128, "kiai": true },
+            { "phrase": "", "duration": 40 },
             { "phrase": "残した", "duration": 82 },
             { "phrase": "", "duration": 40 },
             { "phrase": "書置き", "duration": 142 }
@@ -406,8 +407,10 @@
             { "phrase": "堆積が", "duration": 106 },
             { "phrase": "歴史だ", "duration": 140, "kiai": true },
             { "phrase": "　", "duration": 142 },
-            { "phrase": "それが", "duration": 106 },
-            { "phrase": "僕らの", "duration": 124 },
+            { "phrase": "それが", "duration": 86 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "僕らの", "duration": 104 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "最初の", "duration": 102 },
             { "phrase": "武器", "duration": 62 }
         ],
@@ -416,7 +419,7 @@
     {
         "time": "05:01.76",
         "text": [
-            { "phrase": "カシオピア", "duration": 152 },
+            { "phrase": "カシオピア", "duration": 126 },
             { "phrase": "係留所の", "duration": 136 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯りの", "duration": 84 },
@@ -465,7 +468,7 @@
         "time": "05:27.82",
         "text": [
             { "phrase": "この", "duration": 56 },
-            { "phrase": "世に", "duration": 76 },
+            { "phrase": "世に", "duration": 66 },
             { "phrase": "ある", "duration": 36 },
             { "phrase": "", "duration": 100 },
             { "phrase": "ほとんどの", "duration": 140 },
@@ -486,11 +489,11 @@
             { "phrase": "それに", "duration": 60 },
             { "phrase": "立つ", "duration": 36 },
             { "phrase": "この ", "duration": 40 },
-            { "phrase": "言葉は ", "duration": 80 },
-            { "phrase": "", "duration": 50 },
+            { "phrase": "言葉は ", "duration": 65 },
+            { "phrase": "", "duration": 65 },
             { "phrase": "過去の", "duration": 50 },
             { "phrase": "誰とも", "duration": 104 },
-            { "phrase": "違う", "duration": 82 }
+            { "phrase": "違う", "duration": 102 }
         ],
         "translation": "那麼立於其上的這些話語　便和過去的誰都不同"
     },
