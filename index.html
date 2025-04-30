@@ -255,37 +255,10 @@
                         <div class="mt-2 credit-list grid grid-cols-3" v-if="currentSong.credits"
                             style="font-family: Poppins, Noto Sans;">
                             <!-- 演職員名單 需要可以再加 -->
-                            <div id="vocalist" v-if="currentSong.credits.vocalist">
-                                <span id="artist">主唱</span>
+                            <div id="contributor" v-for="contributor in currentSong.credits">
+                                <span id="contribution">{{ contributor.contribution?.join("、") }}</span>
                                 <div class="text-2xl font-bold mt-1.5">
-                                    {{ currentSong.credits.vocalist? currentSong.credits.vocalist : "主唱" }}
-                                </div>
-                            </div>
-                            <div id="lyricist" v-if="currentSong.credits.lyricist">
-                                <span id="artist">作詞</span>
-                                <div class="text-2xl font-bold mt-1.5">
-                                    {{ currentSong.credits.lyricist? currentSong.credits.lyricist : "作詞" }}
-                                </div>
-                            </div>
-                            <div id="songwriting" v-if="currentSong.credits.songwriting">
-                                <span id="artist">作曲</span>
-                                <div class="text-2xl font-bold mt-1.5">
-                                    {{ currentSong.credits.songwriting?
-                                    currentSong.credits.songwriting : "作曲" }}
-                                </div>
-                            </div>
-                            <div id="lyricist-songwriting" v-if="currentSong.credits.lyricist_and_songwriting">
-                                <span id="artist">詞曲創作</span>
-                                <div class="text-2xl font-bold mt-1.5">
-                                    {{ currentSong.credits.lyricist_and_songwriting?
-                                    currentSong.credits.lyricist_and_songwriting : "詞曲創作" }}
-                                </div>
-                            </div>
-                            <div id="arrangement" v-if="currentSong.credits.arrangement">
-                                <span id="artist">編曲</span>
-                                <div class="text-2xl font-bold mt-1.5">
-                                    {{ currentSong.credits.arrangement?
-                                    currentSong.credits.arrangement : "編曲" }}
+                                    {{ contributor.name }}
                                 </div>
                             </div>
                         </div>

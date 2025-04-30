@@ -4,6 +4,7 @@
         "name": "amazarashi - Cassiopeia Keiryuujo",
         "id": "pTwSEgflLq0",
         "artist": "amazarashi",
+        "lyricist": "秋田ひろむ",
         "title": "カシオピア係留所",
         "subtitle": "漫画「チ。」とのコラボ曲",
         "album": {
@@ -16,11 +17,16 @@
             "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
         },
         "default_phrase_duration": 100,
-        "credits": {
-            "vocalist": "秋田ひろむ",
-            "lyricist_and_songwriting": "秋田ひろむ",
-            "arrangement": "出羽良彰"
-        }
+        "credits": [
+            {
+                "name": "秋田ひろむ",
+                "contribution": ["主唱", "詞曲創作"]
+            },
+            {
+                "name": "出羽良彰",
+                "contribution": ["編曲"]
+            }
+        ]
     },
     {
         "available": false,
@@ -107,6 +113,7 @@
         "name": "Kiro Akiyama - SKETCH",
         "id": "M0cHair48Jg",
         "artist": "秋山黄色",
+        "lyricist": "Kiro Akiyama",
         "title": "SKETCH",
         "subtitle": "TVアニメ「僕のヒーローアカデミア」6期EDテーマ",
         "album": {
@@ -118,10 +125,15 @@
             "author": "香榭"
         },
         "default_phrase_duration": 100,
-        "credits": {
-            "vocalist": "Kiro Akiyama",
-            "lyricist_and_songwriting": "Kiro Akiyama",
-            "arrangement": "Kiro Akiyama\n、川口圭太"
-        }
+        "credits": [
+            {
+                "name": "Kiro Akiyama",
+                "contribution": ["主唱", "詞曲創作", "編曲"]
+            },
+            {
+                "name": "川口圭太",
+                "contribution": ["編曲"]
+            }
+        ]
     }
 ]

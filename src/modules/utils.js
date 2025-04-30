@@ -66,8 +66,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 line.text = [
                     {
                         phrase: `創作者：${
-                            currentSong.value.credits?.lyricist?.trim() ||
-                            currentSong.value.credits?.lyricist_and_songwriting?.trim() ||
+                            currentSong.value.lyricist?.trim() ||
                             currentSong.value.artist?.trim() ||
                             "未知的創作者"
                         }`,
