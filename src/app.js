@@ -14,6 +14,9 @@ import { initCreditModal, initSettingModal } from "./modules/modal.js";
 // 版本顯示
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
+const params = new URL(document.URL).searchParams;
+const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();
+
 const app = createApp({
     setup() {
         // 響應式狀態
@@ -166,9 +169,25 @@ const app = createApp({
                 // 載入歌曲列表
                 songList.value = await loadSongList();
                 songList.value = songList.value.filter(
-                    (song) => song.available == true
+                    (song) => song.available === true
                 );
-                currentSong.value = songList.value[0];
+                const matchedSong = songList.value.find(
+                    (song) => song.name.trim().toLowerCase() === songRequest
+                );
+
+                // 檢查歌曲列表是否為空
+                if (songList.value.length === 0) {
+                    console.error("沒有可用歌曲");
+                    return;
+                }
+
+                if (matchedSong) {
+                    console.log(`已帶入指定歌曲: ${songRequest}`);
+                    currentSong.value = matchedSong;
+                } else {
+                    currentSong.value = songList.value[0];
+                    console.warn(`未定義指定歌曲: ${songRequest}, 使用第一首歌曲`);
+                }
 
                 // 初始化播放器
                 const { init } = initYouTubePlayer({
@@ -200,8 +219,18 @@ const app = createApp({
         watch(currentSong, async (newSong) => {
             if (!newSong) return;
 
+            // 調試：輸出實際加載的歌曲列表
+            console.log(
+                "Available songs:",
+                songList.value.map((s) => s.name)
+            );
+
             // 載入新歌詞
             const lyricResponse = await fetch(getLyricFilePath(newSong.name));
+
+            // 調試：輸出歌詞文件路徑
+            console.log("Loading lyrics from:", newSong.name);
+
             jsonMappingContent.value = parseLyrics(
                 await lyricResponse.json(),
                 currentSong,
