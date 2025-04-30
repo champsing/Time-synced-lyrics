@@ -7,11 +7,11 @@
             { "phrase": "も", "duration": 24 },
             { "phrase": "ない", "duration": 64 },
             { "phrase": "詩", "duration": 43, "pronounciation": "うた" },
-            { "phrase": "を", "duration": 43 },
+            { "phrase": "を", "duration": 30 },
             { "phrase": "引", "duration": 33, "pronounciation": "ひ" },
-            { "phrase": "き", "duration": 33 },
+            { "phrase": "き", "duration": 30 },
             { "phrase": "連", "duration": 33, "pronounciation": "つ" },
-            { "phrase": "れ", "duration": 33 },
+            { "phrase": "れ", "duration": 30 },
             { "phrase": "　", "duration": 180 },
             { "phrase": "桑", "duration": 45, "pronounciation": "" },
             { "phrase": "の", "duration": 45 },
@@ -32,41 +32,54 @@
             { "phrase": "制服", "duration": 86, "pronounciation": "せいふく" },
             { "phrase": "の", "duration": 37 },
             { "phrase": "丈", "duration": 37, "pronounciation": "たけ" },
-            { "phrase": "に", "duration": 37 },
-            { "phrase": "似合", "duration": 50, "kiai": true, "pronounciation": "にあ" },
+            { "phrase": "に", "duration": 30 },
+            { "phrase": "似合", "duration": 40, "kiai": true, "pronounciation": "にあ" },
             { "phrase": "わない", "duration": 70, "kiai": true },
             { "phrase": "　", "duration": 145 },
-            { "phrase": "言葉", "duration": 60, "pronounciation": "ことば" },
-            { "phrase": "らを", "duration": 90 },
-            { "phrase": "鞄に", "duration": 95 },
-            { "phrase": "忍ばせて", "duration": 175 }
+            { "phrase": "言葉", "duration": 40, "pronounciation": "ことば" },
+            { "phrase": "らを", "duration": 40 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "鞄", "duration": 120 },
+            { "phrase": "に", "duration": 20 },
+            { "phrase": "忍", "duration": 80 },
+            { "phrase": "ばせて", "duration": 60 }
         ],
         "translation": "制服尺寸不合身　話語藏進包包裡"
     },
     {
         "time": "00:53.42",
         "text": [
-            { "phrase": "カシオピア", "duration": 126 },
+            { "phrase": "カシオピア", "duration": 106 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
-            { "phrase": "の", "duration": 34 },
+            { "phrase": "の", "duration": 24 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70, "kiai": true },
-            { "phrase": "の下", "duration": 56 }
+            { "phrase": "", "duration": 20 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "下", "duration": 36 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
     },
     {
         "time": "00:58.66",
         "text": [
-            { "phrase": "逃れられない", "duration": 196 },
-            { "phrase": "君の", "duration": 70 },
-            { "phrase": "影の", "duration": 70 },
+            { "phrase": "逃", "duration": 40, "pronounciation": "のが" },
+            { "phrase": "れられない", "duration": 106 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "君", "duration": 40, "pronounciation": "きみ" },
+            { "phrase": "の", "duration": 30 },
+            { "phrase": "影", "duration": 50, "pronounciation": "かげ" },
+            { "phrase": "の", "duration": 20 },
             { "phrase": "", "duration": 240 },
-            { "phrase": "常に", "duration": 72 },
-            { "phrase": "逆に", "duration": 118 },
-            { "phrase": "進む", "duration": 96 },
+            { "phrase": "常", "duration": 50, "pronounciation": "つね" },
+            { "phrase": "に", "duration": 22 },
+            { "phrase": "逆", "duration": 80, "pronounciation": "ぎゃく" },
+            { "phrase": "に", "duration": 38 },
+            { "phrase": "進", "duration": 60, "pronounciation": "すす" },
+            { "phrase": "む", "duration": 36 },
             { "phrase": "べき", "duration": 52 },
-            { "phrase": "光", "duration": 116 }
+            { "phrase": "光", "duration": 86, "pronounciation": "ひかり" }
         ],
         "translation": "面對無法逃離的你的影子　光應該要總是背道而行"
     },
@@ -88,11 +101,15 @@
     {
         "time": "01:18.96",
         "text": [
-            { "phrase": "カシオピア", "duration": 136 },
-            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "カシオピア", "duration": 106 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "灯り", "duration": 70 },
-            { "phrase": "の下", "duration": 56 }
+            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            { "phrase": "の", "duration": 24 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "灯り", "duration": 70, "kiai": true },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "下", "duration": 36 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
     },
@@ -252,11 +269,15 @@
     {
         "time": "03:04.66",
         "text": [
-            { "phrase": "カシオピア", "duration": 150 },
-            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "カシオピア", "duration": 106 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            { "phrase": "の", "duration": 24 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "灯りの", "duration": 98 },
-            { "phrase": "下", "duration": 54 }
+            { "phrase": "灯り", "duration": 70, "kiai": true },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "下", "duration": 36 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
     },
@@ -264,15 +285,16 @@
         "time": "03:10.34",
         "text": [
             { "phrase": "届か", "duration": 106 },
-            { "phrase": "な", "duration": 61 },
-            { "phrase": "い", "duration": 121 },
-            { "phrase": "ならそれで", "duration": 146 },
-            { "phrase": "い ", "duration": 51 },
-            { "phrase": "い ", "duration": 50 },
-            { "phrase": "　", "duration": 50 },
+            { "phrase": "な", "duration": 51 },
+            { "phrase": "い", "duration": 51 },
+            { "phrase": "", "duration": 81 },
+            { "phrase": "ならそれで", "duration": 136 },
+            { "phrase": "いい", "duration": 51 },
+            { "phrase": "　", "duration": 60 },
             { "phrase": "果たせ", "duration": 94 },
             { "phrase": "な", "duration": 62 },
-            { "phrase": "い", "duration": 122 },
+            { "phrase": "い", "duration": 40 },
+            { "phrase": "", "duration": 92 },
             { "phrase": "ことが", "duration": 96 },
             { "phrase": "辛いよ", "duration": 94 }
         ],
@@ -419,11 +441,15 @@
     {
         "time": "05:01.76",
         "text": [
-            { "phrase": "カシオピア", "duration": 126 },
-            { "phrase": "係留所の", "duration": 136 },
+            { "phrase": "カシオピア", "duration": 106 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "灯りの", "duration": 84 },
-            { "phrase": "下", "duration": 90 }
+            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            { "phrase": "の", "duration": 24 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "灯り", "duration": 70, "kiai": true },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "下", "duration": 36 }
         ],
         "translation": "在仙后座停泊處的燈光之下"
     },

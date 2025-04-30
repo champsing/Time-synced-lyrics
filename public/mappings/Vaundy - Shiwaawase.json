@@ -321,9 +321,29 @@
     {
         "time": "03:36.94",
         "text": [
-            { "phrase": "溢れ出す", "duration": 0 },
-            { "phrase": "願い込めて", "duration": 0, "kiai": true },
-            { "phrase": "僕らは", "duration": 0 }
+            { "phrase": "溢", "duration": 60, "pronounciation": "あふ" },
+            { "phrase": "れ", "duration": 20 },
+            { "phrase": "出", "duration": 30, "pronounciation": "だ" },
+            { "phrase": "す", "duration": 20 },
+            { "phrase": "", "duration": 50 },
+            {
+                "phrase": "願",
+                "duration": 50,
+                "kiai": true,
+                "pronounciation": "ねが"
+            },
+            { "phrase": "い", "duration": 20, "kiai": true },
+            { "phrase": "", "duration": 20 },
+            {
+                "phrase": "込",
+                "duration": 60,
+                "kiai": true,
+                "pronounciation": "こ"
+            },
+            { "phrase": "めて", "duration": 60, "kiai": true },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "僕", "duration": 60, "pronounciation": "ぼく" },
+            { "phrase": "らは", "duration": 40 }
         ],
         "translation": "我們懷著滿溢而出的願望",
         "background_voice": {
@@ -333,14 +353,27 @@
                 { "phrase": "なる", "duration": 40 },
                 { "phrase": "ひびを", "duration": 80 },
                 { "phrase": "", "duration": 20 },
-                { "phrase": "僕達", "duration": 70, "pronounciation": "ぼくたち" },
+                {
+                    "phrase": "僕達",
+                    "duration": 70,
+                    "pronounciation": "ぼくたち"
+                },
                 { "phrase": "は", "duration": 30 },
                 { "phrase": "　", "duration": 10 },
-                { "phrase": "流", "duration": 40, "pronounciation": "なが", "kiai": true },
+                {
+                    "phrase": "流",
+                    "duration": 40,
+                    "pronounciation": "なが",
+                    "kiai": true
+                },
                 { "phrase": "るる", "duration": 40, "kiai": true },
                 { "phrase": "ひびも", "duration": 80 },
                 { "phrase": "", "duration": 20 },
-                { "phrase": "僕達", "duration": 70, "pronounciation": "ぼくたち" },
+                {
+                    "phrase": "僕達",
+                    "duration": 70,
+                    "pronounciation": "ぼくたち"
+                },
                 { "phrase": "は", "duration": 30 }
             ],
             "translation": "交疊的時日中我們將 流動的時光中我們將"
@@ -390,14 +423,27 @@
                 { "phrase": "なる", "duration": 40 },
                 { "phrase": "ひびを", "duration": 80 },
                 { "phrase": "", "duration": 20 },
-                { "phrase": "僕達", "duration": 70, "pronounciation": "ぼくたち" },
+                {
+                    "phrase": "僕達",
+                    "duration": 70,
+                    "pronounciation": "ぼくたち"
+                },
                 { "phrase": "は", "duration": 30 },
                 { "phrase": "　", "duration": 10 },
-                { "phrase": "流", "duration": 40, "pronounciation": "なが", "kiai": true },
+                {
+                    "phrase": "流",
+                    "duration": 40,
+                    "pronounciation": "なが",
+                    "kiai": true
+                },
                 { "phrase": "るる", "duration": 40, "kiai": true },
                 { "phrase": "ひびも", "duration": 80 },
                 { "phrase": "", "duration": 20 },
-                { "phrase": "僕達", "duration": 70, "pronounciation": "ぼくたち" },
+                {
+                    "phrase": "僕達",
+                    "duration": 70,
+                    "pronounciation": "ぼくたち"
+                },
                 { "phrase": "は", "duration": 30 }
             ],
             "translation": "交疊的時日中我們將 流動的時光中我們將"
