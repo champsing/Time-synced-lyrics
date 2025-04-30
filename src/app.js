@@ -186,7 +186,7 @@ const app = createApp({
                     currentSong.value = matchedSong;
                 } else {
                     currentSong.value = songList.value[0];
-                    console.warn(`歌曲未找到: ${songRequest}, 使用第一首歌曲`);
+                    console.warn(`未定義指定歌曲: ${songRequest}, 使用第一首歌曲`);
                 }
 
                 // 初始化播放器
