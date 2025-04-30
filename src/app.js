@@ -15,8 +15,7 @@ import { initCreditModal, initSettingModal } from "./modules/modal.js";
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
 const params = new URL(document.URL).searchParams;
-const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();;
-console.log(params.get("song"));
+const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();
 
 const app = createApp({
     setup() {
@@ -185,9 +184,8 @@ const app = createApp({
                 if (matchedSong) {
                     currentSong.value = matchedSong;
                 } else {
-                    console.warn(`歌曲未找到: ${songRequest}, 使用第一首歌曲`);
                     currentSong.value = songList.value[0];
-                    return; // 直接跳轉，不執行後續代碼
+                    console.warn(`歌曲未找到: ${songRequest}, 使用第一首歌曲`);
                 }
 
                 // 初始化播放器
