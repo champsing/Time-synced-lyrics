@@ -182,6 +182,7 @@ const app = createApp({
                 }
 
                 if (matchedSong) {
+                    console.log(`已帶入指定歌曲: ${songRequest}`);
                     currentSong.value = matchedSong;
                 } else {
                     currentSong.value = songList.value[0];
@@ -224,10 +225,10 @@ const app = createApp({
                 songList.value.map((s) => s.name)
             );
 
-            // 調試：輸出歌詞文件路徑
-
             // 載入新歌詞
             const lyricResponse = await fetch(getLyricFilePath(newSong.name));
+
+            // 調試：輸出歌詞文件路徑
             console.log("Loading lyrics from:", newSong.name);
 
             jsonMappingContent.value = parseLyrics(
