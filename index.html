@@ -77,6 +77,8 @@
                 :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary }">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
+                    <!-- [for debugging] show line index -->
+                    <!-- {{ index }}  -->
                     <div class="primary-vocals">
                         <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
                             class="lyric-phrase relative text-transparent bg-clip-text"
@@ -117,7 +119,10 @@
         </div>
 
         <div class="right-big-container">
-
+            <!-- [for debugging] show currentTime full value -->
+            <!-- {{ currentTime }}  -->
+            <!-- [for debugging] show currentLineIndex -->
+            <!-- {{ currentLineIndex }}  -->
             <div class="right-container">
                 <button id="setting-btn" class="settings-button">
                     <span>設定</span>
