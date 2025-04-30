@@ -197,6 +197,17 @@ body {
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     transition: transform 0.3s ease-in-out;
+    .song-modal-content {
+        position: absolute;
+        background: rgba(18, 54, 100, 0.906);
+        margin: auto;
+        left: 30%;
+        top: 30%;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%;
+    }
     .setting-modal-content {
         position: absolute;
         background: rgba(69, 90, 71, 0.906);
@@ -258,7 +269,7 @@ body {
 .settings-button {
     position: relative;
     right: 0%;
-    min-width: 50%;
+    width: 100%;
     background: transparent;
     border: none;
     border-radius: 50px;
@@ -281,7 +292,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 52px;
+    width: 30%;
     height: 100%;
     border-radius: 50px;
     background: black;

@@ -25,3 +25,17 @@ export const initCreditModal = () => {
 
     return { show, hide };
 };
+
+export const initSongModal = () => {
+    const close = document.getElementById("song-modal-close-btn");
+    const modal = document.getElementById("song-modal-container");
+
+    const show = () => (modal.style.display = "block");
+    const hide = () => (modal.style.display = "none");
+
+    document.getElementById("song-btn").addEventListener("click", show);
+    close.addEventListener("click", hide);
+    window.addEventListener("click", (e) => e.target === modal && hide());
+
+    return { show, hide };
+};

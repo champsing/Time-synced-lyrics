@@ -10,7 +10,7 @@ import {
 import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
 import { initYouTubePlayer } from "./modules/player.js";
 import { loadSongList, getLyricFilePath } from "./modules/songList.js";
-import { initCreditModal, initSettingModal } from "./modules/modal.js";
+import { initCreditModal, initSettingModal, initSongModal } from "./modules/modal.js";
 
 // 版本顯示
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
@@ -218,6 +218,7 @@ const app = createApp({
                 // 初始化模態框
                 initSettingModal();
                 initCreditModal();
+                initSongModal();
             } catch (error) {
                 console.error("初始化錯誤:", error);
             }
