@@ -5,6 +5,7 @@ import {
     ALBUM_GOOGLE_LINK_BASE,
     INSTRUMENTAL,
     THE_FIRST_TAKE,
+    MERCURY_TSL,
 } from "./modules/config.js";
 import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
 import { initYouTubePlayer } from "./modules/player.js";
@@ -186,7 +187,9 @@ const app = createApp({
                     currentSong.value = matchedSong;
                 } else {
                     currentSong.value = songList.value[0];
-                    console.warn(`未定義指定歌曲: ${songRequest}, 使用第一首歌曲`);
+                    console.warn(
+                        `未定義指定歌曲: ${songRequest}, 使用第一首歌曲`
+                    );
                 }
 
                 // 初始化播放器
@@ -218,6 +221,8 @@ const app = createApp({
         // 監聽歌曲切換
         watch(currentSong, async (newSong) => {
             if (!newSong) return;
+
+            document.title = currentSong.value.title + MERCURY_TSL;
 
             // 調試：輸出實際加載的歌曲列表
             console.log(
