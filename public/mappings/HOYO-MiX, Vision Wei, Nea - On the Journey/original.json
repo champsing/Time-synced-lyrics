@@ -295,8 +295,8 @@
             { "phrase": " ", "duration": 41 },
             { "phrase": "to ", "duration": 15 },
             { "phrase": "dream ", "duration": 31 },
-            { "phrase": "a", "duration": 20 },
-            { "phrase": "live", "duration": 30 }
+            { "phrase": "a", "duration": 10 },
+            { "phrase": "live", "duration": 40 }
         ],
         "translation": "與開拓同行，只為生生不息的理想",
         "is_together": true
@@ -367,7 +367,17 @@
             { "phrase": "time", "duration": 87 }
         ],
         "translation": "生命不息，歲月不止",
-        "is_together": true
+        "is_together": true,
+        "background_voice": {
+            "time": "01:58.06",
+            "text": [
+                { "phrase": "Goes ", "duration": 40 },
+                { "phrase": "on,", "duration": 31 },
+                { "phrase": " ", "duration": 100 },
+                { "phrase": "time", "duration": 100 }
+            ],
+            "translation":"不息，歲月"
+        }
     },
     {
         "time": "02:01.08",
@@ -379,8 +389,8 @@
             { "phrase": " ", "duration": 41 },
             { "phrase": "to ", "duration": 15 },
             { "phrase": "dream ", "duration": 31 },
-            { "phrase": "a", "duration": 20 },
-            { "phrase": "live", "duration": 63 }
+            { "phrase": "a", "duration": 10 },
+            { "phrase": "live", "duration": 40 }
         ],
         "translation": "與開拓同行，只為生生不息的理想",
         "is_together": true
@@ -417,7 +427,12 @@
             { "phrase": "jour", "duration": 54 },
             { "phrase": "ney", "duration": 55 }
         ],
-        "translation": "行於途中"
+        "translation": "行於途中",
+        "background_voice": {
+            "time": "02:08.73",
+            "text": [{ "phrase": "Oh~", "duration": 100 }],
+            "translation":"喔～"
+        }
     },
     {
         "time": "02:11.42",
@@ -432,6 +447,7 @@
     },
     {
         "time": "02:17.02",
-        "type": "end"
+        "type": "end",
+        "is_together": true
     }
 ]

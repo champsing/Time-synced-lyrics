@@ -99,7 +99,7 @@
 
                     <div v-if="line.background_voice !== undefined" class="background-vocals">
                         <span v-for="(bvt, phraseIndex) in line.background_voice.text" v-if="isCurrentLine(index)"
-                            :key="phraseIndex" class="lyric-phrase relative text-transparent bg-clip-text text-sm"
+                            :key="phraseIndex" class="lyric-phrase relative text-transparent bg-clip-text text-xl"
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getBackgroundPhraseStyle(index, phraseIndex)"
                             :class="{ 'active': isBackgroundActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
