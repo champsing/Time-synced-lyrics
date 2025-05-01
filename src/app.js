@@ -7,8 +7,14 @@ import {
     THE_FIRST_TAKE,
     ORIGINAL,
     MERCURY_TSL,
+    TSL_LINK_BASE,
 } from "./modules/config.js";
-import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
+import {
+    formatTime,
+    scrollToLineIndex,
+    parseLyrics,
+    copyToClipboard,
+} from "./modules/utils.js";
 import { initYouTubePlayer } from "./modules/player.js";
 import { loadSongList, getLyricFilePath } from "./modules/songList.js";
 import {
@@ -46,6 +52,10 @@ const app = createApp({
         );
         const formattedSongDuration = computed(() =>
             formatTime(songDuration.value)
+        );
+
+        const currentSongURI = computed(
+            () => TSL_LINK_BASE + encodeURIComponent(currentSong.value.name)
         );
 
         const currentLineIndex = computed(() => {
@@ -354,6 +364,7 @@ const app = createApp({
             songVersion,
             togglePronounciation,
             currentSong,
+            currentSongURI,
             scrollToCurrentLine,
             toggleTranslation,
             formattedCurrentTime,
@@ -365,6 +376,7 @@ const app = createApp({
             initSettingModal,
             initCreditModal,
             initYouTubePlayer,
+            copyToClipboard,
             jumpToCurrentLine,
             getPhraseStyle,
             getBackgroundPhraseStyle,

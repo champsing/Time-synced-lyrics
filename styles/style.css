@@ -307,6 +307,49 @@ body {
     width: 100%;
 }
 
+.share-entry {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.share-button {
+    position: relative;
+    right: 0%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
+}
+
+.share-button span {
+    color: #ecf3e9;
+    background-color: transparent;
+    mix-blend-mode: color-dodge;
+}
+
+.share-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    border-radius: 50px;
+    background: #3292b2;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.share-button:hover:before {
+    background: #49b2d5;
+    width: 100%;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;

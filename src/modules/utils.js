@@ -67,9 +67,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
             }
 
             if (line.type === "interlude") {
-                line.text = [
-                    { phrase: "● ● ●", duration: 0 }
-                ];
+                line.text = [{ phrase: "● ● ●", duration: 0 }];
             }
 
             if (line.type === "end") {
@@ -121,3 +119,12 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
         };
     });
 };
+
+export async function copyToClipboard(text, textType) {
+    try {
+        await navigator.clipboard.writeText(text);
+        alert(`已複製${textType}。`);
+    } catch (err) {
+        console.error("Failed to copy: ", err);
+    }
+}
