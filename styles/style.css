@@ -37,7 +37,6 @@ body {
     .lyric-phrase {
         transition: all 0.2s ease;
         -webkit-background-clip: text;
-
         transform-origin: right;
         background-image: linear-gradient(
             to right,
@@ -201,9 +200,9 @@ body {
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     transition: transform 0.3s ease-in-out;
-    .song-modal-content {
+    .modal-content {
         position: absolute;
-        background: rgba(18, 54, 100, 0.906);
+        background: #7294c1e7;
         margin: auto;
         left: 30%;
         top: 30%;
@@ -212,27 +211,14 @@ body {
         border: 1px solid #888;
         width: 40%;
     }
-    .setting-modal-content {
-        position: absolute;
+    .modal-content.song {
+        background: hsla(214, 69%, 23%, 0.906);
+    }
+    .modal-content.settings {
         background: rgba(69, 90, 71, 0.906);
-        margin: auto;
-        left: 30%;
-        top: 30%;
-        text-align: center;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 40%;
     }
-    .credit-modal-content {
-        position: absolute;
-        background: rgb(66, 94, 84);
-        margin: auto;
-        left: 30%;
-        top: 30%;
-        text-align: center;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 40%;
+    .modal-content.credits {
+        background: rgba(63, 89, 80, 0.906);
     }
 }
 
