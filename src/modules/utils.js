@@ -25,6 +25,14 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 line.time = parseFloat(mm) * 60 + parseFloat(ss);
             }
 
+            if (line.end_time) {
+                const endTimeMatch = line.end_time.match(/(\d+):(\d+\.\d+)/);
+                if (endTimeMatch) {
+                    const [_, mm, ss] = endTimeMatch;
+                    line.end_time = parseFloat(mm) * 60 + parseFloat(ss);
+                }
+            }
+
             if (line.background_voice) {
                 const bgTimeMatch =
                     line.background_voice?.time.match(/(\d+):(\d+\.\d+)/);
@@ -59,7 +67,9 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
             }
 
             if (line.type === "interlude") {
-                line.text = [{ phrase: "● ● ●", duration: 0 }, { phrase: "", duration: 0 }];
+                line.text = [
+                    { phrase: "● ● ●", duration: 0 }
+                ];
             }
 
             if (line.type === "end") {

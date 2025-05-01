@@ -10,7 +10,11 @@ import {
 import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
 import { initYouTubePlayer } from "./modules/player.js";
 import { loadSongList, getLyricFilePath } from "./modules/songList.js";
-import { initCreditModal, initSettingModal, initSongModal } from "./modules/modal.js";
+import {
+    initCreditModal,
+    initSettingModal,
+    initSongModal,
+} from "./modules/modal.js";
 
 // 版本顯示
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
@@ -53,6 +57,21 @@ const app = createApp({
             return -1;
         });
 
+        const isCurrentLine = (index) => {
+            // need more rewriting
+            //     let isNotYetFinished = false;
+            //     let line = jsonMappingContent.value[index];
+
+            //     if (line.end_time) {
+            //         isNotYetFinished =
+            //             line?.end_time > currentTime.value &&
+            //             currentTime.value > line?.time &&
+            //             currentLineIndex.value > index;
+            //         return index === currentLineIndex.value || isNotYetFinished;
+            //     } else return index === currentLineIndex.value;
+            return index === currentLineIndex.value;
+        };
+
         const translationText = computed(() => {
             if (!jsonMappingContent.value || currentLineIndex.value === -1)
                 return "";
@@ -91,7 +110,7 @@ const app = createApp({
         };
 
         const getBackgroundPhraseStyle = (lineIndex, phraseIndex) => {
-            if (lineIndex !== currentLineIndex.value) return {};
+            if (!isCurrentLine(lineIndex)) return {};
             // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
             const line = jsonMappingContent.value?.[lineIndex];
 
@@ -125,12 +144,7 @@ const app = createApp({
         };
 
         const getPhraseStyle = (lineIndex, phraseIndex) => {
-            if (
-                lineIndex !== currentLineIndex.value &&
-                jsonMappingContent.value?.[lineIndex]
-                    .simultaneously_active_with !== currentLineIndex.value
-            )
-                return {};
+            if (!isCurrentLine(lineIndex)) return {};
             // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
             const line = jsonMappingContent.value?.[lineIndex];
 
@@ -310,10 +324,7 @@ const app = createApp({
             jumpToCurrentLine,
             getPhraseStyle,
             getBackgroundPhraseStyle,
-            isCurrentLine: (index) =>
-                index === currentLineIndex.value ||
-                jsonMappingContent.value[index].simultaneously_active_with ===
-                    currentLineIndex.value,
+            isCurrentLine,
             isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
             isBackgroundKiai: (line, phraseIndex) =>
                 line.background_voice.text[phraseIndex].kiai,
