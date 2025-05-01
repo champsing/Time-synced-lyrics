@@ -250,7 +250,7 @@ const app = createApp({
                 initCreditModal();
                 initSongModal();
             } catch (error) {
-                console.error("初始化錯誤:", error);
+                console.error("初始化錯誤: ", error);
             }
         });
 
@@ -277,7 +277,7 @@ const app = createApp({
 
             // 調試：輸出歌詞文件路徑
             console.log(
-                `Loading lyrics from:${newSong.name}/${songVersion.value}.json`
+                `Loading lyrics from: ${newSong.name}/${songVersion.value}.json`
             );
 
             jsonMappingContent.value = parseLyrics(
