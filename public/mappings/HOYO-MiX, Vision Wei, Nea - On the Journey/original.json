@@ -48,9 +48,9 @@
             { "phrase": "Then ", "duration": 32 },
             { "phrase": "will ", "duration": 37 },
             { "phrase": "you ", "duration": 32 },
-            { "phrase": "be ", "duration": 24 },
-            { "phrase": "with ", "duration": 22 },
-            { "phrase": "me?", "duration": 35 }
+            { "phrase": "be ", "duration": 24, "kiai": true },
+            { "phrase": "with ", "duration": 22, "kiai": true },
+            { "phrase": "me?", "duration": 35, "kiai": true }
         ],
         "translation": "你是否願意加入？",
         "is_secondary": true
@@ -99,10 +99,10 @@
         "time": "00:43.56",
         "text": [
             { "phrase": "To ", "duration": 55 },
-            { "phrase": "brigh", "duration": 34 },
-            { "phrase": "ter, ", "duration": 34 },
-            { "phrase": "be", "duration": 19 },
-            { "phrase": "tter ", "duration": 29 },
+            { "phrase": "brigh", "duration": 34, "kiai": true },
+            { "phrase": "ter, ", "duration": 34, "kiai": true },
+            { "phrase": "be", "duration": 19, "kiai": true },
+            { "phrase": "tter ", "duration": 29, "kiai": true },
             { "phrase": "days", "duration": 110 }
         ],
         "translation": "為了前往更美好的明天",
@@ -141,7 +141,7 @@
         "time": "00:56.97",
         "text": [
             { "phrase": "To ", "duration": 30 },
-            { "phrase": "break ", "duration": 34 },
+            { "phrase": "break ", "duration": 34, "kiai": true },
             { "phrase": "into ", "duration": 30 },
             { "phrase": "day", "duration": 34 },
             { "phrase": "light", "duration": 67 }
@@ -156,8 +156,8 @@
             { "phrase": "sleep ", "duration": 33 },
             { "phrase": "un", "duration": 11 },
             { "phrase": "til ", "duration": 20 },
-            { "phrase": "sun", "duration": 33 },
-            { "phrase": "rise", "duration": 64 }
+            { "phrase": "sun", "duration": 33, "kiai": true },
+            { "phrase": "rise", "duration": 64, "kiai": true }
         ],
         "translation": "直至太陽升起也毫無睡意",
         "is_together": true
@@ -183,7 +183,7 @@
             { "phrase": "We're ", "duration": 21 },
             { "phrase": "ri", "duration": 24 },
             { "phrase": "sing ", "duration": 23 },
-            { "phrase": "high,", "duration": 26 },
+            { "phrase": "high,", "duration": 26, "kiai": true },
             { "phrase": " ", "duration": 47 },
             { "phrase": "into ", "duration": 38 },
             { "phrase": "the ", "duration": 19 },
@@ -199,9 +199,9 @@
             { "phrase": "we ", "duration": 25 },
             { "phrase": "go,", "duration": 31 },
             { "phrase": " ", "duration": 50 },
-            { "phrase": "till ", "duration": 25 },
-            { "phrase": "we ", "duration": 34 },
-            { "phrase": "know", "duration": 37 }
+            { "phrase": "till ", "duration": 25, "kiai": true },
+            { "phrase": "we ", "duration": 34, "kiai": true },
+            { "phrase": "know", "duration": 37, "kiai": true }
         ],
         "translation": "就此出發，直到我們知曉答案",
         "is_together": true
