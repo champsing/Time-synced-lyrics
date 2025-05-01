@@ -343,13 +343,13 @@
         "is_together": true
     },
     {
-        "time": "01:53.12",
+        "time": "01:53.00",
         "text": [
             { "phrase": "Break ", "duration": 21 },
             { "phrase": "into ", "duration": 32 },
             { "phrase": "the ", "duration": 18 },
             { "phrase": "moon", "duration": 44, "kiai": true },
-            { "phrase": "light", "duration": 40, "kiai": true }
+            { "phrase": "light", "duration": 50, "kiai": true }
         ],
         "translation": "闖進月色",
         "is_together": true
