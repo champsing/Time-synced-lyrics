@@ -9,7 +9,7 @@
             { "phrase": "the ", "duration": 12 },
             { "phrase": "cos", "duration": 28 },
             { "phrase": "mic ", "duration": 24 },
-            { "phrase": "sea", "duration": 47 }
+            { "phrase": "sea", "duration": 40 }
         ],
         "translation": "我們冒險穿越星海"
     },
@@ -19,8 +19,8 @@
             { "phrase": "A ", "duration": 33 },
             { "phrase": "thou", "duration": 31 },
             { "phrase": "sand ", "duration": 25 },
-            { "phrase": "light-", "duration": 48 },
-            { "phrase": "years, ", "duration": 34 },
+            { "phrase": "light-", "duration": 48, "kiai": true },
+            { "phrase": "years, ", "duration": 34, "kiai": true },
             { "phrase": "wild ", "duration": 14 },
             { "phrase": "and ", "duration": 15 },
             { "phrase": "free", "duration": 52 }
@@ -39,7 +39,8 @@
             { "phrase": "la", "duration": 21 },
             { "phrase": "xy", "duration": 27 }
         ],
-        "translation": "我們在銀河下跳舞"
+        "translation": "我們在銀河下跳舞",
+        "is_secondary": true
     },
     {
         "time": "00:33.08",
@@ -51,7 +52,8 @@
             { "phrase": "with ", "duration": 22 },
             { "phrase": "me?", "duration": 35 }
         ],
-        "translation": "你是否願意加入？"
+        "translation": "你是否願意加入？",
+        "is_secondary": true
     },
     {
         "time": "00:36.39",
@@ -90,7 +92,8 @@
             { "phrase": "a ", "duration": 20 },
             { "phrase": "way", "duration": 34 }
         ],
-        "translation": "與我們一起尋找那條道路"
+        "translation": "與我們一起尋找那條道路",
+        "is_secondary": true
     },
     {
         "time": "00:43.56",
@@ -100,22 +103,24 @@
             { "phrase": "ter, ", "duration": 34 },
             { "phrase": "be", "duration": 19 },
             { "phrase": "tter ", "duration": 29 },
-            { "phrase": "days", "duration": 42 }
+            { "phrase": "days", "duration": 110 }
         ],
-        "translation": "為了前往更美好的明天"
+        "translation": "為了前往更美好的明天",
+        "is_secondary": true
     },
     {
         "time": "00:47.39",
         "text": [
-            { "phrase": "Ex", "duration": 36 },
-            { "phrase": "plo", "duration": 33 },
-            { "phrase": "ra", "duration": 46 },
-            { "phrase": "tion,", "duration": 45 },
+            { "phrase": "Ex", "duration": 36, "kiai": true },
+            { "phrase": "plo", "duration": 33, "kiai": true },
+            { "phrase": "ra", "duration": 46, "kiai": true },
+            { "phrase": "tion,", "duration": 45, "kiai": true },
             { "phrase": " ", "duration": 140 },
             { "phrase": "be", "duration": 21 },
-            { "phrase": "gins!", "duration": 62 }
+            { "phrase": "gins!", "duration": 60 }
         ],
-        "translation": "去開拓吧，就是現在！"
+        "translation": "去開拓吧，就是現在！",
+        "is_together": true
     },
     {
         "time": "00:52.72",
@@ -129,7 +134,8 @@
             { "phrase": "un", "duration": 27 },
             { "phrase": "known", "duration": 33 }
         ],
-        "translation": "前進吧，穿過未知的道路"
+        "translation": "前進吧，穿過未知的道路",
+        "is_together": true
     },
     {
         "time": "00:56.97",
@@ -140,7 +146,8 @@
             { "phrase": "day", "duration": 34 },
             { "phrase": "light", "duration": 67 }
         ],
-        "translation": "闖入白晝"
+        "translation": "闖入白晝",
+        "is_together": true
     },
     {
         "time": "00:59.74",
@@ -152,7 +159,8 @@
             { "phrase": "sun", "duration": 33 },
             { "phrase": "rise", "duration": 64 }
         ],
-        "translation": "直至太陽升起也毫無睡意"
+        "translation": "直至太陽升起也毫無睡意",
+        "is_together": true
     },
     {
         "time": "01:03.43",
@@ -166,7 +174,8 @@
             { "phrase": "a", "duration": 14 },
             { "phrase": "far", "duration": 51 }
         ],
-        "translation": "馳騁吧，我們的道路在遠方"
+        "translation": "馳騁吧，我們的道路在遠方",
+        "is_together": true
     },
     {
         "time": "01:07.69",
@@ -180,7 +189,8 @@
             { "phrase": "the ", "duration": 19 },
             { "phrase": "sky", "duration": 21 }
         ],
-        "translation": "我們正不斷攀升直衝天際"
+        "translation": "我們正不斷攀升直衝天際",
+        "is_together": true
     },
     {
         "time": "01:10.41",
@@ -193,17 +203,19 @@
             { "phrase": "we ", "duration": 34 },
             { "phrase": "know", "duration": 37 }
         ],
-        "translation": "就此出發，直到我們知曉答案"
+        "translation": "就此出發，直到我們知曉答案",
+        "is_together": true
     },
     {
         "time": "01:16.71",
         "text": [
-            { "phrase": "Ex", "duration": 32 },
-            { "phrase": "plo", "duration": 32 },
-            { "phrase": "ra", "duration": 51 },
-            { "phrase": "tion", "duration": 59 }
+            { "phrase": "Ex", "duration": 32, "kiai": true },
+            { "phrase": "plo", "duration": 32, "kiai": true },
+            { "phrase": "ra", "duration": 51, "kiai": true },
+            { "phrase": "tion", "duration": 59, "kiai": true }
         ],
-        "translation": "去開拓吧"
+        "translation": "去開拓吧",
+        "is_together": true
     },
     {
         "time": "01:19.36",
@@ -213,10 +225,11 @@
             { "phrase": "ra", "duration": 51 },
             { "phrase": "tion", "duration": 47 },
             { "phrase": " ", "duration": 143 },
-            { "phrase": "be", "duration": 19 },
-            { "phrase": "gins!", "duration": 75 }
+            { "phrase": "be", "duration": 19, "kiai": true },
+            { "phrase": "gins!", "duration": 60, "kiai": true }
         ],
-        "translation": "去開拓吧，就是現在！"
+        "translation": "去開拓吧，就是現在！",
+        "is_together": true
     },
     {
         "time": "01:24.67",
@@ -230,7 +243,8 @@
             { "phrase": "un", "duration": 23 },
             { "phrase": "known", "duration": 33 }
         ],
-        "translation": "追趕吧，即便前方道路未卜"
+        "translation": "追趕吧，即便前方道路未卜",
+        "is_together": true
     },
     {
         "time": "01:29.01",
@@ -241,7 +255,8 @@
             { "phrase": "day", "duration": 33 },
             { "phrase": "light", "duration": 38 }
         ],
-        "translation": "沉入白晝"
+        "translation": "沉入白晝",
+        "is_together": true
     },
     {
         "time": "01:31.66",
@@ -252,7 +267,8 @@
             { "phrase": "moon", "duration": 26 },
             { "phrase": "light", "duration": 43 }
         ],
-        "translation": "闖進月色"
+        "translation": "闖進月色",
+        "is_together": true
     },
     {
         "time": "01:35.23",
@@ -266,7 +282,8 @@
             { "phrase": "of ", "duration": 27 },
             { "phrase": "time", "duration": 43 }
         ],
-        "translation": "生命不息，歲月不止"
+        "translation": "生命不息，歲月不止",
+        "is_together": true
     },
     {
         "time": "01:39.71",
@@ -281,7 +298,8 @@
             { "phrase": "a", "duration": 20 },
             { "phrase": "live", "duration": 30 }
         ],
-        "translation": "與開拓同行，只為生生不息的理想"
+        "translation": "與開拓同行，只為生生不息的理想",
+        "is_together": true
     },
     {
         "time": "01:42.24",
@@ -294,7 +312,8 @@
             { "phrase": "we ", "duration": 26 },
             { "phrase": "know?", "duration": 64 }
         ],
-        "translation": "刻在靈魂深處的一切，我們是否理解？"
+        "translation": "刻在靈魂深處的一切，我們是否理解？",
+        "is_together": true
     },
     {
         "time": "01:46.01",
@@ -308,7 +327,8 @@
             { "phrase": "un", "duration": 23 },
             { "phrase": "known", "duration": 33 }
         ],
-        "translation": "追趕吧，即便前方道路未卜"
+        "translation": "追趕吧，即便前方道路未卜",
+        "is_together": true
     },
     {
         "time": "01:50.39",
@@ -319,7 +339,8 @@
             { "phrase": "day", "duration": 33 },
             { "phrase": "light", "duration": 38 }
         ],
-        "translation": "沉入白晝"
+        "translation": "沉入白晝",
+        "is_together": true
     },
     {
         "time": "01:53.12",
@@ -330,7 +351,8 @@
             { "phrase": "moon", "duration": 44 },
             { "phrase": "light", "duration": 40 }
         ],
-        "translation": "闖進月色"
+        "translation": "闖進月色",
+        "is_together": true
     },
     {
         "time": "01:56.57",
@@ -344,7 +366,8 @@
             { "phrase": "of ", "duration": 27 },
             { "phrase": "time", "duration": 87 }
         ],
-        "translation": "生命不息，歲月不止"
+        "translation": "生命不息，歲月不止",
+        "is_together": true
     },
     {
         "time": "02:01.08",
@@ -359,7 +382,8 @@
             { "phrase": "a", "duration": 20 },
             { "phrase": "live", "duration": 63 }
         ],
-        "translation": "與開拓同行，只為生生不息的理想"
+        "translation": "與開拓同行，只為生生不息的理想",
+        "is_together": true
     },
     {
         "time": "02:03.71",
@@ -371,7 +395,8 @@
             { "phrase": "we ", "duration": 26 },
             { "phrase": "know?", "duration": 55 }
         ],
-        "translation": "刻在靈魂深處的一切，我們是否理解？"
+        "translation": "刻在靈魂深處的一切，我們是否理解？",
+        "is_together": true
     },
     {
         "time": "02:06.07",
@@ -381,7 +406,8 @@
             { "phrase": "jour", "duration": 51 },
             { "phrase": "ney", "duration": 38 }
         ],
-        "translation": "行於途中"
+        "translation": "行於途中",
+        "is_secondary": true
     },
     {
         "time": "02:08.73",
@@ -401,7 +427,8 @@
             { "phrase": "jour", "duration": 61 },
             { "phrase": "ney", "duration": 76 }
         ],
-        "translation": "開拓不止"
+        "translation": "開拓不止",
+        "is_together": true
     },
     {
         "time": "02:17.02",

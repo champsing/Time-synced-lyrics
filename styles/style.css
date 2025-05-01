@@ -23,6 +23,10 @@ body {
     text-align: right;
 }
 
+.lyric-line.is-duet.is-together {
+    text-align: center;
+}
+
 .lyric-phrase {
     display: inline-block;
     white-space: pre;
