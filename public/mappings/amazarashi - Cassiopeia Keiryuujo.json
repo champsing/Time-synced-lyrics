@@ -120,7 +120,7 @@
             { "phrase": "意志", "duration": 90 },
             { "phrase": "　", "duration": 40 },
             { "phrase": "急かす", "duration": 119 },
-            { "phrase": "未知 ", "duration": 150, "kiai": true },
+            { "phrase": "未知 ", "duration": 140, "kiai": true },
             { "phrase": "　", "duration": 26 },
             { "phrase": "受け", "duration": 78 },
             { "phrase": "取って", "duration": 208 },
@@ -156,14 +156,14 @@
         "text": [
             { "phrase": "消え", "duration": 62 },
             { "phrase": "たり", "duration": 60 },
-            { "phrase": "しなくて", "duration": 100 },
+            { "phrase": "しなくて", "duration": 80 },
             { "phrase": "　", "duration": 40 },
             { "phrase": "どうせ", "duration": 56 },
             { "phrase": "灰に", "duration": 58, "kiai": true },
             { "phrase": "なるなら", "duration": 86 },
             { "phrase": "　", "duration": 70 },
             { "phrase": "いっそ", "duration": 60 },
-            { "phrase": "書きとめて", "duration": 150 }
+            { "phrase": "書きとめて", "duration": 140 }
         ],
         "translation": "也不願任其消失　既然最後都會化為灰燼　不如就寫個盡興"
     },
@@ -200,7 +200,7 @@
             { "phrase": "奴らの", "duration": 120 },
             { "phrase": "", "duration": 80 },
             { "phrase": "血の", "duration": 50, "kiai": true },
-            { "phrase": "跡と", "duration": 68, "kiai": true },
+            { "phrase": "跡と", "duration": 60, "kiai": true },
             { "phrase": "したら", "duration": 82 }
         ],
         "translation": "若這世上大部分的東西　都是達成使命之人留下的血跡"
@@ -245,9 +245,11 @@
             { "phrase": "睨まれて", "duration": 102 },
             { "phrase": "　", "duration": 200 },
             { "phrase": "大きな", "duration": 70 },
-            { "phrase": "ものの", "duration": 122 },
-            { "phrase": "一部だと", "duration": 122 },
-            { "phrase": "悟った", "duration": 132 }
+            { "phrase": "ものの", "duration": 82 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "一部だと", "duration": 112 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "悟った", "duration": 122 }
         ],
         "translation": "被堵塞夜空的星座給盯上　便領悟自己只是滄海一粟"
     },
@@ -258,8 +260,9 @@
             { "phrase": "迷い、", "duration": 76 },
             { "phrase": "選ぶ", "duration": 66 },
             { "phrase": "意志は ", "duration": 56 },
-            { "phrase": "　", "duration": 205 },
-            { "phrase": "自分の", "duration": 134, "kiai": true },
+            { "phrase": "　", "duration": 200 },
+            { "phrase": "自分の", "duration": 114, "kiai": true },
+            { "phrase": "", "duration": 10 },
             { "phrase": "中に", "duration": 83 },
             { "phrase": "あると", "duration": 83 },
             { "phrase": "知って", "duration": 82 }
@@ -327,7 +330,7 @@
         "text": [
             { "phrase": "消え", "duration": 62 },
             { "phrase": "たり", "duration": 60 },
-            { "phrase": "しなくて", "duration": 100 },
+            { "phrase": "しなくて", "duration": 80 },
             { "phrase": "　", "duration": 40 },
             { "phrase": "どうせ", "duration": 56 },
             { "phrase": "灰に", "duration": 58 },
@@ -345,7 +348,7 @@
             { "phrase": "沈める ", "duration": 144 },
             { "phrase": "　", "duration": 100 },
             { "phrase": "冷たく", "duration": 110, "kiai": true },
-            { "phrase": "なる ", "duration": 70 },
+            { "phrase": "なる ", "duration": 60 },
             { "phrase": "　", "duration": 80 },
             { "phrase": "胸の", "duration": 60 },
             { "phrase": "奥の", "duration": 70 },
@@ -418,7 +421,9 @@
             { "phrase": "", "duration": 40 },
             { "phrase": "残した", "duration": 82 },
             { "phrase": "", "duration": 40 },
-            { "phrase": "書置き", "duration": 142 }
+            { "phrase": "書", "duration": 82 },
+            { "phrase": "置", "duration": 35 },
+            { "phrase": "き", "duration": 25 }
         ],
         "translation": "那是在天空尚未述說之前　心願們就留下的遺言"
     },
