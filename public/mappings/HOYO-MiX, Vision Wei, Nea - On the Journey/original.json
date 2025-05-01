@@ -20,7 +20,7 @@
             { "phrase": "thou", "duration": 31 },
             { "phrase": "sand ", "duration": 25 },
             { "phrase": "light-", "duration": 48 },
-            { "phrase": "years， ", "duration": 34 },
+            { "phrase": "years, ", "duration": 34 },
             { "phrase": "wild ", "duration": 14 },
             { "phrase": "and ", "duration": 15 },
             { "phrase": "free", "duration": 52 }
@@ -58,7 +58,7 @@
         "text": [
             { "phrase": "Hand ", "duration": 30 },
             { "phrase": "in ", "duration": 22 },
-            { "phrase": "hand， ", "duration": 24 },
+            { "phrase": "hand, ", "duration": 24 },
             { "phrase": "we'll ", "duration": 20 },
             { "phrase": "face ", "duration": 34 },
             { "phrase": "our ", "duration": 14 },
@@ -97,7 +97,7 @@
         "text": [
             { "phrase": "To ", "duration": 55 },
             { "phrase": "brigh", "duration": 34 },
-            { "phrase": "ter， ", "duration": 34 },
+            { "phrase": "ter, ", "duration": 34 },
             { "phrase": "be", "duration": 19 },
             { "phrase": "tter ", "duration": 29 },
             { "phrase": "days", "duration": 42 }
@@ -110,7 +110,7 @@
             { "phrase": "Ex", "duration": 36 },
             { "phrase": "plo", "duration": 33 },
             { "phrase": "ra", "duration": 46 },
-            { "phrase": "tion，", "duration": 45 },
+            { "phrase": "tion,", "duration": 45 },
             { "phrase": " ", "duration": 140 },
             { "phrase": "be", "duration": 21 },
             { "phrase": "gins!", "duration": 62 }
@@ -122,7 +122,7 @@
         "text": [
             { "phrase": "Mo", "duration": 39 },
             { "phrase": "ving ", "duration": 18 },
-            { "phrase": "on，", "duration": 39 },
+            { "phrase": "on,", "duration": 39 },
             { "phrase": " ", "duration": 143 },
             { "phrase": "to ", "duration": 32 },
             { "phrase": "paths ", "duration": 29 },
@@ -159,7 +159,7 @@
         "text": [
             { "phrase": "Ri", "duration": 34 },
             { "phrase": "ding ", "duration": 18 },
-            { "phrase": "on，", "duration": 27 },
+            { "phrase": "on,", "duration": 27 },
             { "phrase": " ", "duration": 171 },
             { "phrase": "our ", "duration": 17 },
             { "phrase": "roads ", "duration": 34 },
@@ -174,7 +174,7 @@
             { "phrase": "We're ", "duration": 21 },
             { "phrase": "ri", "duration": 24 },
             { "phrase": "sing ", "duration": 23 },
-            { "phrase": "high，", "duration": 26 },
+            { "phrase": "high,", "duration": 26 },
             { "phrase": " ", "duration": 47 },
             { "phrase": "into ", "duration": 38 },
             { "phrase": "the ", "duration": 19 },
@@ -187,7 +187,7 @@
         "text": [
             { "phrase": "There ", "duration": 24 },
             { "phrase": "we ", "duration": 25 },
-            { "phrase": "go，", "duration": 31 },
+            { "phrase": "go,", "duration": 31 },
             { "phrase": " ", "duration": 50 },
             { "phrase": "till ", "duration": 25 },
             { "phrase": "we ", "duration": 34 },
@@ -223,7 +223,7 @@
         "text": [
             { "phrase": "Ca", "duration": 32 },
             { "phrase": "tching ", "duration": 26 },
-            { "phrase": "on，", "duration": 39 },
+            { "phrase": "on,", "duration": 39 },
             { "phrase": " ", "duration": 156 },
             { "phrase": "our ", "duration": 22 },
             { "phrase": "paths ", "duration": 25 },
@@ -259,7 +259,7 @@
         "text": [
             { "phrase": "Life ", "duration": 47 },
             { "phrase": "goes ", "duration": 23 },
-            { "phrase": "on，", "duration": 31 },
+            { "phrase": "on,", "duration": 31 },
             { "phrase": " ", "duration": 156 },
             { "phrase": "through ", "duration": 23 },
             { "phrase": "tides ", "duration": 28 },
@@ -274,7 +274,7 @@
             { "phrase": "Get ", "duration": 28 },
             { "phrase": "in ", "duration": 24 },
             { "phrase": "the ", "duration": 18 },
-            { "phrase": "line，", "duration": 23 },
+            { "phrase": "line,", "duration": 23 },
             { "phrase": " ", "duration": 41 },
             { "phrase": "to ", "duration": 15 },
             { "phrase": "dream ", "duration": 31 },
@@ -288,7 +288,7 @@
         "text": [
             { "phrase": "In ", "duration": 31 },
             { "phrase": "our ", "duration": 37 },
-            { "phrase": "souls，", "duration": 29 },
+            { "phrase": "souls,", "duration": 29 },
             { "phrase": " ", "duration": 56 },
             { "phrase": "do ", "duration": 16 },
             { "phrase": "we ", "duration": 26 },
@@ -301,7 +301,7 @@
         "text": [
             { "phrase": "Ca", "duration": 32 },
             { "phrase": "tching ", "duration": 26 },
-            { "phrase": "on，", "duration": 39 },
+            { "phrase": "on,", "duration": 39 },
             { "phrase": " ", "duration": 156 },
             { "phrase": "our ", "duration": 22 },
             { "phrase": "paths ", "duration": 25 },
@@ -337,7 +337,7 @@
         "text": [
             { "phrase": "Life ", "duration": 47 },
             { "phrase": "goes ", "duration": 23 },
-            { "phrase": "on，", "duration": 31 },
+            { "phrase": "on,", "duration": 31 },
             { "phrase": " ", "duration": 156 },
             { "phrase": "through ", "duration": 23 },
             { "phrase": "tides ", "duration": 28 },
@@ -352,7 +352,7 @@
             { "phrase": "Get ", "duration": 24 },
             { "phrase": "in ", "duration": 28 },
             { "phrase": "the ", "duration": 18 },
-            { "phrase": "line，", "duration": 23 },
+            { "phrase": "line,", "duration": 23 },
             { "phrase": " ", "duration": 41 },
             { "phrase": "to ", "duration": 15 },
             { "phrase": "dream ", "duration": 31 },
@@ -366,7 +366,7 @@
         "text": [
             { "phrase": "In ", "duration": 15 },
             { "phrase": "our ", "duration": 25 },
-            { "phrase": "souls， ", "duration": 97 },
+            { "phrase": "souls, ", "duration": 97 },
             { "phrase": "do ", "duration": 18 },
             { "phrase": "we ", "duration": 26 },
             { "phrase": "know?", "duration": 55 }

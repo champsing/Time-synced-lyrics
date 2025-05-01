@@ -24,6 +24,8 @@ body {
 }
 
 .lyric-phrase {
+    display: inline-block;
+    white-space: pre;
     background-image: linear-gradient(to right, #fff 0, #aaa 0);
 }
 
@@ -31,7 +33,7 @@ body {
     .lyric-phrase {
         transition: all 0.2s ease;
         -webkit-background-clip: text;
-        white-space: pre;
+
         transform-origin: right;
         background-image: linear-gradient(
             to right,

@@ -360,7 +360,7 @@
                     "pronounciation": "ぼくたち"
                 },
                 { "phrase": "は", "duration": 30 },
-                { "phrase": "　", "duration": 10 },
+                { "phrase": " ", "duration": 10 },
                 {
                     "phrase": "流",
                     "duration": 40,
@@ -398,9 +398,9 @@
                 { "phrase": "す", "duration": 20 },
                 { "phrase": "ことも", "duration": 80 },
                 { "phrase": "なくなって", "duration": 100, "kiai": true },
-                { "phrase": "　", "duration": 10 },
+                { "phrase": " ", "duration": 10 },
                 { "phrase": "しまうんだろう", "duration": 120 },
-                { "phrase": "　", "duration": 10 },
+                { "phrase": " ", "duration": 10 },
                 { "phrase": "しまうんだろう", "duration": 120, "kiai": true },
                 { "phrase": "", "duration": 40 },
                 { "phrase": "って", "duration": 20 }
@@ -429,7 +429,7 @@
                     "pronounciation": "ぼくたち"
                 },
                 { "phrase": "は", "duration": 30 },
-                { "phrase": "　", "duration": 10 },
+                { "phrase": " ", "duration": 10 },
                 {
                     "phrase": "流",
                     "duration": 40,
@@ -466,9 +466,9 @@
                 { "phrase": "す", "duration": 20 },
                 { "phrase": "ことも", "duration": 80 },
                 { "phrase": "なくなって", "duration": 100, "kiai": true },
-                { "phrase": "　", "duration": 10 },
+                { "phrase": " ", "duration": 10 },
                 { "phrase": "しまうんだろう", "duration": 120 },
-                { "phrase": "　", "duration": 10 },
+                { "phrase": " ", "duration": 10 },
                 { "phrase": "しまうんだろう", "duration": 120, "kiai": true },
                 { "phrase": "", "duration": 40 },
                 { "phrase": "って", "duration": 20 }
