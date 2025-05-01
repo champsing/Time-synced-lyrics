@@ -9,7 +9,7 @@
             { "phrase": "the ", "duration": 12 },
             { "phrase": "cos", "duration": 28 },
             { "phrase": "mic ", "duration": 24 },
-            { "phrase": "sea", "duration": 40 }
+            { "phrase": "sea", "duration": 24 }
         ],
         "translation": "我們冒險穿越星海"
     },
@@ -64,7 +64,7 @@
             { "phrase": "we'll ", "duration": 20 },
             { "phrase": "face ", "duration": 34 },
             { "phrase": "our ", "duration": 14 },
-            { "phrase": "fears", "duration": 58 }
+            { "phrase": "fears", "duration": 48 }
         ],
         "translation": "與我們攜手一起面對自己的恐懼"
     },
@@ -73,11 +73,11 @@
         "text": [
             { "phrase": "Con", "duration": 28, "kiai": true },
             { "phrase": "quering ", "duration": 59, "kiai": true },
-            { "phrase": "doubts ", "duration": 47 },
+            { "phrase": "doubts ", "duration": 37 },
             { "phrase": "that ", "duration": 38 },
             { "phrase": "lin", "duration": 21 },
             { "phrase": "ger ", "duration": 27 },
-            { "phrase": "near", "duration": 49 }
+            { "phrase": "near", "duration": 40 }
         ],
         "translation": "跨越縈繞心頭的迷茫"
     },
@@ -85,12 +85,12 @@
         "time": "00:41.77",
         "text": [
             { "phrase": "To", "duration": 26 },
-            { "phrase": "ge", "duration": 33 },
+            { "phrase": "ge", "duration": 27 },
             { "phrase": "ther ", "duration": 16 },
             { "phrase": "we'll ", "duration": 25 },
             { "phrase": "find ", "duration": 25 },
             { "phrase": "a ", "duration": 20 },
-            { "phrase": "way", "duration": 34 }
+            { "phrase": "way", "duration": 24 }
         ],
         "translation": "與我們一起尋找那條道路",
         "is_secondary": true
@@ -115,7 +115,7 @@
             { "phrase": "plo", "duration": 33, "kiai": true },
             { "phrase": "ra", "duration": 46, "kiai": true },
             { "phrase": "tion,", "duration": 45, "kiai": true },
-            { "phrase": " ", "duration": 140 },
+            { "phrase": " ", "duration": 130 },
             { "phrase": "be", "duration": 21 },
             { "phrase": "gins!", "duration": 60 }
         ],
@@ -224,7 +224,7 @@
             { "phrase": "plo", "duration": 31 },
             { "phrase": "ra", "duration": 51 },
             { "phrase": "tion", "duration": 47 },
-            { "phrase": " ", "duration": 143 },
+            { "phrase": " ", "duration": 133 },
             { "phrase": "be", "duration": 19, "kiai": true },
             { "phrase": "gins!", "duration": 60, "kiai": true }
         ],
@@ -262,10 +262,10 @@
         "time": "01:31.66",
         "text": [
             { "phrase": "Break ", "duration": 21 },
-            { "phrase": "into ", "duration": 49 },
+            { "phrase": "into ", "duration": 40 },
             { "phrase": "the ", "duration": 24 },
             { "phrase": "moon", "duration": 26, "kiai": true },
-            { "phrase": "light", "duration": 43, "kiai": true }
+            { "phrase": "light", "duration": 38, "kiai": true }
         ],
         "translation": "闖進月色",
         "is_together": true
@@ -346,7 +346,7 @@
         "time": "01:53.12",
         "text": [
             { "phrase": "Break ", "duration": 21 },
-            { "phrase": "into ", "duration": 37 },
+            { "phrase": "into ", "duration": 32 },
             { "phrase": "the ", "duration": 18 },
             { "phrase": "moon", "duration": 44, "kiai": true },
             { "phrase": "light", "duration": 40, "kiai": true }
@@ -403,7 +403,7 @@
             { "phrase": "souls, ", "duration": 97 },
             { "phrase": "do ", "duration": 18, "kiai": true },
             { "phrase": "we ", "duration": 26, "kiai": true },
-            { "phrase": "know?", "duration": 55, "kiai": true }
+            { "phrase": "know?", "duration": 50, "kiai": true }
         ],
         "translation": "刻在靈魂深處的一切，我們是否理解？",
         "is_together": true
