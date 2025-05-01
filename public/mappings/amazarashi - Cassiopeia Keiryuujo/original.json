@@ -519,8 +519,8 @@
         "text": [
             { "phrase": "それに", "duration": 60 },
             { "phrase": "立つ", "duration": 36 },
-            { "phrase": "この ", "duration": 40 },
-            { "phrase": "言葉は ", "duration": 65 },
+            { "phrase": "この", "duration": 40 },
+            { "phrase": "言葉は", "duration": 65 },
             { "phrase": "", "duration": 65 },
             { "phrase": "過去の", "duration": 50 },
             { "phrase": "誰とも", "duration": 104 },
