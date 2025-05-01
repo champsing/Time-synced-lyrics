@@ -71,8 +71,8 @@
     {
         "time": "00:38.41",
         "text": [
-            { "phrase": "Con", "duration": 28 },
-            { "phrase": "quering ", "duration": 59 },
+            { "phrase": "Con", "duration": 28, "kiai": true },
+            { "phrase": "quering ", "duration": 59, "kiai": true },
             { "phrase": "doubts ", "duration": 47 },
             { "phrase": "that ", "duration": 38 },
             { "phrase": "lin", "duration": 21 },
@@ -165,8 +165,8 @@
     {
         "time": "01:03.43",
         "text": [
-            { "phrase": "Ri", "duration": 34 },
-            { "phrase": "ding ", "duration": 18 },
+            { "phrase": "Ri", "duration": 34, "kiai": true },
+            { "phrase": "ding ", "duration": 18, "kiai": true },
             { "phrase": "on,", "duration": 27 },
             { "phrase": " ", "duration": 171 },
             { "phrase": "our ", "duration": 17 },
@@ -183,11 +183,11 @@
             { "phrase": "We're ", "duration": 21 },
             { "phrase": "ri", "duration": 24 },
             { "phrase": "sing ", "duration": 23 },
-            { "phrase": "high,", "duration": 26, "kiai": true },
+            { "phrase": "high,", "duration": 26 },
             { "phrase": " ", "duration": 47 },
-            { "phrase": "into ", "duration": 38 },
-            { "phrase": "the ", "duration": 19 },
-            { "phrase": "sky", "duration": 21 }
+            { "phrase": "into ", "duration": 38, "kiai": true },
+            { "phrase": "the ", "duration": 19, "kiai": true },
+            { "phrase": "sky", "duration": 21, "kiai": true }
         ],
         "translation": "我們正不斷攀升直衝天際",
         "is_together": true
@@ -241,7 +241,7 @@
             { "phrase": "our ", "duration": 22 },
             { "phrase": "paths ", "duration": 25 },
             { "phrase": "un", "duration": 23 },
-            { "phrase": "known", "duration": 33 }
+            { "phrase": "known", "duration": 33, "kiai": true }
         ],
         "translation": "追趕吧，即便前方道路未卜",
         "is_together": true
@@ -252,8 +252,8 @@
             { "phrase": "To ", "duration": 20 },
             { "phrase": "sink ", "duration": 34 },
             { "phrase": "into ", "duration": 35 },
-            { "phrase": "day", "duration": 33 },
-            { "phrase": "light", "duration": 38 }
+            { "phrase": "day", "duration": 33, "kiai": true },
+            { "phrase": "light", "duration": 38, "kiai": true }
         ],
         "translation": "沉入白晝",
         "is_together": true
@@ -264,8 +264,8 @@
             { "phrase": "Break ", "duration": 21 },
             { "phrase": "into ", "duration": 49 },
             { "phrase": "the ", "duration": 24 },
-            { "phrase": "moon", "duration": 26 },
-            { "phrase": "light", "duration": 43 }
+            { "phrase": "moon", "duration": 26, "kiai": true },
+            { "phrase": "light", "duration": 43, "kiai": true }
         ],
         "translation": "闖進月色",
         "is_together": true
@@ -280,7 +280,7 @@
             { "phrase": "through ", "duration": 23 },
             { "phrase": "tides ", "duration": 28 },
             { "phrase": "of ", "duration": 27 },
-            { "phrase": "time", "duration": 43 }
+            { "phrase": "time", "duration": 43, "kiai": true }
         ],
         "translation": "生命不息，歲月不止",
         "is_together": true
@@ -290,8 +290,8 @@
         "text": [
             { "phrase": "Get ", "duration": 28 },
             { "phrase": "in ", "duration": 24 },
-            { "phrase": "the ", "duration": 18 },
-            { "phrase": "line,", "duration": 23 },
+            { "phrase": "the ", "duration": 18, "kiai": true },
+            { "phrase": "line,", "duration": 23, "kiai": true },
             { "phrase": " ", "duration": 41 },
             { "phrase": "to ", "duration": 15 },
             { "phrase": "dream ", "duration": 31 },
@@ -322,7 +322,7 @@
             { "phrase": "tching ", "duration": 26 },
             { "phrase": "on,", "duration": 39 },
             { "phrase": " ", "duration": 156 },
-            { "phrase": "our ", "duration": 22 },
+            { "phrase": "our ", "duration": 22, "kiai": true },
             { "phrase": "paths ", "duration": 25 },
             { "phrase": "un", "duration": 23 },
             { "phrase": "known", "duration": 33 }
@@ -348,8 +348,8 @@
             { "phrase": "Break ", "duration": 21 },
             { "phrase": "into ", "duration": 37 },
             { "phrase": "the ", "duration": 18 },
-            { "phrase": "moon", "duration": 44 },
-            { "phrase": "light", "duration": 40 }
+            { "phrase": "moon", "duration": 44, "kiai": true },
+            { "phrase": "light", "duration": 40, "kiai": true }
         ],
         "translation": "闖進月色",
         "is_together": true
@@ -374,7 +374,7 @@
                 { "phrase": "Goes ", "duration": 40 },
                 { "phrase": "on,", "duration": 31 },
                 { "phrase": " ", "duration": 100 },
-                { "phrase": "time", "duration": 100 }
+                { "phrase": "time", "duration": 100, "kiai": true }
             ],
             "translation":"不息，歲月"
         }
@@ -385,12 +385,12 @@
             { "phrase": "Get ", "duration": 24 },
             { "phrase": "in ", "duration": 28 },
             { "phrase": "the ", "duration": 18 },
-            { "phrase": "line,", "duration": 23 },
+            { "phrase": "line,", "duration": 23, "kiai": true },
             { "phrase": " ", "duration": 41 },
             { "phrase": "to ", "duration": 15 },
             { "phrase": "dream ", "duration": 31 },
-            { "phrase": "a", "duration": 10 },
-            { "phrase": "live", "duration": 40 }
+            { "phrase": "a", "duration": 10, "kiai": true },
+            { "phrase": "live", "duration": 40, "kiai": true }
         ],
         "translation": "與開拓同行，只為生生不息的理想",
         "is_together": true
@@ -401,9 +401,9 @@
             { "phrase": "In ", "duration": 15 },
             { "phrase": "our ", "duration": 25 },
             { "phrase": "souls, ", "duration": 97 },
-            { "phrase": "do ", "duration": 18 },
-            { "phrase": "we ", "duration": 26 },
-            { "phrase": "know?", "duration": 55 }
+            { "phrase": "do ", "duration": 18, "kiai": true },
+            { "phrase": "we ", "duration": 26, "kiai": true },
+            { "phrase": "know?", "duration": 55, "kiai": true }
         ],
         "translation": "刻在靈魂深處的一切，我們是否理解？",
         "is_together": true
@@ -430,17 +430,17 @@
         "translation": "行於途中",
         "background_voice": {
             "time": "02:08.73",
-            "text": [{ "phrase": "Oh~", "duration": 100 }],
+            "text": [{ "phrase": "Oh~", "duration": 100, "kiai": true }],
             "translation":"喔～"
         }
     },
     {
         "time": "02:11.42",
         "text": [
-            { "phrase": "On ", "duration": 33 },
-            { "phrase": "the ", "duration": 22 },
-            { "phrase": "jour", "duration": 61 },
-            { "phrase": "ney", "duration": 76 }
+            { "phrase": "On ", "duration": 33, "kiai": true },
+            { "phrase": "the ", "duration": 22, "kiai": true },
+            { "phrase": "jour", "duration": 61, "kiai": true },
+            { "phrase": "ney", "duration": 76, "kiai": true }
         ],
         "translation": "開拓不止",
         "is_together": true
