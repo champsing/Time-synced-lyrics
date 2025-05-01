@@ -74,7 +74,7 @@
     <div id="app">
         <div class="lyrics-container text-center bg-[#3b3a3a] p-4 w-3/5 overflow-y-auto mt-4 mb-8 relative">
             <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
-                :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary }">
+                :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
                 <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <!-- [for debugging] show line index -->
@@ -99,7 +99,7 @@
 
                     <div v-if="line.background_voice !== undefined" class="background-vocals">
                         <span v-for="(bvt, phraseIndex) in line.background_voice.text" v-if="isCurrentLine(index)"
-                            :key="phraseIndex" class="lyric-phrase relative text-transparent bg-clip-text text-sm"
+                            :key="phraseIndex" class="lyric-phrase relative text-transparent bg-clip-text text-xl"
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getBackgroundPhraseStyle(index, phraseIndex)"
                             :class="{ 'active': isBackgroundActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
