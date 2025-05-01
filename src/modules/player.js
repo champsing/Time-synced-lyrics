@@ -26,7 +26,7 @@ export const initYouTubePlayer = (vueContext) => {
     return new window.YT.Player('player', {
       width: '300',
       height: '200',
-      videoId: vueContext.currentSong.value.id,
+      videoId: vueContext.currentSong.value.versions.find((v) => v.version === vueContext.songVersion.value).id,
       events: {
         onReady: onPlayerReady,
         onStateChange: (e) => onPlayerStateChange(e, vueContext)

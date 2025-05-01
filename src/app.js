@@ -221,6 +221,7 @@ const app = createApp({
                     currentSong,
                     currentTime,
                     songDuration,
+                    songVersion,
                 });
                 window.ytPlayer = await init();
 
@@ -278,7 +279,12 @@ const app = createApp({
 
             jumpToCurrentLine(0);
 
-            window.ytPlayer.loadVideoById(newSong.id);
+            const videoID = currentSong.value.versions.find(
+                (v) => v.version === songVersion.value
+            ).id;
+            console.log(videoID);
+
+            window.ytPlayer.loadVideoById(videoID);
             window.ytPlayer.pauseVideo();
             // 清空所有資料和翻譯文字 要跟歌詞一起才能清空
             currentTime.value = 0;
