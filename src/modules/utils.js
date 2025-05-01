@@ -89,7 +89,6 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
             line.duration = line.text.map(
                 (phr) =>
                     phr.duration / 100 || // json 中的 duration 值單位是厘秒，秒的 1/100 倍
-                    currentSong.value.default_phrase_duration ||
                     DEFAULT_DURATION,
                 0,
                 line.text.length

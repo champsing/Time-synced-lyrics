@@ -16,7 +16,6 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
         },
-        "default_phrase_duration": 100,
         "credits": [
             {
                 "name": "秋田ひろむ",
@@ -45,7 +44,6 @@
             "name": "replica",
             "link": "UGs6ebR"
         },
-        "default_phrase_duration": 100,
         "credits": {
             "vocalist": "Vaundy",
             "lyricist_and_songwriting": "Vaundy",
@@ -68,7 +66,6 @@
             "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
             "modified": true
         },
-        "default_phrase_duration": 100,
         "credits": {
             "vocalist": "米津玄師",
             "guitar": "米津玄師",
@@ -91,8 +88,7 @@
             "available": true,
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-647.html"
-        },
-        "default_phrase_duration": 100
+        }
     },
     {
         "available": false,
@@ -105,8 +101,7 @@
             "name": "It's myself",
             "link": "3HkuEse"
         },
-        "lyricist": "佐々木　想",
-        "default_phrase_duration": 100
+        "lyricist": "佐々木　想"
     },
     {
         "available": true,
@@ -124,7 +119,6 @@
             "available": true,
             "author": "香榭"
         },
-        "default_phrase_duration": 100,
         "credits": [
             {
                 "name": "Kiro Akiyama",

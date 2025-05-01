@@ -1,6 +1,6 @@
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "2.6.3";
+const BASE_VERSION = "2.6.4";
 const BUILD_DATE = new Date(Date.now() + 28800000)
     .toISOString()
     .slice(0, 10)
@@ -12,7 +12,7 @@ export const VERSION = COMMIT_ID
     ? `${BASE_VERSION}-${BUILD_DATE}-${COMMIT_ID.slice(0, 12)}`
     : `${BASE_VERSION}-${BUILD_DATE}-dev`;
 
-export const DEFAULT_DURATION = 1000;
+export const DEFAULT_DURATION = 100;
 export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";
 export const SONGLIST_PATH = "./public/song_list.json";
 export const MAPPINGS_BASE_PATH = "./public/mappings/";
