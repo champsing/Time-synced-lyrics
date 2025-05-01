@@ -31,16 +31,30 @@
         },
         "default_phrase_duration": 100,
         "is_duet": false,
-        "alternative_versions": [
-            {"type": "the_first_take", "id": "XXXX"}, // optional
-            {"type": "instrumental", "id": "XXXX"} // optional
+        "versions": [
+            {
+                "version": "original",
+                "id": "pTwSEgflLq0",
+                "default": true
+            }
         ],
         "credits": {
-            "vocalist": "秋田ひろむ",
-            "lyricist": "XXXXXX", // optional
-            "song_writing": "XXXXXX", // optional
-            "lyricist_and_songwriting": "秋田ひろむ",
-            "arrangement": "出羽良彰"
+            "performance": [
+                {
+                    "name": "秋田ひろむ",
+                    "contribution": ["主唱"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "秋田ひろむ",
+                    "contribution": ["詞曲創作"]
+                },
+                {
+                    "name": "出羽良彰",
+                    "contribution": ["編曲"]
+                }
+            ]
         }
     },
 ...
@@ -80,7 +94,7 @@ WIP
 
 # 歌詞時間譜格式
 
-歌詞的 JSON 時間譜檔案統一放在 `/public/mappings/` 裡。
+歌詞的 JSON 時間譜檔案統一放在 `/public/mappings/(歌名)/` 裡，以歌曲版本 (i.e. `original`, `the_first_take`, `instrumental`, ...)。
 JSON 檔案中的每個物件都是一行歌詞。
 
 以下範例是標準的一行歌詞：
