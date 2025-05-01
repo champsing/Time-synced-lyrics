@@ -265,7 +265,7 @@
 
                         <hr class="m-4" />
 
-                        <div class="credit-list grid grid-cols-3" v-if="currentSong.credits"
+                        <div class="credit-list grid grid-cols-3 gap-y-4 overflow-y-scroll max-h-70" v-if="currentSong.credits"
                             style="font-family: Poppins, Noto Sans;">
                             <!-- 演職員名單 需要可以再加 -->
                             <div class="col-span-3 text-xl text-green-300 mt-2 mb-4 mr-4" v-if="currentSong.credits.performance">表演者</div>

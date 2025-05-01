@@ -248,6 +248,15 @@
   .table {
     display: table;
   }
+  .max-h-2 {
+    max-height: calc(var(--spacing) * 2);
+  }
+  .max-h-40 {
+    max-height: calc(var(--spacing) * 40);
+  }
+  .max-h-70 {
+    max-height: calc(var(--spacing) * 70);
+  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -287,8 +296,17 @@
   .gap-x-4 {
     column-gap: calc(var(--spacing) * 4);
   }
+  .gap-y-2 {
+    row-gap: calc(var(--spacing) * 2);
+  }
+  .gap-y-4 {
+    row-gap: calc(var(--spacing) * 4);
+  }
   .overflow-y-auto {
     overflow-y: auto;
+  }
+  .overflow-y-scroll {
+    overflow-y: scroll;
   }
   .border {
     border-style: var(--tw-border-style);
