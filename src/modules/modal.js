@@ -39,3 +39,17 @@ export const initSongModal = () => {
 
     return { show, hide };
 };
+
+// export const initShareModal = () => {
+//     const close = document.getElementById("share-modal-close-btn");
+//     const modal = document.getElementById("share-modal-container");
+
+//     const show = () => (modal.style.display = "block");
+//     const hide = () => (modal.style.display = "none");
+
+//     document.getElementById("share-btn").addEventListener("click", show);
+//     close.addEventListener("click", hide);
+//     window.addEventListener("click", (e) => e.target === modal && hide());
+
+//     return { show, hide };
+// };

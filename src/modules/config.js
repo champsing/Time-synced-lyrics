@@ -1,6 +1,6 @@
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "2.8.1";
+const BASE_VERSION = "2.8.2";
 const BUILD_DATE = new Date(Date.now() + 28800000)
     .toISOString()
     .slice(0, 10)
@@ -17,7 +17,8 @@ export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";
 export const SONGLIST_PATH = "./public/song_list.json";
 export const MAPPINGS_BASE_PATH = "./public/mappings/";
 export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/";
+export const TSL_LINK_BASE = "https://tsl.mercuryland.online/";
 export const ORIGINAL = "original";
 export const THE_FIRST_TAKE = "the_first_take";
 export const INSTRUMENTAL = "instrumental";
-export const MERCURY_TSL = " - 水星電臺"
+export const MERCURY_TSL = " - 水星電臺";
