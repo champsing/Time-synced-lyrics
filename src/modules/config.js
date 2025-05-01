@@ -1,6 +1,6 @@
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "2.8.2";
+const BASE_VERSION = "2.8.3";
 const BUILD_DATE = new Date(Date.now() + 28800000)
     .toISOString()
     .slice(0, 10)
