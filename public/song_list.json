@@ -16,16 +16,24 @@
             "author": "Alice／箱庭博物館",
             "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
         },
-        "credits": [
-            {
-                "name": "秋田ひろむ",
-                "contribution": ["主唱", "詞曲創作"]
-            },
-            {
-                "name": "出羽良彰",
-                "contribution": ["編曲"]
-            }
-        ]
+        "credits": {
+            "performance": [
+                {
+                    "name": "秋田ひろむ",
+                    "contribution": ["主唱"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "秋田ひろむ",
+                    "contribution": ["詞曲創作"]
+                },
+                {
+                    "name": "出羽良彰",
+                    "contribution": ["編曲"]
+                }
+            ]
+        }
     },
     {
         "available": false,
@@ -106,7 +114,7 @@
     {
         "available": true,
         "name": "Kiro Akiyama - SKETCH",
-        "id": "M0cHair48Jg",
+        "id": "CpYZYjy8ELk",
         "artist": "秋山黄色",
         "lyricist": "Kiro Akiyama",
         "title": "SKETCH",
@@ -119,15 +127,80 @@
             "available": true,
             "author": "香榭"
         },
-        "credits": [
-            {
-                "name": "Kiro Akiyama",
-                "contribution": ["主唱", "詞曲創作", "編曲"]
-            },
-            {
-                "name": "川口圭太",
-                "contribution": ["編曲"]
-            }
-        ]
+        "credits": {
+            "performance": [
+                {
+                    "name": "Kiro Akiyama",
+                    "contribution": ["主唱"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "Kiro Akiyama",
+                    "contribution": ["詞曲創作", "編曲"]
+                },
+                {
+                    "name": "川口圭太",
+                    "contribution": ["編曲"]
+                }
+            ]
+        }
+    },
+    {
+        "available": false,
+        "name": "HOYO-MiX, Vision Wei, Nea - On the Journey",
+        "id": "0WyDtxRZ938",
+        "artist": "HOYO-MiX, 魏晨, Nea",
+        "lyricist": "",
+        "title": "不虛此行",
+        "subtitle": "《崩壞:星穹鐵道》兩週年紀念曲",
+        "translation": {
+            "available": true,
+            "author": "YouTube 影片內翻譯"
+        },
+        "credits": {
+            "performance": [
+                {
+                    "name": "HOYO-MiX",
+                    "contribution": ["演出者"]
+                },
+                {
+                    "name": "魏晨",
+                    "contribution": ["主唱"]
+                },
+                {
+                    "name": "NEA",
+                    "contribution": ["主唱"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "王可鑫",
+                    "contribution": ["詞曲創作", "編曲"]
+                },
+                {
+                    "name": "Ruby Qu",
+                    "contribution": ["作詞"]
+                }
+            ],
+            "engineering": [
+                {
+                    "name": "崔瀚普",
+                    "contribution": ["製作人"]
+                },
+                {
+                    "name": "张迦南",
+                    "contribution": ["母帶工程師"]
+                },
+                {
+                    "name": "王可鑫",
+                    "contribution": ["製作人、母帶工程師"]
+                },
+                {
+                    "name": "阿烈",
+                    "contribution": ["混音師"]
+                }
+            ]
+        }
     }
 ]

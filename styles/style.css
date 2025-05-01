@@ -45,7 +45,7 @@ body {
 
 .lyric-button {
     font-size: 1.5rem;
-    font-family: Noto Sans JP, Noto Sans TC, Noto Sans;
+    font-family: system-ui, Noto Sans JP, Noto Sans TC, Noto Sans;
     background: transparent;
     border: none;
     padding: 0;

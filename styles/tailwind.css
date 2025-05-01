@@ -8,12 +8,16 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-green-300: oklch(87.1% 0.15 154.449);
+    --color-green-700: oklch(52.7% 0.154 150.069);
     --color-emerald-700: oklch(50.8% 0.118 165.612);
     --color-cyan-700: oklch(52% 0.105 223.128);
+    --color-blue-100: oklch(93.2% 0.032 255.585);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
+    --color-blue-500: oklch(62.3% 0.214 259.815);
+    --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-indigo-300: oklch(78.5% 0.115 274.713);
-    --color-indigo-400: oklch(67.3% 0.182 276.935);
-    --color-indigo-700: oklch(45.7% 0.24 277.023);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -181,6 +185,12 @@
   .relative {
     position: relative;
   }
+  .col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+  .row-span-3 {
+    grid-row: span 3 / span 3;
+  }
   .\!m-0 {
     margin: calc(var(--spacing) * 0) !important;
   }
@@ -207,6 +217,12 @@
   }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
   }
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
@@ -268,14 +284,8 @@
   .justify-end {
     justify-content: flex-end;
   }
-  .gap-4 {
-    gap: calc(var(--spacing) * 4);
-  }
   .gap-x-4 {
     column-gap: calc(var(--spacing) * 4);
-  }
-  .gap-x-8 {
-    column-gap: calc(var(--spacing) * 8);
   }
   .overflow-y-auto {
     overflow-y: auto;
@@ -329,6 +339,10 @@
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
@@ -342,6 +356,27 @@
   }
   .\!text-white {
     color: var(--color-white) !important;
+  }
+  .text-blue-100 {
+    color: var(--color-blue-100);
+  }
+  .text-blue-400 {
+    color: var(--color-blue-400);
+  }
+  .text-blue-500 {
+    color: var(--color-blue-500);
+  }
+  .text-blue-700 {
+    color: var(--color-blue-700);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-green-300 {
+    color: var(--color-green-300);
+  }
+  .text-green-700 {
+    color: var(--color-green-700);
   }
   .text-transparent {
     color: transparent;
