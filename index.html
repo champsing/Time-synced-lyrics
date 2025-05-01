@@ -149,13 +149,13 @@
                         <span v-else> {{ currentSong.artist? currentSong.artist : "未知的創作者" }} </span>
 
                         <!-- 歌曲不同版本的徽章 -->
-                        <div v-if="songVersion !== 'default'" class="alternative-version-badge inline ml-2">
-                            <span v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs"
+                        <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2">
+                            <span v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs mr-1"
                                 style="padding: 5px; border-radius: 5px;">
                                 INSTRUMENTAL
                             </span>
 
-                            <span v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs"
+                            <span v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs mr-1"
                                 style="padding: 5px; border-radius: 5px;">
                                 THE FIRST TAKE
                             </span>
@@ -201,7 +201,8 @@
                                 <label for="song-version-select">版本：</label>
                                 <select v-model="songVersion" id="song-version-select">
                                     <!-- 歌曲的不同版本 -->
-                                    <option value="default" style="color: black;">
+                                    <option v-if="queryAlternativeVersion(ORIGINAL)" :value="ORIGINAL"
+                                        style="color: black;">
                                         原曲
                                     </option>
                                     <option v-if="queryAlternativeVersion(THE_FIRST_TAKE)" :value="THE_FIRST_TAKE"
@@ -265,25 +266,31 @@
 
                         <hr class="m-4" />
 
-                        <div class="credit-list grid grid-cols-3 gap-y-4 overflow-y-scroll max-h-70" v-if="currentSong.credits"
-                            style="font-family: Poppins, Noto Sans;">
+                        <div class="credit-list grid grid-cols-3 gap-y-4 overflow-y-scroll max-h-70"
+                            v-if="currentSong.credits" style="font-family: Poppins, Noto Sans;">
                             <!-- 演職員名單 需要可以再加 -->
-                            <div class="col-span-3 text-xl text-green-300 mt-2 mb-2 mr-4" v-if="currentSong.credits.performance">表演者</div>
-                            <div id="performance-contributors" class="text-center" v-for="contributor in currentSong.credits.performance">
+                            <div class="col-span-3 text-xl text-green-300 mt-2 mb-2 mr-4"
+                                v-if="currentSong.credits.performance">表演者</div>
+                            <div id="performance-contributors" class="text-center"
+                                v-for="contributor in currentSong.credits.performance">
                                 <span id="contribution">{{ contributor.contribution?.join("、") }}</span>
                                 <div id="contributor" class="text-2xl font-bold mt-1.5">
                                     {{ contributor.name }}
                                 </div>
                             </div>
-                            <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4" v-if="currentSong.credits.song_writing">詞曲</div>
-                            <div id="song-writing-contributors" class="text-center" v-for="contributor in currentSong.credits.song_writing">
+                            <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
+                                v-if="currentSong.credits.song_writing">詞曲</div>
+                            <div id="song-writing-contributors" class="text-center"
+                                v-for="contributor in currentSong.credits.song_writing">
                                 <span id="contribution">{{ contributor.contribution?.join("、") }}</span>
                                 <div id="contributor" class="text-2xl font-bold mt-1.5">
                                     {{ contributor.name }}
                                 </div>
                             </div>
-                            <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4" v-if="currentSong.credits.engineering">製作與工程團隊</div>
-                            <div id="engineering-contributors" class="text-center" v-for="contributor in currentSong.credits.engineering">
+                            <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
+                                v-if="currentSong.credits.engineering">製作與工程團隊</div>
+                            <div id="engineering-contributors" class="text-center"
+                                v-for="contributor in currentSong.credits.engineering">
                                 <span id="contribution">{{ contributor.contribution?.join("、") }}</span>
                                 <div id="contributor" class="text-2xl font-bold mt-1.5">
                                     {{ contributor.name }}

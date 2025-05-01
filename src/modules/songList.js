@@ -10,6 +10,6 @@ export const loadSongList = async () => {
   }
 };
 
-export const getLyricFilePath = (songName) => {
-  return `${MAPPINGS_BASE_PATH}${songName}.json`;
+export const getLyricFilePath = (songName, songVersion) => {
+  return `${MAPPINGS_BASE_PATH}${songName}/${songVersion}.json`;
 };

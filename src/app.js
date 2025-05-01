@@ -5,6 +5,7 @@ import {
     ALBUM_GOOGLE_LINK_BASE,
     INSTRUMENTAL,
     THE_FIRST_TAKE,
+    ORIGINAL,
     MERCURY_TSL,
 } from "./modules/config.js";
 import { formatTime, scrollToLineIndex, parseLyrics } from "./modules/utils.js";
@@ -33,7 +34,7 @@ const app = createApp({
                 name: "",
             },
         ]);
-        const songVersion = ref("default");
+        const songVersion = ref(ORIGINAL);
         const currentSong = ref(songList.value[0]);
         const scrollToCurrentLine = ref(true);
         const toggleTranslation = ref(true);
@@ -207,21 +208,26 @@ const app = createApp({
                 } else {
                     currentSong.value = songList.value[0];
                     console.warn(
-                        `未定義指定歌曲: ${songRequest}, 使用第一首歌曲`
+                        `未定義指定歌曲或歌曲未啟用: ${songRequest}, 使用第一首歌曲`
                     );
                 }
+
+                songVersion.value = currentSong.value.versions.find(
+                    (v) => v.default === true
+                ).version;
 
                 // 初始化播放器
                 const { init } = initYouTubePlayer({
                     currentSong,
                     currentTime,
                     songDuration,
+                    songVersion,
                 });
                 window.ytPlayer = await init();
 
                 // 載入歌詞
                 const lyricResponse = await fetch(
-                    getLyricFilePath(currentSong.value.name)
+                    getLyricFilePath(currentSong.value.name, songVersion.value)
                 );
                 jsonMappingContent.value = parseLyrics(
                     await lyricResponse.json(),
@@ -250,24 +256,35 @@ const app = createApp({
                 songList.value.map((s) => s.name)
             );
 
+            songVersion.value = currentSong.value.versions.find(
+                (v) => v.default === true
+            ).version;
+
             // 載入新歌詞
-            const lyricResponse = await fetch(getLyricFilePath(newSong.name));
+            const lyricResponse = await fetch(
+                getLyricFilePath(newSong.name, songVersion.value)
+            );
 
             // 調試：輸出歌詞文件路徑
-            console.log("Loading lyrics from:", newSong.name);
+            console.log(
+                `Loading lyrics from:${newSong.name}/${songVersion.value}.json`
+            );
 
             jsonMappingContent.value = parseLyrics(
                 await lyricResponse.json(),
                 currentSong,
                 songDuration
             );
-            console.log(jsonMappingContent.value);
+            console.log(songVersion.value, jsonMappingContent.value);
 
             jumpToCurrentLine(0);
 
-            songVersion.value = "default";
+            const videoID = currentSong.value.versions.find(
+                (v) => v.version === songVersion.value
+            ).id;
+            console.log(videoID);
 
-            window.ytPlayer.loadVideoById(newSong.id);
+            window.ytPlayer.loadVideoById(videoID);
             window.ytPlayer.pauseVideo();
             // 清空所有資料和翻譯文字 要跟歌詞一起才能清空
             currentTime.value = 0;
@@ -278,23 +295,49 @@ const app = createApp({
             if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
         });
 
-        watch(songVersion, (newVal) => {
-            if (!currentSong.value.alternative_versions) return;
+        watch(songVersion, async (newVal) => {
+            if (!currentSong.value.versions) return;
+
+            // 載入新歌詞
+            const lyricResponse = await fetch(
+                getLyricFilePath(newVal.name, songVersion.value)
+            );
+
+            // 調試：輸出歌詞文件路徑
+            console.log(
+                `Loading lyrics from:${newVal.name}/${songVersion.value}.json`
+            );
+
+            jsonMappingContent.value = parseLyrics(
+                await lyricResponse.json(),
+                currentSong,
+                songDuration
+            );
+            console.log(jsonMappingContent.value);
 
             // 切換YouTube視頻
-            if (newVal == THE_FIRST_TAKE)
+            if (newVal == ORIGINAL)
                 window.ytPlayer.loadVideoById(
-                    currentSong.value.alternative_versions.filter(
-                        (x) => x.type === THE_FIRST_TAKE
-                    )[0].id
+                    currentSong.value.versions.find(
+                        (v) => v.version === ORIGINAL
+                    ).id
+                );
+            else if (newVal == THE_FIRST_TAKE)
+                window.ytPlayer.loadVideoById(
+                    currentSong.value.versions.find(
+                        (v) => v.version === THE_FIRST_TAKE
+                    ).id
                 );
             else if (newVal == INSTRUMENTAL)
                 window.ytPlayer.loadVideoById(
-                    currentSong.value.alternative_versions.filter(
-                        (x) => x.type === INSTRUMENTAL
-                    )[0].id
+                    currentSong.value.versions.find(
+                        (v) => v.version === INSTRUMENTAL
+                    ).id
                 );
-            else window.ytPlayer.loadVideoById(currentSong.value.id);
+            else {
+                window.ytPlayer.loadVideoById("");
+                console.error(`找不到 ${newVal} 版本的影片 ID`);
+            }
 
             window.ytPlayer.pauseVideo();
         });
@@ -303,6 +346,7 @@ const app = createApp({
             ALBUM_GOOGLE_LINK_BASE,
             THE_FIRST_TAKE,
             INSTRUMENTAL,
+            ORIGINAL,
             jsonMappingContent,
             currentTime,
             songDuration,
@@ -346,9 +390,9 @@ const app = createApp({
                 );
             },
             queryAlternativeVersion: (version) => {
-                return currentSong.value.alternative_versions?.filter(
-                    (x) => x.type === version
-                )[0];
+                return currentSong.value.versions?.find(
+                    (x) => x.version === version
+                );
             },
         };
     },

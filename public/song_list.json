@@ -2,7 +2,13 @@
     {
         "available": true,
         "name": "amazarashi - Cassiopeia Keiryuujo",
-        "id": "pTwSEgflLq0",
+        "versions": [
+            {
+                "version": "original",
+                "id": "pTwSEgflLq0",
+                "default": true
+            }
+        ],
         "artist": "amazarashi",
         "lyricist": "秋田ひろむ",
         "title": "カシオピア係留所",
@@ -83,38 +89,15 @@
         }
     },
     {
-        "available": false,
-        "name": "Kenshi Yonezu - KANDEN",
-        "id": "UFQEttrn6CQ",
-        "artist": "米津玄師",
-        "title": "感電",
-        "album": {
-            "name": "STRAY SHEEP",
-            "link": "qvB12nv"
-        },
-        "translation": {
-            "available": true,
-            "author": "Alice／箱庭博物館",
-            "cite": "http://alicepika.blog.fc2.com/blog-entry-647.html"
-        }
-    },
-    {
-        "available": false,
-        "name": "Shytaupe - It's myself",
-        "title": "It's myself",
-        "subtitle": "TVアニメ「WIND BREAKER Season 2」\nエンディングテーマ",
-        "id": "ySD7YVvd6Xw",
-        "artist": "シャイトップ",
-        "album": {
-            "name": "It's myself",
-            "link": "3HkuEse"
-        },
-        "lyricist": "佐々木　想"
-    },
-    {
         "available": true,
         "name": "Kiro Akiyama - SKETCH",
-        "id": "M0cHair48Jg",
+        "versions": [
+            {
+                "version": "original",
+                "id": "M0cHair48Jg",
+                "default": true
+            }
+        ],
         "artist": "秋山黄色",
         "lyricist": "Kiro Akiyama",
         "title": "SKETCH",
