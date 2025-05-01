@@ -55,7 +55,7 @@ const app = createApp({
         );
 
         const currentSongURI = computed(
-            () => TSL_LINK_BASE + "?song=" + encodeURIComponent(currentSong.value.name)
+            () => TSL_LINK_BASE + "?song=" + currentSong.value.name
         );
 
         const currentLineIndex = computed(() => {
