@@ -2,6 +2,9 @@
 
 [ 自動同步播放時間滾動歌詞的網頁工具 ]
 
+> [!NOTE]
+> 在以下的說明中，子節點如為必填而母節點為選填，指「當母節點存在時，該子節點必填」。
+
 ## 歌曲清單格式
 
 歌曲清單在 `/public/song_list.json` 中以 JSON 格式定義，陣列中的每個物件代表一首歌。
@@ -15,44 +18,65 @@
 ...
     {
         "available": true,
-        "name": "amazarashi - Cassiopeia Keiryuujo",
-        "id": "pTwSEgflLq0",
-        "artist": "amazarashi",
-        "title": "カシオピア係留所",
-        "lyricist": "秋田ひろむ",
-        "album": {
-            "name": "永遠市",
-            "link": "cCJ7CCq"
-        },
-        "translation": {
-            "available": true,
-            "author": "Alice／箱庭博物館",
-            "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
-        },
-        "default_phrase_duration": 100,
-        "is_duet": false,
+        "name": "HOYO-MiX, Vision Wei, Nea - On the Journey",
+
+        "artist": "HOYO-MiX, 魏晨, Nea",
+        "lyricist": "Ruby Qu、王可鑫",
+        "title": "不虛此行",
+        "subtitle": "《崩壞:星穹鐵道》兩週年紀念曲",
         "versions": [
             {
                 "version": "original",
-                "id": "pTwSEgflLq0",
+                "id": "0WyDtxRZ938",
                 "default": true
             }
         ],
+        "is_duet": true,
+        "translation": {
+            "available": true,
+            "author": "YouTube 影片內翻譯"
+        },
         "credits": {
             "performance": [
                 {
-                    "name": "秋田ひろむ",
+                    "name": "HOYO-MiX",
+                    "contribution": ["演出者"]
+                },
+                {
+                    "name": "魏晨",
+                    "contribution": ["主唱"]
+                },
+                {
+                    "name": "NEA",
                     "contribution": ["主唱"]
                 }
             ],
             "song_writing": [
                 {
-                    "name": "秋田ひろむ",
-                    "contribution": ["詞曲創作"]
+                    "name": "王可鑫",
+                    "contribution": ["詞曲創作", "編曲"]
                 },
                 {
-                    "name": "出羽良彰",
-                    "contribution": ["編曲"]
+                    "name": "Ruby Qu",
+                    "contribution": ["作詞"]
+                }
+            ],
+            "engineering": [
+                {
+                    "name": "崔瀚普",
+                    "contribution": ["製作人"]
+                },
+                {
+                    "name": "张迦南",
+                    "contribution": ["母帶工程師"]
+                },
+                {
+                    "name": "王可鑫",
+                    "contribution": ["製作人、母帶工程師"]
+                },
+                {
+                    "name": "阿烈",
+                    "contribution": ["混音師"]
                 }
             ]
         }
@@ -63,39 +87,39 @@
 
 ### 歌曲屬性說明
 
-| 屬性                         | 類型    | 必填 | 說明                                   |
-| ---------------------------- | ------- | ---- | -------------------------------------- |
-| `available`                  | boolean | ✓    | 是否啟用該歌曲                         |
-| `name`                       | string  | ✓    | 時間譜檔案名稱 (e.g. "artist - title") |
-| `id`                         | string  | ✓    | YouTube 影片 ID                        |
-| `artist`                     | string  | ✓    | 歌手/團體名稱                          |
-| `title`                      | string  | ✓    | 歌曲標題（不含歌手名）                 |
-| `lyricist`                   | string  |      | 作詞者                                 |
-| `album`                      | object  |      | 專輯資訊                               |
-| ↳ `name`                     | string  | ✓    | 專輯名稱                               |
-| ↳ `link`                     | string  |      | 專輯連結代碼                           |
-| `translation`                | object  |      | 翻譯資訊                               |
-| ↳ `available`                | boolean | ✓    | 是否有翻譯                             |
-| ↳ `author`                   | string  |      | 翻譯作者                               |
-| ↳ `cite`                     | string  |      | 翻譯出處連結                           |
-| `default_phrase_duration`    | number  |      | 預設片語持續時間(ms)                   |
-| `is_duet`                    | boolean |      | 是否為對唱歌曲                         |
-| `alternative_versions`       | array   |      | 替代版本列表                           |
-| ↳ `type`                     | string  | ✓    | 版本類型 (e.g. "instrumental")         |
-| ↳ `id`                       | string  | ✓    | YouTube 影片 ID                        |
-| `credits`                    | object  |      | 歌曲的製作名單                         |
-| ↳ `vocalist`                 | string  |      | 主唱姓名                               |
-| ↳ `lyricist`                 | string  |      | 作詞姓名                               |
-| ↳ `songwriting`              | string  |      | 作曲姓名                               |
-| ↳ `lyricist_and_songwriting` | string  |      | 詞曲創作姓名                           |
-| ↳ `arrangement`              | string  |      | 編曲姓名                               |
+| 屬性                      | 類型         | 必填 | 說明                                   |
+| ------------------------- | ------------ | ---- | -------------------------------------- |
+| `available`               | boolean      | ✓    | 是否啟用該歌曲                         |
+| `name`                    | string       | ✓    | 時間譜檔案名稱 (e.g. "artist - title") |
+| `artist`                  | string       | ✓    | 歌手/團體名稱                          |
+| `title`                   | string       | ✓    | 歌曲標題（不含歌手名）                 |
+| `subtitle`                | string       |      | 歌曲副標題（不含歌名，可使用`\n`換行） |
+| `lyricist`                | string       |      | 作詞者                                 |
+| `album`                   | object       |      | 專輯資訊                               |
+| ↳ `name`                  | string       | ✓    | 專輯名稱                               |
+| ↳ `link`                  | string       |      | 專輯連結代碼                           |
+| `translation`             | object       |      | 翻譯資訊                               |
+| ↳ `available`             | boolean      | ✓    | 是否有翻譯                             |
+| ↳ `author`                | string       | ✓    | 翻譯作者                               |
+| ↳ `cite`                  | string       |      | 翻譯出處連結                           |
+| `default_phrase_duration` | number       |      | 預設片語持續時間(ms)                   |
+| `is_duet`                 | boolean      |      | 是否為對唱歌曲                         |
+| `versions`                | array        | ✓    | 替代版本列表                           |
+| ↳ `version`               | string       | ✓    | 版本類型 (e.g. "instrumental")         |
+| ↳ `id`                    | string       | ✓    | YouTube 影片 ID                        |
+| ↳ `default`               | boolean      |      | 是否為預設版本                         |
+| `credits`                 | object       |      | 歌曲的製作名單                         |
+| ↳ `performance`           | array        |      | 表演貢獻者                             |
+| ↳ `song_writing`          | array        |      | 詞曲創作貢獻者                         |
+| ↳ `engineering`           | array        |      | 後製與工程類貢獻者                     |
+| ↳↳ `name`                 | string       | ✓    | 貢獻者姓名                             |
+| ↳↳ `contribution`         | string array | ✓    | 貢獻內容                               |
 
 WIP
 
 # 歌詞時間譜格式
 
-歌詞的 JSON 時間譜檔案統一放在 `/public/mappings/(歌名)/` 裡，以歌曲版本 (i.e. `original`, `the_first_take`, `instrumental`, ...)。
-JSON 檔案中的每個物件都是一行歌詞。
+歌詞的 JSON 時間譜檔案統一放在 `/public/mappings/(歌名)/` 裡，以歌曲版本 (i.e. `original`, `the_first_take`, `instrumental`, ...)命名。JSON 檔案中的每個物件都是一行歌詞。
 
 以下範例是標準的一行歌詞：
 
@@ -103,29 +127,29 @@ JSON 檔案中的每個物件都是一行歌詞。
 [
 ...
     {
-        "time": "03:55.98",
+        "time": "01:56.57",
         "text": [
-            { "phrase": "また", "duration": 0 },
-            { "phrase": "しわを", "duration": 0 },
-            { "phrase": "あわせて", "duration": 0, "kiai": true }
+            { "phrase": "Life ", "duration": 47 },
+            { "phrase": "goes ", "duration": 23 },
+            { "phrase": "on,", "duration": 31 },
+            { "phrase": " ", "duration": 156 },
+            { "phrase": "through ", "duration": 23 },
+            { "phrase": "tides ", "duration": 28 },
+            { "phrase": "of ", "duration": 27 },
+            { "phrase": "time", "duration": 87 }
         ],
-        "translation": "再一次 將我們的皺紋結合起來",
+        "translation": "生命不息，歲月不止",
+        "is_together": true,
         "background_voice": {
-            "time": "03:54.70",
+            "time": "01:58.06",
             "text": [
-                { "phrase": "思い出す", "duration": 80 },
-                { "phrase": "ことも", "duration": 80 },
-                { "phrase": "なくなって", "duration": 100 },
-                { "phrase": "　", "duration": 10 },
-                { "phrase": "しまうんだろう", "duration": 120 },
-                { "phrase": "　", "duration": 10 },
-                { "phrase": "しまうんだろう", "duration": 120, "kiai": true },
-                { "phrase": "", "duration": 40 },
-                { "phrase": "って", "duration": 20 }
+                { "phrase": "Goes ", "duration": 40 },
+                { "phrase": "on,", "duration": 31 },
+                { "phrase": " ", "duration": 100 },
+                { "phrase": "time", "duration": 100, "kiai": true }
             ],
-            "translation": "會變得什麼都無法回想起來 會變成這樣吧 會變成這樣吧.....我想"
-        },
-        "is_secondary": true
+            "translation":"不息，歲月"
+        }
     },
 ...
 ]
@@ -141,12 +165,14 @@ JSON 檔案中的每個物件都是一行歌詞。
 | ↳ `phrase`         | string  | ✓    | 文字片段                                           |
 | ↳ `duration`       | number  | ✓    | 持續時間(ms)，0=使用預設值                         |
 | ↳ `kiai`           | boolean |      | 是否強調顯示                                       |
+| ↳ `pronounciation` | string  |      | 該片語的發音（為日文假名讀音設計）                 |
 | `translation`      | string  |      | 該行翻譯                                           |
 | `background_voice` | object  |      | 背景和聲                                           |
 | ↳ `time`           | string  | ✓    | 開始時間                                           |
-| ↳ `text`           | array   | ✓    | 同主歌詞格式                                       |
+| ↳ `text`           | array   | ✓    | 同主歌詞`text`格式                                 |
 | ↳ `translation`    | string  |      | 和聲翻譯                                           |
 | `is_secondary`     | boolean |      | 是否為第二歌手                                     |
+| `is_together`      | boolean |      | 是否為合唱                                         |
 
 ## 根元素
 
@@ -178,10 +204,11 @@ JSON 檔案中的每個物件都是一行歌詞。
 
 -   若設定為空字串，則歌詞中不會顯示，可作為停頓之用。
 
--   範例：
-    ```json
-    { "phrase": "", "duration": 40 } // 作為停頓使用
-    ```
+範例：
+
+```json
+{ "phrase": "", "duration": 40 } // 作為停頓使用
+```
 
 ### duration
 
@@ -227,6 +254,22 @@ JSON 檔案中的每個物件都是一行歌詞。
 
 -   若為 `true`，該片語在著色時會帶有白色光暈效果，作為強調用途。
 
+### pronounciation
+
+該片語的讀音，主要為日語假名讀音設計；也可用在別種用途，但**尚不推薦**。
+
+範例：
+
+```json
+{ "phrase": "夜空", "duration": 40, "pronounciation": "よぞら" }
+```
+
+輸出結果：
+
+<ruby>
+    夜空 <rp>(</rp> <rt>よぞら</rt> <rp>)</rp>
+</ruby>
+
 ## translation
 
 該行歌詞的翻譯。
@@ -244,3 +287,19 @@ JSON 檔案中的每個物件都是一行歌詞。
 -   需要在 `/public/song_list.json` 中將該歌曲的 `is_duet` 設置為 `true` 方可正常使用。
 
 -   若為 `true`，該行文字將會靠右顯示。
+
+-   背景和聲將跟隨主旋律靠右。
+
+-   <font color=red>不可與`is_together`並用，否則沒有效果。</font>
+
+## is_together
+
+表示該行為歌手合唱的歌詞。
+
+-   需要在 `/public/song_list.json` 中將該歌曲的 `is_duet` 設置為 `true` 方可正常使用。
+
+-   若為 `true`，該行文字將會正常居中顯示。
+
+-   背景和聲將跟隨主旋律置中。
+
+-   <font color=red>不可與`is_secondary`並用，否則沒有效果。</font>
