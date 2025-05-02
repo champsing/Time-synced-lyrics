@@ -19,11 +19,11 @@
     {
         "available": true,
         "name": "HOYO-MiX, Vision Wei, Nea - On the Journey",
-
         "artist": "HOYO-MiX, 魏晨, Nea",
         "lyricist": "Ruby Qu、王可鑫",
         "title": "不虛此行",
         "subtitle": "《崩壞:星穹鐵道》兩週年紀念曲",
+        "is_duet": true,
         "versions": [
             {
                 "version": "original",
@@ -31,11 +31,11 @@
                 "default": true
             }
         ],
-        "is_duet": true,
         "translation": {
             "available": true,
             "author": "YouTube 影片內翻譯"
         },
+
         "credits": {
             "performance": [
                 {
@@ -87,33 +87,32 @@
 
 ### 歌曲屬性說明
 
-| 屬性                      | 類型         | 必填 | 說明                                   |
-| ------------------------- | ------------ | ---- | -------------------------------------- |
-| `available`               | boolean      | ✓    | 是否啟用該歌曲                         |
-| `name`                    | string       | ✓    | 時間譜檔案名稱 (e.g. "artist - title") |
-| `artist`                  | string       | ✓    | 歌手/團體名稱                          |
-| `title`                   | string       | ✓    | 歌曲標題（不含歌手名）                 |
-| `subtitle`                | string       |      | 歌曲副標題（不含歌名，可使用`\n`換行） |
-| `lyricist`                | string       |      | 作詞者                                 |
-| `album`                   | object       |      | 專輯資訊                               |
-| ↳ `name`                  | string       | ✓    | 專輯名稱                               |
-| ↳ `link`                  | string       |      | 專輯連結代碼                           |
-| `translation`             | object       |      | 翻譯資訊                               |
-| ↳ `available`             | boolean      | ✓    | 是否有翻譯                             |
-| ↳ `author`                | string       | ✓    | 翻譯作者                               |
-| ↳ `cite`                  | string       |      | 翻譯出處連結                           |
-| `default_phrase_duration` | number       |      | 預設片語持續時間(ms)                   |
-| `is_duet`                 | boolean      |      | 是否為對唱歌曲                         |
-| `versions`                | array        | ✓    | 替代版本列表                           |
-| ↳ `version`               | string       | ✓    | 版本類型 (e.g. "instrumental")         |
-| ↳ `id`                    | string       | ✓    | YouTube 影片 ID                        |
-| ↳ `default`               | boolean      |      | 是否為預設版本                         |
-| `credits`                 | object       |      | 歌曲的製作名單                         |
-| ↳ `performance`           | array        |      | 表演貢獻者                             |
-| ↳ `song_writing`          | array        |      | 詞曲創作貢獻者                         |
-| ↳ `engineering`           | array        |      | 後製與工程類貢獻者                     |
-| ↳↳ `name`                 | string       | ✓    | 貢獻者姓名                             |
-| ↳↳ `contribution`         | string array | ✓    | 貢獻內容                               |
+| 屬性              | 類型         | 必填 | 說明                                   |
+| ----------------- | ------------ | ---- | -------------------------------------- |
+| `available`       | boolean      | ✓    | 是否啟用該歌曲                         |
+| `name`            | string       | ✓    | 時間譜檔案名稱 (e.g. "artist - title") |
+| `artist`          | string       | ✓    | 歌手/團體名稱                          |
+| `title`           | string       | ✓    | 歌曲標題（不含歌手名）                 |
+| `subtitle`        | string       |      | 歌曲副標題（不含歌名，可使用`\n`換行） |
+| `lyricist`        | string       |      | 作詞者                                 |
+| `is_duet`         | boolean      |      | 是否為對唱歌曲                         |
+| `versions`        | array        | ✓    | 替代版本列表                           |
+| ↳ `version`       | string       | ✓    | 版本類型 (e.g. "instrumental")         |
+| ↳ `id`            | string       | ✓    | YouTube 影片 ID                        |
+| ↳ `default`       | boolean      |      | 是否為預設版本                         |
+| `album`           | object       |      | 專輯資訊                               |
+| ↳ `name`          | string       | ✓    | 專輯名稱                               |
+| ↳ `link`          | string       |      | 專輯連結代碼                           |
+| `translation`     | object       |      | 翻譯資訊                               |
+| ↳ `available`     | boolean      | ✓    | 是否有翻譯                             |
+| ↳ `author`        | string       | ✓    | 翻譯作者                               |
+| ↳ `cite`          | string       |      | 翻譯出處連結                           |
+| `credits`         | object       |      | 歌曲的製作名單                         |
+| ↳ `performance`   | array        |      | 表演貢獻者                             |
+| ↳ `song_writing`  | array        |      | 詞曲創作貢獻者                         |
+| ↳ `engineering`   | array        |      | 後製與工程類貢獻者                     |
+| ↳↳ `name`         | string       | ✓    | 貢獻者姓名                             |
+| ↳↳ `contribution` | string array | ✓    | 貢獻內容                               |
 
 WIP
 
