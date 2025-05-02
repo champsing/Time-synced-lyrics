@@ -35,7 +35,6 @@
             "available": true,
             "author": "YouTube 影片內翻譯"
         },
-
         "credits": {
             "performance": [
                 {
@@ -213,9 +212,7 @@ WIP
 
 該片語的持續時間。單位為厘秒（即 1/100 秒）。
 
--   若填寫 `0`，將會將該值取代為 `/public/song_list.json` 中定義的該歌曲的 `default_phrase_duration` 數值。
-
--   若該值也不存在，將使用系統預設值常數 `100`。
+-   若填寫 `0`，將會將該值取代為系統預設值常數 `100`。
 
 -   該值將配合 YouTube 播放器的當前時刻決定該片語由左向右漸層著色的快慢。
 
