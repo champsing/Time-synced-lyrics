@@ -12,11 +12,14 @@ import {
 import {
     formatTime,
     scrollToLineIndex,
-    parseLyrics,
     copyToClipboard,
 } from "./modules/utils.js";
+import { parseLyrics } from "./modules/handles/lyricsHandle.js";
 import { initYouTubePlayer } from "./modules/player.js";
-import { loadSongList, getLyricFilePath } from "./modules/songList.js";
+import {
+    loadSongList,
+    getLyricFilePath,
+} from "./modules/handles/songsHandle.js";
 import {
     initCreditModal,
     initSettingModal,
