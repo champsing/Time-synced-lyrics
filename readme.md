@@ -71,7 +71,7 @@
                 },
                 {
                     "name": "王可鑫",
-                    "contribution": ["製作人、母帶工程師"]
+                    "contribution": ["製作人", "母帶工程師"]
                 },
                 {
                     "name": "阿烈",
