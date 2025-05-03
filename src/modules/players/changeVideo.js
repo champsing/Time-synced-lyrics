@@ -2,7 +2,7 @@ export function onPlayerChangeSongVideo(currentSong, songVersion, player) {
     const videoID = currentSong.value.versions.find(
         (v) => v.version === songVersion.value
     ).id;
-    console.log(videoID);
+    console.log("Loading video from video ID:", videoID);
 
     if (!videoID) {
         window.ytPlayer.loadVideoById("");
