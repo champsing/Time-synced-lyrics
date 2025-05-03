@@ -1,1 +1,1 @@
-export const COMMIT_ID = '232e533f39a4'
+export const COMMIT_ID = '2b6d6c98e585'

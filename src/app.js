@@ -208,7 +208,7 @@ const app = createApp({
                 window.ytPlayer = await init();
 
                 window.ytPlayer.addEventListener("onStateChange", (event) => {
-                    isPaused.value = event.data === YT.PlayerState.PAUSED;
+                    isPaused.value = event.data === YT.PlayerState.PAUSED || YT.PlayerState.BUFFERING;
                 });
 
                 // 載入歌詞
