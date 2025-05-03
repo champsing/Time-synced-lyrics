@@ -13,8 +13,8 @@ import {
     formatTime,
     scrollToLineIndex,
     copyToClipboard,
-} from "./modules/utils.js";
-import { parseLyrics } from "./modules/handles/lyricsHandle.js";
+} from "./modules/utils/global.js";
+import { parseLyrics, useLyrics } from "./modules/handles/lyricsHandle.js";
 import { initYouTubePlayer } from "./modules/player.js";
 import {
     loadSongList,
@@ -25,6 +25,8 @@ import {
     initSettingModal,
     initSongModal,
 } from "./modules/modal.js";
+import { generatePhraseStyle } from "./modules/utils/generatePhraseStyle.js";
+import { useTransation } from "./modules/handles/translationHandle.js";
 
 // 版本顯示
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
@@ -35,7 +37,6 @@ const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();
 const app = createApp({
     setup() {
         // 響應式狀態
-        const jsonMappingContent = ref(null);
         const currentTime = ref(0);
         const songDuration = ref(0);
         const songList = ref([
@@ -61,16 +62,6 @@ const app = createApp({
             () => TSL_LINK_BASE + "?song=" + currentSong.value.name
         );
 
-        const currentLineIndex = computed(() => {
-            if (!jsonMappingContent.value) return -1;
-            for (let i = jsonMappingContent.value.length - 1; i >= 0; i--) {
-                if (currentTime.value >= jsonMappingContent.value[i].time) {
-                    return i;
-                }
-            }
-            return -1;
-        });
-
         const isCurrentLine = (index) => {
             // need more rewriting
             //     let isNotYetFinished = false;
@@ -86,33 +77,17 @@ const app = createApp({
             return index === currentLineIndex.value;
         };
 
-        const translationText = computed(() => {
-            if (!jsonMappingContent.value || currentLineIndex.value === -1)
-                return "";
-            return (
-                jsonMappingContent.value[currentLineIndex.value]?.translation ||
-                ""
-            );
-        });
+        const { jsonMappingContent, currentLineIndex, loadLyrics } = useLyrics(
+            currentSong,
+            songVersion,
+            songDuration
+        );
 
-        const backgroundTranslationText = computed(() => {
-            if (
-                !jsonMappingContent.value[currentLineIndex.value] ||
-                currentLineIndex.value === -1
-            )
-                return "";
-            return (
-                jsonMappingContent.value[currentLineIndex.value]
-                    .background_voice?.translation || ""
-            );
-        });
-
-        const translationAuthor = computed(() => {
-            if (!currentSong.value.translation?.author) return "";
-            if (currentSong.value.translation?.modified === true)
-                return currentSong.value.translation?.author + "〔已修改〕";
-            else return currentSong.value.translation?.author;
-        });
+        const {
+            translationText,
+            backgroundTranslationText,
+            translationAuthor,
+        } = useTransation(currentSong, jsonMappingContent, currentLineIndex);
 
         // 方法
         const jumpToCurrentLine = (index) => {
@@ -131,70 +106,25 @@ const app = createApp({
             // 若 line.background_voice 不存在，直接返回空樣式
             if (!line.background_voice) return {};
 
-            // 安全存取 line.time，若不存在則給默認值 0
-            const lineTime = line.background_voice.time || 0;
-
-            // 安全存取陣列元素，避免 phraseIndex 超出範圍
-            const delay = line.background_voice.delay?.[phraseIndex] || 0;
-            const duration = line.background_voice.duration?.[phraseIndex] || 0;
-
-            // 計算進度（加入防呆避免除以零）
-            let phraseProgressValue = 0;
-            if (duration > 0) {
-                const rawProgress =
-                    (currentTime.value - lineTime - delay) / duration;
-                phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
-            }
-
-            // 若時間未到延遲時間，進度設為 0
-            if (currentTime.value - lineTime < delay) {
-                phraseProgressValue = 0;
-            }
-
-            return {
-                transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
-                "--progress": `${phraseProgressValue * 100}%`,
-            };
+            return generatePhraseStyle(
+                currentTime.value,
+                line.background_voice,
+                phraseIndex
+            );
         };
 
         const getPhraseStyle = (lineIndex, phraseIndex) => {
             if (!isCurrentLine(lineIndex)) return {};
+
             // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
             const line = jsonMappingContent.value?.[lineIndex];
-
-            // 若 line 不存在，直接返回空樣式
-            if (!line) return {};
-
-            // 使用 Optional Chaining 檢查 line.type
-            if (line.type === "end") {
-                return { "--progress": "100%", "font-size": "20px" };
-            }
-
-            // 安全存取 line.time，若不存在則給默認值 0
-            const lineTime = line.time || 0;
-
-            // 安全存取陣列元素，避免 phraseIndex 超出範圍
-            // 這裡的單位已經是秒了，直接使用不用再除以 100
-            const delay = line.delay?.[phraseIndex] || 0;
-            const duration = line.duration?.[phraseIndex] || 0;
-
-            // 計算進度（加入防呆避免除以零）
-            let phraseProgressValue = 0;
-            if (duration > 0) {
-                const rawProgress =
-                    (currentTime.value - lineTime - delay) / duration;
-                phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
-            }
 
             // 若時間未到延遲時間，進度設為 0
             if (currentTime.value - lineTime < delay) {
                 phraseProgressValue = 0;
             }
 
-            return {
-                transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
-                "--progress": `${phraseProgressValue * 100}%`,
-            };
+            return generatePhraseStyle(currentTime.value, line, phraseIndex);
         };
 
         // 初始化流程
@@ -252,6 +182,8 @@ const app = createApp({
                 initSettingModal();
                 initCreditModal();
                 initSongModal();
+
+                console.log(currentSong);
             } catch (error) {
                 console.error("初始化錯誤: ", error);
             }

@@ -1,3 +1,8 @@
+const { ref, computed } = Vue;
+
+import { DEFAULT_DURATION } from "../config.js";
+import { getLyricFilePath } from "./songsHandle.js";
+
 export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
     if (!jsonMappingContent) return [];
 
@@ -103,3 +108,32 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
         };
     });
 };
+
+export function useLyrics(currentSong, songVersion, songDuration) {
+    const jsonMappingContent = ref(null);
+
+    const loadLyrics = async () => {
+        const path = getLyricFilePath(
+            currentSong.value.name,
+            songVersion.value
+        );
+        const response = await fetch(path);
+        jsonMappingContent.value = parseLyrics(
+            await response.json(),
+            currentSong,
+            songDuration
+        );
+    };
+
+    const currentLineIndex = computed(() => {
+        if (!jsonMappingContent.value) return -1;
+        for (let i = jsonMappingContent.value.length - 1; i >= 0; i--) {
+            if (currentTime.value >= jsonMappingContent.value[i].time) {
+                return i;
+            }
+        }
+        return -1;
+    });
+
+    return { jsonMappingContent, currentLineIndex, loadLyrics };
+}
