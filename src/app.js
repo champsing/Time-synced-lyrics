@@ -19,6 +19,7 @@ import { initYouTubePlayer } from "./modules/player.js";
 import {
     loadSongList,
     getLyricFilePath,
+    setDefaultVersion,
 } from "./modules/handles/songsHandle.js";
 import {
     initCreditModal,
@@ -151,9 +152,7 @@ const app = createApp({
                     );
                 }
 
-                songVersion.value = currentSong.value.versions.find(
-                    (v) => v.default === true
-                ).version;
+                songVersion.value = setDefaultVersion(currentSong);
 
                 // 初始化播放器
                 const { init } = initYouTubePlayer({
@@ -188,9 +187,7 @@ const app = createApp({
                 songList.value.map((s) => s.name)
             );
 
-            songVersion.value = currentSong.value.versions.find(
-                (v) => v.default === true
-            ).version;
+            songVersion.value = setDefaultVersion(currentSong);
 
             // 載入新歌詞
 
