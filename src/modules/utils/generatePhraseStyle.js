@@ -23,8 +23,6 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
         phraseProgressValue = 0;
     }
 
-    console.log(lineTime, delay, duration, rawProgress, phraseProgressValue);
-
     return {
         transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
         "--progress": `${phraseProgressValue * 100}%`,

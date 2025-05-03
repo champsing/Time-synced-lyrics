@@ -123,6 +123,8 @@ export function useLyrics(currentSong, songVersion, currentTime, songDuration) {
             currentSong,
             songDuration
         );
+
+        console.log(songVersion.value, jsonMappingContent.value);
     };
 
     const currentLineIndex = computed(() => {

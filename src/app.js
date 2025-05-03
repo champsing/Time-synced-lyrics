@@ -62,21 +62,6 @@ const app = createApp({
             () => TSL_LINK_BASE + "?song=" + currentSong.value.name
         );
 
-        const isCurrentLine = (index) => {
-            // need more rewriting
-            //     let isNotYetFinished = false;
-            //     let line = jsonMappingContent.value[index];
-
-            //     if (line.end_time) {
-            //         isNotYetFinished =
-            //             line?.end_time > currentTime.value &&
-            //             currentTime.value > line?.time &&
-            //             currentLineIndex.value > index;
-            //         return index === currentLineIndex.value || isNotYetFinished;
-            //     } else return index === currentLineIndex.value;
-            return index === currentLineIndex.value;
-        };
-
         const { jsonMappingContent, currentLineIndex, loadLyrics } = useLyrics(
             currentSong,
             songVersion,
@@ -90,13 +75,28 @@ const app = createApp({
             translationAuthor,
         } = useTransation(currentSong, jsonMappingContent, currentLineIndex);
 
-        // 方法
+        // 跳至指定行
         const jumpToCurrentLine = (index) => {
             const line = jsonMappingContent.value[index];
             if (line && window.ytPlayer) {
                 window.ytPlayer.seekTo(line.time);
                 scrollToLineIndex(index);
             }
+        };
+
+        const isCurrentLine = (index) => {
+            // need more rewriting
+            //     let isNotYetFinished = false;
+            //     let line = jsonMappingContent.value[index];
+
+            //     if (line.end_time) {
+            //         isNotYetFinished =
+            //             line?.end_time > currentTime.value &&
+            //             currentTime.value > line?.time &&
+            //             currentLineIndex.value > index;
+            //         return index === currentLineIndex.value || isNotYetFinished;
+            //     } else return index === currentLineIndex.value;
+            return index === currentLineIndex.value;
         };
 
         const getBackgroundPhraseStyle = (lineIndex, phraseIndex) => {
@@ -165,21 +165,12 @@ const app = createApp({
                 window.ytPlayer = await init();
 
                 // 載入歌詞
-                const lyricResponse = await fetch(
-                    getLyricFilePath(currentSong.value.name, songVersion.value)
-                );
-                jsonMappingContent.value = parseLyrics(
-                    await lyricResponse.json(),
-                    currentSong,
-                    songDuration
-                );
+                loadLyrics(currentSong, songVersion);
 
                 // 初始化模態框
                 initSettingModal();
                 initCreditModal();
                 initSongModal();
-
-                console.log(currentSong);
             } catch (error) {
                 console.error("初始化錯誤: ", error);
             }
@@ -202,21 +193,13 @@ const app = createApp({
             ).version;
 
             // 載入新歌詞
-            const lyricResponse = await fetch(
-                getLyricFilePath(newSong.name, songVersion.value)
-            );
 
             // 調試：輸出歌詞文件路徑
             console.log(
                 `Loading lyrics from: ${newSong.name}/${songVersion.value}.json`
             );
 
-            jsonMappingContent.value = parseLyrics(
-                await lyricResponse.json(),
-                currentSong,
-                songDuration
-            );
-            console.log(songVersion.value, jsonMappingContent.value);
+            loadLyrics(newSong.name, songVersion);
 
             jumpToCurrentLine(0);
 
@@ -239,22 +222,13 @@ const app = createApp({
         watch(songVersion, async (newVal) => {
             if (!currentSong.value.versions) return;
 
-            // 載入新歌詞
-            const lyricResponse = await fetch(
-                getLyricFilePath(newVal.name, songVersion.value)
-            );
-
             // 調試：輸出歌詞文件路徑
             console.log(
-                `Loading lyrics from:${newVal.name}/${songVersion.value}.json`
+                `Loading lyrics from:${currentSong.value.name}/${newVal}.json`
             );
 
-            jsonMappingContent.value = parseLyrics(
-                await lyricResponse.json(),
-                currentSong,
-                songDuration
-            );
-            console.log(jsonMappingContent.value);
+            // 載入新歌詞
+            loadLyrics(currentSong.value.name, newVal);
 
             // 切換YouTube視頻
             if (newVal == ORIGINAL)
@@ -290,6 +264,7 @@ const app = createApp({
             ORIGINAL,
             jsonMappingContent,
             currentTime,
+            currentLineIndex,
             songDuration,
             songList,
             songVersion,
@@ -300,7 +275,6 @@ const app = createApp({
             toggleTranslation,
             formattedCurrentTime,
             formattedSongDuration,
-            currentLineIndex,
             translationText,
             backgroundTranslationText,
             translationAuthor,
