@@ -1,4 +1,4 @@
-const { createApp, ref, computed, onMounted, watch } = Vue;
+import { createApp, ref, computed, onMounted, watch } from "vue";
 
 import {
     VERSION,
@@ -52,8 +52,10 @@ const app = createApp({
         const songVersion = ref(ORIGINAL);
         const currentSong = ref(songList.value[0]);
         const scrollToCurrentLine = ref(true);
-        const toggleTranslation = ref(true);
-        const togglePronounciation = ref(false);
+        const enableTranslation = ref(true);
+        const enablePronounciation = ref(false);
+        const enableLyricBackground = ref(true);
+        const backgroundColor = ref(0);
 
         // 計算屬性
         const formattedCurrentTime = computed(() =>
@@ -250,11 +252,12 @@ const app = createApp({
             songDuration,
             songList,
             songVersion,
-            togglePronounciation,
+            enablePronounciation,
+            enableLyricBackground,
             currentSong,
             currentSongURI,
             scrollToCurrentLine,
-            toggleTranslation,
+            enableTranslation,
             formattedCurrentTime,
             formattedSongDuration,
             translationText,

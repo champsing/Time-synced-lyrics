@@ -1,6 +1,10 @@
-const { computed } = Vue;
+import { computed } from "vue";
 
-export function useTransation(currentSong, jsonMappingContent, currentLineIndex) {
+export function useTransation(
+    currentSong,
+    jsonMappingContent,
+    currentLineIndex
+) {
     const translationText = computed(() => {
         if (!jsonMappingContent.value || currentLineIndex.value === -1)
             return "";

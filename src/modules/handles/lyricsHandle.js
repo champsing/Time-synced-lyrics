@@ -1,4 +1,4 @@
-const { ref, computed } = Vue;
+import { ref, computed } from "vue";
 
 import { DEFAULT_DURATION } from "../utils/config.js";
 import { getLyricFilePath } from "./songsHandle.js";
