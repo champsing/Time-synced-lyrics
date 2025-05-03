@@ -62,7 +62,7 @@ export const initYouTubePlayer = (vueContext) => {
 };
 
 const calcWidth = () => {
-    if (window.screen.width >= 1024 && window.screen.height >= 768) {
-        return {width: "300", height: "200"}
-    } else return {width: "0", height: "0"}
-}
+    if (window.screen.width >= 960 && window.screen.height >= 768) {
+        return { width: "300", height: "200" };
+    } else return { width: "0", height: "0" };
+};
