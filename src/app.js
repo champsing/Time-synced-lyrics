@@ -158,6 +158,7 @@ const app = createApp({
             // 清空現在時刻跟影片長度
             currentTime.value = 0;
             songDuration.value = 0;
+            isPaused.value = true;
         };
 
         // 初始化流程
