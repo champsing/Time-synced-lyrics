@@ -1,18 +1,7 @@
-import { DEFAULT_DURATION } from "./config.js";
+import { ref, computed } from "vue";
 
-export const formatTime = (seconds) => {
-    const min = Math.floor(seconds / 60);
-    const sec = Math.floor(seconds % 60);
-    return `${min}:${sec.toString().padStart(2, "0")}`;
-};
-
-export const scrollToLineIndex = (index) => {
-    const currentLineId = document.getElementById(index);
-    currentLineId?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-    });
-};
+import { DEFAULT_DURATION } from "../utils/config.js";
+import { getLyricFilePath } from "./songsHandle.js";
 
 export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
     if (!jsonMappingContent) return [];
@@ -120,11 +109,33 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
     });
 };
 
-export async function copyToClipboard(text, textType) {
-    try {
-        await navigator.clipboard.writeText(text);
-        alert(`已複製${textType}。`);
-    } catch (err) {
-        console.error("Failed to copy: ", err);
-    }
+export function useLyrics(currentSong, songVersion, currentTime, songDuration) {
+    const jsonMappingContent = ref(null);
+
+    const loadLyrics = async () => {
+        const path = getLyricFilePath(
+            currentSong.value.name,
+            songVersion.value
+        );
+        const response = await fetch(path);
+        jsonMappingContent.value = parseLyrics(
+            await response.json(),
+            currentSong,
+            songDuration
+        );
+
+        console.log(songVersion.value, jsonMappingContent.value);
+    };
+
+    const currentLineIndex = computed(() => {
+        if (!jsonMappingContent.value) return -1;
+        for (let i = jsonMappingContent.value.length - 1; i >= 0; i--) {
+            if (currentTime.value >= jsonMappingContent.value[i].time) {
+                return i;
+            }
+        }
+        return -1;
+    });
+
+    return { jsonMappingContent, currentLineIndex, loadLyrics };
 }

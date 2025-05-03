@@ -7,8 +7,13 @@
                 "version": "original",
                 "id": "0WyDtxRZ938",
                 "default": true
+            },
+            {
+                "version": "instrumental",
+                "id": "YOWLfsIHkZg"
             }
         ],
+        "art": "https://lineimg.omusic.com.tw/img/album/7690376.jpg?v=20250428143032",
         "artist": "HOYO-MiX, 魏晨, Nea",
         "lyricist": "Ruby Qu、王可鑫",
         "title": "不虛此行",
@@ -73,6 +78,7 @@
                 "default": true
             }
         ],
+        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/34/84/9c/34849ce0-673d-a17d-cac9-edc48bbbf959/4547366570427.jpg/1200x630bb.jpg",
         "artist": "amazarashi",
         "lyricist": "秋田ひろむ",
         "title": "カシオピア係留所",
@@ -138,6 +144,7 @@
             "name": "STRAY SHEEP",
             "link": "qvB12nv"
         },
+        "art": "https://i.kfs.io/album/global/83019209,2v1/fit/500x500.jpg",
         "translation": {
             "available": true,
             "author": "Alice／箱庭博物館",
@@ -165,6 +172,7 @@
         "artist": "秋山黄色",
         "lyricist": "Kiro Akiyama",
         "title": "SKETCH",
+        "art": "https://lineimg.omusic.com.tw/img/album/6389351.jpg?v=20221007122445",
         "subtitle": "TVアニメ「僕のヒーローアカデミア」6期EDテーマ",
         "album": {
             "name": "Good Night Mare",

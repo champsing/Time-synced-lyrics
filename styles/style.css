@@ -1,6 +1,5 @@
 /* 添加完整 CSS 确保可见性 */
 body {
-    background: #365456;
     font-family: system-ui;
 }
 
@@ -398,4 +397,99 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+@keyframes background-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+/* 基礎動畫 */
+.animate-background {
+    animation: scale-pulse 30s infinite linear, background-fade-in 1.5s ease-out;
+}
+
+/* 緩和縮放動畫 */
+@keyframes scale-pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* 反射掃描動畫 */
+.reflection-scan {
+    position: relative;
+    overflow: hidden;
+}
+
+.reflection-scan::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0) 75%
+    );
+    animation: scan-reflect 4s infinite linear;
+    transform: rotate(45deg);
+    mix-blend-mode: soft-light;
+}
+
+@keyframes scan-reflect {
+    0% {
+        transform: translate(-100%, -100%) rotate(45deg);
+    }
+    100% {
+        transform: translate(100%, 100%) rotate(45deg);
+    }
+}
+
+/* 優化背景渲染 */
+img {
+    transform: translateZ(0); /* 強制硬體加速 */
+    backface-visibility: hidden;
+}
+
+.reflection-scan::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.08) 40%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0.03) 100%
+    );
+    animation: multi-scan 6s infinite linear;
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+
+@keyframes multi-scan {
+    0% {
+        transform: translateX(-100%) skewX(-15deg);
+    }
+    100% {
+        transform: translateX(100%) skewX(-15deg);
+    }
 }
