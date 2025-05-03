@@ -109,7 +109,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
     });
 };
 
-export function useLyrics(currentSong, songVersion, songDuration) {
+export function useLyrics(currentSong, songVersion, currentTime, songDuration) {
     const jsonMappingContent = ref(null);
 
     const loadLyrics = async () => {

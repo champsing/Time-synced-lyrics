@@ -11,17 +11,22 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
 
     const delay = line.delay?.[phraseIndex] || 0;
     const duration = line.duration?.[phraseIndex] || 0;
-    const rawProgress = (currentTime.value - line.time - delay) / duration;
+    const rawProgress = (currentTime - lineTime - delay) / duration;
+
+    let phraseProgressValue;
+
+    if (duration > 0)
+        phraseProgressValue = Math.min(1, Math.max(0, rawProgress)); // 限制在 0~1 範圍
 
     // 若時間未到延遲時間，進度設為 0
-    if (currentTime.value - lineTime < delay) {
+    if (currentTime - lineTime < delay) {
         phraseProgressValue = 0;
     }
 
-    const progress = Math.min(1, Math.max(0, rawProgress));
+    console.log(lineTime, delay, duration, rawProgress, phraseProgressValue);
 
     return {
         transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
-        "--progress": `${progress * 100}%`,
+        "--progress": `${phraseProgressValue * 100}%`,
     };
 };

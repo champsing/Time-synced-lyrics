@@ -80,6 +80,7 @@ const app = createApp({
         const { jsonMappingContent, currentLineIndex, loadLyrics } = useLyrics(
             currentSong,
             songVersion,
+            currentTime,
             songDuration
         );
 
@@ -118,11 +119,6 @@ const app = createApp({
 
             // 檢查 jsonMappingContent.value 是否存在，並安全存取 line
             const line = jsonMappingContent.value?.[lineIndex];
-
-            // 若時間未到延遲時間，進度設為 0
-            if (currentTime.value - lineTime < delay) {
-                phraseProgressValue = 0;
-            }
 
             return generatePhraseStyle(currentTime.value, line, phraseIndex);
         };
