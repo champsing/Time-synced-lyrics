@@ -7,7 +7,6 @@ body {
     border-radius: 12px;
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
-    left: 7.5%;
 }
 
 .lyric-line {
@@ -118,32 +117,6 @@ body {
     text-align: center;
     color: #94a4cb;
     font-family: Source Sans Pro;
-}
-
-.right-big-container {
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    width: 30%;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    margin-bottom: 1rem;
-}
-
-.right-container {
-    background: #443737b3;
-    border-radius: 12px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
 }
 
 .translate-container {
