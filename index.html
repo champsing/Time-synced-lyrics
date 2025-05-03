@@ -155,7 +155,7 @@
 
                 <div class="flex flex-col w-full gap-2 md:gap-4 justify-center items-center">
                     <div
-                        class="p-4 flex flex-row md:flex-col items-center gap-4 bg-[#231f1f] rounded-[12px] w-full md:w-max-content text-center">
+                        class="p-4 flex flex-row md:flex-col items-center gap-4 md:gap-2 bg-[#231f1f] rounded-[12px] w-full md:w-max-content text-center">
                         <div class="w-3/5 md:w-full flex flex-col gap-2">
                             <div
                                 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white font-[family-name:var(--font-poppins)]">
@@ -165,7 +165,7 @@
                                 {{ currentSong.subtitle? currentSong.subtitle : "" }}
                             </div>
                         </div>
-                        <div class="w-2/5 md:w-4/5 flex flex-col gap-4">
+                        <div class="w-2/5 md:w-4/5 flex flex-col gap-4 md:gap-2 items-center">
 
                             <div class="text-base text-center text-white">
                                 <button v-if="currentSong.credits" id="credit-btn"
@@ -173,6 +173,20 @@
                                     {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
                                 </button>
                                 <span v-else> {{ currentSong.artist? currentSong.artist : "未知的創作者" }} </span>
+
+                            </div>
+                            <div class="flex flex-col md:flex-row items-center gap-2">
+                                <div class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-center text-wrap"
+                                    :class="`bg-[${bodyBackgroundColor}]`">
+                                    <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
+                                        v-if="currentSong.album?.link !== undefined" target="_blank"
+                                        rel="noopener noreferrer">
+                                        {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
+                                    </a>
+                                    <span v-else>
+                                        {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
+                                    </span>
+                                </div>
 
                                 <!-- 歌曲不同版本的徽章 -->
                                 <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2">
@@ -187,22 +201,10 @@
                                     </span>
                                 </div>
                             </div>
-                            <div
-                                class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm bg-amber-700 text-center text-wrap">
-                                <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
-                                    v-if="currentSong.album?.link !== undefined" target="_blank"
-                                    rel="noopener noreferrer">
-                                    {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
-                                </a>
-                                <span v-else>
-                                    {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
-                                </span>
-                            </div>
                         </div>
                     </div>
 
-                    <div
-                        class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit">
+                    <div class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit">
                         <div class="flex flex-row gap-7">
                             <button id="player-rewind-10sec" @click="rewind10sec()">
                                 <span class="text-2xl">
@@ -235,10 +237,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
             <!-- The Modal -->
             <div id="song-modal-container" class="modal">
@@ -409,7 +407,7 @@
                                 翻譯作者：{{ translationAuthor }}
                             </a>
                         </div>
-                        <div id="translate-author-without-link" v-else>
+                        <div id="translate-author-without-link" class="opacity-100" v-else>
                             翻譯作者：{{ translationAuthor }}
                         </div>
                     </div>
