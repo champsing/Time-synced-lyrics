@@ -81,7 +81,7 @@
 
 
     <div id="app">
-        <div class="lyrics-container text-center p-4 w-3/5 overflow-y-auto mt-4 mb-8 relative"
+        <div class="lyrics-container text-center p-4 md:w-3/5 overflow-y-auto m-4 md:m-8 relative md:left-8"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
             <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
                 :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
@@ -132,12 +132,13 @@
             </div>
         </div>
 
-        <div class="right-big-container">
+        <div
+            class="flex flex-col justify-center items-center gap-2 md:gap-0 md:right-0 bottom-0 fixed mb-4 w-full md:w-[30%] rounded-[12px]">
             <!-- [for debugging] show currentTime full value -->
             <!-- {{ currentTime }}  -->
             <!-- [for debugging] show currentLineIndex -->
             <!-- {{ currentLineIndex }}  -->
-            <div class="right-container">
+            <div class="flex flex-col justify-center items-center gap-2 p-4 md:m-4 bg-[#443737] rounded-[12px] w-7/8">
                 <div class="grid grid-cols-3 gap-x-4 w-full">
                     <button id="song-btn" class="settings-button">
                         <span>歌曲</span>
@@ -152,233 +153,274 @@
                     </button>
                 </div>
 
-                <div class="song-info-flex">
-                    <div class="song-title">
-                        {{ currentSong.title? currentSong.title : currentSong.name }}
-                    </div>
-                    <div class="song-subtitle text-sm text-wrap" v-if="currentSong.subtitle">
-                        {{ currentSong.subtitle? currentSong.subtitle : "" }}
-                    </div>
-
-                    <div class="song-artist">
-                        <button v-if="currentSong.credits" id="credit-btn" class="underline-when-hover">
-                            {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
-                        </button>
-                        <span v-else> {{ currentSong.artist? currentSong.artist : "未知的創作者" }} </span>
-
-                        <!-- 歌曲不同版本的徽章 -->
-                        <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2">
-                            <span v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs mr-1"
-                                style="padding: 5px; border-radius: 5px;">
-                                INSTRUMENTAL
-                            </span>
-
-                            <span v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs mr-1"
-                                style="padding: 5px; border-radius: 5px;">
-                                THE FIRST TAKE
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="mt-2">
-                        <span class="play-time">{{ formattedCurrentTime }} / {{ formattedSongDuration }}</span>
-                        <div class="inline song-album underline-when-hover text-sm bg-amber-700 ml-7">
-                            <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
-                                v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
-                                {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
-                            </a>
-                            <span v-else>
-                                {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="player-container">
-                    <div id="player"></div>
-                </div>
-
-
-                <!-- The Modal -->
-                <div id="song-modal-container" class="modal">
-                    <!-- Modal content -->
-                    <div id="song-modal-content" class="modal-content song">
-                        <span class="close" id="song-modal-close-btn">&times;</span>
-                        <div class="general-controls">
-                            <div id="song-select-container" class="settings-entry">
-                                <label for="song-select">歌曲：</label>
-                                <select v-model="currentSong" id="song-select">
-                                    <option v-for="song in songList" :value="song" style="color: black;">
-                                        {{ song.artist }} - {{ song.title }}
-                                    </option>
-                                </select>
+                <div class="flex flex-col w-full gap-2 md:gap-4 justify-center items-center">
+                    <div
+                        class="p-4 flex flex-row md:flex-col items-center gap-4 md:gap-2 bg-[#231f1f] rounded-[12px] w-full md:w-max-content text-center">
+                        <div class="w-3/5 md:w-full flex flex-col gap-2">
+                            <div
+                                class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white font-[family-name:var(--font-poppins)]">
+                                {{ currentSong.title? currentSong.title : currentSong.name }}
                             </div>
+                            <div class="text-sm text-wrap whitespace-pre-wrap text-center" v-if="currentSong.subtitle">
+                                {{ currentSong.subtitle? currentSong.subtitle : "" }}
+                            </div>
+                        </div>
+                        <div class="w-2/5 md:w-4/5 flex flex-col gap-4 md:gap-2 items-center">
 
-                            <div id="song-version-select-container" class="settings-entry">
-                                <label for="song-version-select">版本：</label>
-                                <select v-model="songVersion" id="song-version-select">
-                                    <!-- 歌曲的不同版本 -->
-                                    <option v-if="queryAlternativeVersion(ORIGINAL)" :value="ORIGINAL"
-                                        style="color: black;">
-                                        原曲
-                                    </option>
-                                    <option v-if="queryAlternativeVersion(THE_FIRST_TAKE)" :value="THE_FIRST_TAKE"
-                                        style="color: black;">
-                                        The First Take 版本
-                                    </option>
-                                    <option v-if="queryAlternativeVersion(INSTRUMENTAL)" :value="INSTRUMENTAL"
-                                        style="color: black;">
-                                        伴唱帶 (Instrumental)
-                                    </option>
-                                </select>
+                            <div class="text-base text-center text-white">
+                                <button v-if="currentSong.credits" id="credit-btn"
+                                    class="underline md:no-underline md:hover:underline text-wrap">
+                                    {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
+                                </button>
+                                <span v-else> {{ currentSong.artist? currentSong.artist : "未知的創作者" }} </span>
+
+                            </div>
+                            <div class="flex flex-col md:flex-row items-center gap-2">
+                                <div class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-center text-wrap"
+                                    :class="`bg-[${bodyBackgroundColor}]`">
+                                    <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
+                                        v-if="currentSong.album?.link !== undefined" target="_blank"
+                                        rel="noopener noreferrer">
+                                        {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
+                                    </a>
+                                    <span v-else>
+                                        {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
+                                    </span>
+                                </div>
+
+                                <!-- 歌曲不同版本的徽章 -->
+                                <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2">
+                                    <span v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs mr-1"
+                                        style="padding: 5px; border-radius: 5px;">
+                                        INSTRUMENTAL
+                                    </span>
+
+                                    <span v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs mr-1"
+                                        style="padding: 5px; border-radius: 5px;">
+                                        THE FIRST TAKE
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit">
+                        <div class="flex flex-row gap-7">
+                            <button id="player-rewind-10sec" @click="rewind10sec()">
+                                <span class="text-2xl">
+                                    ⏪
+                                </span>
+                            </button>
+                            <button id="player-rewind-10sec" v-if="isPaused" @click="playVideo()">
+                                <span class="text-4xl">
+                                    ▶️
+                                </span>
+                            </button>
+                            <button id="player-rewind-10sec" v-else @click="pauseVideo()">
+                                <span class="text-4xl">
+                                    ⏸️
+                                </span>
+                            </button>
+                            <button id="player-rewind-10sec" @click="moveForward10sec()">
+                                <span class="text-2xl">
+                                    ⏩
+                                </span>
+                            </button>
+                        </div>
+                        <span class="text-xl font-bold text-center text-[#94a4cb] font-[Source_Sans_Pro]">
+                            {{ formattedCurrentTime }} / {{ formattedSongDuration }}
+                        </span>
+                    </div>
+
+                    <div class="mt-2 items-center">
+                        <div id="player"></div>
+                    </div>
                 </div>
+            </div>
 
-                <!-- The Modal -->
-                <div id="setting-modal-container" class="modal">
-                    <!-- Modal content -->
-                    <div id="setting-modal-content" class="modal-content settings">
-                        <span class="close ml-2" id="setting-modal-close-btn">&times;</span>
+            <!-- The Modal -->
+            <div id="song-modal-container" class="modal">
+                <!-- Modal content -->
+                <div id="song-modal-content" class="modal-content song">
+                    <span class="close" id="song-modal-close-btn">&times;</span>
+                    <div class="general-controls">
+                        <div id="song-select-container" class="settings-entry">
+                            <label for="song-select">歌曲：</label>
+                            <select v-model="currentSong" id="song-select">
+                                <option v-for="song in songList" :value="song" style="color: black;">
+                                    {{ song.artist }} - {{ song.title }}
+                                </option>
+                            </select>
+                        </div>
 
-                        <div class="general-controls overflow-y-scroll">
+                        <div id="song-version-select-container" class="settings-entry">
+                            <label for="song-version-select">版本：</label>
+                            <select v-model="songVersion" id="song-version-select">
+                                <!-- 歌曲的不同版本 -->
+                                <option v-if="queryAlternativeVersion(ORIGINAL)" :value="ORIGINAL"
+                                    style="color: black;">
+                                    原曲
+                                </option>
+                                <option v-if="queryAlternativeVersion(THE_FIRST_TAKE)" :value="THE_FIRST_TAKE"
+                                    style="color: black;">
+                                    The First Take 版本
+                                </option>
+                                <option v-if="queryAlternativeVersion(INSTRUMENTAL)" :value="INSTRUMENTAL"
+                                    style="color: black;">
+                                    伴唱帶 (Instrumental)
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            <div id="enable-body-background-container mt-4" class="settings-entry">
-                                <label for="enable-background">背景顏色：</label>
-                                <div class="color-picker inline-block">
-                                    <details class="dropdown relative">
-                                        <summary
-                                            class="dropdown-trigger flex items-center gap-2 p-2 px-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">
-                                            <span class="color-preview w-5 h-5 border border-gray-200 rounded-sm"
-                                                :style="{ backgroundColor: bodyBackgroundColor }"></span>
-                                            <span class="text-sm font-mono">{{ bodyBackgroundColor }}</span>
-                                        </summary>
-                                        <div
-                                            class="dropdown-menu absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded shadow-md z-50 p-2 w-max">
-                                            <div class="color-grid grid grid-cols-5 gap-1">
-                                                <button v-for="color in colorOptions" :key="color"
-                                                    class="color-square w-7 h-7 border border-gray-200 rounded cursor-pointer duration-200 transition-transform hover:scale-110 focus:outline-none"
-                                                    :class="{ 'border-2 border-gray-800 ring-1 ring-gray-300': bodyBackgroundColor === color }"
-                                                    :style="{ backgroundColor: color }"
-                                                    @click="bodyBackgroundColor = color" :title="color"></button>
-                                            </div>
+            <!-- The Modal -->
+            <div id="setting-modal-container" class="modal">
+                <!-- Modal content -->
+                <div id="setting-modal-content" class="modal-content settings">
+                    <span class="close ml-2" id="setting-modal-close-btn">&times;</span>
+
+                    <div class="general-controls overflow-y-scroll">
+
+                        <div id="enable-body-background-container mt-4" class="settings-entry">
+                            <label for="enable-background">背景顏色：</label>
+                            <div class="color-picker inline-block">
+                                <details class="dropdown relative">
+                                    <summary
+                                        class="dropdown-trigger flex items-center gap-2 p-2 px-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">
+                                        <span class="color-preview w-5 h-5 border border-gray-200 rounded-sm"
+                                            :style="{ backgroundColor: bodyBackgroundColor }"></span>
+                                        <span class="text-sm font-mono">{{ bodyBackgroundColor }}</span>
+                                    </summary>
+                                    <div
+                                        class="dropdown-menu absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded shadow-md z-50 p-2 w-max">
+                                        <div class="color-grid grid grid-cols-5 gap-1">
+                                            <button v-for="color in colorOptions" :key="color"
+                                                class="color-square w-7 h-7 border border-gray-200 rounded cursor-pointer duration-200 transition-transform hover:scale-110 focus:outline-none"
+                                                :class="{ 'border-2 border-gray-800 ring-1 ring-gray-300': bodyBackgroundColor === color }"
+                                                :style="{ backgroundColor: color }" @click="bodyBackgroundColor = color"
+                                                :title="color"></button>
                                         </div>
-                                    </details>
-                                </div>
-                                <br />
+                                    </div>
+                                </details>
                             </div>
-                            <div id="enable-background-container mt-4" class="settings-entry">
-                                <label class="switch mr-2">
-                                    <input type="checkbox" id="enable-background" v-model="enableLyricBackground" />
-                                    <span class="slider round"></span>
-                                </label>
-                                <label for="enable-background">開啟歌詞背景</label><br />
-                            </div>
-                            <div id="enable-scroll-to-current-line-container" class="settings-entry">
-                                <label class="switch mr-1">
-                                    <input type="checkbox" id="enable-scroll-to-current-line"
-                                        v-model="scrollToCurrentLine">
-                                    <span class="slider round"></span>
-                                </label>
-                                <label for="enable-scroll-to-current-line">自動滾動到當前行</label><br />
-                            </div>
-                            <div id="enable-translation-container mt-4" class="settings-entry">
-                                <label class="switch mr-2">
-                                    <input type="checkbox" id="enable-translation" v-model="enableTranslation" />
-                                    <span class="slider round"></span>
-                                </label>
-                                <label for="enable-translation">開啟翻譯</label><br />
-                            </div>
-                            <div id="enable-pronounciation-container mt-4" class="settings-entry">
-                                <label class="switch mr-2">
-                                    <input type="checkbox" id="enable-pronounciation" disabled
-                                        v-model="enablePronounciation" />
-                                    <span class="slider round"></span>
-                                </label>
-                                <label for="enable-pronounciation">顯示假名讀音（暫不可用）</label><br />
-                            </div>
-
+                            <br />
                         </div>
+                        <div id="enable-background-container mt-4" class="settings-entry">
+                            <label class="switch mr-2">
+                                <input type="checkbox" id="enable-background" v-model="enableLyricBackground" />
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="enable-background">開啟歌詞背景</label><br />
+                        </div>
+                        <div id="enable-scroll-to-current-line-container" class="settings-entry">
+                            <label class="switch mr-1">
+                                <input type="checkbox" id="enable-scroll-to-current-line" v-model="scrollToCurrentLine">
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="enable-scroll-to-current-line">自動滾動到當前行</label><br />
+                        </div>
+                        <div id="enable-translation-container mt-4" class="settings-entry">
+                            <label class="switch mr-2">
+                                <input type="checkbox" id="enable-translation" v-model="enableTranslation" />
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="enable-translation">開啟翻譯</label><br />
+                        </div>
+                        <div id="enable-pronounciation-container mt-4" class="settings-entry">
+                            <label class="switch mr-2">
+                                <input type="checkbox" id="enable-pronounciation" disabled
+                                    v-model="enablePronounciation" />
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="enable-pronounciation">顯示假名讀音（暫不可用）</label><br />
+                        </div>
+
                     </div>
                 </div>
+            </div>
 
-                <div id="credit-modal-container" class="modal">
+            <div id="credit-modal-container" class="modal">
 
-                    <!-- Modal content -->
-                    <div id="credit-modal-content" class="credits modal-content" style="text-align: left;">
-                        <span class="close" id="credit-modal-close-btn">&times;</span>
-                        <div class="artist-banner text-center">
-                            <span id="artist">演出藝人</span>
-                            <div class="text-2xl font-bold">
-                                {{ currentSong.artist }}
+                <!-- Modal content -->
+                <div id="credit-modal-content" class="credits modal-content" style="text-align: left;">
+                    <span class="close" id="credit-modal-close-btn">&times;</span>
+                    <div class="artist-banner text-center">
+                        <span id="artist">演出藝人</span>
+                        <div class="text-2xl font-bold">
+                            {{ currentSong.artist }}
+                        </div>
+                    </div>
+
+                    <hr class="m-4" />
+
+                    <div class="credit-list grid grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
+                        v-if="currentSong.credits">
+                        <!-- 演職員名單 需要可以再加 -->
+                        <div class="col-span-3 text-xl text-green-300 mt-2 mb-2 mr-4"
+                            v-if="currentSong.credits.performance">表演者</div>
+                        <div id="performance-contributors" class="text-center"
+                            v-for="(contributor, index) in currentSong.credits.performance">
+                            <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
+                            <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
+                                {{ contributor.name }}
                             </div>
                         </div>
-
-                        <hr class="m-4" />
-
-                        <div class="credit-list grid grid-cols-3 gap-y-4 overflow-y-scroll max-h-70"
-                            v-if="currentSong.credits" style="font-family: Poppins, Noto Sans;">
-                            <!-- 演職員名單 需要可以再加 -->
-                            <div class="col-span-3 text-xl text-green-300 mt-2 mb-2 mr-4"
-                                v-if="currentSong.credits.performance">表演者</div>
-                            <div id="performance-contributors" class="text-center"
-                                v-for="(contributor, index) in currentSong.credits.performance">
-                                <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
-                                <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
-                                    {{ contributor.name }}
-                                </div>
+                        <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
+                            v-if="currentSong.credits.song_writing">詞曲</div>
+                        <div id="song-writing-contributors" class="text-center"
+                            v-for="(contributor, index) in currentSong.credits.song_writing">
+                            <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
+                            <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
+                                {{ contributor.name }}
                             </div>
-                            <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
-                                v-if="currentSong.credits.song_writing">詞曲</div>
-                            <div id="song-writing-contributors" class="text-center"
-                                v-for="(contributor, index) in currentSong.credits.song_writing">
-                                <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
-                                <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
-                                    {{ contributor.name }}
-                                </div>
-                            </div>
-                            <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
-                                v-if="currentSong.credits.engineering">製作與工程團隊</div>
-                            <div id="engineering-contributors" class="text-center"
-                                v-for="(contributor, index) in currentSong.credits.engineering">
-                                <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
-                                <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
-                                    {{ contributor.name }}
-                                </div>
+                        </div>
+                        <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
+                            v-if="currentSong.credits.engineering">製作與工程團隊</div>
+                        <div id="engineering-contributors" class="text-center"
+                            v-for="(contributor, index) in currentSong.credits.engineering">
+                            <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
+                            <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
+                                {{ contributor.name }}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
             <div v-if="enableTranslation">
-                <div v-if="currentSong.translation?.available == true" class="translate-container">
-                    <div class="translation-text">
+                <div v-if="currentSong.translation?.available == true"
+                    class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-[12px] w-fit">
+                    <div class="text-2xl font-bold text-center text-teal-300">
                         {{ translationText }}
-                        <div class="background-translation-text">
+                        <div class="mt-1 text-xs text-center text-gray-600">
                             {{ backgroundTranslationText }}
                         </div>
                     </div>
 
-                    <div class="translate-author">
+                    <div class="mt-3">
                         <div v-if="currentSong.translation.cite">
                             <a :href="currentSong.translation.cite" target="_blank" rel="noopener noreferrer"
-                                class="translate-author-with-link underline-when-hover">
+                                class="text-xs font-bold text-center text-green-400 underline md:no-underline md:hover:underline">
                                 翻譯作者：{{ translationAuthor }}
                             </a>
                         </div>
-                        <div class="translate-author-without-link" v-else>
+                        <div id="translate-author-without-link" class="opacity-100" v-else>
                             翻譯作者：{{ translationAuthor }}
                         </div>
                     </div>
                 </div>
-                <div v-else class="translate-container">
+                <div v-else class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-[12px] w-fit">
                     <span>本歌曲尚未提供翻譯</span>
                 </div>
             </div>
-
         </div>
+
+
+        <div class="h-[40vh] md:h-0"></div>
+    </div>
     </div>
     <script src="src/app.js" type="module"></script>
 </body>

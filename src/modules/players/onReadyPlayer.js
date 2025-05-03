@@ -25,8 +25,8 @@ export const initYouTubePlayer = (vueContext) => {
 
     const createPlayer = () => {
         return new window.YT.Player("player", {
-            width: "300",
-            height: "200",
+            width: calcWidth().width,
+            height: calcWidth().height,
             videoId: vueContext.currentSong.value.versions.find(
                 (v) => v.version === vueContext.songVersion.value
             ).id,
@@ -59,4 +59,10 @@ export const initYouTubePlayer = (vueContext) => {
     };
 
     return { init };
+};
+
+const calcWidth = () => {
+    if (window.screen.width >= 960 && window.screen.height >= 768) {
+        return { width: "300", height: "200" };
+    } else return { width: "0", height: "0" };
 };

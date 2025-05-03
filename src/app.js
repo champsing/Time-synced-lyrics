@@ -62,6 +62,7 @@ const app = createApp({
         const enableTranslation = ref(true);
         const enablePronounciation = ref(false);
         const enableLyricBackground = ref(true);
+        const isPaused = ref(true);
 
         const bodyBgColor = ref(bodyBackgroundColor);
         const colorOptions = [
@@ -205,6 +206,10 @@ const app = createApp({
                 });
                 window.ytPlayer = await init();
 
+                window.ytPlayer.addEventListener("onStateChange", (event) => {
+                    isPaused.value = event.data === YT.PlayerState.PAUSED;
+                });
+
                 // 載入歌詞
                 loadLyrics(currentSong, songVersion);
 
@@ -273,6 +278,22 @@ const app = createApp({
             resetTimer();
         });
 
+        const playVideo = () => {
+            window.ytPlayer.playVideo();
+        }
+
+        const pauseVideo = () => {
+            window.ytPlayer.pauseVideo();
+        }
+
+        const rewind10Sec = () => {
+            window.ytPlayer.seekTo(currentTime.value - 10);
+        }
+
+        const moveForward10Sec = () => {
+            window.ytPlayer.seekTo(currentTime.value + 10);
+        }
+
         return {
             ALBUM_GOOGLE_LINK_BASE,
             THE_FIRST_TAKE,
@@ -297,6 +318,11 @@ const app = createApp({
             translationAuthor,
             bodyBackgroundColor: bodyBgColor,
             colorOptions,
+            isPaused,
+            playVideo,
+            pauseVideo,
+            rewind10Sec,
+            moveForward10Sec,
             initSettingModal,
             initCreditModal,
             initYouTubePlayer,
