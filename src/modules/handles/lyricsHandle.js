@@ -1,6 +1,6 @@
 const { ref, computed } = Vue;
 
-import { DEFAULT_DURATION } from "../config.js";
+import { DEFAULT_DURATION } from "../utils/config.js";
 import { getLyricFilePath } from "./songsHandle.js";
 
 export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {

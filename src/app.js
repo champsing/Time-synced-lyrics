@@ -8,24 +8,23 @@ import {
     ORIGINAL,
     MERCURY_TSL,
     TSL_LINK_BASE,
-} from "./modules/config.js";
+} from "./modules/utils/config.js";
 import {
     formatTime,
     scrollToLineIndex,
     copyToClipboard,
 } from "./modules/utils/global.js";
-import { parseLyrics, useLyrics } from "./modules/handles/lyricsHandle.js";
-import { initYouTubePlayer } from "./modules/player.js";
+import { useLyrics } from "./modules/handles/lyricsHandle.js";
+import { initYouTubePlayer } from "./modules/players/onReadyPlayer.js";
 import {
     loadSongList,
-    getLyricFilePath,
     setDefaultVersion,
 } from "./modules/handles/songsHandle.js";
 import {
     initCreditModal,
     initSettingModal,
     initSongModal,
-} from "./modules/modal.js";
+} from "./modules/utils/modal.js";
 import { generatePhraseStyle } from "./modules/utils/generatePhraseStyle.js";
 import { useTransation } from "./modules/handles/translationHandle.js";
 
