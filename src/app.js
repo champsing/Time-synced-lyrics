@@ -25,7 +25,10 @@ import {
     initSettingModal,
     initSongModal,
 } from "./modules/utils/modal.js";
-import { generatePhraseStyle } from "./modules/utils/generatePhraseStyle.js";
+import {
+    generatePhraseStyle,
+    isActivePhrase,
+} from "./modules/utils/generatePhraseStyle.js";
 import { useTransation } from "./modules/handles/translationHandle.js";
 
 // 版本顯示
@@ -33,6 +36,7 @@ document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
 const params = new URL(document.URL).searchParams;
 const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();
+// const versionRequest = decodeURIComponent(params.get("version")).trim().toLowerCase();
 
 const app = createApp({
     setup() {
@@ -188,15 +192,15 @@ const app = createApp({
 
             songVersion.value = setDefaultVersion(currentSong);
 
-            // 載入新歌詞
-
             // 調試：輸出歌詞文件路徑
             console.log(
                 `Loading lyrics from: ${newSong.name}/${songVersion.value}.json`
             );
 
+            // 載入新歌詞
             loadLyrics(newSong.name, songVersion);
 
+            // 跳回開頭
             jumpToCurrentLine(0);
 
             const videoID = currentSong.value.versions.find(
@@ -206,7 +210,8 @@ const app = createApp({
 
             window.ytPlayer.loadVideoById(videoID);
             window.ytPlayer.pauseVideo();
-            // 清空所有資料和翻譯文字 要跟歌詞一起才能清空
+
+            // 清空現在時刻跟影片長度
             currentTime.value = 0;
             songDuration.value = 0;
         });
@@ -251,6 +256,9 @@ const app = createApp({
             }
 
             window.ytPlayer.pauseVideo();
+            // 清空現在時刻跟影片長度
+            currentTime.value = 0;
+            songDuration.value = 0;
         });
 
         return {
@@ -282,26 +290,10 @@ const app = createApp({
             getPhraseStyle,
             getBackgroundPhraseStyle,
             isCurrentLine,
+            isActivePhrase,
             isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
             isBackgroundKiai: (line, phraseIndex) =>
                 line.background_voice.text[phraseIndex].kiai,
-            isActivePhrase: (line, phraseIndex) => {
-                return (
-                    currentTime.value - line.time > line.delay?.[phraseIndex] &&
-                    currentTime.value - line.time - line.delay?.[phraseIndex] <
-                        line.duration?.[phraseIndex]
-                );
-            },
-            isBackgroundActivePhrase: (line, phraseIndex) => {
-                return (
-                    currentTime.value - line.background_voice?.time >
-                        line.background_voice?.delay[phraseIndex] &&
-                    currentTime.value -
-                        line.background_voice?.time -
-                        line.background_voice?.delay[phraseIndex] <
-                        line.background_voice?.duration[phraseIndex]
-                );
-            },
             queryAlternativeVersion: (version) => {
                 return currentSong.value.versions?.find(
                     (x) => x.version === version

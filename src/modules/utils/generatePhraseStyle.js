@@ -28,3 +28,11 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
         "--progress": `${phraseProgressValue * 100}%`,
     };
 };
+
+export const isActivePhrase = (currentTime, line, phraseIndex) => {
+    return (
+        currentTime.value - line.time > line.delay?.[phraseIndex] &&
+        currentTime.value - line.time - line.delay?.[phraseIndex] <
+            line.duration?.[phraseIndex]
+    );
+};
