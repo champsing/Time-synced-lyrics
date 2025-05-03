@@ -135,6 +135,13 @@ const app = createApp({
                 songList.value = songList.value.filter(
                     (song) => song.available === true
                 );
+
+                // 調試：輸出實際加載的歌曲列表
+                console.log(
+                    "Available songs:",
+                    songList.value.map((s) => s.name)
+                );
+
                 const matchedSong = songList.value.find(
                     (song) => song.name.trim().toLowerCase() === songRequest
                 );
@@ -183,12 +190,6 @@ const app = createApp({
             if (!newSong) return;
 
             document.title = currentSong.value.title + MERCURY_TSL;
-
-            // 調試：輸出實際加載的歌曲列表
-            console.log(
-                "Available songs:",
-                songList.value.map((s) => s.name)
-            );
 
             songVersion.value = setDefaultVersion(currentSong);
 
