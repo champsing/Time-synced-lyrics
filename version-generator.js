@@ -5,7 +5,7 @@ try {
   const commitHash = execSync('git rev-parse --short=12 HEAD').toString().trim()
   const content = `export const COMMIT_ID = '${commitHash}'`
   
-  require('fs').writeFileSync('./src/modules/commit-info.js', content)
+  require('fs').writeFileSync('./src/modules/utils/commit-info.js', content)
   console.log('✅ Commit ID generated')
 } catch (error) {
   console.log('⚠️  Failed to get Git commit ID:', error.message)
