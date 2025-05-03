@@ -1,0 +1,15 @@
+export function onPlayerChangeSongVideo(currentSong, songVersion, player) {
+    const videoID = currentSong.value.versions.find(
+        (v) => v.version === songVersion.value
+    ).id;
+    console.log(videoID);
+
+    if (!videoID) {
+        window.ytPlayer.loadVideoById("");
+        console.error(`找不到 ${newVal} 版本的影片 ID`);
+        return;
+    }
+
+    player.loadVideoById(videoID);
+    player.pauseVideo();
+}

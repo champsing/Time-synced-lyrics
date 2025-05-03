@@ -28,8 +28,9 @@ import {
 import {
     generatePhraseStyle,
     isActivePhrase,
-} from "./modules/utils/generatePhraseStyle.js";
+} from "./modules/handles/phrasesHandle.js";
 import { useTransation } from "./modules/handles/translationHandle.js";
+import { onPlayerChangeSongVideo } from "./modules/players/changeVideo.js";
 
 // 版本顯示
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
@@ -127,6 +128,12 @@ const app = createApp({
             return generatePhraseStyle(currentTime.value, line, phraseIndex);
         };
 
+        const resetTimer = () => {
+            // 清空現在時刻跟影片長度
+            currentTime.value = 0;
+            songDuration.value = 0;
+        };
+
         // 初始化流程
         onMounted(async () => {
             try {
@@ -201,20 +208,12 @@ const app = createApp({
             // 載入新歌詞
             loadLyrics(newSong.name, songVersion);
 
+            onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
+
             // 跳回開頭
             jumpToCurrentLine(0);
 
-            const videoID = currentSong.value.versions.find(
-                (v) => v.version === songVersion.value
-            ).id;
-            console.log(videoID);
-
-            window.ytPlayer.loadVideoById(videoID);
-            window.ytPlayer.pauseVideo();
-
-            // 清空現在時刻跟影片長度
-            currentTime.value = 0;
-            songDuration.value = 0;
+            resetTimer();
         });
 
         watch(currentLineIndex, (newVal) => {
@@ -232,34 +231,12 @@ const app = createApp({
             // 載入新歌詞
             loadLyrics(currentSong.value.name, newVal);
 
-            // 切換YouTube視頻
-            if (newVal == ORIGINAL)
-                window.ytPlayer.loadVideoById(
-                    currentSong.value.versions.find(
-                        (v) => v.version === ORIGINAL
-                    ).id
-                );
-            else if (newVal == THE_FIRST_TAKE)
-                window.ytPlayer.loadVideoById(
-                    currentSong.value.versions.find(
-                        (v) => v.version === THE_FIRST_TAKE
-                    ).id
-                );
-            else if (newVal == INSTRUMENTAL)
-                window.ytPlayer.loadVideoById(
-                    currentSong.value.versions.find(
-                        (v) => v.version === INSTRUMENTAL
-                    ).id
-                );
-            else {
-                window.ytPlayer.loadVideoById("");
-                console.error(`找不到 ${newVal} 版本的影片 ID`);
-            }
+            onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
 
-            window.ytPlayer.pauseVideo();
-            // 清空現在時刻跟影片長度
-            currentTime.value = 0;
-            songDuration.value = 0;
+            // 跳回開頭
+            jumpToCurrentLine(0);
+
+            resetTimer();
         });
 
         return {
