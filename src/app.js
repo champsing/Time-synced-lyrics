@@ -36,6 +36,7 @@ import { onPlayerChangeSongVideo } from "./modules/players/changeVideo.js";
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
 const bodyBackgroundColor = ref("#365456");
+
 watch(bodyBackgroundColor, (newColor) => {
     document.body.style.backgroundColor = newColor;
     localStorage.setItem("bodyBackgroundColor", newColor);
@@ -64,19 +65,19 @@ const app = createApp({
 
         const bodyBgColor = ref(bodyBackgroundColor);
         const colorOptions = [
-            '#365456', // 保留原色
-            '#CC5200', // 原#FF6900 → 深琥珀橙
-            '#D49A00', // 原#FCB900 → 暗金黃
-            '#4A9B7D', // 原#7BDCB5 → 墨綠
-            '#00855C', // 原#00D084 → 深翡翠綠
-            '#3A7A9E', // 原#8ED1FC → 午夜藍
-            '#0A5D8C', // 原#0693E3 → 深海藍
-            '#6B7984', // 原#ABB8C3 → 石板灰
-            '#8C0D2B', // 原#EB144C → 勃艮第紅
-            '#9E4D64', // 原#F78DA7 → 酒紅
-            '#4A0B6B', // 原#9900EF → 皇家紫
-            '#404040', // 原#FFFFFF → 炭灰
-            '#101010'  // 原#000000 → 深淵黑
+            "#365456", // 保留原色
+            "#CC5200", // 原#FF6900 → 深琥珀橙
+            "#D49A00", // 原#FCB900 → 暗金黃
+            "#4A9B7D", // 原#7BDCB5 → 墨綠
+            "#00855C", // 原#00D084 → 深翡翠綠
+            "#3A7A9E", // 原#8ED1FC → 午夜藍
+            "#0A5D8C", // 原#0693E3 → 深海藍
+            "#6B7984", // 原#ABB8C3 → 石板灰
+            "#8C0D2B", // 原#EB144C → 勃艮第紅
+            "#9E4D64", // 原#F78DA7 → 酒紅
+            "#4A0B6B", // 原#9900EF → 皇家紫
+            "#404040", // 原#FFFFFF → 炭灰
+            "#101010", // 原#000000 → 深淵黑
         ];
 
         // 計算屬性
@@ -211,6 +212,15 @@ const app = createApp({
                 initSettingModal();
                 initCreditModal();
                 initSongModal();
+
+                // 初始化時讀取保存的顏色
+                const savedColor = localStorage.getItem("bodyBackgroundColor");
+                if (savedColor) {
+                    bodyBackgroundColor.value = savedColor;
+                } else {
+                    document.body.style.backgroundColor =
+                        bodyBackgroundColor.value; // 應用初始顏色
+                }
             } catch (error) {
                 console.error("初始化錯誤: ", error);
             }
