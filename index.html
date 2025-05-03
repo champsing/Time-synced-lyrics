@@ -47,18 +47,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 
-<body class="bg-[#365456] !text-white min-h-screen !m-0">
+<body class="bg-[#365456] !text-white min-h-screen !m-0`" :style="{ backgroundColor: bodyBackgroundColor.value}">
     <div class="information flex flex-row text-right justify-end mt-1 mr-2">
         <div class="flex flex-col">
             <span id="version">播放器版本：</span>
             <div>
-                <span id="author" class="bg-emerald-700">
+                <span id="author" class="bg-[#202c37]">
                     網站作者：香榭 Champsing
                 </span>
             </div>
         </div>
 
-        <div id="giticon" class="mt-1 ml-2 outline bg-indigo-300 outline-indigo-300" style="border-radius: 5px;">
+        <div id="giticon"
+            class="mt-1 ml-2 bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200">
             <a href="https://github.com/champsing/time-synced-lyrics" target="_blank"
                 referrerpolicy="noreferrer noopener" aria-label="Champsing TSL Repo" title="GitHub">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" height="40" width="50"
@@ -66,6 +67,7 @@
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Github</title>
                     <desc>A solid styled icon from Orion Icon Library.</desc>
+                    <path fill="#374151"></path>
                     <path data-name="layer2"
                         d="M32 0a32.021 32.021 0 0 0-10.1 62.4c1.6.3 2.2-.7 2.2-1.5v-6c-8.9 1.9-10.8-3.8-10.8-3.8-1.5-3.7-3.6-4.7-3.6-4.7-2.9-2 .2-1.9.2-1.9 3.2.2 4.9 3.3 4.9 3.3 2.9 4.9 7.5 3.5 9.3 2.7a6.93 6.93 0 0 1 2-4.3c-7.1-.8-14.6-3.6-14.6-15.8a12.27 12.27 0 0 1 3.3-8.6 11.965 11.965 0 0 1 .3-8.5s2.7-.9 8.8 3.3a30.873 30.873 0 0 1 8-1.1 30.292 30.292 0 0 1 8 1.1c6.1-4.1 8.8-3.3 8.8-3.3a11.965 11.965 0 0 1 .3 8.5 12.1 12.1 0 0 1 3.3 8.6c0 12.3-7.5 15-14.6 15.8a7.746 7.746 0 0 1 2.2 5.9v8.8c0 .9.6 1.8 2.2 1.5A32.021 32.021 0 0 0 32 0z"
                         fill="#202020"></path>
@@ -239,7 +241,40 @@
                     <!-- Modal content -->
                     <div id="setting-modal-content" class="modal-content settings">
                         <span class="close ml-2" id="setting-modal-close-btn">&times;</span>
+
                         <div class="general-controls overflow-y-scroll">
+
+                            <div id="enable-body-background-container mt-4" class="settings-entry">
+                                <label for="enable-background">背景顏色：</label>
+                                <div class="color-picker inline-block">
+                                    <details class="dropdown relative">
+                                        <summary
+                                            class="dropdown-trigger flex items-center gap-2 p-2 px-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">
+                                            <span class="color-preview w-5 h-5 border border-gray-200 rounded-sm"
+                                                :style="{ backgroundColor: bodyBackgroundColor }"></span>
+                                            <span class="text-sm font-mono">{{ bodyBackgroundColor }}</span>
+                                        </summary>
+                                        <div
+                                            class="dropdown-menu absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded shadow-md z-50 p-2 w-max">
+                                            <div class="color-grid grid grid-cols-5 gap-1">
+                                                <button v-for="color in colorOptions" :key="color"
+                                                    class="color-square w-7 h-7 border border-gray-200 rounded cursor-pointer duration-200 transition-transform hover:scale-110 focus:outline-none"
+                                                    :class="{ 'border-2 border-gray-800 ring-1 ring-gray-300': bodyBackgroundColor === color }"
+                                                    :style="{ backgroundColor: color }"
+                                                    @click="bodyBackgroundColor = color" :title="color"></button>
+                                            </div>
+                                        </div>
+                                    </details>
+                                </div>
+                                <br />
+                            </div>
+                            <div id="enable-background-container mt-4" class="settings-entry">
+                                <label class="switch mr-2">
+                                    <input type="checkbox" id="enable-background" v-model="enableLyricBackground" />
+                                    <span class="slider round"></span>
+                                </label>
+                                <label for="enable-background">開啟歌詞背景</label><br />
+                            </div>
                             <div id="enable-scroll-to-current-line-container" class="settings-entry">
                                 <label class="switch mr-1">
                                     <input type="checkbox" id="enable-scroll-to-current-line"
@@ -263,17 +298,7 @@
                                 </label>
                                 <label for="enable-pronounciation">顯示假名讀音（暫不可用）</label><br />
                             </div>
-                            <div id="enable-background-container mt-4" class="settings-entry">
-                                <label class="switch mr-2">
-                                    <input type="checkbox" id="enable-background" v-model="enableLyricBackground" />
-                                    <span class="slider round"></span>
-                                </label>
-                                <label for="enable-background">開啟背景</label><br />
-                            </div>
-                            <div id="enable-body-background-container mt-4" class="settings-entry">
-                                <label for="enable-background">背景顏色：</label>
-                                <br />
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -298,27 +323,27 @@
                             <div class="col-span-3 text-xl text-green-300 mt-2 mb-2 mr-4"
                                 v-if="currentSong.credits.performance">表演者</div>
                             <div id="performance-contributors" class="text-center"
-                                v-for="contributor in currentSong.credits.performance">
-                                <span id="contribution">{{ contributor.contribution?.join("、") }}</span>
-                                <div id="contributor" class="text-2xl font-bold mt-1.5">
+                                v-for="(contributor, index) in currentSong.credits.performance">
+                                <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
+                                <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
                                     {{ contributor.name }}
                                 </div>
                             </div>
                             <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
                                 v-if="currentSong.credits.song_writing">詞曲</div>
                             <div id="song-writing-contributors" class="text-center"
-                                v-for="contributor in currentSong.credits.song_writing">
-                                <span id="contribution">{{ contributor.contribution?.join("、") }}</span>
-                                <div id="contributor" class="text-2xl font-bold mt-1.5">
+                                v-for="(contributor, index) in currentSong.credits.song_writing">
+                                <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
+                                <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
                                     {{ contributor.name }}
                                 </div>
                             </div>
                             <div class="col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
                                 v-if="currentSong.credits.engineering">製作與工程團隊</div>
                             <div id="engineering-contributors" class="text-center"
-                                v-for="contributor in currentSong.credits.engineering">
-                                <span id="contribution">{{ contributor.contribution?.join("、") }}</span>
-                                <div id="contributor" class="text-2xl font-bold mt-1.5">
+                                v-for="(contributor, index) in currentSong.credits.engineering">
+                                <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
+                                <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
                                     {{ contributor.name }}
                                 </div>
                             </div>
@@ -335,7 +360,6 @@
                             {{ backgroundTranslationText }}
                         </div>
                     </div>
-
 
                     <div class="translate-author">
                         <div v-if="currentSong.translation.cite">
