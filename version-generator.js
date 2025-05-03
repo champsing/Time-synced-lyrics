@@ -9,5 +9,5 @@ try {
   console.log('✅ Commit ID generated')
 } catch (error) {
   console.log('⚠️  Failed to get Git commit ID:', error.message)
-  require('fs').writeFileSync('./src/modules/commit-info.js', 'export const COMMIT_ID = null')
+  require('fs').writeFileSync('./src/modules/utils/commit-info.js', 'export const COMMIT_ID = null')
 }
