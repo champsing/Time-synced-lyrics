@@ -64,7 +64,7 @@ const app = createApp({
         const enableLyricBackground = ref(true);
         const isPaused = ref(true);
 
-        const bodyBgColor = ref(bodyBackgroundColor);
+        const bodyBgColor = bodyBackgroundColor;
         const colorOptions = [
             "#365456", // 保留原色
             "#CC5200", // 原#FF6900 → 深琥珀橙

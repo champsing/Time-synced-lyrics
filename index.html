@@ -178,15 +178,16 @@
 
                             </div>
                             <div class="flex flex-col md:flex-row items-center gap-2">
-                                <div class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-center text-wrap"
-                                    :class="`bg-[${bodyBackgroundColor}]`">
+                                <div class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-center text-wrap bg-[#4f9b96]">
                                     <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
                                         v-if="currentSong.album?.link !== undefined" target="_blank"
                                         rel="noopener noreferrer">
-                                        {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲" }}
+                                        {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲"
+                                        }}
                                     </a>
                                     <span v-else>
-                                        {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲" }}
+                                        {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲"
+                                        }}
                                     </span>
                                 </div>
 
