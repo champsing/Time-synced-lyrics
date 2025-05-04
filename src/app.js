@@ -221,9 +221,6 @@ const app = createApp({
                 });
                 window.ytPlayer = await init();
 
-                // 載入歌詞
-                loadLyrics(currentSong, songVersion);
-
                 // 初始化模態框
                 initSettingModal();
                 initCreditModal();
