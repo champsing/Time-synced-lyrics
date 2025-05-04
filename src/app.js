@@ -31,6 +31,7 @@ import {
 } from "./modules/handles/phrasesHandle.js";
 import { useTransation } from "./modules/handles/translationHandle.js";
 import { onPlayerChangeSongVideo } from "./modules/players/changeVideo.js";
+import { initControllerPanel } from "./modules/utils/ControllerPanel.js";
 
 // 版本顯示
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;
@@ -44,7 +45,9 @@ watch(bodyBackgroundColor, (newColor) => {
 
 const params = new URL(document.URL).searchParams;
 const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();
-const versionRequest = decodeURIComponent(params.get("version")).trim().toLowerCase();
+const versionRequest = decodeURIComponent(params.get("version"))
+    .trim()
+    .toLowerCase();
 
 const app = createApp({
     setup() {
@@ -221,6 +224,7 @@ const app = createApp({
                 initSettingModal();
                 initCreditModal();
                 initSongModal();
+                initControllerPanel();
 
                 // 初始化時讀取保存的顏色
                 const savedColor = localStorage.getItem("bodyBackgroundColor");
@@ -322,10 +326,10 @@ const app = createApp({
             songVersion,
             enablePronounciation,
             enableLyricBackground,
+            enableTranslation,
             currentSong,
             currentSongURI,
             scrollToCurrentLine,
-            enableTranslation,
             formattedCurrentTime,
             formattedSongDuration,
             translationText,
@@ -341,6 +345,7 @@ const app = createApp({
             initSettingModal,
             initCreditModal,
             initYouTubePlayer,
+            initControllerPanel,
             copyToClipboard,
             jumpToCurrentLine,
             getPhraseStyle,
