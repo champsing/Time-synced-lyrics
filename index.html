@@ -177,8 +177,9 @@
                                     </button>
                                     <span v-else> {{ currentSong.artist? currentSong.artist : "未知的創作者" }} </span>
                                 </div>
+                                <span>．</span>
                                 <div
-                                    class="inline font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-center text-wrap">
+                                    class="inline font-[family-name:var(--font-poppins)] text-sm text-center text-wrap">
                                     <span>
                                         {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲"
                                         }}
@@ -351,7 +352,7 @@
                 </div>
                 <!-- Modal content -->
                 <div id="credit-modal-content"
-                    class="bg-[#438060] opacity-90 fixed left-[10%] top-1/4 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
+                    class="bg-[#2c4f3d] opacity-90 fixed left-[10%] top-1/4 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close ml-2 text-gray-500 float-right text-3xl font-bold"
                         id="credit-modal-close-btn">&times;</span>
                     <div id="artist-banner" class="text-center">
@@ -366,7 +367,7 @@
                     <div class="text-center items-center mr-2">
                         <span id="collection-album">收錄專輯：</span>
                         <div
-                            class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-wrap bg-[#1a4d4a]">
+                            class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-wrap bg-[#2cc3b9]">
                             <a :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
                                 v-if="currentSong.album?.link !== undefined" target="_blank" rel="noopener noreferrer">
                                 {{ currentSong.album? currentSong.album?.name : currentSong.title + " - 單曲"
