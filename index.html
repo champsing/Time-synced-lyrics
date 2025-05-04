@@ -352,7 +352,7 @@
                 </div>
                 <!-- Modal content -->
                 <div id="credit-modal-content"
-                    class="bg-[#2c4f3d] opacity-90 fixed left-[10%] top-1/4 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
+                    class="bg-[#2c4f3d] opacity-100 fixed left-[10%] top-1/4 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close ml-2 text-gray-500 float-right text-3xl font-bold"
                         id="credit-modal-close-btn">&times;</span>
                     <div id="artist-banner" class="text-center">
@@ -383,27 +383,27 @@
                     <div class="whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
                         v-if="currentSong.credits">
                         <!-- 演職員名單 需要可以再加 -->
-                        <div class="md:col-span-3 text-xl text-green-300 mt-2 mb-4 md:mb-2 mr-4"
+                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
                             v-if="currentSong.credits.performance">表演者</div>
-                        <div id="performance-contributors" class="text-center"
+                        <div :id="`performance-contributors-${index + 1}`" class="text-center"
                             v-for="(contributor, index) in currentSong.credits.performance">
                             <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
                             <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
                                 {{ contributor.name }}
                             </div>
                         </div>
-                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-4 md:mb-2 mr-4"
+                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
                             v-if="currentSong.credits.song_writing">詞曲</div>
-                        <div id="song-writing-contributors" class="text-center"
+                        <div :id="`song-writing-contributors-${index + 1}`" class="text-center"
                             v-for="(contributor, index) in currentSong.credits.song_writing">
                             <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
                             <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
                                 {{ contributor.name }}
                             </div>
                         </div>
-                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-4 md:mb-2 mr-4"
+                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
                             v-if="currentSong.credits.engineering">製作與工程團隊</div>
-                        <div id="engineering-contributors" class="text-center"
+                        <div :id="`engineering-contributors-${index + 1}`" class="text-center"
                             v-for="(contributor, index) in currentSong.credits.engineering">
                             <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
                             <div :id="'contributor' + index" class="text-2xl font-bold mt-1.5">
