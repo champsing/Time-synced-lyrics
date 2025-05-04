@@ -24,7 +24,6 @@
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-500: oklch(55.1% 0.027 264.364);
-    --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-neutral-700: oklch(37.1% 0 0);
     --color-black: #000;
@@ -218,9 +217,6 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
-  }
   .top-1\/3 {
     top: calc(1/3 * 100%);
   }
@@ -320,9 +316,6 @@
   .inline-block {
     display: inline-block;
   }
-  .table {
-    display: table;
-  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
@@ -341,20 +334,11 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-2 {
-    width: calc(var(--spacing) * 2);
-  }
   .w-2\/5 {
     width: calc(2/5 * 100%);
   }
-  .w-3 {
-    width: calc(var(--spacing) * 3);
-  }
   .w-3\/5 {
     width: calc(3/5 * 100%);
-  }
-  .w-4 {
-    width: calc(var(--spacing) * 4);
   }
   .w-4\/5 {
     width: calc(4/5 * 100%);
@@ -377,9 +361,6 @@
   .w-max {
     width: max-content;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .translate-z-0 {
     --tw-translate-z: calc(var(--spacing) * 0);
     translate: var(--tw-translate-x) var(--tw-translate-y) var(--tw-translate-z);
@@ -389,9 +370,6 @@
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .snap-y {
     scroll-snap-type: y var(--tw-scroll-snap-strictness);
@@ -639,12 +617,6 @@
   .text-black {
     color: var(--color-black);
   }
-  .text-blue-600 {
-    color: var(--color-blue-600);
-  }
-  .text-emerald-700 {
-    color: var(--color-emerald-700);
-  }
   .text-gray-500 {
     color: var(--color-gray-500);
   }
@@ -654,26 +626,14 @@
   .text-green-400 {
     color: var(--color-green-400);
   }
-  .text-neutral-700 {
-    color: var(--color-neutral-700);
-  }
   .text-teal-300 {
     color: var(--color-teal-300);
-  }
-  .text-teal-400 {
-    color: var(--color-teal-400);
   }
   .text-teal-500 {
     color: var(--color-teal-500);
   }
-  .text-teal-700 {
-    color: var(--color-teal-700);
-  }
   .text-transparent {
     color: transparent;
-  }
-  .text-violet-500 {
-    color: var(--color-violet-500);
   }
   .text-white {
     color: var(--color-white);
@@ -707,10 +667,6 @@
   .ring-gray-300 {
     --tw-ring-color: var(--color-gray-300);
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
   .outline-2 {
     outline-style: var(--tw-outline-style);
     outline-width: 2px;
@@ -724,9 +680,6 @@
   }
   .brightness-50 {
     --tw-brightness: brightness(50%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .transition-colors {

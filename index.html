@@ -78,7 +78,7 @@
 
     <div id="app">
         <div id="lyrics-container"
-            class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-[65%] overflow-y-auto m-4 md:m-8 relative md:left-8"
+            class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-[65%] overflow-y-auto m-4 md:m-8 relative md:left-8 rounded-2xl"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
             <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
                 :id="`lyric-line-${index}`"
