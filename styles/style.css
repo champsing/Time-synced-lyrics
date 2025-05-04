@@ -3,12 +3,6 @@ body {
     font-family: system-ui;
 }
 
-.lyrics-container {
-    border-radius: 12px;
-    scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
-}
-
 .lyric-line {
     transition: opacity 0.3s;
 }
@@ -45,12 +39,7 @@ body {
 }
 
 .lyric-button {
-    font-size: 1.5rem;
     font-family: system-ui, Noto Sans JP, Noto Sans TC, Noto Sans;
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
 }
 
 .lyric-button.active {
@@ -101,26 +90,7 @@ body {
     }
 }
 
-.credit-list {
-    white-space: pre-wrap;
-}
-
-.general-controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2rem;
-    margin-top: 0.5rem;
-}
-
 /* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
 
 .close:hover,
 .close:focus {
@@ -337,12 +307,6 @@ input:checked + .slider:before {
     100% {
         transform: translate(100%, 100%) rotate(45deg);
     }
-}
-
-/* 優化背景渲染 */
-img {
-    transform: translateZ(0); /* 強制硬體加速 */
-    backface-visibility: hidden;
 }
 
 .reflection-scan::before {

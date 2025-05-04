@@ -80,11 +80,13 @@
 
 
     <div id="app">
-        <div id="lyrics-container" class="scroll-smooth snap-y snap-proximity ext-center p-4 md:w-3/5 overflow-y-auto m-4 md:m-8 relative md:left-8"
+        <div id="lyrics-container"
+            class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-3/5 overflow-y-auto m-4 md:m-8 relative md:left-8"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
             <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
                 :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
-                <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button" type="button"
+                <button :id="index" @click="jumpToCurrentLine(index)"
+                    class="lyric-button text-2xl bg-transparent p-0 cursor-pointer" type="button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <!-- [for debugging] show line index -->
                     <!-- {{ index }}  -->
@@ -127,7 +129,7 @@
             </div>
             <div class="absolute inset-0 -z-10 overflow-hidden" v-if="enableLyricBackground">
                 <img :src="currentSong.art" :alt="currentSong.name"
-                    class="w-full h-full object-cover opacity-50 brightness-50 blur-2xl animate-background reflection-scan">
+                    class="w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background reflection-scan translate-z-0 backface-hidden">
             </div>
         </div>
 
@@ -147,7 +149,8 @@
                         <span>設定</span>
                     </button>
 
-                    <button id="share-btn" class="share-button" type="button" @click="copyToClipboard(currentSongURI, '歌曲連結')">
+                    <button id="share-btn" class="share-button" type="button"
+                        @click="copyToClipboard(currentSongURI, '歌曲連結')">
                         <span>分享</span>
                     </button>
                 </div>
@@ -189,13 +192,13 @@
 
                                 <!-- 歌曲不同版本的徽章 -->
                                 <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2">
-                                    <span v-if="songVersion == INSTRUMENTAL" class="bg-cyan-700 text-xs mr-1"
-                                        style="padding: 5px; border-radius: 5px;">
+                                    <span v-if="songVersion == INSTRUMENTAL"
+                                        class="bg-cyan-700 text-xs mr-1 p-[5px] rounded-[5px]">
                                         INSTRUMENTAL
                                     </span>
 
-                                    <span v-if="songVersion == THE_FIRST_TAKE" class="bg-black text-xs mr-1"
-                                        style="padding: 5px; border-radius: 5px;">
+                                    <span v-if="songVersion == THE_FIRST_TAKE"
+                                        class="bg-black text-xs mr-1 p-[5px] rounded-[5px]">
                                         THE FIRST TAKE
                                     </span>
                                 </div>
@@ -241,12 +244,13 @@
             <div id="song-modal-container" class="modal">
                 <!-- Modal content -->
                 <div id="song-modal-content" class="modal-content song">
-                    <span class="close" id="song-modal-close-btn">&times;</span>
-                    <div class="general-controls">
+                    <span class="close text-gray-500 float-right text-3xl font-bold"
+                        id="song-modal-close-btn">&times;</span>
+                    <div class="flex flex-col justify-center items-center mt-2 gap-1">
                         <div id="song-select-container" class="settings-entry">
                             <label for="song-select">歌曲：</label>
                             <select v-model="currentSong" id="song-select">
-                                <option v-for="song in songList" :value="song" style="color: black;">
+                                <option v-for="song in songList" :value="song" class="text-black">
                                     {{ song.artist }} - {{ song.title }}
                                 </option>
                             </select>
@@ -256,16 +260,15 @@
                             <label for="song-version-select">版本：</label>
                             <select v-model="songVersion" id="song-version-select">
                                 <!-- 歌曲的不同版本 -->
-                                <option v-if="queryAlternativeVersion(ORIGINAL)" :value="ORIGINAL"
-                                    style="color: black;">
+                                <option v-if="queryAlternativeVersion(ORIGINAL)" :value="ORIGINAL" class="text-black">
                                     原曲
                                 </option>
                                 <option v-if="queryAlternativeVersion(THE_FIRST_TAKE)" :value="THE_FIRST_TAKE"
-                                    style="color: black;">
+                                    class="text-black">
                                     The First Take 版本
                                 </option>
                                 <option v-if="queryAlternativeVersion(INSTRUMENTAL)" :value="INSTRUMENTAL"
-                                    style="color: black;">
+                                    class="text-black">
                                     伴唱帶 (Instrumental)
                                 </option>
                             </select>
@@ -278,9 +281,10 @@
             <div id="setting-modal-container" class="modal">
                 <!-- Modal content -->
                 <div id="setting-modal-content" class="modal-content settings">
-                    <span class="close ml-2" id="setting-modal-close-btn">&times;</span>
+                    <span class="close text-gray-500 float-right text-3xl font-bold"
+                        id="setting-modal-close-btn">&times;</span>
 
-                    <div class="general-controls overflow-y-scroll">
+                    <div class="gap-1 flex flex-col justify-center items-center mt-2 overflow-y-scroll">
 
                         <div id="enable-body-background-container mt-4" class="settings-entry">
                             <label for="enable-background">背景顏色：</label>
@@ -343,8 +347,9 @@
             <div id="credit-modal-container" class="modal">
 
                 <!-- Modal content -->
-                <div id="credit-modal-content" class="credits modal-content" style="text-align: left;">
-                    <span class="close" id="credit-modal-close-btn">&times;</span>
+                <div id="credit-modal-content" class="credits modal-content text-left">
+                    <span class="close ml-2 text-gray-500 float-right text-3xl font-bold"
+                        id="credit-modal-close-btn">&times;</span>
                     <div class="artist-banner text-center">
                         <span id="artist">演出藝人</span>
                         <div class="text-2xl font-bold">
@@ -354,7 +359,7 @@
 
                     <hr class="m-4" />
 
-                    <div class="credit-list grid grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
+                    <div class="whitespace-pre-wrap grid grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
                         v-if="currentSong.credits">
                         <!-- 演職員名單 需要可以再加 -->
                         <div class="col-span-3 text-xl text-green-300 mt-2 mb-2 mr-4"
