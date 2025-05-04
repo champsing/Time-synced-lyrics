@@ -51,13 +51,9 @@ const app = createApp({
         // 響應式狀態
         const currentTime = ref(0);
         const songDuration = ref(0);
-        const songList = ref([
-            {
-                name: "",
-            },
-        ]);
-        const songVersion = ref(ORIGINAL);
-        const currentSong = ref(songList.value[0]);
+        const songList = ref([]);
+        const songVersion = ref(null);
+        const currentSong = ref(null);
         const scrollToCurrentLine = ref(true);
         const enableTranslation = ref(true);
         const enablePronounciation = ref(false);
