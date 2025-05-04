@@ -80,7 +80,8 @@
         <div id="lyrics-container"
             class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-[65%] overflow-y-auto m-4 md:m-8 relative md:left-8"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
-            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl" :id="`lyric-line-${index}`"
+            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
+                :id="`lyric-line-${index}`"
                 :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
                 <button :id="`line-button-${index}`" @click="jumpToCurrentLine(index)"
                     class="lyric-button text-2xl bg-transparent p-0 cursor-pointer" type="button"
@@ -88,7 +89,8 @@
                     <!-- [for debugging] show line index -->
                     <!-- {{ index }}  -->
                     <div class="primary-vocals">
-                        <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex" :id="`lyric-phrase-${index}-${phraseIndex}`"
+                        <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
+                            :id="`lyric-phrase-${index}-${phraseIndex}`"
                             class="lyric-phrase inline-block whitespace-pre relative text-transparent bg-clip-text"
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getPhraseStyle(index, phraseIndex)"
@@ -441,7 +443,7 @@
 
         <div class="h-[50vh] md:h-0"></div>
     </div>
-    </div>
+
     <script src="src/app.js" type="module"></script>
 </body>
 
