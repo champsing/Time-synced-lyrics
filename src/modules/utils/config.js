@@ -22,5 +22,4 @@ export const MERCURY_TSL = " - 水星電臺";
 export const ORIGINAL = "original";
 export const THE_FIRST_TAKE = "the_first_take";
 export const INSTRUMENTAL = "instrumental";
-export const LIVE_CONCERT = "live_concert";
-export const VALID_VERSION_TYPE = [ORIGINAL, THE_FIRST_TAKE, INSTRUMENTAL, LIVE_CONCERT];
+export const LIVE = "live";

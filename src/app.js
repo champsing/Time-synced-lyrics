@@ -200,7 +200,7 @@ const app = createApp({
                     );
                 }
 
-                if (matchedVersion && VALID_VERSION_TYPE.find(matchedVersion)) {
+                if (matchedVersion) {
                     console.log(`已帶入指定版本: ${versionRequest}`);
                     songVersion.value = versionRequest;
                 } else {
