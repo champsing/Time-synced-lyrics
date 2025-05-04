@@ -208,7 +208,9 @@ const app = createApp({
                 window.ytPlayer = await init();
 
                 window.ytPlayer.addEventListener("onStateChange", (event) => {
-                    isPaused.value = event.data === YT.PlayerState.PAUSED || YT.PlayerState.BUFFERING;
+                    isPaused.value =
+                        event.data === YT.PlayerState.PAUSED ||
+                        YT.PlayerState.BUFFERING;
                 });
 
                 // 載入歌詞
@@ -279,21 +281,15 @@ const app = createApp({
             resetTimer();
         });
 
-        const playVideo = () => {
-            window.ytPlayer.playVideo();
-        }
+        const playVideo = () => window.ytPlayer.playVideo();
 
-        const pauseVideo = () => {
-            window.ytPlayer.pauseVideo();
-        }
+        const pauseVideo = () => window.ytPlayer.pauseVideo();
 
-        const rewind10Sec = () => {
-            window.ytPlayer.seekTo(currentTime.value - 10);
-        }
+        const rewind10Sec = () =>
+            window.ytPlayer.seekTo(currentTime.value - 10, true);
 
-        const moveForward10Sec = () => {
-            window.ytPlayer.seekTo(currentTime.value + 10);
-        }
+        const moveForward10Sec = () =>
+            window.ytPlayer.seekTo(currentTime.value + 10, true);
 
         return {
             ALBUM_GOOGLE_LINK_BASE,

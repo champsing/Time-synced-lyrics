@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="同步播放時間滾動的歌詞的網頁音樂播放器" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:title" content="水星電臺" />
     <meta property="og:description" content="同步播放時間滾動的歌詞的網頁音樂播放器" />
@@ -85,7 +84,7 @@
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
             <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
                 :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
-                <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button"
+                <button :id="index" @click="jumpToCurrentLine(index)" class="lyric-button" type="button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <!-- [for debugging] show line index -->
                     <!-- {{ index }}  -->
@@ -140,15 +139,15 @@
             <!-- {{ currentLineIndex }}  -->
             <div class="flex flex-col justify-center items-center gap-2 p-4 md:m-4 bg-[#443737] rounded-[12px] w-7/8">
                 <div class="grid grid-cols-3 gap-x-4 w-full">
-                    <button id="song-btn" class="settings-button">
+                    <button id="song-btn" class="settings-button" type="button">
                         <span>歌曲</span>
                     </button>
 
-                    <button id="setting-btn" class="settings-button">
+                    <button id="setting-btn" class="settings-button" type="button">
                         <span>設定</span>
                     </button>
 
-                    <button id="share-btn" class="share-button" @click="copyToClipboard(currentSongURI, '歌曲連結')">
+                    <button id="share-btn" class="share-button" type="button" @click="copyToClipboard(currentSongURI, '歌曲連結')">
                         <span>分享</span>
                     </button>
                 </div>
@@ -168,7 +167,7 @@
                         <div class="w-2/5 md:w-4/5 flex flex-col gap-4 md:gap-2 items-center">
 
                             <div class="text-base text-center text-white">
-                                <button v-if="currentSong.credits" id="credit-btn"
+                                <button v-if="currentSong.credits" id="credit-btn" type="button"
                                     class="underline md:no-underline md:hover:underline text-wrap">
                                     {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
                                 </button>
@@ -206,22 +205,22 @@
 
                     <div class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit">
                         <div class="flex flex-row gap-7">
-                            <button id="player-rewind-10sec" @click="rewind10sec()">
+                            <button id="player-rewind-10sec" @click="rewind10Sec()" type="button">
                                 <span class="text-2xl">
                                     ⏪
                                 </span>
                             </button>
-                            <button id="player-rewind-10sec" v-if="isPaused" @click="playVideo()">
+                            <button id="player-play" v-if="isPaused" @click="playVideo()" type="button">
                                 <span class="text-4xl">
                                     ▶️
                                 </span>
                             </button>
-                            <button id="player-rewind-10sec" v-else @click="pauseVideo()">
+                            <button id="player-pause" v-else @click="pauseVideo()" type="button">
                                 <span class="text-4xl">
                                     ⏸️
                                 </span>
                             </button>
-                            <button id="player-rewind-10sec" @click="moveForward10sec()">
+                            <button id="player-mf-10sec" @click="moveForward10Sec()" type="button">
                                 <span class="text-2xl">
                                     ⏩
                                 </span>
@@ -296,7 +295,7 @@
                                     <div
                                         class="dropdown-menu absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded shadow-md z-50 p-2 w-max">
                                         <div class="color-grid grid grid-cols-5 gap-1">
-                                            <button v-for="color in colorOptions" :key="color"
+                                            <button v-for="color in colorOptions" :key="color" type="button"
                                                 class="color-square w-7 h-7 border border-gray-200 rounded cursor-pointer duration-200 transition-transform hover:scale-110 focus:outline-none"
                                                 :class="{ 'border-2 border-gray-800 ring-1 ring-gray-300': bodyBackgroundColor === color }"
                                                 :style="{ backgroundColor: color }" @click="bodyBackgroundColor = color"
