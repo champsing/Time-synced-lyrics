@@ -5,7 +5,7 @@ export const formatTime = (seconds) => {
 };
 
 export const scrollToLineIndex = (index) => {
-    const currentLineId = document.getElementById(index);
+    const currentLineId = document.getElementById(`line-button-${index}`);
 
     if (window.screen.width >= 960) {
         currentLineId?.scrollIntoView({
@@ -21,7 +21,6 @@ export const scrollToLineIndex = (index) => {
             behavior: "smooth",
             top: 50,
         });
-        console.log(1)
     }
 };
 

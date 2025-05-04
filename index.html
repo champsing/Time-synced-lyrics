@@ -28,9 +28,6 @@
           }
         }
     </script>
-    <!-- <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://cdn.jsdelivr.net/npm/vuestic-ui@1.10.3/dist/vuestic-ui.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vuestic-ui@1.10.3/dist/iife/main.min.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -81,18 +78,18 @@
 
     <div id="app">
         <div id="lyrics-container"
-            class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-3/5 overflow-y-auto m-4 md:m-8 relative md:left-8"
+            class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-[65%] overflow-y-auto m-4 md:m-8 relative md:left-8"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
-            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
+            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl" :id="`lyric-line-${index}`"
                 :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
-                <button :id="index" @click="jumpToCurrentLine(index)"
+                <button :id="`line-button-${index}`" @click="jumpToCurrentLine(index)"
                     class="lyric-button text-2xl bg-transparent p-0 cursor-pointer" type="button"
                     :class="{ 'active': isCurrentLine(index) }">
                     <!-- [for debugging] show line index -->
                     <!-- {{ index }}  -->
                     <div class="primary-vocals">
-                        <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
-                            class="lyric-phrase relative text-transparent bg-clip-text"
+                        <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex" :id="`lyric-phrase-${index}-${phraseIndex}`"
+                            class="lyric-phrase inline-block whitespace-pre relative text-transparent bg-clip-text"
                             :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                             :style="getPhraseStyle(index, phraseIndex)"
                             :class="{ 'active': isActivePhrase(line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
@@ -129,7 +126,7 @@
             </div>
             <div class="absolute inset-0 -z-10 overflow-hidden" v-if="enableLyricBackground">
                 <img :src="currentSong.art" :alt="currentSong.name"
-                    class="w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background reflection-scan translate-z-0 backface-hidden">
+                    class="reflection-scan w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background relative overflow-hidden translate-z-0 backface-hidden">
             </div>
         </div>
 
@@ -412,9 +409,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
 
             <div v-if="enableTranslation">
                 <div v-if="currentSong.translation?.available == true"
@@ -443,7 +438,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="h-[50vh] md:h-0"></div>
     </div>

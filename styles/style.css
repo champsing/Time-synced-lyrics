@@ -20,8 +20,6 @@ body {
 }
 
 .lyric-phrase {
-    display: inline-block;
-    white-space: pre;
     background-image: linear-gradient(to right, #fff 0, #aaa 0);
 }
 
@@ -239,12 +237,6 @@ input:checked + .slider:before {
     50% {
         transform: scale(1.05);
     }
-}
-
-/* 反射掃描動畫 */
-.reflection-scan {
-    position: relative;
-    overflow: hidden;
 }
 
 .reflection-scan::after {
