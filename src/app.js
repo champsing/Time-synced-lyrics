@@ -179,10 +179,6 @@ const app = createApp({
                     (song) => song.name.trim().toLowerCase() === songRequest
                 );
 
-                const matchedVersion = currentSong.value.versions?.find(
-                    (v) => v.version.trim().toLowerCase() === versionRequest
-                );
-
                 // 檢查歌曲列表是否為空
                 if (songList.value.length === 0) {
                     console.error("沒有可用歌曲");
@@ -198,6 +194,12 @@ const app = createApp({
                         `未定義指定歌曲、歌曲未啟用或該歌曲不存在: ${songRequest}, 使用第一首歌曲`
                     );
                 }
+
+                // 這時歌曲才確定，才開始設定版本
+
+                const matchedVersion = currentSong.value.versions?.find(
+                    (v) => v.version.trim().toLowerCase() === versionRequest
+                );
 
                 if (matchedVersion) {
                     console.log(`已帶入指定版本: ${versionRequest}`);
