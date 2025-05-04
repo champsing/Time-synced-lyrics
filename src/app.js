@@ -241,7 +241,18 @@ const app = createApp({
 
             document.title = currentSong.value.title + MERCURY_TSL;
 
-            songVersion.value = setDefaultVersion(currentSong);
+            const matchedVersion = currentSong.value.versions?.find(
+                (v) => v.version.trim().toLowerCase() === songVersion.value
+            );
+
+            if (matchedVersion) {
+                console.log(`已帶入指定版本: ${versionRequest}`);
+            } else {
+                songVersion.value = setDefaultVersion(currentSong);
+                console.warn(
+                    `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`
+                );
+            }
 
             // 調試：輸出歌詞文件路徑
             console.log(
