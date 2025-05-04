@@ -80,7 +80,7 @@
 
 
     <div id="app">
-        <div class="lyrics-container text-center p-4 md:w-3/5 overflow-y-auto m-4 md:m-8 relative md:left-8"
+        <div id="lyrics-container" class="scroll-smooth snap-y snap-proximity ext-center p-4 md:w-3/5 overflow-y-auto m-4 md:m-8 relative md:left-8"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
             <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
                 :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">

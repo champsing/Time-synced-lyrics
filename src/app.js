@@ -158,7 +158,6 @@ const app = createApp({
             // 清空現在時刻跟影片長度
             currentTime.value = 0;
             songDuration.value = 0;
-            isPaused.value = true;
         };
 
         // 初始化流程
@@ -204,14 +203,9 @@ const app = createApp({
                     currentTime,
                     songDuration,
                     songVersion,
+                    isPaused,
                 });
                 window.ytPlayer = await init();
-
-                window.ytPlayer.addEventListener("onStateChange", (event) => {
-                    isPaused.value =
-                        event.data === YT.PlayerState.PAUSED ||
-                        YT.PlayerState.BUFFERING;
-                });
 
                 // 載入歌詞
                 loadLyrics(currentSong, songVersion);
@@ -281,9 +275,15 @@ const app = createApp({
             resetTimer();
         });
 
-        const playVideo = () => window.ytPlayer.playVideo();
+        const playVideo = () => {
+            window.ytPlayer.playVideo();
+            isPaused.value = false;
+        };
 
-        const pauseVideo = () => window.ytPlayer.pauseVideo();
+        const pauseVideo = () => {
+            window.ytPlayer.pauseVideo();
+            isPaused.value = true;
+        };
 
         const rewind10Sec = () =>
             window.ytPlayer.seekTo(currentTime.value - 10, true);

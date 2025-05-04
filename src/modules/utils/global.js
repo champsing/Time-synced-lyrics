@@ -6,10 +6,23 @@ export const formatTime = (seconds) => {
 
 export const scrollToLineIndex = (index) => {
     const currentLineId = document.getElementById(index);
-    currentLineId?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-    });
+
+    if (window.screen.width >= 960) {
+        currentLineId?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+    } else {
+        currentLineId?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+        window?.scrollBy({
+            behavior: "smooth",
+            top: 50,
+        });
+        console.log(1)
+    }
 };
 
 export async function copyToClipboard(text, textType) {
