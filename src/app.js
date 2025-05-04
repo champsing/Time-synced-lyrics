@@ -8,6 +8,7 @@ import {
     ORIGINAL,
     MERCURY_TSL,
     TSL_LINK_BASE,
+    VALID_VERSION_TYPE,
 } from "./modules/utils/config.js";
 import {
     formatTime,
@@ -44,7 +45,7 @@ watch(bodyBackgroundColor, (newColor) => {
 
 const params = new URL(document.URL).searchParams;
 const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();
-// const versionRequest = decodeURIComponent(params.get("version")).trim().toLowerCase();
+const versionRequest = decodeURIComponent(params.get("version")).trim().toLowerCase();
 
 const app = createApp({
     setup() {
@@ -179,6 +180,10 @@ const app = createApp({
                     (song) => song.name.trim().toLowerCase() === songRequest
                 );
 
+                const matchedVersion = currentSong.value.versions?.find(
+                    (v) => v.version.trim().toLowerCase() === versionRequest
+                );
+
                 // 檢查歌曲列表是否為空
                 if (songList.value.length === 0) {
                     console.error("沒有可用歌曲");
@@ -191,11 +196,19 @@ const app = createApp({
                 } else {
                     currentSong.value = songList.value[0];
                     console.warn(
-                        `未定義指定歌曲或歌曲未啟用: ${songRequest}, 使用第一首歌曲`
+                        `未定義指定歌曲、歌曲未啟用或該歌曲不存在: ${songRequest}, 使用第一首歌曲`
                     );
                 }
 
-                songVersion.value = setDefaultVersion(currentSong);
+                if (matchedVersion && VALID_VERSION_TYPE.find(matchedVersion)) {
+                    console.log(`已帶入指定版本: ${versionRequest}`);
+                    songVersion.value = versionRequest;
+                } else {
+                    songVersion.value = setDefaultVersion(currentSong);
+                    console.warn(
+                        `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`
+                    );
+                }
 
                 // 初始化播放器
                 const { init } = initYouTubePlayer({
