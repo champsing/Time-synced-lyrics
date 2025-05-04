@@ -8,7 +8,6 @@ import {
     ORIGINAL,
     MERCURY_TSL,
     TSL_LINK_BASE,
-    VALID_VERSION_TYPE,
 } from "./modules/utils/config.js";
 import {
     formatTime,
