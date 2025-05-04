@@ -286,6 +286,9 @@
   .\!m-4 {
     margin: calc(var(--spacing) * 4) !important;
   }
+  .m-2 {
+    margin: calc(var(--spacing) * 2);
+  }
   .m-4 {
     margin: calc(var(--spacing) * 4);
   }
@@ -524,6 +527,12 @@
   .border-gray-800 {
     border-color: var(--color-gray-800);
   }
+  .bg-\[\#1a4d4a\] {
+    background-color: #1a4d4a;
+  }
+  .bg-\[\#1f814d\] {
+    background-color: #1f814d;
+  }
   .bg-\[\#1f5341\] {
     background-color: #1f5341;
   }
@@ -548,11 +557,20 @@
   .bg-\[\#123563\] {
     background-color: #123563;
   }
+  .bg-\[\#167476\] {
+    background-color: #167476;
+  }
   .bg-\[\#365456\] {
     background-color: #365456;
   }
+  .bg-\[\#438060\] {
+    background-color: #438060;
+  }
   .bg-\[\#443737\] {
     background-color: #443737;
+  }
+  .bg-\[\#639293\] {
+    background-color: #639293;
   }
   .bg-black {
     background-color: var(--color-black);
