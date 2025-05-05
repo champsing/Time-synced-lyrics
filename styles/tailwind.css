@@ -808,6 +808,13 @@
     outline-style: var(--tw-outline-style);
     outline-width: 2px;
   }
+  .outline-8 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 8px;
+  }
+  .outline-black {
+    outline-color: var(--color-black);
+  }
   .outline-cyan-800 {
     outline-color: var(--color-cyan-800);
   }
