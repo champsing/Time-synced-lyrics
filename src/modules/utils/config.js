@@ -1,6 +1,6 @@
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "4.1.2";
+const BASE_VERSION = "4.1.3";
 const BUILD_DATE = new Date(Date.now() + 28800000)
     .toISOString()
     .slice(0, 10)
@@ -11,6 +11,10 @@ const BUILD_DATE = new Date(Date.now() + 28800000)
 export const VERSION = COMMIT_ID
     ? `${BASE_VERSION}-${BUILD_DATE}-${COMMIT_ID.slice(0, 12)}`
     : `${BASE_VERSION}-${BUILD_DATE}-dev`;
+
+export const DEBUG_INFO = `播放器版本：${VERSION}
+播放 ID：{PLAYBACK_ID}
+`;
 
 export const DEFAULT_DURATION = 100;
 export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";

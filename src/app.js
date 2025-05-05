@@ -1,13 +1,13 @@
 import { createApp, ref, computed, onMounted, watch } from "vue";
 
 import {
-    VERSION,
     ALBUM_GOOGLE_LINK_BASE,
     INSTRUMENTAL,
     THE_FIRST_TAKE,
     ORIGINAL,
     MERCURY_TSL,
     TSL_LINK_BASE,
+    DEBUG_INFO,
 } from "./modules/utils/config.js";
 import {
     formatTime,
@@ -21,6 +21,7 @@ import {
     setDefaultVersion,
 } from "./modules/handles/songsHandle.js";
 import {
+    initAboutModal,
     initCreditModal,
     initSettingModal,
     initSongModal,
@@ -32,9 +33,6 @@ import {
 import { useTransation } from "./modules/handles/translationHandle.js";
 import { onPlayerChangeSongVideo } from "./modules/players/changeVideo.js";
 import { initControllerPanel } from "./modules/utils/controllerPanel.js";
-
-// 版本顯示
-document.getElementById("version").innerText = `播放器版本：${VERSION}`;
 
 const bodyBackgroundColor = ref("#365456");
 
@@ -225,6 +223,7 @@ const app = createApp({
                 initCreditModal();
                 initSongModal();
                 initControllerPanel();
+                initAboutModal();
 
                 // 初始化時讀取保存的顏色
                 const savedColor = localStorage.getItem("bodyBackgroundColor");
@@ -338,6 +337,7 @@ const app = createApp({
             bodyBackgroundColor: bodyBgColor,
             colorOptions,
             isPaused,
+            debugInfo: DEBUG_INFO,
             playVideo,
             pauseVideo,
             rewind10Sec,
@@ -346,6 +346,7 @@ const app = createApp({
             initCreditModal,
             initYouTubePlayer,
             initControllerPanel,
+            initAboutModal,
             copyToClipboard,
             jumpToCurrentLine,
             getPhraseStyle,
