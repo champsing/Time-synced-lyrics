@@ -31,7 +31,7 @@ import {
 } from "./modules/handles/phrasesHandle.js";
 import { useTransation } from "./modules/handles/translationHandle.js";
 import { onPlayerChangeSongVideo } from "./modules/players/changeVideo.js";
-import { initControllerPanel } from "./modules/utils/ControllerPanel.js";
+import { initControllerPanel } from "./modules/utils/controllerPanel.js";
 
 // 版本顯示
 document.getElementById("version").innerText = `播放器版本：${VERSION}`;

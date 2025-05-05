@@ -2,7 +2,7 @@ export const initControllerPanel = () => {
     const panelSwitch = document.getElementById("controller-panel-switch");
     const panel = document.getElementById("controller-panel");
 
-    const show = () => (panel.style.display = "block");
+    const show = () => (panel.style.display = "flex");
     const hide = () => (panel.style.display = "none");
 
     panelSwitch.addEventListener("click", () => {
