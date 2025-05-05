@@ -6,13 +6,13 @@ export const initControllerPanel = () => {
     const show = () => {
         panel.style.display = "flex";
         panelSwitch.innerText = "隱藏控制介面";
-        if (window.screen.width >= 768) lyricsContainer.style.width = '65%';
+        if (window.screen.width >= 768) lyricsContainer.style.left = "2rem";
     };
 
     const hide = () => {
         panel.style.display = "none";
         panelSwitch.innerText = "顯示控制介面";
-        if (window.screen.width >= 768) lyricsContainer.style.width = '90%';
+        if (window.screen.width >= 768) lyricsContainer.style.left = "15%";
     };
 
     panelSwitch.addEventListener("click", () => {
