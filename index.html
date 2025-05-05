@@ -47,8 +47,7 @@
     <div class="information flex flex-row text-right justify-end mt-1 mr-2">
         <div id="abouticon"
             class="mt-1 ml-2 bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200">
-
-            <button type="button" aria-label="關於" class="mt-1" id="about-btn">
+            <button type="button" aria-label="關於" class="mt-1" id="about-btn"title="關於">
                 <svg width="50" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 17V11" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
                     <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 9)" fill="#1C274C" />
@@ -64,7 +63,7 @@
             class="mt-1 ml-2 bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200">
             <a href="https://github.com/champsing/time-synced-lyrics" target="_blank"
                 referrerpolicy="noreferrer noopener" aria-label="Champsing TSL Repo" title="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" height="40" width="50"
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -5 64 64" height="40" width="50"
                     aria-labelledby="title" aria-describedby="desc" role="img"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Github</title>
@@ -279,22 +278,22 @@
                         <div
                             class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit">
                             <div class="flex flex-row gap-7">
-                                <button id="player-rewind-10sec" @click="rewind10Sec()" type="button">
+                                <button id="player-rewind-10sec" @click="rewind10Sec()" type="button" title="後退10秒">
                                     <span class="text-2xl">
                                         ⏪
                                     </span>
                                 </button>
-                                <button id="player-play" v-if="isPaused" @click="playVideo()" type="button">
+                                <button id="player-play" v-if="isPaused" @click="playVideo()" type="button" title="播放">
                                     <span class="text-4xl">
                                         ▶️
                                     </span>
                                 </button>
-                                <button id="player-pause" v-else @click="pauseVideo()" type="button">
+                                <button id="player-pause" v-else @click="pauseVideo()" type="button" title="暫停">
                                     <span class="text-4xl">
                                         ⏸️
                                     </span>
                                 </button>
-                                <button id="player-mf-10sec" @click="moveForward10Sec()" type="button">
+                                <button id="player-mf-10sec" @click="moveForward10Sec()" type="button" title="前進10秒">
                                     <span class="text-2xl">
                                         ⏩
                                     </span>
