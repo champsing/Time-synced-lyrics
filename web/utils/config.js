@@ -21,13 +21,13 @@ export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";
 export const SONGLIST_PATH = "/public/song_list.json";
 export const MAPPINGS_BASE_PATH = "/public/mappings/";
 export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/";
-export const TSL_LINK_BASE = "https://tsl.mercuryland.online/";
+export const TSL_LINK_BASE = "https://timesl.online/";
 
 export const API_BASE_URL =
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1"
         ? "http://127.0.0.1:8080"
-        : "https://tsl.mercuryland.online/api";
+        : "https://timesl.online/api";
 
 export const MERCURY_TSL = " - 同步開唱";
 export const ORIGINAL = "original";
