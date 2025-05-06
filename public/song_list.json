@@ -22,8 +22,46 @@
             "link": "xL9n1en"
         },
         "credits": {
-            "performance": [],
-            "song_writing": [],
+            "performance": [
+                {
+                    "name": "知更鳥",
+                    "contribution": ["演出者"]
+                },
+                {
+                    "name": "HOYO-MiX",
+                    "contribution": ["演出者"]
+                },
+                {
+                    "name": "Chevy",
+                    "contribution": ["主唱"]
+                },
+                {
+                    "name": "王可鑫",
+                    "contribution": ["演出者"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "Ruby Qu",
+                    "contribution": ["作詞"]
+                },
+                {
+                    "name": "王可鑫",
+                    "contribution": ["編曲", "詞曲創作"]
+                },
+                {
+                    "name": "王可鑫",
+                    "contribution": ["製作人", "母帶工程師"]
+                },
+                {
+                    "name": "阿烈",
+                    "contribution": ["混音師"]
+                },
+                {
+                    "name": "宮奇",
+                    "contribution": ["母帶工程師"]
+                }
+            ],
             "engineering": []
         }
     },
