@@ -1,4 +1,4 @@
-import { YOUTUBE_IFRAME_API } from "../utils/config.js";
+import { YOUTUBE_IFRAME_API } from "/web/utils/config.js";
 
 export const initYouTubePlayer = (vueContext) => {
     let player = null;

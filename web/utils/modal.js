@@ -1,4 +1,4 @@
-import { injectPlaybackID } from "../about/injectPlaybackID.js";
+import { injectPlaybackID } from "../player/about/injectPlaybackID.js";
 import { DEBUG_INFO, VERSION } from "./config.js";
 import { copyToClipboard } from "./global.js";
 

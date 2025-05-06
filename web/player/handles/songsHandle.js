@@ -1,4 +1,4 @@
-import { MAPPINGS_BASE_PATH, SONGLIST_PATH } from "../utils/config.js";
+import { MAPPINGS_BASE_PATH, SONGLIST_PATH } from "/web/utils/config.js";
 
 export const loadSongList = async () => {
     try {

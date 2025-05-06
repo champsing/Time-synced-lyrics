@@ -8,31 +8,31 @@ import {
     MERCURY_TSL,
     TSL_LINK_BASE,
     DEBUG_INFO,
-} from "./modules/utils/config.js";
+} from "./utils/config.js";
 import {
     formatTime,
     scrollToLineIndex,
     copyToClipboard,
-} from "./modules/utils/global.js";
-import { useLyrics } from "./modules/handles/lyricsHandle.js";
-import { initYouTubePlayer } from "./modules/players/onReadyPlayer.js";
+} from "./utils/global.js";
+import { useLyrics } from "./player/handles/lyricsHandle.js";
+import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
 import {
     loadSongList,
     setDefaultVersion,
-} from "./modules/handles/songsHandle.js";
+} from "./player/handles/songsHandle.js";
 import {
     initAboutModal,
     initCreditModal,
     initSettingModal,
     initSongModal,
-} from "./modules/utils/modal.js";
+} from "./utils/modal.js";
 import {
     generatePhraseStyle,
     isActivePhrase,
-} from "./modules/handles/phrasesHandle.js";
-import { useTransation } from "./modules/handles/translationHandle.js";
-import { onPlayerChangeSongVideo } from "./modules/players/changeVideo.js";
-import { initControllerPanel } from "./modules/utils/controllerPanel.js";
+} from "./player/handles/phrasesHandle.js";
+import { useTransation } from "./player/handles/translationHandle.js";
+import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
+import { initControllerPanel } from "./utils/controllerPanel.js";
 
 const bodyBackgroundColor = ref("#365456");
 
