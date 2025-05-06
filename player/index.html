@@ -106,7 +106,7 @@
             class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed mb-4 w-full p-2 md:w-[30%] rounded-[12px]">
             <div class="flex flex-row">
                 <button type="button" class="p-2 rounded-2xl bg-gray-500 outline-black outline-2"
-                    id="controller-panel-switch">隱藏控制介面</button>
+                    id="controller-panel-switch" aria_label="顯示或隱藏控制介面">隱藏控制介面</button>
                 <div class="information flex flex-row text-right justify-end">
                     <div id="abouticon"
                         class="mt-1 ml-2 bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200">
@@ -126,7 +126,7 @@
                     <div id="giticon"
                         class="mt-1 ml-2 bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200">
                         <a href="https://github.com/champsing/time-synced-lyrics" target="_blank"
-                            referrerpolicy="noreferrer noopener" aria-label="Champsing TSL Repo" title="GitHub">
+                            referrerpolicy="noreferrer noopener" aria-label="這項專案的Repo" title="GitHub">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -5 64 64" height="40" width="50"
                                 aria-labelledby="title" aria-describedby="desc" role="img"
                                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -173,7 +173,7 @@
                                 </div>
                                 <div id="copy-debug-info"
                                     class="text-center rounded-md bg-[#1d94a1] px-4 py-2 text-sm font-semibold text-white duration-300 ease-in-out hover:scale-125 w-40">
-                                    <button type="button" id="copy-debug-info-btn">
+                                    <button type="button" id="copy-debug-info-btn" aria-label="複製偵錯資訊">
                                         <span class="text-center">複製偵錯資訊</span>
                                     </button>
                                 </div>
@@ -216,15 +216,15 @@
                 <!-- {{ currentLineIndex }}  -->
                 <div class="flex flex-col justify-center gap-2 p-4 bg-[#443737] rounded-[12px] lg:w-full">
                     <div class="grid grid-cols-3 gap-x-4 w-full">
-                        <button id="song-btn" class="settings-button" type="button">
+                        <button id="song-btn" class="settings-button" type="button" aria-label="歌曲" title="選擇歌曲">
                             <span>歌曲</span>
                         </button>
 
-                        <button id="setting-btn" class="settings-button" type="button">
+                        <button id="setting-btn" class="settings-button" type="button" aria-label="設定" title="設定">
                             <span>設定</span>
                         </button>
 
-                        <button id="share-btn" class="share-button" type="button"
+                        <button id="share-btn" class="share-button" type="button" aria-label="分享" title="分享歌曲"
                             @click="copyToClipboard(currentSongURI, '歌曲連結')">
                             <span>分享</span>
                         </button>
