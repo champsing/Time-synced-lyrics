@@ -1,6 +1,7 @@
 import { ref, computed } from "vue";
+import * as axios from "axios";
 
-import { DEFAULT_DURATION } from "../utils/config.js";
+import { DEFAULT_DURATION } from "/web/utils/config.js";
 import { getLyricFilePath } from "./songsHandle.js";
 
 export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
@@ -113,6 +114,10 @@ export function useLyrics(currentSong, songVersion, currentTime, songDuration) {
     const jsonMappingContent = ref(null);
 
     const loadLyrics = async () => {
+        // axios.post({
+        //     url: BASE "/"
+        // })
+
         const path = getLyricFilePath(
             currentSong.value.name,
             songVersion.value
