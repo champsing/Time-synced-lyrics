@@ -65,7 +65,8 @@
                     </div>
 
                     <div class="sm:flex sm:flex-row sm:gap-4 hidden">
-                        <a href="/player/" class="bg-rose-600 rounded-2xl p-2 text-neutral-200 hover:text-orange-400 transition duration-200"
+                        <a href="/player/"
+                            class="bg-rose-600 rounded-2xl p-2 text-neutral-200 hover:text-orange-400 transition duration-200"
                             target="_blank">
                             <div class="flex flex-row mt-1">
                                 <span class="material-icons">music_note</span>
@@ -116,15 +117,76 @@
 
         <!-- 主要內容 (保留你原本的內容結構，以下為示範內容) -->
         <main class="min-h-screen">
-            <section class="max-w-6xl mx-auto px-4 py-16 text-center">
-                <h2 class="text-5xl font-playfair font-bold text-gray-900 mb-6">
-                    讓歌詞與旋律<span class="text-rose-600">精準同步</span>
-                </h2>
-                <!-- 其他內容保持與原本 Next.js 版本相同 -->
+            <section class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
+                <card>
+                    <template #content>
+                        <h2 class="text-5xl font-playfair font-bold text-gray-900 mb-6">
+                            讓歌詞與旋律<span class="text-rose-700">精準同步</span>
+                        </h2>
+                        <h3 class="text-2xl font-sans text-gray-900">
+                            你的隨身<span class="text-rose-700">卡啦OK</span>，走到哪聽到哪
+                        </h3>
+                    </template>
+                </card>
+            </section>
+            <section class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
+                <div class="text-4xl font-playfair font-bold text-gray-900">
+                    無需訂閱、無需購買，只要打開網頁就能收聽。
+                </div>
+            </section>
+            <section class="max-w-6xl mx-4 md:mx-auto px-4 py-4 text-center relative">
+                <div class="outline-4 rounded-2xl overflow-hidden outline-yellow-400">
+                    <img src="/public/player-screenshot-lg.png" class="" alt="網頁播放器">
+                </div>
+            </section>
+            <section class="md:hidden max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
+                <div class="text-4xl font-playfair font-bold text-gray-900">
+                    在所有裝置上都能使用。
+                </div>
+            </section>
+            <section class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
+                <div class="flex flex-row">
+                    <div class="grow md:hidden"></div>
+                    <div class="hidden md:flex flex-col gap-4 w-2/3">
+                        <div class="grow"></div>
+                        <div class="text-4xl font-playfair font-bold text-gray-900">
+                            在所有裝置上都能使用。
+                        </div>
+                        <div class="grow"></div>
+                    </div>
+                    <div class="hidden md:grow"></div>
+                    <img src="/public/player-screenshot-sm.png"
+                        class="w-[271px] h-[586px] md:w-[180px] md:h-[391px] outline-4 rounded-2xl overflow-hidden outline-yellow-400"
+                        alt="網頁播放器">
+                    <div class="grow md:hidden"></div>
+                </div>
+            </section>
+            <section class="max-w-6xl mx-4 md:mx-auto px-4 py-10 text-center relative bg-rose-300 p-6 rounded-2xl">
+                <div class="flex flex-col gap-8 items-center">
+                    <div class="text-4xl font-playfair font-bold text-gray-900">
+                        現在就去收聽您最喜愛的音樂！
+                    </div>
+
+                    <div id="play-the-music"
+                        class="text-center rounded-md bg-rose-600 px-4 py-2 text-xl font-semibold text-white duration-500 ease-in-out hover:scale-125 w-40">
+                        <a href="/player/">
+                            <span class="text-center">前往播放器</span>
+                        </a>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
-
+    <div class="text-center text-base text-zinc-200 pt-4 pb-4 mt-10 bg-zinc-900">
+        <div style="font-family: playfair display">
+            Copyright © 2025 TSL Online 同步開唱&ensp;保留一切權利。
+        </div>
+        <!--
+            【&nbsp;】：半角スペースと同じサイズの空白
+            【&thinsp;】：&nbsp;の空白より小さい空白
+            【&ensp;】：半角スペースより間隔がやや広い空白
+            【&emsp;】：全角スペースとほぼ同じサイズの空白 -->
+    </div>
     <script src="web/app.js" type="module"></script>
 </body>
 
