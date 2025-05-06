@@ -1,6 +1,34 @@
 [
     {
         "available": true,
+        "name": "HOYO-MiX, Chevy, Robin - Hope Is the Thing With Feathers",
+        "versions": [
+            {
+                "version": "original",
+                "id": "m8VX1usnxlY",
+                "default": true
+            }
+        ],
+        "art": "https://i.scdn.co/image/ab67616d0000b273cc68eea0db7110e3b8cca14e",
+        "artist": "HOYO-MiX, Chevy, 知更鳥",
+        "lyricist": "Ruby Qu、王可鑫",
+        "title": "希望有羽毛和翅膀",
+        "translation": {
+            "available": true,
+            "author": "官方 YouTube 翻譯"
+        },
+        "album": {
+            "name": "空氣蛹 - EP",
+            "link": "xL9n1en"
+        },
+        "credits": {
+            "performance": [],
+            "song_writing": [],
+            "engineering": []
+        }
+    },
+    {
+        "available": true,
         "name": "HOYO-MiX, Vision Wei, Nea - On the Journey",
         "versions": [
             {
@@ -21,7 +49,7 @@
         "is_duet": true,
         "translation": {
             "available": true,
-            "author": "YouTube 影片內翻譯"
+            "author": "官方 YouTube 翻譯"
         },
         "credits": {
             "performance": [
