@@ -48,7 +48,9 @@
                 {
                     "name": "王可鑫",
                     "contribution": ["編曲", "詞曲創作"]
-                },
+                }
+            ],
+            "engineering": [
                 {
                     "name": "王可鑫",
                     "contribution": ["製作人", "母帶工程師"]
@@ -61,8 +63,7 @@
                     "name": "宮奇",
                     "contribution": ["母帶工程師"]
                 }
-            ],
-            "engineering": []
+            ]
         }
     },
     {
