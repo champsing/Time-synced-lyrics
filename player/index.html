@@ -47,7 +47,7 @@
 <body class="bg-[#365456] !text-white min-h-screen !m-0`" :style="{ backgroundColor: bodyBackgroundColor.value}">
     <div id="app">
         <!-- 左側主要顯示區域 -->
-        <div id="main-display-section" class="md:flex flex-col items-center md:w-[65%] md:ml-8">
+        <div id="main-display-section" class="md:flex flex-col items-center md:w-[65%] md:ml-8 px-4">
             <!-- 歌詞容器 -->
             <div id="lyrics-container"
                 class="scroll-smooth snap-y snap-proximity text-center p-4 w-full overflow-y-auto relative rounded-2xl mt-10"
@@ -105,7 +105,7 @@
             </div>
 
             <!-- 電腦版翻譯置於歌詞框下方正中 -->
-            <div v-if="enableTranslation" class="h-[15vh]"></div>
+            <div v-if="enableTranslation" class="md:h-[15vh] h-0"></div>
             <div id="translation-container-md" v-if="enableTranslation" class="hidden md:block fixed bottom-0 mb-4 px-4">
                 <div v-if="currentSong.translation?.available == true"
                     class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-max">
