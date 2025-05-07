@@ -43,6 +43,7 @@ body {
 .lyric-button.active {
     font-size: 2rem;
     font-weight: bold;
+    padding: 0.5rem;
 }
 
 .lyric-phrase.active.kiai {

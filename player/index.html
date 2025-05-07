@@ -46,8 +46,9 @@
 
 <body class="bg-[#365456] !text-white min-h-screen !m-0`" :style="{ backgroundColor: bodyBackgroundColor.value}">
     <div id="app">
-        <!-- 歌詞容器 -->
-        <div class="md:flex flex-col items-center md:w-[65%] md:ml-8 mx-4">
+        <!-- 左側主要顯示區域 -->
+        <div id="main-display-section" class="md:flex flex-col items-center md:w-[65%] md:ml-8">
+            <!-- 歌詞容器 -->
             <div id="lyrics-container"
                 class="scroll-smooth snap-y snap-proximity text-center p-4 w-full overflow-y-auto relative rounded-2xl mt-10"
                 :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
@@ -102,7 +103,10 @@
                         class="reflection-scan w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background relative overflow-hidden translate-z-0 backface-hidden">
                 </div>
             </div>
-            <div id="translation-container" v-if="enableTranslation" class="hidden md:block fixed bottom-0 mb-4 px-4">
+
+            <!-- 電腦版翻譯置於歌詞框下方正中 -->
+            <div v-if="enableTranslation" class="h-[15vh]"></div>
+            <div id="translation-container-md" v-if="enableTranslation" class="hidden md:block fixed bottom-0 mb-4 px-4">
                 <div v-if="currentSong.translation?.available == true"
                     class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-max">
                     <div class="text-2xl font-bold text-center text-teal-300 p-2">
@@ -131,15 +135,9 @@
             </div>
         </div>
 
-
-
-
-
-
-
         <!-- 主要 UI 區域 -->
         <div id="main-ui-section"
-            class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed mb-4 w-full p-2 md:w-[30%] rounded-[12px]">
+            class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed md:p-4 w-full px-4 md:w-[30%] rounded-[12px]">
             <div class="flex flex-row">
                 <button type="button" class="p-2 rounded-2xl bg-gray-500 outline-black outline-2"
                     id="controller-panel-switch" aria_label="顯示或隱藏控制介面">隱藏控制介面</button>
@@ -180,7 +178,7 @@
                     </div>
                 </div>
             </div>
-            <div id="translation-container" v-if="enableTranslation" class="md:hidden">
+            <div id="translation-container-below-md" v-if="enableTranslation" class="md:hidden">
                 <div v-if="currentSong.translation?.available == true"
                     class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-fit">
                     <div class="text-2xl font-bold text-center text-teal-300">
