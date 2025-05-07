@@ -47,60 +47,95 @@
 <body class="bg-[#365456] !text-white min-h-screen !m-0`" :style="{ backgroundColor: bodyBackgroundColor.value}">
     <div id="app">
         <!-- 歌詞容器 -->
-        <div id="lyrics-container"
-            class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-[65%] overflow-y-auto m-4 relative md:left-8 rounded-2xl mt-10"
-            :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
-            <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
-                :id="`lyric-line-${index}`"
-                :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
-                <button :id="`line-button-${index}`" @click="jumpToCurrentLine(index)"
-                    class="lyric-button text-2xl bg-transparent p-0 cursor-pointer" type="button"
-                    :class="{ 'active': isCurrentLine(index) }">
-                    <!-- [for debugging] show line index -->
-                    <!-- {{ index }}  -->
-                    <div class="primary-vocals">
-                        <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
-                            :id="`lyric-phrase-${index}-${phraseIndex}`"
-                            class="lyric-phrase inline-block whitespace-pre relative text-transparent bg-clip-text"
-                            :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
-                            :style="getPhraseStyle(index, phraseIndex)"
-                            :class="{ 'active': isActivePhrase(currentTime, line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
-                            <span v-if="t.pronounciation && enablePronounciation">
-                                <ruby>
-                                    {{ t.phrase }}
-                                    <rp>(</rp>
-                                    <rt>{{ t.pronounciation }}</rt>
-                                    <rp>)</rp>
-                                </ruby>
+        <div class="md:flex flex-col items-center md:w-[65%] md:ml-8 mx-4">
+            <div id="lyrics-container"
+                class="scroll-smooth snap-y snap-proximity text-center p-4 w-full overflow-y-auto relative rounded-2xl mt-10"
+                :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
+                <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
+                    :id="`lyric-line-${index}`"
+                    :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
+                    <button :id="`line-button-${index}`" @click="jumpToCurrentLine(index)"
+                        class="lyric-button text-2xl bg-transparent p-0 cursor-pointer" type="button"
+                        :class="{ 'active': isCurrentLine(index) }">
+                        <!-- [for debugging] show line index -->
+                        <!-- {{ index }}  -->
+                        <div class="primary-vocals">
+                            <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
+                                :id="`lyric-phrase-${index}-${phraseIndex}`"
+                                class="lyric-phrase inline-block whitespace-pre relative text-transparent bg-clip-text"
+                                :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
+                                :style="getPhraseStyle(index, phraseIndex)"
+                                :class="{ 'active': isActivePhrase(currentTime, line, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
+                                <span v-if="t.pronounciation && enablePronounciation">
+                                    <ruby>
+                                        {{ t.phrase }}
+                                        <rp>(</rp>
+                                        <rt>{{ t.pronounciation }}</rt>
+                                        <rp>)</rp>
+                                    </ruby>
+                                </span>
+                                <span v-else>{{ t.phrase }}</span>
                             </span>
-                            <span v-else>{{ t.phrase }}</span>
-                        </span>
+                        </div>
+
+                        <div v-if="line.background_voice !== undefined" class="background-vocals">
+                            <span v-for="(bvt, phraseIndex) in line.background_voice.text" v-if="isCurrentLine(index)"
+                                :key="phraseIndex" class="lyric-phrase relative text-transparent bg-clip-text text-xl"
+                                :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
+                                :style="getBackgroundPhraseStyle(index, phraseIndex)"
+                                :class="{ 'active': isActivePhrase(currentTime, line.background_voice, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
+                                <span v-if="bvt.pronounciation && enablePronounciation">
+                                    <ruby>
+                                        {{ bvt.phrase }}
+                                        <rp>(</rp>
+                                        <rt class="text-sm">{{ bvt.pronounciation }}</rt>
+                                        <rp>)</rp>
+                                    </ruby>
+                                </span>
+                                <span v-else>{{ bvt.phrase }}</span>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="absolute inset-0 -z-10 overflow-hidden" v-if="enableLyricBackground">
+                    <img :src="currentSong.art" :alt="currentSong.name"
+                        class="reflection-scan w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background relative overflow-hidden translate-z-0 backface-hidden">
+                </div>
+            </div>
+            <div id="translation-container" v-if="enableTranslation" class="hidden md:block fixed bottom-0 mb-4 px-4">
+                <div v-if="currentSong.translation?.available == true"
+                    class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-max">
+                    <div class="text-2xl font-bold text-center text-teal-300 p-2">
+                        {{ translationText }}
+                        <div class="mt-1 text-base text-center text-teal-500">
+                            {{ backgroundTranslationText }}
+                        </div>
                     </div>
 
-                    <div v-if="line.background_voice !== undefined" class="background-vocals">
-                        <span v-for="(bvt, phraseIndex) in line.background_voice.text" v-if="isCurrentLine(index)"
-                            :key="phraseIndex" class="lyric-phrase relative text-transparent bg-clip-text text-xl"
-                            :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
-                            :style="getBackgroundPhraseStyle(index, phraseIndex)"
-                            :class="{ 'active': isActivePhrase(currentTime, line.background_voice, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
-                            <span v-if="bvt.pronounciation && enablePronounciation">
-                                <ruby>
-                                    {{ bvt.phrase }}
-                                    <rp>(</rp>
-                                    <rt class="text-sm">{{ bvt.pronounciation }}</rt>
-                                    <rp>)</rp>
-                                </ruby>
-                            </span>
-                            <span v-else>{{ bvt.phrase }}</span>
-                        </span>
+                    <div class="mt-2">
+                        <div v-if="currentSong.translation.cite">
+                            <a :href="currentSong.translation.cite" title="翻譯作者姓名" aria-label="翻譯作者姓名" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-xs font-bold text-center text-green-400 underline md:no-underline md:hover:underline">
+                                翻譯作者：{{ translationAuthor }}
+                            </a>
+                        </div>
+                        <div id="translate-author-without-link" class="opacity-100" v-else>
+                            翻譯作者：{{ translationAuthor }}
+                        </div>
                     </div>
-                </button>
-            </div>
-            <div class="absolute inset-0 -z-10 overflow-hidden" v-if="enableLyricBackground">
-                <img :src="currentSong.art" :alt="currentSong.name"
-                    class="reflection-scan w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background relative overflow-hidden translate-z-0 backface-hidden">
+                </div>
+                <div v-else class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-[12px] w-fit">
+                    <span>本歌曲尚未提供翻譯</span>
+                </div>
             </div>
         </div>
+
+
+
+
+
+
 
         <!-- 主要 UI 區域 -->
         <div id="main-ui-section"
@@ -145,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            <div id="translation-container" v-if="enableTranslation">
+            <div id="translation-container" v-if="enableTranslation" class="md:hidden">
                 <div v-if="currentSong.translation?.available == true"
                     class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-fit">
                     <div class="text-2xl font-bold text-center text-teal-300">

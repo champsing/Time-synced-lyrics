@@ -87,12 +87,20 @@ const app = createApp({
             formatTime(songDuration.value)
         );
 
-        const currentSongURI = computed(
-            () => {
-                if(songVersion.value == ORIGINAL) return TSL_PLAYER_LINK_BASE + "?song=" + currentSong.value.song_id
-                else return TSL_PLAYER_LINK_BASE + "?song=" + currentSong.value.song_id + "&version=" + songVersion.value
-            }
-        );
+        const currentSongURI = computed(() => {
+            if (songVersion.value == ORIGINAL)
+                return (
+                    TSL_PLAYER_LINK_BASE + "?song=" + currentSong.value.song_id
+                );
+            else
+                return (
+                    TSL_PLAYER_LINK_BASE +
+                    "?song=" +
+                    currentSong.value.song_id +
+                    "&version=" +
+                    songVersion.value
+                );
+        });
 
         const { jsonMappingContent, currentLineIndex, loadLyrics } = useLyrics(
             currentSong,
@@ -187,7 +195,9 @@ const app = createApp({
                 }
 
                 if (matchedSong) {
-                    console.log(`已帶入指定歌曲 ID: ${songRequest} - ${matchedSong.name}`);
+                    console.log(
+                        `已帶入指定歌曲 ID: ${songRequest} - ${matchedSong.name}`
+                    );
                     currentSong.value = matchedSong;
                 } else {
                     currentSong.value = songList.value[0];
