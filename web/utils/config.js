@@ -22,6 +22,7 @@ export const SONGLIST_PATH = "/public/song_list.json";
 export const MAPPINGS_BASE_PATH = "/public/mappings/";
 export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/";
 export const TSL_LINK_BASE = "https://timesl.online/";
+export const TSL_PLAYER_LINK_BASE = "https://timesl.online/player/";
 
 export const API_BASE_URL =
     window.location.hostname === "localhost" ||

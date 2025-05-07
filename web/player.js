@@ -6,8 +6,8 @@ import {
     THE_FIRST_TAKE,
     ORIGINAL,
     MERCURY_TSL,
-    TSL_LINK_BASE,
     DEBUG_INFO,
+    TSL_PLAYER_LINK_BASE,
 } from "./utils/config.js";
 import {
     formatTime,
@@ -88,8 +88,8 @@ const app = createApp({
 
         const currentSongURI = computed(
             () => {
-                if(songVersion.value == ORIGINAL) return TSL_LINK_BASE + "?song=" + currentSong.value.song_id
-                else return TSL_LINK_BASE + "?song=" + currentSong.value.song_id + "&version=" + songVersion.value
+                if(songVersion.value == ORIGINAL) return TSL_PLAYER_LINK_BASE + "?song=" + currentSong.value.song_id
+                else return TSL_PLAYER_LINK_BASE + "?song=" + currentSong.value.song_id + "&version=" + songVersion.value
             }
         );
 
