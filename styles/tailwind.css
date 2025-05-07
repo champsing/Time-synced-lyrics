@@ -1191,6 +1191,11 @@
       outline-style: none;
     }
   }
+  .sm\:block {
+    @media (width >= 40rem) {
+      display: block;
+    }
+  }
   .sm\:flex {
     @media (width >= 40rem) {
       display: flex;
@@ -1407,9 +1412,19 @@
       width: auto;
     }
   }
+  .lg\:w-fit {
+    @media (width >= 64rem) {
+      width: fit-content;
+    }
+  }
   .lg\:w-full {
     @media (width >= 64rem) {
       width: 100%;
+    }
+  }
+  .lg\:w-max {
+    @media (width >= 64rem) {
+      width: max-content;
     }
   }
   .lg\:flex-row {
