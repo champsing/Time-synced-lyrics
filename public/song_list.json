@@ -2,6 +2,7 @@
     {
         "available": false,
         "name": "HOYO-MiX, Chevy, Robin - Hope Is the Thing With Feathers",
+        "song_id": 1744861537,
         "versions": [
             {
                 "version": "original",
@@ -69,6 +70,7 @@
     {
         "available": true,
         "name": "HOYO-MiX, Vision Wei, Nea - On the Journey",
+        "song_id": 1809714969,
         "versions": [
             {
                 "version": "original",
@@ -138,6 +140,7 @@
     {
         "available": true,
         "name": "amazarashi - Cassiopeia Keiryuujo",
+        "song_id": 1629869580,
         "versions": [
             {
                 "version": "original",
@@ -181,7 +184,13 @@
     {
         "available": false,
         "name": "Vaundy - Shiwaawase",
-        "id": "JwmGruvGt_I",
+        "song_id": 1707027525,
+        "version": [
+            {
+                "version": "original",
+                "id": "JwmGruvGt_I"
+            }
+        ],
         "artist": "Vaundy",
         "title": "しわあわせ",
         "subtitle": "専門学校 首都医校、大阪医専、\n名古屋医専の2021年度TVCMソング",
@@ -204,7 +213,13 @@
     {
         "available": false,
         "name": "Kenshi Yonezu - Campanella",
-        "id": "XeFQJ6-XoD0",
+        "song_id": 1538265734,
+        "versions": [
+            {
+                "version": "original",
+                "id": "XeFQJ6-XoD0"
+            }
+        ],
         "artist": "米津玄師",
         "title": "カンパネルラ",
         "album": {
@@ -229,6 +244,7 @@
     {
         "available": true,
         "name": "Kiro Akiyama - SKETCH",
+        "song_id": 1646398286,
         "versions": [
             {
                 "version": "original",

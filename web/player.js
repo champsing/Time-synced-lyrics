@@ -87,7 +87,10 @@ const app = createApp({
         );
 
         const currentSongURI = computed(
-            () => TSL_LINK_BASE + "?song=" + currentSong.value.name
+            () => {
+                if(songVersion.value == ORIGINAL) return TSL_LINK_BASE + "?song=" + currentSong.value.song_id
+                else return TSL_LINK_BASE + "?song=" + currentSong.value.song_id + "&version=" + songVersion.value
+            }
         );
 
         const { jsonMappingContent, currentLineIndex, loadLyrics } = useLyrics(
@@ -173,7 +176,7 @@ const app = createApp({
                 );
 
                 const matchedSong = songList.value.find(
-                    (song) => song.name.trim().toLowerCase() === songRequest
+                    (song) => song.song_id === songRequest
                 );
 
                 // 檢查歌曲列表是否為空
@@ -183,12 +186,12 @@ const app = createApp({
                 }
 
                 if (matchedSong) {
-                    console.log(`已帶入指定歌曲: ${songRequest}`);
+                    console.log(`已帶入指定歌曲 ID: ${songRequest} - ${matchedSong.name}`);
                     currentSong.value = matchedSong;
                 } else {
                     currentSong.value = songList.value[0];
                     console.warn(
-                        `未定義指定歌曲、歌曲未啟用或該歌曲不存在: ${songRequest}, 使用第一首歌曲`
+                        `未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在: ${songRequest}, 使用第一首歌曲`
                     );
                 }
 
