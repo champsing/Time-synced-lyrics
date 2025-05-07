@@ -176,7 +176,7 @@ const app = createApp({
                 );
 
                 const matchedSong = songList.value.find(
-                    (song) => parsedInt(song.song_id) === songRequest
+                    (song) => parseInt(song.song_id) === songRequest
                 );
 
                 // 檢查歌曲列表是否為空
