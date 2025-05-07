@@ -42,7 +42,7 @@ watch(bodyBackgroundColor, (newColor) => {
 });
 
 const params = new URL(document.URL).searchParams;
-const songRequest = decodeURIComponent(params.get("song")).trim().toLowerCase();
+const songRequest = parseInt(decodeURIComponent(params.get("song")));
 const versionRequest = decodeURIComponent(params.get("version"))
     .trim()
     .toLowerCase();
