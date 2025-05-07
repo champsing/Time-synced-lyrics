@@ -18,3 +18,8 @@ body {
     animation: slideUpFadeIn 0.6s ease-out forwards;
     opacity: 0; /* 初始狀態隱藏 */
 }
+
+input[type="checkbox"]:checked ~ .zoom-in-able {
+    transform: scale(2);
+    cursor: zoom-out;
+}

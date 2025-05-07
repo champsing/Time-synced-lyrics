@@ -49,7 +49,8 @@
             <div class="max-w-full px-4 py-4">
                 <div class="flex flex-row justify-between items-center w-full gap-2 sm:gap-0">
                     <div class="flex flex-row gap-1 md:gap-4">
-                        <img src="/public/og_image/music.png" alt="同步開唱" class="w-8 h-8 md:w-10 md:h-10">
+                        <img src="/public/og_image/music.png" alt="同步開唱" aria-label="同步開唱"
+                            class="w-8 h-8 md:w-10 md:h-10">
                         <a href="/" aria-label="回首頁">
                             <h1 class="text-2xl md:text-4xl font-bold text-rose-600 font-playfair">同步開唱</h1>
                         </a>
@@ -103,8 +104,8 @@
                                 class="dropdown-menu sm:hidden absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded shadow-sm z-50 p-2 w-max">
                                 <div class="flex flex-col gap-2 md:hidden">
                                     <a href="https://github.com/champsing/time-synced-lyrics" target="_blank"
-                                        referrerpolicy="noreferrer noopener" aria-label="這個專案的Repo"
-                                        title="GitHub" class="text-gray-600 hover:text-rose-600 transition">
+                                        referrerpolicy="noreferrer noopener" aria-label="這個專案的Repo" title="GitHub"
+                                        class="text-gray-600 hover:text-rose-600 transition">
                                         <span>GitHub 開源</span>
                                     </a>
                                 </div>
@@ -134,42 +135,54 @@
                     無需訂閱、無需購買，只要打開網頁就能收聽。
                 </div>
                 <div class="outline-4 rounded-2xl overflow-hidden outline-yellow-400">
-                    <img src="/public/homepage_images/player-screenshot-lg.png" alt="電腦端畫面">
+                    <img src="/public/homepage_images/player-screenshot-lg.png" alt="電腦端畫面" aria-label="電腦端畫面">
                 </div>
             </section>
 
             <section class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
                 <div class="md:hidden mb-10 text-4xl font-playfair font-bold text-gray-900">
-                    使用音樂伴唱帶，跟隨旋律引吭高歌。<a href="#footnote-1" aria-label="註腳1"><span class="text-xs align-super">1</span></a>
+                    使用音樂伴唱帶，跟隨旋律引吭高歌。<a href="#footnote-1" aria-label="註腳1"><span
+                            class="text-xs align-super">1</span></a>
                 </div>
                 <div class="flex flex-row md:gap-40">
                     <div class="grow md:hidden"></div>
                     <div class="hidden md:flex flex-col w-1/2">
                         <div class="grow"></div>
                         <div class="text-4xl font-playfair font-bold text-gray-900">
-                            使用音樂伴唱帶，跟隨旋律引吭高歌。<a href="#footnote-1" aria-label="註腳1"><span class="text-xs align-super">1</span></a>
+                            使用<span class="text-cyan-700">音樂伴唱帶</span>，跟隨旋律引吭高歌。
+                            <a href="#footnote-1" aria-label="註腳1">
+                                <span class="text-xs align-super">1</span>
+                            </a>
                         </div>
                         <div class="grow"></div>
                     </div>
                     <img src="/public/homepage_images/instrumental.png"
-                        class=" outline-4 rounded-2xl overflow-hidden outline-yellow-400" alt="伴唱帶畫面">
+                        class=" outline-4 rounded-2xl overflow-hidden outline-yellow-400" alt="伴唱帶畫面"
+                        aria-label="伴唱帶畫面">
                     <div class="grow md:hidden"></div>
                 </div>
             </section>
 
             <section class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
                 <div class="md:hidden text-4xl mb-10 font-playfair font-bold text-gray-900">
-                    背景顏色，由你決定個性風格。
+                    <span class="text-orange-600">背</span>
+                    <span class="text-blue-300">景</span>
+                    <span class="text-green-600">顏</span>
+                    <span class="text-rose-700">色</span>，由你決定個性風格。
                 </div>
                 <div class="flex flex-row md:gap-10">
                     <div class="grow md:hidden"></div>
                     <img src="/public/homepage_images/change-theme-color.png"
-                        class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 md:w-2/3" alt="背景顏色更換">
+                        class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 md:w-2/3" alt="背景顏色更換"
+                        aria-label="背景顏色更換">
                     <div class="hidden md:grow"></div>
                     <div class="hidden md:flex flex-col w-2/3">
                         <div class="grow"></div>
                         <div class="text-4xl font-playfair font-bold text-gray-900">
-                            背景顏色，由你決定個性風格。
+                            <span class="text-orange-600">背</span>
+                            <span class="text-blue-300">景</span>
+                            <span class="text-green-600">顏</span>
+                            <span class="text-rose-700">色</span>，由你決定個性風格。
                         </div>
                         <div class="grow"></div>
                     </div>
@@ -178,21 +191,52 @@
             </section>
 
             <section class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
+                <div class="flex flex-col gap-10">
+
+                    <div class="text-4xl font-playfair font-bold text-gray-900">
+                        了解您喜愛的樂曲是由哪些人打造的。
+                        <a href="#footnote-2" aria-label="註腳2">
+                            <span class="text-xs align-super">2</span>
+                        </a>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="grow"></div>
+                        <!-- <input type="checkbox" id="credit-list-img" class="hidden"> -->
+                        <label for="credit-list-img">
+                            <div class="outline-4 rounded-2xl overflow-hidden outline-yellow-400">
+                                <img src="/public/homepage_images/credit-list.png" class=" w-[436px] h-[360px]"
+                                    alt="工作人員名單" aria-label="工作人員名單">
+                            </div>
+                        </label>
+
+                        <div class="grow"></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative">
                 <div class="md:hidden mb-10 text-4xl font-playfair font-bold text-gray-900">
-                    在所有裝置上都能使用。<a href="#footnote-2" aria-label="註腳2"><span class="text-xs align-super">2</span></a>
+                    在<span class="text-rose-700">所有裝置</span>上都能使用。
+                    <a href="#footnote-3" aria-label="註腳3">
+                        <span class="text-xs align-super">3</span>
+                    </a>
                 </div>
                 <div class="flex flex-row md:gap-40">
                     <div class="grow md:hidden"></div>
                     <div class="hidden md:flex flex-col w-1/2">
                         <div class="grow"></div>
                         <div class="text-4xl font-playfair font-bold text-gray-900">
-                            在所有裝置上都能使用。<a href="#footnote-2" aria-label="註腳2"><span class="text-xs align-super">2</span></a>
+                            在<span class="text-rose-700">所有裝置</span>上都能使用。
+                            <a href="#footnote-3" aria-label="註腳3">
+                                <span class="text-xs align-super">3</span>
+                            </a>
                         </div>
                         <div class="grow"></div>
                     </div>
                     <img src="/public/homepage_images/player-screenshot-sm.png"
                         class="w-[271px] h-[586px] md:w-[180px] md:h-[391px] outline-4 rounded-2xl overflow-hidden outline-yellow-400"
-                        alt="手機端畫面">
+                        alt="手機端畫面" aria-label="手機端畫面">
                     <div class="grow md:hidden"></div>
                 </div>
             </section>
@@ -215,7 +259,8 @@
         <hr class="m-4">
         <section class="max-w-6xl mx-4 md:mx-auto px-4 py-4 text-left relative text-gray-400">
             <p id="footnote-1">1. 僅部分歌曲提供。</p>
-            <p id="footnote-2">2. 實際使用情況可能依裝置不同而有所差異。</p>
+            <p id="footnote-3">2. 工作人員名單僅供參考，本站並不保證該名單 100% 正確或樂曲之製作必然為工作人員名單所提供的分工。</p>
+            <p id="footnote-3">3. 實際使用情況可能依裝置不同而有所差異。</p>
             <br>
             <div>
                 <p id="music-credit">《不虛此行》由 HOYO-MiX、魏晨、Nea 創作。</p>
