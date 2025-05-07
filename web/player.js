@@ -172,11 +172,11 @@ const app = createApp({
                 // 調試：輸出實際加載的歌曲列表
                 console.log(
                     "Available songs:",
-                    songList.value.map((s) => s.name)
+                    songList.value.map((s) => `${s.song_id} - ${s.name}`)
                 );
 
                 const matchedSong = songList.value.find(
-                    (song) => song.song_id === songRequest
+                    (song) => parsedInt(song.song_id) === songRequest
                 );
 
                 // 檢查歌曲列表是否為空
