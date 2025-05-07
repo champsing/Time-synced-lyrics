@@ -67,16 +67,16 @@ export const initAboutModal = () => {
     return { show, hide };
 };
 
-// export const initShareModal = () => {
-//     const close = document.getElementById("share-modal-close-btn");
-//     const modal = document.getElementById("share-modal-container");
+export const initShareModal = () => {
+    const close = document.getElementById("share-modal-close-btn");
+    const modal = document.getElementById("share-modal-container");
 
-//     const show = () => (modal.style.display = "block");
-//     const hide = () => (modal.style.display = "none");
+    const show = () => (modal.style.display = "block");
+    const hide = () => (modal.style.display = "none");
 
-//     document.getElementById("share-btn").addEventListener("click", show);
-//     close.addEventListener("click", hide);
-//     window.addEventListener("click", (e) => e.target === modal && hide());
+    document.getElementById("share-btn").addEventListener("click", show);
+    close.addEventListener("click", hide);
+    window.addEventListener("click", (e) => e.target === modal && hide());
 
-//     return { show, hide };
-// };
+    return { show, hide };
+};

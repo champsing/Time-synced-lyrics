@@ -25,6 +25,7 @@ import {
     initCreditModal,
     initSettingModal,
     initSongModal,
+    initShareModal,
 } from "./utils/modal.js";
 import {
     generatePhraseStyle,
@@ -227,6 +228,7 @@ const app = createApp({
                 initSongModal();
                 initControllerPanel();
                 initAboutModal();
+                initShareModal();
 
                 // 初始化時讀取保存的顏色
                 const savedColor = localStorage.getItem("bodyBackgroundColor");
@@ -349,6 +351,7 @@ const app = createApp({
             initCreditModal,
             initYouTubePlayer,
             initControllerPanel,
+            initShareModal,
             initAboutModal,
             copyToClipboard,
             jumpToCurrentLine,
