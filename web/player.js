@@ -18,7 +18,7 @@ import { useLyrics } from "./player/handles/lyricsHandle.js";
 import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
 import {
     loadSongList,
-    setDefaultVersion,
+    getDefaultVersion,
 } from "./player/handles/songsHandle.js";
 import {
     initAboutModal,
@@ -216,7 +216,7 @@ const app = createApp({
                     console.log(`已帶入指定版本: ${versionRequest}`);
                     songVersion.value = versionRequest;
                 } else {
-                    songVersion.value = setDefaultVersion(currentSong);
+                    songVersion.value = getDefaultVersion(currentSong);
                     console.warn(
                         `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`
                     );
@@ -266,7 +266,7 @@ const app = createApp({
             if (matchedVersion) {
                 console.log(`已帶入指定版本: ${versionRequest}`);
             } else {
-                songVersion.value = setDefaultVersion(currentSong);
+                songVersion.value = getDefaultVersion(currentSong);
                 console.warn(
                     `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`
                 );

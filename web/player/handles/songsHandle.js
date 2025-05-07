@@ -14,5 +14,5 @@ export const getLyricFilePath = (songName, songVersion) => {
     return `${MAPPINGS_BASE_PATH}${songName}/${songVersion}.json`;
 };
 
-export const setDefaultVersion = (currentSong) =>
+export const getDefaultVersion = (currentSong) =>
     currentSong.value.versions.find((v) => v.default === true).version;
