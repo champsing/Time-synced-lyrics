@@ -185,12 +185,14 @@
         "available": false,
         "name": "Vaundy - Shiwaawase",
         "song_id": 1707027525,
-        "version": [
+        "versions": [
             {
                 "version": "original",
-                "id": "JwmGruvGt_I"
+                "id": "JwmGruvGt_I",
+                "default": true
             }
         ],
+        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/20/70/b3/2070b3d8-96d5-5e8b-1a4a-92a5e89f4b49/197189952913.jpg/600x600bf-60.jpg",
         "artist": "Vaundy",
         "title": "しわあわせ",
         "subtitle": "専門学校 首都医校、大阪医専、\n名古屋医専の2021年度TVCMソング",
@@ -205,9 +207,18 @@
             "link": "UGs6ebR"
         },
         "credits": {
-            "vocalist": "Vaundy",
-            "lyricist_and_songwriting": "Vaundy",
-            "arrangement": "Vaundy"
+            "performance": [
+                {
+                    "name": "Vaundy",
+                    "contribution": ["主唱"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "Vaundy",
+                    "contribution": ["詞曲創作", "編曲"]
+                }
+            ]
         }
     },
     {
@@ -217,7 +228,8 @@
         "versions": [
             {
                 "version": "original",
-                "id": "XeFQJ6-XoD0"
+                "id": "XeFQJ6-XoD0",
+                "default": true
             }
         ],
         "artist": "米津玄師",
@@ -234,11 +246,26 @@
             "modified": true
         },
         "credits": {
-            "vocalist": "米津玄師",
-            "guitar": "米津玄師",
-            "bass": "須藤 優",
-            "lyricist_and_songwriting": "米津玄師",
-            "arrangement": "米津玄師、Yuta Bandoh"
+            "performance": [
+                {
+                    "name": "米津玄師",
+                    "contribution": ["主唱", "吉他"]
+                },
+                {
+                    "name": "須藤 優",
+                    "contribution": ["貝斯"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "米津玄師",
+                    "contribution": ["詞曲創作", "編曲"]
+                },
+                {
+                    "name": "Yuta Bandoh",
+                    "contribution": ["編曲"]
+                }
+            ]
         }
     },
     {
