@@ -43,10 +43,8 @@
 </head>
 
 <body class="bg-[#365456] !text-white min-h-screen !m-0`" :style="{ backgroundColor: bodyBackgroundColor.value}">
-
-
-
     <div id="app">
+        <!-- 歌詞容器 -->
         <div id="lyrics-container"
             class="scroll-smooth snap-y snap-proximity text-center p-4 md:w-[65%] overflow-y-auto m-4 relative md:left-8 rounded-2xl mt-10"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
@@ -102,6 +100,7 @@
             </div>
         </div>
 
+        <!-- 主要 UI 區域 -->
         <div id="main-ui-section"
             class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed mb-4 w-full p-2 md:w-[30%] rounded-[12px]">
             <div class="flex flex-row">
@@ -281,7 +280,10 @@
             </div>
         </div>
 
+        <!-- 所有模態框整理到這裡 -->
         <div id="modals-container">
+
+            <!-- 選擇歌曲 -->
             <div id="song-modal-container" class="hidden">
                 <div id="song-modal-mask"
                     class="block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
@@ -290,7 +292,7 @@
                 <div id="song-modal-content"
                     class="bg-[#123563] opacity-100 fixed left-[10%] top-2/5 z-20 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close text-gray-500 float-right text-3xl font-bold"
-                        id="song-modal-close-btn">&times;</span>
+                        id="song-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="text-left text-sm italic">選擇歌曲</span>
                     <div class="flex flex-col justify-center items-center mt-2 gap-1">
                         <div id="song-select-container" class="settings-entry">
@@ -323,6 +325,7 @@
                 </div>
             </div>
 
+            <!-- 設定 -->
             <div id="setting-modal-container" class="hidden">
                 <div id="setting-modal-mask"
                     class="block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
@@ -331,7 +334,7 @@
                 <div id="setting-modal-content"
                     class="bg-[#455a47] opacity-100 fixed z-20 left-[10%] top-2/5 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close text-gray-500 float-right text-3xl font-bold ml-2"
-                        id="setting-modal-close-btn">&times;</span>
+                        id="setting-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="text-left text-sm italic">設定</span>
                     <div class="gap-1 flex flex-col justify-center items-center mt-2 overflow-y-scroll">
                         <div id="enable-body-background-container mt-4" class="settings-entry">
@@ -392,6 +395,7 @@
                 </div>
             </div>
 
+            <!-- 工作人員名單 -->
             <div id="credit-modal-container" class="hidden">
                 <div id="credit-modal-mask"
                     class="block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
@@ -400,7 +404,7 @@
                 <div id="credit-modal-content"
                     class="bg-[#2c4f3d] opacity-100 fixed left-[10%] z-20 top-1/4 md:left-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close ml-2 text-gray-500 float-right text-3xl font-bold"
-                        id="credit-modal-close-btn">&times;</span>
+                        id="credit-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="text-left text-sm italic">工作人員名單</span>
                     <div id="artist-banner" class="text-center">
                         <span id="artist" class="ml-6">演出藝人</span>
@@ -462,6 +466,7 @@
                 </div>
             </div>
 
+            <!-- 分享歌曲 -->
             <div id="share-modal-container" class="hidden">
                 <div id="share-modal-mask"
                     class="block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
@@ -470,7 +475,7 @@
                 <div id="share-modal-content"
                     class="bg-amber-900 opacity-100 fixed left-[10%] top-2/5 z-20 md:left-[20%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-3/5">
                     <span class="close text-gray-500 float-right text-3xl font-bold ml-2"
-                        id="share-modal-close-btn">&times;</span>
+                        id="share-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="text-left text-sm italic">分享</span>
                     <div class="gap-1 flex flex-col justify-center items-center mt-2 overflow-y-scroll">
                         <div class="flex flex-row gap-4">
@@ -492,6 +497,7 @@
                 </div>
             </div>
 
+            <!-- 關於 -->
             <div id="about-modal-container" class="hidden">
                 <div id="about-modal-mask"
                     class="block fixed pb-100 z-19 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
@@ -500,7 +506,7 @@
                 <div id="about-modal-content"
                     class="bg-[#545425] opacity-100 fixed left-[10%] top-2/5 z-20 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close text-gray-500 float-right text-3xl font-bold"
-                        id="about-modal-close-btn">&times;</span>
+                        id="about-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="text-left text-sm italic">關於</span>
                     <div class="flex flex-col gap-4 items-center">
                         <div class="flex flex-col">
@@ -528,8 +534,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
+        <!-- 手機版底部留白 -->
         <div id="bottom-blank-area" class="h-[20vh] md:h-0"></div>
     </div>
 
