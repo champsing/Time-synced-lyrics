@@ -48,13 +48,14 @@
     <div id="app">
         <!-- 導航欄 -->
         <nav class="shadow-sm" :style="{ backgroundColor: bodyBackgroundColor.value}">
-            <div class="max-w-full px-4 py-4">
+            <div class="max-w-full px-4 py-2">
                 <div class="flex flex-row justify-between items-center w-full gap-2 sm:gap-0">
-                    <div class="flex flex-row gap-1 md:gap-4">
+                    <div class="flex flex-row gap-3">
                         <img src="/public/og_image/music.png" alt="同步開唱" aria-label="同步開唱"
                             class="w-8 h-8 md:w-10 md:h-10">
                         <a href="/" aria-label="回首頁">
-                            <h1 class="text-2xl md:text-4xl font-bold text-black font-playfair" :class="{'text-rose-600': bodyBackgroundColor === '#101010'}">同步開唱</h1>
+                            <h1 class="text-2xl md:text-3xl font-bold text-black font-playfair"
+                                :class="{'text-rose-600': bodyBackgroundColor === '#101010'}">同步開唱</h1>
                         </a>
                     </div>
                     <div class="grow"></div>
@@ -226,7 +227,7 @@
             class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed md:p-4 w-full px-4 p-2 md:w-[30%] rounded-[12px]">
             <div class="flex flex-row">
                 <button type="button" class="p-2 rounded-2xl bg-gray-500 outline-black outline-2"
-                    id="controller-panel-switch" aria_label="顯示或隱藏控制介面">隱藏控制介面</button>
+                    id="controller-panel-switch" aria_label="顯示或隱藏控制介面" title="顯示或隱藏控制介面">隱藏控制介面</button>
 
             </div>
             <div id="translation-container-below-md" v-if="enableTranslation" class="md:hidden">
@@ -488,7 +489,7 @@
                 </div>
                 <!-- Modal content -->
                 <div id="credit-modal-content"
-                    class="bg-[#2c4f3d] opacity-100 fixed left-[10%] z-20 top-1/4 md:left-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
+                    class="bg-[#2c4f3d] opacity-100 fixed left-[10%] z-20 top-1/5 md:left-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close ml-2 text-gray-500 float-right text-3xl font-bold" id="credit-modal-close-btn"
                         title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="text-left text-sm italic">工作人員名單</span>
@@ -551,7 +552,7 @@
                     </div>
 
                     <hr class="mt-4">
-                    <span class="text-xs text-gray-400">工作人員名單僅供參考，本站並不保證該名單 100% 正確或樂曲之製作必然為<br>本工作人員名單所提供的分工。</span>
+                    <span class="text-xs text-gray-400 text-wrap">工作人員名單僅供參考，本站並不保證該名單 100% 正確或樂曲之製作必然為本工作人員名單所提供的分工。</span>
                 </div>
             </div>
 
