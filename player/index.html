@@ -302,7 +302,7 @@
                                 <div class="flex flex-col md:flex-row items-center gap-2">
                                     <div class="text-base text-center text-white">
                                         <button v-if="currentSong.credits" id="credit-btn" type="button"
-                                            class="underline md:no-underline md:hover:underline text-wrap"
+                                            class="underline md:no-underline md:hover:underline text-balance"
                                             title="查看工作人員名單" aria-label="查看工作人員名單">
                                             {{ currentSong.artist? currentSong.artist : "未知的創作者" }}
                                         </button>
@@ -310,7 +310,7 @@
                                     </div>
                                     <span>．</span>
                                     <div
-                                        class="inline font-[family-name:var(--font-poppins)] text-sm text-center text-wrap">
+                                        class="inline font-[family-name:var(--font-poppins)] text-sm text-center text-pretty">
                                         <span>
                                             {{ currentSong.album? currentSong.album.name : currentSong.title + " - 單曲"
                                             }}

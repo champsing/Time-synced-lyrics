@@ -903,8 +903,14 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .text-balance {
+    text-wrap: balance;
+  }
   .text-nowrap {
     text-wrap: nowrap;
+  }
+  .text-pretty {
+    text-wrap: pretty;
   }
   .text-wrap {
     text-wrap: wrap;
