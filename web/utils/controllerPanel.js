@@ -13,8 +13,10 @@ export const initControllerPanel = () => {
     const hide = () => {
         panel.style.display = "none";
         panelSwitch.innerText = "顯示控制介面";
-        if (window.screen.width >= 768)
-            mainDisplaySection.style.marginLeft = "15rem";
+        if (window.screen.width >= 768) {
+            let margin = window.screen.width / 8;
+            mainDisplaySection.style.marginLeft = `${margin}px`;
+        }
     };
 
     panelSwitch.addEventListener("click", () => {
