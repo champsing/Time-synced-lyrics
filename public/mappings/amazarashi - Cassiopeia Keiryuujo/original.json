@@ -1,5 +1,9 @@
 [
     {
+        "time": "00:08.00",
+        "type": "prelude"
+    },
+    {
         "time": "00:32.84",
         "text": [
             { "phrase": "生後", "duration": 70, "pronounciation": "せいご" },
@@ -36,7 +40,7 @@
             { "phrase": "似合", "duration": 40, "kiai": true, "pronounciation": "にあ" },
             { "phrase": "わない", "duration": 70, "kiai": true },
             { "phrase": " ", "duration": 145 },
-            { "phrase": "言葉", "duration": 40, "pronounciation": "ことば" },
+            { "phrase": "言葉", "duration": 50, "pronounciation": "ことば" },
             { "phrase": "らを", "duration": 40 },
             { "phrase": "", "duration": 20 },
             { "phrase": "鞄", "duration": 120 },

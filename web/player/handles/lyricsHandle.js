@@ -58,7 +58,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 }
             }
 
-            if (line.type === "interlude") {
+            if (line.type === "interlude" || line.type === "prelude") {
                 line.text = [{ phrase: "● ● ●", duration: 0 }];
             }
 
@@ -100,7 +100,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
         .filter((line) => line && line.text);
 
     return parsedLyrics.map((line, index) => {
-        if (line.type === "interlude") {
+        if (line.type === "interlude" || line.type === "prelude") {
             const interludeDuration =
                 jsonMappingContent[index + 1].time - line.time;
             line.duration = [interludeDuration];

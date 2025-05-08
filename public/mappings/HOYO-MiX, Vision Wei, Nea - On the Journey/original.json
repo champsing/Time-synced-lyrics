@@ -1,5 +1,9 @@
 [
     {
+        "time": "00:00.05",
+        "type": "prelude"
+    },
+    {
         "time": "00:25.37",
         "text": [
             { "phrase": "We ", "duration": 32 },
