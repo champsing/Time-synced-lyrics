@@ -7,12 +7,15 @@ let playbackId = playback.id;
 // 向後端更新設定項目的值
 export const onUpdateSettings = async (settingName, setting) => {
     try {
-        await axios.post(`${API_BASE_URL}/playbacks/${playbackId}/settings/update`, {
-            id: playback.id,
-            secret: playback.secret,
-            setting: settingName, // must be string
-            newVal: setting.value, // must be a ref
-        });
+        await axios.post(
+            `${API_BASE_URL}/playbacks/${playbackId}/settings/update`,
+            {
+                id: playback.id,
+                secret: playback.secret,
+                setting: settingName, // must be string
+                newVal: setting.value, // must be a ref
+            }
+        );
     } catch (err) {
         console.log("無法同步設定請求：", err);
     }
