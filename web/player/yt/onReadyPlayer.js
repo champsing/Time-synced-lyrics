@@ -48,8 +48,8 @@ export const initYouTubePlayer = (vueContext) => {
                 requestAnimationFrame(update);
             };
             update();
-            vueContext.isPaused.value = false;
-        } else vueContext.isPaused.value = true;
+            isPaused.value = false;
+        } else isPaused.value = true;
 
         if (
             event.data === window.YT.PlayerState.BUFFERING &&

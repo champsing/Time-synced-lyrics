@@ -6,7 +6,7 @@ export function onPlayerChangeSongVideo(currentSong, songVersion, player) {
 
     if (!videoID) {
         window.ytPlayer.loadVideoById("");
-        console.error(`找不到 ${newVal} 版本的影片 ID`);
+        console.error("找不到影片 ID");
         return;
     }
 

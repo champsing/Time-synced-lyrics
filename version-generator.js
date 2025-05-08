@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // 用於生成帶有 Git commit 信息的版本文件
 const { execSync } = require('child_process')
 
