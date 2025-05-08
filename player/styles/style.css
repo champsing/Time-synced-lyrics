@@ -44,6 +44,13 @@ body {
     font-size: 2rem;
     font-weight: bold;
     padding: 0.5rem;
+    text-wrap: pretty;
+}
+
+.lyric-button.active {
+    @media (width >= 48rem /* 768px */) {
+        text-wrap: balance;
+    }
 }
 
 .lyric-phrase.active.kiai {
