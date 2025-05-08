@@ -158,7 +158,7 @@ WIP
 | 屬性               | 類型    | 必填 | 說明                                               |
 | ------------------ | ------- | ---- | -------------------------------------------------- |
 | `time`             | string  | ✓    | 開始時間 (格式 "mm:ss.SS")                         |
-| `type`             | string  |      | 該行的類型，僅在值為 `interlude` 和 `end` 時有作用 |
+| `type`             | string  |      | 該行的類型，僅在值為 `prelude`, `interlude` 和 `end` 時有作用 |
 | `text`             | array   |      | 主歌詞片語陣列                                     |
 | ↳ `phrase`         | string  | ✓    | 文字片段                                           |
 | ↳ `duration`       | number  | ✓    | 持續時間(ms)，0=使用預設值                         |
@@ -187,6 +187,8 @@ WIP
 ## type
 
 該行的類型。
+
+-   若設為 `prelude`，則該行為前奏。
 
 -   若設為 `interlude`，則該行為間奏。
 
@@ -218,7 +220,7 @@ WIP
 
 ### 間奏與歌曲結束
 
--   若該行的 `type` 值為 `interlude`（即該行為間奏），
+-   若該行的 `type` 值為 `prelude` 或 `interlude`（即該行為前奏或間奏），
 
     `text` 將自動被設定為：
 
