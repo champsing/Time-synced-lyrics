@@ -1,5 +1,4 @@
 import { ref, computed } from "vue";
-import * as axios from "axios";
 
 import { DEFAULT_DURATION } from "/web/utils/config.js";
 import { getLyricFilePath } from "./songsHandle.js";
@@ -11,6 +10,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
         .map((line) => {
             const timeMatch = line.time.match(/(\d+):(\d+\.\d+)/);
             if (timeMatch) {
+                // eslint-disable-next-line no-unused-vars
                 const [_, mm, ss] = timeMatch;
                 line.time = parseFloat(mm) * 60 + parseFloat(ss);
             }
@@ -18,6 +18,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
             if (line.end_time) {
                 const endTimeMatch = line.end_time.match(/(\d+):(\d+\.\d+)/);
                 if (endTimeMatch) {
+                    // eslint-disable-next-line no-unused-vars
                     const [_, mm, ss] = endTimeMatch;
                     line.end_time = parseFloat(mm) * 60 + parseFloat(ss);
                 }
@@ -27,6 +28,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 const bgTimeMatch =
                     line.background_voice?.time.match(/(\d+):(\d+\.\d+)/);
                 if (bgTimeMatch) {
+                    // eslint-disable-next-line no-unused-vars
                     const [_, mm, ss] = bgTimeMatch;
                     line.background_voice.time =
                         parseFloat(mm) * 60 + parseFloat(ss);
