@@ -21,3 +21,11 @@ export async function copyToClipboard(text, textType) {
         console.error("Failed to copy: ", err);
     }
 }
+
+export function disableScroll() {
+    document.body.style.overflow = "hidden";
+}
+
+export function enableScroll() {
+    document.body.style.overflow = "";
+}

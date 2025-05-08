@@ -1,3 +1,4 @@
+import { PLAYBACK_ID } from "../player/about/injectPlaybackID.js";
 import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
 const BASE_VERSION = "4.3.1";
@@ -13,7 +14,7 @@ export const VERSION = COMMIT_ID
     : `${BASE_VERSION}-${BUILD_DATE}-dev`;
 
 export const DEBUG_INFO = `播放器版本：${VERSION}
-播放 ID：{PLAYBACK_ID}
+播放 ID：${PLAYBACK_ID}
 `;
 
 export const DEFAULT_DURATION = 100;
