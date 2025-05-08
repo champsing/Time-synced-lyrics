@@ -1,6 +1,6 @@
 [
     {
-        "time": "00:00:05",
+        "time": "00:00.05",
         "type": "prelude"
     },
     {
@@ -439,7 +439,7 @@
         "text": [
             { "phrase": "It ", "duration": 30 },
             { "phrase": "comes!", "duration": 47 },
-            { "phrase": " ", "duration": 45 },
+            { "phrase": " ", "duration": 65 },
             { "phrase": "Stride ", "duration": 53 },
             { "phrase": "to ", "duration": 46 },
             { "phrase": "our ", "duration": 52 },
