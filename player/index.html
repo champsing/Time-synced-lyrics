@@ -384,7 +384,7 @@
                     <div class="flex flex-col justify-center items-center mt-2 gap-1">
                         <div id="song-select-container" class="settings-entry">
                             <label for="song-select">歌曲：</label>
-                            <select v-model="currentSong" id="song-select">
+                            <select v-model="currentSong" id="song-select" class="w-full md:w-max">
                                 <option v-for="song in songList" :value="song" class="text-black">
                                     {{ song.artist }} - {{ song.title }}
                                 </option>
@@ -393,7 +393,7 @@
 
                         <div id="song-version-select-container" class="settings-entry">
                             <label for="song-version-select">版本：</label>
-                            <select v-model="songVersion" id="song-version-select">
+                            <select v-model="songVersion" id="song-version-select" class="w-3/5 md:w-max">
                                 <!-- 歌曲的不同版本 -->
                                 <option v-if="queryAlternativeVersion(ORIGINAL)" :value="ORIGINAL" class="text-black">
                                     原曲
