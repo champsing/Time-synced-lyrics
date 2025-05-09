@@ -147,7 +147,7 @@
                             class="lyric-button text-2xl bg-transparent p-0 cursor-pointer" type="button"
                             :class="{ 'active': isCurrentLine(index) }">
                             <!-- [for debugging] show line index -->
-                            <!-- {{ index }}  -->
+                            <!-- {{ index }} -->
                             <div class="primary-vocals">
                                 <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
                                     :id="`lyric-phrase-${index}-${phraseIndex}`"

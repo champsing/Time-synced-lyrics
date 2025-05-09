@@ -16,10 +16,7 @@ import {
 } from "../utils/global.js";
 import { useLyrics } from "./handles/lyricsHandle.js";
 import { initYouTubePlayer } from "./yt/onReadyPlayer.js";
-import {
-    loadSongList,
-    getDefaultVersion,
-} from "./handles/songsHandle.js";
+import { loadSongList, getDefaultVersion } from "./handles/songsHandle.js";
 import {
     initAboutModal,
     initCreditModal,
@@ -117,18 +114,21 @@ export function main() {
     };
 
     const isCurrentLine = (index) => {
-        // need more rewriting
-        //     let isNotYetFinished = false;
-        //     let line = jsonMappingContent.value[index];
+        const currentIndex = currentLineIndex.value;
 
-        //     if (line.end_time) {
-        //         isNotYetFinished =
-        //             line?.end_time > currentTime.value &&
-        //             currentTime.value > line?.time &&
-        //             currentLineIndex.value > index;
-        //         return index === currentLineIndex.value || isNotYetFinished;
-        //     } else return index === currentLineIndex.value;
-        return index === currentLineIndex.value;
+        // 基本條件：當前索引是否匹配
+        if (index === currentIndex) return true;
+
+        // 獲取當前播放行的數據
+        const currentLine = jsonMappingContent.value[currentIndex];
+
+        if (!currentLine || !currentLine.concurrent_lines) return false;
+
+        // 檢查當前播放行是否有定義 concurrent_lines 且包含目標索引
+        const isConcurrentLine =
+            currentLine.concurrent_lines.includes(index) ?? false;
+
+        return isConcurrentLine;
     };
 
     const getBackgroundPhraseStyle = (lineIndex, phraseIndex) => {
