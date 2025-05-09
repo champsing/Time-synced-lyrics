@@ -263,6 +263,16 @@ function main() {
             );
         }
 
+         // 調試：輸出歌詞文件路徑
+        console.log(
+            `Loading lyrics from: ${newSong.name}/${songVersion.value}.json`
+        );
+
+        // 載入新歌詞
+        loadLyrics(newSong.name, songVersion);
+
+        onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
+
         // 跳回開頭
         jumpToCurrentLine(0);
 
