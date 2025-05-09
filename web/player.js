@@ -57,6 +57,7 @@ function main() {
     const enablePronounciation = ref(false);
     const enableLyricBackground = ref(true);
     const isPaused = ref(true);
+    const isLoading = ref(true);
 
     const bodyBgColor = bodyBackgroundColor;
     const colorOptions = [
@@ -241,6 +242,8 @@ function main() {
             }
         } catch (error) {
             console.error("初始化錯誤: ", error);
+        } finally {
+            isLoading.value = false;
         }
     });
 
@@ -343,6 +346,7 @@ function main() {
         bodyBackgroundColor: bodyBgColor,
         colorOptions,
         isPaused,
+        isLoading,
         debugInfo: DEBUG_INFO,
         playVideo,
         pauseVideo,
