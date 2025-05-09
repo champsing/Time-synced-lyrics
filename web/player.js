@@ -8,29 +8,29 @@ import {
     MERCURY_TSL,
     DEBUG_INFO,
     TSL_PLAYER_LINK_BASE,
-} from "../utils/config.js";
+} from "./utils/config.js";
 import {
     formatTime,
     scrollToLineIndex,
     copyToClipboard,
-} from "../utils/global.js";
-import { useLyrics } from "./handles/lyricsHandle.js";
-import { initYouTubePlayer } from "./yt/onReadyPlayer.js";
-import { loadSongList, getDefaultVersion } from "./handles/songsHandle.js";
+} from "./utils/global.js";
+import { useLyrics } from "./player/handles/lyricsHandle.js";
+import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
+import { loadSongList, getDefaultVersion } from "./player/handles/songsHandle.js";
 import {
     initAboutModal,
     initCreditModal,
     initSettingModal,
     initSongModal,
     initShareModal,
-} from "../utils/modal.js";
+} from "./utils/modal.js";
 import {
     generatePhraseStyle,
     isActivePhrase,
-} from "./handles/phrasesHandle.js";
-import { useTransation } from "./handles/translationHandle.js";
-import { onPlayerChangeSongVideo } from "./yt/changeVideo.js";
-import { initControllerPanel } from "../utils/controllerPanel.js";
+} from "./player/handles/phrasesHandle.js";
+import { useTransation } from "./player/handles/translationHandle.js";
+import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
+import { initControllerPanel } from "./utils/controllerPanel.js";
 
 const bodyBackgroundColor = ref("#365456");
 
@@ -262,16 +262,6 @@ function main() {
                 `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`
             );
         }
-
-        // 調試：輸出歌詞文件路徑
-        console.log(
-            `Loading lyrics from: ${newSong.name}/${songVersion.value}.json`
-        );
-
-        // 載入新歌詞
-        loadLyrics(newSong.name, songVersion);
-
-        onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
 
         // 跳回開頭
         jumpToCurrentLine(0);
