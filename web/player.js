@@ -21,7 +21,6 @@ import {
     initAboutModal,
     initCreditModal,
     initSettingModal,
-    initSongModal,
     initShareModal,
 } from "./utils/modal.js";
 import {
@@ -228,7 +227,6 @@ function main() {
             // 初始化模態框
             initSettingModal();
             initCreditModal();
-            initSongModal();
             initControllerPanel();
             initAboutModal();
             initShareModal();
@@ -352,12 +350,7 @@ function main() {
         pauseVideo,
         rewind10Sec,
         moveForward10Sec,
-        initSettingModal,
-        initCreditModal,
         initYouTubePlayer,
-        initControllerPanel,
-        initShareModal,
-        initAboutModal,
         copyToClipboard,
         jumpToCurrentLine,
         getPhraseStyle,

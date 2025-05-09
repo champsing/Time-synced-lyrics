@@ -44,27 +44,6 @@ export const initCreditModal = () => {
     return { show, hide };
 };
 
-export const initSongModal = () => {
-    const close = document.getElementById("song-modal-close-btn");
-    const modal = document.getElementById("song-modal-container");
-    const mask = document.getElementById("song-modal-mask");
-
-    const show = () => {
-        modal.style.display = "block";
-        disableScroll();
-    };
-    const hide = () => {
-        modal.style.display = "none";
-        enableScroll();
-    };
-
-    document.getElementById("song-btn").addEventListener("click", show);
-    close.addEventListener("click", hide);
-    window.addEventListener("click", (e) => e.target === mask && hide());
-
-    return { show, hide };
-};
-
 export const initAboutModal = () => {
     const close = document.getElementById("about-modal-close-btn");
     const modal = document.getElementById("about-modal-container");
