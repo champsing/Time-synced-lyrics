@@ -1,7 +1,6 @@
 import { createApp, ref, computed, onMounted } from "vue";
 import { loadSongList } from "./handles/songsHandle.js";
-
-const DATA_VERSION = "2025.05.09";
+import { SONGLIST_DATA_VERSION } from "../utils/config.js";
 
 const VERSION_LABELS = {
     original: "原曲",
@@ -15,7 +14,6 @@ function main() {
     const isLoading = ref(true);
     const selectedVersions = ref({}); // 儲存每首歌選擇的版本 { songId: version }
     const error = ref(null);
-    const dataVersion = DATA_VERSION;
 
     const filteredSongs = computed(() => {
         const query = searchQuery.value.toLowerCase().trim();
@@ -78,7 +76,8 @@ function main() {
                 .forEach((song) => {
                     const defaultVer = song.versions.find((v) => v.default);
                     if (defaultVer) {
-                        selectedVersions.value[song.song_id] = defaultVer.version;
+                        selectedVersions.value[song.song_id] =
+                            defaultVer.version;
                     } else selectedVersions.value[song.song_id] = "original";
                 });
 
@@ -103,7 +102,7 @@ function main() {
     });
 
     return {
-        dataVersion,
+        dataVersion: SONGLIST_DATA_VERSION,
         searchQuery,
         songs,
         selectedVersions,

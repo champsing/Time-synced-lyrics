@@ -16,7 +16,10 @@ import {
 } from "./utils/global.js";
 import { useLyrics } from "./player/handles/lyricsHandle.js";
 import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
-import { loadSongList, getDefaultVersion } from "./player/handles/songsHandle.js";
+import {
+    loadSongList,
+    getDefaultVersion,
+} from "./player/handles/songsHandle.js";
 import {
     initAboutModal,
     initCreditModal,
@@ -58,7 +61,6 @@ function main() {
     const isPaused = ref(true);
     const isLoading = ref(true);
 
-    const bodyBgColor = bodyBackgroundColor;
     const colorOptions = [
         "#365456", // 保留原色
         "#CC5200", // 原#FF6900 → 深琥珀橙
@@ -258,7 +260,7 @@ function main() {
             );
         }
 
-         // 調試：輸出歌詞文件路徑
+        // 調試：輸出歌詞文件路徑
         console.log(
             `Loading lyrics from: ${newSong.name}/${songVersion.value}.json`
         );
@@ -335,7 +337,7 @@ function main() {
         translationText,
         backgroundTranslationText,
         translationAuthor,
-        bodyBackgroundColor: bodyBgColor,
+        bodyBackgroundColor,
         colorOptions,
         isPaused,
         isLoading,
@@ -362,9 +364,10 @@ function main() {
     };
 }
 
-
 const app = createApp({
-    setup() { return main() },
+    setup() {
+        return main();
+    },
 });
 
 app.mount("#app");

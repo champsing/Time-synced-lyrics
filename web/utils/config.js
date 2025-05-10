@@ -13,6 +13,8 @@ export const VERSION = COMMIT_ID
     ? `${BASE_VERSION}-${BUILD_DATE}-${COMMIT_ID.slice(0, 12)}`
     : `${BASE_VERSION}-${BUILD_DATE}-dev`;
 
+export const SONGLIST_DATA_VERSION = "2025.05.09";
+
 export const DEBUG_INFO = `播放器版本：${VERSION}
 播放 ID：${PLAYBACK_ID}
 `;
