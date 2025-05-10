@@ -170,12 +170,6 @@ function main() {
                 (song) => song.available === true
             );
 
-            // 調試：輸出實際加載的歌曲列表
-            console.log(
-                "Available songs:",
-                songList.value.map((s) => `${s.song_id} - ${s.name}`)
-            );
-
             const matchedSong = songList.value.find(
                 (song) => parseInt(song.song_id) === songRequest
             );
