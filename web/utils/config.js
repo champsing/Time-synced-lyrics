@@ -1,19 +1,18 @@
 import { PLAYBACK_ID } from "../player/about/injectPlaybackID.js";
-import { COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
+import { BUILD_DATE, COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "4.3.1";
-const BUILD_DATE = new Date(Date.now() + 28800000)
-    .toISOString()
-    .slice(0, 10)
-    .replace(/-/g, "");
+const BASE_VERSION = "4.4.0";
+
 // 3600.000 * 8 = 28800.000, to insure UTC+8.
 
 // 組合版本號：基礎版本 + 構建日期 + commit 前12位
-export const VERSION = COMMIT_ID
+export const PLAYER_VERSION = COMMIT_ID
     ? `${BASE_VERSION}-${BUILD_DATE}-${COMMIT_ID.slice(0, 12)}`
     : `${BASE_VERSION}-${BUILD_DATE}-dev`;
 
-export const DEBUG_INFO = `播放器版本：${VERSION}
+export const SONGLIST_DATA_VERSION = "2025.05.09";
+
+export const DEBUG_INFO = `播放器版本：${PLAYER_VERSION}
 播放 ID：${PLAYBACK_ID}
 `;
 

@@ -1,5 +1,5 @@
 import { injectPlaybackID } from "../player/about/injectPlaybackID.js";
-import { DEBUG_INFO, VERSION } from "./config.js";
+import { DEBUG_INFO, PLAYER_VERSION } from "./config.js";
 import { copyToClipboard, disableScroll, enableScroll } from "./global.js";
 
 export const initSettingModal = () => {
@@ -44,27 +44,6 @@ export const initCreditModal = () => {
     return { show, hide };
 };
 
-export const initSongModal = () => {
-    const close = document.getElementById("song-modal-close-btn");
-    const modal = document.getElementById("song-modal-container");
-    const mask = document.getElementById("song-modal-mask");
-
-    const show = () => {
-        modal.style.display = "block";
-        disableScroll();
-    };
-    const hide = () => {
-        modal.style.display = "none";
-        enableScroll();
-    };
-
-    document.getElementById("song-btn").addEventListener("click", show);
-    close.addEventListener("click", hide);
-    window.addEventListener("click", (e) => e.target === mask && hide());
-
-    return { show, hide };
-};
-
 export const initAboutModal = () => {
     const close = document.getElementById("about-modal-close-btn");
     const modal = document.getElementById("about-modal-container");
@@ -89,7 +68,7 @@ export const initAboutModal = () => {
     close.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
-    document.getElementById("version").innerText = `播放器版本：${VERSION}`;
+    document.getElementById("version").innerText = `播放器版本：${PLAYER_VERSION}`;
     injectPlaybackID();
     document.getElementById("copy-debug-info-btn").onclick = () =>
         copyToClipboard(DEBUG_INFO.trim(), "偵錯資訊");

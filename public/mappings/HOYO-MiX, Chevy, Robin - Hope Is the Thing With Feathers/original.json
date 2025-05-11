@@ -58,9 +58,9 @@
         "text": [
             { "phrase": "Oh, ", "duration": 24 },
             { "phrase": "in ", "duration": 15 },
-            { "phrase": "si", "duration": 44 },
+            { "phrase": "si", "duration": 30 },
             { "phrase": "lence,", "duration": 35 },
-            { "phrase": " ", "duration": 30 },
+            { "phrase": " ", "duration": 20 },
             { "phrase": "hopes ", "duration": 38, "kiai": true },
             { "phrase": "we ", "duration": 40 },
             { "phrase": "share", "duration": 52 }

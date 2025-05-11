@@ -1,0 +1,17 @@
+.song-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: linear-gradient(145deg, #3a5d5f 0%, #2d4a4d 100%);
+}
+
+.version-badge {
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.unavailable-overlay {
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.7) 30%,
+        rgba(54, 84, 86, 0.8) 100%
+    );
+}

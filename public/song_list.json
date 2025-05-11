@@ -18,6 +18,7 @@
         "artist": "HOYO-MiX, Chevy, 知更鳥",
         "lyricist": "Ruby Qu、王可鑫",
         "title": "希望有羽毛和翅膀",
+        "subtitle": "《崩壞:星穹鐵道》匹諾康尼戰鬥主題曲",
         "translation": {
             "available": true,
             "author": "官方 YouTube 翻譯"
@@ -90,7 +91,6 @@
         "artist": "HOYO-MiX, 魏晨, Nea",
         "lyricist": "Ruby Qu、王可鑫",
         "title": "不虛此行",
-        "subtitle": "《崩壞:星穹鐵道》兩週年紀念曲",
         "is_duet": true,
         "translation": {
             "available": true,
@@ -198,6 +198,7 @@
         ],
         "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/20/70/b3/2070b3d8-96d5-5e8b-1a4a-92a5e89f4b49/197189952913.jpg/600x600bf-60.jpg",
         "artist": "Vaundy",
+        "lyricist": "Vaundy",
         "title": "しわあわせ",
         "subtitle": "専門学校 首都医校、大阪医専、\n名古屋医専の2021年度TVCMソング",
         "translation": {
@@ -237,6 +238,7 @@
             }
         ],
         "artist": "米津玄師",
+        "lyricist": "米津玄師",
         "title": "カンパネルラ",
         "album": {
             "name": "STRAY SHEEP",

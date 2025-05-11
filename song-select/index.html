@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <title>選擇歌曲 - 同步開唱</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="選擇要播放的歌曲與版本">
+    <link rel="icon" type="image/svg+xml" href="/public/og_image/music.png" />
+    <link rel="canonical" href="https://timesl.online/song-select/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:title" content="選擇歌曲 - 同步開唱" />
+    <meta property="og:description" content="選擇要播放的歌曲與版本" />
+    <meta property="og:url" content="https://timesl.online/song-select/" />
+    <meta property="og:site_name" content="時間同步歌詞" />
+    <meta property="og:image" content="/public/og_image/music.png" />
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="2048" />
+    <meta property="og:image:type" content="image/png" />
+    <link rel="stylesheet" href="/styles/tailwind.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" src="https://unpkg.com/">
+    </link>
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+            "axios": "https://unpkg.com/axios/dist/axios.min.js"
+          }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy" />
+</head>
+</head>
+
+<body class="bg-[#37575b] min-h-screen text-gray-100">
+    <div id="app">
+        <nav class="bg-[#365456] shadow-lg">
+            <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="/public/og_image/music.png" alt="Logo" class="w-8 h-8">
+                    <h1 class="text-xl font-bold font-[Playfair]">同步開唱選歌系統</h1>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex flex-col gap-0">
+                        <div class="text-sm opacity-75">播放器版本：{{ PLAYER_VERSION }}</div>
+                        <div class="text-sm opacity-75">資料版本：{{ SONGLIST_DATA_VERSION }}</div>
+                    </div>
+                    <a href="/" class="px-4 py-2 bg-[#4ac2d7] rounded-md hover:bg-[#3aaabf] transition-colors">
+                        返回首頁
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container mx-auto px-4 py-8">
+            <!-- 搜索欄 -->
+            <div class="mb-8 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-inner">
+                <input v-model="searchQuery" type="text" placeholder="搜尋歌曲、藝人或專輯..."
+                    class="w-full p-3 bg-transparent border-none text-lg focus:ring-0 placeholder-gray-400">
+            </div>
+
+            <!-- 載入狀態 -->
+            <div v-if="isLoading" class="col-span-full text-center py-8">
+                <div
+                    class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full">
+                </div>
+                <p class="mt-2">載入歌曲中...</p>
+            </div>
+
+            <!-- 歌曲列表 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <article v-for="song in filteredSongs" :key="song.song_id"
+                    class="song-card rounded-xl overflow-hidden relative" :class="{'opacity-50': !song.available}">
+                    <!-- 不可用遮罩 -->
+                    <div v-if="!song.available"
+                        class="unavailable-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-2xl font-bold rotate-12 opacity-75 z-1">COMING SOON</span>
+                    </div>
+
+                    <!-- 封面圖 -->
+                    <div class="relative h-48 bg-gray-800">
+                        <img :src="song.art" :alt="song.title"
+                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                        <!-- 歌曲標題 -->
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80">
+                            <h3 class="text-xl font-bold truncate">{{ song.title }}</h3>
+                            <p class="text-sm text-gray-300 truncate">{{ parseSubtitle(song.subtitle) }}</p>
+                        </div>
+                    </div>
+
+                    <!-- 歌曲資訊 -->
+                    <div class="p-4 space-y-3">
+                        <!-- 藝人與專輯 -->
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-sm text-cyan-300">{{ song.artist }}</span>
+                            <span class="text-xs text-gray-400">/</span>
+                            <span class="text-xs text-gray-400 truncate" :title="song.album?.name">
+                                {{ song.album?.name || '單曲' }}
+                            </span>
+                        </div>
+
+                        <!-- 版本選擇 -->
+                        <div class="flex flex-wrap gap-2">
+                            <button v-for="ver in song.versions" :key="ver.version"
+                                class="version-badge px-3 py-1 text-xs rounded-full" :class="{
+                                    'bg-cyan-600/80 hover:bg-cyan-500': ver.version === 'original',
+                                    'bg-purple-600/80 hover:bg-purple-500': ver.version === 'instrumental',
+                                    'bg-zinc-900/80 hover:bg-zinc-500': ver.version === 'the_first_take',
+                                    'ring-2 ring-white/50': selectedVersions[song.song_id] === ver.version
+                                }" @click.stop="selectVersion(song.song_id, ver.version)"
+                                :aria-label="song.title + '的' + getVersionLabel(ver.version) + '版本'"
+                                :title="getVersionLabel(ver.version)">
+                                {{ getVersionLabel(ver.version) }}
+                                <span v-if="ver.default" class="ml-1">⚡</span>
+                            </button>
+                        </div>
+
+                        <div class="flex flex-row">
+                            <div class="text-xs space-y-1">
+                                <p class="text-gray-400 truncate" :title="song.lyricist">
+                                    作詞：{{ song.lyricist || '未提供' }}
+                                </p>
+                                <p v-if="song.translation?.available" class="text-gray-400">
+                                    譯者：{{ song.translation.author }}
+                                </p>
+                            </div>
+                            <div class="grow"></div>
+                            <button type="button" :aria-label="'播放' + song.title" @click="selectSong(song)"
+                                class=" duration-500 ease-in-out hover:scale-125">
+                                <div class="bg-rose-600 hover:bg-rose-400 rounded-4xl px-2">
+                                    <span class="material-icons mt-2">play_arrow</span>
+                                </div>
+                            </button>
+                        </div>
+                        <!-- 附加資訊 -->
+
+                    </div>
+                </article>
+            </div>
+
+            <!-- 無結果提示 -->
+            <div v-if="!isLoading && filteredSongs.length === 0" class="col-span-full text-center py-8 text-gray-400">
+                <span class="material-icons text-4xl mb-2">search_off</span>
+                <p>找不到符合的歌曲</p>
+            </div>
+
+
+        </main>
+    </div>
+    <script type="module" src="/web/song-select.js"></script>
+</body>
+
+</html>
