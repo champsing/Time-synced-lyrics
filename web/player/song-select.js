@@ -1,4 +1,4 @@
-import { createApp, ref, computed, onMounted } from "vue";
+import { createApp, ref, computed, onMounted, watch } from "vue";
 import { loadSongList } from "./handles/songsHandle.js";
 import { PLAYER_VERSION, SONGLIST_DATA_VERSION } from "../utils/config.js";
 
@@ -8,11 +8,16 @@ const VERSION_LABELS = {
     the_first_take: "THE FIRST TAKE",
 };
 
+const selectedVersions = ref({}); // 儲存每首歌選擇的版本 { songId: version }
+
+watch(selectedVersions, (newVal) => {
+    sessionStorage.setItem("selectedVersions", JSON.stringify(newVal));
+});
+
 function main() {
     const searchQuery = ref("");
     const songs = ref([]);
     const isLoading = ref(true);
-    const selectedVersions = ref({}); // 儲存每首歌選擇的版本 { songId: version }
     const error = ref(null);
 
     const filteredSongs = computed(() => {
@@ -47,7 +52,7 @@ function main() {
             ...selectedVersions.value,
             [songId]: version,
         };
-        console.log(selectedVersions.value);
+        console.log("版本選擇變更：", selectedVersions.value);
     }
 
     function selectSong(song) {
@@ -70,25 +75,46 @@ function main() {
         try {
             const data = await loadSongList();
             songs.value = data;
-            // 初始化默認版本選擇
-            songs.value
-                .filter((song) => song.available)
-                .forEach((song) => {
-                    const defaultVer = song.versions.find((v) => v.default);
-                    if (defaultVer) {
-                        selectedVersions.value[song.song_id] =
-                            defaultVer.version;
-                    } else selectedVersions.value[song.song_id] = "original";
-                });
 
-            const songList = songs.value.filter(
-                (song) => song.available === true
+            // 若無快取，初始化默認版本選擇
+            if (!sessionStorage.getItem("selectedVersions")) {
+                console.log("未找到版本選擇記錄，使用各歌曲預設值。");
+
+                songs.value
+                    .filter((song) => song.available)
+                    .forEach((song) => {
+                        const defaultVer = song.versions.find((v) => v.default);
+                        if (defaultVer) {
+                            selectedVersions.value[song.song_id] =
+                                defaultVer.version;
+                        } else
+                            selectedVersions.value[song.song_id] = "original";
+                    });
+            } else {
+                console.log(
+                    "已帶入版本選擇：",
+                    JSON.parse(sessionStorage.getItem("selectedVersions"))
+                );
+                selectedVersions.value = JSON.parse(
+                    sessionStorage.getItem("selectedVersions")
+                );
+            }
+
+            const availableSongs = songs.value.filter((song) => song.available);
+
+            const unavailableSongs = songs.value.filter(
+                (song) => !song.available
             );
 
             // 調試：輸出實際加載的歌曲列表
             console.log(
                 "Available songs:",
-                songList.map((s) => `${s.song_id} - ${s.name}`)
+                availableSongs.map((s) => `${s.song_id} - ${s.name}`),
+                "Unavailable songs:",
+                unavailableSongs.map((s) => {
+                    if (s.hidden) return `${s.song_id} - ${s.name} (hidden)`;
+                    else return `${s.song_id} - ${s.name}`;
+                })
             );
         } catch (error) {
             console.error("歌曲加載失敗:", error);
