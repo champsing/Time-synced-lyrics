@@ -1,5 +1,5 @@
 import { injectPlaybackID } from "../player/about/injectPlaybackID.js";
-import { DEBUG_INFO, VERSION } from "./config.js";
+import { DEBUG_INFO, PLAYER_VERSION } from "./config.js";
 import { copyToClipboard, disableScroll, enableScroll } from "./global.js";
 
 export const initSettingModal = () => {
@@ -68,7 +68,7 @@ export const initAboutModal = () => {
     close.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
-    document.getElementById("version").innerText = `播放器版本：${VERSION}`;
+    document.getElementById("version").innerText = `播放器版本：${PLAYER_VERSION}`;
     injectPlaybackID();
     document.getElementById("copy-debug-info-btn").onclick = () =>
         copyToClipboard(DEBUG_INFO.trim(), "偵錯資訊");

@@ -54,7 +54,10 @@
                     <h1 class="text-xl font-bold font-[Playfair]">同步開唱選歌系統</h1>
                 </div>
                 <div class="flex gap-4">
-                    <span class="text-sm opacity-75 py-2">資料版本：{{ dataVersion }}</span>
+                    <div class="flex flex-col gap-0">
+                        <div class="text-sm opacity-75">播放器版本：{{ PLAYER_VERSION }}</div>
+                        <div class="text-sm opacity-75">資料版本：{{ SONGLIST_DATA_VERSION }}</div>
+                    </div>
                     <a href="/" class="px-4 py-2 bg-[#4ac2d7] rounded-md hover:bg-[#3aaabf] transition-colors">
                         返回首頁
                     </a>
@@ -153,6 +156,8 @@
                 <span class="material-icons text-4xl mb-2">search_off</span>
                 <p>找不到符合的歌曲</p>
             </div>
+
+
         </main>
     </div>
     <script type="module" src="/web/player/song-select.js"></script>

@@ -1,6 +1,6 @@
 import { createApp, ref, computed, onMounted } from "vue";
 import { loadSongList } from "./handles/songsHandle.js";
-import { SONGLIST_DATA_VERSION } from "../utils/config.js";
+import { PLAYER_VERSION, SONGLIST_DATA_VERSION } from "../utils/config.js";
 
 const VERSION_LABELS = {
     original: "原曲",
@@ -102,7 +102,8 @@ function main() {
     });
 
     return {
-        dataVersion: SONGLIST_DATA_VERSION,
+        PLAYER_VERSION,
+        SONGLIST_DATA_VERSION,
         searchQuery,
         songs,
         selectedVersions,
