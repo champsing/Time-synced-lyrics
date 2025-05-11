@@ -26,6 +26,7 @@ function main() {
             .filter((song) => !song.hidden) // 過濾隱藏歌曲
             .filter((song) => {
                 const searchFields = [
+                    song.name, // 純羅馬化的歌檔名，讓不會打日語的人打英文也搜的到
                     song.title,
                     song.artist,
                     song.subtitle,
