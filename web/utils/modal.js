@@ -79,6 +79,8 @@ export const initAboutModal = () => {
 export const initShareModal = () => {
     const close = document.getElementById("share-modal-close-btn");
     const modal = document.getElementById("share-modal-container");
+    const mask = document.getElementById("share-modal-mask");
+
 
     const show = () => {
         modal.style.display = "block";
@@ -92,7 +94,7 @@ export const initShareModal = () => {
 
     document.getElementById("share-btn").addEventListener("click", show);
     close.addEventListener("click", hide);
-    window.addEventListener("click", (e) => e.target === modal && hide());
+    window.addEventListener("click", (e) => e.target === mask && hide());
 
     return { show, hide };
 };
