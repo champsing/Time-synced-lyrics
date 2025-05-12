@@ -21,7 +21,7 @@ import {
     THE_FIRST_TAKE,
     TSL_PLAYER_LINK_BASE,
 } from "./utils/config.js";
-import { initControllerPanel } from "./utils/controllerPanel.js"
+import { initControllerPanel } from "./utils/controllerPanel.js";
 import {
     copyToClipboard,
     formatTime,
@@ -163,6 +163,47 @@ function main() {
         songDuration.value = 0;
     };
 
+    async function loadSong(song, version) {
+        if (!song) return;
+
+        document.title = song.value.title + MERCURY_TSL;
+
+        // 調試：輸出歌詞文件路徑
+        console.log(
+            `Loading lyrics from: ${song.name}/${version.value}.json`
+        );
+
+        // 載入新歌詞
+        loadLyrics(song.name, version);
+
+        onPlayerChangeSongVideo(song, version, window.ytPlayer);
+
+        // 跳回開頭
+        jumpToCurrentLine(0);
+
+        resetTimer();
+    }
+
+    watch(currentLineIndex, (newVal) => {
+        if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
+    });
+
+    const playVideo = () => {
+        window.ytPlayer.playVideo();
+        isPaused.value = false;
+    };
+
+    const pauseVideo = () => {
+        window.ytPlayer.pauseVideo();
+        isPaused.value = true;
+    };
+
+    const rewind10Sec = () =>
+        window.ytPlayer.seekTo(currentTime.value - 10, true);
+
+    const moveForward10Sec = () =>
+        window.ytPlayer.seekTo(currentTime.value + 10, true);
+
     // 初始化流程
     onMounted(async () => {
         try {
@@ -210,6 +251,8 @@ function main() {
                 );
             }
 
+            loadSong(currentSong, songVersion);
+
             // 初始化播放器
             const { init } = initYouTubePlayer({
                 currentSong,
@@ -240,80 +283,6 @@ function main() {
             isLoading.value = false;
         }
     });
-
-    // 監聽歌曲切換
-    watch(currentSong, async (newSong) => {
-        if (!newSong) return;
-
-        document.title = currentSong.value.title + MERCURY_TSL;
-
-        const matchedVersion = currentSong.value.versions?.find(
-            (v) => v.version.trim().toLowerCase() === songVersion.value
-        );
-
-        if (matchedVersion) {
-            console.log(`已帶入指定版本: ${versionRequest}`);
-        } else {
-            songVersion.value = getDefaultVersion(currentSong);
-            console.warn(
-                `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`
-            );
-        }
-
-        // 調試：輸出歌詞文件路徑
-        console.log(
-            `Loading lyrics from: ${newSong.name}/${songVersion.value}.json`
-        );
-
-        // 載入新歌詞
-        loadLyrics(newSong.name, songVersion);
-
-        onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
-
-        // 跳回開頭
-        jumpToCurrentLine(0);
-
-        resetTimer();
-    });
-
-    watch(currentLineIndex, (newVal) => {
-        if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
-    });
-
-    watch(songVersion, async (newVal) => {
-        if (!currentSong.value.versions) return;
-
-        // 調試：輸出歌詞文件路徑
-        console.log(
-            `Loading lyrics from:${currentSong.value.name}/${newVal}.json`
-        );
-
-        // 載入新歌詞
-        loadLyrics(currentSong.value.name, newVal);
-
-        onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
-
-        // 跳回開頭
-        jumpToCurrentLine(0);
-
-        resetTimer();
-    });
-
-    const playVideo = () => {
-        window.ytPlayer.playVideo();
-        isPaused.value = false;
-    };
-
-    const pauseVideo = () => {
-        window.ytPlayer.pauseVideo();
-        isPaused.value = true;
-    };
-
-    const rewind10Sec = () =>
-        window.ytPlayer.seekTo(currentTime.value - 10, true);
-
-    const moveForward10Sec = () =>
-        window.ytPlayer.seekTo(currentTime.value + 10, true);
 
     return {
         ALBUM_GOOGLE_LINK_BASE,
