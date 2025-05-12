@@ -41,7 +41,10 @@ export const initYouTubePlayer = (vueContext) => {
         console.log("播放器已準備好");
     };
 
-    const onPlayerStateChange = (event, { currentTime, songDuration, isPaused }) => {
+    const onPlayerStateChange = (
+        event,
+        { currentTime, songDuration, isPaused }
+    ) => {
         if (event.data === window.YT.PlayerState.PLAYING) {
             const update = () => {
                 currentTime.value = event.target.getCurrentTime();

@@ -1,38 +1,38 @@
-import { createApp, ref, computed, onMounted, watch } from "vue";
+import { computed, createApp, onMounted, ref, watch } from "vue";
 
-import {
-    ALBUM_GOOGLE_LINK_BASE,
-    INSTRUMENTAL,
-    THE_FIRST_TAKE,
-    ORIGINAL,
-    MERCURY_TSL,
-    DEBUG_INFO,
-    TSL_PLAYER_LINK_BASE,
-} from "./utils/config.js";
-import {
-    formatTime,
-    scrollToLineIndex,
-    copyToClipboard,
-} from "./utils/global.js";
 import { useLyrics } from "./player/handles/lyricsHandle.js";
+import {
+    generatePhraseStyle,
+    isActivePhrase,
+} from "./player/handles/phrasesHandle.js";
+import {
+    getDefaultVersion,
+    loadSongList,
+} from "./player/handles/songsHandle.js";
+import { useTransation } from "./player/handles/translationHandle.js";
+import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
 import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
 import {
-    loadSongList,
-    getDefaultVersion,
-} from "./player/handles/songsHandle.js";
+    ALBUM_GOOGLE_LINK_BASE,
+    DEBUG_INFO,
+    INSTRUMENTAL,
+    MERCURY_TSL,
+    ORIGINAL,
+    THE_FIRST_TAKE,
+    TSL_PLAYER_LINK_BASE,
+} from "./utils/config.js";
+import { initControllerPanel } from "./utils/controllerPanel.js"
+import {
+    copyToClipboard,
+    formatTime,
+    scrollToLineIndex,
+} from "./utils/global.js";
 import {
     initAboutModal,
     initCreditModal,
     initSettingModal,
     initShareModal,
 } from "./utils/modal.js";
-import {
-    generatePhraseStyle,
-    isActivePhrase,
-} from "./player/handles/phrasesHandle.js";
-import { useTransation } from "./player/handles/translationHandle.js";
-import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
-import { initControllerPanel } from "./utils/controllerPanel.js";
 
 const bodyBackgroundColor = ref("#365456");
 

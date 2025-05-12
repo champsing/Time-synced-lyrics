@@ -30,8 +30,8 @@ body {
         transform-origin: right;
         background-image: linear-gradient(
             to right,
-            #fff var(--progress, 0),
-            #aaa var(--progress, 0)
+            rgba(255, 255, 255, 0.85) var(--progress, 0),
+            rgba(126, 126, 126, 0.75) var(--progress, 0)
         );
     }
 }
@@ -304,9 +304,5 @@ input:checked + .slider:before {
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 40
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 40;
 }

@@ -68,7 +68,9 @@ export const initAboutModal = () => {
     close.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
-    document.getElementById("version").innerText = `播放器版本：${PLAYER_VERSION}`;
+    document.getElementById(
+        "version"
+    ).innerText = `播放器版本：${PLAYER_VERSION}`;
     injectPlaybackID();
     document.getElementById("copy-debug-info-btn").onclick = () =>
         copyToClipboard(DEBUG_INFO.trim(), "偵錯資訊");
@@ -81,7 +83,6 @@ export const initShareModal = () => {
     const modal = document.getElementById("share-modal-container");
     const mask = document.getElementById("share-modal-mask");
 
-
     const show = () => {
         modal.style.display = "block";
         disableScroll();
@@ -90,7 +91,6 @@ export const initShareModal = () => {
         modal.style.display = "none";
         enableScroll();
     };
-
 
     document.getElementById("share-btn").addEventListener("click", show);
     close.addEventListener("click", hide);

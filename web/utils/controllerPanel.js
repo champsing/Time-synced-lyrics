@@ -1,5 +1,7 @@
 export const initControllerPanel = () => {
-    const panelSwitchIcon = document.getElementById("controller-panel-switch-icon");
+    const panelSwitchIcon = document.getElementById(
+        "controller-panel-switch-icon"
+    );
     const panel = document.getElementById("controller-panel");
     const mainDisplaySection = document.getElementById("main-display-section");
 
