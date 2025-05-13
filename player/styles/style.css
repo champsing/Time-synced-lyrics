@@ -23,48 +23,22 @@ body {
 }
 
 .lyric-phrase.active.kiai {
-
     --text-shadow-blur-radius: 4px;
     --text-shadow-opacity: 0;
 }
 
 /* The slider */
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
     -webkit-transition: 0.4s;
-    transition: 0.4s;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
     -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-
-input:checked + .slider {
-    background-color: #1062a4;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #1062a4;
 }
 
 input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
-    transform: translateX(26px);
 }
 
 @keyframes background-fade-in {
@@ -95,12 +69,6 @@ input:checked + .slider:before {
 }
 
 .reflection-scan::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
     background: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0) 25%,
@@ -108,8 +76,6 @@ input:checked + .slider:before {
         rgba(255, 255, 255, 0) 75%
     );
     animation: scan-reflect 4s infinite linear;
-    transform: rotate(45deg);
-    mix-blend-mode: soft-light;
 }
 
 @keyframes scan-reflect {
@@ -122,12 +88,6 @@ input:checked + .slider:before {
 }
 
 .reflection-scan::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.03) 0%,
@@ -137,8 +97,6 @@ input:checked + .slider:before {
         rgba(255, 255, 255, 0.03) 100%
     );
     animation: multi-scan 6s infinite linear;
-    z-index: 1;
-    mix-blend-mode: overlay;
 }
 
 @keyframes multi-scan {

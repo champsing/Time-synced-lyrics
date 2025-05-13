@@ -26,7 +26,7 @@
     }
 
     .lyric-line.active.kiai {
-        @apply stroke-(--color-beige);
+        @apply stroke-beige;
     }
 
     .lyric-button.active {
@@ -107,5 +107,33 @@
 
     .switch input {
         @apply opacity-0 w-0 h-0;
+    }
+
+    .slider {
+        @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 duration-400;
+    }
+
+    .slider:before {
+        @apply absolute content-[""] h-6 w-6 left-1 bottom-1 bg-white duration-400;
+    }
+
+    input:checked + .slider {
+        @apply bg-[#1062a4];
+    }
+
+    input:focus + .slider {
+        @apply shadow-[0_0_1px_#1062a4];
+    }
+
+    input:checked + .slider:before {
+        @apply transform-[translateX(26px)];
+    }
+
+    .reflection-scan::after {
+        @apply content-[""] absolute -top-[50%] -left-[50%] w-[200%] h-[200%] transform-[rotate(45deg)] mix-blend-soft-light;
+    }
+
+    .reflection-scan::before {
+        @apply content-[""] absolute top-0 left-0 w-0 h-0 transform-[rotate(45deg)] mix-blend-overlay z-1;
     }
 }
