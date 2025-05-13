@@ -5,4 +5,107 @@
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --font-poppins: Poppins, Noto Sans;
+    --color-beige: rgb(245, 245, 220);
+}
+
+@layer player {
+    .lyric-line {
+        @apply transition-opacity duration-300;
+    }
+
+    .lyric-line.is-duet {
+        @apply text-left;
+    }
+
+    .lyric-line.is-duet.is-secondary-vocalist {
+        @apply text-right;
+    }
+
+    .lyric-line.is-duet.is-together {
+        @apply text-center;
+    }
+
+    .lyric-line.active.kiai {
+        @apply stroke-(--color-beige);
+    }
+
+    .lyric-button.active {
+        .lyric-phrase {
+            @apply transition-all ease-in duration-200;
+            @apply origin-right;
+        }
+    }
+
+    .lyric-button.active {
+        @apply text-3xl font-bold p-2 text-pretty;
+    }
+
+    .lyric-button.active {
+        @apply md:text-balance;
+    }
+
+    .lyric-phrase.active.kiai {
+        @apply stroke-[0.5px] text-shadow-[0_0_5px_rgba(255_255_255_/_0.5)];
+    }
+
+    .close:hover,
+    .close:focus {
+        @apply text-black cursor-pointer;
+    }
+
+    .settings-entry {
+        @apply text-center text-xl mb-2;
+    }
+
+    .settings-button {
+        @apply relative right-0 w-full bg-transparent text-base font-bold text-center uppercase border-none border-[50px] py-3 px-5;
+    }
+
+    .settings-button span {
+        @apply text-white bg-transparent mix-blend-difference;
+    }
+
+    .settings-button:before {
+        @apply absolute top-0 left-0 h-full bg-black w-[30%] rounded-[50px] content-[""] duration-300 transition-all ease-[cubic-bezier(0.68,_-0.55,_0.265,_1.55)];
+    }
+
+    .settings-button:hover:before {
+        @apply bg-black w-full;
+    }
+
+    .share-entry {
+        @apply text-center text-xl mb-2;
+    }
+
+    .share-button {
+        @apply relative right-0 w-full bg-transparent text-base font-bold text-center uppercase border-none border-[50px] py-3 px-5;
+    }
+
+    .share-button span {
+        @apply text-gray-200 bg-transparent mix-blend-color-dodge;
+    }
+
+    .share-button:before {
+        @apply absolute top-0 left-0 h-full bg-[#3292b2] w-[30%] rounded-[50px] content-[""] duration-300 transition-all ease-[cubic-bezier(0.68,_-0.55,_0.265,_1.55)];
+    }
+
+    .share-button:hover:before {
+        @apply bg-[#49b2d5] w-full;
+    }
+
+    .slider.round {
+        @apply rounded-4xl;
+    }
+
+    .slider.round:before {
+        @apply rounded-[50%];
+    }
+
+    .switch {
+        @apply relative inline-block w-15 h-8;
+    }
+
+    .switch input {
+        @apply opacity-0 w-0 h-0;
+    }
 }
