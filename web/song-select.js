@@ -22,17 +22,25 @@ function main() {
     const error = ref(null);
     const sortOptions = ["name", "artist", "album", "date", "lang"];
     const sortOption = ref(sortOptions[0]);
+    const showSortOptions = ref(false);
 
     const sortLabels = {
-        name: "歌曲名稱",
-        artist: "藝人名稱",
-        album: "專輯名稱",
-        date: "最後更新",
-        lang: "歌曲語言",
+        name: "🎵 歌曲名稱",
+        artist: "🎤 藝人名稱",
+        album: "💿 專輯名稱",
+        date: "📅 最後更新",
+        lang: "🌐 歌曲語言",
     };
+
+    const langCodes = {
+        en: "英文",
+        zh: "中文",
+        ja: "日文"
+    }
 
     function sortSong(sortOption) {
         return (a, b) => {
+            console.log(sortLabels[sortOption].charAt(0))
             switch (sortOption) {
                 case "name":
                     return a.title.localeCompare(b.title, "zh-Hans");
@@ -173,9 +181,11 @@ function main() {
         selectedVersions,
         isLoading,
         filteredSongs,
+        showSortOptions,
         sortOption,
         sortOptions,
         sortLabels,
+        langCodes,
         error,
         parseSubtitle,
         getVersionLabel,

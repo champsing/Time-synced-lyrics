@@ -451,7 +451,7 @@
                     class="bg-[#455a47] border-[#aba988] top-2/5 opacity-100 fixed z-20 left-[10%] md:left-[30%] md:top-[30%] m-auto p-5 border-solid rounded-2xl text-left w-4/5 md:w-2/5">
                     <span class="close" id="setting-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="modal-name">設定</span>
-                    <div class="modal-view-area">
+                    <div class="modal-view-area custom-scrollbar">
                         <div id="change-body-background-container" class="settings-entry">
                             <label for="change-body-background">背景顏色：</label>
                             <div id="change-body-background" class="color-picker inline-block">
@@ -544,7 +544,7 @@
                         </div>
                     </div>
 
-                    <div class="whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
+                    <div class="custom-scrollbar whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
                         v-if="currentSong.credits">
                         <!-- 演職員名單 需要可以再加 -->
                         <div class="credit-list-contribution-type-name" v-if="currentSong.credits.performance">表演者</div>
@@ -588,7 +588,7 @@
                     class="bg-amber-900 opacity-100 fixed left-[10%] top-2/5 z-20 md:left-[20%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-3/5">
                     <span class="close" id="share-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
                     <span class="modal-name">分享</span>
-                    <div class="modal-view-area">
+                    <div class="modal-view-area custom-scrollbar">
                         <div class="flex flex-row gap-4">
                             <span class="material-icons p-2">link</span>
                             <div class="flex flex-row gap-2">
@@ -632,7 +632,8 @@
                             </div>
                         </div>
 
-                        <div id="debug-info" class="overflow-y-scroll max-h-20 font-[family-name:var(--font-poppins)]">
+                        <div id="debug-info"
+                            class="custom-scrollbar overflow-y-scroll max-h-20 font-[family-name:var(--font-poppins)]">
                             <div class="m-4">
                                 <div id="version">播放器版本：</div>
                                 <div id="playback-id">播放 ID：</div>

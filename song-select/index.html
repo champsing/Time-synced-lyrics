@@ -151,19 +151,25 @@
                         </div>
 
                         <div class="flex flex-row">
-                            <div class="text-xs space-y-1">
+                            <div class="text-xs space-y-1 overflow-y-scroll custom-scrollbar max-h-[60px] w-3/4">
                                 <p class="text-gray-400 truncate" :title="song.lyricist">
                                     作詞：{{ song.lyricist || '未提供' }}
                                 </p>
                                 <p v-if="song.translation?.available" class="text-gray-400">
                                     譯者：{{ song.translation.author }}
                                 </p>
+                                <p class="text-gray-400" :title="song.updated_at">
+                                    歌詞最後更新於：{{ song.updated_at || '未知' }}
+                                </p>
+                                <p class="text-gray-400" :title="langCodes[song.lang]">
+                                    語言：{{ langCodes[song.lang] || '未知' }}
+                                </p>
                             </div>
                             <div class="grow"></div>
                             <button type="button" :aria-label="'播放' + song.title" @click="selectSong(song)"
                                 class=" duration-500 ease-in-out hover:scale-125">
                                 <div class="bg-rose-600 hover:bg-rose-400 rounded-4xl px-2">
-                                    <span class="material-icons mt-2">play_arrow</span>
+                                    <span class="material-icons p-2">play_arrow</span>
                                 </div>
                             </button>
                         </div>
@@ -187,19 +193,34 @@
                                 class="w-full p-2 bg-transparent border-none text-lg focus:ring-0 placeholder-gray-600">
                         </div>
 
-                        <!-- 排序筛选器 -->
-                        <div class="flex flex-row bg-white/10 p-2 rounded-xl min-w-[180px]">
-                            <span class="material-icons p-2">
-                                filter_list
-                            </span>
-                            <select v-model="sortOption"
-                                class="song-filter  w-full p-2 bg-transparent border-none text-gray-300 focus:ring-0">
+                        <div class="bg-white/10 p-2 rounded-xl relative group"
+                            @click.stop="showSortOptions = !showSortOptions" @blur="showSortOptions = false"
+                            tabindex="0">
+                            <!-- current tab -->
+                            <div class="flex items-center justify-between cursor-pointer text-gray-300">
+                                <span class="material-icons p-2">
+                                    filter_list
+                                </span>
+                                <span class="bg-black">{{ String.fromCodePoint(sortLabels[sortOption].codePointAt(0))
+                                    }}</span>
+                                <span class="material-icons transform transition-transform duration-200"
+                                    :class="{ 'rotate-180': !showSortOptions }">expand_more</span>
+                            </div>
 
-                                <option v-for="option in sortOptions" :value="option" :key="option"
-                                    class="bg-[#37575b] text-gray-200">
-                                    {{ sortLabels[option] }}
-                                </option>
-                            </select>
+                            <!-- options -->
+                            <transition name="fade">
+                                <div v-if="showSortOptions"
+                                    class="min-w-[180px] absolute left-0 right-0 mb-2 bottom-full bg-[#2d4a4d] rounded-lg shadow-xl z-50 origin-bottom">
+                                    <div class="custom-scrollbar p-2 space-y-2 max-h-60 overflow-y-auto">
+                                        <div v-for="option in sortOptions" :key="option"
+                                            class="px-4 py-2 rounded-md cursor-pointer hover:bg-[#3a5d5f] transition-colors"
+                                            :class="{ 'bg-[#3a5d5f]': sortOption === option }"
+                                            @click.stop="sortOption = option">
+                                            {{ sortLabels[option] }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </transition>
                         </div>
                     </div>
                 </div>
