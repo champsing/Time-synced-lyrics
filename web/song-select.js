@@ -6,7 +6,7 @@ const VERSION_LABELS = {
     original: "原曲",
     instrumental: "伴奏",
     the_first_take: "THE FIRST TAKE",
-    live: "LIVE"
+    live: "LIVE",
 };
 
 const selectedVersions = ref({}); // 儲存每首歌選擇的版本 { songId: version }
@@ -20,6 +20,41 @@ function main() {
     const songs = ref([]);
     const isLoading = ref(true);
     const error = ref(null);
+    const sortOptions = ["name", "artist", "album", "date", "lang"];
+    const sortOption = ref(sortOptions[0]);
+
+    const sortLabels = {
+        name: "歌曲名稱",
+        artist: "藝人名稱",
+        album: "專輯名稱",
+        date: "最後更新",
+        lang: "歌曲語言",
+    };
+
+    function sortSong(sortOption) {
+        return (a, b) => {
+            switch (sortOption) {
+                case "name":
+                    return a.title.localeCompare(b.title, "zh-Hans");
+                case "artist":
+                    return a.artist.localeCompare(b.artist, "zh-Hans");
+                case "album":
+                    return (a.album?.name || a?.title || "單曲").localeCompare(
+                        b.album?.name || b?.title || "單曲",
+                        "zh-Hans"
+                    );
+                case "date":
+                    return new Date(b.updated_at) - new Date(a.updated_at);
+                case "lang":
+                    return (a.lang || "未知").localeCompare(
+                        b.lang || "未知",
+                        "zh-Hans"
+                    );
+                default:
+                    return 0;
+            }
+        };
+    }
 
     const filteredSongs = computed(() => {
         const query = searchQuery.value.toLowerCase().trim();
@@ -37,7 +72,8 @@ function main() {
                     .join(" ")
                     .toLowerCase();
                 return searchFields.includes(query);
-            });
+            })
+            .sort(sortSong(sortOption.value));
     });
 
     // 取得可用版本
@@ -137,6 +173,9 @@ function main() {
         selectedVersions,
         isLoading,
         filteredSongs,
+        sortOption,
+        sortOptions,
+        sortLabels,
         error,
         parseSubtitle,
         getVersionLabel,

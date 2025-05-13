@@ -74,7 +74,9 @@
                     "contribution": ["母帶工程師"]
                 }
             ]
-        }
+        },
+        "updated_at": "2025-05-14",
+        "lang": "en-US"
     },
     {
         "available": true,
@@ -144,7 +146,9 @@
                     "contribution": ["混音師"]
                 }
             ]
-        }
+        },
+        "updated_at": "2025-05-09",
+        "lang": "en-US"
     },
     {
         "available": true,
@@ -188,7 +192,9 @@
                     "contribution": ["編曲"]
                 }
             ]
-        }
+        },
+        "updated_at": "2025-05-09",
+        "lang": "ja-JP"
     },
     {
         "available": false,
@@ -229,7 +235,9 @@
                     "contribution": ["詞曲創作", "編曲"]
                 }
             ]
-        }
+        },
+        "updated_at": "2025-05-01",
+        "lang": "ja-JP"
     },
     {
         "available": false,
@@ -277,7 +285,9 @@
                     "contribution": ["編曲"]
                 }
             ]
-        }
+        },
+        "updated_at": "2025-05-01",
+        "lang": "ja-JP"
     },
     {
         "available": true,
@@ -320,6 +330,8 @@
                     "contribution": ["編曲"]
                 }
             ]
-        }
+        },
+        "updated_at": "2025-05-01",
+        "lang": "ja-JP"
     }
 ]

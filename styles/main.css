@@ -6,6 +6,8 @@
         "Noto Color Emoji";
     --font-poppins: Poppins, Noto Sans;
     --color-beige: rgb(245, 245, 220);
+    --song-filter-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239CA3AF'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    --song-filter-hover-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23CBD5E1'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
 }
 
 @layer homepage {
@@ -25,6 +27,15 @@
 
     .song-card:hover {
         @apply rotate-1 scale-105 z-10 duration-500 shadow-xl;
+    }
+
+    .song-filter {
+        @apply appearance-none bg-[(--song-filter-image)] bg-size-[1.5em] bg-[right_0.5rem_center];
+        background-position: right 0.5rem center;
+    }
+
+    .song-filter:hover {
+        @apply bg-[(--song-filter-hover-image)]
     }
 }
 
