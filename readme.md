@@ -96,7 +96,7 @@
 | `lyricist`        | string       |      | 作詞者                                 |
 | `is_duet`         | boolean      |      | 是否為對唱歌曲                         |
 | `versions`        | array        | ✓    | 替代版本列表                           |
-| ↳ `version`       | string       | ✓    | 版本類型 (e.g. "instrumental")         |
+| ↳ `version`       | string       | ✓    | 版本類型 (e.g. "instrumental")。       |
 | ↳ `id`            | string       | ✓    | YouTube 影片 ID                        |
 | ↳ `default`       | boolean      |      | 是否為預設版本                         |
 | `album`           | object       |      | 專輯資訊                               |
@@ -155,22 +155,23 @@ WIP
 
 ### 歌詞行屬性說明
 
-| 屬性               | 類型    | 必填 | 說明                                               |
-| ------------------ | ------- | ---- | -------------------------------------------------- |
-| `time`             | string  | ✓    | 開始時間 (格式 "mm:ss.SS")                         |
+| 屬性               | 類型    | 必填 | 說明                                                          |
+| ------------------ | ------- | ---- | ------------------------------------------------------------- |
+| `time`             | string  | ✓    | 開始時間 (格式 "mm:ss.SS")                                    |
 | `type`             | string  |      | 該行的類型，僅在值為 `prelude`, `interlude` 和 `end` 時有作用 |
-| `text`             | array   |      | 主歌詞片語陣列                                     |
-| ↳ `phrase`         | string  | ✓    | 文字片段                                           |
-| ↳ `duration`       | number  | ✓    | 持續時間(ms)，0=使用預設值                         |
-| ↳ `kiai`           | boolean |      | 是否強調顯示                                       |
-| ↳ `pronounciation` | string  |      | 該片語的發音（為日文假名讀音設計）                 |
-| `translation`      | string  |      | 該行翻譯                                           |
-| `background_voice` | object  |      | 背景和聲                                           |
-| ↳ `time`           | string  | ✓    | 開始時間                                           |
-| ↳ `text`           | array   | ✓    | 同主歌詞`text`格式                                 |
-| ↳ `translation`    | string  |      | 和聲翻譯                                           |
-| `is_secondary`     | boolean |      | 是否為第二歌手                                     |
-| `is_together`      | boolean |      | 是否為合唱                                         |
+| `text`             | array   |      | 主歌詞片語陣列                                                |
+| ↳ `phrase`         | string  | ✓    | 文字片段                                                      |
+| ↳ `duration`       | number  | ✓    | 持續時間(ms)，0=使用預設值                                    |
+| ↳ `kiai`           | boolean |      | 是否強調顯示                                                  |
+| ↳ `pronounciation` | string  |      | 該片語的發音（為日文假名讀音設計）                            |
+| `translation`      | string  |      | 該行翻譯                                                      |
+| `background_voice` | object  |      | 背景和聲                                                      |
+| ↳ `time`           | string  | ✓    | 開始時間                                                      |
+| ↳ `text`           | array   | ✓    | 同主歌詞`text`格式                                            |
+| ↳ `translation`    | string  |      | 和聲翻譯                                                      |
+| `is_secondary`     | boolean |      | 是否為第二歌手                                                |
+| `is_together`      | boolean |      | 是否為合唱                                                    |
+| `concurrent_lines` | array   |      | 一起啟用的行                                                  |
 
 ## 根元素
 
@@ -301,3 +302,9 @@ WIP
 -   背景和聲將跟隨主旋律置中。
 
 -   <font color=red>不可與`is_secondary`並用，否則沒有效果。</font>
+
+## concurrent_lines
+
+表示該行與下列行為同時啟用。
+
+-   只能啟用 `time` 在該行之前的行，填入該行之後的行數不會有任何效果。
