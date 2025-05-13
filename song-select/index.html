@@ -68,16 +68,36 @@
 
 
         <main class="container mx-auto px-4 py-8 pt-20 sm:pt-30 pb-40 min-h-screen">
-        <div class="sm:hidden flex flex-col gap-0 text-center mb-4">
-            <div class="text-sm opacity-75">播放器版本：{{ PLAYER_VERSION }}</div>
-            <div class="text-sm opacity-75">資料版本：{{ SONGLIST_DATA_VERSION }}</div>
-        </div>
+            <div class="sm:hidden flex flex-col gap-0 text-center mb-4">
+                <div class="text-sm opacity-75">播放器版本：{{ PLAYER_VERSION }}</div>
+                <div class="text-sm opacity-75">資料版本：{{ SONGLIST_DATA_VERSION }}</div>
+            </div>
             <!-- 載入狀態 -->
-            <div v-if="isLoading" class="col-span-full text-center py-8">
-                <div
-                    class="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full">
+            <div v-if="isLoading" id="loading-overlay"
+                class="col-span-full text-center py-8 fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center flex-col">
+                <!-- SVG Spinner -->
+                <svg class="w-16 h-16 mb-6 animate-spin text-teal-400" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+
+                <!-- 跳動文字 -->
+                <div class="flex space-x-2 text-white text-3xl font-bold">
+                    <span class="animate-bounce [animation-delay:50ms]">歌</span>
+                    <span class="animate-bounce [animation-delay:100ms]">曲</span>
+                    <span class="animate-bounce [animation-delay:150ms]">列</span>
+                    <span class="animate-bounce [animation-delay:200ms]">表</span>
+                    <span class="animate-bounce [animation-delay:250ms]">載</span>
+                    <span class="animate-bounce [animation-delay:300ms]">入</span>
+                    <span class="animate-bounce [animation-delay:350ms]">中</span>
                 </div>
-                <p class="mt-2">載入歌曲中...</p>
+
+                <!-- 三點閃爍 -->
+                <div class="flex space-x-1 mt-4">
+                    <div class="w-2 h-2 bg-white rounded-full animate-ping [animation-delay:0ms]"></div>
+                    <div class="w-2 h-2 bg-white rounded-full animate-ping [animation-delay:200ms]"></div>
+                    <div class="w-2 h-2 bg-white rounded-full animate-ping [animation-delay:400ms]"></div>
+                </div>
             </div>
 
             <!-- 歌曲列表 -->
