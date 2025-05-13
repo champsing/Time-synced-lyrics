@@ -48,13 +48,17 @@
         @apply stroke-[0.5px] text-shadow-[0_0_5px_rgba(255_255_255_/_0.5)];
     }
 
+    .close {
+        @apply text-gray-500 float-right text-3xl font-bold ml-2;
+    }
+
     .close:hover,
     .close:focus {
         @apply text-black cursor-pointer;
     }
 
     .settings-entry {
-        @apply text-center text-xl mb-2;
+        @apply text-center text-xl mb-2 mt-2;
     }
 
     .settings-button {
@@ -135,5 +139,21 @@
 
     .reflection-scan::before {
         @apply content-[""] absolute top-0 left-0 w-0 h-0 transform-[rotate(45deg)] mix-blend-overlay z-1;
+    }
+
+    .modal-mask {
+        @apply block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out;
+    }
+
+    .modal-view-area {
+        @apply gap-1 flex flex-col justify-start items-center mt-2 max-h-[40%] overflow-y-scroll;
+    }
+
+    .modal-name {
+        @apply text-left text-sm italic;
+    }
+
+    .credit-list-contribution-type-name {
+        @apply md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4;
     }
 }

@@ -416,22 +416,19 @@
         <!-- 所有模態框整理到這裡 -->
         <div id="modals-container">
 
-
             <!-- 設定 -->
             <div id="setting-modal-container" class="hidden">
-                <div id="setting-modal-mask"
-                    class="block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
+                <div id="setting-modal-mask" class="modal-mask">
                 </div>
                 <!-- Modal content -->
                 <div id="setting-modal-content"
-                    class="bg-[#455a47] opacity-100 fixed z-20 left-[10%] top-2/5 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
-                    <span class="close text-gray-500 float-right text-3xl font-bold ml-2" id="setting-modal-close-btn"
-                        title="關閉" aria-label="關閉視窗">&times;</span>
-                    <span class="text-left text-sm italic">設定</span>
-                    <div class="gap-1 flex flex-col justify-center items-center mt-2 overflow-y-scroll">
-                        <div id="enable-body-background-container mt-4" class="settings-entry">
-                            <label for="enable-background">背景顏色：</label>
-                            <div class="color-picker inline-block">
+                    class="bg-[#455a47] border-[#aba988] top-2/5 opacity-100 fixed z-20 left-[10%] md:left-[30%] md:top-[30%] m-auto p-5 border-solid rounded-2xl text-left w-4/5 md:w-2/5">
+                    <span class="close" id="setting-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
+                    <span class="modal-name">設定</span>
+                    <div class="modal-view-area">
+                        <div id="change-body-background-container" class="settings-entry">
+                            <label for="change-body-background">背景顏色：</label>
+                            <div id="change-body-background" class="color-picker inline-block">
                                 <details class="dropdown relative">
                                     <summary
                                         class="dropdown-trigger flex items-center gap-2 p-2 px-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">
@@ -453,7 +450,7 @@
                             </div>
                             <br />
                         </div>
-                        <div id="enable-background-container mt-4" class="settings-entry">
+                        <div id="enable-background-container" class="settings-entry">
                             <label class="switch mr-2">
                                 <input type="checkbox" id="enable-background" v-model="enableLyricBackground" />
                                 <span class="slider round"></span>
@@ -467,14 +464,14 @@
                             </label>
                             <label for="enable-scroll-to-current-line">自動滾動到當前行</label><br />
                         </div>
-                        <div id="enable-translation-container mt-4" class="settings-entry">
+                        <div id="enable-translation-container" class="settings-entry">
                             <label class="switch mr-2">
                                 <input type="checkbox" id="enable-translation" v-model="enableTranslation" />
                                 <span class="slider round"></span>
                             </label>
                             <label for="enable-translation">開啟翻譯</label><br />
                         </div>
-                        <div id="enable-pronounciation-container mt-4" class="settings-entry">
+                        <div id="enable-pronounciation-container" class="settings-entry">
                             <label class="switch mr-2">
                                 <input type="checkbox" id="enable-pronounciation" disabled
                                     v-model="enablePronounciation" />
@@ -482,22 +479,19 @@
                             </label>
                             <label for="enable-pronounciation">顯示假名讀音（暫不可用）</label><br />
                         </div>
-
                     </div>
                 </div>
             </div>
 
             <!-- 工作人員名單 -->
             <div id="credit-modal-container" class="hidden">
-                <div id="credit-modal-mask"
-                    class="block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
+                <div id="credit-modal-mask" class="modal-mask">
                 </div>
                 <!-- Modal content -->
                 <div id="credit-modal-content"
                     class="bg-[#2c4f3d] opacity-100 fixed left-[10%] z-20 top-1/5 md:left-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
-                    <span class="close ml-2 text-gray-500 float-right text-3xl font-bold" id="credit-modal-close-btn"
-                        title="關閉" aria-label="關閉視窗">&times;</span>
-                    <span class="text-left text-sm italic">工作人員名單</span>
+                    <span class="close" id="credit-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
+                    <span class="modal-name">工作人員名單</span>
                     <div id="artist-banner" class="text-center">
                         <span id="artist" class="ml-6">演出藝人</span>
                         <div class="text-2xl font-bold">
@@ -527,8 +521,7 @@
                     <div class="whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
                         v-if="currentSong.credits">
                         <!-- 演職員名單 需要可以再加 -->
-                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
-                            v-if="currentSong.credits.performance">表演者</div>
+                        <div class="credit-list-contribution-type-name" v-if="currentSong.credits.performance">表演者</div>
                         <div :id="`performance-contributors-${index + 1}`" class="text-center"
                             v-for="(contributor, index) in currentSong.credits.performance">
                             <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
@@ -536,8 +529,7 @@
                                 {{ contributor.name }}
                             </div>
                         </div>
-                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
-                            v-if="currentSong.credits.song_writing">詞曲</div>
+                        <div class="credit-list-contribution-type-name" v-if="currentSong.credits.song_writing">詞曲</div>
                         <div :id="`song-writing-contributors-${index + 1}`" class="text-center"
                             v-for="(contributor, index) in currentSong.credits.song_writing">
                             <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
@@ -545,8 +537,8 @@
                                 {{ contributor.name }}
                             </div>
                         </div>
-                        <div class="md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4"
-                            v-if="currentSong.credits.engineering">製作與工程團隊</div>
+                        <div class="credit-list-contribution-type-name" v-if="currentSong.credits.engineering">製作與工程團隊
+                        </div>
                         <div :id="`engineering-contributors-${index + 1}`" class="text-center"
                             v-for="(contributor, index) in currentSong.credits.engineering">
                             <span :id="'contribution' + index">{{ contributor.contribution?.join("、") }}</span>
@@ -564,16 +556,13 @@
 
             <!-- 分享歌曲 -->
             <div id="share-modal-container" class="hidden">
-                <div id="share-modal-mask"
-                    class="block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
-                </div>
+                <div id="share-modal-mask" class="modal-mask"></div>
                 <!-- Modal content -->
                 <div id="share-modal-content"
                     class="bg-amber-900 opacity-100 fixed left-[10%] top-2/5 z-20 md:left-[20%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-3/5">
-                    <span class="close text-gray-500 float-right text-3xl font-bold ml-2" id="share-modal-close-btn"
-                        title="關閉" aria-label="關閉視窗">&times;</span>
-                    <span class="text-left text-sm italic">分享</span>
-                    <div class="gap-1 flex flex-col justify-center items-center mt-2 overflow-y-scroll">
+                    <span class="close" id="share-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
+                    <span class="modal-name">分享</span>
+                    <div class="modal-view-area">
                         <div class="flex flex-row gap-4">
                             <span class="material-icons p-2">link</span>
                             <div class="flex flex-row gap-2">
@@ -591,7 +580,6 @@
                                     <span class="hidden sm:block">複製</span>
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -599,42 +587,42 @@
 
             <!-- 關於 -->
             <div id="about-modal-container" class="hidden">
-                <div id="about-modal-mask"
-                    class="block fixed pb-100 z-19 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out">
+                <div id="about-modal-mask" class="modal-mask">
                 </div>
                 <!-- Modal content -->
                 <div id="about-modal-content"
                     class="bg-[#545425] opacity-100 fixed left-[10%] top-2/5 z-20 md:left-[30%] md:top-[30%] m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left w-4/5 md:w-2/5">
-                    <span class="close text-gray-500 float-right text-3xl font-bold" id="about-modal-close-btn"
-                        title="關閉" aria-label="關閉視窗">&times;</span>
-                    <span class="text-left text-sm italic">關於</span>
-                    <div class="flex flex-col gap-4 items-center">
-                        <div class="flex flex-col">
-                            <div id="champsing-banner" class="text-center">
-                                <span id="champsing">網站作者</span>
-                                <div class="text-2xl font-bold">
-                                    香榭 Champsing
+                    <span class="close" id="about-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
+                    <div class="modal-view-area">
+                        <span class="modal-name">關於</span>
+                        <div class="flex flex-col gap-4 items-center">
+                            <div class="flex flex-col">
+                                <div id="champsing-banner" class="text-center">
+                                    <span id="champsing">網站作者</span>
+                                    <div class="text-2xl font-bold">
+                                        香榭 Champsing
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div id="debug-info" class="overflow-y-scroll max-h-20 font-[family-name:var(--font-poppins)]">
-                            <div class="m-4">
-                                <div id="version">播放器版本：</div>
-                                <div id="playback-id">播放 ID：</div>
+                            <div id="debug-info"
+                                class="overflow-y-scroll max-h-20 font-[family-name:var(--font-poppins)]">
+                                <div class="m-4">
+                                    <div id="version">播放器版本：</div>
+                                    <div id="playback-id">播放 ID：</div>
+                                </div>
+
                             </div>
-
-                        </div>
-                        <div id="copy-debug-info"
-                            class="text-center rounded-md bg-[#1d94a1] px-4 py-2 text-sm font-semibold text-white duration-300 ease-in-out hover:scale-125 w-40">
-                            <button type="button" id="copy-debug-info-btn" aria-label="複製偵錯資訊">
-                                <span class="text-center">複製偵錯資訊</span>
-                            </button>
+                            <div id="copy-debug-info"
+                                class="text-center rounded-md bg-[#1d94a1] px-4 py-2 text-sm font-semibold text-white duration-300 ease-in-out hover:scale-125 w-40">
+                                <button type="button" id="copy-debug-info-btn" aria-label="複製偵錯資訊">
+                                    <span class="text-center">複製偵錯資訊</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- 手機版底部留白 -->
