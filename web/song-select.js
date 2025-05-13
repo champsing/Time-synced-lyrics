@@ -6,6 +6,7 @@ const VERSION_LABELS = {
     original: "原曲",
     instrumental: "伴奏",
     the_first_take: "THE FIRST TAKE",
+    live: "LIVE"
 };
 
 const selectedVersions = ref({}); // 儲存每首歌選擇的版本 { songId: version }

@@ -11,7 +11,13 @@
             },
             {
                 "version": "instrumental",
-                "id": "BPGF_w1p28U"
+                "id": "BPGF_w1p28U",
+                "time_offset": 0
+            },
+            {
+                "version": "live",
+                "id": "EHikFmB-XhA",
+                "time_offset": 15
             }
         ],
         "art": "https://i.scdn.co/image/ab67616d0000b273cc68eea0db7110e3b8cca14e",

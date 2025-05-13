@@ -58,7 +58,8 @@
                         <div class="text-sm opacity-75">播放器版本：{{ PLAYER_VERSION }}</div>
                         <div class="text-sm opacity-75">資料版本：{{ SONGLIST_DATA_VERSION }}</div>
                     </div>
-                    <a href="/" class="px-4 py-2 bg-[#4ac2d7] rounded-md hover:bg-[#3aaabf] transition-transform hover:scale-110 duration-400">
+                    <a href="/"
+                        class="px-4 py-2 bg-[#4ac2d7] rounded-md hover:bg-[#3aaabf] transition-transform hover:scale-110 duration-400">
                         返回首頁
                     </a>
                 </div>
@@ -100,8 +101,8 @@
 
             <!-- 歌曲列表 -->
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                <article v-for="song in filteredSongs" :key="song.song_id"
-                    class="song-card" :class="{'opacity-50': !song.available}">
+                <article v-for="song in filteredSongs" :key="song.song_id" class="song-card"
+                    :class="{'opacity-50': !song.available}">
                     <!-- 不可用遮罩 -->
                     <div v-if="!song.available"
                         class="unavailable-overlay absolute inset-0 flex items-center justify-center">
@@ -137,6 +138,7 @@
                                     'bg-cyan-600/80 hover:bg-cyan-500': ver.version === 'original',
                                     'bg-purple-600/80 hover:bg-purple-500': ver.version === 'instrumental',
                                     'bg-zinc-900/80 hover:bg-zinc-500': ver.version === 'the_first_take',
+                                    'bg-red-400/80 hover:bg-red-400': ver.version === 'live',
                                     'ring-2 ring-white/50': selectedVersions[song.song_id] === ver.version
                                 }" @click.stop="selectVersion(song.song_id, ver.version)"
                                 :aria-label="song.title + '的' + getVersionLabel(ver.version) + '版本'"

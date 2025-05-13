@@ -3,8 +3,18 @@ import { ref, computed } from "vue";
 import { DEFAULT_DURATION } from "/web/utils/config.js";
 import { getLyricFilePath } from "./songsHandle.js";
 
-export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
+export const parseLyrics = (
+    jsonMappingContent,
+    currentSong,
+    songVersion,
+    songDuration
+) => {
     if (!jsonMappingContent) return [];
+
+    const timeOffset =
+        currentSong.value.versions.find((v) => v.version === songVersion.value)
+            .time_offset || 0;
+    console.log(timeOffset);
 
     const parsedLyrics = jsonMappingContent
         .map((line) => {
@@ -13,15 +23,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 // eslint-disable-next-line no-unused-vars
                 const [_, mm, ss] = timeMatch;
                 line.time = parseFloat(mm) * 60 + parseFloat(ss);
-            }
-
-            if (line.end_time) {
-                const endTimeMatch = line.end_time.match(/(\d+):(\d+\.\d+)/);
-                if (endTimeMatch) {
-                    // eslint-disable-next-line no-unused-vars
-                    const [_, mm, ss] = endTimeMatch;
-                    line.end_time = parseFloat(mm) * 60 + parseFloat(ss);
-                }
+                if (timeOffset) line.time += timeOffset;
             }
 
             if (line.background_voice) {
@@ -32,6 +34,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                     const [_, mm, ss] = bgTimeMatch;
                     line.background_voice.time =
                         parseFloat(mm) * 60 + parseFloat(ss);
+                    if (timeOffset) line.background_voice.time += timeOffset;
                 }
 
                 line.background_voice.duration = new Array(
@@ -128,6 +131,7 @@ export function useLyrics(currentSong, songVersion, currentTime, songDuration) {
         jsonMappingContent.value = parseLyrics(
             await response.json(),
             currentSong,
+            songVersion,
             songDuration
         );
 

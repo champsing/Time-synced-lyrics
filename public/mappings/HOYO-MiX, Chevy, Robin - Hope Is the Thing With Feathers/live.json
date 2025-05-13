@@ -1,0 +1,543 @@
+[
+    {
+        "time": "00:00.05",
+        "type": "prelude"
+    },
+    {
+        "time": "00:15.60",
+        "text": [
+            { "phrase": "We ", "duration": 46 },
+            { "phrase": "rise ", "duration": 39 },
+            { "phrase": "to", "duration": 31 },
+            { "phrase": "ge", "duration": 45 },
+            { "phrase": "ther", "duration": 35 },
+            { "phrase": " ", "duration": 35 },
+            { "phrase": "as ", "duration": 41 },
+            { "phrase": "our ", "duration": 33 },
+            { "phrase": "des", "duration": 70, "kiai": true },
+            { "phrase": "ti", "duration": 21, "kiai": true },
+            { "phrase": "ny ", "duration": 41, "kiai": true },
+            { "phrase": "un", "duration": 35 },
+            { "phrase": "folds", "duration": 51 }
+        ],
+        "translation": "隨著命運的展開，就讓我們一同迎戰"
+    },
+    {
+        "time": "00:23.20",
+        "text": [
+            { "phrase": "We ", "duration": 32 },
+            { "phrase": "face ", "duration": 53 },
+            { "phrase": "the ", "duration": 22 },
+            { "phrase": "dark", "duration": 49, "kiai": true },
+            { "phrase": "ness ", "duration": 66, "kiai": true },
+            { "phrase": "and ", "duration": 42 },
+            { "phrase": "our ", "duration": 37 },
+            { "phrase": "trials ", "duration": 66 },
+            { "phrase": "are ", "duration": 23 },
+            { "phrase": "yet ", "duration": 38 },
+            { "phrase": "un", "duration": 53 },
+            { "phrase": "told", "duration": 36 }
+        ],
+        "translation": "而考驗尚未結束，我們仍需直面黑暗"
+    },
+    {
+        "time": "00:29.56",
+        "text": [
+            { "phrase": "Through ", "duration": 19 },
+            { "phrase": "the ", "duration": 20 },
+            { "phrase": "sha", "duration": 51 },
+            { "phrase": "dows ", "duration": 40 },
+            { "phrase": "of ", "duration": 47 },
+            { "phrase": "des", "duration": 48, "kiai": true },
+            { "phrase": "pair", "duration": 54, "kiai": true }
+        ],
+        "translation": "穿過絕望的陰影"
+    },
+    {
+        "time": "00:33.27",
+        "text": [
+            { "phrase": "Oh, ", "duration": 24 },
+            { "phrase": "in ", "duration": 15 },
+            { "phrase": "si", "duration": 30 },
+            { "phrase": "lence,", "duration": 35 },
+            { "phrase": " ", "duration": 20 },
+            { "phrase": "hopes ", "duration": 38, "kiai": true },
+            { "phrase": "we ", "duration": 40 },
+            { "phrase": "share", "duration": 52 }
+        ],
+        "translation": "在沉默中，我們共享希望"
+    },
+    {
+        "time": "00:38.26",
+        "text": [
+            { "phrase": "To ", "duration": 30 },
+            { "phrase": "chase ", "duration": 54 },
+            { "phrase": "our ", "duration": 26 },
+            { "phrase": "dreams ", "duration": 56, "kiai": true },
+            { "phrase": "that ", "duration": 44 },
+            { "phrase": "we've ", "duration": 41 },
+            { "phrase": "de", "duration": 40 },
+            { "phrase": "clared", "duration": 101 }
+        ],
+        "translation": "只為追逐我們宣告中的理想"
+    },
+    {
+        "time": "00:44.51",
+        "text": [
+            { "phrase": "We ", "duration": 31 },
+            { "phrase": "glimpse,", "duration": 50, "kiai": true },
+            { "phrase": " ", "duration": 31 },
+            { "phrase": "through ", "duration": 59 },
+            { "phrase": "our ", "duration": 41 },
+            { "phrase": "eyes", "duration": 49 }
+        ],
+        "translation": "我們曾嘗試多看一眼"
+    },
+    {
+        "time": "00:48.34",
+        "text": [
+            { "phrase": "Yet ", "duration": 40 },
+            { "phrase": "fools,", "duration": 60 },
+            { "phrase": " ", "duration": 46 },
+            { "phrase": "blind ", "duration": 37, "kiai": true },
+            { "phrase": "our ", "duration": 42 },
+            { "phrase": "sights", "duration": 45 }
+        ],
+        "translation": "卻被無知蒙蔽了視線"
+    },
+    {
+        "time": "00:52.10",
+        "text": [
+            { "phrase": "Can't ", "duration": 43 },
+            { "phrase": "make", "duration": 44 },
+            { "phrase": " ", "duration": 60 },
+            { "phrase": "what ", "duration": 28 },
+            { "phrase": "they ", "duration": 45 },
+            { "phrase": "say", "duration": 27 }
+        ],
+        "translation": "既然聽不懂他們的注解"
+    },
+    {
+        "time": "00:54.97",
+        "text": [
+            { "phrase": "We'll ", "duration": 38 },
+            { "phrase": "find ", "duration": 38 },
+            { "phrase": "our ", "duration": 42, "kiai": true },
+            { "phrase": "way,", "duration": 48, "kiai": true },
+            { "phrase": " ", "duration": 34 },
+            { "phrase": "we'll ", "duration": 27 },
+            { "phrase": "find ", "duration": 38 },
+            { "phrase": "our ", "duration": 33 },
+            { "phrase": "way", "duration": 33 }
+        ],
+        "translation": "那就由我們找尋自己該走的路"
+    },
+    {
+        "time": "00:59.73",
+        "text": [
+            { "phrase": "Heads ", "duration": 45 },
+            { "phrase": "up!", "duration": 38, "kiai": true },
+            { "phrase": " ", "duration": 70 },
+            { "phrase": "The ", "duration": 30 },
+            { "phrase": "wheels ", "duration": 51 },
+            { "phrase": "are ", "duration": 34 },
+            { "phrase": "spin", "duration": 37, "kiai": true },
+            { "phrase": "ning", "duration": 50, "kiai": true }
+        ],
+        "translation": "請注意！命運的車輪正在轉動"
+    },
+    {
+        "time": "01:03.85",
+        "text": [
+            { "phrase": "Across ", "duration": 38 },
+            { "phrase": "the ", "duration": 37 },
+            { "phrase": "plains, ", "duration": 54 },
+            { "phrase": "in ", "duration": 33 },
+            { "phrase": "val", "duration": 42, "kiai": true },
+            { "phrase": "leys ", "duration": 43, "kiai": true },
+            { "phrase": "deep", "duration": 35 }
+        ],
+        "translation": "跨過平原，穿過深谷"
+    },
+    {
+        "time": "01:06.90",
+        "text": [
+            { "phrase": "To ", "duration": 46 },
+            { "phrase": "dawn,", "duration": 49, "kiai": true },
+            { "phrase": " ", "duration": 80 },
+            { "phrase": "the ", "duration": 45 },
+            { "phrase": "wheels ", "duration": 39 },
+            { "phrase": "that ", "duration": 34 },
+            { "phrase": "sing", "duration": 60 }
+        ],
+        "translation": "向著黎明，這車輪行滾滾而行唱歌著"
+    },
+    {
+        "time": "01:11.05",
+        "text": [
+            { "phrase": "An ", "duration": 25 },
+            { "phrase": "un", "duration": 67, "kiai": true },
+            { "phrase": "en", "duration": 40, "kiai": true },
+            { "phrase": "ding ", "duration": 38, "kiai": true },
+            { "phrase": "dream!", "duration": 46 }
+        ],
+        "translation": "一個無盡的夢！"
+    },
+    {
+        "time": "01:14.71",
+        "text": [
+            { "phrase": "Heads ", "duration": 45 },
+            { "phrase": "up!", "duration": 38 },
+            { "phrase": " ", "duration": 70 },
+            { "phrase": "The ", "duration": 30 },
+            { "phrase": "tracks ", "duration": 51, "kiai": true },
+            { "phrase": "are ", "duration": 34 },
+            { "phrase": "run", "duration": 38 },
+            { "phrase": "ning", "duration": 50 }
+        ],
+        "translation": "請注意！軌道已然在運轉"
+    },
+    {
+        "time": "01:18.75",
+        "text": [
+            { "phrase": "Across ", "duration": 38 },
+            { "phrase": "the ", "duration": 37 },
+            { "phrase": "plains, ", "duration": 54 },
+            { "phrase": "where ", "duration": 53 },
+            { "phrase": "sha", "duration": 42, "kiai": true },
+            { "phrase": "dows ", "duration": 43, "kiai": true },
+            { "phrase": "hide", "duration": 35 }
+        ],
+        "translation": "穿過陰霾藏匿的平原"
+    },
+    {
+        "time": "01:22.20",
+        "text": [
+            { "phrase": "We ", "duration": 36 },
+            { "phrase": "run,", "duration": 30, "kiai": true },
+            { "phrase": " ", "duration": 85 },
+            { "phrase": "we ", "duration": 40 },
+            { "phrase": "stride~", "duration": 63, "kiai": true }
+        ],
+        "translation": "我們奔跑，我們向前"
+    },
+    {
+        "time": "01:30.68",
+        "text": [
+            { "phrase": "In ", "duration": 24 },
+            { "phrase": "the ", "duration": 26 },
+            { "phrase": "face ", "duration": 48 },
+            { "phrase": "of ", "duration": 16 },
+            { "phrase": "fear", "duration": 40 },
+            { "phrase": " ", "duration": 24 },
+            { "phrase": "and ", "duration": 20 },
+            { "phrase": "plight", "duration": 34 },
+            { "phrase": " ", "duration": 35 },
+            { "phrase": "and ", "duration": 28 },
+            { "phrase": "yet ", "duration": 56 },
+            { "phrase": "we ", "duration": 28 },
+            { "phrase": "hold ", "duration": 48 },
+            { "phrase": "our ", "duration": 38 },
+            { "phrase": "ground", "duration": 57 }
+        ],
+        "translation": "面對恐懼和困境我們依然堅守陣地"
+    },
+    {
+        "time": "01:38.16",
+        "text": [
+            { "phrase": "In ", "duration": 33 },
+            { "phrase": "life ", "duration": 55 },
+            { "phrase": "we ", "duration": 23 },
+            { "phrase": "stand ", "duration": 76 },
+            { "phrase": "and ", "duration": 18 },
+            { "phrase": "strive", "duration": 49 },
+            { "phrase": " ", "duration": 31 },
+            { "phrase": "our ", "duration": 21 },
+            { "phrase": "vic", "duration": 60, "kiai": true },
+            { "phrase": "tory", "duration": 61, "kiai": true },
+            { "phrase": " ", "duration": 16 },
+            { "phrase": "is ", "duration": 31 },
+            { "phrase": "found", "duration": 44 }
+        ],
+        "translation": "歷久彌堅勝利定會在望"
+    },
+    {
+        "time": "01:44.57",
+        "text": [
+            { "phrase": "And ", "duration": 19 },
+            { "phrase": "the ", "duration": 19 },
+            { "phrase": "storms ", "duration": 51 },
+            { "phrase": "we've ", "duration": 36 },
+            { "phrase": "wea", "duration": 44 },
+            { "phrase": "thered ", "duration": 40 },
+            { "phrase": "through", "duration": 39 }
+        ],
+        "translation": "我們已穿越風雨"
+    },
+    {
+        "time": "01:48.23",
+        "text": [
+            { "phrase": "And ", "duration": 32 },
+            { "phrase": "we ", "duration": 24 },
+            { "phrase": "hope ", "duration": 40 },
+            { "phrase": "in ", "duration": 24 },
+            { "phrase": "the ", "duration": 26 },
+            { "phrase": "light ", "duration": 46 },
+            { "phrase": "of ", "duration": 41 },
+            { "phrase": "truth", "duration": 29 }
+        ],
+        "translation": "只希望能沐浴在真理的光芒之中"
+    },
+    {
+        "time": "01:52.78",
+        "text": [
+            { "phrase": "To ", "duration": 29 },
+            { "phrase": "break ", "duration": 50 },
+            { "phrase": "free ", "duration": 43 },
+            { "phrase": "from ", "duration": 24 },
+            { "phrase": "chains ", "duration": 71 },
+            { "phrase": "and ", "duration": 18 },
+            { "phrase": "come", "duration": 35 },
+            { "phrase": " ", "duration": 25 },
+            { "phrase": "anew", "duration": 85 }
+        ],
+        "translation": "掙脫枷鎖重獲新生"
+    },
+    {
+        "time": "01:59.82",
+        "text": [
+            { "phrase": "Heads ", "duration": 42 },
+            { "phrase": "up!", "duration": 31 },
+            { "phrase": " ", "duration": 80 },
+            { "phrase": "The ", "duration": 43 },
+            { "phrase": "wheels ", "duration": 45 },
+            { "phrase": "are ", "duration": 32 },
+            { "phrase": "spin", "duration": 47 },
+            { "phrase": "ning", "duration": 47 }
+        ],
+        "translation": "請注意！命運的車輪正在轉動"
+    },
+    {
+        "time": "02:03.69",
+        "text": [
+            { "phrase": "Across ", "duration": 45 },
+            { "phrase": "the ", "duration": 48 },
+            { "phrase": "plains, ", "duration": 53 },
+            { "phrase": "in ", "duration": 36 },
+            { "phrase": "val", "duration": 42 },
+            { "phrase": "leys ", "duration": 56 },
+            { "phrase": "deep", "duration": 24 }
+        ],
+        "translation": "跨過平原，穿過深谷"
+    },
+    {
+        "time": "02:07.25",
+        "text": [
+            { "phrase": "To ", "duration": 46 },
+            { "phrase": "dawn,", "duration": 50 },
+            { "phrase": " ", "duration": 70 },
+            { "phrase": "the ", "duration": 41 },
+            { "phrase": "wheels ", "duration": 43 },
+            { "phrase": "that ", "duration": 34 },
+            { "phrase": "sing", "duration": 56 }
+        ],
+        "translation": "向著黎明，這車輪行滾滾而行唱歌著"
+    },
+    {
+        "time": "02:11.24",
+        "text": [
+            { "phrase": "An ", "duration": 25 },
+            { "phrase": "un", "duration": 57 },
+            { "phrase": "en", "duration": 39 },
+            { "phrase": "ding ", "duration": 38 },
+            { "phrase": "dream!", "duration": 46, "kiai": true }
+        ],
+        "translation": "一個無盡的夢！"
+    },
+    {
+        "time": "02:14.79",
+        "text": [
+            { "phrase": "Heads ", "duration": 45 },
+            { "phrase": "up!", "duration": 38 },
+            { "phrase": " ", "duration": 70 },
+            { "phrase": "The ", "duration": 30 },
+            { "phrase": "tracks ", "duration": 51, "kiai": true },
+            { "phrase": "are ", "duration": 34 },
+            { "phrase": "run", "duration": 38 },
+            { "phrase": "ning", "duration": 50 }
+        ],
+        "translation": "請注意！軌道已然在運轉"
+    },
+    {
+        "time": "02:18.69",
+        "text": [
+            { "phrase": "Across ", "duration": 38 },
+            { "phrase": "the ", "duration": 37 },
+            { "phrase": "plains, ", "duration": 54 },
+            { "phrase": "where ", "duration": 53 },
+            { "phrase": "sha", "duration": 42 },
+            { "phrase": "dows ", "duration": 43 },
+            { "phrase": "hide", "duration": 35 }
+        ],
+        "translation": "穿過陰霾藏匿的平原"
+    },
+    {
+        "time": "02:22.30",
+        "text": [
+            { "phrase": "We ", "duration": 30 },
+            { "phrase": "run,", "duration": 30 },
+            { "phrase": " ", "duration": 65 },
+            { "phrase": "we ", "duration": 40 },
+            { "phrase": "stride~", "duration": 63 }
+        ],
+        "translation": "我們奔跑，我們向前"
+    },
+    {
+        "time": "02:30.30",
+        "type": "interlude",
+        "background_voice": {
+            "time": "02:30.35",
+            "text": [
+                { "phrase": "Woah, ", "duration": 80 },
+                { "phrase": "woah-", "duration": 30 },
+                { "phrase": "woah-", "duration": 30 },
+                { "phrase": "woah", "duration": 30 }
+            ],
+            "translation": ""
+        }
+    },
+    {
+        "time": "02:59.82",
+        "text": [
+            { "phrase": "Heads ", "duration": 42 },
+            { "phrase": "up!", "duration": 31 },
+            { "phrase": " ", "duration": 80 },
+            { "phrase": "A ", "duration": 25 },
+            { "phrase": "stea", "duration": 52 },
+            { "phrase": "dy ", "duration": 40 },
+            { "phrase": "rhy", "duration": 47 },
+            { "phrase": "thm", "duration": 36 }
+        ],
+        "translation": "抬起頭！跟著堅定的節奏"
+    },
+    {
+        "time": "03:03.70",
+        "text": [
+            { "phrase": "A ", "duration": 21 },
+            { "phrase": "des", "duration": 32 },
+            { "phrase": "ti", "duration": 30 },
+            { "phrase": "na", "duration": 32 },
+            { "phrase": "tion ", "duration": 38 },
+            { "phrase": "that's ", "duration": 32 },
+            { "phrase": "ever ", "duration": 77 },
+            { "phrase": "near", "duration": 39 }
+        ],
+        "translation": "終點已近在咫尺"
+    },
+    {
+        "time": "03:07.23",
+        "text": [
+            { "phrase": "It ", "duration": 30 },
+            { "phrase": "comes!", "duration": 47 },
+            { "phrase": " ", "duration": 65 },
+            { "phrase": "Stride ", "duration": 53 },
+            { "phrase": "to ", "duration": 46 },
+            { "phrase": "our ", "duration": 52 },
+            { "phrase": "king", "duration": 38 },
+            { "phrase": "dom", "duration": 52 }
+        ],
+        "translation": "邁向我們的理想之地"
+    },
+    {
+        "time": "03:11.13",
+        "text": [
+            { "phrase": "And ", "duration": 18 },
+            { "phrase": "see ", "duration": 56 },
+            { "phrase": "the ", "duration": 26 },
+            { "phrase": "light ", "duration": 46 },
+            { "phrase": "of ", "duration": 44 },
+            { "phrase": "day", "duration": 51 }
+        ],
+        "translation": "讓一切重見曙光"
+    },
+    {
+        "time": "03:14.80",
+        "text": [
+            { "phrase": "Heads ", "duration": 42 },
+            { "phrase": "up!", "duration": 31 },
+            { "phrase": " ", "duration": 80 },
+            { "phrase": "The ", "duration": 43 },
+            { "phrase": "wheels ", "duration": 45 },
+            { "phrase": "are ", "duration": 32 },
+            { "phrase": "sing", "duration": 47 },
+            { "phrase": "ing", "duration": 36 }
+        ],
+        "translation": "請注意！命運的車輪正在唱歌"
+    },
+    {
+        "time": "03:18.61",
+        "text": [
+            { "phrase": "The ", "duration": 29 },
+            { "phrase": "whis", "duration": 27 },
+            { "phrase": "pers ", "duration": 40 },
+            { "phrase": "and ", "duration": 37 },
+            { "phrase": "se", "duration": 47 },
+            { "phrase": "crets ", "duration": 50 },
+            { "phrase": "they'd ", "duration": 33 },
+            { "phrase": "keep", "duration": 43 }
+        ],
+        "translation": "他們保守著苦痛的秘密和私語"
+    },
+    {
+        "time": "03:22.16",
+        "text": [
+            { "phrase": "To ", "duration": 30 },
+            { "phrase": "hope!", "duration": 54 },
+            { "phrase": " ", "duration": 75 },
+            { "phrase": "We ", "duration": 41 },
+            { "phrase": "bound~", "duration": 73 }
+        ],
+        "translation": "而我們終將迎來希望"
+    },
+    {
+        "time": "03:30.63",
+        "text": [
+            { "phrase": "Break ", "duration": 33 },
+            { "phrase": "free,", "duration": 36 },
+            { "phrase": " ", "duration": 26 },
+            { "phrase": "we ", "duration": 21 },
+            { "phrase": "chased ", "duration": 70 },
+            { "phrase": "our ", "duration": 20, "kiai": true },
+            { "phrase": "dreams,", "duration": 42, "kiai": true },
+            { "phrase": " ", "duration": 36 },
+            { "phrase": "be", "duration": 27 },
+            { "phrase": "neath ", "duration": 53 },
+            { "phrase": "the ", "duration": 28 },
+            { "phrase": "star", "duration": 56, "kiai": true },
+            { "phrase": "ry ", "duration": 36, "kiai": true },
+            { "phrase": "night", "duration": 46 }
+        ],
+        "translation": "掙脫束縛，我們在星空下追逐夢想"
+    },
+    {
+        "time": "03:38.11",
+        "text": [
+            { "phrase": "In ", "duration": 32 },
+            { "phrase": "the ", "duration": 24 },
+            { "phrase": "face ", "duration": 41 },
+            { "phrase": "of ", "duration": 25 },
+            { "phrase": "god,", "duration": 39, "kiai": true },
+            { "phrase": " ", "duration": 20 },
+            { "phrase": "we ", "duration": 24 },
+            { "phrase": "rose,", "duration": 43 },
+            { "phrase": " ", "duration": 31 },
+            { "phrase": "as ", "duration": 34, "kiai": true },
+            { "phrase": "one", "duration": 32, "kiai": true }
+        ],
+        "translation": "面對神靈，我們團結一致，奮勇向前"
+    },
+    {
+        "time": "03:43.31",
+        "type": "end"
+    }
+]
