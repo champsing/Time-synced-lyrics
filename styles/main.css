@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: Noto Sans, ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --font-poppins: Poppins, Noto Sans;
+    --color-beige: rgb(245, 245, 220);
+}
+
+@layer homepage {
+    .animate-scroll-trigger {
+        @apply opacity-0; /* 初始狀態隱藏 */
+    }
+}
+
+@layer song-select {
+    .version-badge {
+        @apply transition-all ease-in duration-200;
+    }
+
+    .song-card {
+        @apply transform transition-transform duration-500 ease-in-out rounded-xl overflow-hidden relative;
+    }
+
+    .song-card:hover {
+        @apply rotate-1 scale-105 z-10 duration-500 shadow-xl;
+    }
+}
+
+@layer player {
+    .lyric-line {
+        @apply transition-opacity duration-300;
+    }
+
+    .lyric-line.is-duet {
+        @apply text-left;
+    }
+
+    .lyric-line.is-duet.is-secondary-vocalist {
+        @apply text-right;
+    }
+
+    .lyric-line.is-duet.is-together {
+        @apply text-center;
+    }
+
+    .lyric-line.active.kiai {
+        @apply stroke-beige;
+    }
+
+    .lyric-button.active {
+        .lyric-phrase {
+            @apply transition-all ease-in duration-200;
+            @apply origin-right;
+        }
+    }
+
+    .lyric-button.active {
+        @apply text-3xl font-bold p-2 text-pretty;
+    }
+
+    .lyric-button.active {
+        @apply md:text-balance;
+    }
+
+    .lyric-phrase.active.kiai {
+        @apply stroke-[0.5px] text-shadow-[0_0_5px_rgba(255_255_255_/_0.5)];
+    }
+
+    .close {
+        @apply text-gray-500 float-right text-3xl font-bold ml-2;
+    }
+
+    .close:hover,
+    .close:focus {
+        @apply text-black cursor-pointer;
+    }
+
+    .settings-entry {
+        @apply text-center text-xl mb-2 mt-2;
+    }
+
+    .settings-button {
+        @apply relative right-0 w-full bg-transparent text-base font-bold text-center uppercase border-none border-[50px] py-3 px-5;
+    }
+
+    .settings-button span {
+        @apply text-white bg-transparent mix-blend-difference;
+    }
+
+    .settings-button:before {
+        @apply absolute top-0 left-0 h-full bg-black w-[30%] rounded-[50px] content-[""] duration-300 transition-all ease-[cubic-bezier(0.68,_-0.55,_0.265,_1.55)];
+    }
+
+    .settings-button:hover:before {
+        @apply bg-black w-full;
+    }
+
+    .share-entry {
+        @apply text-center text-xl mb-2;
+    }
+
+    .share-button {
+        @apply relative right-0 w-full bg-transparent text-base font-bold text-center uppercase border-none border-[50px] py-3 px-5;
+    }
+
+    .share-button span {
+        @apply text-gray-200 bg-transparent mix-blend-color-dodge;
+    }
+
+    .share-button:before {
+        @apply absolute top-0 left-0 h-full bg-[#3292b2] w-[30%] rounded-[50px] content-[""] duration-300 transition-all ease-[cubic-bezier(0.68,_-0.55,_0.265,_1.55)];
+    }
+
+    .share-button:hover:before {
+        @apply bg-[#49b2d5] w-full;
+    }
+
+    .slider.round {
+        @apply rounded-4xl;
+    }
+
+    .slider.round:before {
+        @apply rounded-[50%];
+    }
+
+    .switch {
+        @apply relative inline-block w-15 h-8;
+    }
+
+    .switch input {
+        @apply opacity-0 w-0 h-0;
+    }
+
+    .slider {
+        @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 duration-400;
+    }
+
+    .slider:before {
+        @apply absolute content-[""] h-6 w-6 left-1 bottom-1 bg-white duration-400;
+    }
+
+    input:checked + .slider {
+        @apply bg-[#1062a4];
+    }
+
+    input:focus + .slider {
+        @apply shadow-[0_0_1px_#1062a4];
+    }
+
+    input:checked + .slider:before {
+        @apply transform-[translateX(26px)];
+    }
+
+    .reflection-scan::after {
+        @apply content-[""] absolute -top-[50%] -left-[50%] w-[200%] h-[200%] transform-[rotate(45deg)] mix-blend-soft-light;
+    }
+
+    .reflection-scan::before {
+        @apply content-[""] absolute top-0 left-0 w-0 h-0 transform-[rotate(45deg)] mix-blend-overlay z-1;
+    }
+
+    .modal-mask {
+        @apply block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out;
+    }
+
+    .modal-view-area {
+        @apply gap-1 flex flex-col justify-start items-center mt-2 max-h-[40%] overflow-y-scroll;
+    }
+
+    .modal-name {
+        @apply text-left text-sm italic;
+    }
+
+    .credit-list-contribution-type-name {
+        @apply md:col-span-3 text-xl text-green-300 mt-4 mb-2 mr-4;
+    }
+}

@@ -1,7 +1,7 @@
 import { PLAYBACK_ID } from "../player/about/injectPlaybackID.js";
 import { BUILD_DATE, COMMIT_ID } from "./commit-info.js"; // 引入生成的 commit ID
 
-const BASE_VERSION = "4.4.0";
+const BASE_VERSION = "4.5.0";
 
 // 3600.000 * 8 = 28800.000, to insure UTC+8.
 
