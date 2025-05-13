@@ -8,6 +8,22 @@
     --color-beige: rgb(245, 245, 220);
 }
 
+@layer homepage {
+    .animate-scroll-trigger {
+        @apply opacity-0; /* 初始狀態隱藏 */
+    }
+}
+
+@layer song-select {
+    .version-badge {
+        @apply transition-all ease-in duration-200;
+    }
+
+    .song-card:hover {
+        @apply rotate-1 scale-105 z-10 duration-500;
+    }
+}
+
 @layer player {
     .lyric-line {
         @apply transition-opacity duration-300;
