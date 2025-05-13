@@ -23,10 +23,27 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
         phraseProgressValue = 0;
     }
 
-    return {
-        transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
-        "--progress": `${phraseProgressValue * 100}%`,
-    };
+    if (line.text[phraseIndex].kiai) {
+        const waveScale = 0.1; // 縮放幅度 (1.1 = 1 + 0.1)
+        const waveFrequency = 1; // 波浪次數 (1 = 單一完整波浪)
+
+        // 使用正弦函數計算波浪縮放 (範圍 0~1 → 1.0~1.1~1.0)
+        const scaleWave = Math.sin(
+            phraseProgressValue * Math.PI * waveFrequency
+        );
+        const scaleValue = 1 + waveScale * scaleWave;
+
+        return {
+            transform: `matrix(${scaleValue}, 0, 0, ${scaleValue}, 0, ${
+                -2 * phraseProgressValue
+            })`,
+            "--progress": `${phraseProgressValue * 100}%`,
+        };
+    } else
+        return {
+            transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
+            "--progress": `${phraseProgressValue * 100}%`,
+        };
 };
 
 export const isActivePhrase = (currentTime, line, phraseIndex) => {
