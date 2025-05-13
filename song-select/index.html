@@ -103,7 +103,7 @@
             <!-- 歌曲列表 -->
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 <article v-for="song in filteredSongs" :key="song.song_id"
-                    class="song-card rounded-xl overflow-hidden relative" :class="{'opacity-50': !song.available}">
+                    class="song-card" :class="{'opacity-50': !song.available}">
                     <!-- 不可用遮罩 -->
                     <div v-if="!song.available"
                         class="unavailable-overlay absolute inset-0 flex items-center justify-center">
