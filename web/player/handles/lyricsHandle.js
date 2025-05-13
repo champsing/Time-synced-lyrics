@@ -11,11 +11,6 @@ export const parseLyrics = (
 ) => {
     if (!jsonMappingContent) return [];
 
-    const timeOffset =
-        currentSong.value.versions.find((v) => v.version === songVersion.value)
-            .time_offset || 0;
-    console.log(timeOffset);
-
     const parsedLyrics = jsonMappingContent
         .map((line) => {
             const timeMatch = line.time.match(/(\d+):(\d+\.\d+)/);
@@ -23,7 +18,6 @@ export const parseLyrics = (
                 // eslint-disable-next-line no-unused-vars
                 const [_, mm, ss] = timeMatch;
                 line.time = parseFloat(mm) * 60 + parseFloat(ss);
-                if (timeOffset) line.time += timeOffset;
             }
 
             if (line.background_voice) {
@@ -34,7 +28,6 @@ export const parseLyrics = (
                     const [_, mm, ss] = bgTimeMatch;
                     line.background_voice.time =
                         parseFloat(mm) * 60 + parseFloat(ss);
-                    if (timeOffset) line.background_voice.time += timeOffset;
                 }
 
                 line.background_voice.duration = new Array(

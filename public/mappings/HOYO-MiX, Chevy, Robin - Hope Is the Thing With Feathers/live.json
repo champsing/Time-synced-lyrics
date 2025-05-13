@@ -4,7 +4,7 @@
         "type": "prelude"
     },
     {
-        "time": "00:15.60",
+        "time": "00:22.60",
         "text": [
             { "phrase": "We ", "duration": 46 },
             { "phrase": "rise ", "duration": 39 },
@@ -23,14 +23,15 @@
         "translation": "隨著命運的展開，就讓我們一同迎戰"
     },
     {
-        "time": "00:23.20",
+        "time": "00:30.20",
         "text": [
             { "phrase": "We ", "duration": 32 },
             { "phrase": "face ", "duration": 53 },
             { "phrase": "the ", "duration": 22 },
             { "phrase": "dark", "duration": 49, "kiai": true },
             { "phrase": "ness ", "duration": 66, "kiai": true },
-            { "phrase": "and ", "duration": 42 },
+            { "phrase": "and", "duration": 42 },
+            { "phrase": " ", "duration": 20 },
             { "phrase": "our ", "duration": 37 },
             { "phrase": "trials ", "duration": 66 },
             { "phrase": "are ", "duration": 23 },
@@ -41,7 +42,7 @@
         "translation": "而考驗尚未結束，我們仍需直面黑暗"
     },
     {
-        "time": "00:29.56",
+        "time": "00:36.56",
         "text": [
             { "phrase": "Through ", "duration": 19 },
             { "phrase": "the ", "duration": 20 },
@@ -54,7 +55,7 @@
         "translation": "穿過絕望的陰影"
     },
     {
-        "time": "00:33.27",
+        "time": "00:40.27",
         "text": [
             { "phrase": "Oh, ", "duration": 24 },
             { "phrase": "in ", "duration": 15 },
@@ -68,7 +69,7 @@
         "translation": "在沉默中，我們共享希望"
     },
     {
-        "time": "00:38.26",
+        "time": "00:45.26",
         "text": [
             { "phrase": "To ", "duration": 30 },
             { "phrase": "chase ", "duration": 54 },
@@ -82,7 +83,7 @@
         "translation": "只為追逐我們宣告中的理想"
     },
     {
-        "time": "00:44.51",
+        "time": "00:51.51",
         "text": [
             { "phrase": "We ", "duration": 31 },
             { "phrase": "glimpse,", "duration": 50, "kiai": true },
@@ -94,7 +95,7 @@
         "translation": "我們曾嘗試多看一眼"
     },
     {
-        "time": "00:48.34",
+        "time": "00:55.34",
         "text": [
             { "phrase": "Yet ", "duration": 40 },
             { "phrase": "fools,", "duration": 60 },
@@ -106,7 +107,7 @@
         "translation": "卻被無知蒙蔽了視線"
     },
     {
-        "time": "00:52.10",
+        "time": "00:59.10",
         "text": [
             { "phrase": "Can't ", "duration": 43 },
             { "phrase": "make", "duration": 44 },
@@ -118,7 +119,7 @@
         "translation": "既然聽不懂他們的注解"
     },
     {
-        "time": "00:54.97",
+        "time": "01:01.97",
         "text": [
             { "phrase": "We'll ", "duration": 38 },
             { "phrase": "find ", "duration": 38 },
@@ -133,7 +134,7 @@
         "translation": "那就由我們找尋自己該走的路"
     },
     {
-        "time": "00:59.73",
+        "time": "01:06.73",
         "text": [
             { "phrase": "Heads ", "duration": 45 },
             { "phrase": "up!", "duration": 38, "kiai": true },
@@ -147,7 +148,7 @@
         "translation": "請注意！命運的車輪正在轉動"
     },
     {
-        "time": "01:03.85",
+        "time": "01:10.85",
         "text": [
             { "phrase": "Across ", "duration": 38 },
             { "phrase": "the ", "duration": 37 },
@@ -160,7 +161,7 @@
         "translation": "跨過平原，穿過深谷"
     },
     {
-        "time": "01:06.90",
+        "time": "01:13.90",
         "text": [
             { "phrase": "To ", "duration": 46 },
             { "phrase": "dawn,", "duration": 49, "kiai": true },
@@ -173,7 +174,7 @@
         "translation": "向著黎明，這車輪行滾滾而行唱歌著"
     },
     {
-        "time": "01:11.05",
+        "time": "01:18.05",
         "text": [
             { "phrase": "An ", "duration": 25 },
             { "phrase": "un", "duration": 67, "kiai": true },
@@ -184,7 +185,7 @@
         "translation": "一個無盡的夢！"
     },
     {
-        "time": "01:14.71",
+        "time": "01:21.71",
         "text": [
             { "phrase": "Heads ", "duration": 45 },
             { "phrase": "up!", "duration": 38 },
@@ -198,7 +199,7 @@
         "translation": "請注意！軌道已然在運轉"
     },
     {
-        "time": "01:18.75",
+        "time": "01:25.75",
         "text": [
             { "phrase": "Across ", "duration": 38 },
             { "phrase": "the ", "duration": 37 },
@@ -211,7 +212,7 @@
         "translation": "穿過陰霾藏匿的平原"
     },
     {
-        "time": "01:22.20",
+        "time": "01:29.20",
         "text": [
             { "phrase": "We ", "duration": 36 },
             { "phrase": "run,", "duration": 30, "kiai": true },
@@ -222,7 +223,7 @@
         "translation": "我們奔跑，我們向前"
     },
     {
-        "time": "01:30.68",
+        "time": "01:37.68",
         "text": [
             { "phrase": "In ", "duration": 24 },
             { "phrase": "the ", "duration": 26 },
@@ -243,7 +244,7 @@
         "translation": "面對恐懼和困境我們依然堅守陣地"
     },
     {
-        "time": "01:38.16",
+        "time": "01:45.16",
         "text": [
             { "phrase": "In ", "duration": 33 },
             { "phrase": "life ", "duration": 55 },
@@ -262,7 +263,7 @@
         "translation": "歷久彌堅勝利定會在望"
     },
     {
-        "time": "01:44.57",
+        "time": "01:51.57",
         "text": [
             { "phrase": "And ", "duration": 19 },
             { "phrase": "the ", "duration": 19 },
@@ -275,7 +276,7 @@
         "translation": "我們已穿越風雨"
     },
     {
-        "time": "01:48.23",
+        "time": "01:55.23",
         "text": [
             { "phrase": "And ", "duration": 32 },
             { "phrase": "we ", "duration": 24 },
@@ -289,7 +290,7 @@
         "translation": "只希望能沐浴在真理的光芒之中"
     },
     {
-        "time": "01:52.78",
+        "time": "01:59.88",
         "text": [
             { "phrase": "To ", "duration": 29 },
             { "phrase": "break ", "duration": 50 },
@@ -304,7 +305,7 @@
         "translation": "掙脫枷鎖重獲新生"
     },
     {
-        "time": "01:59.82",
+        "time": "02:06.82",
         "text": [
             { "phrase": "Heads ", "duration": 42 },
             { "phrase": "up!", "duration": 31 },
@@ -318,7 +319,7 @@
         "translation": "請注意！命運的車輪正在轉動"
     },
     {
-        "time": "02:03.69",
+        "time": "02:10.69",
         "text": [
             { "phrase": "Across ", "duration": 45 },
             { "phrase": "the ", "duration": 48 },
@@ -331,7 +332,7 @@
         "translation": "跨過平原，穿過深谷"
     },
     {
-        "time": "02:07.25",
+        "time": "02:14.25",
         "text": [
             { "phrase": "To ", "duration": 46 },
             { "phrase": "dawn,", "duration": 50 },
@@ -344,7 +345,7 @@
         "translation": "向著黎明，這車輪行滾滾而行唱歌著"
     },
     {
-        "time": "02:11.24",
+        "time": "02:18.24",
         "text": [
             { "phrase": "An ", "duration": 25 },
             { "phrase": "un", "duration": 57 },
@@ -355,7 +356,7 @@
         "translation": "一個無盡的夢！"
     },
     {
-        "time": "02:14.79",
+        "time": "02:21.79",
         "text": [
             { "phrase": "Heads ", "duration": 45 },
             { "phrase": "up!", "duration": 38 },
@@ -369,7 +370,7 @@
         "translation": "請注意！軌道已然在運轉"
     },
     {
-        "time": "02:18.69",
+        "time": "02:26.10",
         "text": [
             { "phrase": "Across ", "duration": 38 },
             { "phrase": "the ", "duration": 37 },
@@ -382,32 +383,44 @@
         "translation": "穿過陰霾藏匿的平原"
     },
     {
-        "time": "02:22.30",
+        "time": "02:29.30",
         "text": [
             { "phrase": "We ", "duration": 30 },
             { "phrase": "run,", "duration": 30 },
-            { "phrase": " ", "duration": 65 },
+            { "phrase": " ", "duration": 80 },
             { "phrase": "we ", "duration": 40 },
             { "phrase": "stride~", "duration": 63 }
         ],
         "translation": "我們奔跑，我們向前"
     },
     {
-        "time": "02:30.30",
+        "time": "02:37.20",
         "type": "interlude",
         "background_voice": {
-            "time": "02:30.35",
+            "time": "02:37.25",
             "text": [
-                { "phrase": "Woah, ", "duration": 80 },
-                { "phrase": "woah-", "duration": 30 },
-                { "phrase": "woah-", "duration": 30 },
-                { "phrase": "woah", "duration": 30 }
+                {
+                    "phrase": "Woah, ",
+                    "duration": 80
+                },
+                {
+                    "phrase": "woah-",
+                    "duration": 30
+                },
+                {
+                    "phrase": "woah-",
+                    "duration": 30
+                },
+                {
+                    "phrase": "woah",
+                    "duration": 30
+                }
             ],
             "translation": ""
         }
     },
     {
-        "time": "02:59.82",
+        "time": "03:21.82",
         "text": [
             { "phrase": "Heads ", "duration": 42 },
             { "phrase": "up!", "duration": 31 },
@@ -421,7 +434,7 @@
         "translation": "抬起頭！跟著堅定的節奏"
     },
     {
-        "time": "03:03.70",
+        "time": "03:25.70",
         "text": [
             { "phrase": "A ", "duration": 21 },
             { "phrase": "des", "duration": 32 },
@@ -435,7 +448,7 @@
         "translation": "終點已近在咫尺"
     },
     {
-        "time": "03:07.23",
+        "time": "03:29.23",
         "text": [
             { "phrase": "It ", "duration": 30 },
             { "phrase": "comes!", "duration": 47 },
@@ -449,7 +462,7 @@
         "translation": "邁向我們的理想之地"
     },
     {
-        "time": "03:11.13",
+        "time": "03:33.13",
         "text": [
             { "phrase": "And ", "duration": 18 },
             { "phrase": "see ", "duration": 56 },
@@ -461,7 +474,7 @@
         "translation": "讓一切重見曙光"
     },
     {
-        "time": "03:14.80",
+        "time": "03:36.80",
         "text": [
             { "phrase": "Heads ", "duration": 42 },
             { "phrase": "up!", "duration": 31 },
@@ -475,7 +488,7 @@
         "translation": "請注意！命運的車輪正在唱歌"
     },
     {
-        "time": "03:18.61",
+        "time": "03:40.61",
         "text": [
             { "phrase": "The ", "duration": 29 },
             { "phrase": "whis", "duration": 27 },
@@ -489,7 +502,7 @@
         "translation": "他們保守著苦痛的秘密和私語"
     },
     {
-        "time": "03:22.16",
+        "time": "03:44.16",
         "text": [
             { "phrase": "To ", "duration": 30 },
             { "phrase": "hope!", "duration": 54 },
@@ -500,7 +513,7 @@
         "translation": "而我們終將迎來希望"
     },
     {
-        "time": "03:30.63",
+        "time": "03:52.63",
         "text": [
             { "phrase": "Break ", "duration": 33 },
             { "phrase": "free,", "duration": 36 },
@@ -520,7 +533,7 @@
         "translation": "掙脫束縛，我們在星空下追逐夢想"
     },
     {
-        "time": "03:38.11",
+        "time": "04:00.11",
         "text": [
             { "phrase": "In ", "duration": 32 },
             { "phrase": "the ", "duration": 24 },
@@ -537,7 +550,7 @@
         "translation": "面對神靈，我們團結一致，奮勇向前"
     },
     {
-        "time": "03:43.31",
+        "time": "04:05.31",
         "type": "end"
     }
 ]
