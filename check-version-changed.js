@@ -4,11 +4,29 @@
 
 const { execSync } = require("child_process");
 
-const changedFiles = execSync("git diff --cached --name-only").toString();
-if (changedFiles.includes("base-version.js")) {
-  // OK
-  process.exit(0);
-}
+try {
+  const changedFiles = execSync("git diff --cached --name-only", {
+    encoding: "utf-8"
+  }).split("\n").filter(Boolean);
 
-console.warn("⚠️ 你似乎忘了更新版本號 (base-version.js 沒有變更)");
-process.exit(1);
+  const onlyMappings = changedFiles.every(file => file.startsWith("public/mappings/"));
+
+  if (onlyMappings) {
+    console.log("🟢 全部變更都在 public/mappings/，允許不改版本號。");
+    process.exit(0);
+  }
+
+  const packageChanged = changedFiles.some(file => file === "package.json");
+
+  if (!packageChanged) {
+    console.warn("❌ 你修改了除了 public/mappings/ 以外的檔案，但沒更新 package.json 的版本號！");
+    process.exit(1);
+  }
+
+  console.log("✅ 偵測到 package.json 已變更，通過版本號檢查。");
+  process.exit(0);
+
+} catch (err) {
+  console.error("🚨 發生錯誤：", err);
+  process.exit(1);
+}
