@@ -18,12 +18,12 @@ export const COMMIT_ID = "${commitHash}";
 export const BUILD_DATE = "${buildDate}";
 `;
 
-    require("fs").writeFileSync("@web/utils/commit-info.js", content);
+    require("fs").writeFileSync("./web/utils/commit-info.js", content);
     console.log("✅ Commit ID generated");
 } catch (error) {
     console.log("⚠️  Failed to get Git commit ID:", error.message);
     require("fs").writeFileSync(
-        "@web/utils/commit-info.js",
+        "./web/utils/commit-info.js",
         "export const COMMIT_ID = null"
     );
 }
