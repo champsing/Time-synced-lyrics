@@ -10,11 +10,6 @@ body {
 .lyric-button.active {
     .lyric-phrase {
         -webkit-background-clip: text;
-        background-image: linear-gradient(
-            to right,
-            rgba(255, 255, 255, 0.85) var(--progress, 0),
-            rgba(126, 126, 126, 0.75) var(--progress, 0)
-        );
     }
 }
 

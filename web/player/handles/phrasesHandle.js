@@ -23,6 +23,12 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
         phraseProgressValue = 0;
     }
 
+    const a = 0.35 + 0.5 * phraseProgressValue;
+
+    const linearGradient = `linear-gradient(to right, rgba(255, 255, 255, ${a}) ${
+        phraseProgressValue * 100
+    }%, rgba(126,126,126,0.75) ${phraseProgressValue * 100}%)`;
+
     if (line.text[phraseIndex].kiai) {
         const waveScale = 0.1; // 縮放幅度 (1.1 = 1 + 0.1)
         const waveFrequency = 1; // 波浪次數 (1 = 單一完整波浪)
@@ -38,11 +44,13 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
                 -2 * phraseProgressValue
             })`,
             "--progress": `${phraseProgressValue * 100}%`,
+            backgroundImage: `${linearGradient}`,
         };
     } else
         return {
             transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
             "--progress": `${phraseProgressValue * 100}%`,
+            backgroundImage: `${linearGradient}`,
         };
 };
 
