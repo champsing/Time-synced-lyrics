@@ -1,344 +1,456 @@
 [
     {
         "time": "00:18.91",
-        "text": [{ "phrase": "カムパネルラ", "duration": 0 }],
+        "text": [{ "phrase": "カムパネルラ", "duration": 100 }],
         "translation": "康帕內拉"
     },
     {
         "time": "00:20.77",
         "text": [
-            { "phrase": "夢を", "duration": 0 },
-            { "phrase": "見ていた", "duration": 0 }
+            { "phrase": "夢", "duration": 30 },
+            { "phrase": "を", "duration": 40 },
+            { "phrase": "見", "duration": 40 },
+            { "phrase": "ていた", "duration": 40 }
         ],
         "translation": "我做了一個夢"
     },
     {
         "time": "00:22.69",
         "text": [
-            { "phrase": "君の", "duration": 0 },
-            { "phrase": "あとに", "duration": 0 }
+            { "phrase": "君", "duration": 30 },
+            { "phrase": "の", "duration": 10 },
+            { "phrase": "あとに", "duration": 50 }
         ],
         "translation": "夢見你身後"
     },
     {
         "time": "00:24.54",
         "text": [
-            { "phrase": "咲いた", "duration": 0 },
-            { "phrase": "リンドウの", "duration": 0 },
-            { "phrase": "花", "duration": 0 }
+            { "phrase": "咲", "duration": 20 },
+            { "phrase": "いた", "duration": 30 },
+            { "phrase": "リンドウの", "duration": 50 },
+            { "phrase": "花", "duration": 40 }
         ],
         "translation": "龍膽花綻放"
     },
     {
         "time": "00:26.45",
         "text": [
-            { "phrase": "この", "duration": 0 },
-            { "phrase": "街は", "duration": 0 }
+            { "phrase": "この", "duration": 30 },
+            { "phrase": "街", "duration": 40 },
+            { "phrase": "は", "duration": 20 }
         ],
         "translation": "這座城市"
     },
     {
         "time": "00:28.24",
         "text": [
-            { "phrase": "変わり", "duration": 0 },
-            { "phrase": "続ける", "duration": 0 }
+            { "phrase": "変", "duration": 10 },
+            { "phrase": "わり", "duration": 20 },
+            { "phrase": "続", "duration": 60 },
+            { "phrase": "ける", "duration": 40 }
         ],
         "translation": "持續地改變"
     },
     {
         "time": "00:30.08",
-        "text": [{ "phrase": "計らずも", "duration": 0 }],
+        "text": [
+            { "phrase": "計", "duration": 40 },
+            { "phrase": "らずも", "duration": 50 }
+        ],
         "translation": "卻出乎意料的"
     },
     {
         "time": "00:32.11",
         "text": [
-            { "phrase": "君を", "duration": 0 },
-            { "phrase": "残して", "duration": 0 }
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "を", "duration": 10 },
+            { "phrase": "残", "duration": 40 },
+            { "phrase": "して", "duration": 30 }
         ],
         "translation": "將你留下"
     },
     {
         "time": "00:34.10",
         "text": [
-            { "phrase": "真昼の", "duration": 0 },
-            { "phrase": "海で", "duration": 0 },
-            { "phrase": "眠る", "duration": 0 },
-            { "phrase": "月光蟲", "duration": 0 }
+            { "phrase": "真昼", "duration": 60 },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "の", "duration": 10 },
+            { "phrase": "海", "duration": 50 },
+            { "phrase": "で", "duration": 10 },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "眠", "duration": 50 },
+            { "phrase": "る", "duration": 10 },
+            { "phrase": "月光蟲", "duration": 90 }
         ],
         "translation": "正午大海裡沉睡的月光蟲"
     },
     {
         "time": "00:37.60",
         "text": [
-            { "phrase": "戻らない", "duration": 0 },
-            { "phrase": "あの日に", "duration": 0 },
-            { "phrase": "想いを", "duration": 0 },
-            { "phrase": "巡らす", "duration": 0 }
+            { "phrase": "戻", "duration": 30 },
+            { "phrase": "らない", "duration": 50 },
+            { "phrase": "あの", "duration": 40 },
+            { "phrase": "日", "duration": 20 },
+            { "phrase": "に", "duration": 10 },
+            { "phrase": "想", "duration": 40 },
+            { "phrase": "いを", "duration": 30 },
+            { "phrase": "巡", "duration": 50 },
+            { "phrase": "らす", "duration": 30 }
         ],
         "translation": "遙想那些回不去的時光"
     },
     {
         "time": "00:41.38",
         "text": [
-            { "phrase": "オルガンの", "duration": 0 },
-            { "phrase": "音色で", "duration": 0 },
-            { "phrase": "踊る", "duration": 0 },
-            { "phrase": "スタチュー", "duration": 0 }
+            { "phrase": "オルガンの", "duration": 80 },
+            { "phrase": "音色", "duration": 80 },
+            { "phrase": "で", "duration": 20 },
+            { "phrase": "踊", "duration": 50 },
+            { "phrase": "る", "duration": 20 },
+            { "phrase": "スタチュー", "duration": 70 }
         ],
         "translation": "管風琴聲中起舞的雕像"
     },
     {
         "time": "00:44.95",
         "text": [
-            { "phrase": "時間だけ", "duration": 0 },
-            { "phrase": "通り", "duration": 0 },
-            { "phrase": "過ぎて", "duration": 0 },
-            { "phrase": "いく", "duration": 0 }
+            { "phrase": "時間", "duration": 50 },
+            { "phrase": "だけ", "duration": 40 },
+            { "phrase": "通", "duration": 30 },
+            { "phrase": "り", "duration": 20 },
+            { "phrase": "過", "duration": 20 },
+            { "phrase": "ぎて", "duration": 40 },
+            { "phrase": "いく", "duration": 30 }
         ],
         "translation": "只有時間悠悠走過"
     },
     {
         "time": "00:48.77",
         "text": [
-            { "phrase": "あの人の", "duration": 0 },
-            { "phrase": "言う通り", "duration": 0 }
+            { "phrase": "あ", "duration": 20 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "人", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "言", "duration": 20 },
+            { "phrase": "う", "duration": 20 },
+            { "phrase": "通", "duration": 30 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "如那人所說"
     },
     {
         "time": "00:51.62",
         "text": [
-            { "phrase": "わたしの", "duration": 0 },
-            { "phrase": "手は", "duration": 0 }
+            { "phrase": "わたしの", "duration": 80 },
+            { "phrase": "手", "duration": 30 },
+            { "phrase": "は", "duration": 30 }
         ],
         "translation": "我的手"
     },
     {
         "time": "00:53.50",
         "text": [
-            { "phrase": "汚れて", "duration": 0 },
-            { "phrase": "ゆく", "duration": 0 },
-            { "phrase": "のでしょう", "duration": 0 }
+            { "phrase": "汚", "duration": 50 },
+            { "phrase": "れて", "duration": 30 },
+            { "phrase": "ゆく", "duration": 40 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "のでしょう", "duration": 50 }
         ],
         "translation": "會逐漸沾染髒污吧"
     },
     {
         "time": "00:56.21",
         "text": [
-            { "phrase": "追い風に", "duration": 0 },
-            { "phrase": "翻り", "duration": 0 }
+            { "phrase": "追", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "い", "duration": 20 },
+            { "phrase": "風", "duration": 30 },
+            { "phrase": "に", "duration": 20 },
+            { "phrase": "翻", "duration": 70 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "順風飄揚"
     },
     {
         "time": "00:59.17",
         "text": [
-            { "phrase": "わたしは", "duration": 0 },
-            { "phrase": "まだ", "duration": 0 }
+            { "phrase": "わたしは", "duration": 80 },
+            { "phrase": "まだ", "duration": 50 }
         ],
         "translation": "我會"
     },
     {
         "time": "01:00.84",
         "text": [
-            { "phrase": "生きて", "duration": 0 },
-            { "phrase": "ゆく", "duration": 0 },
-            { "phrase": "でしょう", "duration": 0 }
+            { "phrase": "生", "duration": 20 },
+            { "phrase": "きて", "duration": 40 },
+            { "phrase": "ゆく", "duration": 40 },
+            { "phrase": "でしょう", "duration": 60 }
         ],
         "translation": "繼續活下去的吧"
     },
     {
         "time": "01:03.62",
         "text": [
-            { "phrase": "終わる", "duration": 0 },
-            { "phrase": "日まで", "duration": 0 }
+            { "phrase": "終", "duration": 30 },
+            { "phrase": "わる", "duration": 40 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "日", "duration": 20 },
+            { "phrase": "まで", "duration": 40 }
         ],
         "translation": "希望直到最後"
     },
     {
         "time": "01:05.42",
         "text": [
-            { "phrase": "寄り添う", "duration": 0 },
-            { "phrase": "ように", "duration": 0 }
+            { "phrase": "寄", "duration": 20 },
+            { "phrase": "り", "duration": 20 },
+            { "phrase": "添", "duration": 20 },
+            { "phrase": "う", "duration": 20 },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "ように", "duration": 50 }
         ],
         "translation": "都像你就依偎在我身旁那樣"
     },
     {
         "time": "01:07.30",
         "text": [
-            { "phrase": "君を", "duration": 0 },
-            { "phrase": "憶えて", "duration": 0 },
-            { "phrase": "いたい", "duration": 0 }
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "を", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "憶", "duration": 50 },
+            { "phrase": "えて", "duration": 50 },
+            { "phrase": "いたい", "duration": 50 }
         ],
         "translation": "將你永遠牢記"
     },
     { "time": "01:11.30", "type": "interlude" },
     {
         "time": "01:18.47",
-        "text": [{ "phrase": "カムパネルラ", "duration": 0 }],
+        "text": [{ "phrase": "カムパネルラ", "duration": 100 }],
         "translation": "康帕內拉"
     },
     {
         "time": "01:20.30",
         "text": [
-            { "phrase": "そこは", "duration": 0 },
-            { "phrase": "豊かか", "duration": 0 }
+            { "phrase": "そこは", "duration": 50 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "豊", "duration": 40 },
+            { "phrase": "かか", "duration": 40 }
         ],
         "translation": "那裡是否豐沃到"
     },
     {
         "time": "01:22.23",
         "text": [
-            { "phrase": "君の", "duration": 0 },
-            { "phrase": "目が", "duration": 0 }
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "目", "duration": 20 },
+            { "phrase": "が", "duration": 20 }
         ],
         "translation": "讓你感到"
     },
     {
         "time": "01:24.15",
         "text": [
-            { "phrase": "眩む", "duration": 0 },
-            { "phrase": "くらいに", "duration": 0 }
+            { "phrase": "眩", "duration": 30 },
+            { "phrase": "む", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "くらいに", "duration": 50 }
         ],
         "translation": "目眩神迷"
     },
     {
         "time": "01:26.00",
         "text": [
-            { "phrase": "タールの", "duration": 0 },
-            { "phrase": "上で", "duration": 0 }
+            { "phrase": "タールの", "duration": 50 },
+            { "phrase": "上", "duration": 20 },
+            { "phrase": "で", "duration": 10 }
         ],
         "translation": "柏油路上"
     },
     {
         "time": "01:27.84",
         "text": [
-            { "phrase": "陽炎が", "duration": 0 },
-            { "phrase": "揺れる", "duration": 0 }
+            { "phrase": "陽炎", "duration": 50 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "が", "duration": 20 },
+            { "phrase": "揺", "duration": 20 },
+            { "phrase": "れる", "duration": 30 }
         ],
         "translation": "熱氣朦朧"
     },
     {
         "time": "01:29.65",
         "text": [
-            { "phrase": "爆ぜる", "duration": 0 },
-            { "phrase": "ような", "duration": 0 }
+            { "phrase": "爆", "duration": 20 },
+            { "phrase": "ぜる", "duration": 30 },
+            { "phrase": "ような", "duration": 40 }
         ],
         "translation": "行將迸裂的"
     },
     {
         "time": "01:31.56",
         "text": [
-            { "phrase": "夏の", "duration": 0 },
-            { "phrase": "灯火", "duration": 0 }
+            { "phrase": "夏", "duration": 30 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "灯火", "duration": 70 }
         ],
         "translation": "夏日燈火"
     },
     {
         "time": "01:33.50",
         "text": [
-            { "phrase": "真白な", "duration": 0 },
-            { "phrase": "鳥と", "duration": 0 },
-            { "phrase": "歌う", "duration": 0 },
-            { "phrase": "針葉樹", "duration": 0 }
+            { "phrase": "真白", "duration": 60 },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "な", "duration": 10 },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "鳥", "duration": 50 },
+            { "phrase": "と", "duration": 10 },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "歌", "duration": 50 },
+            { "phrase": "う", "duration": 10 },
+            {
+                "phrase": "針葉樹",
+                "duration": 90,
+                "pronounciation": "しんようじゅ"
+            }
         ],
         "translation": "純白的鳥兒和歌唱的針葉樹"
     },
     {
         "time": "01:37.00",
         "text": [
-            { "phrase": "見つめる", "duration": 0 },
-            { "phrase": "全てが", "duration": 0 },
-            { "phrase": "面影に", "duration": 0 },
-            { "phrase": "なる", "duration": 0 }
+            { "phrase": "見", "duration": 20 },
+            { "phrase": "つめる", "duration": 60 },
+            { "phrase": "全", "duration": 60 },
+            { "phrase": "てが", "duration": 40 },
+            { "phrase": "面影", "duration": 70 },
+            { "phrase": "に", "duration": 20 },
+            { "phrase": "なる", "duration": 50 }
         ],
         "translation": "所見一切全化為昔日樣貌"
     },
     {
         "time": "01:41.00",
         "text": [
-            { "phrase": "波打ち際に", "duration": 0 },
-            { "phrase": "ボタンが", "duration": 0 },
-            { "phrase": "一つ", "duration": 0 }
+            { "phrase": "波", "duration": 40 },
+            { "phrase": "打", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "ち", "duration": 20 },
+            { "phrase": "際", "duration": 50 },
+            { "phrase": "に", "duration": 20 },
+            { "phrase": "ボタンが", "duration": 60 },
+            { "phrase": "一", "duration": 30 },
+            { "phrase": "つ", "duration": 20 }
         ],
         "translation": "浪打岸上時那枚鈕扣"
     },
     {
         "time": "01:44.59",
         "text": [
-            { "phrase": "君が", "duration": 0 },
-            { "phrase": "くれた", "duration": 0 },
-            { "phrase": "寂しさよ", "duration": 0 }
+            { "phrase": "君", "duration": 30 },
+            { "phrase": "が", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "くれた", "duration": 50 },
+            { "phrase": "寂", "duration": 40 },
+            { "phrase": "しさよ", "duration": 60 }
         ],
         "translation": "是你留給我的寂寞呀"
     },
     {
         "time": "01:48.25",
         "text": [
-            { "phrase": "あの人の", "duration": 0 },
-            { "phrase": "言う通り", "duration": 0 }
+            { "phrase": "あ", "duration": 20 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "人", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "言", "duration": 20 },
+            { "phrase": "う", "duration": 20 },
+            { "phrase": "通", "duration": 30 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "如那人所說"
     },
     {
         "time": "01:51.23",
         "text": [
-            { "phrase": "いつに", "duration": 0 },
-            { "phrase": "なれど", "duration": 0 }
+            { "phrase": "いつに", "duration": 50 },
+            { "phrase": "なれど", "duration": 60 }
         ],
         "translation": "有些傷無論過多久"
     },
     {
         "time": "01:53.23",
         "text": [
-            { "phrase": "癒えない", "duration": 0 },
-            { "phrase": "傷が", "duration": 0 },
-            { "phrase": "ある", "duration": 0 },
-            { "phrase": "でしょう", "duration": 0 }
+            { "phrase": "癒", "duration": 20 },
+            { "phrase": "えない", "duration": 50 },
+            { "phrase": "傷", "duration": 40 },
+            { "phrase": "が", "duration": 30 },
+            { "phrase": "ある", "duration": 40 },
+            { "phrase": "でしょう", "duration": 40 }
         ],
         "translation": "都不會痊癒吧"
     },
     {
         "time": "01:55.77",
         "text": [
-            { "phrase": "黄昏を", "duration": 0 },
-            { "phrase": "振り返り", "duration": 0 }
+            { "phrase": "黄昏", "duration": 80 },
+            { "phrase": "を", "duration": 20 },
+            { "phrase": "振", "duration": 20 },
+            { "phrase": "り", "duration": 20 },
+            { "phrase": "返", "duration": 40 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "每當回望暮色時"
     },
     {
         "time": "01:58.75",
         "text": [
-            { "phrase": "その度", "duration": 0 },
-            { "phrase": "過ちを", "duration": 0 },
-            { "phrase": "知る", "duration": 0 },
-            { "phrase": "でしょう", "duration": 0 }
+            { "phrase": "その", "duration": 40 },
+            { "phrase": "度", "duration": 40 },
+            { "phrase": "過", "duration": 80 },
+            { "phrase": "ちを", "duration": 40 },
+            { "phrase": "知", "duration": 30 },
+            { "phrase": "る", "duration": 20 },
+            { "phrase": "でしょう", "duration": 40 }
         ],
         "translation": "便會明白自己犯的錯吧"
     },
     {
         "time": "02:03.10",
         "text": [
-            { "phrase": "君が", "duration": 0 },
-            { "phrase": "いない", "duration": 0 }
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "が", "duration": 30 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "いない", "duration": 50 }
         ],
         "translation": "少了你的"
     },
     {
         "time": "02:05.05",
         "text": [
-            { "phrase": "日々は", "duration": 0 },
-            { "phrase": "続く", "duration": 0 }
+            { "phrase": "日々", "duration": 40 },
+            { "phrase": "は", "duration": 30 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "続", "duration": 30 },
+            { "phrase": "く", "duration": 20 }
         ],
         "translation": "日子會繼續"
     },
     {
         "time": "02:06.70",
         "text": [
-            { "phrase": "しじまの", "duration": 0 },
-            { "phrase": "中", "duration": 0 },
-            { "phrase": "独り", "duration": 0 }
+            { "phrase": "しじま", "duration": 60 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "中", "duration": 40 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "独", "duration": 40 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "獨留我在　萬籟俱寂"
     },
@@ -346,70 +458,106 @@
     {
         "time": "02:25.15",
         "text": [
-            { "phrase": "光を", "duration": 0 },
-            { "phrase": "受け止めて", "duration": 0 }
+            { "phrase": "光", "duration": 60 },
+            { "phrase": "を", "duration": 20 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "受", "duration": 20 },
+            { "phrase": "け", "duration": 20 },
+            { "phrase": "止", "duration": 30 },
+            { "phrase": "めて", "duration": 60 }
         ],
         "translation": "接收光線後"
     },
     {
         "time": "02:28.41",
         "text": [
-            { "phrase": "跳ね返り", "duration": 0 },
-            { "phrase": "輝く", "duration": 0 },
-            { "phrase": "クリスタル", "duration": 0 }
+            { "phrase": "跳", "duration": 20 },
+            { "phrase": "ね", "duration": 20 },
+            { "phrase": "返", "duration": 40 },
+            { "phrase": "り", "duration": 20 },
+            { "phrase": "", "duration": 50 },
+            { "phrase": "輝", "duration": 80 },
+            { "phrase": "く", "duration": 20 },
+            { "phrase": "クリスタル", "duration": 70 }
         ],
         "translation": "反射光亮的水晶"
     },
     {
         "time": "02:32.31",
         "text": [
-            { "phrase": "君が", "duration": 0 },
-            { "phrase": "つけた", "duration": 0 },
-            { "phrase": "傷も", "duration": 0 }
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "が", "duration": 20 },
+            { "phrase": "つ", "duration": 20 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "けた", "duration": 50 },
+            { "phrase": "傷", "duration": 50 },
+            { "phrase": "も", "duration": 20 }
         ],
         "translation": "你留給我的傷"
     },
     {
         "time": "02:35.94",
         "text": [
-            { "phrase": "輝きの", "duration": 0 },
-            { "phrase": "その", "duration": 0 },
-            { "phrase": "一つ", "duration": 0 }
+            { "phrase": "輝", "duration": 60 },
+            { "phrase": "きの", "duration": 50 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "その", "duration": 50 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "一", "duration": 30 },
+            { "phrase": "つ", "duration": 20 }
         ],
         "translation": "也是其中一道光芒"
     },
     {
         "time": "02:39.86",
         "text": [
-            { "phrase": "光を", "duration": 0 },
-            { "phrase": "受け止めて", "duration": 0 }
+            { "phrase": "光", "duration": 60 },
+            { "phrase": "を", "duration": 20 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "受", "duration": 20 },
+            { "phrase": "け", "duration": 20 },
+            { "phrase": "止", "duration": 30 },
+            { "phrase": "めて", "duration": 60 }
         ],
         "translation": "接收光線後"
     },
     {
         "time": "02:43.41",
         "text": [
-            { "phrase": "跳ね返り", "duration": 0 },
-            { "phrase": "輝く", "duration": 0 },
-            { "phrase": "クリスタル", "duration": 0 }
+            { "phrase": "跳", "duration": 20 },
+            { "phrase": "ね", "duration": 20 },
+            { "phrase": "返", "duration": 40 },
+            { "phrase": "り", "duration": 20 },
+            { "phrase": "", "duration": 50 },
+            { "phrase": "輝", "duration": 80 },
+            { "phrase": "く", "duration": 20 },
+            { "phrase": "クリスタル", "duration": 70 }
         ],
         "translation": "反射光亮的水晶"
     },
     {
         "time": "02:47.28",
         "text": [
-            { "phrase": "君が", "duration": 0 },
-            { "phrase": "つけた", "duration": 0 },
-            { "phrase": "傷も", "duration": 0 }
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "が", "duration": 20 },
+            { "phrase": "つ", "duration": 20 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "けた", "duration": 50 },
+            { "phrase": "傷", "duration": 50 },
+            { "phrase": "も", "duration": 20 }
         ],
         "translation": "你留給我的傷"
     },
     {
         "time": "02:50.78",
         "text": [
-            { "phrase": "輝きの", "duration": 0 },
-            { "phrase": "その", "duration": 0 },
-            { "phrase": "一つ", "duration": 0 }
+            { "phrase": "輝", "duration": 60 },
+            { "phrase": "きの", "duration": 50 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "その", "duration": 50 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "一", "duration": 30 },
+            { "phrase": "つ", "duration": 20 }
         ],
         "translation": "也是其中一道光芒"
     },
@@ -417,8 +565,15 @@
     {
         "time": "03:02.73",
         "text": [
-            { "phrase": "あの人の", "duration": 0 },
-            { "phrase": "言う通り", "duration": 0 }
+            { "phrase": "あ", "duration": 20 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "人", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "言", "duration": 20 },
+            { "phrase": "う", "duration": 20 },
+            { "phrase": "通", "duration": 30 },
+            { "phrase": "り", "duration": 20 }
         ],
         "kiai": true,
         "translation": "如那人所說"
@@ -426,116 +581,151 @@
     {
         "time": "03:05.70",
         "text": [
-            { "phrase": "わたしの", "duration": 0 },
-            { "phrase": "手は", "duration": 0 }
+            { "phrase": "わたしの", "duration": 80 },
+            { "phrase": "手", "duration": 30 },
+            { "phrase": "は", "duration": 30 }
         ],
         "translation": "我的手"
     },
     {
         "time": "03:07.62",
         "text": [
-            { "phrase": "汚れて", "duration": 0 },
-            { "phrase": "ゆく", "duration": 0 },
-            { "phrase": "のでしょう", "duration": 0 }
+            { "phrase": "汚", "duration": 50 },
+            { "phrase": "れて", "duration": 30 },
+            { "phrase": "ゆく", "duration": 40 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "のでしょう", "duration": 50 }
         ],
         "translation": "會逐漸沾染髒污吧"
     },
     {
         "time": "03:10.21",
         "text": [
-            { "phrase": "追い風に", "duration": 0 },
-            { "phrase": "翻り", "duration": 0 }
+            { "phrase": "追", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "い", "duration": 20 },
+            { "phrase": "風", "duration": 30 },
+            { "phrase": "に", "duration": 20 },
+            { "phrase": "翻", "duration": 70 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "順風飄揚"
     },
     {
-        "time": "03:13.26",
+        "time": "03:13.20",
         "text": [
-            { "phrase": "わたしは", "duration": 0 },
-            { "phrase": "まだ", "duration": 0 }
+            { "phrase": "わたしは", "duration": 60 },
+            { "phrase": "まだ", "duration": 40 }
         ],
         "translation": "我可以"
     },
     {
         "time": "03:14.86",
         "text": [
-            { "phrase": "生きて", "duration": 0 },
-            { "phrase": "ゆける", "duration": 0 }
+            { "phrase": "生", "duration": 20 },
+            { "phrase": "きて", "duration": 40 },
+            { "phrase": "ゆける", "duration": 60 }
         ],
         "translation": "繼續活下去的"
     },
     {
         "time": "03:17.70",
         "text": [
-            { "phrase": "あの人の", "duration": 0 },
-            { "phrase": "言う通り", "duration": 0 }
+            { "phrase": "あ", "duration": 20 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "人", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "言", "duration": 20 },
+            { "phrase": "う", "duration": 20 },
+            { "phrase": "通", "duration": 30 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "如那人所說"
     },
     {
         "time": "03:20.55",
         "text": [
-            { "phrase": "いつに", "duration": 0 },
-            { "phrase": "なれど", "duration": 0 }
+            { "phrase": "いつに", "duration": 50 },
+            { "phrase": "なれど", "duration": 60 }
         ],
         "translation": "有些傷無論過多久"
     },
     {
         "time": "03:22.52",
         "text": [
-            { "phrase": "癒えない", "duration": 0 },
-            { "phrase": "傷が", "duration": 0 },
-            { "phrase": "ある", "duration": 0 },
-            { "phrase": "でしょう", "duration": 0 }
+            { "phrase": "癒", "duration": 20 },
+            { "phrase": "えない", "duration": 50 },
+            { "phrase": "傷", "duration": 40 },
+            { "phrase": "が", "duration": 30 },
+            { "phrase": "ある", "duration": 40 },
+            { "phrase": "でしょう", "duration": 40 }
         ],
         "translation": "都不會痊癒吧"
     },
     {
         "time": "03:25.07",
         "text": [
-            { "phrase": "黄昏を", "duration": 0 },
-            { "phrase": "振り返り", "duration": 0 }
+            { "phrase": "黄昏", "duration": 80 },
+            { "phrase": "を", "duration": 20 },
+            { "phrase": "振", "duration": 20 },
+            { "phrase": "り", "duration": 20 },
+            { "phrase": "返", "duration": 40 },
+            { "phrase": "り", "duration": 20 }
         ],
         "translation": "每當回望暮色時"
     },
     {
         "time": "03:28.05",
         "text": [
-            { "phrase": "その度", "duration": 0 },
-            { "phrase": "過ちを", "duration": 0 },
-            { "phrase": "知る", "duration": 0 },
-            { "phrase": "でしょう", "duration": 0 }
+            { "phrase": "その", "duration": 40 },
+            { "phrase": "度", "duration": 40 },
+            { "phrase": "過", "duration": 80 },
+            { "phrase": "ちを", "duration": 40 },
+            { "phrase": "知", "duration": 30 },
+            { "phrase": "る", "duration": 20 },
+            { "phrase": "でしょう", "duration": 40 }
         ],
         "translation": "便會明白自己犯的錯吧"
     },
     {
         "time": "03:32.51",
         "text": [
-            { "phrase": "終わる", "duration": 0 },
-            { "phrase": "日まで", "duration": 0 }
+            { "phrase": "終", "duration": 30 },
+            { "phrase": "わる", "duration": 40 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "日", "duration": 20 },
+            { "phrase": "まで", "duration": 40 }
         ],
         "translation": "希望直到最後"
     },
     {
         "time": "03:34.29",
         "text": [
-            { "phrase": "寄り添う", "duration": 0 },
-            { "phrase": "ように", "duration": 0 }
+            { "phrase": "寄", "duration": 20 },
+            { "phrase": "り", "duration": 20 },
+            { "phrase": "添", "duration": 20 },
+            { "phrase": "う", "duration": 20 },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "ように", "duration": 50 }
         ],
         "translation": "都像你就依偎在我身旁那樣"
     },
     {
         "time": "03:36.27",
         "text": [
-            { "phrase": "君を", "duration": 0 },
-            { "phrase": "憶えて", "duration": 0 },
-            { "phrase": "いたい", "duration": 0 }
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "を", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "憶", "duration": 50 },
+            { "phrase": "えて", "duration": 50 },
+            { "phrase": "いたい", "duration": 50 }
         ],
         "translation": "將你永遠牢記"
     },
     {
         "time": "03:39.90",
-        "text": [{ "phrase": "カムパネルラ", "duration": 0 }],
+        "text": [{ "phrase": "カムパネルラ", "duration": 100 }],
         "translation": "康帕內拉"
     },
     { "time": "03:41.34", "type": "interlude" },

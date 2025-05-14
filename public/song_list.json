@@ -240,7 +240,7 @@
         "lang": "ja"
     },
     {
-        "available": false,
+        "available": true,
         "name": "Kenshi Yonezu - Campanella",
         "song_id": 1538265734,
         "versions": [
@@ -286,7 +286,7 @@
                 }
             ]
         },
-        "updated_at": "2025-05-01",
+        "updated_at": "2025-05-15",
         "lang": "ja"
     },
     {
