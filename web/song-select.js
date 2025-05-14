@@ -41,7 +41,6 @@ function main() {
 
     function sortSong(sortOption) {
         return (a, b) => {
-            console.log(sortLabels[sortOption].charAt(0))
             switch (sortOption) {
                 case "name":
                     return a.title.localeCompare(b.title, "zh-Hans");
