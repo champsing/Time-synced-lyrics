@@ -33,9 +33,10 @@ function main() {
     };
 
     const langCodes = {
-        en: "英文",
-        zh: "中文",
-        ja: "日文"
+        zh: "華語",
+        en: "英語",
+        ja: "日語",
+        kr: "韓語"
     }
 
     function sortSong(sortOption) {
