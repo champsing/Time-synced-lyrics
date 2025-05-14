@@ -19,8 +19,8 @@
             { "phrase": "灯れ", "duration": 64 },
             { "phrase": "出来る", "duration": 66 },
             { "phrase": "限り", "duration": 54 },
-            { "phrase": "　", "duration": 10 },
-            { "phrase": "slow　", "duration": 70, "kiai": true },
+            { "phrase": " ", "duration": 10 },
+            { "phrase": "slow ", "duration": 70, "kiai": true },
             { "phrase": "motion", "duration": 104, "kiai": true }
         ],
         "translation": "用盡可能慢的動作點亮胸口吧"
@@ -51,7 +51,7 @@
             { "phrase": "そう", "duration": 58 },
             { "phrase": "思う", "duration": 42 },
             { "phrase": "のさ", "duration": 50 },
-            { "phrase": "　", "duration": 10 },
+            { "phrase": " ", "duration": 10 },
             { "phrase": "のうのうと", "duration": 87 }
         ],
         "translation": "連我都這麼悠然自得地認為著"
@@ -63,7 +63,7 @@
             { "phrase": "しめ", "duration": 40 },
             { "phrase": "合って", "duration": 46 },
             { "phrase": "いる", "duration": 66 },
-            { "phrase": "　", "duration": 36 },
+            { "phrase": " ", "duration": 36 },
             { "phrase": "隙に", "duration": 54 },
             { "phrase": "泣いて", "duration": 48 },
             { "phrase": "しまう", "duration": 50 },
@@ -98,7 +98,7 @@
         "time": "00:45.07",
         "text": [
             { "phrase": "ああ", "duration": 57 },
-            { "phrase": "　", "duration": 10 },
+            { "phrase": " ", "duration": 10 },
             { "phrase": "絵に", "duration": 57 },
             { "phrase": "描いて", "duration": 65, "kiai": true }
         ],
@@ -121,7 +121,7 @@
             { "phrase": "", "duration": 34 },
             { "phrase": "僕の", "duration": 94 },
             { "phrase": "想いも", "duration": 88 },
-            { "phrase": "　", "duration": 28 },
+            { "phrase": " ", "duration": 28 },
             { "phrase": "笑う", "duration": 64 },
             { "phrase": "前に", "duration": 56 }
         ],
@@ -205,7 +205,7 @@
         "time": "01:24.78",
         "text": [
             { "phrase": "ねえ", "duration": 49 },
-            { "phrase": "　", "duration": 10 },
+            { "phrase": " ", "duration": 10 },
             { "phrase": "約束", "duration": 63 },
             { "phrase": "なんて", "duration": 49 },
             { "phrase": "「守る」", "duration": 70, "kiai": true },
@@ -298,7 +298,7 @@
         "time": "02:05.93",
         "text": [
             { "phrase": "ああ", "duration": 61 },
-            { "phrase": "　", "duration": 12 },
+            { "phrase": " ", "duration": 12 },
             { "phrase": "繊細で", "duration": 126, "kiai": true }
         ],
         "translation": "啊，我的眼中"
@@ -411,7 +411,7 @@
             { "phrase": "", "duration": 10 },
             { "phrase": "離", "duration": 50 },
             { "phrase": "せない", "duration": 54 },
-            { "phrase": "　", "duration": 10 },
+            { "phrase": " ", "duration": 10 },
             { "phrase": "分かる", "duration": 60 },
             { "phrase": "かな", "duration": 68 }
         ],
@@ -469,7 +469,7 @@
         "time": "03:17.00",
         "text": [
             { "phrase": "ねえ", "duration": 48 },
-            { "phrase": "　", "duration": 77 },
+            { "phrase": " ", "duration": 77 },
             { "phrase": "どう", "duration": 42 },
             { "phrase": "", "duration": 10 },
             { "phrase": "かな", "duration": 67 }
