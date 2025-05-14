@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES2020", // 設定 JS 語言版本（你可以依實際調整）
+        "module": "ESNext", // 使用 ES 模組
+        "checkJs": false, // 不要對 JS 檔做型別檢查（關掉大小寫這類干擾）
+        "allowJs": true, // 支援 .js 檔
+        "moduleResolution": "node", // 模組解析方式（支援 node-style import）
+        "baseUrl": ".", // 讓 VS Code 支援相對根路徑 import（可選）
+        "paths": {
+            "@/*": ["./*"], // 可選，這樣你可以用 @/ 開頭的路徑別名
+            "@web/*": ["./web/*"],
+        }
+    },
+    "include": ["./web/**/*", "./scripts/**/*"], // 根據你的專案實際調整
+    "exclude": ["node_modules", "public", "styles"]
+}
