@@ -16,14 +16,14 @@ try {
     process.exit(0);
   }
 
-  const packageChanged = changedFiles.some(file => file === "package.json");
+  const packageChanged = changedFiles.some(file => file === "base-version.js");
 
   if (!packageChanged) {
-    console.warn("❌ 你修改了除了 public/mappings/ 以外的檔案，但沒更新 package.json 的版本號！");
+    console.warn("❌ 你修改了除了 public/mappings/ 以外的檔案，但沒更新 base-version.js 的版本號！");
     process.exit(1);
   }
 
-  console.log("✅ 偵測到 package.json 已變更，通過版本號檢查。");
+  console.log("✅ 偵測到 base-version.js 已變更，通過版本號檢查。");
   process.exit(0);
 
 } catch (err) {
