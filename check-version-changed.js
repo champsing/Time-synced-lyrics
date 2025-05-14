@@ -9,17 +9,17 @@ try {
     encoding: "utf-8"
   }).split("\n").filter(Boolean);
 
-  const onlyMappings = changedFiles.every(file => file.startsWith("public/mappings/"));
+  const onlyMappings = changedFiles.every(file => file.startsWith("public/"));
 
   if (onlyMappings) {
-    console.log("🟢 全部變更都在 public/mappings/，允許不改版本號。");
+    console.log("🟢 全部變更都在 public/，允許不改版本號。");
     process.exit(0);
   }
 
   const packageChanged = changedFiles.some(file => file === "base-version.js");
 
   if (!packageChanged) {
-    console.warn("❌ 你修改了除了 public/mappings/ 以外的檔案，但沒更新 base-version.js 的版本號！");
+    console.warn("❌ 你修改了除了 public/ 以外的檔案，但沒更新 base-version.js 的版本號！");
     process.exit(1);
   }
 
