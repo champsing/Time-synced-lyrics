@@ -187,7 +187,7 @@
 
             <div class="fixed bottom-5 w-full px-5 left-0 sm:left-auto sm:px-0 z-50 mx-auto">
                 <div class="container py-4 bg-gray-300/20 backdrop-blur-lg rounded-2xl w-full">
-                    <div class="flex flex-col sm:flex-row gap-3 p-3 mx-5 rounded-2xl shadow-inner">
+                    <div class="flex sm:flex-row gap-3 p-3 mx-5 rounded-2xl shadow-inner">
                         <div class="flex-1 bg-white/10 p-2 rounded-xl">
                             <input v-model="searchQuery" type="text" placeholder="搜尋歌曲、藝人或專輯..."
                                 class="w-full p-2 bg-transparent border-none text-lg focus:ring-0 placeholder-gray-600">
@@ -201,16 +201,18 @@
                                 <span class="material-icons p-2">
                                     filter_list
                                 </span>
-                                <span class="bg-black rounded-2xl">{{ String.fromCodePoint(sortLabels[sortOption].codePointAt(0))
+                                <span class="bg-black rounded-2xl">{{
+                                    String.fromCodePoint(sortLabels[sortOption].codePointAt(0))
                                     }}</span>
-                                <span class="material-icons transform transition-transform duration-200"
-                                    :class="{ 'rotate-180': !showSortOptions }">expand_more</span>
+                                <div class="hidden sm:flex">
+                                    <span class="material-icons transform transition-transform duration-200"
+                                        :class="{ 'rotate-180': !showSortOptions }">expand_more</span>
+                                </div>
                             </div>
 
-                            <!-- options -->
                             <transition name="fade">
                                 <div v-if="showSortOptions"
-                                    class="min-w-[180px] absolute left-0 right-0 mb-2 bottom-full bg-[#2d4a4d] rounded-lg shadow-xl z-50 origin-bottom">
+                                    class="min-w-[180px] absolute -left-15 right-0 sm:-left-5 mb-2 bottom-full bg-[#2d4a4d] rounded-lg shadow-xl z-50 origin-bottom-left">
                                     <div class="custom-scrollbar p-2 space-y-2 max-h-60 overflow-y-auto">
                                         <div v-for="option in sortOptions" :key="option"
                                             class="px-4 py-2 rounded-md cursor-pointer hover:bg-[#3a5d5f] transition-colors"
