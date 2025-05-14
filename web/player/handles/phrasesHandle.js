@@ -3,7 +3,10 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
 
     // 使用 Optional Chaining 檢查 line.type
     if (line.type === "end") {
-        return { "--progress": "100%", "font-size": "20px" };
+        return {
+            "background-image": `linear-gradient(to right, rgba(255, 255, 255, 0.85) 100%)`,
+            "font-size": "20px",
+        };
     }
 
     // 安全存取 line.time，若不存在則給默認值 0
@@ -44,13 +47,13 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
                 -2 * phraseProgressValue
             })`,
             "--progress": `${phraseProgressValue * 100}%`,
-            backgroundImage: `${linearGradient}`,
+            "background-image": `${linearGradient}`,
         };
     } else
         return {
             transform: `matrix(1, 0, 0, 1, 0, ${-2 * phraseProgressValue})`,
             "--progress": `${phraseProgressValue * 100}%`,
-            backgroundImage: `${linearGradient}`,
+            "background-image": `${linearGradient}`,
         };
 };
 
