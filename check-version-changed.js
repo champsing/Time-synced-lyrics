@@ -21,7 +21,7 @@ try {
     }
 
     const packageChanged = changedFiles.some(
-        (file) => file === "base-version.js"
+        (file) => file === "web/utils/base-version.js"
     );
 
     if (!packageChanged) {
