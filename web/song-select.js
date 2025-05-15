@@ -21,7 +21,7 @@ function main() {
     const isLoading = ref(true);
     const error = ref(null);
     const sortOptions = ["name", "artist", "album", "date", "lang"];
-    const sortOption = ref(sortOptions[0]);
+    const sortOption = ref("date");
     const showSortOptions = ref(false);
 
     const sortLabels = {
