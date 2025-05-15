@@ -253,7 +253,7 @@
                     </div>
                 </div>
 
-                <div class="absolute inset-0 -z-10 overflow-hidden rounded-2xl" v-if="enableLyricBackground">
+                <div class="absolute inset-0 -z-10 overflow-hidden rounded-2xl select-none" v-if="enableLyricBackground">
                     <img :src="currentSong.art" :alt="currentSong.name"
                         class="reflection-scan w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background relative overflow-hidden translate-z-0 backface-hidden">
                 </div>
@@ -297,7 +297,7 @@
             <div class="flex flex-row">
                 <button type="button" class="rounded-2xl bg-gray-500 outline-black outline-2"
                     id="controller-panel-switch" aria_label="顯示或隱藏控制介面" title="顯示或隱藏控制介面">
-                    <span class="material-icons p-2" id="controller-panel-switch-icon">keyboard_arrow_down</span>
+                    <span class="material-icons p-2 select-none" id="controller-panel-switch-icon">keyboard_arrow_down</span>
                 </button>
 
             </div>
@@ -379,7 +379,7 @@
                                 </div>
 
                                 <!-- 歌曲不同版本的徽章 -->
-                                <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2 items-center">
+                                <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2 items-center select-none">
                                     <span v-if="songVersion == INSTRUMENTAL"
                                         class="bg-cyan-700 text-xs mr-1 p-[5px] rounded-[5px]">
                                         INSTRUMENTAL
@@ -399,7 +399,7 @@
                         </div>
 
                         <div
-                            class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit">
+                            class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit select-none">
                             <div class="flex flex-row gap-7">
                                 <button id="player-rewind-10sec" @click="rewind10Sec()" type="button" title="後退10秒"
                                     aria-label="後退10秒">
