@@ -1,1 +1,1 @@
-export const BASE_VERSION = "4.5.10";
+export const BASE_VERSION = "4.5.11";
