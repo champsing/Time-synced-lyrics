@@ -499,7 +499,7 @@
                         </div>
                         <div id="enable-pronounciation-container" class="settings-entry">
                             <label class="switch mr-2">
-                                <input type="checkbox" id="enable-pronounciation"
+                                <input type="checkbox" id="enable-pronounciation" :disabled="!currentSong.furigana"
                                     v-model="enablePronounciation" />
                                 <span class="slider round"></span>
                             </label>

@@ -194,7 +194,8 @@
             ]
         },
         "updated_at": "2025-05-09",
-        "lang": "ja"
+        "lang": "ja",
+        "furigana": false
     },
     {
         "available": false,
@@ -237,7 +238,8 @@
             ]
         },
         "updated_at": "2025-05-01",
-        "lang": "ja"
+        "lang": "ja",
+        "furigana": false
     },
     {
         "available": true,
@@ -287,7 +289,8 @@
             ]
         },
         "updated_at": "2025-05-15",
-        "lang": "ja"
+        "lang": "ja",
+        "furigana": true
     },
     {
         "available": true,
@@ -332,6 +335,7 @@
             ]
         },
         "updated_at": "2025-05-01",
-        "lang": "ja"
+        "lang": "ja",
+        "furigana": false
     }
 ]
