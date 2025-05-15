@@ -7,9 +7,9 @@
     {
         "time": "00:20.77",
         "text": [
-            { "phrase": "夢", "duration": 30 },
+            { "phrase": "夢", "duration": 30, "pronounciation": "ゆめ" },
             { "phrase": "を", "duration": 40 },
-            { "phrase": "見", "duration": 40 },
+            { "phrase": "見", "duration": 40, "pronounciation": "み" },
             { "phrase": "ていた", "duration": 40 }
         ],
         "translation": "我做了一個夢"
@@ -17,7 +17,7 @@
     {
         "time": "00:22.69",
         "text": [
-            { "phrase": "君", "duration": 30 },
+            { "phrase": "君", "duration": 30, "pronounciation": "きみ" },
             { "phrase": "の", "duration": 10 },
             { "phrase": "あとに", "duration": 50 }
         ],
@@ -26,10 +26,10 @@
     {
         "time": "00:24.54",
         "text": [
-            { "phrase": "咲", "duration": 20 },
+            { "phrase": "咲", "duration": 20, "pronounciation": "さ" },
             { "phrase": "いた", "duration": 30 },
             { "phrase": "リンドウの", "duration": 50 },
-            { "phrase": "花", "duration": 40 }
+            { "phrase": "花", "duration": 40, "pronounciation": "はな" }
         ],
         "translation": "龍膽花綻放"
     },
@@ -37,7 +37,7 @@
         "time": "00:26.45",
         "text": [
             { "phrase": "この", "duration": 30 },
-            { "phrase": "街", "duration": 40 },
+            { "phrase": "街", "duration": 40, "pronounciation": "まち" },
             { "phrase": "は", "duration": 20 }
         ],
         "translation": "這座城市"
@@ -45,9 +45,9 @@
     {
         "time": "00:28.24",
         "text": [
-            { "phrase": "変", "duration": 10 },
+            { "phrase": "変", "duration": 10, "pronounciation": "かわ" },
             { "phrase": "わり", "duration": 20 },
-            { "phrase": "続", "duration": 60 },
+            { "phrase": "続", "duration": 60, "pronounciation": "つづ" },
             { "phrase": "ける", "duration": 40 }
         ],
         "translation": "持續地改變"
@@ -55,7 +55,7 @@
     {
         "time": "00:30.08",
         "text": [
-            { "phrase": "計", "duration": 40 },
+            { "phrase": "計", "duration": 40, "pronounciation": "はか" },
             { "phrase": "らずも", "duration": 50 }
         ],
         "translation": "卻出乎意料的"
@@ -63,9 +63,9 @@
     {
         "time": "00:32.11",
         "text": [
-            { "phrase": "君", "duration": 40 },
+            { "phrase": "君", "duration": 40, "pronounciation": "きみ" },
             { "phrase": "を", "duration": 10 },
-            { "phrase": "残", "duration": 40 },
+            { "phrase": "残", "duration": 40, "pronounciation": "のご" },
             { "phrase": "して", "duration": 30 }
         ],
         "translation": "將你留下"
@@ -73,29 +73,28 @@
     {
         "time": "00:34.10",
         "text": [
-            { "phrase": "真昼", "duration": 60 },
+            { "phrase": "真昼", "duration": 60, "pronounciation": "まひる" },
             { "phrase": "", "duration": 10 },
             { "phrase": "の", "duration": 10 },
-            { "phrase": "海", "duration": 50 },
+            { "phrase": "海", "duration": 50, "pronounciation": "うみ" },
             { "phrase": "で", "duration": 10 },
-            { "phrase": "", "duration": 10 },
-            { "phrase": "眠", "duration": 50 },
+            { "phrase": "眠", "duration": 50, "pronounciation": "ねむ" },
             { "phrase": "る", "duration": 10 },
-            { "phrase": "月光蟲", "duration": 90 }
+            { "phrase": "月光蟲", "duration": 90, "pronounciation": "げっこうちゅう" }
         ],
         "translation": "正午大海裡沉睡的月光蟲"
     },
     {
         "time": "00:37.60",
         "text": [
-            { "phrase": "戻", "duration": 30 },
+            { "phrase": "戻", "duration": 30, "pronounciation": "もど" },
             { "phrase": "らない", "duration": 50 },
             { "phrase": "あの", "duration": 40 },
-            { "phrase": "日", "duration": 20 },
+            { "phrase": "日", "duration": 20, "pronounciation": "ひ" },
             { "phrase": "に", "duration": 10 },
-            { "phrase": "想", "duration": 40 },
+            { "phrase": "想", "duration": 40, "pronounciation": "おも" },
             { "phrase": "いを", "duration": 30 },
-            { "phrase": "巡", "duration": 50 },
+            { "phrase": "巡", "duration": 50, "pronounciation": "めぐ" },
             { "phrase": "らす", "duration": 30 }
         ],
         "translation": "遙想那些回不去的時光"
@@ -104,9 +103,9 @@
         "time": "00:41.38",
         "text": [
             { "phrase": "オルガンの", "duration": 80 },
-            { "phrase": "音色", "duration": 80 },
+            { "phrase": "音色", "duration": 80, "pronounciation": "ねいろ" },
             { "phrase": "で", "duration": 20 },
-            { "phrase": "踊", "duration": 50 },
+            { "phrase": "踊", "duration": 50, "pronounciation": "おど" },
             { "phrase": "る", "duration": 20 },
             { "phrase": "スタチュー", "duration": 70 }
         ],
@@ -115,11 +114,11 @@
     {
         "time": "00:44.95",
         "text": [
-            { "phrase": "時間", "duration": 50 },
+            { "phrase": "時間", "duration": 50, "pronounciation": "じかん" },
             { "phrase": "だけ", "duration": 40 },
-            { "phrase": "通", "duration": 30 },
+            { "phrase": "通", "duration": 30, "pronounciation": "とお" },
             { "phrase": "り", "duration": 20 },
-            { "phrase": "過", "duration": 20 },
+            { "phrase": "過", "duration": 20, "pronounciation": "す" },
             { "phrase": "ぎて", "duration": 40 },
             { "phrase": "いく", "duration": 30 }
         ],
@@ -131,11 +130,11 @@
             { "phrase": "あ", "duration": 20 },
             { "phrase": "", "duration": 30 },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "人", "duration": 40 },
+            { "phrase": "人", "duration": 40, "pronounciation": "ひと" },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "言", "duration": 20 },
+            { "phrase": "言", "duration": 20, "pronounciation": "い" },
             { "phrase": "う", "duration": 20 },
-            { "phrase": "通", "duration": 30 },
+            { "phrase": "通", "duration": 30, "pronounciation": "とお" },
             { "phrase": "り", "duration": 20 }
         ],
         "translation": "如那人所說"
@@ -144,7 +143,7 @@
         "time": "00:51.62",
         "text": [
             { "phrase": "わたしの", "duration": 80 },
-            { "phrase": "手", "duration": 30 },
+            { "phrase": "手", "duration": 30, "pronounciation": "て" },
             { "phrase": "は", "duration": 30 }
         ],
         "translation": "我的手"
@@ -152,7 +151,7 @@
     {
         "time": "00:53.50",
         "text": [
-            { "phrase": "汚", "duration": 50 },
+            { "phrase": "汚", "duration": 50, "pronounciation": "よご" },
             { "phrase": "れて", "duration": 30 },
             { "phrase": "ゆく", "duration": 40 },
             { "phrase": "", "duration": 40 },
@@ -163,12 +162,12 @@
     {
         "time": "00:56.21",
         "text": [
-            { "phrase": "追", "duration": 20 },
+            { "phrase": "追", "duration": 20, "pronounciation": "お" },
             { "phrase": "", "duration": 20 },
             { "phrase": "い", "duration": 20 },
-            { "phrase": "風", "duration": 30 },
+            { "phrase": "風", "duration": 30, "pronounciation": "かぜ" },
             { "phrase": "に", "duration": 20 },
-            { "phrase": "翻", "duration": 70 },
+            { "phrase": "翻", "duration": 70, "pronounciation": "ひるがえ" },
             { "phrase": "り", "duration": 20 }
         ],
         "translation": "順風飄揚"
@@ -184,7 +183,7 @@
     {
         "time": "01:00.84",
         "text": [
-            { "phrase": "生", "duration": 20 },
+            { "phrase": "生", "duration": 20, "pronounciation": "い" },
             { "phrase": "きて", "duration": 40 },
             { "phrase": "ゆく", "duration": 40 },
             { "phrase": "でしょう", "duration": 60 }
@@ -194,10 +193,10 @@
     {
         "time": "01:03.62",
         "text": [
-            { "phrase": "終", "duration": 30 },
+            { "phrase": "終", "duration": 30, "pronounciation": "お" },
             { "phrase": "わる", "duration": 40 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "日", "duration": 20 },
+            { "phrase": "日", "duration": 20, "pronounciation": "ひ" },
             { "phrase": "まで", "duration": 40 }
         ],
         "translation": "希望直到最後"
@@ -205,9 +204,9 @@
     {
         "time": "01:05.42",
         "text": [
-            { "phrase": "寄", "duration": 20 },
+            { "phrase": "寄", "duration": 20, "pronounciation": "よ" },
             { "phrase": "り", "duration": 20 },
-            { "phrase": "添", "duration": 20 },
+            { "phrase": "添", "duration": 20, "pronounciation": "そ" },
             { "phrase": "う", "duration": 20 },
             { "phrase": "", "duration": 10 },
             { "phrase": "ように", "duration": 50 }
@@ -217,10 +216,10 @@
     {
         "time": "01:07.30",
         "text": [
-            { "phrase": "君", "duration": 40 },
+            { "phrase": "君", "duration": 40, "pronounciation": "きみ" },
             { "phrase": "を", "duration": 20 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "憶", "duration": 50 },
+            { "phrase": "憶", "duration": 50, "pronounciation": "おぼ" },
             { "phrase": "えて", "duration": 50 },
             { "phrase": "いたい", "duration": 50 }
         ],
@@ -237,7 +236,7 @@
         "text": [
             { "phrase": "そこは", "duration": 50 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "豊", "duration": 40 },
+            { "phrase": "豊", "duration": 40, "pronounciation": "ゆた" },
             { "phrase": "かか", "duration": 40 }
         ],
         "translation": "那裡是否豐沃到"
@@ -245,9 +244,9 @@
     {
         "time": "01:22.23",
         "text": [
-            { "phrase": "君", "duration": 40 },
+            { "phrase": "君", "duration": 40, "pronounciation": "きみ" },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "目", "duration": 20 },
+            { "phrase": "目", "duration": 20, "pronounciation": "め" },
             { "phrase": "が", "duration": 20 }
         ],
         "translation": "讓你感到"
@@ -255,7 +254,7 @@
     {
         "time": "01:24.15",
         "text": [
-            { "phrase": "眩", "duration": 30 },
+            { "phrase": "眩", "duration": 30, "pronounciation": "くら" },
             { "phrase": "む", "duration": 20 },
             { "phrase": "", "duration": 20 },
             { "phrase": "くらいに", "duration": 50 }
@@ -266,7 +265,7 @@
         "time": "01:26.00",
         "text": [
             { "phrase": "タールの", "duration": 50 },
-            { "phrase": "上", "duration": 20 },
+            { "phrase": "上", "duration": 20, "pronounciation": "うえ" },
             { "phrase": "で", "duration": 10 }
         ],
         "translation": "柏油路上"
@@ -274,10 +273,10 @@
     {
         "time": "01:27.84",
         "text": [
-            { "phrase": "陽炎", "duration": 50 },
+            { "phrase": "陽炎", "duration": 50, "pronounciation": "かげろう" },
             { "phrase": "", "duration": 20 },
             { "phrase": "が", "duration": 20 },
-            { "phrase": "揺", "duration": 20 },
+            { "phrase": "揺", "duration": 20, "pronounciation": "ゆ" },
             { "phrase": "れる", "duration": 30 }
         ],
         "translation": "熱氣朦朧"
@@ -285,7 +284,7 @@
     {
         "time": "01:29.65",
         "text": [
-            { "phrase": "爆", "duration": 20 },
+            { "phrase": "爆", "duration": 20, "pronounciation": "は" },
             { "phrase": "ぜる", "duration": 30 },
             { "phrase": "ような", "duration": 40 }
         ],
@@ -294,23 +293,23 @@
     {
         "time": "01:31.56",
         "text": [
-            { "phrase": "夏", "duration": 30 },
+            { "phrase": "夏", "duration": 30, "pronounciation": "なつ" },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "灯火", "duration": 70 }
+            { "phrase": "灯火", "duration": 70, "pronounciation": "ともしび" }
         ],
         "translation": "夏日燈火"
     },
     {
         "time": "01:33.50",
         "text": [
-            { "phrase": "真白", "duration": 60 },
+            { "phrase": "真白", "duration": 60, "pronounciation": "ましろ" },
             { "phrase": "", "duration": 10 },
             { "phrase": "な", "duration": 10 },
             { "phrase": "", "duration": 10 },
-            { "phrase": "鳥", "duration": 50 },
+            { "phrase": "鳥", "duration": 50, "pronounciation": "とり" },
             { "phrase": "と", "duration": 10 },
             { "phrase": "", "duration": 10 },
-            { "phrase": "歌", "duration": 50 },
+            { "phrase": "歌", "duration": 50, "pronounciation": "うた" },
             { "phrase": "う", "duration": 10 },
             {
                 "phrase": "針葉樹",
@@ -323,11 +322,11 @@
     {
         "time": "01:37.00",
         "text": [
-            { "phrase": "見", "duration": 20 },
+            { "phrase": "見", "duration": 20, "pronounciation": "み" },
             { "phrase": "つめる", "duration": 60 },
-            { "phrase": "全", "duration": 60 },
+            { "phrase": "全", "duration": 60, "pronounciation": "すべ" },
             { "phrase": "てが", "duration": 40 },
-            { "phrase": "面影", "duration": 70 },
+            { "phrase": "面影", "duration": 70, "pronounciation": "おもかげ" },
             { "phrase": "に", "duration": 20 },
             { "phrase": "なる", "duration": 50 }
         ],
@@ -336,14 +335,14 @@
     {
         "time": "01:41.00",
         "text": [
-            { "phrase": "波", "duration": 40 },
-            { "phrase": "打", "duration": 20 },
+            { "phrase": "波", "duration": 40, "pronounciation": "なみ" },
+            { "phrase": "打", "duration": 20, "pronounciation": "う" },
             { "phrase": "", "duration": 20 },
             { "phrase": "ち", "duration": 20 },
-            { "phrase": "際", "duration": 50 },
+            { "phrase": "際", "duration": 50, "pronounciation": "きわ" },
             { "phrase": "に", "duration": 20 },
             { "phrase": "ボタンが", "duration": 60 },
-            { "phrase": "一", "duration": 30 },
+            { "phrase": "一", "duration": 30, "pronounciation": "ひと" },
             { "phrase": "つ", "duration": 20 }
         ],
         "translation": "浪打岸上時那枚鈕扣"
@@ -351,11 +350,11 @@
     {
         "time": "01:44.59",
         "text": [
-            { "phrase": "君", "duration": 30 },
+            { "phrase": "君", "duration": 30, "pronounciation": "きみ" },
             { "phrase": "が", "duration": 20 },
             { "phrase": "", "duration": 20 },
             { "phrase": "くれた", "duration": 50 },
-            { "phrase": "寂", "duration": 40 },
+            { "phrase": "寂", "duration": 40, "pronounciation": "さみ" },
             { "phrase": "しさよ", "duration": 60 }
         ],
         "translation": "是你留給我的寂寞呀"
@@ -386,9 +385,9 @@
     {
         "time": "01:53.23",
         "text": [
-            { "phrase": "癒", "duration": 20 },
+            { "phrase": "癒", "duration": 20, "pronounciation": "" },
             { "phrase": "えない", "duration": 50 },
-            { "phrase": "傷", "duration": 40 },
+            { "phrase": "傷", "duration": 40, "pronounciation": "" },
             { "phrase": "が", "duration": 30 },
             { "phrase": "ある", "duration": 40 },
             { "phrase": "でしょう", "duration": 40 }
@@ -398,11 +397,11 @@
     {
         "time": "01:55.77",
         "text": [
-            { "phrase": "黄昏", "duration": 80 },
+            { "phrase": "黄昏", "duration": 80, "pronounciation": "" },
             { "phrase": "を", "duration": 20 },
-            { "phrase": "振", "duration": 20 },
+            { "phrase": "振", "duration": 20, "pronounciation": "" },
             { "phrase": "り", "duration": 20 },
-            { "phrase": "返", "duration": 40 },
+            { "phrase": "返", "duration": 40, "pronounciation": "" },
             { "phrase": "り", "duration": 20 }
         ],
         "translation": "每當回望暮色時"
@@ -411,10 +410,10 @@
         "time": "01:58.75",
         "text": [
             { "phrase": "その", "duration": 40 },
-            { "phrase": "度", "duration": 40 },
-            { "phrase": "過", "duration": 80 },
+            { "phrase": "度", "duration": 40, "pronounciation": "" },
+            { "phrase": "過", "duration": 80, "pronounciation": "" },
             { "phrase": "ちを", "duration": 40 },
-            { "phrase": "知", "duration": 30 },
+            { "phrase": "知", "duration": 30, "pronounciation": "" },
             { "phrase": "る", "duration": 20 },
             { "phrase": "でしょう", "duration": 40 }
         ],
@@ -423,7 +422,7 @@
     {
         "time": "02:03.10",
         "text": [
-            { "phrase": "君", "duration": 40 },
+            { "phrase": "君", "duration": 40, "pronounciation": "" },
             { "phrase": "が", "duration": 30 },
             { "phrase": "", "duration": 20 },
             { "phrase": "いない", "duration": 50 }
@@ -433,10 +432,10 @@
     {
         "time": "02:05.05",
         "text": [
-            { "phrase": "日々", "duration": 40 },
+            { "phrase": "日々", "duration": 40, "pronounciation": "" },
             { "phrase": "は", "duration": 30 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "続", "duration": 30 },
+            { "phrase": "続", "duration": 30, "pronounciation": "" },
             { "phrase": "く", "duration": 20 }
         ],
         "translation": "日子會繼續"
@@ -447,9 +446,9 @@
             { "phrase": "しじま", "duration": 60 },
             { "phrase": "", "duration": 20 },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "中", "duration": 40 },
+            { "phrase": "中", "duration": 40, "pronounciation": "" },
             { "phrase": "", "duration": 20 },
-            { "phrase": "独", "duration": 40 },
+            { "phrase": "独", "duration": 40, "pronounciation": "" },
             { "phrase": "り", "duration": 20 }
         ],
         "translation": "獨留我在　萬籟俱寂"
@@ -458,12 +457,12 @@
     {
         "time": "02:25.15",
         "text": [
-            { "phrase": "光", "duration": 60 },
+            { "phrase": "光", "duration": 60, "pronounciation": "" },
             { "phrase": "を", "duration": 20 },
             { "phrase": "", "duration": 40 },
-            { "phrase": "受", "duration": 20 },
+            { "phrase": "受", "duration": 20, "pronounciation": "" },
             { "phrase": "け", "duration": 20 },
-            { "phrase": "止", "duration": 30 },
+            { "phrase": "止", "duration": 30, "pronounciation": "" },
             { "phrase": "めて", "duration": 60 }
         ],
         "translation": "接收光線後"
@@ -471,12 +470,12 @@
     {
         "time": "02:28.41",
         "text": [
-            { "phrase": "跳", "duration": 20 },
+            { "phrase": "跳", "duration": 20, "pronounciation": "" },
             { "phrase": "ね", "duration": 20 },
-            { "phrase": "返", "duration": 40 },
+            { "phrase": "返", "duration": 40, "pronounciation": "" },
             { "phrase": "り", "duration": 20 },
             { "phrase": "", "duration": 50 },
-            { "phrase": "輝", "duration": 80 },
+            { "phrase": "輝", "duration": 80, "pronounciation": "" },
             { "phrase": "く", "duration": 20 },
             { "phrase": "クリスタル", "duration": 70 }
         ],
@@ -485,12 +484,12 @@
     {
         "time": "02:32.31",
         "text": [
-            { "phrase": "君", "duration": 40 },
+            { "phrase": "君", "duration": 40, "pronounciation": "" },
             { "phrase": "が", "duration": 20 },
             { "phrase": "つ", "duration": 20 },
             { "phrase": "", "duration": 40 },
             { "phrase": "けた", "duration": 50 },
-            { "phrase": "傷", "duration": 50 },
+            { "phrase": "傷", "duration": 50, "pronounciation": "" },
             { "phrase": "も", "duration": 20 }
         ],
         "translation": "你留給我的傷"
@@ -498,12 +497,12 @@
     {
         "time": "02:35.94",
         "text": [
-            { "phrase": "輝", "duration": 60 },
+            { "phrase": "輝", "duration": 60, "pronounciation": "" },
             { "phrase": "きの", "duration": 50 },
             { "phrase": "", "duration": 30 },
             { "phrase": "その", "duration": 50 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "一", "duration": 30 },
+            { "phrase": "一", "duration": 30, "pronounciation": "" },
             { "phrase": "つ", "duration": 20 }
         ],
         "translation": "也是其中一道光芒"
