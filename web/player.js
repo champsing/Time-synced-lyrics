@@ -228,9 +228,9 @@ function main() {
                 );
                 currentSong.value = matchedSong;
             } else {
-                currentSong.value = songList.value[0];
+                currentSong.value = null;
                 console.warn(
-                    `未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在: ${songRequest}, 使用第一首歌曲`
+                    `未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在, 請由選歌系統選擇歌曲, 勿直接訪問 /player/ 目錄`
                 );
             }
 
