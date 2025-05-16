@@ -68,6 +68,10 @@
 }
 
 @layer player {
+    .lyric-phrase {
+        @apply inline-block whitespace-pre relative text-transparent bg-clip-text bg-[#aaaaaa];
+    }
+
     .lyric-line {
         @apply transition-opacity duration-300;
     }

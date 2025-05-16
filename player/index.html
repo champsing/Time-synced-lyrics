@@ -215,7 +215,7 @@
                             <div class="primary-vocals">
                                 <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
                                     :id="`lyric-phrase-${index}-${phraseIndex}`"
-                                    class="lyric-phrase inline-block whitespace-pre relative text-transparent bg-clip-text"
+                                    class="lyric-phrase"
                                     :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                                     :style="getPhraseStyle(index, phraseIndex)"
                                     :class="{ 'active': isActivePhrase(currentTime, line, phraseIndex) && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
@@ -234,7 +234,7 @@
                             <div v-if="line.background_voice !== undefined" class="background-vocals">
                                 <span v-for="(bvt, phraseIndex) in line.background_voice.text"
                                     v-if="isCurrentLine(index)" :key="phraseIndex"
-                                    class="lyric-phrase relative text-transparent bg-clip-text text-lg"
+                                    class="lyric-phrase text-lg"
                                     :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                                     :style="getBackgroundPhraseStyle(index, phraseIndex)"
                                     :class="{ 'active': isActivePhrase(currentTime, line.background_voice, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
@@ -601,7 +601,7 @@
                                     class="outline rounded-2xl w-1/5 m-1"
                                     @click="copyToClipboard(currentSongURI, '歌曲連結')">
                                     <div class="sm:hidden">
-                                        <span class="material-symbols-outlined">content_copy</span>
+                                        <span class="material-icons">content_copy</span>
                                     </div>
                                     <span class="hidden sm:block">複製</span>
                                 </button>
