@@ -2,57 +2,84 @@
     {
         "time": "00:35.59",
         "text": [
-            { "phrase": "僕の", "duration": 0 },
-            { "phrase": "時価総額400円の", "duration": 0 },
-            { "phrase": "心臓と", "duration": 0 }
+            { "phrase": "僕", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "時価総額", "duration": 120 },
+            { "phrase": "400円", "duration": 120 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "心臓", "duration": 70 },
+            { "phrase": "と", "duration": 20 }
         ],
         "translation": "我那市價總共400日圓的心臟 以及"
     },
     {
         "time": "00:41.77",
         "text": [
-            { "phrase": "絵に", "duration": 0 },
-            { "phrase": "描いたような", "duration": 0 },
-            { "phrase": "君の", "duration": 0 },
-            { "phrase": "綺麗な", "duration": 0 },
-            { "phrase": "心臓を", "duration": 0 }
+            { "phrase": "絵", "duration": 20 },
+            { "phrase": "に", "duration": 20 },
+            { "phrase": "描", "duration": 20 },
+            { "phrase": "いた", "duration": 30 },
+            { "phrase": "ような", "duration": 40 },
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "綺麗", "duration": 70 },
+            { "phrase": "な", "duration": 20 },
+            { "phrase": "心臓", "duration": 70 },
+            { "phrase": "を", "duration": 20 }
         ],
         "translation": "如同繪畫一般漂亮的 你的心臟"
     },
     {
         "time": "00:47.79",
         "text": [
-            { "phrase": "合わせて", "duration": 0 },
-            { "phrase": "できた", "duration": 0 },
-            { "phrase": "しわの", "duration": 0 },
-            { "phrase": "数が", "duration": 0 }
+            { "phrase": "合", "duration": 20 },
+            { "phrase": "わせて", "duration": 60 },
+            { "phrase": "できた", "duration": 60 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "しわの", "duration": 60 },
+            { "phrase": "数", "duration": 120 },
+            { "phrase": "が", "duration": 20 }
         ],
         "translation": "兩者合起來而成的皺紋多寡"
     },
     {
         "time": "00:52.73",
         "text": [
-            { "phrase": "僕達の", "duration": 0 },
-            { "phrase": "未来の", "duration": 0 },
-            { "phrase": "価値だ", "duration": 0 }
+            { "phrase": "僕達", "duration": 60 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "未来", "duration": 60 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "価値", "duration": 50 },
+            { "phrase": "だ", "duration": 20 }
         ],
         "translation": "便是我們未來的價值"
     },
     {
-        "time": "00:59.32",
+        "time": "00:59.20",
         "text": [
-            { "phrase": "残された", "duration": 0 },
-            { "phrase": "時間が", "duration": 0 },
-            { "phrase": "少ないのなら", "duration": 0 }
+            { "phrase": "残", "duration": 40 },
+            { "phrase": "された", "duration": 40 },
+            { "phrase": "時間", "duration": 50 },
+            { "phrase": "が", "duration": 20 },
+            { "phrase": "少", "duration": 30 },
+            { "phrase": "ない", "duration": 40 },
+            { "phrase": "のなら", "duration": 40 }
         ],
         "translation": "如果時間所剩不多"
     },
     {
         "time": "01:02.31",
         "text": [
-            { "phrase": "崩れてく", "duration": 0 },
-            { "phrase": "時間が", "duration": 0 },
-            { "phrase": "増えてくのなら", "duration": 0 }
+            { "phrase": "崩", "duration": 30 },
+            { "phrase": "れてく", "duration": 40 },
+            { "phrase": "時間", "duration": 50 },
+            { "phrase": "が", "duration": 20 },
+            { "phrase": "増", "duration": 30 },
+            { "phrase": "えてく", "duration": 40 },
+            { "phrase": "のなら", "duration": 40 }
         ],
         "translation": "如果逐漸崩毀的時間越來越多"
     },
@@ -273,8 +300,9 @@
     {
         "time": "03:08.25",
         "text": [
-            { "phrase": "そんな", "duration": 0, "kiai": true },
-            { "phrase": "しわあわせで", "duration": 0 }
+            { "phrase": "そんな", "duration": 80, "kiai": true },
+            { "phrase": "", "duration": 10 },
+            { "phrase": "しわあわせで", "duration": 200 }
         ],
         "translation": "就那樣 將我們的皺紋合起來"
     },
@@ -378,7 +406,8 @@
                 { "phrase": "は", "duration": 30 }
             ],
             "translation": "交疊的時日中我們將 流動的時光中我們將"
-        }
+        },
+        "concurrent_lines": [34]
     },
     {
         "time": "03:42.89",
@@ -450,11 +479,16 @@
         }
     },
     {
-        "time": "03:55.98",
+        "time": "03:54.70",
         "text": [
-            { "phrase": "また", "duration": 0 },
-            { "phrase": "しわを", "duration": 0 },
-            { "phrase": "あわせて", "duration": 0 }
+            { "phrase": "", "duration": 100 },
+            { "phrase": "また", "duration": 80 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "しわを", "duration": 180 },
+            { "phrase": "あわ", "duration": 120 },
+            { "phrase": "せ", "duration": 150 },
+            { "phrase": "", "duration": 180 },
+            { "phrase": "て", "duration": 100 }
         ],
         "translation": "再一次 將我們的皺紋結合起來",
         "background_voice": {

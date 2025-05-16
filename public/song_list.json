@@ -198,7 +198,7 @@
         "furigana": false
     },
     {
-        "available": false,
+        "available": true,
         "name": "Vaundy - Shiwaawase",
         "song_id": 1707027525,
         "versions": [
@@ -237,7 +237,7 @@
                 }
             ]
         },
-        "updated_at": "2025-05-01",
+        "updated_at": "2025-05-16",
         "lang": "ja",
         "furigana": false
     },
