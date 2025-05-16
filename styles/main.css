@@ -1,3 +1,6 @@
+/* Tailwind CLI input file */
+/* command: npx @tailwindcss/cli -i ./styles/main.css -o ./styles/tailwind.css --watch */
+
 @import "tailwindcss";
 
 @theme {
@@ -65,6 +68,10 @@
 }
 
 @layer player {
+    .lyric-phrase {
+        @apply inline-block whitespace-pre relative text-transparent bg-clip-text bg-[#aaaaaa];
+    }
+
     .lyric-line {
         @apply transition-opacity duration-300;
     }

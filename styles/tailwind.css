@@ -925,9 +925,6 @@
     --tw-gradient-to: var(--color-white);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
-  .bg-clip-text {
-    background-clip: text;
-  }
   .object-cover {
     object-fit: cover;
   }
@@ -1087,9 +1084,6 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
-  .whitespace-pre {
-    white-space: pre;
-  }
   .whitespace-pre-wrap {
     white-space: pre-wrap;
   }
@@ -1152,9 +1146,6 @@
   }
   .text-teal-500 {
     color: var(--color-teal-500);
-  }
-  .text-transparent {
-    color: transparent;
   }
   .text-white {
     color: var(--color-white);
@@ -1746,11 +1737,6 @@
       width: fit-content;
     }
   }
-  .lg\:w-full {
-    @media (width >= 64rem) {
-      width: 100%;
-    }
-  }
   .xl\:grid-cols-3 {
     @media (width >= 80rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1837,6 +1823,14 @@
   }
 }
 @layer player {
+  .lyric-phrase {
+    position: relative;
+    display: inline-block;
+    background-color: #aaaaaa;
+    background-clip: text;
+    white-space: pre;
+    color: transparent;
+  }
   .lyric-line {
     transition-property: opacity;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));

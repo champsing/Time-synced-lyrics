@@ -1,6 +1,7 @@
 // check-version-changed.js
 /* eslint-disable no-undef */
 // 提醒更新版本號
+// 如果想略過一次，到 pre-commit 鈎子中註解 "set -e" 即可
 
 const { execSync } = require("child_process");
 
@@ -12,7 +13,7 @@ try {
         .filter(Boolean);
 
     const onlyMappings = changedFiles.every((file) =>
-        file.startsWith("public/")
+        file.startsWith("public/") || file.startsWith("py_tools/")
     );
 
     if (onlyMappings) {
