@@ -89,27 +89,27 @@
             { "phrase": "零", "duration": 61.2 },
             { "phrase": "さ", "duration": 24.2 },
             { "phrase": "ない", "duration": 69.2 },
-            { "phrase": "ように", "duration": 66.5 },
-            { "phrase": "あわせ", "duration": 63.2 },
+            { "phrase": "ように", "duration": 46.5 },
+            { "phrase": "", "duration": 50 },
+            { "phrase": "あわせ", "duration": 33.2 },
             { "phrase": "て", "duration": 97.8 }
         ],
         "translation": "為了不讓它散落而聚集起來"
     },
     {
-        "time": "01:11.19",
+        "time": "01:11.00",
         "text": [
             { "phrase": "変", "duration": 23.8 },
             { "phrase": "わ", "duration": 87.6 },
             { "phrase": "ら", "duration": 19.2 },
-            { "phrase": "な", "duration": 86 },
-            { "phrase": "い", "duration": 38.8 },
-            { "phrase": " ", "duration": 30 },
-            { "phrase": "変", "duration": 29.1 },
+            { "phrase": "ない", "duration": 70 },
+            { "phrase": " ", "duration": 60 },
+            { "phrase": "変", "duration": 23.1 },
             { "phrase": "わ", "duration": 91.4 },
             { "phrase": "れない", "duration": 66.1 },
             { "phrase": "よ", "duration": 25.5 },
             { "phrase": " ", "duration": 10 },
-            { "phrase": "僕", "duration": 70, "kiai": true },
+            { "phrase": "僕", "duration": 80, "kiai": true },
             { "phrase": "ら", "duration": 30, "kiai": true }
         ],
         "translation": "一成不變 什麼都無法改變啊 我們"
@@ -129,30 +129,33 @@
         "translation": "現在也緊緊的掌握著"
     },
     {
-        "time": "01:23.36",
+        "time": "01:23.10",
         "text": [
             { "phrase": "ち", "duration": 27.9 },
-            { "phrase": "ぎ", "duration": 99.7 },
+            { "phrase": "ぎ", "duration": 80.7 },
             { "phrase": "れ", "duration": 19.8 },
-            { "phrase": "な", "duration": 95.8 },
-            { "phrase": "い", "duration": 57.8 },
+            { "phrase": "な", "duration": 40.8 },
+            { "phrase": "い", "duration": 30.8 },
+            { "phrase": " ", "duration": 80 },
             { "phrase": "ち", "duration": 18.7 },
             { "phrase": "ぎ", "duration": 101.4, "kiai": true },
             { "phrase": "らない", "duration": 63.4 },
             { "phrase": "よ", "duration": 37.8 },
-            { "phrase": "僕", "duration": 102.5, "kiai": true },
-            { "phrase": "ら", "duration": 102.5, "kiai": true }
+            { "phrase": " ", "duration": 20 },
+            { "phrase": "僕", "duration": 60, "kiai": true },
+            { "phrase": "ら", "duration": 40, "kiai": true }
         ],
         "translation": "無法斬斷的 不會被分開的唷 我們"
     },
     {
         "time": "01:30.48",
         "text": [
-            { "phrase": "今も", "duration": 104.1, "kiai": true },
+            { "phrase": "今", "duration": 42.1, "kiai": true },
+            { "phrase": "も", "duration": 52.1, "kiai": true },
             { "phrase": "しっかり", "duration": 112.2, "kiai": true },
             { "phrase": "繋", "duration": 100.5, "kiai": true },
             { "phrase": "いでる", "duration": 127.3, "kiai": true },
-            { "phrase": "手", "duration": 551, "kiai": true }
+            { "phrase": "手", "duration": 41, "kiai": true }
         ],
         "translation": "直到現在也緊緊握著手"
     },
@@ -160,33 +163,44 @@
     {
         "time": "01:47.72",
         "text": [
-            { "phrase": "僕の", "duration": 78.9 },
+            { "phrase": "僕", "duration": 40 },
+            { "phrase": "の", "duration": 18.9 },
             { "phrase": "一生分", "duration": 90.3 },
             { "phrase": "なり", "duration": 41.8 },
-            { "phrase": "続けている", "duration": 107.1, "kiai": true },
-            { "phrase": "心拍", "duration": 77.9 },
-            { "phrase": "と", "duration": 86 }
+            { "phrase": "続", "duration": 20 },
+            { "phrase": "けている", "duration": 87.1 },
+            { "phrase": "心拍", "duration": 77.9, "kiai": true },
+            { "phrase": "と", "duration": 60 }
         ],
         "translation": "用我的一生延續下去的心跳及"
     },
     {
-        "time": "01:53.82",
+        "time": "01:53.62",
         "text": [
-            { "phrase": "透き", "duration": 47.4 },
-            { "phrase": "通るような", "duration": 97.7 },
-            { "phrase": "君の", "duration": 53.6 },
-            { "phrase": "綺麗な", "duration": 62.1 },
+            { "phrase": "透", "duration": 27.4 },
+            { "phrase": "き", "duration": 20.4 },
+            { "phrase": "通", "duration": 22.7 },
+            { "phrase": "る", "duration": 20.7 },
+            { "phrase": "ような", "duration": 32.7 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "君", "duration": 40 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "綺麗", "duration": 72.1 },
+            { "phrase": "な", "duration": 22 },
             { "phrase": "一拍", "duration": 68.3 },
-            { "phrase": "を", "duration": 112.9, "kiai": true }
+            { "phrase": "を", "duration": 80, "kiai": true }
         ],
         "translation": "清澈透亮的 你那美麗的一拍"
     },
     {
         "time": "01:59.80",
         "text": [
-            { "phrase": "合わせて", "duration": 92.9 },
+            { "phrase": "合", "duration": 20 },
+            { "phrase": "わせて", "duration": 73 },
             { "phrase": "できた", "duration": 65.1 },
-            { "phrase": "波の", "duration": 75.8 },
+            { "phrase": "波", "duration": 60.8 },
+            { "phrase": "の", "duration": 15 },
             { "phrase": "数", "duration": 98.9 },
             { "phrase": "だ", "duration": 19.3 },
             { "phrase": "け", "duration": 83.6 }
@@ -196,8 +210,11 @@
     {
         "time": "02:04.73",
         "text": [
-            { "phrase": "僕達は", "duration": 136.3, "kiai": true },
-            { "phrase": "揺らめき", "duration": 65.3 },
+            { "phrase": "僕達", "duration": 86.3, "kiai": true },
+            { "phrase": "は", "duration": 50, "kiai": true },
+            { "phrase": "揺", "duration": 30.3 },
+            { "phrase": "らめき", "duration": 35.3 },
+            { "phrase": "", "duration": 40 },
             { "phrase": "あって", "duration": 59.6 },
             { "phrase": "た", "duration": 88.4 }
         ],
@@ -206,18 +223,28 @@
     {
         "time": "02:11.12",
         "text": [
-            { "phrase": "過ぎていく時が", "duration": 158, "kiai": true },
-            { "phrase": "早すぎるの", "duration": 94.9 },
+            { "phrase": "過", "duration": 30, "kiai": true },
+            { "phrase": "ぎていく", "duration": 70, "kiai": true },
+            { "phrase": "時", "duration": 40, "kiai": true },
+            { "phrase": "が", "duration": 20, "kiai": true },
+            { "phrase": "早", "duration": 30 },
+            { "phrase": "すぎるの", "duration": 64.9 },
             { "phrase": "な", "duration": 18.4 },
-            { "phrase": "ら", "duration": 51.5 }
+            { "phrase": "ら", "duration": 21.5 }
         ],
         "translation": "時間如果流逝得太快"
     },
     {
-        "time": "02:14.37",
+        "time": "02:14.10",
         "text": [
-            { "phrase": "有り余る隙間が", "duration": 127.7, "kiai": true },
-            { "phrase": "悲しいの", "duration": 97.4 },
+            { "phrase": "有", "duration": 20, "kiai": true },
+            { "phrase": "り", "duration": 20, "kiai": true },
+            { "phrase": "余", "duration": 30, "kiai": true },
+            { "phrase": "る", "duration": 20, "kiai": true },
+            { "phrase": "隙間", "duration": 40, "kiai": true },
+            { "phrase": "が", "duration": 20, "kiai": true },
+            { "phrase": "悲", "duration": 24.4 },
+            { "phrase": "しいの", "duration": 70.4 },
             { "phrase": "な", "duration": 11.9 },
             { "phrase": "ら", "duration": 45 }
         ],
@@ -226,40 +253,45 @@
     {
         "time": "02:17.24",
         "text": [
-            { "phrase": "零", "duration": 52 },
-            { "phrase": "さ", "duration": 22 },
+            { "phrase": "零", "duration": 52, "kiai": true },
+            { "phrase": "さ", "duration": 22, "kiai": true },
             { "phrase": "ない", "duration": 62.6 },
             { "phrase": "ように", "duration": 72.8 },
+            { "phrase": "", "duration": 60 },
             { "phrase": "あわせ", "duration": 62.7 },
-            { "phrase": "て", "duration": 116.7, "kiai": true }
+            { "phrase": "て", "duration": 46.7 }
         ],
         "translation": "為了不讓它散落而聚合起來"
     },
     {
         "time": "02:23.19",
         "text": [
-            { "phrase": "変", "duration": 16.6 },
-            { "phrase": "わ", "duration": 106.8, "kiai": true },
-            { "phrase": "ら", "duration": 18 },
-            { "phrase": "な", "duration": 98.1 },
-            { "phrase": "い", "duration": 62.9 },
-            { "phrase": "変", "duration": 26.8 },
-            { "phrase": "わ", "duration": 92.9 },
-            { "phrase": "れない", "duration": 63.5 },
-            { "phrase": "よ", "duration": 22 },
-            { "phrase": "僕", "duration": 112.8, "kiai": true },
-            { "phrase": "ら", "duration": 106.8, "kiai": true }
+            { "phrase": "変", "duration": 23.8 },
+            { "phrase": "わ", "duration": 87.6 },
+            { "phrase": "ら", "duration": 19.2 },
+            { "phrase": "ない", "duration": 70 },
+            { "phrase": " ", "duration": 60 },
+            { "phrase": "変", "duration": 23.1 },
+            { "phrase": "わ", "duration": 91.4 },
+            { "phrase": "れない", "duration": 66.1 },
+            { "phrase": "よ", "duration": 25.5 },
+            { "phrase": " ", "duration": 10 },
+            { "phrase": "僕", "duration": 80, "kiai": true },
+            { "phrase": "ら", "duration": 30, "kiai": true }
         ],
         "translation": "一成不變 什麼都無法改變啊 我們"
     },
     {
         "time": "02:30.56",
         "text": [
-            { "phrase": "今も", "duration": 93.4 },
-            { "phrase": "しっかり", "duration": 116.1, "kiai": true },
-            { "phrase": "握って", "duration": 134.7, "kiai": true },
-            { "phrase": "い", "duration": 29 },
-            { "phrase": "る", "duration": 52 }
+            { "phrase": "今", "duration": 50 },
+            { "phrase": "も", "duration": 25.7 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "しっかり", "duration": 115.2, "kiai": true },
+            { "phrase": "握", "duration": 80, "kiai": true },
+            { "phrase": "って", "duration": 60, "kiai": true },
+            { "phrase": "い", "duration": 33.7 },
+            { "phrase": "る", "duration": 40 }
         ],
         "translation": "直到現在也緊緊握著手"
     },
@@ -283,20 +315,21 @@
     {
         "time": "02:42.74",
         "text": [
-            { "phrase": "今も", "duration": 98.1 },
-            { "phrase": "しっかり", "duration": 112.8, "kiai": true },
-            { "phrase": "繋", "duration": 117.7, "kiai": true },
-            { "phrase": "いで", "duration": 52.4 },
-            { "phrase": "る", "duration": 73 }
+            { "phrase": "今", "duration": 42.1, "kiai": true },
+            { "phrase": "も", "duration": 52.1, "kiai": true },
+            { "phrase": "しっかり", "duration": 112.2, "kiai": true },
+            { "phrase": "繋", "duration": 100.5, "kiai": true },
+            { "phrase": "いでる", "duration": 127.3, "kiai": true }
         ],
         "translation": "直到現在也緊緊連繫在一起"
     },
     {
         "time": "02:47.44",
         "text": [
-            { "phrase": "重なる", "duration": 70.8 },
+            { "phrase": "重", "duration": 40 },
+            { "phrase": "なる", "duration": 30 },
             { "phrase": "ひびを", "duration": 64.8 },
-            { "phrase": "僕達", "duration": 47 },
+            { "phrase": "僕達", "duration": 80 },
             { "phrase": "は", "duration": 71.6 }
         ],
         "translation": "交疊的時日中我們將"
@@ -304,39 +337,46 @@
     {
         "time": "02:50.41",
         "text": [
-            { "phrase": "流るる", "duration": 63.7 },
+            { "phrase": "流", "duration": 40 },
+            { "phrase": "るる", "duration": 23.7 },
             { "phrase": "ひびも", "duration": 64.3 },
-            { "phrase": "僕達", "duration": 55.2 },
-            { "phrase": "は", "duration": 74.9 }
+            { "phrase": "僕達", "duration": 80 },
+            { "phrase": "は", "duration": 71.6 }
         ],
         "translation": "流動的時光中我們將"
     },
     {
         "time": "02:53.38",
         "text": [
-            { "phrase": "思い出す", "duration": 79.9 },
-            { "phrase": "ことも", "duration": 58.3 },
-            { "phrase": "なくなっ", "duration": 78.1 },
-            { "phrase": "て", "duration": 42.7 }
+            { "phrase": "思", "duration": 20, "pronounciation": "おも" },
+            { "phrase": "い", "duration": 20 },
+            { "phrase": "出", "duration": 20, "pronounciation": "だ" },
+            { "phrase": "す", "duration": 20 },
+            { "phrase": "ことも", "duration": 80 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "なくなっ", "duration": 60.1, "kiai": true },
+            { "phrase": "て", "duration": 20, "kiai": true }
         ],
         "translation": "會變得什麼都無法回想起來"
     },
     {
         "time": "02:56.35",
         "text": [
-            { "phrase": "しまうんだ", "duration": 69.5 },
-            { "phrase": "ろう", "duration": 69.5 },
-            { "phrase": "しまうんだろう", "duration": 108.8, "kiai": true },
-            { "phrase": "って", "duration": 59.4 }
+            { "phrase": "しまうんだろう", "duration": 90 },
+            { "phrase": " ", "duration": 30 },
+            { "phrase": "しまうんだろう", "duration": 90, "kiai": true },
+            { "phrase": "", "duration": 40 },
+            { "phrase": "って", "duration": 20 }
         ],
         "translation": "會變成這樣吧 會變成這樣吧.....我想"
     },
     {
         "time": "02:59.44",
         "text": [
-            { "phrase": "重なる", "duration": 70.8 },
+            { "phrase": "重", "duration": 40 },
+            { "phrase": "なる", "duration": 30 },
             { "phrase": "ひびを", "duration": 64.8 },
-            { "phrase": "僕達", "duration": 47 },
+            { "phrase": "僕達", "duration": 80 },
             { "phrase": "は", "duration": 71.6 }
         ],
         "translation": "交疊的時日中我們將"
@@ -344,20 +384,25 @@
     {
         "time": "03:02.40",
         "text": [
-            { "phrase": "流るる", "duration": 63.7 },
+            { "phrase": "流", "duration": 40 },
+            { "phrase": "るる", "duration": 23.7 },
             { "phrase": "ひびも", "duration": 64.3 },
-            { "phrase": "僕達", "duration": 55.2 },
-            { "phrase": "は", "duration": 74.9 }
+            { "phrase": "僕達", "duration": 80 },
+            { "phrase": "は", "duration": 71.6 }
         ],
         "translation": "流動的時光中我們將"
     },
     {
         "time": "03:05.43",
         "text": [
-            { "phrase": "思い出す", "duration": 79.9 },
-            { "phrase": "ことも", "duration": 58.3 },
-            { "phrase": "なくなっ", "duration": 78.1 },
-            { "phrase": "て", "duration": 42.7 }
+            { "phrase": "思", "duration": 20, "pronounciation": "おも" },
+            { "phrase": "い", "duration": 20 },
+            { "phrase": "出", "duration": 20, "pronounciation": "だ" },
+            { "phrase": "す", "duration": 20 },
+            { "phrase": "ことも", "duration": 80 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "なくなっ", "duration": 60.1, "kiai": true },
+            { "phrase": "て", "duration": 20, "kiai": true }
         ],
         "translation": "會變得什麼都無法回想起來"
     },
@@ -379,15 +424,14 @@
             { "phrase": "変", "duration": 23.8 },
             { "phrase": "わ", "duration": 87.6 },
             { "phrase": "ら", "duration": 19.2 },
-            { "phrase": "な", "duration": 86 },
-            { "phrase": "い", "duration": 38.8 },
-            { "phrase": " ", "duration": 30 },
-            { "phrase": "変", "duration": 29.1 },
+            { "phrase": "ない", "duration": 70 },
+            { "phrase": " ", "duration": 60 },
+            { "phrase": "変", "duration": 23.1 },
             { "phrase": "わ", "duration": 91.4 },
             { "phrase": "れない", "duration": 66.1 },
             { "phrase": "よ", "duration": 25.5 },
             { "phrase": " ", "duration": 10 },
-            { "phrase": "僕", "duration": 70, "kiai": true },
+            { "phrase": "僕", "duration": 80, "kiai": true },
             { "phrase": "ら", "duration": 30, "kiai": true }
         ],
         "translation": "一成不變 什麼都無法改變啊 我們"
@@ -418,19 +462,21 @@
             { "phrase": "", "duration": 80 },
             { "phrase": "らない", "duration": 76.7 },
             { "phrase": "よ", "duration": 24.2 },
-            { "phrase": "僕", "duration": 108.9, "kiai": true },
-            { "phrase": "ら", "duration": 104.8, "kiai": true }
+            { "phrase": " ", "duration": 10 },
+            { "phrase": "僕", "duration": 80, "kiai": true },
+            { "phrase": "ら", "duration": 30, "kiai": true }
         ],
         "translation": "無法斬斷的 不會被分開的唷 我們"
     },
     {
         "time": "03:31.91",
         "text": [
-            { "phrase": "今も", "duration": 104.1, "kiai": true },
+            { "phrase": "今", "duration": 42.1, "kiai": true },
+            { "phrase": "も", "duration": 52.1, "kiai": true },
             { "phrase": "しっかり", "duration": 112.2, "kiai": true },
             { "phrase": "繋", "duration": 100.5, "kiai": true },
             { "phrase": "いでる", "duration": 127.3, "kiai": true },
-            { "phrase": "手", "duration": 300, "kiai": true }
+            { "phrase": "手", "duration": 41, "kiai": true }
         ],
         "translation": "直到現在也緊緊連繫在一起",
         "end_time": "03:37.00"
@@ -576,8 +622,8 @@
         "text": [
             { "phrase": "", "duration": 100 },
             { "phrase": "また", "duration": 80 },
-            { "phrase": "", "duration": 60 },
-            { "phrase": "しわを", "duration": 180 },
+            { "phrase": "", "duration": 70 },
+            { "phrase": "しわを", "duration": 150 },
             { "phrase": "あわ", "duration": 120 },
             { "phrase": "せ", "duration": 320 },
             { "phrase": "て", "duration": 120 }
@@ -600,7 +646,8 @@
                 { "phrase": "って", "duration": 20 }
             ],
             "translation": "會變得什麼都無法回想起來 會變成這樣吧 會變成這樣吧.....我想"
-        }
+        },
+        "concurrent_lines": [37]
     },
     { "time": "04:07.00", "type": "interlude" },
     { "time": "04:42.04", "type": "end" }
