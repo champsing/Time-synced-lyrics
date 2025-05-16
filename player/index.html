@@ -214,8 +214,7 @@
                             <!-- {{ index }} -->
                             <div class="primary-vocals">
                                 <span v-for="(t, phraseIndex) in line.text" :key="phraseIndex"
-                                    :id="`lyric-phrase-${index}-${phraseIndex}`"
-                                    class="lyric-phrase"
+                                    :id="`lyric-phrase-${index}-${phraseIndex}`" class="lyric-phrase"
                                     :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                                     :style="getPhraseStyle(index, phraseIndex)"
                                     :class="{ 'active': isActivePhrase(currentTime, line, phraseIndex) && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
@@ -233,8 +232,7 @@
 
                             <div v-if="line.background_voice !== undefined" class="background-vocals">
                                 <span v-for="(bvt, phraseIndex) in line.background_voice.text"
-                                    v-if="isCurrentLine(index)" :key="phraseIndex"
-                                    class="lyric-phrase text-lg"
+                                    v-if="isCurrentLine(index)" :key="phraseIndex" class="lyric-phrase text-lg"
                                     :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                                     :style="getBackgroundPhraseStyle(index, phraseIndex)"
                                     :class="{ 'active': isActivePhrase(currentTime, line.background_voice, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
@@ -253,7 +251,8 @@
                     </div>
                 </div>
 
-                <div class="absolute inset-0 -z-10 overflow-hidden rounded-2xl select-none" v-if="enableLyricBackground">
+                <div class="absolute inset-0 -z-10 overflow-hidden rounded-2xl select-none"
+                    v-if="enableLyricBackground">
                     <img :src="currentSong.art" :alt="currentSong.name"
                         class="reflection-scan w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background relative overflow-hidden translate-z-0 backface-hidden">
                 </div>
@@ -297,7 +296,8 @@
             <div class="flex flex-row">
                 <button type="button" class="rounded-2xl bg-gray-500 outline-black outline-2"
                     id="controller-panel-switch" aria_label="顯示或隱藏控制介面" title="顯示或隱藏控制介面">
-                    <span class="material-icons p-2 select-none" id="controller-panel-switch-icon">keyboard_arrow_down</span>
+                    <span class="material-icons p-2 select-none"
+                        id="controller-panel-switch-icon">keyboard_arrow_down</span>
                 </button>
 
             </div>
@@ -379,7 +379,8 @@
                                 </div>
 
                                 <!-- 歌曲不同版本的徽章 -->
-                                <div v-if="songVersion !== ORIGINAL" class="version-badge inline ml-2 items-center select-none">
+                                <div v-if="songVersion !== ORIGINAL"
+                                    class="version-badge inline ml-2 items-center select-none">
                                     <span v-if="songVersion == INSTRUMENTAL"
                                         class="bg-cyan-700 text-xs mr-1 p-[5px] rounded-[5px]">
                                         INSTRUMENTAL
@@ -603,7 +604,10 @@
                                     <div class="sm:hidden">
                                         <span class="material-icons">content_copy</span>
                                     </div>
-                                    <span class="hidden sm:block">複製</span>
+                                    <span class="hidden sm:flex flex-row gap-2 justify-center">
+                                        <span class="material-icons">content_copy</span>
+                                        複製
+                                    </span>
                                 </button>
                             </div>
                         </div>
