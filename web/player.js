@@ -22,7 +22,7 @@ import {
     THE_FIRST_TAKE,
     TSL_PLAYER_LINK_BASE,
 } from "./utils/config.js";
-import { initControllerPanel } from "./utils/controllerPanel.js";
+import { initControllerPanel } from "./player/controllerPanel.js";
 import {
     copyToClipboard,
     formatTime,
