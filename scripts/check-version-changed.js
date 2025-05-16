@@ -12,7 +12,7 @@ try {
         .filter(Boolean);
 
     const onlyMappings = changedFiles.every((file) =>
-        file.startsWith("public/")
+        file.startsWith("public/") || file.startsWith("py_tools/")
     );
 
     if (onlyMappings) {
