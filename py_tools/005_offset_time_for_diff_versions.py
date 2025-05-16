@@ -8,7 +8,7 @@ with open(
 
 output = []
 
-time_offset = -8
+time_offset = -6
 
 
 def parse_time_format_to_second(time_format):

@@ -301,6 +301,10 @@
                 "version": "original",
                 "id": "M0cHair48Jg",
                 "default": true
+            },
+            {
+                "version": "live",
+                "id": "Y7IC9ccumcc"
             }
         ],
         "artist": "秋山黄色",
