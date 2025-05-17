@@ -25,9 +25,9 @@ async function main() {
         "package-lock.json",
         "eslint.config.mjs",
         "readme.md",
-        "version-generator.js",
         "LICENSE",
         "node_modules",
+        "jsconfig.json",
         "dist", // 避免遞歸複製
     ]);
 
