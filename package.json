@@ -7,9 +7,10 @@
     "@eslint/js": "^9.26.0",
     "eslint": "^9.26.0",
     "eslint-plugin-vue": "^10.1.0",
+    "fs-extra": "^11.3.0",
     "globals": "^16.1.0"
   },
   "scripts": {
-    "build": "rm -rf dist && cpy \"**/*\" dist --ignore-from .cfignore --ignore \".git/**\""
+    "build": "node scripts/build.js"
   }
 }
