@@ -170,7 +170,7 @@ function main() {
         document.title = song.value.title + MERCURY_TSL;
 
         // 調試：輸出歌詞文件路徑
-        console.log(`Loading lyrics from: ${song.folder}/${version.value}.json`);
+        console.log(`Loading lyrics from: ${song.value.folder}/${version.value}.json`);
 
         // 載入新歌詞
         loadLyrics();
