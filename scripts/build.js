@@ -1,37 +1,38 @@
 // scripts/build.js
 /* eslint-disable no-undef */
 
-let fs = require("fs-extra");
-let path = require("path");
+const fs = require("fs-extra");
+const path = require("path");
 
 async function main() {
     const root = process.cwd();
     const outDir = path.join(root, "dist");
+    const cfignorePath = path.join(root, ".cfignore");
 
     // 1. 刪除舊的 dist 資料夾
     await fs.remove(outDir);
 
-    // 2. 列出根目錄所有檔案與資料夾
-    const items = await fs.readdir(root);
+    // 2. 讀取 .cfignore，解析排除清單
+    let excludeList = [];
+    if (await fs.pathExists(cfignorePath)) {
+        const content = await fs.readFile(cfignorePath, "utf8");
+        excludeList = content
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter((line) => line && !line.startsWith("#"));
+    }
 
-    // 3. 要排除的檔名/資料夾
-    const exclude = new Set([
+    // 3. 加入預設要排除的項目
+    const defaults = [
         ".git",
-        ".gitignore",
         ".cfignore",
-        "py_tools",
-        "scripts", // 若 scripts 資料夾只放 build 腳本，可視情況保留
-        "package.json",
-        "package-lock.json",
-        "eslint.config.mjs",
-        "readme.md",
-        "LICENSE",
-        "node_modules",
-        "jsconfig.json",
-        "dist", // 避免遞歸複製
-    ]);
+        ".gitignore",
+        "dist",
+    ];
+    const exclude = new Set([...excludeList, ...defaults]);
 
-    // 4. 複製所有非排除項目到 dist
+    // 4. 複製非排除項目到 dist
+    const items = await fs.readdir(root);
     for (const name of items) {
         if (exclude.has(name)) continue;
         const src = path.join(root, name);
