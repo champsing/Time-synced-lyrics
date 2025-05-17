@@ -8,5 +8,8 @@
     "eslint": "^9.26.0",
     "eslint-plugin-vue": "^10.1.0",
     "globals": "^16.1.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist && rsync -av --exclude-from='.cfignore' ./ dist/"
   }
 }
