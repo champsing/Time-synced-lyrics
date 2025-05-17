@@ -10,6 +10,6 @@
     "globals": "^16.1.0"
   },
   "scripts": {
-    "build": "rm -rf dist && rsync -av --exclude-from='.cfignore' ./ dist/"
+    "build": "rm -rf dist && cpy \"**/*\" dist --ignore-from .cfignore"
   }
 }
