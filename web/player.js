@@ -170,10 +170,10 @@ function main() {
         document.title = song.value.title + MERCURY_TSL;
 
         // 調試：輸出歌詞文件路徑
-        console.log(`Loading lyrics from: ${song.name}/${version.value}.json`);
+        console.log(`Loading lyrics from: ${song.folder}/${version.value}.json`);
 
         // 載入新歌詞
-        loadLyrics(song.name, version);
+        loadLyrics();
 
         onPlayerChangeSongVideo(song, version, window.ytPlayer);
 
@@ -224,7 +224,7 @@ function main() {
 
             if (matchedSong) {
                 console.log(
-                    `已帶入指定歌曲 ID: ${songRequest} - ${matchedSong.name}`
+                    `已帶入指定歌曲 ID: ${songRequest} - ${matchedSong.folder}`
                 );
                 currentSong.value = matchedSong;
             } else {

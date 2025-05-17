@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import json
 import os
 
-html_path = os.path.join("karaoke mappings", "shiwaawase", "shiwaawase.html")
+html_path = os.path.join("karaoke mappings", "gift", "gift.html")
 
 try:
     with open(html_path, "r", encoding="utf-8") as html:
@@ -16,7 +16,7 @@ except Exception as e:
 
 # traverse every lyrics-display-synced-line element
 for line in soup.find_all("lyrics-display-synced-line"):
-    text_entry = {"text": []}
+    text_entry = {"time": "", "text": []}
 
     # Find every syllable element
     for syllable in line.find_all("span", class_="syllable"):

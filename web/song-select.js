@@ -70,7 +70,7 @@ function main() {
             .filter((song) => !song.hidden) // 過濾隱藏歌曲
             .filter((song) => {
                 const searchFields = [
-                    song.name, // 純羅馬化的歌檔名，讓不會打日語的人打英文也搜的到
+                    song.folder, // 純羅馬化的歌檔名，讓不會打日語的人打英文也搜的到
                     song.title,
                     song.artist,
                     song.subtitle,
@@ -155,11 +155,11 @@ function main() {
             // 調試：輸出實際加載的歌曲列表
             console.log(
                 "Available songs:",
-                availableSongs.map((s) => `${s.song_id} - ${s.name}`),
+                availableSongs.map((s) => `${s.song_id} - ${s.folder}`),
                 "Unavailable songs:",
                 unavailableSongs.map((s) => {
-                    if (s.hidden) return `${s.song_id} - ${s.name} (hidden)`;
-                    else return `${s.song_id} - ${s.name}`;
+                    if (s.hidden) return `${s.song_id} - ${s.folder} (hidden)`;
+                    else return `${s.song_id} - ${s.folder}`;
                 })
             );
         } catch (error) {
