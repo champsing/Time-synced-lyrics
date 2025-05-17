@@ -9,6 +9,7 @@ readme.md
 LICENSE
 
 # 忽略 Git ignore（不是必要，但乾脆一起）
+.git
 .gitignore
 
 # 忽略資料夾
