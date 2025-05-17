@@ -112,6 +112,9 @@
 | ↳ `engineering`   | array        |      | 後製與工程類貢獻者                     |
 | ↳↳ `name`         | string       | ✓    | 貢獻者姓名                             |
 | ↳↳ `contribution` | string array | ✓    | 貢獻內容                               |
+| `lang`            | string       | ✓    | 歌曲語言                               |
+| `updated_at`      | date string  | ✓    | 歌詞最後更新日期                       |
+| `furigana`        | boolean      |      | 是否提供檢視假名讀音                   |
 
 WIP
 
