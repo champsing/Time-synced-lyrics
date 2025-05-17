@@ -697,10 +697,25 @@
     {
         "time": "03:42.89",
         "text": [
-            { "phrase": "今から", "duration": 130.4, "kiai": true },
-            { "phrase": "君の", "duration": 159.8, "kiai": true },
-            { "phrase": "見てる", "duration": 88.2 },
-            { "phrase": "方", "duration": 68.9 },
+            {
+                "phrase": "今",
+                "duration": 60,
+                "kiai": true,
+                "pronounciation": "いま"
+            },
+            { "phrase": "から", "duration": 60.4, "kiai": true },
+             { "phrase": "", "duration": 40 },
+            {
+                "phrase": "君",
+                "duration": 80,
+                "kiai": true,
+                "pronounciation": "きみ"
+            },
+            { "phrase": "の", "duration": 30, "kiai": true },
+            { "phrase": "", "duration": 60 },
+            { "phrase": "見", "duration": 30, "pronounciation": "み" },
+            { "phrase": "てる", "duration": 50 },
+            { "phrase": "方", "duration": 68.9, "pronounciation": "ほう" },
             { "phrase": "へ", "duration": 18.0 },
             { "phrase": "と", "duration": 69.3 }
         ],

@@ -7,7 +7,7 @@ export const PLAYER_VERSION = COMMIT_ID
     ? `${BASE_VERSION}-${BUILD_DATE}-${COMMIT_ID.slice(0, 12)}`
     : `${BASE_VERSION}-${BUILD_DATE}-dev`;
 
-export const SONGLIST_VERSION = "2025.05.15";
+export const SONGLIST_VERSION = "2025.05.17";
 
 export const DEBUG_INFO = `播放器版本：${PLAYER_VERSION}
 播放 ID：${PLAYBACK_ID}
