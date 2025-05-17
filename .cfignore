@@ -1,6 +1,6 @@
 # 忽略 Node 專案相關文件
-# package.json
-# package-lock.json
+package.json
+package-lock.json
 
 # 忽略設定與開發工具
 eslint.config.mjs
