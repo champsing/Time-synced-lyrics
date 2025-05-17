@@ -9,5 +9,5 @@ readme.md
 LICENSE
 
 # 忽略資料夾
-py_tools/
-scripts/
+py_tools
+scripts
