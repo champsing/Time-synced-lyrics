@@ -4,9 +4,9 @@ package-lock.json
 
 # 忽略設定與開發工具
 eslint.config.mjs
+jsconfig.json
 readme.md
 LICENSE
-version-generator.js
 
 # 忽略 Git ignore（不是必要，但乾脆一起）
 .gitignore
