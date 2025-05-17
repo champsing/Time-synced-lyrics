@@ -90,16 +90,16 @@
     {
         "time": "00:54.06",
         "text": [
-            { "phrase": "It’s", "duration": 55.6 },
-            { "phrase": "a", "duration": 21.5 },
+            { "phrase": "It’s ", "duration": 55.6 },
+            { "phrase": "a ", "duration": 21.5 },
             { "phrase": "gift", "duration": 66.0 }
         ]
     },
     {
         "time": "00:55.40",
         "text": [
-            { "phrase": "from", "duration": 61.1 },
-            { "phrase": "the", "duration": 28.3 },
+            { "phrase": "from ", "duration": 61.1 },
+            { "phrase": "the ", "duration": 28.3 },
             { "phrase": "love", "duration": 534.6, "kiai": true }
         ]
     },
@@ -115,15 +115,15 @@
     {
         "time": "01:04.90",
         "text": [
-            { "phrase": "always", "duration": 54.7 },
+            { "phrase": "always ", "duration": 54.7 },
             { "phrase": "kissing", "duration": 54.7 }
         ]
     },
     {
         "time": "01:05.72",
         "text": [
-            { "phrase": "ah", "duration": 80.4 },
-            { "phrase": "ah", "duration": 68.5 },
+            { "phrase": "ah, ", "duration": 80.4 },
+            { "phrase": "ah, ", "duration": 68.5 },
             { "phrase": "ah", "duration": 77.9 }
         ]
     },
@@ -171,9 +171,9 @@
             { "phrase": "こ", "duration": 44.9 },
             { "phrase": "し", "duration": 54.1 },
             { "phrase": "ずつ", "duration": 42.3 },
-            { "phrase": "gift", "duration": 59.4 },
-            { "phrase": "for", "duration": 55.5 },
-            { "phrase": "you, the", "duration": 52.5 },
+            { "phrase": " gift ", "duration": 59.4 },
+            { "phrase": "for ", "duration": 55.5 },
+            { "phrase": "you, the ", "duration": 52.5 },
             { "phrase": "love", "duration": 468.7, "kiai": true }
         ]
     },
@@ -271,25 +271,25 @@
     {
         "time": "02:21.83",
         "text": [
-            { "phrase": "It’s", "duration": 53.1 },
-            { "phrase": "a", "duration": 22.5 },
-            { "phrase": "gift", "duration": 62.9 }
+            { "phrase": "It’s ", "duration": 53.1 },
+            { "phrase": "a ", "duration": 22.5 },
+            { "phrase": "gift ", "duration": 62.9 }
         ]
     },
     {
         "time": "02:23.39",
         "text": [
-            { "phrase": "from", "duration": 58.6 },
-            { "phrase": "the", "duration": 32.3 },
-            { "phrase": "pain", "duration": 70.0 }
+            { "phrase": "from ", "duration": 58.6 },
+            { "phrase": "the ", "duration": 32.3 },
+            { "phrase": "pain ", "duration": 70.0 }
         ]
     },
     {
         "time": "02:24.97",
         "text": [
-            { "phrase": "They", "duration": 71.5 },
-            { "phrase": "call", "duration": 86.4 },
-            { "phrase": "it", "duration": 55.3 },
+            { "phrase": "They ", "duration": 71.5 },
+            { "phrase": "call ", "duration": 86.4 },
+            { "phrase": "it ", "duration": 55.3 },
             { "phrase": "“rain”", "duration": 88.6 }
         ]
     },
@@ -370,16 +370,16 @@
     {
         "time": "03:11.82",
         "text": [
-            { "phrase": "It’s", "duration": 57.6 },
-            { "phrase": "a", "duration": 19.1 },
+            { "phrase": "It’s ", "duration": 57.6 },
+            { "phrase": "a ", "duration": 19.1 },
             { "phrase": "gift", "duration": 62.7 }
         ]
     },
     {
         "time": "03:13.43",
         "text": [
-            { "phrase": "from", "duration": 63.7 },
-            { "phrase": "the", "duration": 28.1 },
+            { "phrase": "from ", "duration": 63.7 },
+            { "phrase": "the ", "duration": 28.1 },
             { "phrase": "love", "duration": 491.4, "kiai": true }
         ]
     },
@@ -395,15 +395,15 @@
     {
         "time": "03:22.54",
         "text": [
-            { "phrase": "always", "duration": 54.7 },
+            { "phrase": "always ", "duration": 54.7 },
             { "phrase": "kissing", "duration": 54.7 }
         ]
     },
     {
         "time": "03:23.56",
         "text": [
-            { "phrase": "ah", "duration": 80.4 },
-            { "phrase": "ah", "duration": 68.5 },
+            { "phrase": "ah, ", "duration": 80.4 },
+            { "phrase": "ah, ", "duration": 68.5 },
             { "phrase": "ah", "duration": 77.9 }
         ]
     },
@@ -455,37 +455,38 @@
     {
         "time": "03:37.79",
         "text": [
-            { "phrase": "Gift", "duration": 82.4 },
-            { "phrase": "from the", "duration": 81.2 },
+            { "phrase": "Gift ", "duration": 82.4 },
+            { "phrase": "from the ", "duration": 81.2 },
             { "phrase": "rain", "duration": 72.4 }
         ]
     },
     {
         "time": "03:40.11",
         "text": [
-            { "phrase": "Just", "duration": 79.3 },
-            { "phrase": "hold", "duration": 71.9 },
-            { "phrase": "it", "duration": 46.8 },
+            { "phrase": "Just ", "duration": 79.3 },
+            { "phrase": "hold ", "duration": 71.9 },
+            { "phrase": "it ", "duration": 46.8 },
             { "phrase": "all", "duration": 73.9 }
         ]
     },
     {
         "time": "03:43.21",
         "text": [
-            { "phrase": "Mummy", "duration": 79.2 },
-            { "phrase": "told me", "duration": 84.6 },
-            { "phrase": "“That’s", "duration": 51.0 },
+            { "phrase": "Mummy ", "duration": 79.2 },
+            { "phrase": "told me ", "duration": 84.6 },
+            { "phrase": "“That’s ", "duration": 51.0 },
             { "phrase": "all“", "duration": 152.8, "kiai": true }
         ]
     },
     {
         "time": "03:48.19",
         "text": [
-            { "phrase": "Filled with", "duration": 57.7 },
+            { "phrase": "Filled with ", "duration": 57.7 },
             { "phrase": "love, ", "duration": 66.5 },
             { "phrase": "love, ", "duration": 75.0 },
             { "phrase": "love", "duration": 178.3, "kiai": true }
         ]
     },
-    { "time": "", "type": "interlude" }
+    { "time": "03:54.00", "type": "interlude" },
+    { "time": "04:04.00", "type": "end" }
 ]

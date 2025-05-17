@@ -2,6 +2,7 @@
     {
         "available": true,
         "folder": "Vaundy - Gift",
+        "song_id": 1758905748,
         "versions": [
             {
                 "version": "original",
@@ -16,7 +17,6 @@
         "subtitle": "『僕のヒーローアカデミア\nTHE MOVIE ユアネクスト』ED主題歌",
         "artist": "Vaundy",
         "lyricist": "Vaundy",
-        "song_id": 1758905748,
         "translation": {
             "available": false
         },
