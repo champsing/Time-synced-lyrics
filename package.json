@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.4",
-    "rsync": "^0.6.1",
     "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
