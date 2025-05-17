@@ -1,0 +1,16 @@
+# 忽略 Node 專案相關文件
+package.json
+package-lock.json
+
+# 忽略設定與開發工具
+eslint.config.mjs
+readme.md
+LICENSE
+version-generator.js
+
+# 忽略 Git ignore（不是必要，但乾脆一起）
+.gitignore
+
+# 忽略資料夾
+py_tools/
+scripts/
