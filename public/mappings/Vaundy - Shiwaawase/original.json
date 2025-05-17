@@ -164,7 +164,7 @@
     {
         "time": "01:23.10",
         "text": [
-            { "phrase": "ち", "duration": 27.9 },
+            { "phrase": "ち", "duration": 28 },
             { "phrase": "ぎ", "duration": 80.7 },
             { "phrase": "れ", "duration": 19.8 },
             { "phrase": "な", "duration": 40.8 },
@@ -217,7 +217,7 @@
         "time": "01:47.72",
         "text": [
             { "phrase": "僕", "duration": 40, "pronounciation": "ぼく" },
-            { "phrase": "の", "duration": 18.9 },
+            { "phrase": "の", "duration": 19 },
             {
                 "phrase": "一生分",
                 "duration": 90.3,
@@ -228,7 +228,7 @@
             { "phrase": "けている", "duration": 87.1 },
             {
                 "phrase": "心拍",
-                "duration": 77.9,
+                "duration": 78,
                 "kiai": true,
                 "pronounciation": "しんぱく"
             },
@@ -267,7 +267,7 @@
             { "phrase": "できた", "duration": 65.1 },
             { "phrase": "波", "duration": 60.8, "pronounciation": "なみ" },
             { "phrase": "の", "duration": 15 },
-            { "phrase": "数", "duration": 98.9, "pronounciation": "かず" },
+            { "phrase": "数", "duration": 100, "pronounciation": "かず" },
             { "phrase": "だ", "duration": 19.3 },
             { "phrase": "け", "duration": 83.6 }
         ],
@@ -309,7 +309,7 @@
             },
             { "phrase": "が", "duration": 20, "kiai": true },
             { "phrase": "早", "duration": 30, "pronounciation": "はや" },
-            { "phrase": "すぎるの", "duration": 64.9 },
+            { "phrase": "すぎるの", "duration": 65 },
             { "phrase": "な", "duration": 18.4 },
             { "phrase": "ら", "duration": 21.5 }
         ],
@@ -341,7 +341,7 @@
             { "phrase": "が", "duration": 20, "kiai": true },
             { "phrase": "悲", "duration": 24.4, "pronounciation": "かな" },
             { "phrase": "しいの", "duration": 70.4 },
-            { "phrase": "な", "duration": 11.9 },
+            { "phrase": "な", "duration": 12 },
             { "phrase": "ら", "duration": 45 }
         ],
         "translation": "如果有多餘的閒暇而難過的話"
@@ -715,7 +715,7 @@
             { "phrase": "", "duration": 60 },
             { "phrase": "見", "duration": 30, "pronounciation": "み" },
             { "phrase": "てる", "duration": 50 },
-            { "phrase": "方", "duration": 68.9, "pronounciation": "ほう" },
+            { "phrase": "方", "duration": 69, "pronounciation": "ほう" },
             { "phrase": "へ", "duration": 18.0 },
             { "phrase": "と", "duration": 69.3 }
         ],
