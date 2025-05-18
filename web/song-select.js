@@ -1,6 +1,7 @@
 import { createApp, ref, computed, onMounted, watch } from "vue";
 import { loadSongList } from "./player/handles/songsHandle.js";
-import { PLAYER_VERSION, SONGLIST_VERSION } from "./utils/config.js";
+import { SONGLIST_VERSION } from "./utils/base-version.js";
+import { PLAYER_VERSION } from "./utils/config.js";
 
 const VERSION_LABELS = {
     original: "原曲",
@@ -43,20 +44,20 @@ function main() {
         return (a, b) => {
             switch (sortOption) {
                 case "name":
-                    return a.title.localeCompare(b.title, "zh-Hans");
+                    return a.title.localeCompare(b.title, "zh-TW");
                 case "artist":
-                    return a.artist.localeCompare(b.artist, "zh-Hans");
+                    return a.artist.localeCompare(b.artist, "zh-TW");
                 case "album":
                     return (a.album?.name || a?.title || "單曲").localeCompare(
                         b.album?.name || b?.title || "單曲",
-                        "zh-Hans"
+                        "zh-TW"
                     );
                 case "date":
                     return new Date(b.updated_at) - new Date(a.updated_at);
                 case "lang":
                     return (a.lang || "未知").localeCompare(
                         b.lang || "未知",
-                        "zh-Hans"
+                        "zh-TW"
                     );
                 default:
                     return 0;
