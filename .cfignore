@@ -11,3 +11,7 @@ LICENSE
 # 忽略資料夾
 py_tools
 scripts
+py_output
+node_modules
+todo
+karaoke mappings
