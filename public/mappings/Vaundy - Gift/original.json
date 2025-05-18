@@ -8,7 +8,7 @@
         ]
     },
     {
-        "time": "00:11.09",
+        "time": "00:10.40",
         "text": [
             { "phrase": "渦は", "duration": 48.4 },
             { "phrase": "人", "duration": 37.2 },
@@ -28,7 +28,8 @@
         "time": "00:19.87",
         "text": [
             { "phrase": "ふと出し", "duration": 111.2, "kiai": true },
-            { "phrase": "た", "duration": 97.9 },
+            { "phrase": "た", "duration": 40 },
+            { "phrase": "", "duration": 120 },
             { "phrase": "言葉が", "duration": 108.3, "kiai": true }
         ]
     },
@@ -51,7 +52,7 @@
         "text": [
             { "phrase": "いつ", "duration": 55.9 },
             { "phrase": "か", "duration": 47.8 },
-            { "phrase": "誰", "duration": 90.1 },
+            { "phrase": "誰", "duration": 80.1 },
             { "phrase": "か", "duration": 17.0 },
             { "phrase": "が", "duration": 270.2, "kiai": true }
         ]
@@ -92,7 +93,7 @@
         "text": [
             { "phrase": "It’s ", "duration": 55.6 },
             { "phrase": "a ", "duration": 21.5 },
-            { "phrase": "gift", "duration": 66.0 }
+            { "phrase": "gift", "duration": 60.0 }
         ]
     },
     {
@@ -104,7 +105,7 @@
         ]
     },
     {
-        "time": "01:02.12",
+        "time": "01:01.80",
         "text": [
             { "phrase": "酸い", "duration": 57.5 },
             { "phrase": "も", "duration": 75.2 },
@@ -115,8 +116,8 @@
     {
         "time": "01:04.90",
         "text": [
-            { "phrase": "always ", "duration": 54.7 },
-            { "phrase": "kissing", "duration": 54.7 }
+            { "phrase": "always ", "duration": 40 },
+            { "phrase": "kissing", "duration": 40 }
         ]
     },
     {
@@ -143,10 +144,10 @@
     {
         "time": "01:11.59",
         "text": [
-            { "phrase": "心", "duration": 109.5, "kiai": true },
+            { "phrase": "心", "duration": 100, "kiai": true },
             { "phrase": "に", "duration": 20.4 },
             { "phrase": "溜っ", "duration": 54.9 },
-            { "phrase": "た言", "duration": 55.0 },
+            { "phrase": "た言", "duration": 50.0 },
             { "phrase": "霊", "duration": 72.7 }
         ]
     },
@@ -175,13 +176,25 @@
             { "phrase": "for ", "duration": 55.5 },
             { "phrase": "you, the ", "duration": 52.5 },
             { "phrase": "love", "duration": 468.7, "kiai": true }
-        ]
+        ],
+        "background_voice": {
+            "time": "01:26.40",
+            "text": [
+                { "phrase": "Hoo-", "duration": 20, "kiai": true },
+                { "phrase": "hoo-", "duration": 20 },
+                { "phrase": "hoo-", "duration": 20 },
+                { "phrase": "hoo-", "duration": 20 },
+                { "phrase": "hoo-", "duration": 20 },
+                { "phrase": "hoo~", "duration": 40 }
+            ]
+        }
     },
     {
         "time": "01:35.15",
         "text": [
-            { "phrase": "少年", "duration": 121.9, "kiai": true },
-            { "phrase": "の", "duration": 85.7 },
+            { "phrase": "少年", "duration": 110.9, "kiai": true },
+            { "phrase": "の", "duration": 40 },
+            { "phrase": "", "duration": 120 },
             { "phrase": "光る", "duration": 62.4 },
             { "phrase": "心", "duration": 108.8, "kiai": true }
         ]
@@ -207,7 +220,8 @@
             { "phrase": "そして", "duration": 71.9 },
             { "phrase": "少年", "duration": 137.4, "kiai": true },
             { "phrase": "は", "duration": 95.4 },
-            { "phrase": "母の光", "duration": 145.5, "kiai": true },
+            { "phrase": "", "duration": 85.7 },
+            { "phrase": "母の光", "duration": 100.5, "kiai": true },
             { "phrase": "を", "duration": 39.1 }
         ]
     },
@@ -279,7 +293,7 @@
     {
         "time": "02:23.39",
         "text": [
-            { "phrase": "from ", "duration": 58.6 },
+            { "phrase": "from ", "duration": 40.6 },
             { "phrase": "the ", "duration": 32.3 },
             { "phrase": "pain ", "duration": 70.0 }
         ]
@@ -290,16 +304,16 @@
             { "phrase": "They ", "duration": 71.5 },
             { "phrase": "call ", "duration": 86.4 },
             { "phrase": "it ", "duration": 55.3 },
-            { "phrase": "“rain”", "duration": 88.6 }
+            { "phrase": "“rain”", "duration": 70.6 }
         ]
     },
     {
-        "time": "02:27.93",
+        "time": "02:27.80",
         "text": [
-            { "phrase": "and", "duration": 18.4 },
-            { "phrase": "they", "duration": 44.1 },
-            { "phrase": "are", "duration": 20.8 },
-            { "phrase": "soaked", "duration": 90.5 }
+            { "phrase": "and ", "duration": 18.4 },
+            { "phrase": "they ", "duration": 44.1 },
+            { "phrase": "are ", "duration": 20.8 },
+            { "phrase": "soaked", "duration": 80.5 }
         ]
     },
     {
@@ -312,7 +326,7 @@
     {
         "time": "02:33.03",
         "text": [
-            { "phrase": "Feeling", "duration": 62.4 },
+            { "phrase": "Feeling ", "duration": 62.4 },
             { "phrase": "mad, ", "duration": 65.6 },
             { "phrase": "mad, ", "duration": 69.5 },
             { "phrase": "mad", "duration": 96.3 }
@@ -321,9 +335,10 @@
     {
         "time": "02:36.79",
         "text": [
-            { "phrase": "Oh,", "duration": 123.2, "kiai": true },
-            { "phrase": "that's", "duration": 63.4 },
-            { "phrase": "a", "duration": 29.7 },
+            { "phrase": "Oh,", "duration": 80, "kiai": true },
+            { "phrase": " ", "duration": 100 },
+            { "phrase": "that's ", "duration": 63.4 },
+            { "phrase": "a ", "duration": 29.7 },
             { "phrase": "rain", "duration": 46.1 },
             { "phrase": "bow", "duration": 206.1, "kiai": true }
         ]
@@ -343,8 +358,9 @@
         "text": [
             { "phrase": "僕", "duration": 50.3 },
             { "phrase": "の", "duration": 57.5 },
-            { "phrase": "心", "duration": 107.4, "kiai": true },
-            { "phrase": "を", "duration": 108.3, "kiai": true },
+            { "phrase": "心", "duration": 80.4, "kiai": true },
+            { "phrase": "を", "duration": 28.3, "kiai": true },
+            { "phrase": "", "duration": 80.3, "kiai": true },
             { "phrase": "埋め", "duration": 35.1 },
             { "phrase": "てい", "duration": 57.5 },
             { "phrase": "る", "duration": 59.5 },
@@ -378,9 +394,9 @@
     {
         "time": "03:13.43",
         "text": [
-            { "phrase": "from ", "duration": 63.7 },
-            { "phrase": "the ", "duration": 28.1 },
-            { "phrase": "love", "duration": 491.4, "kiai": true }
+            { "phrase": "from ", "duration": 61.1 },
+            { "phrase": "the ", "duration": 28.3 },
+            { "phrase": "love", "duration": 534.6, "kiai": true }
         ]
     },
     {
@@ -395,8 +411,8 @@
     {
         "time": "03:22.54",
         "text": [
-            { "phrase": "always ", "duration": 54.7 },
-            { "phrase": "kissing", "duration": 54.7 }
+            { "phrase": "always ", "duration": 40 },
+            { "phrase": "kissing", "duration": 40 }
         ]
     },
     {
@@ -423,10 +439,10 @@
     {
         "time": "03:29.31",
         "text": [
-            { "phrase": "心", "duration": 109.5, "kiai": true },
+            { "phrase": "心", "duration": 100, "kiai": true },
             { "phrase": "に", "duration": 20.4 },
             { "phrase": "溜っ", "duration": 54.9 },
-            { "phrase": "た言", "duration": 55.0 },
+            { "phrase": "た言", "duration": 50.0 },
             { "phrase": "霊", "duration": 72.7 }
         ]
     },
@@ -487,6 +503,17 @@
             { "phrase": "love", "duration": 178.3, "kiai": true }
         ]
     },
-    { "time": "03:54.00", "type": "interlude" },
+    { "time": "03:54.00"
+    , "type": "interlude",
+    "background_voice": {
+        "time": "04:00.40",
+        "text": [
+            {"phrase": "Hoo-", "duration": 20},
+            {"phrase": "hoo-", "duration": 20},
+            {"phrase": "hoo, ", "duration": 60},
+            {"phrase": "yeah", "duration": 40}
+        ]
+    }
+ },
     { "time": "04:04.00", "type": "end" }
 ]
