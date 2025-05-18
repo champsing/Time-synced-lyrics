@@ -18,7 +18,8 @@
         "artist": "Vaundy",
         "lyricist": "Vaundy",
         "translation": {
-            "available": false
+            "available": true,
+            "author": "香榭"
         },
         "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/1f/49/e81f493c-1fca-8305-2664-25537206efe4/4547366698183.jpg/1200x1200bf-60.jpg",
         "lang": "ja",

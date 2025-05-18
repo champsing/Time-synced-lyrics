@@ -16,7 +16,7 @@ except Exception as e:
 
 # traverse every lyrics-display-synced-line element
 for line in soup.find_all("lyrics-display-synced-line"):
-    text_entry = {"time": "", "text": []}
+    text_entry = {"time": "", "text": [], "translation": ""}
 
     # Find every syllable element
     for syllable in line.find_all("span", class_="syllable"):

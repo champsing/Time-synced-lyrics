@@ -5,7 +5,8 @@
             { "phrase": "その", "duration": 62.2 },
             { "phrase": "光", "duration": 56.6 },
             { "phrase": "の", "duration": 67.8 }
-        ]
+        ],
+        "translation": "那道光之漩渦"
     },
     {
         "time": "00:10.40",
@@ -22,7 +23,8 @@
             { "phrase": "て", "duration": 28.7 },
             { "phrase": "いっ", "duration": 36.4 },
             { "phrase": "た。", "duration": 98.2 }
-        ]
+        ],
+        "translation": "將人們捲入並帶走了他們"
     },
     {
         "time": "00:19.87",
@@ -31,7 +33,8 @@
             { "phrase": "た", "duration": 40 },
             { "phrase": "", "duration": 120 },
             { "phrase": "言葉が", "duration": 108.3, "kiai": true }
-        ]
+        ],
+        "translation": "不經意脫口而出的話"
     },
     {
         "time": "00:24.01",
@@ -45,7 +48,8 @@
             { "phrase": "れ", "duration": 246.6, "kiai": true },
             { "phrase": "てき", "duration": 57.6 },
             { "phrase": "た。", "duration": 64.4 }
-        ]
+        ],
+        "translation": "沒錯，帶來了血、帶來鮮血"
     },
     {
         "time": "00:32.51",
@@ -55,24 +59,25 @@
             { "phrase": "誰", "duration": 80.1 },
             { "phrase": "か", "duration": 17.0 },
             { "phrase": "が", "duration": 270.2, "kiai": true }
-        ]
+        ],
+        "translation": "如果有天能有某個人"
     },
     {
         "time": "00:38.71",
         "text": [
-            {"phrase": "僕", "duration": 45.8},
-            {"phrase": "と", "duration": 56.8},
-            {"phrase": "痛", "duration": 93},
-            {"phrase": "み", "duration": 17.1},
-            {"phrase": "を", "duration": 40},
-            {"phrase": "", "duration": 80},
-            {"phrase": "分", "duration": 28},
-            {"phrase": "け", "duration": 56},
-            {"phrase": "合", "duration": 50, "kiai": true},
-            {"phrase": "え", "duration": 50, "kiai": true},
-            {"phrase": "たら", "duration": 80}
-            
-        ] 
+            { "phrase": "僕", "duration": 45.8 },
+            { "phrase": "と", "duration": 56.8 },
+            { "phrase": "痛", "duration": 93 },
+            { "phrase": "み", "duration": 17.1 },
+            { "phrase": "を", "duration": 40 },
+            { "phrase": "", "duration": 80 },
+            { "phrase": "分", "duration": 28 },
+            { "phrase": "け", "duration": 56 },
+            { "phrase": "合", "duration": 50, "kiai": true },
+            { "phrase": "え", "duration": 50, "kiai": true },
+            { "phrase": "たら", "duration": 80 }
+        ],
+        "translation": "可以與我一起承擔痛苦"
     },
     {
         "time": "00:49.74",
@@ -86,7 +91,8 @@
             { "phrase": "続", "duration": 66.0 },
             { "phrase": "け", "duration": 37.2 },
             { "phrase": "た。", "duration": 58.1 }
-        ]
+        ],
+        "translation": "我會每日不厭其煩地輕撫人們的臉龐。"
     },
     {
         "time": "00:54.06",
@@ -94,7 +100,8 @@
             { "phrase": "It’s ", "duration": 55.6 },
             { "phrase": "a ", "duration": 21.5 },
             { "phrase": "gift", "duration": 60.0 }
-        ]
+        ],
+        "translation": "這是來自愛的饋贈"
     },
     {
         "time": "00:55.40",
@@ -102,7 +109,8 @@
             { "phrase": "from ", "duration": 61.1 },
             { "phrase": "the ", "duration": 28.3 },
             { "phrase": "love", "duration": 534.6, "kiai": true }
-        ]
+        ],
+        "translation": "這是來自愛的饋贈"
     },
     {
         "time": "01:01.80",
@@ -111,14 +119,16 @@
             { "phrase": "も", "duration": 75.2 },
             { "phrase": "甘い", "duration": 68.0 },
             { "phrase": "も", "duration": 74.3 }
-        ]
+        ],
+        "translation": "一遍又一遍地親吻任何酸甜苦辣"
     },
     {
         "time": "01:04.90",
         "text": [
             { "phrase": "always ", "duration": 40 },
             { "phrase": "kissing", "duration": 40 }
-        ]
+        ],
+        "translation": "一遍又一遍地親吻任何酸甜苦辣"
     },
     {
         "time": "01:05.72",
@@ -126,11 +136,13 @@
             { "phrase": "ah, ", "duration": 80.4 },
             { "phrase": "ah, ", "duration": 68.5 },
             { "phrase": "ah", "duration": 77.9 }
-        ]
+        ],
+        "translation": "啊，啊，啊"
     },
     {
         "time": "01:08.29",
-        "text": [{ "phrase": "今も", "duration": 71.4 }]
+        "text": [{ "phrase": "今も", "duration": 71.4 }],
+        "translation": "直到現在的"
     },
     {
         "time": "01:09.00",
@@ -139,7 +151,8 @@
             { "phrase": "の", "duration": 58.8 },
             { "phrase": "日々", "duration": 63.5 },
             { "phrase": "の", "duration": 52.3 }
-        ]
+        ],
+        "translation": "每天每日中"
     },
     {
         "time": "01:11.59",
@@ -149,11 +162,13 @@
             { "phrase": "溜っ", "duration": 54.9 },
             { "phrase": "た言", "duration": 50.0 },
             { "phrase": "霊", "duration": 72.7 }
-        ]
+        ],
+        "translation": "你的話語積聚而成的力量"
     },
     {
         "time": "01:14.68",
-        "text": [{ "phrase": "いつか", "duration": 59.9 }]
+        "text": [{ "phrase": "いつか", "duration": 59.9 }],
+        "translation": "遲早也能"
     },
     {
         "time": "01:15.29",
@@ -163,7 +178,8 @@
             { "phrase": "", "duration": 40 },
             { "phrase": "ヒビ", "duration": 59.9 },
             { "phrase": "の", "duration": 30.0 }
-        ]
+        ],
+        "translation": "將你空虛的每日"
     },
     {
         "time": "01:17.81",
@@ -188,7 +204,8 @@
                 { "phrase": "hoo-", "duration": 20 },
                 { "phrase": "hoo~", "duration": 40 }
             ]
-        }
+        },
+        "translation": "一點一點地填補起來 愛就是給你的禮物"
     },
     {
         "time": "01:35.15",
@@ -198,7 +215,8 @@
             { "phrase": "", "duration": 120 },
             { "phrase": "光る", "duration": 62.4 },
             { "phrase": "心", "duration": 109, "kiai": true }
-        ]
+        ],
+        "translation": "少年散發著光芒的心靈"
     },
     {
         "time": "01:39.80",
@@ -213,7 +231,8 @@
             { "phrase": "て", "duration": 11.0 },
             { "phrase": "行っ", "duration": 55.8 },
             { "phrase": "た。", "duration": 25.3 }
-        ]
+        ],
+        "translation": "帶著大家勇往前行。"
     },
     {
         "time": "01:46.60",
@@ -224,7 +243,8 @@
             { "phrase": "", "duration": 85.7 },
             { "phrase": "母の光", "duration": 100.5, "kiai": true },
             { "phrase": "を", "duration": 39.1 }
-        ]
+        ],
+        "translation": "少年明白了母親的光輝"
     },
     {
         "time": "01:52.27",
@@ -241,7 +261,8 @@
             { "phrase": "ことを", "duration": 28.4 },
             { "phrase": "知っ", "duration": 54.6 },
             { "phrase": "た。", "duration": 77.8 }
-        ]
+        ],
+        "translation": "總是照耀於他的胸懷"
     },
     {
         "time": "02:00.12",
@@ -251,7 +272,8 @@
             { "phrase": "誰", "duration": 86.5 },
             { "phrase": "か", "duration": 26.0 },
             { "phrase": "が", "duration": 259.2, "kiai": true }
-        ]
+        ],
+        "translation": "明白了一直有著某人"
     },
     {
         "time": "02:06.28",
@@ -267,7 +289,8 @@
             { "phrase": "ていると", "duration": 93.6 },
             { "phrase": "知っ", "duration": 65.5 },
             { "phrase": "た。", "duration": 123.7, "kiai": true }
-        ]
+        ],
+        "translation": "為我的歲月靜好負重前行。"
     },
     {
         "time": "02:16.93",
@@ -281,7 +304,8 @@
             { "phrase": "続", "duration": 72.1 },
             { "phrase": "け", "duration": 30.3 },
             { "phrase": "た。", "duration": 70.2 }
-        ]
+        ],
+        "translation": "是故我將繼續不斷輕撫人們的臉龐。"
     },
     {
         "time": "02:21.83",
@@ -289,7 +313,8 @@
             { "phrase": "It’s ", "duration": 53.1 },
             { "phrase": "a ", "duration": 22.5 },
             { "phrase": "gift ", "duration": 62.9 }
-        ]
+        ],
+        "translation": "這是一份"
     },
     {
         "time": "02:23.39",
@@ -297,7 +322,8 @@
             { "phrase": "from ", "duration": 40.6 },
             { "phrase": "the ", "duration": 32.3 },
             { "phrase": "pain ", "duration": 70.0 }
-        ]
+        ],
+        "translation": "來自痛楚中的禮物"
     },
     {
         "time": "02:24.97",
@@ -306,7 +332,8 @@
             { "phrase": "call ", "duration": 86.4 },
             { "phrase": "it ", "duration": 55.3 },
             { "phrase": "“rain”", "duration": 70.6 }
-        ]
+        ],
+        "translation": "他們稱之為「雨」"
     },
     {
         "time": "02:27.80",
@@ -315,14 +342,16 @@
             { "phrase": "they ", "duration": 44.1 },
             { "phrase": "are ", "duration": 20.8 },
             { "phrase": "soaked", "duration": 80.5 }
-        ]
+        ],
+        "translation": "並總是溼漉其中"
     },
     {
         "time": "02:29.61",
         "text": [
             { "phrase": "いつ", "duration": 45.5 },
             { "phrase": "も", "duration": 167.5, "kiai": true }
-        ]
+        ],
+        "translation": "並總是溼漉其中"
     },
     {
         "time": "02:33.03",
@@ -331,7 +360,8 @@
             { "phrase": "mad, ", "duration": 65.6 },
             { "phrase": "mad, ", "duration": 69.5 },
             { "phrase": "mad", "duration": 96.3 }
-        ]
+        ],
+        "translation": "為此我感到生氣"
     },
     {
         "time": "02:36.79",
@@ -342,7 +372,8 @@
             { "phrase": "a ", "duration": 29.7 },
             { "phrase": "rain", "duration": 46.1 },
             { "phrase": "bow", "duration": 206.1, "kiai": true }
-        ]
+        ],
+        "translation": "啊，那是一道彩虹"
     },
     {
         "time": "02:50.14",
@@ -352,7 +383,8 @@
             { "phrase": "誰", "duration": 86.3 },
             { "phrase": "か", "duration": 27.9 },
             { "phrase": "が", "duration": 232.3, "kiai": true }
-        ]
+        ],
+        "translation": "明白了我的心底"
     },
     {
         "time": "02:56.66",
@@ -368,7 +400,8 @@
             { "phrase": "ことを", "duration": 44.3 },
             { "phrase": "知っ", "duration": 68.6 },
             { "phrase": "た", "duration": 128.7, "kiai": true }
-        ]
+        ],
+        "translation": "一直有著某人的存在"
     },
     {
         "time": "03:07.23",
@@ -382,7 +415,8 @@
             { "phrase": "続", "duration": 73.4 },
             { "phrase": "け", "duration": 28.0 },
             { "phrase": "た。", "duration": 71.0 }
-        ]
+        ],
+        "translation": "由此，我將不停輕撫人們的臉龐。"
     },
     {
         "time": "03:11.82",
@@ -390,7 +424,8 @@
             { "phrase": "It’s ", "duration": 57.6 },
             { "phrase": "a ", "duration": 19.1 },
             { "phrase": "gift", "duration": 62.7 }
-        ]
+        ],
+        "translation": "這是來自愛的饋贈"
     },
     {
         "time": "03:13.43",
@@ -398,7 +433,8 @@
             { "phrase": "from ", "duration": 61.1 },
             { "phrase": "the ", "duration": 28.3 },
             { "phrase": "love", "duration": 534.6, "kiai": true }
-        ]
+        ],
+        "translation": "這是來自愛的饋贈"
     },
     {
         "time": "03:19.55",
@@ -407,14 +443,16 @@
             { "phrase": "も", "duration": 75.2 },
             { "phrase": "甘い", "duration": 68.0 },
             { "phrase": "も", "duration": 74.3 }
-        ]
+        ],
+        "translation": "不管酸甜苦辣"
     },
     {
         "time": "03:22.54",
         "text": [
             { "phrase": "always ", "duration": 40 },
             { "phrase": "kissing", "duration": 40 }
-        ]
+        ],
+        "translation": "日復一日親吻著"
     },
     {
         "time": "03:23.56",
@@ -422,11 +460,13 @@
             { "phrase": "ah, ", "duration": 80.4 },
             { "phrase": "ah, ", "duration": 68.5 },
             { "phrase": "ah", "duration": 77.9 }
-        ]
+        ],
+        "translation": "啊，啊，啊"
     },
     {
         "time": "03:26.06",
-        "text": [{ "phrase": "今も", "duration": 83.3 }]
+        "text": [{ "phrase": "今も", "duration": 83.3 }],
+        "translation": "直到如今"
     },
     {
         "time": "03:26.82",
@@ -435,7 +475,8 @@
             { "phrase": "の", "duration": 58.8 },
             { "phrase": "日々", "duration": 63.5 },
             { "phrase": "の", "duration": 52.3 }
-        ]
+        ],
+        "translation": "每天每日中"
     },
     {
         "time": "03:29.31",
@@ -445,11 +486,13 @@
             { "phrase": "溜っ", "duration": 54.9 },
             { "phrase": "た言", "duration": 50.0 },
             { "phrase": "霊", "duration": 72.7 }
-        ]
+        ],
+        "translation": "你的話語積聚而成的力量"
     },
     {
         "time": "03:32.40",
-        "text": [{ "phrase": "いつか", "duration": 57.5 }]
+        "text": [{ "phrase": "いつか", "duration": 57.5 }],
+        "translation": "遲早也能"
     },
     {
         "time": "03:33.07",
@@ -459,7 +502,8 @@
             { "phrase": "", "duration": 40 },
             { "phrase": "ヒビ", "duration": 59.9 },
             { "phrase": "の", "duration": 30.0 }
-        ]
+        ],
+        "translation": "將你空虛的每日"
     },
     {
         "time": "03:35.56",
@@ -468,7 +512,8 @@
             { "phrase": "こ", "duration": 49.4 },
             { "phrase": "し", "duration": 56.9 },
             { "phrase": "ずつ", "duration": 47.9 }
-        ]
+        ],
+        "translation": "一點一點地填補起來"
     },
     {
         "time": "03:37.79",
@@ -476,7 +521,8 @@
             { "phrase": "Gift ", "duration": 82.4 },
             { "phrase": "from the ", "duration": 81.2 },
             { "phrase": "rain", "duration": 72.4 }
-        ]
+        ],
+        "translation": "雨給你帶來了禮物"
     },
     {
         "time": "03:40.11",
@@ -485,7 +531,8 @@
             { "phrase": "hold ", "duration": 71.9 },
             { "phrase": "it ", "duration": 46.8 },
             { "phrase": "all", "duration": 73.9 }
-        ]
+        ],
+        "translation": "就將其全部領受"
     },
     {
         "time": "03:43.21",
@@ -494,7 +541,8 @@
             { "phrase": "told me ", "duration": 84.6 },
             { "phrase": "“That’s ", "duration": 51.0 },
             { "phrase": "all“", "duration": 152.8, "kiai": true }
-        ]
+        ],
+        "translation": "媽媽告訴我：「如此足矣。」"
     },
     {
         "time": "03:48.19",
@@ -503,19 +551,21 @@
             { "phrase": "love, ", "duration": 66.5 },
             { "phrase": "love, ", "duration": 75.0 },
             { "phrase": "love", "duration": 178.3, "kiai": true }
-        ]
+        ],
+        "translation": "充盈著愛"
     },
-    { "time": "03:54.00"
-    , "type": "interlude",
-    "background_voice": {
-        "time": "04:00.40",
-        "text": [
-            {"phrase": "Hoo-", "duration": 20},
-            {"phrase": "hoo-", "duration": 20},
-            {"phrase": "hoo, ", "duration": 60},
-            {"phrase": "yeah", "duration": 40}
-        ]
-    }
- },
+    {
+        "time": "03:54.00",
+        "type": "interlude",
+        "background_voice": {
+            "time": "04:00.40",
+            "text": [
+                { "phrase": "Hoo-", "duration": 20 },
+                { "phrase": "hoo-", "duration": 20 },
+                { "phrase": "hoo, ", "duration": 60 },
+                { "phrase": "yeah", "duration": 40 }
+            ]
+        }
+    },
     { "time": "04:04.00", "type": "end" }
 ]
