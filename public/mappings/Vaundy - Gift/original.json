@@ -160,8 +160,9 @@
         "text": [
             { "phrase": "君", "duration": 51.8 },
             { "phrase": "の", "duration": 49.2 },
+            { "phrase": "", "duration": 40 },
             { "phrase": "ヒビ", "duration": 59.9 },
-            { "phrase": "の", "duration": 50.0 }
+            { "phrase": "の", "duration": 30.0 }
         ]
     },
     {
@@ -447,7 +448,7 @@
         ]
     },
     {
-        "time": "03:32.62",
+        "time": "03:32.40",
         "text": [{ "phrase": "いつか", "duration": 57.5 }]
     },
     {
@@ -455,8 +456,9 @@
         "text": [
             { "phrase": "君", "duration": 51.8 },
             { "phrase": "の", "duration": 49.2 },
+            { "phrase": "", "duration": 40 },
             { "phrase": "ヒビ", "duration": 59.9 },
-            { "phrase": "の", "duration": 50.0 }
+            { "phrase": "の", "duration": 30.0 }
         ]
     },
     {
