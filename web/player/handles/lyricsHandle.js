@@ -117,7 +117,7 @@ export function useLyrics(currentSong, songVersion, currentTime, songDuration) {
         // })
 
         const path = getLyricFilePath(
-            currentSong.value.name,
+            currentSong.value.folder,
             songVersion.value
         );
         const response = await fetch(path);
