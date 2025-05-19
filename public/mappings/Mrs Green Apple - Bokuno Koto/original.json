@@ -88,7 +88,7 @@
             { "phrase": "聞かせ", "duration": 108.3, "kiai": true },
             { "phrase": "る", "duration": 78.4 }
         ],
-        "translation": "一直以來我都在像我自己述說著"
+        "translation": "一直以來我都在向我自己述說著"
     },
     {
         "time": "00:45.58",
@@ -161,7 +161,7 @@
             { "phrase": "世界", "duration": 101.6, "kiai": true },
             { "phrase": "で", "duration": 28.8 }
         ],
-        "translation": "在這狹窄而寬廣的世界裡"
+        "translation": "在這狹窄而遼闊的世界裡"
     },
     {
         "time": "01:12.69",
@@ -397,7 +397,7 @@
             { "phrase": "世界", "duration": 90.6, "kiai": true },
             { "phrase": "で", "duration": 28.8 }
         ],
-        "translation": "逼仄而遼闊的世界裡"
+        "translation": "在這狹窄而遼闊的世界裡"
     },
     {
         "time": "02:53.12",
