@@ -1,6 +1,69 @@
 [
     {
         "available": true,
+        "folder": "Mrs Green Apple - Bokuno Koto",
+        "song_id": 1445145789,
+        "versions": [
+            {
+                "version": "original",
+                "id": "xefpHEg5UIA",
+                "default": true
+            }
+        ],
+        "album": {
+            "name": "Attitude",
+            "link": "4NtJudb"
+        },
+        "title": "僕のこと",
+        "subtitle": "大塚製薬「カロリーメイト」の新テレビCMソング",
+        "artist": "Mrs. GREEN APPLE",
+        "lyricist": "大森元貴",
+        "translation": {
+            "available": false
+        },
+        "art": "https://i.kfs.io/album/global/216180674,0v1/fit/500x500.jpg",
+        "lang": "ja",
+        "updated_at": "2025-05-19",
+        "furigana": false,
+        "credits": {
+            "performance": [
+                {
+                    "name": "大森元貴",
+                    "contribution": ["主唱", "編程", "電吉他", "原聲吉他"]
+                },
+                {
+                    "name": "Hiloto Wakai",
+                    "contribution": ["電吉他"]
+                },
+                {
+                    "name": "Ayaka Yamanaka",
+                    "contribution": ["鼓"]
+                },
+                {
+                    "name": "Ryoka Fujisawa",
+                    "contribution": ["電子琴", "編程"]
+                },
+                {
+                    "name": "Kiyokazu Takano",
+                    "contribution": ["電子低音吉他"]
+                }
+            ],
+            "song_writing":[
+                {
+                    "name": "大森元貴",
+                    "contribution": ["詞曲創作", "編曲"]
+                }
+            ],
+            "engineering": [
+                {
+                    "name": "Mrs. GREEN APPLE",
+                    "contribution": ["製作人"]
+                }
+            ]
+        }
+    },
+    {
+        "available": true,
         "folder": "Vaundy - Gift",
         "song_id": 1758905748,
         "versions": [
