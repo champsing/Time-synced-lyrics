@@ -19,7 +19,8 @@
         "artist": "Mrs. GREEN APPLE",
         "lyricist": "大森元貴",
         "translation": {
-            "available": false
+            "available": true,
+            "author": "香榭"
         },
         "art": "https://i.kfs.io/album/global/216180674,0v1/fit/500x500.jpg",
         "lang": "ja",
