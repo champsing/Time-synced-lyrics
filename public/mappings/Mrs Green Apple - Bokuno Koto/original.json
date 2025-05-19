@@ -95,6 +95,7 @@
         "text": [
             { "phrase": "明日", "duration": 109.0, "kiai": true },
             { "phrase": "も", "duration": 61.1 },
+            { "phrase": "", "duration": 61.1 },
             { "phrase": "あるし", "duration": 71.8 },
             { "phrase": "ね", "duration": 57.9 }
         ],
@@ -103,7 +104,8 @@
     {
         "time": "00:51.52",
         "text": [
-            { "phrase": "ああ ", "duration": 158.3, "kiai": true },
+            { "phrase": "ああ", "duration": 158.3, "kiai": true },
+            { "phrase": " ", "duration": 50 },
             { "phrase": "なん", "duration": 52.7 },
             { "phrase": "て", "duration": 47.5 },
             { "phrase": "素敵", "duration": 95.5 },
@@ -133,7 +135,7 @@
             { "phrase": "れ", "duration": 20.0 },
             { "phrase": "挫", "duration": 34.9 },
             { "phrase": "ける", "duration": 41.6 },
-            { "phrase": "今日", "duration": 71.7 },
+            { "phrase": "今日", "duration": 61.7 },
             { "phrase": "も", "duration": 31.1 }
         ],
         "translation": ""
@@ -145,7 +147,7 @@
             { "phrase": "諦", "duration": 102.5, "kiai": true },
             { "phrase": "めず", "duration": 49.5 },
             { "phrase": "踠", "duration": 71.8 },
-            { "phrase": "いて", "duration": 59.5 },
+            { "phrase": "いて", "duration": 70.5 },
             { "phrase": "い", "duration": 28.3 },
             { "phrase": "る", "duration": 67.5 }
         ],
@@ -164,7 +166,7 @@
     {
         "time": "01:12.69",
         "text": [
-            { "phrase": "奇跡", "duration": 101.6, "kiai": true },
+            { "phrase": "奇跡", "duration": 91.6, "kiai": true },
             { "phrase": "を", "duration": 46.4 },
             { "phrase": "唄う", "duration": 67.5 }
         ],
@@ -197,7 +199,7 @@
     {
         "time": "01:21.21",
         "text": [
-            { "phrase": "大人", "duration": 124.6, "kiai": true },
+            { "phrase": "大人", "duration": 114.6, "kiai": true },
             { "phrase": "に", "duration": 34.4 },
             { "phrase": "な", "duration": 48.1 },
             { "phrase": "る", "duration": 68.0 },
@@ -234,7 +236,7 @@
         "text": [
             { "phrase": "全", "duration": 44.7 },
             { "phrase": "て", "duration": 38.4 },
-            { "phrase": "僕", "duration": 73.4 },
+            { "phrase": "僕", "duration": 60.4 },
             { "phrase": "のこと", "duration": 120.0, "kiai": true }
         ],
         "translation": ""
@@ -243,7 +245,8 @@
         "time": "01:36.18",
         "text": [
             { "phrase": "今日", "duration": 51.5 },
-            { "phrase": "という", "duration": 68.5 },
+            { "phrase": "という", "duration": 48.5 },
+			{ "phrase": "", "duration": 20 },
             { "phrase": "僕", "duration": 43.6 },
             { "phrase": "の", "duration": 16.5 },
             { "phrase": "こ", "duration": 16.4 },
@@ -271,7 +274,7 @@
     {
         "time": "02:05.07",
         "text": [
-            { "phrase": "伝", "duration": 78.7 },
+            { "phrase": "伝", "duration": 70.7 },
             { "phrase": "わる", "duration": 79.0 },
             { "phrase": "ことの", "duration": 101.9, "kiai": true },
             { "phrase": "ない", "duration": 53.0 },
@@ -318,7 +321,7 @@
     {
         "time": "02:23.12",
         "text": [
-            { "phrase": "僕", "duration": 72.6 },
+            { "phrase": "僕", "duration": 60.6 },
             { "phrase": "だけじゃ", "duration": 118.4, "kiai": true },
             { "phrase": "ない", "duration": 63.3 },
             { "phrase": "と", "duration": 34.1 }
@@ -329,7 +332,8 @@
         "time": "02:26.03",
         "text": [
             { "phrase": "思", "duration": 171.7, "kiai": true },
-            { "phrase": "える", "duration": 55.0 },
+			{ "phrase": "", "duration": 50 },
+            { "phrase": "える", "duration": 60.0 },
             { "phrase": "か", "duration": 23.4 },
             { "phrase": "な", "duration": 70.0 }
         ],
@@ -374,9 +378,9 @@
     {
         "time": "02:44.46",
         "text": [
-            { "phrase": "ああ ", "duration": 127.4, "kiai": true },
-            { "phrase": "嘆", "duration": 74.2 },
-            { "phrase": "くに", "duration": 49.2 },
+            { "phrase": "ああ ", "duration": 120.4, "kiai": true },
+            { "phrase": "嘆", "duration": 65 },
+            { "phrase": "くに", "duration": 40.2 },
             { "phrase": "は", "duration": 39.1 },
             { "phrase": "ほ", "duration": 58.9 },
             { "phrase": "ど", "duration": 21.4 },
@@ -390,7 +394,7 @@
         "text": [
             { "phrase": "狭い", "duration": 78.4 },
             { "phrase": "広い", "duration": 80.0 },
-            { "phrase": "世界", "duration": 101.6, "kiai": true },
+            { "phrase": "世界", "duration": 90.6, "kiai": true },
             { "phrase": "で", "duration": 28.8 }
         ],
         "translation": ""
@@ -398,7 +402,7 @@
     {
         "time": "02:53.12",
         "text": [
-            { "phrase": "僕", "duration": 93.3 },
+            { "phrase": "僕", "duration": 80.3 },
             { "phrase": "らは", "duration": 46.7 },
             { "phrase": "唄う", "duration": 81.3 }
         ],
@@ -411,7 +415,7 @@
     {
         "time": "03:06.84",
         "text": [
-            { "phrase": "冬に", "duration": 91.3 },
+            { "phrase": "冬に", "duration": 81.3 },
             { "phrase": "咲く", "duration": 85.4 },
             { "phrase": "花", "duration": 71.2 },
             { "phrase": "に", "duration": 52.1 }
@@ -493,6 +497,7 @@
         "text": [
             { "phrase": "僕", "duration": 38.0 },
             { "phrase": "らは", "duration": 42.3 },
+			{ "phrase": "", "duration": 55 },
             { "phrase": "知って", "duration": 61.9 },
             { "phrase": "い", "duration": 20.0 },
             { "phrase": "る", "duration": 60.4 }
@@ -504,6 +509,7 @@
         "text": [
             { "phrase": "奇跡", "duration": 61.8 },
             { "phrase": "は", "duration": 20.6 },
+			{ "phrase": "", "duration": 50 },
             { "phrase": "死んで", "duration": 70.6 },
             { "phrase": "い", "duration": 21.6 },
             { "phrase": "る", "duration": 52.2 }
@@ -515,6 +521,7 @@
         "text": [
             { "phrase": "努力", "duration": 59.0 },
             { "phrase": "も", "duration": 24.8 },
+			{ "phrase": "", "duration": 55 },
             { "phrase": "孤独", "duration": 60.0 },
             { "phrase": "も", "duration": 30.5 }
         ],
@@ -596,7 +603,7 @@
     {
         "time": "04:23.27",
         "text": [
-            { "phrase": "幸", "duration": 60.1 },
+            { "phrase": "幸", "duration": 55.1 },
             { "phrase": "せに", "duration": 30.3 },
             { "phrase": "悩", "duration": 44.1 },
             { "phrase": "める", "duration": 39.4 },
@@ -644,6 +651,7 @@
         "time": "04:37.66",
         "text": [
             { "phrase": "あの日の", "duration": 82.9 },
+			{ "phrase": "", "duration": 20 },
             { "phrase": "僕", "duration": 36.6 },
             { "phrase": "らの", "duration": 40.2 },
             { "phrase": "こ", "duration": 20.0 },
@@ -672,8 +680,8 @@
     {
         "time": "05:06.69",
         "text": [
-            { "phrase": "それぞれ", "duration": 145.5, "kiai": true },
-            { "phrase": "見て", "duration": 104.5, "kiai": true },
+            { "phrase": "それぞれ", "duration": 135.5, "kiai": true },
+            { "phrase": "見て", "duration": 94.5, "kiai": true },
             { "phrase": "きた", "duration": 53.8 },
             { "phrase": "景色", "duration": 99.1 },
             { "phrase": "が", "duration": 30.4 },
