@@ -557,7 +557,7 @@
         "text": [
             { "phrase": "What ", "duration": 64.0 },
             { "phrase": "a ", "duration": 26.6 },
-            { "phrase": "terrible ", "duration": 123.2 },
+            { "phrase": "terrible ", "duration": 83.2 },
             { "phrase": "news", "duration": 182.4, "kiai": true }
         ],
         "translation": ""

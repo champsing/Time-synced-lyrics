@@ -519,8 +519,9 @@
         "time": "03:37.79",
         "text": [
             { "phrase": "Gift ", "duration": 82.4 },
-            { "phrase": "from the ", "duration": 81.2 },
-            { "phrase": "rain", "duration": 72.4 }
+            { "phrase": "from ", "duration": 30 },
+            { "phrase": "the ", "duration": 30 },
+            { "phrase": "rain", "duration": 52.4 }
         ],
         "translation": "雨給你帶來了禮物"
     },
@@ -530,7 +531,7 @@
             { "phrase": "Just ", "duration": 79.3 },
             { "phrase": "hold ", "duration": 71.9 },
             { "phrase": "it ", "duration": 46.8 },
-            { "phrase": "all", "duration": 73.9 }
+            { "phrase": "all", "duration": 63.9 }
         ],
         "translation": "就將其全部領受"
     },
@@ -545,7 +546,7 @@
         "translation": "媽媽告訴我：「如此足矣。」"
     },
     {
-        "time": "03:48.19",
+        "time": "03:48.00",
         "text": [
             { "phrase": "Filled with ", "duration": 57.7 },
             { "phrase": "love, ", "duration": 66.5 },
