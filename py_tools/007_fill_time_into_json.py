@@ -6,6 +6,7 @@ def parse_lrc_times(lrc_content):
     return [time_pattern.search(line).group(1) for line in lrc_content if time_pattern.search(line)]
 
 def update_json_with_lrc(json_data, lrc_times):
+    print(len(json_data), len(lrc_times))
     if len(json_data) != len(lrc_times):
         raise ValueError("JSON line count doesn't match lrc line count")
     for entry, lrc_time in zip(json_data, lrc_times):

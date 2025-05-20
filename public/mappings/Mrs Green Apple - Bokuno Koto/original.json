@@ -246,7 +246,7 @@
         "text": [
             { "phrase": "今日", "duration": 51.5 },
             { "phrase": "という", "duration": 48.5 },
-			{ "phrase": "", "duration": 20 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "僕", "duration": 43.6 },
             { "phrase": "の", "duration": 16.5 },
             { "phrase": "こ", "duration": 16.4 },
@@ -332,7 +332,7 @@
         "time": "02:26.03",
         "text": [
             { "phrase": "思", "duration": 171.7, "kiai": true },
-			{ "phrase": "", "duration": 50 },
+            { "phrase": "", "duration": 50 },
             { "phrase": "える", "duration": 60.0 },
             { "phrase": "か", "duration": 23.4 },
             { "phrase": "な", "duration": 70.0 }
@@ -497,7 +497,7 @@
         "text": [
             { "phrase": "僕", "duration": 38.0 },
             { "phrase": "らは", "duration": 42.3 },
-			{ "phrase": "", "duration": 55 },
+            { "phrase": "", "duration": 55 },
             { "phrase": "知って", "duration": 61.9 },
             { "phrase": "い", "duration": 20.0 },
             { "phrase": "る", "duration": 60.4 }
@@ -509,7 +509,7 @@
         "text": [
             { "phrase": "奇跡", "duration": 61.8 },
             { "phrase": "は", "duration": 20.6 },
-			{ "phrase": "", "duration": 50 },
+            { "phrase": "", "duration": 50 },
             { "phrase": "死んで", "duration": 70.6 },
             { "phrase": "い", "duration": 21.6 },
             { "phrase": "る", "duration": 52.2 }
@@ -521,7 +521,7 @@
         "text": [
             { "phrase": "努力", "duration": 59.0 },
             { "phrase": "も", "duration": 24.8 },
-			{ "phrase": "", "duration": 55 },
+            { "phrase": "", "duration": 55 },
             { "phrase": "孤独", "duration": 60.0 },
             { "phrase": "も", "duration": 30.5 }
         ],
@@ -651,7 +651,7 @@
         "time": "04:37.66",
         "text": [
             { "phrase": "あの日の", "duration": 82.9 },
-			{ "phrase": "", "duration": 20 },
+            { "phrase": "", "duration": 20 },
             { "phrase": "僕", "duration": 36.6 },
             { "phrase": "らの", "duration": 40.2 },
             { "phrase": "こ", "duration": 20.0 },

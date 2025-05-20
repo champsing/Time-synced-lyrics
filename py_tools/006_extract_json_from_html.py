@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import json
 import os
 
-html_path = os.path.join("karaoke mappings", "bokuno koto", "bokuno koto.html")
+html_path = os.path.join("karaoke mappings", "replica", "replica.html")
 
 try:
     with open(html_path, "r", encoding="utf-8") as html:

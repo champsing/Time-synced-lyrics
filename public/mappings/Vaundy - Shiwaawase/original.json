@@ -704,7 +704,7 @@
                 "pronounciation": "いま"
             },
             { "phrase": "から", "duration": 60.4, "kiai": true },
-             { "phrase": "", "duration": 40 },
+            { "phrase": "", "duration": 40 },
             {
                 "phrase": "君",
                 "duration": 80,
