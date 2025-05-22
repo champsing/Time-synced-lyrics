@@ -18,7 +18,9 @@
         "artist": "Vaundy",
         "lyricist": "Vaundy",
         "translation": {
-            "available": false
+            "available": true,
+            "author": "Oblivionis",
+            "cite": "https://home.gamer.com.tw/artwork.php?sn=5830215"
         },
         "art": "https://i.kfs.io/album/global/263116610,3v1/fit/500x500.jpg",
         "lang": "ja",

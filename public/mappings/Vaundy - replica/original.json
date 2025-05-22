@@ -10,7 +10,7 @@
             { "phrase": "溜め", "duration": 72.6 },
             { "phrase": "た", "duration": 70.0 }
         ],
-        "translation": ""
+        "translation": "已經寫出了很多"
     },
     {
         "time": "00:32.97",
@@ -19,7 +19,7 @@
             { "phrase": "something ", "duration": 91.7 },
             { "phrase": "refused", "duration": 134.2, "kiai": true }
         ],
-        "translation": ""
+        "translation": "但被什麼拒絕了"
     },
     {
         "time": "00:35.71",
@@ -31,7 +31,7 @@
             { "phrase": "た", "duration": 40.1, "kiai": true },
             { "phrase": "言葉", "duration": 135.3 }
         ],
-        "translation": ""
+        "translation": "這是以前用過的詞語了"
     },
     {
         "time": "00:41.07",
@@ -46,7 +46,7 @@
             { "phrase": "だら", "duration": 65.1 },
             { "phrase": "け", "duration": 78.1 }
         ],
-        "translation": ""
+        "translation": "盡是些謊言編織而成的言語"
     },
     {
         "time": "00:48.33",
@@ -54,7 +54,7 @@
             { "phrase": "Oh ", "duration": 61.8 },
             { "phrase": "no", "duration": 72.0 }
         ],
-        "translation": ""
+        "translation": "噢不"
     },
     {
         "time": "00:50.03",
@@ -63,7 +63,7 @@
             { "phrase": "冷め", "duration": 68.3 },
             { "phrase": "た", "duration": 71.5 }
         ],
-        "translation": ""
+        "translation": "「已經變涼了」"
     },
     {
         "time": "00:52.13",
@@ -72,7 +72,7 @@
             { "phrase": "誰かが", "duration": 100.6, "kiai": true },
             { "phrase": "言う", "duration": 72.7 }
         ],
-        "translation": ""
+        "translation": "有人這樣對我說"
     },
     {
         "time": "00:54.67",
@@ -84,7 +84,7 @@
             { "phrase": "that's ", "duration": 30.1 },
             { "phrase": "all", "duration": 53.4 }
         ],
-        "translation": ""
+        "translation": "我想也是但就這樣吧"
     },
     {
         "time": "00:56.93",
@@ -94,7 +94,7 @@
             { "phrase": "まる", "duration": 53.7 },
             { "phrase": "言葉", "duration": 107.5, "kiai": true }
         ],
-        "translation": ""
+        "translation": "絞盡腦汁而生的語句"
     },
     {
         "time": "01:00.19",
@@ -105,7 +105,7 @@
             { "phrase": "ただ", "duration": 63.5 },
             { "phrase": "けだ", "duration": 53.1 }
         ],
-        "translation": ""
+        "translation": "我只是在創作著這些"
     },
     {
         "time": "01:04.10",
@@ -114,7 +114,7 @@
             { "phrase": "every ", "duration": 35.0 },
             { "phrase": "try", "duration": 36.9 }
         ],
-        "translation": ""
+        "translation": "透過每次嘗試"
     },
     {
         "time": "01:05.12",
@@ -122,7 +122,7 @@
             { "phrase": "Every ", "duration": 64.6 },
             { "phrase": "time", "duration": 30.6 }
         ],
-        "translation": ""
+        "translation": "每一次"
     },
     {
         "time": "01:06.24",
@@ -132,7 +132,7 @@
             { "phrase": "terrible ", "duration": 125.1 },
             { "phrase": "news", "duration": 164.0, "kiai": true }
         ],
-        "translation": ""
+        "translation": "真是個壞消息"
     },
     {
         "time": "01:11.73",
@@ -141,7 +141,7 @@
             { "phrase": "a ", "duration": 51.4 },
             { "phrase": "replica.\"", "duration": 198.1 }
         ],
-        "translation": ""
+        "translation": "「這只是個複製品」"
     },
     {
         "time": "01:16.41",
@@ -149,7 +149,7 @@
             { "phrase": "けれ", "duration": 33.6 },
             { "phrase": "ども", "duration": 98.9 }
         ],
-        "translation": ""
+        "translation": "儘管如此"
     },
     {
         "time": "01:17.80",
@@ -159,7 +159,7 @@
             { "phrase": "と", "duration": 58.1 },
             { "phrase": "言う", "duration": 106.9, "kiai": true }
         ],
-        "translation": ""
+        "translation": "對我說「沒有這回事喔」的他"
     },
     {
         "time": "01:21.30",
@@ -172,7 +172,7 @@
             { "phrase": " tr", "duration": 15.6 },
             { "phrase": "ue", "duration": 395.6, "kiai": true }
         ],
-        "translation": ""
+        "translation": "眼中映照出的我是真品"
     },
     {
         "time": "01:30.78",
@@ -181,7 +181,7 @@
             { "phrase": "the ", "duration": 46.7 },
             { "phrase": "replica.\"", "duration": 192.6 }
         ],
-        "translation": ""
+        "translation": "「這只是個複製品」"
     },
     {
         "time": "01:35.73",
@@ -189,7 +189,7 @@
             { "phrase": "僕も", "duration": 92.3 },
             { "phrase": "そう", "duration": 33.9 }
         ],
-        "translation": ""
+        "translation": "「並不是這樣」"
     },
     {
         "time": "01:36.92",
@@ -199,7 +199,7 @@
             { "phrase": "と", "duration": 60.0 },
             { "phrase": "思う", "duration": 112.0, "kiai": true }
         ],
-        "translation": ""
+        "translation": "我也是這樣認為的"
     },
     {
         "time": "01:40.48",
@@ -210,7 +210,7 @@
             { "phrase": "羽", "duration": 53.3 },
             { "phrase": "根は", "duration": 51.7 }
         ],
-        "translation": ""
+        "translation": "他背上所生的翅膀"
     },
     {
         "time": "01:44.04",
@@ -220,7 +220,7 @@
             { "phrase": "てい", "duration": 65.1 },
             { "phrase": "る", "duration": 270.2, "kiai": true }
         ],
-        "translation": ""
+        "translation": "訴說了這份愛"
     },
     {
         "time": "01:48.84",
@@ -234,7 +234,7 @@
             { "phrase": "かもが", "duration": 70.7 },
             { "phrase": "まだ", "duration": 22.8 }
         ],
-        "translation": ""
+        "translation": "這一切都還在"
     },
     {
         "time": "02:08.23",
@@ -242,7 +242,7 @@
             { "phrase": "積木と", "duration": 98.7 },
             { "phrase": "いう", "duration": 93.1 }
         ],
-        "translation": ""
+        "translation": "無止盡循環"
     },
     {
         "time": "02:11.03",
@@ -254,7 +254,7 @@
             { "phrase": "の", "duration": 61.6 },
             { "phrase": "殴打", "duration": 110.2, "kiai": true }
         ],
-        "translation": ""
+        "translation": "名為積木的毆打中"
     },
     {
         "time": "02:15.67",
@@ -265,7 +265,7 @@
             { "phrase": "have ", "duration": 24.2 },
             { "phrase": "done", "duration": 72.3 }
         ],
-        "translation": ""
+        "translation": "我到底該做什麼"
     },
     {
         "time": "02:17.85",
@@ -274,7 +274,7 @@
             { "phrase": "tried ", "duration": 45.1 },
             { "phrase": "everything", "duration": 102.4 }
         ],
-        "translation": ""
+        "translation": "我什麼都嘗試了"
     },
     {
         "time": "02:20.03",
@@ -282,7 +282,7 @@
             { "phrase": "Every ", "duration": 85.9 },
             { "phrase": "night", "duration": 145.4, "kiai": true }
         ],
-        "translation": ""
+        "translation": "在每一個晚上"
     },
     {
         "time": "02:22.38",
@@ -291,12 +291,12 @@
             { "phrase": "Oh ", "duration": 56.5 },
             { "phrase": "Oh", "duration": 53.3 }
         ],
-        "translation": ""
+        "translation": "喔，喔，喔"
     },
     {
         "time": "02:24.28",
         "text": [{ "phrase": "ここは", "duration": 86.6, "kiai": true }],
-        "translation": ""
+        "translation": "這裡是"
     },
     {
         "time": "02:25.52",
@@ -305,7 +305,7 @@
             { "phrase": "もかも", "duration": 68.3 },
             { "phrase": "その", "duration": 51.5 }
         ],
-        "translation": ""
+        "translation": "全部都是"
     },
     {
         "time": "02:27.43",
@@ -313,7 +313,7 @@
             { "phrase": "理屈と", "duration": 97.1 },
             { "phrase": "いう", "duration": 100.3, "kiai": true }
         ],
-        "translation": ""
+        "translation": "無止盡循環"
     },
     {
         "time": "02:30.22",
@@ -325,7 +325,7 @@
             { "phrase": "の", "duration": 61.6 },
             { "phrase": "球だ", "duration": 104.5, "kiai": true }
         ],
-        "translation": ""
+        "translation": "名為藉口的球體"
     },
     {
         "time": "02:34.87",
@@ -336,7 +336,7 @@
             { "phrase": "this ", "duration": 30.1 },
             { "phrase": "spaceship", "duration": 85.6 }
         ],
-        "translation": ""
+        "translation": "所以我踏上了這艘宇宙船"
     },
     {
         "time": "02:37.32",
@@ -346,7 +346,7 @@
             { "phrase": "doesn't ", "duration": 53.3 },
             { "phrase": "work", "duration": 65.2 }
         ],
-        "translation": ""
+        "translation": "但依舊於事無補"
     },
     {
         "time": "02:39.31",
@@ -355,7 +355,7 @@
             { "phrase": "か", "duration": 50.0 },
             { "phrase": "りが", "duration": 121.5, "kiai": true }
         ],
-        "translation": ""
+        "translation": "只是畫蛇添足罷了"
     },
     {
         "time": "02:44.32",
@@ -368,7 +368,7 @@
             { "phrase": "", "duration": 60 },
             { "phrase": "Oddity.", "duration": 113.5, "kiai": true }
         ],
-        "translation": ""
+        "translation": "嘿... 太空怪談"
     },
     {
         "time": "02:49.14",
@@ -382,7 +382,7 @@
             { "phrase": "answer ", "duration": 65.1 },
             { "phrase": "me.", "duration": 52.3 }
         ],
-        "translation": ""
+        "translation": "嘿... 回答我啊"
     },
     {
         "time": "02:53.96",
@@ -396,7 +396,7 @@
             { "phrase": "ignore ", "duration": 85.0 },
             { "phrase": "me.", "duration": 67.7 }
         ],
-        "translation": ""
+        "translation": "為什麼... 無視我呢"
     },
     {
         "time": "02:59.38",
@@ -407,7 +407,7 @@
             { "phrase": "at ", "duration": 30.1 },
             { "phrase": "that.", "duration": 53.2 }
         ],
-        "translation": ""
+        "translation": "Oh... 看看那個"
     },
     {
         "time": "03:01.44",
@@ -417,7 +417,7 @@
             { "phrase": "terrible ", "duration": 123.4 },
             { "phrase": "news", "duration": 134.2, "kiai": true }
         ],
-        "translation": ""
+        "translation": "真是個壞消息"
     },
     {
         "time": "03:06.82",
@@ -426,7 +426,7 @@
             { "phrase": "a ", "duration": 54.9 },
             { "phrase": "replica.\"", "duration": 208.0 }
         ],
-        "translation": ""
+        "translation": "「這只是個複製品」"
     },
     {
         "time": "03:11.57",
@@ -434,7 +434,7 @@
             { "phrase": "けれ", "duration": 40.0 },
             { "phrase": "ども", "duration": 95.1 }
         ],
-        "translation": ""
+        "translation": "儘管如此"
     },
     {
         "time": "03:13.06",
@@ -444,7 +444,7 @@
             { "phrase": "と", "duration": 51.7 },
             { "phrase": "言う", "duration": 90.8 }
         ],
-        "translation": ""
+        "translation": "對我說「沒有這回事喔」的他"
     },
     {
         "time": "03:16.42",
@@ -458,7 +458,7 @@
             { "phrase": " tr", "duration": 15.6 },
             { "phrase": "ue", "duration": 395.6, "kiai": true }
         ],
-        "translation": ""
+        "translation": "眼中映照出的我是真品"
     },
     {
         "time": "03:26.02",
@@ -467,7 +467,7 @@
             { "phrase": "the ", "duration": 56.8 },
             { "phrase": "replica.\"", "duration": 208.2 }
         ],
-        "translation": ""
+        "translation": "「這只是個複製品」"
     },
     {
         "time": "03:30.90",
@@ -475,7 +475,7 @@
             { "phrase": "僕も", "duration": 92.0 },
             { "phrase": "そう", "duration": 36.9 }
         ],
-        "translation": ""
+        "translation": "「並不是這樣」"
     },
     {
         "time": "03:32.32",
@@ -485,7 +485,7 @@
             { "phrase": "と", "duration": 60.0 },
             { "phrase": "思う", "duration": 101.7, "kiai": true }
         ],
-        "translation": ""
+        "translation": "我也是這樣認為的"
     },
     {
         "time": "03:35.62",
@@ -496,7 +496,7 @@
             { "phrase": "羽", "duration": 53.3 },
             { "phrase": "根は", "duration": 51.7 }
         ],
-        "translation": ""
+        "translation": "他背上所生的翅膀"
     },
     {
         "time": "03:39.25",
@@ -507,7 +507,7 @@
             { "phrase": "てい", "duration": 66.6 },
             { "phrase": "る", "duration": 372.6, "kiai": true }
         ],
-        "translation": ""
+        "translation": "訴說了這份愛"
     },
     {
         "time": "03:45.01",
@@ -519,7 +519,7 @@
             { "phrase": "原点は", "duration": 130.9, "kiai": true },
             { "phrase": "また", "duration": 72.2 }
         ],
-        "translation": ""
+        "translation": "原點又這樣"
     },
     {
         "time": "04:03.72",
@@ -527,7 +527,7 @@
             { "phrase": "その身に", "duration": 137.6, "kiai": true },
             { "phrase": "重ね", "duration": 114.2, "kiai": true }
         ],
-        "translation": ""
+        "translation": "與那身影重疊"
     },
     {
         "time": "04:06.27",
@@ -539,7 +539,7 @@
             { "phrase": "僕らを", "duration": 121.6, "kiai": true },
             { "phrase": "廻す", "duration": 142.5, "kiai": true }
         ],
-        "translation": ""
+        "translation": "像是要引導我們般環繞我們"
     },
     {
         "time": "04:13.54",
@@ -550,7 +550,7 @@
             { "phrase": "称し", "duration": 124.8, "kiai": true },
             { "phrase": "た。", "duration": 43.2 }
         ],
-        "translation": ""
+        "translation": "然後他，將這稱作了模仿。"
     },
     {
         "time": "04:18.42",
@@ -560,7 +560,7 @@
             { "phrase": "terrible ", "duration": 83.2 },
             { "phrase": "news", "duration": 182.4, "kiai": true }
         ],
-        "translation": ""
+        "translation": "真是個壞消息"
     },
     {
         "time": "04:23.61",
@@ -569,7 +569,7 @@
             { "phrase": "am ", "duration": 61.6 },
             { "phrase": "replica.\"", "duration": 215.6 }
         ],
-        "translation": ""
+        "translation": "「我就是個複製品」"
     },
     {
         "time": "04:28.41",
@@ -577,7 +577,7 @@
             { "phrase": "けれ", "duration": 40.0 },
             { "phrase": "ども", "duration": 92.1 }
         ],
-        "translation": ""
+        "translation": "儘管如此"
     },
     {
         "time": "04:29.79",
@@ -587,7 +587,7 @@
             { "phrase": "と", "duration": 56.8 },
             { "phrase": "言う", "duration": 87.9 }
         ],
-        "translation": ""
+        "translation": "對我說「沒有這回事喔」的他"
     },
     {
         "time": "04:33.24",
@@ -600,7 +600,7 @@
             { "phrase": " tr", "duration": 15.6 },
             { "phrase": "ue", "duration": 395.6, "kiai": true }
         ],
-        "translation": ""
+        "translation": "眼中映照出的我是真品"
     },
     {
         "time": "04:42.77",
@@ -609,7 +609,7 @@
             { "phrase": "am ", "duration": 60.0 },
             { "phrase": "replica.\"", "duration": 218.7 }
         ],
-        "translation": ""
+        "translation": "「我就是個複製品」"
     },
     {
         "time": "04:47.55",
@@ -617,7 +617,7 @@
             { "phrase": "僕も", "duration": 103.5, "kiai": true },
             { "phrase": "そう", "duration": 34.4 }
         ],
-        "translation": ""
+        "translation": "「並不是這樣」"
     },
     {
         "time": "04:49.09",
@@ -627,7 +627,7 @@
             { "phrase": "と", "duration": 58.4 },
             { "phrase": "思う", "duration": 95.5 }
         ],
-        "translation": ""
+        "translation": "我也是這樣認為的"
     },
     {
         "time": "04:52.53",
@@ -638,7 +638,7 @@
             { "phrase": "羽", "duration": 53.3 },
             { "phrase": "根は", "duration": 51.7 }
         ],
-        "translation": ""
+        "translation": "他背上所生的翅膀"
     },
     {
         "time": "04:56.06",
@@ -649,7 +649,7 @@
             { "phrase": "てい", "duration": 63.2 },
             { "phrase": "る", "duration": 406.1, "kiai": true }
         ],
-        "translation": ""
+        "translation": "傳達了這份愛"
     },
     {
         "time": "05:02.02",
