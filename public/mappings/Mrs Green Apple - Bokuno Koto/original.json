@@ -482,7 +482,7 @@
         "time": "03:30.62",
         "text": [
             { "phrase": "駆", "duration": 37.4 },
-            { "phrase": "けるは", "duration": 173.3, "kiai": true },
+            { "phrase": "けるは", "duration": 173.3 },
             { "phrase": "人の", "duration": 107.7, "kiai": true },
             { "phrase": "旅路", "duration": 283.5, "kiai": true }
         ],

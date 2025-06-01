@@ -26,11 +26,12 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
         phraseProgressValue = 0;
     }
 
-    const a = 0.35 + 0.5 * phraseProgressValue;
+    const sinProgress = Math.sin((phraseProgressValue * Math.PI) / 2);
+    const a = 0.35 + 0.5 * sinProgress; // 從0.35緩入到0.85
 
     const linearGradient = `linear-gradient(to right, rgba(255, 255, 255, ${a}) ${
         phraseProgressValue * 100
-    }%, rgba(126,126,126,0.75) ${phraseProgressValue * 100}%)`;
+    }%, rgba(132, 132, 132, 0.35) ${phraseProgressValue * 100}%)`;
 
     if (line.text[phraseIndex].kiai) {
         const waveScale = 0.1; // 縮放幅度 (1.1 = 1 + 0.1)
