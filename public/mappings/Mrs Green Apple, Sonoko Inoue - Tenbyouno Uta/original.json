@@ -207,7 +207,7 @@
             { "phrase": "る", "duration": 88.1, "kiai": true }
         ],
         "translation": "",
-        "is_secondary": true
+        "is_together": true
     },
     {
         "time": "01:43.68",
@@ -654,7 +654,8 @@
             { "phrase": "私", "duration": 222.0, "kiai": true },
             { "phrase": "の", "duration": 105.0, "kiai": true }
         ],
-        "translation": ""
+        "translation": "",
+        "is_secondary": true
     },
     {
         "time": "04:15.57",
