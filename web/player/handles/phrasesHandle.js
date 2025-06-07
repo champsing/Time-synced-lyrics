@@ -29,9 +29,25 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
     const sinProgress = Math.sin((phraseProgressValue * Math.PI) / 2);
     const a = 0.35 + 0.5 * sinProgress; // 從0.35緩入到0.85
 
-    const linearGradient = `linear-gradient(to right, rgba(255, 255, 255, ${a}) ${
-        phraseProgressValue * 100
-    }%, rgba(132, 132, 132, 0.35) ${phraseProgressValue * 100}%)`;
+    // 設定過渡區間的寬度（百分比）
+    const transitionWidth = 5;
+
+    // 計算漸變的起始和結束位置
+    const colorStop = phraseProgressValue * 100;
+    let transitionStart = Math.max(0, colorStop - transitionWidth);
+    let transitionEnd = Math.min(100, colorStop + transitionWidth);
+
+    if (phraseProgressValue === 0) {
+        transitionStart = 0;
+        transitionEnd = 0;
+    }
+
+    const linearGradient = `linear-gradient(to right,
+        rgba(255, 255, 255, ${a}) 0%,
+        rgba(255, 255, 255, ${a}) ${transitionStart}%,
+        rgba(132, 132, 132, 0.35) ${transitionEnd}%,
+        rgba(132, 132, 132, 0.35) 100%
+    )`;
 
     if (line.text[phraseIndex].kiai) {
         const waveScale = 0.1; // 縮放幅度 (1.1 = 1 + 0.1)
