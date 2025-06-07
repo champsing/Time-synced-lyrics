@@ -49,8 +49,8 @@
 <body class="bg-[#365456] !text-white min-h-screen !m-0" :style="{ backgroundColor: bodyBackgroundColor.value}">
     <div id="app">
         <!-- 導航欄 -->
-        <nav class="shadow-sm" :style="{ backgroundColor: bodyBackgroundColor.value}">
-            <div class="top-0 fixed w-full px-4 py-2">
+        <nav class="shadow-sm">
+            <div class="top-0 fixed w-full px-4 py-2 z-50" :style="{backgroundColor: bodyBackgroundColor}">
                 <div class="flex flex-row justify-between items-center w-full gap-2 sm:gap-0">
                     <div class="flex flex-row gap-3">
                         <img src="/public/og_image/music.png" alt="同步開唱" aria-label="同步開唱"
@@ -198,9 +198,10 @@
         </div>
 
         <!-- 左側主要顯示區域 -->
-        <div id="main-display-section" class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 md:mt-10">
+        <div id="main-display-section" class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20 md:mt-10">
             <!-- 歌詞容器 -->
-            <div id="lyrics-container" class="scroll-smooth snap-y snap-proximity text-center p-4 mt-8 w-full relative md:mb-10"
+            <div id="lyrics-container"
+                class="scroll-smooth snap-y snap-proximity text-center p-4 w-full relative md:mb-10"
                 :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
                 <div class="md:h-svh md:overflow-scroll md:overflow-x-hidden" style="scrollbar-width: none;">
                     <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
@@ -256,7 +257,7 @@
                         class="reflection-scan w-full h-full object-cover opacity-50 brightness-50 blur-xl animate-background relative overflow-hidden translate-z-0 backface-hidden">
                 </div>
                 <!-- 電腦版翻譯置於歌詞框下方正中 -->
-                <div v-if="enableTranslation" class="md:h-[8vh] h-0"></div>
+                <div v-if="enableTranslation" class="md:h-[10vh] h-0"></div>
             </div>
 
 
