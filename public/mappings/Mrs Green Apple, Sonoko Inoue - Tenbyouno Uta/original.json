@@ -1,0 +1,737 @@
+[
+    {
+        "time": "00:00.10",
+        "type": "prelude",
+        "is_together": true
+    },
+    {
+        "time": "00:27.01",
+        "text": [
+            { "phrase": "貴", "duration": 42.3 },
+            { "phrase": "方", "duration": 70.7 },
+            { "phrase": "の", "duration": 45.1 },
+            { "phrase": "声", "duration": 108.9, "kiai": true },
+            { "phrase": "で", "duration": 72.4 },
+            { "phrase": "解", "duration": 55.0 },
+            { "phrase": "れて", "duration": 74.1 },
+            { "phrase": "ゆ", "duration": 47.4 },
+            { "phrase": "く", "duration": 113.0, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "00:33.60",
+        "text": [
+            { "phrase": "忘", "duration": 57.6 },
+            { "phrase": "れ", "duration": 45.4 },
+            { "phrase": "たく", "duration": 80.0 },
+            { "phrase": "ない", "duration": 75.3 },
+            { "phrase": "と", "duration": 65.8 },
+            { "phrase": "心", "duration": 92.8 },
+            { "phrase": "が", "duration": 43.4 },
+            { "phrase": "云", "duration": 38.7 },
+            { "phrase": "う", "duration": 77.3 }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "00:40.03",
+        "text": [
+            { "phrase": "思", "duration": 76.1 },
+            { "phrase": "い", "duration": 48.9 },
+            { "phrase": "出", "duration": 39.7 },
+            { "phrase": "ばっ", "duration": 64.3 },
+            { "phrase": "か", "duration": 87.8 },
+            { "phrase": "増", "duration": 43.8 },
+            { "phrase": "えて", "duration": 67.2 },
+            { "phrase": "ゆ", "duration": 45.8 },
+            { "phrase": "く", "duration": 146.8, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "00:46.40",
+        "text": [
+            { "phrase": "ず", "duration": 78.1 },
+            { "phrase": "っ", "duration": 64.7 },
+            { "phrase": "と", "duration": 80.3 },
+            { "phrase": "側に", "duration": 83.4 },
+            { "phrase": "居", "duration": 77.1 },
+            { "phrase": "た", "duration": 77.9 },
+            { "phrase": "い", "duration": 80.9 }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "00:51.96",
+        "text": [
+            { "phrase": "泣", "duration": 40.9 },
+            { "phrase": "き", "duration": 45.1 },
+            { "phrase": "虫", "duration": 70.9 },
+            { "phrase": "でも", "duration": 76.2 },
+            { "phrase": "いい", "duration": 77.6 },
+            { "phrase": "か", "duration": 85.1 },
+            { "phrase": "な", "duration": 115.6, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "00:58.65",
+        "text": [
+            { "phrase": "強", "duration": 76.6 },
+            { "phrase": "が", "duration": 43.9 },
+            { "phrase": "ら", "duration": 38.7 },
+            { "phrase": "な", "duration": 40.5 },
+            { "phrase": "いで", "duration": 69.9 },
+            { "phrase": "いい", "duration": 88.4 },
+            { "phrase": "よ", "duration": 109.9, "kiai": true }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:04.83",
+        "text": [
+            { "phrase": "限", "duration": 67.9 },
+            { "phrase": "り", "duration": 53.2 },
+            { "phrase": "ある", "duration": 75.8 },
+            { "phrase": "恋", "duration": 74.1 },
+            { "phrase": "だ", "duration": 71.6 },
+            { "phrase": "と", "duration": 67.4 },
+            { "phrase": "して", "duration": 99.9 },
+            { "phrase": "も", "duration": 113.9, "kiai": true }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:11.19",
+        "text": [
+            { "phrase": "出", "duration": 45.7 },
+            { "phrase": "逢", "duration": 40.2 },
+            { "phrase": "えて", "duration": 70.0 },
+            { "phrase": "幸", "duration": 107.2, "kiai": true },
+            { "phrase": "せ", "duration": 74.1 },
+            { "phrase": "で", "duration": 31.9 },
+            { "phrase": "す", "duration": 73.9 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:17.15",
+        "text": [
+            { "phrase": "い", "duration": 74.5 },
+            { "phrase": "つ", "duration": 81.7 },
+            { "phrase": "まで", "duration": 73.2 },
+            { "phrase": "も", "duration": 84.7 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:20.35",
+        "text": [
+            { "phrase": "い", "duration": 73.8 },
+            { "phrase": "つ", "duration": 77.8 },
+            { "phrase": "まで", "duration": 73.8 },
+            { "phrase": "も", "duration": 86.9 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:23.48",
+        "text": [
+            { "phrase": "続", "duration": 134.1, "kiai": true },
+            { "phrase": "い", "duration": 29.6 },
+            { "phrase": "て", "duration": 44.0 },
+            { "phrase": "欲", "duration": 36.2 },
+            { "phrase": "しい", "duration": 66.8 },
+            { "phrase": "と", "duration": 70.2 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:27.20",
+        "text": [
+            { "phrase": "願", "duration": 39.4 },
+            { "phrase": "っ", "duration": 34.8 },
+            { "phrase": "て", "duration": 56.0 },
+            { "phrase": "い", "duration": 35.1 },
+            { "phrase": "る", "duration": 75.0 }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "01:29.81",
+        "text": [
+            { "phrase": "手", "duration": 61.1 },
+            { "phrase": "を", "duration": 83.8 },
+            { "phrase": "取る", "duration": 83.6 },
+            { "phrase": "こ", "duration": 77.1 },
+            { "phrase": "と", "duration": 46.8 },
+            { "phrase": "は", "duration": 42.1 },
+            { "phrase": "出", "duration": 64.2 },
+            { "phrase": "来ず", "duration": 61.0 },
+            { "phrase": "と", "duration": 49.8 },
+            { "phrase": "も", "duration": 108.6, "kiai": true }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:36.64",
+        "text": [
+            { "phrase": "私", "duration": 113.0, "kiai": true },
+            { "phrase": "は", "duration": 43.2 },
+            { "phrase": "貴", "duration": 33.2 },
+            { "phrase": "方", "duration": 100.9, "kiai": true },
+            { "phrase": "を", "duration": 39.6 }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "01:40.02",
+        "text": [
+            { "phrase": "好い", "duration": 89.4 },
+            { "phrase": "て", "duration": 54.9 },
+            { "phrase": "い", "duration": 31.7 },
+            { "phrase": "る", "duration": 88.1, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "01:43.68",
+        "text": [
+            { "phrase": "貴", "duration": 52.9 },
+            { "phrase": "方", "duration": 65.3 },
+            { "phrase": "の", "duration": 55.5 },
+            { "phrase": "夢", "duration": 69.8 },
+            { "phrase": "で", "duration": 34.1 },
+            { "phrase": "心", "duration": 95.6 },
+            { "phrase": "安", "duration": 82.1 },
+            { "phrase": "ら", "duration": 47.3 },
+            { "phrase": "ぐ", "duration": 125.0, "kiai": true }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:50.20",
+        "text": [
+            { "phrase": "目", "duration": 29.8 },
+            { "phrase": "覚め", "duration": 74.2 },
+            { "phrase": "たく", "duration": 76.4 },
+            { "phrase": "ない", "duration": 79.0 },
+            { "phrase": "と", "duration": 71.4 },
+            { "phrase": "僕", "duration": 88.0 },
+            { "phrase": "は", "duration": 51.7 },
+            { "phrase": "云", "duration": 42.0 },
+            { "phrase": "う", "duration": 78.4 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:56.59",
+        "text": [
+            { "phrase": "思", "duration": 65.5 },
+            { "phrase": "い", "duration": 42.1 },
+            { "phrase": "出", "duration": 46.5 },
+            { "phrase": "ばっ", "duration": 64.9 },
+            { "phrase": "か", "duration": 72.2 },
+            { "phrase": "増えて", "duration": 101.3, "kiai": true },
+            { "phrase": "ゆ", "duration": 57.0 },
+            { "phrase": "く", "duration": 130.9, "kiai": true }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:02.61",
+        "text": [
+            { "phrase": "明", "duration": 34.5 },
+            { "phrase": "日", "duration": 134.8, "kiai": true },
+            { "phrase": "も", "duration": 69.8 },
+            { "phrase": "側", "duration": 48.1 },
+            { "phrase": "に", "duration": 42.8 },
+            { "phrase": "居", "duration": 68.2 },
+            { "phrase": "た", "duration": 67.1 },
+            { "phrase": "い", "duration": 139.5, "kiai": true }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:09.16",
+        "type": "interlude",
+        "is_together": true
+    },
+    {
+        "time": "02:21.05",
+        "text": [
+            { "phrase": "ど", "duration": 68.2 },
+            { "phrase": "こ", "duration": 84.0 },
+            { "phrase": "まで", "duration": 80.7 },
+            { "phrase": "も", "duration": 87.5 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:24.34",
+        "text": [
+            { "phrase": "ど", "duration": 71.3 },
+            { "phrase": "こ", "duration": 78.2 },
+            { "phrase": "まで", "duration": 78.0 },
+            { "phrase": "も", "duration": 92.9 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:27.40",
+        "text": [
+            { "phrase": "鈍", "duration": 69.8 },
+            { "phrase": "感", "duration": 85.2 },
+            { "phrase": "な", "duration": 45.4 },
+            { "phrase": "僕", "duration": 102.6, "kiai": true },
+            { "phrase": "を", "duration": 62.3 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:31.20",
+        "text": [
+            { "phrase": "叱", "duration": 51.9 },
+            { "phrase": "っ", "duration": 26.7 },
+            { "phrase": "て", "duration": 46.3 },
+            { "phrase": "欲", "duration": 39.2 },
+            { "phrase": "し", "duration": 30.7 },
+            { "phrase": "い", "duration": 38.6 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:33.81",
+        "text": [
+            { "phrase": "当", "duration": 81.2 },
+            { "phrase": "た", "duration": 83.4 },
+            { "phrase": "り", "duration": 48.2 },
+            { "phrase": "前", "duration": 96.1 },
+            { "phrase": "が", "duration": 68.1 },
+            { "phrase": "壊", "duration": 70.6 },
+            { "phrase": "れ", "duration": 34.1 },
+            { "phrase": "る", "duration": 49.1 },
+            { "phrase": "こと", "duration": 43.4 },
+            { "phrase": "に", "duration": 41.6 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:40.08",
+        "text": [
+            { "phrase": "気", "duration": 43.9 },
+            { "phrase": "づ", "duration": 43.0 },
+            { "phrase": "け", "duration": 38.9 },
+            { "phrase": "ない", "duration": 73.9 },
+            { "phrase": "くらい", "duration": 105.9, "kiai": true },
+            { "phrase": "に", "duration": 69.0 },
+            { "phrase": "子", "duration": 30.4 },
+            { "phrase": "供", "duration": 66.3 },
+            { "phrase": "だけ", "duration": 67.1 },
+            { "phrase": "ど", "duration": 48.7 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:46.06",
+        "text": [
+            { "phrase": "ちゃん", "duration": 75.0 },
+            { "phrase": "と", "duration": 49.9 },
+            { "phrase": "僕", "duration": 71.3 },
+            { "phrase": "は", "duration": 49.3 },
+            { "phrase": "貴", "duration": 40.2 },
+            { "phrase": "方", "duration": 84.5 },
+            { "phrase": "を", "duration": 61.4 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:50.39",
+        "text": [
+            { "phrase": "好い", "duration": 68.9 },
+            { "phrase": "て", "duration": 53.6 },
+            { "phrase": "い", "duration": 39.2 },
+            { "phrase": "る", "duration": 83.7, "kiai": true }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:52.78",
+        "text": [
+            { "phrase": "私", "duration": 228.9, "kiai": true },
+            { "phrase": "の", "duration": 152.2, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "02:56.65",
+        "text": [
+            { "phrase": "僕", "duration": 162.0, "kiai": true },
+            { "phrase": "の", "duration": 114.7, "kiai": true }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:59.47",
+        "text": [
+            { "phrase": "時", "duration": 53.8 },
+            { "phrase": "間", "duration": 120.7, "kiai": true },
+            { "phrase": "が", "duration": 65.5 },
+            { "phrase": "止まれ", "duration": 104.3, "kiai": true },
+            { "phrase": "ば", "duration": 59.6 },
+            { "phrase": "いい", "duration": 64.4 },
+            { "phrase": "の", "duration": 59.7 },
+            { "phrase": "に", "duration": 130.4, "kiai": true }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:06.09",
+        "type": "interlude",
+        "is_together": true
+    },
+    {
+        "time": "03:18.58",
+        "text": [
+            { "phrase": "ほ", "duration": 21.9 },
+            { "phrase": "ら", "duration": 40.9 },
+            { "phrase": "ま", "duration": 24.8 },
+            { "phrase": "た", "duration": 36.5 },
+            { "phrase": "期", "duration": 36.6 },
+            { "phrase": "待", "duration": 42.0 },
+            { "phrase": "を", "duration": 21.7 },
+            { "phrase": "して", "duration": 30.4 },
+            { "phrase": "しま", "duration": 37.6 },
+            { "phrase": "う", "duration": 50.0, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "03:21.74",
+        "text": [
+            { "phrase": "グッ", "duration": 30.5 },
+            { "phrase": "と", "duration": 25.6 },
+            { "phrase": "堪", "duration": 32.4 },
+            { "phrase": "えて", "duration": 54.1 },
+            { "phrase": "みる", "duration": 53.1 },
+            { "phrase": "から", "duration": 38.6 },
+            { "phrase": "さ", "duration": 32.4 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:24.43",
+        "text": [
+            { "phrase": "もし", "duration": 33.5 },
+            { "phrase": "溢", "duration": 63.7 },
+            { "phrase": "れ", "duration": 27.8 },
+            { "phrase": "出し", "duration": 33.1 },
+            { "phrase": "たら", "duration": 33.2 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:26.40",
+        "text": [
+            { "phrase": "瞳", "duration": 56.1 },
+            { "phrase": "を", "duration": 29.1 },
+            { "phrase": "ちゃんと", "duration": 52.5 },
+            { "phrase": "見て", "duration": 56.0 },
+            { "phrase": "よ", "duration": 29.3 },
+            { "phrase": "見て", "duration": 45.5 },
+            { "phrase": "よ", "duration": 33.9 },
+            { "phrase": "見", "duration": 37.3 },
+            { "phrase": "て", "duration": 30.8 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:31.30",
+        "text": [
+            { "phrase": "貴", "duration": 57.3 },
+            { "phrase": "方", "duration": 64.2 },
+            { "phrase": "の", "duration": 52.7 },
+            { "phrase": "影", "duration": 69.7 },
+            { "phrase": "だけ", "duration": 76.5 },
+            { "phrase": "伸びて", "duration": 114.4, "kiai": true },
+            { "phrase": "ゆ", "duration": 44.9 },
+            { "phrase": "く", "duration": 71.2 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:36.90",
+        "text": [
+            { "phrase": "消", "duration": 50.5 },
+            { "phrase": "えて", "duration": 71.7 },
+            { "phrase": "しま", "duration": 73.9 },
+            { "phrase": "わ", "duration": 45.2 },
+            { "phrase": "ない", "duration": 64.1 },
+            { "phrase": "で", "duration": 55.6 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:40.44",
+        "text": [
+            { "phrase": "ずっ", "duration": 53.2 },
+            { "phrase": "と", "duration": 179.1, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "03:42.06",
+        "text": [
+            { "phrase": "ずっ", "duration": 60.3 },
+            { "phrase": "と", "duration": 79.3 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:43.40",
+        "text": [
+            { "phrase": "この", "duration": 53.8 },
+            { "phrase": "思い", "duration": 72.1 },
+            { "phrase": "は", "duration": 49.2 },
+            { "phrase": "変", "duration": 62.2 },
+            { "phrase": "わら", "duration": 38.3 },
+            { "phrase": "な", "duration": 37.8 },
+            { "phrase": "い", "duration": 35.7 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:46.78",
+        "text": [
+            { "phrase": "い", "duration": 46.4 },
+            { "phrase": "つ", "duration": 61.7 },
+            { "phrase": "まで", "duration": 77.4 },
+            { "phrase": "も", "duration": 87.7 }
+        ],
+        "translation": "",
+        "background_voice": {
+            "time": "03:49.00",
+            "text": [
+                { "phrase": "いつ", "duration": 41.6 },
+                { "phrase": "まで", "duration": 45.1 },
+                { "phrase": "も", "duration": 84.4 }
+            ],
+            "translation": ""
+        },
+        "is_together": true
+    },
+    {
+        "time": "03:49.57",
+        "text": [
+            { "phrase": "い", "duration": 62.4 },
+            { "phrase": "つ", "duration": 87.4 },
+            { "phrase": "まで", "duration": 77.8 },
+            { "phrase": "も", "duration": 81.5 }
+        ],
+        "translation": "",
+        "background_voice": {
+            "time": "03:51.40",
+            "text": [
+                { "phrase": "い", "duration": 51.2 },
+                { "phrase": "つ", "duration": 34.4 },
+                { "phrase": "ま", "duration": 31.5 },
+                { "phrase": "で", "duration": 32.7 },
+                { "phrase": "も", "duration": 78.5 }
+            ],
+            "translation": ""
+        },
+        "is_together": true,
+        "concurrent_lines": [42]
+    },
+    {
+        "time": "03:52.96",
+        "text": [
+            { "phrase": "続", "duration": 116.8, "kiai": true },
+            { "phrase": "い", "duration": 30.4 },
+            { "phrase": "て", "duration": 30.8 },
+            { "phrase": "欲", "duration": 31.2 },
+            { "phrase": "し", "duration": 36.8 },
+            { "phrase": "い", "duration": 39.5 },
+            { "phrase": "と", "duration": 61.1 }
+        ],
+        "translation": "",
+        "is_secondary": true,
+        "concurrent_lines": [43]
+    },
+    {
+        "time": "03:56.45",
+        "text": [
+            { "phrase": "願", "duration": 52.5 },
+            { "phrase": "っ", "duration": 32.7 },
+            { "phrase": "て", "duration": 45.4 },
+            { "phrase": "い", "duration": 35.1 },
+            { "phrase": "る", "duration": 69.1 }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "03:59.01",
+        "text": [
+            { "phrase": "手", "duration": 61.1 },
+            { "phrase": "を", "duration": 83.8 },
+            { "phrase": "取る", "duration": 83.6 },
+            { "phrase": "こ", "duration": 70.5 },
+            { "phrase": "と", "duration": 52.5 },
+            { "phrase": "は", "duration": 40.2 },
+            { "phrase": "出", "duration": 60.4 },
+            { "phrase": "来ず", "duration": 50.8 },
+            { "phrase": "と", "duration": 51.7 },
+            { "phrase": "も", "duration": 109.5, "kiai": true }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "04:05.76",
+        "text": [
+            { "phrase": "過", "duration": 34.2 },
+            { "phrase": "ぎ", "duration": 63.0 },
+            { "phrase": "て", "duration": 30.7 },
+            { "phrase": "いく", "duration": 55.9 },
+            {
+                "phrase": "現在(いま)",
+                "duration": 70,
+                "kiai": true,
+                "pronounciation": "いま"
+            },
+            { "phrase": "に", "duration": 27.3 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "04:08.92",
+        "text": [
+            { "phrase": "抱き", "duration": 46.1 },
+            { "phrase": "しめ", "duration": 55.3 },
+            { "phrase": "られ", "duration": 51.7 },
+            { "phrase": "て", "duration": 33.4 },
+            { "phrase": "い", "duration": 27.0 },
+            { "phrase": "る", "duration": 56.3 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "04:11.72",
+        "text": [
+            { "phrase": "私", "duration": 222.0, "kiai": true },
+            { "phrase": "の", "duration": 105.0, "kiai": true }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "04:15.57",
+        "text": [
+            { "phrase": "僕", "duration": 167.4, "kiai": true },
+            { "phrase": "の", "duration": 105.0, "kiai": true }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "04:18.41",
+        "text": [
+            { "phrase": "時", "duration": 53.7 },
+            { "phrase": "間", "duration": 136.8, "kiai": true },
+            { "phrase": "が", "duration": 59.3 },
+            { "phrase": "止まれ", "duration": 103.5, "kiai": true },
+            { "phrase": "ば", "duration": 45.5 },
+            { "phrase": "いい", "duration": 72.3 },
+            { "phrase": "の", "duration": 44.6 },
+            { "phrase": "に", "duration": 103.1, "kiai": true }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "04:25.06",
+        "text": [
+            { "phrase": "今", "duration": 32.9 },
+            { "phrase": "日", "duration": 117.9, "kiai": true },
+            { "phrase": "を", "duration": 149.9, "kiai": true }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "04:28.24",
+        "text": [
+            { "phrase": "噛", "duration": 34.5 },
+            { "phrase": "み", "duration": 32.2 },
+            { "phrase": "締め", "duration": 44.0 },
+            { "phrase": "て", "duration": 30.9 },
+            { "phrase": "いよ", "duration": 60.2 },
+            { "phrase": "う", "duration": 80.5 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "04:31.05",
+        "text": [
+            { "phrase": "終", "duration": 46.5 },
+            { "phrase": "わ", "duration": 65.7 },
+            { "phrase": "る", "duration": 68.9 },
+            { "phrase": "な", "duration": 80.3 }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "04:33.81",
+        "text": [
+            { "phrase": "夏", "duration": 73.0 },
+            { "phrase": "よ、", "duration": 50.9 },
+            { "phrase": "終わ", "duration": 67.7 },
+            { "phrase": "る", "duration": 30.9 },
+            { "phrase": "な", "duration": 120.0, "kiai": true }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "04:37.70",
+        "type": "interlude",
+        "is_together": true
+    },
+    {
+        "time": "04:53.04",
+        "type": "end",
+        "is_together": true
+    }
+]

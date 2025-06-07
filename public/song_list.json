@@ -1,6 +1,74 @@
 [
     {
         "available": true,
+        "folder": "Mrs Green Apple, Sonoko Inoue - Tenbyouno Uta",
+        "song_id": 1408505419,
+        "versions": [
+            {
+                "version": "original",
+                "id": "sL-yJIyuEaM",
+                "default": true
+            }
+        ],
+        "album": {
+            "name": "Attitude",
+            "link": "4NtJudb"
+        },
+        "title": "点描の唄",
+        "artist": "Mrs. GREEN APPLE, Sonoko Inoue",
+        "lyricist": "大森元貴",
+        "translation": {
+            "available": false,
+            "author": "香榭"
+        },
+        "art": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7NmbXHrqkonh23VACOzUY0JJjpRl1vKt75A&s",
+        "lang": "ja",
+        "updated_at": "2025-06-08",
+        "furigana": false,
+        "is_duet": true,
+        "credits": {
+            "performance": [
+                {
+                    "name": "大森元貴",
+                    "contribution": ["主唱", "吉他"]
+                },
+                {
+                    "name": "Sonoko Inoue",
+                    "contribution": ["主唱"]
+                },
+                {
+                    "name": "若井滉斗",
+                    "contribution": ["吉他"]
+                },
+                {
+                    "name": "山中綾華",
+                    "contribution": ["鼓"]
+                },
+                {
+                    "name": "藤澤涼架",
+                    "contribution": ["鋼琴"]
+                },
+                {
+                    "name": "高野清宗",
+                    "contribution": ["低音吉他"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "大森元貴",
+                    "contribution": ["詞曲創作", "編曲"]
+                }
+            ],
+            "engineering": [
+                {
+                    "name": "Mrs. GREEN APPLE",
+                    "contribution": ["製作人"]
+                }
+            ]
+        }
+    },
+    {
+        "available": true,
         "folder": "Vaundy - replica",
         "song_id": 1714599807,
         "versions": [
@@ -75,19 +143,19 @@
                     "contribution": ["主唱", "編程", "電吉他", "原聲吉他"]
                 },
                 {
-                    "name": "Hiloto Wakai",
+                    "name": "若井滉斗",
                     "contribution": ["電吉他"]
                 },
                 {
-                    "name": "Ayaka Yamanaka",
+                    "name": "山中綾華",
                     "contribution": ["鼓"]
                 },
                 {
-                    "name": "Ryoka Fujisawa",
+                    "name": "藤澤涼架",
                     "contribution": ["電子琴", "編程"]
                 },
                 {
-                    "name": "Kiyokazu Takano",
+                    "name": "高野清宗",
                     "contribution": ["電子低音吉他"]
                 }
             ],

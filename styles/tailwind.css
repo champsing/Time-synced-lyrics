@@ -20,13 +20,11 @@
     --color-teal-300: oklch(85.5% 0.138 181.071);
     --color-teal-400: oklch(77.7% 0.152 181.912);
     --color-teal-500: oklch(70.4% 0.14 182.503);
-    --color-cyan-200: oklch(91.7% 0.08 205.041);
     --color-cyan-300: oklch(86.5% 0.127 207.078);
     --color-cyan-500: oklch(71.5% 0.143 215.221);
     --color-cyan-600: oklch(60.9% 0.126 221.723);
     --color-cyan-700: oklch(52% 0.105 223.128);
     --color-cyan-800: oklch(45% 0.085 224.283);
-    --color-cyan-900: oklch(39.8% 0.07 227.392);
     --color-sky-300: oklch(82.8% 0.111 230.318);
     --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-purple-500: oklch(62.7% 0.265 303.9);
@@ -853,9 +851,6 @@
       background-color: color-mix(in oklab, var(--color-black) 80%, transparent);
     }
   }
-  .bg-cyan-200 {
-    background-color: var(--color-cyan-200);
-  }
   .bg-cyan-600 {
     background-color: var(--color-cyan-600);
   }
@@ -867,9 +862,6 @@
   }
   .bg-cyan-700 {
     background-color: var(--color-cyan-700);
-  }
-  .bg-cyan-900 {
-    background-color: var(--color-cyan-900);
   }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
@@ -1667,6 +1659,11 @@
   .md\:h-10 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:h-\[8vh\] {
+    @media (width >= 48rem) {
+      height: 8vh;
     }
   }
   .md\:h-\[10vh\] {
