@@ -37,7 +37,8 @@ function main() {
         zh: "華語",
         en: "英語",
         ja: "日語",
-        kr: "韓語"
+        kr: "韓語",
+        se: "瑞典語"
     }
 
     function sortSong(sortOption) {
