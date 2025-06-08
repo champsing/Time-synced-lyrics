@@ -205,11 +205,15 @@
     }
 
     .modal-mask {
-        @apply block fixed z-19 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out;
+        @apply block fixed z-51 pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 transition-transform duration-30 ease-in-out;
     }
 
     .modal-view-area {
         @apply gap-1 flex flex-col justify-start items-center mt-2 max-h-[40%] overflow-y-scroll;
+    }
+
+    .modal-mutual {
+        @apply opacity-100 fixed z-52 m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left;
     }
 
     .modal-name {
