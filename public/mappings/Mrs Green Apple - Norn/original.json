@@ -297,7 +297,7 @@
         "background_voice": {
             "time": "02:16.80",
             "text": [
-                { "phrase": "fylla, ", "duration": 120 },
+                { "phrase": "fylla,", "duration": 120 },
                 { "phrase": " ", "duration": 300 },
                 { "phrase": "tomhet ", "duration": 60 }
             ]
