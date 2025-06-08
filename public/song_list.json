@@ -117,8 +117,9 @@
         "artist": "Mrs. GREEN APPLE, Sonoko Inoue",
         "lyricist": "大森元貴",
         "translation": {
-            "available": false,
-            "author": "香榭"
+            "available": true,
+            "author": "官方歌詞翻譯",
+            "cite": "https://www.youtube.com/watch?v=rWsiVWlvw2E"
         },
         "art": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7NmbXHrqkonh23VACOzUY0JJjpRl1vKt75A&s",
         "lang": "ja",
@@ -339,7 +340,8 @@
         "subtitle": "《崩壞:星穹鐵道》匹諾康尼戰鬥主題曲",
         "translation": {
             "available": true,
-            "author": "官方 YouTube 翻譯"
+            "author": "官方 YouTube 翻譯",
+            "cite": "https://www.youtube.com/watch?v=pktTrSBAOJw&ab_channel=%E5%B4%A9%E5%A3%9E%3A%E6%98%9F%E7%A9%B9%E9%90%B5%E9%81%93"
         },
         "album": {
             "name": "空氣蛹 - EP",
@@ -415,7 +417,8 @@
         "is_duet": true,
         "translation": {
             "available": true,
-            "author": "官方 YouTube 翻譯"
+            "author": "官方 YouTube 翻譯",
+            "cite": "https://www.youtube.com/watch?v=GdBLXGUy2C0&pp=ygUM5LiN6Jmb5q2k6KGM"
         },
         "credits": {
             "performance": [
