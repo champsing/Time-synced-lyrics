@@ -21,7 +21,7 @@
         "is_secondary": true
     },
     {
-        "time": "00:33.60",
+        "time": "00:33.50",
         "text": [
             { "phrase": "忘", "duration": 57.6 },
             { "phrase": "れ", "duration": 45.4 },
@@ -179,9 +179,9 @@
             { "phrase": "と", "duration": 46.8 },
             { "phrase": "は", "duration": 42.1 },
             { "phrase": "出", "duration": 64.2 },
-            { "phrase": "来ず", "duration": 61.0 },
+            { "phrase": "来ず", "duration": 50.0 },
             { "phrase": "と", "duration": 49.8 },
-            { "phrase": "も", "duration": 108.6, "kiai": true }
+            { "phrase": "も", "duration": 60.6, "kiai": true }
         ],
         "translation": "",
         "is_together": true
@@ -201,8 +201,8 @@
     {
         "time": "01:40.02",
         "text": [
-            { "phrase": "好い", "duration": 89.4 },
-            { "phrase": "て", "duration": 54.9 },
+            { "phrase": "好", "duration": 80.4 },
+            { "phrase": "いて", "duration": 40.9 },
             { "phrase": "い", "duration": 31.7 },
             { "phrase": "る", "duration": 88.1, "kiai": true }
         ],
@@ -225,7 +225,7 @@
         "translation": ""
     },
     {
-        "time": "01:50.20",
+        "time": "01:50.10",
         "text": [
             { "phrase": "目", "duration": 29.8 },
             { "phrase": "覚め", "duration": 74.2 },
@@ -636,7 +636,7 @@
         "is_together": true
     },
     {
-        "time": "04:08.92",
+        "time": "04:08.80",
         "text": [
             { "phrase": "抱き", "duration": 46.1 },
             { "phrase": "しめ", "duration": 55.3 },
