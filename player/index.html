@@ -218,13 +218,24 @@
                                     :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                                     :style="getPhraseStyle(index, phraseIndex)"
                                     :class="{ 'active': isActivePhrase(currentTime, line, phraseIndex) && index < jsonMappingContent.length - 1, 'kiai': isKiai(line, phraseIndex) }">
-                                    <span v-if="t.pronounciation && enablePronounciation">
-                                        <ruby>
-                                            {{ t.phrase }}
-                                            <rp>(</rp>
-                                            <rt>{{ t.pronounciation }}</rt>
-                                            <rp>)</rp>
-                                        </ruby>
+
+                                    <span v-if="t.pronounciation">
+                                        <span v-if="t.forced_pronounciation">
+                                            <ruby>
+                                                {{ t.phrase }}
+                                                <rp>(</rp>
+                                                <rt class="!text-rose-400">{{ t.pronounciation }}</rt>
+                                                <rp>)</rp>
+                                            </ruby>
+                                        </span>
+                                        <span v-if="enablePronounciation">
+                                            <ruby>
+                                                {{ t.phrase }}
+                                                <rp>(</rp>
+                                                <rt>{{ t.pronounciation }}</rt>
+                                                <rp>)</rp>
+                                            </ruby>
+                                        </span>
                                     </span>
                                     <span v-else>{{ t.phrase }}</span>
                                 </span>
@@ -236,13 +247,23 @@
                                     :duration="line.duration[phraseIndex] * 100" :delay="line.delay[phraseIndex] * 100"
                                     :style="getBackgroundPhraseStyle(index, phraseIndex)"
                                     :class="{ 'active': isActivePhrase(currentTime, line.background_voice, phraseIndex)  && index < jsonMappingContent.length - 1, 'kiai': isBackgroundKiai(line, phraseIndex) }">
-                                    <span v-if="bvt.pronounciation && enablePronounciation">
-                                        <ruby>
-                                            {{ bvt.phrase }}
-                                            <rp>(</rp>
-                                            <rt class="text-sm">{{ bvt.pronounciation }}</rt>
-                                            <rp>)</rp>
-                                        </ruby>
+                                    <span v-if="bvt.pronounciation">
+                                        <span v-if="bvt.forced_pronounciation">
+                                            <ruby>
+                                                {{ bvt.phrase }}
+                                                <rp>(</rp>
+                                                <rt class="!text-rose-400">{{ bvt.pronounciation }}</rt>
+                                                <rp>)</rp>
+                                            </ruby>
+                                        </span>
+                                        <span v-if="enablePronounciation">
+                                            <ruby>
+                                                {{ bvt.phrase }}
+                                                <rp>(</rp>
+                                                <rt>{{ bvt.pronounciation }}</rt>
+                                                <rp>)</rp>
+                                            </ruby>
+                                        </span>
                                     </span>
                                     <span v-else>{{ bvt.phrase }}</span>
                                 </span>
