@@ -17,7 +17,7 @@
             { "phrase": "ゆ", "duration": 47.4 },
             { "phrase": "く", "duration": 113.0, "kiai": true }
         ],
-        "translation": "",
+        "translation": "你的聲音讓我的心得到放鬆",
         "is_secondary": true
     },
     {
@@ -33,7 +33,7 @@
             { "phrase": "云", "duration": 38.7 },
             { "phrase": "う", "duration": 77.3 }
         ],
-        "translation": "",
+        "translation": "心裡說著不想忘記",
         "is_secondary": true
     },
     {
@@ -49,7 +49,7 @@
             { "phrase": "ゆ", "duration": 45.8 },
             { "phrase": "く", "duration": 146.8, "kiai": true }
         ],
-        "translation": "",
+        "translation": "只有回憶是越積越多",
         "is_secondary": true
     },
     {
@@ -63,7 +63,7 @@
             { "phrase": "た", "duration": 77.9 },
             { "phrase": "い", "duration": 80.9 }
         ],
-        "translation": "",
+        "translation": "我想一直待在你身邊",
         "is_secondary": true
     },
     {
@@ -77,7 +77,7 @@
             { "phrase": "か", "duration": 85.1 },
             { "phrase": "な", "duration": 115.6, "kiai": true }
         ],
-        "translation": "",
+        "translation": "哪怕是個愛哭鬼也沒關係吧",
         "is_secondary": true
     },
     {
@@ -91,7 +91,7 @@
             { "phrase": "いい", "duration": 88.4 },
             { "phrase": "よ", "duration": 109.9, "kiai": true }
         ],
-        "translation": ""
+        "translation": "不必硬要裝堅強"
     },
     {
         "time": "01:04.83",
@@ -105,7 +105,7 @@
             { "phrase": "して", "duration": 99.9 },
             { "phrase": "も", "duration": 113.9, "kiai": true }
         ],
-        "translation": "",
+        "translation": "即便是有限的戀愛",
         "is_together": true
     },
     {
@@ -119,7 +119,7 @@
             { "phrase": "で", "duration": 31.9 },
             { "phrase": "す", "duration": 73.9 }
         ],
-        "translation": "",
+        "translation": "能夠相遇已經是幸福",
         "is_together": true
     },
     {
@@ -130,7 +130,7 @@
             { "phrase": "まで", "duration": 73.2 },
             { "phrase": "も", "duration": 84.7 }
         ],
-        "translation": "",
+        "translation": "無論到何時",
         "is_together": true
     },
     {
@@ -141,7 +141,7 @@
             { "phrase": "まで", "duration": 73.8 },
             { "phrase": "も", "duration": 86.9 }
         ],
-        "translation": "",
+        "translation": "無論到何時",
         "is_together": true
     },
     {
@@ -154,7 +154,7 @@
             { "phrase": "しい", "duration": 66.8 },
             { "phrase": "と", "duration": 70.2 }
         ],
-        "translation": "",
+        "translation": "一直祈禱著能夠繼續下去",
         "is_together": true
     },
     {
@@ -166,7 +166,7 @@
             { "phrase": "い", "duration": 35.1 },
             { "phrase": "る", "duration": 75.0 }
         ],
-        "translation": "",
+        "translation": "一直祈禱著能夠繼續下去",
         "is_secondary": true
     },
     {
@@ -183,7 +183,7 @@
             { "phrase": "と", "duration": 49.8 },
             { "phrase": "も", "duration": 60.6, "kiai": true }
         ],
-        "translation": "",
+        "translation": "即使不能拉住你的手",
         "is_together": true
     },
     {
@@ -195,7 +195,7 @@
             { "phrase": "方", "duration": 100.9, "kiai": true },
             { "phrase": "を", "duration": 39.6 }
         ],
-        "translation": "",
+        "translation": "我也如此喜歡著你",
         "is_secondary": true
     },
     {
@@ -206,7 +206,7 @@
             { "phrase": "い", "duration": 31.7 },
             { "phrase": "る", "duration": 88.1, "kiai": true }
         ],
-        "translation": "",
+        "translation": "我也如此喜歡著你",
         "is_together": true
     },
     {
@@ -222,7 +222,7 @@
             { "phrase": "ら", "duration": 47.3 },
             { "phrase": "ぐ", "duration": 125.0, "kiai": true }
         ],
-        "translation": ""
+        "translation": "在有你的夢中 心感到安寧"
     },
     {
         "time": "01:50.10",
@@ -237,7 +237,7 @@
             { "phrase": "云", "duration": 42.0 },
             { "phrase": "う", "duration": 78.4 }
         ],
-        "translation": ""
+        "translation": "我說我不想醒過來"
     },
     {
         "time": "01:56.59",
@@ -251,7 +251,7 @@
             { "phrase": "ゆ", "duration": 57.0 },
             { "phrase": "く", "duration": 130.9, "kiai": true }
         ],
-        "translation": ""
+        "translation": "只有回憶是越積越多"
     },
     {
         "time": "02:02.61",
@@ -265,7 +265,7 @@
             { "phrase": "た", "duration": 67.1 },
             { "phrase": "い", "duration": 139.5, "kiai": true }
         ],
-        "translation": ""
+        "translation": "我明天也想待在你身邊"
     },
     {
         "time": "02:09.16",
@@ -280,7 +280,7 @@
             { "phrase": "まで", "duration": 80.7 },
             { "phrase": "も", "duration": 87.5 }
         ],
-        "translation": "",
+        "translation": "無論到哪裡",
         "is_together": true
     },
     {
@@ -291,7 +291,7 @@
             { "phrase": "まで", "duration": 78.0 },
             { "phrase": "も", "duration": 92.9 }
         ],
-        "translation": "",
+        "translation": "無論到哪裡",
         "is_together": true
     },
     {
@@ -303,7 +303,7 @@
             { "phrase": "僕", "duration": 102.6, "kiai": true },
             { "phrase": "を", "duration": 62.3 }
         ],
-        "translation": "",
+        "translation": "希望你斥責那遲鈍的我",
         "is_together": true
     },
     {
@@ -316,7 +316,7 @@
             { "phrase": "し", "duration": 30.7 },
             { "phrase": "い", "duration": 38.6 }
         ],
-        "translation": "",
+        "translation": "希望你斥責那遲鈍的我",
         "is_together": true
     },
     {
@@ -333,7 +333,7 @@
             { "phrase": "こと", "duration": 43.4 },
             { "phrase": "に", "duration": 41.6 }
         ],
-        "translation": "",
+        "translation": "理所當然的日常破壞了",
         "is_together": true
     },
     {
@@ -350,7 +350,7 @@
             { "phrase": "だけ", "duration": 67.1 },
             { "phrase": "ど", "duration": 48.7 }
         ],
-        "translation": ""
+        "translation": "也像孩子一樣沒能意識到"
     },
     {
         "time": "02:46.06",
@@ -363,7 +363,7 @@
             { "phrase": "方", "duration": 84.5 },
             { "phrase": "を", "duration": 61.4 }
         ],
-        "translation": ""
+        "translation": "但我確確實實如此喜歡你"
     },
     {
         "time": "02:50.39",
@@ -373,7 +373,7 @@
             { "phrase": "い", "duration": 39.2 },
             { "phrase": "る", "duration": 83.7, "kiai": true }
         ],
-        "translation": "",
+        "translation": "但我確確實實如此喜歡你",
         "is_together": true
     },
     {
@@ -382,7 +382,7 @@
             { "phrase": "私", "duration": 228.9, "kiai": true },
             { "phrase": "の", "duration": 152.2, "kiai": true }
         ],
-        "translation": "",
+        "translation": "我的",
         "is_secondary": true
     },
     {
@@ -391,7 +391,7 @@
             { "phrase": "僕", "duration": 162.0, "kiai": true },
             { "phrase": "の", "duration": 114.7, "kiai": true }
         ],
-        "translation": ""
+        "translation": "我的"
     },
     {
         "time": "02:59.47",
@@ -405,7 +405,7 @@
             { "phrase": "の", "duration": 59.7 },
             { "phrase": "に", "duration": 130.4, "kiai": true }
         ],
-        "translation": "",
+        "translation": "時間要是能停止就好了",
         "is_together": true
     },
     {
@@ -427,7 +427,7 @@
             { "phrase": "しま", "duration": 37.6 },
             { "phrase": "う", "duration": 50.0, "kiai": true }
         ],
-        "translation": "",
+        "translation": "看 我又在期待了",
         "is_secondary": true
     },
     {
@@ -441,7 +441,7 @@
             { "phrase": "から", "duration": 38.6 },
             { "phrase": "さ", "duration": 32.4 }
         ],
-        "translation": ""
+        "translation": "我會揪心著盡量忍住的"
     },
     {
         "time": "03:24.43",
@@ -452,7 +452,7 @@
             { "phrase": "出し", "duration": 33.1 },
             { "phrase": "たら", "duration": 33.2 }
         ],
-        "translation": "",
+        "translation": "如果情感溢出來的話",
         "is_together": true
     },
     {
@@ -468,7 +468,7 @@
             { "phrase": "見", "duration": 37.3 },
             { "phrase": "て", "duration": 30.8 }
         ],
-        "translation": "",
+        "translation": "請好好看著我的眼睛 看我啊 看看我",
         "is_together": true
     },
     {
@@ -483,7 +483,7 @@
             { "phrase": "ゆ", "duration": 44.9 },
             { "phrase": "く", "duration": 71.2 }
         ],
-        "translation": "",
+        "translation": "只有你的影子在不斷延長",
         "is_together": true
     },
     {
@@ -496,7 +496,7 @@
             { "phrase": "ない", "duration": 64.1 },
             { "phrase": "で", "duration": 55.6 }
         ],
-        "translation": "",
+        "translation": "請你不要消失",
         "is_together": true
     },
     {
@@ -505,7 +505,7 @@
             { "phrase": "ずっ", "duration": 53.2 },
             { "phrase": "と", "duration": 179.1, "kiai": true }
         ],
-        "translation": "",
+        "translation": "這份思緒永遠不會改變",
         "is_secondary": true
     },
     {
@@ -514,7 +514,7 @@
             { "phrase": "ずっ", "duration": 60.3 },
             { "phrase": "と", "duration": 79.3 }
         ],
-        "translation": ""
+        "translation": "這份思緒永遠不會改變"
     },
     {
         "time": "03:43.40",
@@ -527,7 +527,7 @@
             { "phrase": "な", "duration": 37.8 },
             { "phrase": "い", "duration": 35.7 }
         ],
-        "translation": "",
+        "translation": "這份思緒永遠不會改變",
         "is_together": true
     },
     {
@@ -538,7 +538,7 @@
             { "phrase": "まで", "duration": 77.4 },
             { "phrase": "も", "duration": 87.7 }
         ],
-        "translation": "",
+        "translation": "無論到何時",
         "background_voice": {
             "time": "03:49.00",
             "text": [
@@ -546,7 +546,7 @@
                 { "phrase": "まで", "duration": 45.1 },
                 { "phrase": "も", "duration": 84.4 }
             ],
-            "translation": ""
+            "translation": "無論到何時"
         },
         "is_together": true
     },
@@ -558,7 +558,7 @@
             { "phrase": "まで", "duration": 77.8 },
             { "phrase": "も", "duration": 81.5 }
         ],
-        "translation": "",
+        "translation": "無論到何時",
         "background_voice": {
             "time": "03:51.40",
             "text": [
@@ -568,7 +568,7 @@
                 { "phrase": "で", "duration": 32.7 },
                 { "phrase": "も", "duration": 78.5 }
             ],
-            "translation": ""
+            "translation": "無論到何時"
         },
         "is_together": true,
         "concurrent_lines": [42]
@@ -584,7 +584,7 @@
             { "phrase": "い", "duration": 39.5 },
             { "phrase": "と", "duration": 61.1 }
         ],
-        "translation": "",
+        "translation": "一直祈禱著能夠繼續下去",
         "is_secondary": true,
         "concurrent_lines": [43]
     },
@@ -597,7 +597,7 @@
             { "phrase": "い", "duration": 35.1 },
             { "phrase": "る", "duration": 69.1 }
         ],
-        "translation": "",
+        "translation": "一直祈禱著能夠繼續下去",
         "is_secondary": true
     },
     {
@@ -614,7 +614,7 @@
             { "phrase": "と", "duration": 51.7 },
             { "phrase": "も", "duration": 109.5, "kiai": true }
         ],
-        "translation": "",
+        "translation": "即使不能拉住你的手",
         "is_together": true
     },
     {
@@ -625,14 +625,15 @@
             { "phrase": "て", "duration": 30.7 },
             { "phrase": "いく", "duration": 55.9 },
             {
-                "phrase": "現在(いま)",
+                "phrase": "現在",
                 "duration": 70,
                 "kiai": true,
-                "pronounciation": "いま"
+                "pronounciation": "いま",
+                "forced_pronounciation": true
             },
             { "phrase": "に", "duration": 27.3 }
         ],
-        "translation": "",
+        "translation": "我也被不斷逝去的現在擁抱著",
         "is_together": true
     },
     {
@@ -645,7 +646,7 @@
             { "phrase": "い", "duration": 27.0 },
             { "phrase": "る", "duration": 56.3 }
         ],
-        "translation": "",
+        "translation": "我也被不斷逝去的現在擁抱著",
         "is_together": true
     },
     {
@@ -654,7 +655,7 @@
             { "phrase": "私", "duration": 222.0, "kiai": true },
             { "phrase": "の", "duration": 105.0, "kiai": true }
         ],
-        "translation": "",
+        "translation": "我的",
         "is_secondary": true
     },
     {
@@ -663,7 +664,7 @@
             { "phrase": "僕", "duration": 167.4, "kiai": true },
             { "phrase": "の", "duration": 105.0, "kiai": true }
         ],
-        "translation": ""
+        "translation": "我的"
     },
     {
         "time": "04:18.41",
@@ -677,7 +678,7 @@
             { "phrase": "の", "duration": 44.6 },
             { "phrase": "に", "duration": 103.1, "kiai": true }
         ],
-        "translation": "",
+        "translation": "時間要是能停止就好了",
         "is_together": true
     },
     {
@@ -687,7 +688,7 @@
             { "phrase": "日", "duration": 117.9, "kiai": true },
             { "phrase": "を", "duration": 149.9, "kiai": true }
         ],
-        "translation": "",
+        "translation": "今天就咬咬牙堅持過去吧",
         "is_secondary": true
     },
     {
@@ -700,7 +701,7 @@
             { "phrase": "いよ", "duration": 60.2 },
             { "phrase": "う", "duration": 80.5 }
         ],
-        "translation": ""
+        "translation": "今天就咬咬牙堅持過去吧"
     },
     {
         "time": "04:31.05",
@@ -710,7 +711,7 @@
             { "phrase": "る", "duration": 68.9 },
             { "phrase": "な", "duration": 80.3 }
         ],
-        "translation": "",
+        "translation": "別結束啊",
         "is_together": true
     },
     {
@@ -722,7 +723,7 @@
             { "phrase": "る", "duration": 30.9 },
             { "phrase": "な", "duration": 120.0, "kiai": true }
         ],
-        "translation": "",
+        "translation": "夏天啊 別結束啊",
         "is_together": true
     },
     {
