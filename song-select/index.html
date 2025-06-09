@@ -183,8 +183,9 @@
                 <p>找不到符合的歌曲</p>
             </div>
 
-            <div class="fixed bottom-5 w-full px-5 left-0 sm:left-auto sm:px-0 z-50 mx-auto">
-                <div class="container py-4 bg-gray-300/20 backdrop-blur-lg rounded-2xl w-full">
+            <div class="flex flex-row fixed bottom-5 w-full px-5 left-0 sm:px-0 z-50 mx-auto">
+                <div class="hidden sm:block grow"></div>
+                <div class="container py-4 bg-gray-300/20 backdrop-blur-lg rounded-2xl w-full sm:w-1/2 text-center">
                     <div class="flex sm:flex-row gap-3 p-3 mx-5 rounded-2xl shadow-inner">
                         <div class="flex-1 bg-white/10 p-2 rounded-xl">
                             <input v-model="searchQuery" type="text" placeholder="搜尋歌曲、藝人或專輯..."
@@ -224,6 +225,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="hidden sm:block grow"></div>
             </div>
 
         </main>
