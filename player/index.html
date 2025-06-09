@@ -257,7 +257,7 @@
                                                 <rp>)</rp>
                                             </ruby>
                                         </span>
-                                        <span v-if="enablePronounciation">
+                                        <span v-else-if="enablePronounciation">
                                             <ruby>
                                                 {{ bvt.phrase }}
                                                 <rp>(</rp>
@@ -265,6 +265,7 @@
                                                 <rp>)</rp>
                                             </ruby>
                                         </span>
+                                        <span v-else>{{ bvt.phrase }}</span>
                                     </span>
                                     <span v-else>{{ bvt.phrase }}</span>
                                 </span>

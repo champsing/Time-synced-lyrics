@@ -624,7 +624,7 @@
             { "phrase": "いでる", "duration": 127.3, "kiai": true },
             {
                 "phrase": "手",
-                "duration": 41,
+                "duration": 300,
                 "kiai": true,
                 "pronounciation": "て"
             }
@@ -798,8 +798,8 @@
             { "phrase": "", "duration": 70 },
             { "phrase": "しわを", "duration": 150 },
             { "phrase": "あわ", "duration": 120 },
-            { "phrase": "せ", "duration": 320 },
-            { "phrase": "て", "duration": 120 }
+            { "phrase": "せ", "duration": 320, "kiai": true },
+            { "phrase": "て", "duration": 350, "kiai": true }
         ],
         "translation": "再一次 將我們的皺紋結合起來",
         "background_voice": {
