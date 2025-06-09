@@ -51,8 +51,8 @@ def lrc_to_json(lrc_text):
             bracket_match = re.search(r"\((.*?)\)", content)
             if bracket_match:
                 # 處理括號內的文本
-                no_bracket = content.replace(bracket_match.group(0), "")
-                phrases = [p for p in no_bracket.split("|")]
+                main_content = content.replace(bracket_match.group(0), "")
+                phrases = [p for p in main_content.split("|")]
                 text_list = [{"phrase": p, "duration": 0} for p in phrases]
                 bracket_content = bracket_match.group(1)
                 bg_phrases = [p for p in bracket_content.split("|")]
