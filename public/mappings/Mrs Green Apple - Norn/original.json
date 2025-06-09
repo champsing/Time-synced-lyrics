@@ -298,7 +298,7 @@
             "time": "02:16.80",
             "text": [
                 { "phrase": "fylla,", "duration": 120 },
-                { "phrase": " ", "duration": 300 },
+                { "phrase": " ", "duration": 250 },
                 { "phrase": "tomhet ", "duration": 60, "kiai": true }
             ]
         }
@@ -336,7 +336,7 @@
             { "phrase": "mer ", "duration": 30 },
             { "phrase": "kan ", "duration": 30 },
             { "phrase": "jag ", "duration": 30 },
-            { "phrase": "göra, ", "duration": 60 },
+            { "phrase": "göra, ", "duration": 40 },
             { "phrase": "min ", "duration": 30, "kiai": true },
             { "phrase": "vän?", "duration": 30, "kiai": true }
         ]
