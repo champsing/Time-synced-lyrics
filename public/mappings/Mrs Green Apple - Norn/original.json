@@ -95,8 +95,8 @@
         "time": "00:52.62",
         "text": [
             { "phrase": "Du ", "duration": 30 },
-            { "phrase": "kommer ", "duration": 80 },
-            { "phrase": "förstå ", "duration": 80 },
+            { "phrase": "kommer ", "duration": 70 },
+            { "phrase": "förstå ", "duration": 70 },
             { "phrase": "det ", "duration": 30 },
             { "phrase": "sen", "duration": 40 }
         ]
@@ -107,7 +107,7 @@
             { "phrase": "Så ", "duration": 30 },
             { "phrase": "som ", "duration": 30 },
             { "phrase": "jag", "duration": 30 },
-            { "phrase": " ", "duration": 30 },
+            { "phrase": " ", "duration": 20 },
             { "phrase": "har ", "duration": 30 },
             { "phrase": "gjort, ", "duration": 40 },
             { "phrase": "lilla ", "duration": 30 },
@@ -118,9 +118,9 @@
         "time": "00:58.07",
         "text": [
             { "phrase": "Men ", "duration": 30 },
-            { "phrase": "det ", "duration": 30 },
-            { "phrase": "är ", "duration": 30 },
-            { "phrase": "för ", "duration": 30 },
+            { "phrase": "det ", "duration": 20 },
+            { "phrase": "är ", "duration": 20 },
+            { "phrase": "för ", "duration": 20 },
             { "phrase": "att ", "duration": 40 },
             { "phrase": "de ", "duration": 30 },
             { "phrase": "aldrig ", "duration": 60 },
@@ -223,12 +223,12 @@
             { "phrase": "och ", "duration": 30 },
             { "phrase": "slut ", "duration": 30 },
             { "phrase": "så ", "duration": 30 },
-            { "phrase": "undrar ", "duration": 100 },
+            { "phrase": "undrar ", "duration": 80 },
             { "phrase": "jag", "duration": 30 }
         ]
     },
     {
-        "time": "02:00.05",
+        "time": "01:59.80",
         "text": [
             { "phrase": "Om ", "duration": 40 },
             { "phrase": "min ", "duration": 30 },
@@ -250,7 +250,7 @@
             { "phrase": "lik,", "duration": 30 },
             { "phrase": " ", "duration": 30 },
             { "phrase": "en ", "duration": 30 },
-            { "phrase": "bortskämd ", "duration": 80, "kiai": true },
+            { "phrase": "bortskämd ", "duration": 70, "kiai": true },
             { "phrase": "liten ", "duration": 60 },
             { "phrase": "hund", "duration": 60 }
         ],
@@ -330,7 +330,7 @@
         ]
     },
     {
-        "time": "02:31.03",
+        "time": "02:30.90",
         "text": [
             { "phrase": "Vad ", "duration": 30 },
             { "phrase": "mer ", "duration": 30 },
@@ -373,7 +373,7 @@
         ]
     },
     {
-        "time": "02:47.39",
+        "time": "02:47.20",
         "text": [
             { "phrase": "Finns ", "duration": 30 },
             { "phrase": "det ", "duration": 30 },
