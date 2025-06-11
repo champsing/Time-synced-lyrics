@@ -1,9 +1,6 @@
 import re
 import json
 
-import pandas as pd
-
-
 def lrc_to_json(lrc_text):
     result = []
     lines = lrc_text.strip().split("\n")
