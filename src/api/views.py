@@ -166,8 +166,6 @@ def get_mappings(request, song_id, version):
 
         parsed_mapping = parse_lyrics(requested_mapping, song_data, song_duration)
 
-        print(parsed_mapping)
-
         return Response(parsed_mapping)
 
     except Exception as e:
