@@ -1,0 +1,44 @@
+[
+    {
+        "available": true,
+        "folder": "Vaundy - replica",
+        "song_id": 1714599807,
+        "versions": [
+            {
+                "version": "original",
+                "id": "Uv67h_E7xsM",
+                "default": true
+            }
+        ],
+        "album": {
+            "name": "replica",
+            "link": "UGs6ebR"
+        },
+        "title": "replica",
+        "artist": "Vaundy",
+        "lyricist": "Vaundy",
+        "translation": {
+            "available": true,
+            "author": "Oblivionis",
+            "cite": "https://home.gamer.com.tw/artwork.php?sn=5830215"
+        },
+        "art": "https://i.kfs.io/album/global/263116610,3v1/fit/500x500.jpg",
+        "lang": "ja",
+        "updated_at": "2025-05-20",
+        "furigana": false,
+        "credits": {
+            "performance": [
+                {
+                    "name": "Vaundy",
+                    "contribution": ["主唱"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "Vaundy",
+                    "contribution": ["詞曲創作", "編曲"]
+                }
+            ]
+        }
+    }
+]

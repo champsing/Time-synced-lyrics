@@ -1,0 +1,458 @@
+[
+    {
+        "time": "00:00.05",
+        "type": "prelude"
+    },
+    {
+        "time": "00:25.37",
+        "text": [
+            { "phrase": "We ", "duration": 32 },
+            { "phrase": "ven", "duration": 32 },
+            { "phrase": "ture ", "duration": 34 },
+            { "phrase": "through ", "duration": 25 },
+            { "phrase": "the ", "duration": 12 },
+            { "phrase": "cos", "duration": 28 },
+            { "phrase": "mic ", "duration": 24 },
+            { "phrase": "sea", "duration": 24 }
+        ],
+        "translation": "我們冒險穿越星海"
+    },
+    {
+        "time": "00:27.71",
+        "text": [
+            { "phrase": "A ", "duration": 33 },
+            { "phrase": "thou", "duration": 31 },
+            { "phrase": "sand ", "duration": 25 },
+            { "phrase": "light-", "duration": 48, "kiai": true },
+            { "phrase": "years, ", "duration": 34, "kiai": true },
+            { "phrase": "wild ", "duration": 14 },
+            { "phrase": "and ", "duration": 15 },
+            { "phrase": "free", "duration": 52 }
+        ],
+        "translation": "跨越一千光年，自由而放縱"
+    },
+    {
+        "time": "00:30.92",
+        "text": [
+            { "phrase": "We ", "duration": 16 },
+            { "phrase": "dance ", "duration": 35 },
+            { "phrase": "be", "duration": 24 },
+            { "phrase": "neath ", "duration": 24 },
+            { "phrase": "the ", "duration": 14 },
+            { "phrase": "ga", "duration": 28 },
+            { "phrase": "la", "duration": 21 },
+            { "phrase": "xy", "duration": 27 }
+        ],
+        "translation": "我們在銀河下跳舞",
+        "is_secondary": true
+    },
+    {
+        "time": "00:33.08",
+        "text": [
+            { "phrase": "Then ", "duration": 32 },
+            { "phrase": "will ", "duration": 37 },
+            { "phrase": "you ", "duration": 32 },
+            { "phrase": "be ", "duration": 24, "kiai": true },
+            { "phrase": "with ", "duration": 22, "kiai": true },
+            { "phrase": "me?", "duration": 35, "kiai": true }
+        ],
+        "translation": "你是否願意加入？",
+        "is_secondary": true
+    },
+    {
+        "time": "00:36.39",
+        "text": [
+            { "phrase": "Hand ", "duration": 30 },
+            { "phrase": "in ", "duration": 22 },
+            { "phrase": "hand, ", "duration": 24 },
+            { "phrase": "we'll ", "duration": 20 },
+            { "phrase": "face ", "duration": 34 },
+            { "phrase": "our ", "duration": 14 },
+            { "phrase": "fears", "duration": 48 }
+        ],
+        "translation": "與我們攜手一起面對自己的恐懼"
+    },
+    {
+        "time": "00:38.41",
+        "text": [
+            { "phrase": "Con", "duration": 28, "kiai": true },
+            { "phrase": "quering ", "duration": 59, "kiai": true },
+            { "phrase": "doubts ", "duration": 37 },
+            { "phrase": "that ", "duration": 38 },
+            { "phrase": "lin", "duration": 21 },
+            { "phrase": "ger ", "duration": 27 },
+            { "phrase": "near", "duration": 40 }
+        ],
+        "translation": "跨越縈繞心頭的迷茫"
+    },
+    {
+        "time": "00:41.77",
+        "text": [
+            { "phrase": "To", "duration": 26 },
+            { "phrase": "ge", "duration": 27 },
+            { "phrase": "ther ", "duration": 16 },
+            { "phrase": "we'll ", "duration": 25 },
+            { "phrase": "find ", "duration": 25 },
+            { "phrase": "a ", "duration": 20 },
+            { "phrase": "way", "duration": 24 }
+        ],
+        "translation": "與我們一起尋找那條道路",
+        "is_secondary": true
+    },
+    {
+        "time": "00:43.56",
+        "text": [
+            { "phrase": "To ", "duration": 55 },
+            { "phrase": "brigh", "duration": 34, "kiai": true },
+            { "phrase": "ter, ", "duration": 34, "kiai": true },
+            { "phrase": "be", "duration": 19, "kiai": true },
+            { "phrase": "tter ", "duration": 29, "kiai": true },
+            { "phrase": "days", "duration": 110 }
+        ],
+        "translation": "為了前往更美好的明天",
+        "is_secondary": true
+    },
+    {
+        "time": "00:47.39",
+        "text": [
+            { "phrase": "Ex", "duration": 36, "kiai": true },
+            { "phrase": "plo", "duration": 33, "kiai": true },
+            { "phrase": "ra", "duration": 46, "kiai": true },
+            { "phrase": "tion,", "duration": 45, "kiai": true },
+            { "phrase": " ", "duration": 130 },
+            { "phrase": "be", "duration": 21 },
+            { "phrase": "gins!", "duration": 60 }
+        ],
+        "translation": "去開拓吧，就是現在！",
+        "is_together": true
+    },
+    {
+        "time": "00:52.72",
+        "text": [
+            { "phrase": "Mo", "duration": 39 },
+            { "phrase": "ving ", "duration": 18 },
+            { "phrase": "on,", "duration": 39 },
+            { "phrase": " ", "duration": 143 },
+            { "phrase": "to ", "duration": 32 },
+            { "phrase": "paths ", "duration": 29 },
+            { "phrase": "un", "duration": 27 },
+            { "phrase": "known", "duration": 33 }
+        ],
+        "translation": "前進吧，穿過未知的道路",
+        "is_together": true
+    },
+    {
+        "time": "00:56.97",
+        "text": [
+            { "phrase": "To ", "duration": 30 },
+            { "phrase": "break ", "duration": 34, "kiai": true },
+            { "phrase": "into ", "duration": 30 },
+            { "phrase": "day", "duration": 34 },
+            { "phrase": "light", "duration": 67 }
+        ],
+        "translation": "闖入白晝",
+        "is_together": true
+    },
+    {
+        "time": "00:59.74",
+        "text": [
+            { "phrase": "No ", "duration": 21 },
+            { "phrase": "sleep ", "duration": 33 },
+            { "phrase": "un", "duration": 11 },
+            { "phrase": "til ", "duration": 20 },
+            { "phrase": "sun", "duration": 33, "kiai": true },
+            { "phrase": "rise", "duration": 64, "kiai": true }
+        ],
+        "translation": "直至太陽升起也毫無睡意",
+        "is_together": true
+    },
+    {
+        "time": "01:03.43",
+        "text": [
+            { "phrase": "Ri", "duration": 34, "kiai": true },
+            { "phrase": "ding ", "duration": 18, "kiai": true },
+            { "phrase": "on,", "duration": 27 },
+            { "phrase": " ", "duration": 171 },
+            { "phrase": "our ", "duration": 17 },
+            { "phrase": "roads ", "duration": 34 },
+            { "phrase": "a", "duration": 14 },
+            { "phrase": "far", "duration": 51 }
+        ],
+        "translation": "馳騁吧，我們的道路在遠方",
+        "is_together": true
+    },
+    {
+        "time": "01:07.69",
+        "text": [
+            { "phrase": "We're ", "duration": 21 },
+            { "phrase": "ri", "duration": 24 },
+            { "phrase": "sing ", "duration": 23 },
+            { "phrase": "high,", "duration": 26 },
+            { "phrase": " ", "duration": 47 },
+            { "phrase": "into ", "duration": 38, "kiai": true },
+            { "phrase": "the ", "duration": 19, "kiai": true },
+            { "phrase": "sky", "duration": 21, "kiai": true }
+        ],
+        "translation": "我們正不斷攀升直衝天際",
+        "is_together": true
+    },
+    {
+        "time": "01:10.41",
+        "text": [
+            { "phrase": "There ", "duration": 24 },
+            { "phrase": "we ", "duration": 25 },
+            { "phrase": "go,", "duration": 31 },
+            { "phrase": " ", "duration": 50 },
+            { "phrase": "till ", "duration": 25, "kiai": true },
+            { "phrase": "we ", "duration": 34, "kiai": true },
+            { "phrase": "know", "duration": 37, "kiai": true }
+        ],
+        "translation": "就此出發，直到我們知曉答案",
+        "is_together": true
+    },
+    {
+        "time": "01:16.71",
+        "text": [
+            { "phrase": "Ex", "duration": 32, "kiai": true },
+            { "phrase": "plo", "duration": 32, "kiai": true },
+            { "phrase": "ra", "duration": 51, "kiai": true },
+            { "phrase": "tion", "duration": 59, "kiai": true }
+        ],
+        "translation": "去開拓吧",
+        "is_together": true
+    },
+    {
+        "time": "01:19.36",
+        "text": [
+            { "phrase": "Ex", "duration": 33 },
+            { "phrase": "plo", "duration": 31 },
+            { "phrase": "ra", "duration": 51 },
+            { "phrase": "tion", "duration": 47 },
+            { "phrase": " ", "duration": 133 },
+            { "phrase": "be", "duration": 19, "kiai": true },
+            { "phrase": "gins!", "duration": 60, "kiai": true }
+        ],
+        "translation": "去開拓吧，就是現在！",
+        "is_together": true
+    },
+    {
+        "time": "01:24.67",
+        "text": [
+            { "phrase": "Ca", "duration": 32 },
+            { "phrase": "tching ", "duration": 26 },
+            { "phrase": "on,", "duration": 39 },
+            { "phrase": " ", "duration": 156 },
+            { "phrase": "our ", "duration": 22 },
+            { "phrase": "paths ", "duration": 25 },
+            { "phrase": "un", "duration": 23 },
+            { "phrase": "known", "duration": 33, "kiai": true }
+        ],
+        "translation": "追趕吧，即便前方道路未卜",
+        "is_together": true
+    },
+    {
+        "time": "01:29.01",
+        "text": [
+            { "phrase": "To ", "duration": 20 },
+            { "phrase": "sink ", "duration": 34 },
+            { "phrase": "into ", "duration": 35 },
+            { "phrase": "day", "duration": 33, "kiai": true },
+            { "phrase": "light", "duration": 38, "kiai": true }
+        ],
+        "translation": "沉入白晝",
+        "is_together": true
+    },
+    {
+        "time": "01:31.66",
+        "text": [
+            { "phrase": "Break ", "duration": 21 },
+            { "phrase": "into ", "duration": 40 },
+            { "phrase": "the ", "duration": 24 },
+            { "phrase": "moon", "duration": 26, "kiai": true },
+            { "phrase": "light", "duration": 38, "kiai": true }
+        ],
+        "translation": "闖進月色",
+        "is_together": true
+    },
+    {
+        "time": "01:35.23",
+        "text": [
+            { "phrase": "Life ", "duration": 47 },
+            { "phrase": "goes ", "duration": 23 },
+            { "phrase": "on,", "duration": 31 },
+            { "phrase": " ", "duration": 156 },
+            { "phrase": "through ", "duration": 23 },
+            { "phrase": "tides ", "duration": 28 },
+            { "phrase": "of ", "duration": 27 },
+            { "phrase": "time", "duration": 43, "kiai": true }
+        ],
+        "translation": "生命不息，歲月不止",
+        "is_together": true
+    },
+    {
+        "time": "01:39.71",
+        "text": [
+            { "phrase": "Get ", "duration": 28 },
+            { "phrase": "in ", "duration": 24 },
+            { "phrase": "the ", "duration": 18, "kiai": true },
+            { "phrase": "line,", "duration": 23, "kiai": true },
+            { "phrase": " ", "duration": 41 },
+            { "phrase": "to ", "duration": 15 },
+            { "phrase": "dream ", "duration": 31 },
+            { "phrase": "a", "duration": 10 },
+            { "phrase": "live", "duration": 40 }
+        ],
+        "translation": "與開拓同行，只為生生不息的理想",
+        "is_together": true
+    },
+    {
+        "time": "01:42.24",
+        "text": [
+            { "phrase": "In ", "duration": 31 },
+            { "phrase": "our ", "duration": 37 },
+            { "phrase": "souls,", "duration": 29 },
+            { "phrase": " ", "duration": 56 },
+            { "phrase": "do ", "duration": 16 },
+            { "phrase": "we ", "duration": 26 },
+            { "phrase": "know?", "duration": 64 }
+        ],
+        "translation": "刻在靈魂深處的一切，我們是否理解？",
+        "is_together": true
+    },
+    {
+        "time": "01:46.01",
+        "text": [
+            { "phrase": "Ca", "duration": 32 },
+            { "phrase": "tching ", "duration": 26 },
+            { "phrase": "on,", "duration": 39 },
+            { "phrase": " ", "duration": 156 },
+            { "phrase": "our ", "duration": 22, "kiai": true },
+            { "phrase": "paths ", "duration": 25 },
+            { "phrase": "un", "duration": 23 },
+            { "phrase": "known", "duration": 33 }
+        ],
+        "translation": "追趕吧，即便前方道路未卜",
+        "is_together": true
+    },
+    {
+        "time": "01:50.39",
+        "text": [
+            { "phrase": "To ", "duration": 20 },
+            { "phrase": "sink ", "duration": 34 },
+            { "phrase": "into ", "duration": 35 },
+            { "phrase": "day", "duration": 33 },
+            { "phrase": "light", "duration": 38 }
+        ],
+        "translation": "沉入白晝",
+        "is_together": true
+    },
+    {
+        "time": "01:53.00",
+        "text": [
+            { "phrase": "Break ", "duration": 21 },
+            { "phrase": "into ", "duration": 32 },
+            { "phrase": "the ", "duration": 18 },
+            { "phrase": "moon", "duration": 44, "kiai": true },
+            { "phrase": "light", "duration": 50, "kiai": true }
+        ],
+        "translation": "闖進月色",
+        "is_together": true
+    },
+    {
+        "time": "01:56.57",
+        "text": [
+            { "phrase": "Life ", "duration": 47 },
+            { "phrase": "goes ", "duration": 23 },
+            { "phrase": "on,", "duration": 31 },
+            { "phrase": " ", "duration": 156 },
+            { "phrase": "through ", "duration": 23 },
+            { "phrase": "tides ", "duration": 28 },
+            { "phrase": "of ", "duration": 27 },
+            { "phrase": "time", "duration": 87 }
+        ],
+        "translation": "生命不息，歲月不止",
+        "is_together": true,
+        "background_voice": {
+            "time": "01:58.06",
+            "text": [
+                { "phrase": "Goes ", "duration": 40 },
+                { "phrase": "on,", "duration": 31 },
+                { "phrase": " ", "duration": 100 },
+                { "phrase": "time", "duration": 100, "kiai": true }
+            ],
+            "translation":"不息，歲月"
+        }
+    },
+    {
+        "time": "02:01.08",
+        "text": [
+            { "phrase": "Get ", "duration": 24 },
+            { "phrase": "in ", "duration": 28 },
+            { "phrase": "the ", "duration": 18 },
+            { "phrase": "line,", "duration": 23, "kiai": true },
+            { "phrase": " ", "duration": 41 },
+            { "phrase": "to ", "duration": 15 },
+            { "phrase": "dream ", "duration": 31 },
+            { "phrase": "a", "duration": 10, "kiai": true },
+            { "phrase": "live", "duration": 40, "kiai": true }
+        ],
+        "translation": "與開拓同行，只為生生不息的理想",
+        "is_together": true
+    },
+    {
+        "time": "02:03.71",
+        "text": [
+            { "phrase": "In ", "duration": 15 },
+            { "phrase": "our ", "duration": 25 },
+            { "phrase": "souls, ", "duration": 97 },
+            { "phrase": "do ", "duration": 18, "kiai": true },
+            { "phrase": "we ", "duration": 26, "kiai": true },
+            { "phrase": "know?", "duration": 50, "kiai": true }
+        ],
+        "translation": "刻在靈魂深處的一切，我們是否理解？",
+        "is_together": true
+    },
+    {
+        "time": "02:06.07",
+        "text": [
+            { "phrase": "On ", "duration": 32 },
+            { "phrase": "the ", "duration": 30 },
+            { "phrase": "jour", "duration": 51 },
+            { "phrase": "ney", "duration": 38 }
+        ],
+        "translation": "行於途中",
+        "is_secondary": true,
+        "concurrent_lines": [29]
+    },
+    {
+        "time": "02:08.73",
+        "text": [
+            { "phrase": "On ", "duration": 34 },
+            { "phrase": "the ", "duration": 18 },
+            { "phrase": "jour", "duration": 54 },
+            { "phrase": "ney", "duration": 55 }
+        ],
+        "translation": "行於途中",
+        "background_voice": {
+            "time": "02:08.73",
+            "text": [{ "phrase": "Oh~", "duration": 100, "kiai": true }],
+            "translation":"喔～"
+        }
+    },
+    {
+        "time": "02:11.42",
+        "text": [
+            { "phrase": "On ", "duration": 33, "kiai": true },
+            { "phrase": "the ", "duration": 22, "kiai": true },
+            { "phrase": "jour", "duration": 61, "kiai": true },
+            { "phrase": "ney", "duration": 76, "kiai": true }
+        ],
+        "translation": "開拓不止",
+        "is_together": true
+    },
+    {
+        "time": "02:17.02",
+        "type": "end",
+        "is_together": true
+    }
+]

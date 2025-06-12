@@ -1,0 +1,66 @@
+[
+    {
+        "available": true,
+        "folder": "Mrs Green Apple - Bokuno Koto",
+        "song_id": 1445145789,
+        "versions": [
+            {
+                "version": "original",
+                "id": "xefpHEg5UIA",
+                "default": true
+            }
+        ],
+        "album": {
+            "name": "Attitude",
+            "link": "4NtJudb"
+        },
+        "title": "僕のこと",
+        "subtitle": "大塚製薬「カロリーメイト」の新テレビCMソング",
+        "artist": "Mrs. GREEN APPLE",
+        "lyricist": "大森元貴",
+        "translation": {
+            "available": true,
+            "author": "香榭"
+        },
+        "art": "https://i.kfs.io/album/global/216180674,0v1/fit/500x500.jpg",
+        "lang": "ja",
+        "updated_at": "2025-05-19",
+        "furigana": false,
+        "credits": {
+            "performance": [
+                {
+                    "name": "大森元貴",
+                    "contribution": ["主唱", "編程", "電吉他", "原聲吉他"]
+                },
+                {
+                    "name": "若井滉斗",
+                    "contribution": ["電吉他"]
+                },
+                {
+                    "name": "山中綾華",
+                    "contribution": ["鼓"]
+                },
+                {
+                    "name": "藤澤涼架",
+                    "contribution": ["電子琴", "編程"]
+                },
+                {
+                    "name": "高野清宗",
+                    "contribution": ["電子低音吉他"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "大森元貴",
+                    "contribution": ["詞曲創作", "編曲"]
+                }
+            ],
+            "engineering": [
+                {
+                    "name": "Mrs. GREEN APPLE",
+                    "contribution": ["製作人"]
+                }
+            ]
+        }
+    }
+]

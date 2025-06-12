@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.timesl.online",  # 生產環境域名
 ]
 
-# ROOT_URLCONF = 'songlyricparser.urls'
+ROOT_URLCONF = 'songlyricparser.urls'
 
 TEMPLATES = [
     {

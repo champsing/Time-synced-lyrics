@@ -22,7 +22,7 @@ export const TSL_PLAYER_LINK_BASE = "https://timesl.online/player/";
 export const API_BASE_URL =
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1"
-        ? "http://127.0.0.1:8080"
+        ? "http://localhost:8000"
         : "https://timesl.online/api";
 
 export const MERCURY_TSL = " - 同步開唱";

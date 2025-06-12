@@ -1,0 +1,1463 @@
+[
+    {
+        "time": "00:02.49",
+        "text": [
+            {
+                "phrase": "久し",
+                "duration": 56
+            },
+            {
+                "phrase": "ぶりに",
+                "duration": 71
+            },
+            {
+                "phrase": "君の",
+                "duration": 68
+            },
+            {
+                "phrase": "笑った",
+                "duration": 62
+            },
+            {
+                "phrase": "顔を",
+                "duration": 62
+            },
+            {
+                "phrase": "見た",
+                "duration": 62
+            },
+            {
+                "phrase": "気がした",
+                "duration": 80
+            }
+        ],
+        "translation": "總有一種隔了很久才看見你的笑容的感覺"
+    },
+    {
+        "time": "00:07.50",
+        "text": [
+            {
+                "phrase": "胸に",
+                "duration": 70
+            },
+            {
+                "phrase": "灯れ",
+                "duration": 64
+            },
+            {
+                "phrase": "出来る",
+                "duration": 66
+            },
+            {
+                "phrase": "限り",
+                "duration": 54
+            },
+            {
+                "phrase": " ",
+                "duration": 10
+            },
+            {
+                "phrase": "slow ",
+                "duration": 70,
+                "kiai": true
+            },
+            {
+                "phrase": "motion",
+                "duration": 104,
+                "kiai": true
+            }
+        ],
+        "translation": "用盡可能慢的動作點亮胸口吧"
+    },
+    {
+        "time": "00:12.92",
+        "type": "interlude"
+    },
+    {
+        "time": "00:17.32",
+        "text": [
+            {
+                "phrase": "この",
+                "duration": 50
+            },
+            {
+                "phrase": "短い",
+                "duration": 62
+            },
+            {
+                "phrase": "夜が",
+                "duration": 64
+            },
+            {
+                "phrase": "最後に",
+                "duration": 76
+            },
+            {
+                "phrase": "なるなら",
+                "duration": 66
+            },
+            {
+                "phrase": "きっと",
+                "duration": 66
+            },
+            {
+                "phrase": "会いに",
+                "duration": 64
+            },
+            {
+                "phrase": "行くんだ",
+                "duration": 86
+            }
+        ],
+        "translation": "如果這個短暫的夜晚是最後的話，我一定會去見你"
+    },
+    {
+        "time": "00:22.98",
+        "text": [
+            {
+                "phrase": "僕で",
+                "duration": 63
+            },
+            {
+                "phrase": "すら",
+                "duration": 53
+            },
+            {
+                "phrase": "そう",
+                "duration": 58
+            },
+            {
+                "phrase": "思う",
+                "duration": 42
+            },
+            {
+                "phrase": "のさ",
+                "duration": 50
+            },
+            {
+                "phrase": " ",
+                "duration": 10
+            },
+            {
+                "phrase": "のうのうと",
+                "duration": 87
+            }
+        ],
+        "translation": "連我都這麼悠然自得地認為著"
+    },
+    {
+        "time": "00:27.89",
+        "text": [
+            {
+                "phrase": "抱き",
+                "duration": 37
+            },
+            {
+                "phrase": "しめ",
+                "duration": 40
+            },
+            {
+                "phrase": "合って",
+                "duration": 46
+            },
+            {
+                "phrase": "いる",
+                "duration": 66
+            },
+            {
+                "phrase": " ",
+                "duration": 36
+            },
+            {
+                "phrase": "隙に",
+                "duration": 54
+            },
+            {
+                "phrase": "泣いて",
+                "duration": 48
+            },
+            {
+                "phrase": "しまう",
+                "duration": 50
+            },
+            {
+                "phrase": "くらい",
+                "duration": 67
+            }
+        ],
+        "translation": "如同在相擁彼此的角落裡哭泣般"
+    },
+    {
+        "time": "00:32.79",
+        "text": [
+            {
+                "phrase": "痛みを",
+                "duration": 62
+            },
+            {
+                "phrase": "話す",
+                "duration": 65
+            },
+            {
+                "phrase": "ことも",
+                "duration": 52
+            },
+            {
+                "phrase": "でき",
+                "duration": 40
+            },
+            {
+                "phrase": "ない",
+                "duration": 28
+            }
+        ],
+        "translation": "卻連訴說痛苦都做不到"
+    },
+    {
+        "time": "00:35.43",
+        "text": [
+            {
+                "phrase": "弱点の",
+                "duration": 68
+            },
+            {
+                "phrase": "ある",
+                "duration": 39
+            },
+            {
+                "phrase": "君が",
+                "duration": 52
+            },
+            {
+                "phrase": "こんなに",
+                "duration": 52
+            },
+            {
+                "phrase": "好き",
+                "duration": 34,
+                "kiai": true
+            },
+            {
+                "phrase": "なのに",
+                "duration": 59
+            }
+        ],
+        "translation": "明明我如此喜歡著擁有缺點的你"
+    },
+    {
+        "time": "00:39.07",
+        "text": [
+            {
+                "phrase": "ああ",
+                "duration": 57
+            },
+            {
+                "phrase": " ",
+                "duration": 10
+            },
+            {
+                "phrase": "絵に",
+                "duration": 57
+            },
+            {
+                "phrase": "描いて",
+                "duration": 65,
+                "kiai": true
+            }
+        ],
+        "translation": "啊啊，描繪著圖畫"
+    },
+    {
+        "time": "00:41.16",
+        "text": [
+            {
+                "phrase": "渡す",
+                "duration": 62
+            },
+            {
+                "phrase": "",
+                "duration": 20
+            },
+            {
+                "phrase": "べき",
+                "duration": 52
+            },
+            {
+                "phrase": "なんだよ",
+                "duration": 60
+            }
+        ],
+        "translation": "本應該將其交付與你"
+    },
+    {
+        "time": "00:43.30",
+        "text": [
+            {
+                "phrase": "この",
+                "duration": 56
+            },
+            {
+                "phrase": "",
+                "duration": 34
+            },
+            {
+                "phrase": "僕の",
+                "duration": 94
+            },
+            {
+                "phrase": "想いも",
+                "duration": 88
+            },
+            {
+                "phrase": " ",
+                "duration": 28
+            },
+            {
+                "phrase": "笑う",
+                "duration": 64
+            },
+            {
+                "phrase": "前に",
+                "duration": 56
+            }
+        ],
+        "translation": "在你開始嘲笑我的想念之前"
+    },
+    {
+        "time": "00:47.70",
+        "text": [
+            {
+                "phrase": "「居なく",
+                "duration": 84,
+                "kiai": true
+            },
+            {
+                "phrase": "なら",
+                "duration": 110,
+                "kiai": true
+            },
+            {
+                "phrase": "ないで",
+                "duration": 40,
+                "kiai": true
+            },
+            {
+                "phrase": "ね」",
+                "duration": 72
+            }
+        ],
+        "translation": "「請不要消失不見」"
+    },
+    {
+        "time": "00:50.76",
+        "text": [
+            {
+                "phrase": "「君",
+                "duration": 74
+            },
+            {
+                "phrase": "こそ",
+                "duration": 56
+            },
+            {
+                "phrase": "ね」",
+                "duration": 92
+            }
+        ],
+        "translation": "「你才是呢」"
+    },
+    {
+        "time": "00:52.98",
+        "text": [
+            {
+                "phrase": "能天気に",
+                "duration": 171
+            },
+            {
+                "phrase": "約束して",
+                "duration": 115
+            },
+            {
+                "phrase": "肩を",
+                "duration": 80
+            },
+            {
+                "phrase": "叩く",
+                "duration": 87
+            }
+        ],
+        "translation": "你我肩碰著肩，輕率地約定著"
+    },
+    {
+        "time": "00:58.11",
+        "text": [
+            {
+                "phrase": "きまって",
+                "duration": 100
+            },
+            {
+                "phrase": "どちら",
+                "duration": 90
+            },
+            {
+                "phrase": "かが",
+                "duration": 85
+            },
+            {
+                "phrase": "破る",
+                "duration": 80
+            },
+            {
+                "phrase": "のさ",
+                "duration": 88
+            }
+        ],
+        "translation": "反正最後一定會有一方打破承諾"
+    },
+    {
+        "time": "01:03.22",
+        "text": [
+            {
+                "phrase": "今回も",
+                "duration": 88
+            },
+            {
+                "phrase": "また",
+                "duration": 46
+            },
+            {
+                "phrase": "僕",
+                "duration": 100
+            },
+            {
+                "phrase": "じゃ",
+                "duration": 33
+            },
+            {
+                "phrase": "なかった",
+                "duration": 121
+            },
+            {
+                "phrase": "だけ",
+                "duration": 94
+            }
+        ],
+        "translation": "只是這次仍然不是我"
+    },
+    {
+        "time": "01:08.24",
+        "text": [
+            {
+                "phrase": "震えた",
+                "duration": 82,
+                "kiai": true
+            },
+            {
+                "phrase": "手は",
+                "duration": 94
+            },
+            {
+                "phrase": "サインを",
+                "duration": 122
+            },
+            {
+                "phrase": "作ってた",
+                "duration": 160
+            },
+            {
+                "phrase": "",
+                "duration": 50
+            }
+        ],
+        "translation": "顫抖著的手做出了手勢"
+    },
+    {
+        "time": "01:13.32",
+        "text": [
+            {
+                "phrase": "僕は",
+                "duration": 72
+            },
+            {
+                "phrase": "何",
+                "duration": 68
+            },
+            {
+                "phrase": "度も",
+                "duration": 60
+            },
+            {
+                "phrase": "それを",
+                "duration": 90
+            },
+            {
+                "phrase": "見落とした",
+                "duration": 150
+            }
+        ],
+        "translation": "我無數次都遺漏了它"
+    },
+    {
+        "time": "01:18.78",
+        "text": [
+            {
+                "phrase": "ねえ",
+                "duration": 49
+            },
+            {
+                "phrase": " ",
+                "duration": 10
+            },
+            {
+                "phrase": "約束",
+                "duration": 63
+            },
+            {
+                "phrase": "なんて",
+                "duration": 49
+            },
+            {
+                "phrase": "「守る」",
+                "duration": 70,
+                "kiai": true
+            },
+            {
+                "phrase": "っていう",
+                "duration": 52
+            },
+            {
+                "phrase": "ただの",
+                "duration": 60
+            },
+            {
+                "phrase": "合図さ",
+                "duration": 82
+            }
+        ],
+        "translation": "吶，約定只不過是意味著「守護」的暗號啊"
+    },
+    {
+        "time": "01:23.98",
+        "text": [
+            {
+                "phrase": "本当は",
+                "duration": 142
+            },
+            {
+                "phrase": "ただ",
+                "duration": 64
+            },
+            {
+                "phrase": "手を",
+                "duration": 40
+            },
+            {
+                "phrase": "繋ぎ",
+                "duration": 88,
+                "kiai": true
+            },
+            {
+                "phrase": "たい",
+                "duration": 42
+            },
+            {
+                "phrase": "だけ",
+                "duration": 66
+            }
+        ],
+        "translation": "實際上我只是想牽起你的手而已"
+    },
+    {
+        "time": "01:29.24",
+        "type": "interlude"
+    },
+    {
+        "time": "01:39.02",
+        "text": [
+            {
+                "phrase": "もう",
+                "duration": 53
+            },
+            {
+                "phrase": "一番",
+                "duration": 53
+            },
+            {
+                "phrase": "側で",
+                "duration": 54
+            },
+            {
+                "phrase": "君を",
+                "duration": 72
+            },
+            {
+                "phrase": "見て",
+                "duration": 44
+            },
+            {
+                "phrase": "いたいと",
+                "duration": 84
+            },
+            {
+                "phrase": "思えば",
+                "duration": 58
+            },
+            {
+                "phrase": "思う",
+                "duration": 58
+            },
+            {
+                "phrase": "ほど",
+                "duration": 54
+            }
+        ],
+        "translation": "越是想著要在你身旁注視著你"
+    },
+    {
+        "time": "01:44.62",
+        "text": [
+            {
+                "phrase": "居れ",
+                "duration": 36
+            },
+            {
+                "phrase": "ない",
+                "duration": 30
+            },
+            {
+                "phrase": "理由も",
+                "duration": 72
+            },
+            {
+                "phrase": "色濃く",
+                "duration": 42,
+                "kiai": true
+            },
+            {
+                "phrase": "なるの",
+                "duration": 50
+            },
+            {
+                "phrase": "そう",
+                "duration": 56
+            },
+            {
+                "phrase": "いう",
+                "duration": 56
+            },
+            {
+                "phrase": "もん",
+                "duration": 66
+            },
+            {
+                "phrase": "",
+                "duration": 52
+            },
+            {
+                "phrase": "さ",
+                "duration": 26
+            }
+        ],
+        "translation": "就連無法繼續待著的理由也像色彩增厚般逐漸增加啊"
+    },
+    {
+        "time": "01:49.78",
+        "text": [
+            {
+                "phrase": "優しさを",
+                "duration": 87
+            },
+            {
+                "phrase": "受け",
+                "duration": 43
+            },
+            {
+                "phrase": "取った",
+                "duration": 40
+            },
+            {
+                "phrase": "ままに",
+                "duration": 40
+            }
+        ],
+        "translation": "能做到單方面接受溫柔的人"
+    },
+    {
+        "time": "01:52.38",
+        "text": [
+            {
+                "phrase": "出来る",
+                "duration": 59
+            },
+            {
+                "phrase": "人は",
+                "duration": 40
+            },
+            {
+                "phrase": "そんなに",
+                "duration": 65
+            },
+            {
+                "phrase": "いない",
+                "duration": 44
+            }
+        ],
+        "translation": "並沒有想像中的那麼多"
+    },
+    {
+        "time": "01:54.76",
+        "text": [
+            {
+                "phrase": "自分",
+                "duration": 51
+            },
+            {
+                "phrase": "自身を",
+                "duration": 51
+            },
+            {
+                "phrase": "誰かと",
+                "duration": 82
+            },
+            {
+                "phrase": "思えば",
+                "duration": 76
+            },
+            {
+                "phrase": "痛く",
+                "duration": 78
+            },
+            {
+                "phrase": "しない？",
+                "duration": 88
+            }
+        ],
+        "translation": "把自己想像成別人就不會感到痛苦了嗎？"
+    },
+    {
+        "time": "01:59.93",
+        "text": [
+            {
+                "phrase": "ああ",
+                "duration": 61
+            },
+            {
+                "phrase": " ",
+                "duration": 12
+            },
+            {
+                "phrase": "繊細で",
+                "duration": 126,
+                "kiai": true
+            }
+        ],
+        "translation": "啊，我的眼中"
+    },
+    {
+        "time": "02:02.42",
+        "text": [
+            {
+                "phrase": "美しい",
+                "duration": 86
+            },
+            {
+                "phrase": "心模様が",
+                "duration": 128
+            },
+            {
+                "phrase": "",
+                "duration": 40
+            },
+            {
+                "phrase": "映って",
+                "duration": 104
+            },
+            {
+                "phrase": "いるの ",
+                "duration": 84
+            },
+            {
+                "phrase": "",
+                "duration": 20
+            },
+            {
+                "phrase": "僕の",
+                "duration": 74
+            },
+            {
+                "phrase": "目には",
+                "duration": 70
+            }
+        ],
+        "translation": "纖細地描繪出了美麗的內心世界"
+    },
+    {
+        "time": "02:08.78",
+        "text": [
+            {
+                "phrase": "他人の",
+                "duration": 78
+            },
+            {
+                "phrase": "",
+                "duration": 40
+            },
+            {
+                "phrase": "痛みで",
+                "duration": 150
+            },
+            {
+                "phrase": "顔が",
+                "duration": 108,
+                "kiai": true
+            },
+            {
+                "phrase": "歪む",
+                "duration": 84,
+                "kiai": true
+            }
+        ],
+        "translation": "因為他人的疼痛而表情扭曲"
+    },
+    {
+        "time": "02:14.14",
+        "text": [
+            {
+                "phrase": "君は",
+                "duration": 68
+            },
+            {
+                "phrase": "",
+                "duration": 40
+            },
+            {
+                "phrase": "いつ",
+                "duration": 78
+            },
+            {
+                "phrase": "どこで",
+                "duration": 78
+            },
+            {
+                "phrase": "笑う",
+                "duration": 96
+            },
+            {
+                "phrase": "のさ",
+                "duration": 80
+            }
+        ],
+        "translation": "你是在何時何地笑出來的啊"
+    },
+    {
+        "time": "02:19.28",
+        "text": [
+            {
+                "phrase": "傷の",
+                "duration": 68
+            },
+            {
+                "phrase": "",
+                "duration": 10
+            },
+            {
+                "phrase": "数",
+                "duration": 40
+            },
+            {
+                "phrase": "",
+                "duration": 40
+            },
+            {
+                "phrase": "ばかり",
+                "duration": 67
+            },
+            {
+                "phrase": "",
+                "duration": 40
+            },
+            {
+                "phrase": "数えてた",
+                "duration": 147
+            }
+        ],
+        "translation": "數算著傷口的數量"
+    },
+    {
+        "time": "02:24.20",
+        "text": [
+            {
+                "phrase": "どうして",
+                "duration": 76
+            },
+            {
+                "phrase": "その",
+                "duration": 68
+            },
+            {
+                "phrase": "痛みには",
+                "duration": 162
+            },
+            {
+                "phrase": "気付か",
+                "duration": 101,
+                "kiai": true
+            },
+            {
+                "phrase": "ない？",
+                "duration": 90,
+                "kiai": true
+            }
+        ],
+        "translation": "為什麼你就是無法注意到這份痛楚呢？"
+    },
+    {
+        "time": "02:29.46",
+        "text": [
+            {
+                "phrase": "僕らは",
+                "duration": 62
+            },
+            {
+                "phrase": "自分",
+                "duration": 116
+            },
+            {
+                "phrase": "勝手な",
+                "duration": 83
+            },
+            {
+                "phrase": "フリを",
+                "duration": 91
+            },
+            {
+                "phrase": "して",
+                "duration": 74
+            }
+        ],
+        "translation": "我們假裝著擅自作主的模樣"
+    },
+    {
+        "time": "02:34.53",
+        "text": [
+            {
+                "phrase": "人の",
+                "duration": 51
+            },
+            {
+                "phrase": "",
+                "duration": 20
+            },
+            {
+                "phrase": "事",
+                "duration": 100
+            },
+            {
+                "phrase": "ばかり",
+                "duration": 101
+            },
+            {
+                "phrase": "考",
+                "duration": 90
+            },
+            {
+                "phrase": "える",
+                "duration": 60
+            }
+        ],
+        "translation": "總是想著人與人間的事"
+    },
+    {
+        "time": "02:39.97",
+        "text": [
+            {
+                "phrase": "ねえ",
+                "duration": 39
+            },
+            {
+                "phrase": "幸せ",
+                "duration": 66
+            },
+            {
+                "phrase": "だって",
+                "duration": 58
+            },
+            {
+                "phrase": "ちょっと",
+                "duration": 42
+            },
+            {
+                "phrase": "くらいは",
+                "duration": 66
+            },
+            {
+                "phrase": "痛みが",
+                "duration": 76
+            },
+            {
+                "phrase": "する",
+                "duration": 50
+            },
+            {
+                "phrase": "から",
+                "duration": 45
+            }
+        ],
+        "translation": "吶，即使是幸福也會略帶疼痛"
+    },
+    {
+        "time": "02:45.09",
+        "text": [
+            {
+                "phrase": "不幸",
+                "duration": 54
+            },
+            {
+                "phrase": "くらい",
+                "duration": 51
+            },
+            {
+                "phrase": "では",
+                "duration": 58
+            },
+            {
+                "phrase": "",
+                "duration": 10
+            },
+            {
+                "phrase": "離",
+                "duration": 50
+            },
+            {
+                "phrase": "せない",
+                "duration": 54
+            },
+            {
+                "phrase": " ",
+                "duration": 10
+            },
+            {
+                "phrase": "分かる",
+                "duration": 60
+            },
+            {
+                "phrase": "かな",
+                "duration": 68
+            }
+        ],
+        "translation": "我們總是脫離不了不幸 你能明白嗎？"
+    },
+    {
+        "time": "02:50.54",
+        "text": [
+            {
+                "phrase": "",
+                "duration": 20
+            },
+            {
+                "phrase": "別の",
+                "duration": 112
+            },
+            {
+                "phrase": "心が",
+                "duration": 140
+            },
+            {
+                "phrase": "欲しい",
+                "duration": 80
+            },
+            {
+                "phrase": "とか",
+                "duration": 62
+            }
+        ],
+        "translation": "別總是說「想要一副別的心靈」"
+    },
+    {
+        "time": "02:56.00",
+        "text": [
+            {
+                "phrase": "悲しい",
+                "duration": 112
+            },
+            {
+                "phrase": "こと",
+                "duration": 61
+            },
+            {
+                "phrase": "言う",
+                "duration": 70
+            },
+            {
+                "phrase": "もん",
+                "duration": 69
+            },
+            {
+                "phrase": "じゃ",
+                "duration": 32
+            },
+            {
+                "phrase": "ない",
+                "duration": 64
+            },
+            {
+                "phrase": "よ",
+                "duration": 48
+            }
+        ],
+        "translation": "這種讓人傷心的話啊"
+    },
+    {
+        "time": "03:01.06",
+        "text": [
+            {
+                "phrase": "顔も",
+                "duration": 80
+            },
+            {
+                "phrase": "自分",
+                "duration": 60
+            },
+            {
+                "phrase": "じゃ",
+                "duration": 54
+            },
+            {
+                "phrase": "見れ",
+                "duration": 62
+            },
+            {
+                "phrase": "ない",
+                "duration": 58
+            },
+            {
+                "phrase": "でしょう",
+                "duration": 61
+            }
+        ],
+        "translation": "相信你連自己的臉龐都無法正視吧"
+    },
+    {
+        "time": "03:05.21",
+        "text": [
+            {
+                "phrase": "心を",
+                "duration": 120
+            },
+            {
+                "phrase": "映す",
+                "duration": 100
+            },
+            {
+                "phrase": "",
+                "duration": 33
+            },
+            {
+                "phrase": "鏡が",
+                "duration": 172
+            },
+            {
+                "phrase": "いる",
+                "duration": 51
+            },
+            {
+                "phrase": "んだよ",
+                "duration": 85
+            }
+        ],
+        "translation": "我有面映照出內心的鏡子"
+    },
+    {
+        "time": "03:11.00",
+        "text": [
+            {
+                "phrase": "ねえ",
+                "duration": 48
+            },
+            {
+                "phrase": " ",
+                "duration": 77
+            },
+            {
+                "phrase": "どう",
+                "duration": 42
+            },
+            {
+                "phrase": "",
+                "duration": 10
+            },
+            {
+                "phrase": "かな",
+                "duration": 67
+            }
+        ],
+        "translation": "吶，看起來如何？"
+    },
+    {
+        "time": "03:14.63",
+        "text": [
+            {
+                "phrase": "「居なく",
+                "duration": 116
+            },
+            {
+                "phrase": "なら",
+                "duration": 113,
+                "kiai": true
+            },
+            {
+                "phrase": "ないで",
+                "duration": 65,
+                "kiai": true
+            },
+            {
+                "phrase": "ね」",
+                "duration": 45
+            }
+        ],
+        "translation": "「請不要消失不見」"
+    },
+    {
+        "time": "03:18.40",
+        "text": [
+            {
+                "phrase": "「君",
+                "duration": 47,
+                "kiai": true
+            },
+            {
+                "phrase": "こそ",
+                "duration": 61,
+                "kiai": true
+            },
+            {
+                "phrase": "ね」",
+                "duration": 69,
+                "kiai": true
+            }
+        ],
+        "translation": "「你才是呢」"
+    },
+    {
+        "time": "03:20.57",
+        "text": [
+            {
+                "phrase": "能天気に",
+                "duration": 160
+            },
+            {
+                "phrase": "約束して",
+                "duration": 104
+            },
+            {
+                "phrase": "",
+                "duration": 20
+            },
+            {
+                "phrase": "肩を",
+                "duration": 67
+            },
+            {
+                "phrase": "叩く",
+                "duration": 76
+            }
+        ],
+        "translation": "你我肩碰著肩，輕率地約定著"
+    },
+    {
+        "time": "03:25.44",
+        "text": [
+            {
+                "phrase": "きまって",
+                "duration": 100
+            },
+            {
+                "phrase": "どちら",
+                "duration": 90
+            },
+            {
+                "phrase": "かが",
+                "duration": 85
+            },
+            {
+                "phrase": "破る",
+                "duration": 80
+            },
+            {
+                "phrase": "のさ",
+                "duration": 88
+            }
+        ],
+        "translation": "反正最後一定會有一方打破承諾"
+    },
+    {
+        "time": "03:30.52",
+        "text": [
+            {
+                "phrase": "そんな",
+                "duration": 72
+            },
+            {
+                "phrase": "当たり",
+                "duration": 49
+            },
+            {
+                "phrase": "前を",
+                "duration": 40
+            },
+            {
+                "phrase": "包む",
+                "duration": 50
+            },
+            {
+                "phrase": "ものが",
+                "duration": 96
+            },
+            {
+                "phrase": "愛",
+                "duration": 52
+            },
+            {
+                "phrase": "なん",
+                "duration": 43
+            },
+            {
+                "phrase": "だろう",
+                "duration": 78
+            }
+        ],
+        "translation": "包圍如此理所當然的肯定是愛吧"
+    },
+    {
+        "time": "03:35.89",
+        "text": [
+            {
+                "phrase": "どうやら",
+                "duration": 66
+            },
+            {
+                "phrase": "僕",
+                "duration": 88
+            },
+            {
+                "phrase": "の",
+                "duration": 40
+            },
+            {
+                "phrase": "ほうが",
+                "duration": 68
+            },
+            {
+                "phrase": "君の",
+                "duration": 95
+            },
+            {
+                "phrase": "こと",
+                "duration": 60
+            }
+        ],
+        "translation": "看來我終能好好地"
+    },
+    {
+        "time": "03:40.86",
+        "text": [
+            {
+                "phrase": "上手に",
+                "duration": 75
+            },
+            {
+                "phrase": "絵",
+                "duration": 47
+            },
+            {
+                "phrase": "に",
+                "duration": 47
+            },
+            {
+                "phrase": "描いて",
+                "duration": 72
+            },
+            {
+                "phrase": "渡せ",
+                "duration": 93
+            },
+            {
+                "phrase": "そうだ",
+                "duration": 85
+            }
+        ],
+        "translation": "將這幅畫作畫好交給你"
+    },
+    {
+        "time": "03:46.28",
+        "text": [
+            {
+                "phrase": "ねえ",
+                "duration": 40
+            },
+            {
+                "phrase": "少し",
+                "duration": 62
+            },
+            {
+                "phrase": "驚",
+                "duration": 66
+            },
+            {
+                "phrase": "いて",
+                "duration": 40
+            },
+            {
+                "phrase": "しまう",
+                "duration": 64
+            },
+            {
+                "phrase": "かも",
+                "duration": 44
+            },
+            {
+                "phrase": "しれ",
+                "duration": 45
+            },
+            {
+                "phrase": "ない",
+                "duration": 47
+            },
+            {
+                "phrase": "けど",
+                "duration": 40
+            }
+        ],
+        "translation": "吶，說出來你或許會嚇一跳也說不定"
+    },
+    {
+        "time": "03:51.36",
+        "text": [
+            {
+                "phrase": "君は",
+                "duration": 89
+            },
+            {
+                "phrase": "こんなに",
+                "duration": 93
+            },
+            {
+                "phrase": "椅麗に",
+                "duration": 83
+            },
+            {
+                "phrase": "笑って",
+                "duration": 63
+            },
+            {
+                "phrase": "たんだよ",
+                "duration": 86
+            }
+        ],
+        "translation": "但你正如此漂亮地露出微笑呢"
+    },
+    {
+        "time": "03:56.00",
+        "type": "end"
+    }
+]

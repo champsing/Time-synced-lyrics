@@ -1,0 +1,52 @@
+[
+    {
+        "available": true,
+        "folder": "Kiro Akiyama - SKETCH",
+        "song_id": 1646398286,
+        "versions": [
+            {
+                "version": "original",
+                "id": "M0cHair48Jg",
+                "default": true
+            },
+            {
+                "version": "live",
+                "id": "Y7IC9ccumcc"
+            }
+        ],
+        "artist": "秋山黄色",
+        "lyricist": "Kiro Akiyama",
+        "title": "SKETCH",
+        "art": "https://lineimg.omusic.com.tw/img/album/6389351.jpg?v=20221007122445",
+        "subtitle": "TVアニメ「僕のヒーローアカデミア」\n6期EDテーマ",
+        "album": {
+            "name": "Good Night Mare",
+            "link": "43VsTEF"
+        },
+        "translation": {
+            "available": true,
+            "author": "香榭"
+        },
+        "credits": {
+            "performance": [
+                {
+                    "name": "Kiro Akiyama",
+                    "contribution": ["主唱"]
+                }
+            ],
+            "song_writing": [
+                {
+                    "name": "Kiro Akiyama",
+                    "contribution": ["詞曲創作", "編曲"]
+                },
+                {
+                    "name": "川口圭太",
+                    "contribution": ["編曲"]
+                }
+            ]
+        },
+        "updated_at": "2025-05-01",
+        "lang": "ja",
+        "furigana": false
+    }
+]
