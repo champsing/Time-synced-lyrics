@@ -20,27 +20,57 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+# SECURITY RELATED
+
+# 禁用瀏覽器 API 渲染
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+    ]
+}
+
+# 防止點目錄遍歷
+SECURE_REFERRER_POLICY = "same-origin"
+
+# LOGGING
+
+LOGGING = {
+    "version": 1,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+        "api": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+}
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-57^+xo6+czzq4@s)a+azrq1h^j25orgk166kll7sn=2f_84c4n"
+# SECRET_KEY = "django-insecure-57^+xo6+czzq4@s)a+azrq1h^j25orgk166kll7sn=2f_84c4n"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # 添加允許的 API 域名
-ALLOWED_HOSTS = [
-    'localhost', 
-    '127.0.0.1',
-    'api.timesl.online'
-]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "api.timesl.online"]
 
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
+    # "django.contrib.admin",
+    # "django.contrib.auth",
+    # "django.contrib.contenttypes",
+    # "django.contrib.sessions",
+    # "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
@@ -48,13 +78,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "django.middleware.security.SecurityMiddleware",
+    # "django.contrib.sessions.middleware.SessionMiddleware",
+    # "django.middleware.common.CommonMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.contrib.auth.middleware.AuthenticationMiddleware",
+    # "django.contrib.messages.middleware.MessageMiddleware",
+    # "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -63,7 +93,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.timesl.online",  # 生產環境域名
 ]
 
-ROOT_URLCONF = 'songlyricparser.urls'
+ROOT_URLCONF = "songlyricparser.urls"
 
 TEMPLATES = [
     {
@@ -78,6 +108,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = "songlyricparser.wsgi.application"
 
@@ -127,16 +158,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/' # 靜態文件基礎URL
+STATIC_URL = "/static/"  # 靜態文件基礎URL
 
 # 添加靜態文件目錄
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'mappings'),
-    os.path.join(BASE_DIR, 'songs'),
+    os.path.join(BASE_DIR, "mappings"),
+    os.path.join(BASE_DIR, "songs"),
 ]
 
 # 收集靜態文件的目標目錄（生产环境使用）
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

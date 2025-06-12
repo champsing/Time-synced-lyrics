@@ -17,5 +17,5 @@ Including another URLconf
 from django.urls import include, path
 
 urlpatterns = [
-    path('api/', include('api.urls')),  # API 路由
+    path('/', include('api.urls')),  # API 路由
 ]

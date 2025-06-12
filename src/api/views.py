@@ -1,16 +1,56 @@
 # -*- coding: utf-8 -*-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from rest_framework import status
 import json
 from django.conf import settings
 from pathlib import Path
-from django.views.decorators.cache import cache_page
+from django.views.decorators.cache import cache_page, cache_control
+
+async def open_song_file(song_id):
+    song_file = Path(settings.BASE_DIR) / "songs" / f"{song_id}.json"
+    # 如果歌曲不存在
+    if not song_file.exists():
+        return Response(
+            {"error": "Song not found"},
+            status=status.HTTP_404_NOT_FOUND,
+        )
+
+    with open(song_file, "r", encoding="utf-8") as f:
+        song_data = json.load(f)
+    return song_data
+
+def get_system_uptime():
+    with open("/proc/uptime", "r") as f:
+        uptime_seconds = float(f.readline().split()[0])
+
+    return uptime_seconds
 
 
 @api_view(["GET"])
+def api_root(request):
+    return Response(
+        {
+            "songs": reverse("song-list", request=request),
+            "mappings": reverse("mapping-list", request=request),
+            "status": reverse("api-status", request=request),
+        }
+    )
+
+
+@api_view(["GET"])
+@cache_control(max_age=0, no_cache=True, no_store=True, must_revalidate=True)
 def api_status(request):
-    return Response({"message": "API is working correctly"}, status=status.HTTP_200_OK)
+    return Response(
+        {
+            "status": "operational",
+            "version": "1.0.0",
+            "uptime": get_system_uptime(),
+        },
+        status=status.HTTP_200_OK,
+    )
+
 
 @api_view(["GET"])
 @cache_page(60 * 30)  # 緩存30分鐘
@@ -58,22 +98,13 @@ def get_song_by_id(request, song_id):
 
     # 緩存未命中，讀取文件
     try:
-        song_file = Path(settings.BASE_DIR) / "songs" / f"{song_id}.json"
-        # 如果歌曲不存在
-        if not song_file.exists():
-            return Response(
-                {"error": "Song not found"},
-                status=status.HTTP_404_NOT_FOUND,
-            )
-
-        with open(song_file, "r", encoding="utf-8") as f:
-            song_data = json.load(f)
+        song_data = open_song_file(song_id)
 
         # 存入緩存（1小時）
         cache.set(cache_key, song_data, 60 * 60)
 
         return Response(song_data)
-    
+
     except Exception as e:
         # 記錄錯誤日誌（生產環境）
         return Response(
@@ -97,24 +128,15 @@ def get_mappings(request, song_id, version):
 
     # 緩存未命中，讀取文件
     try:
-        song = Path(settings.BASE_DIR) / "songs" / f"{song_id}.json"
-        # 如果歌曲不存在
-        if not song.exists():
+        song_data = open_song_file(song_id)
+        song_folder = song_data["folder"]
+
+        # 如果沒有資料夾字段
+        if not song_folder:
             return Response(
-                {"error": "Song not found"},
+                {"error": "Song folder not found"},
                 status=status.HTTP_404_NOT_FOUND,
             )
-
-        with open(song, "r", encoding="utf-8") as sf:
-            song_info = json.load(sf)
-            song_folder = song_info["folder"]
-
-            # 如果沒有資料夾字段
-            if not song_folder:
-                return Response(
-                    {"error": "Song folder not found"},
-                    status=status.HTTP_404_NOT_FOUND,
-                )
 
         mapping = Path(settings.BASE_DIR) / "mappings" / song_folder / f"{version}.json"
         # 如果找不到mapping文件

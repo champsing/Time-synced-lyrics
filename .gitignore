@@ -8,7 +8,11 @@ javascript
 staticfiles/
 
 # 其他应忽略的文件
+*.log
+*.pot
 *.pyc
-__pycache__/
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
 .env
 db.sqlite3
