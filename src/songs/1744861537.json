@@ -1,82 +1,80 @@
-[
-    {
+{
+    "available": true,
+    "folder": "HOYO-MiX, Chevy, Robin - Hope Is the Thing With Feathers",
+    "song_id": 1744861537,
+    "versions": [
+        {
+            "version": "original",
+            "id": "m8VX1usnxlY",
+            "default": true
+        },
+        {
+            "version": "instrumental",
+            "id": "BPGF_w1p28U"
+        },
+        {
+            "version": "live",
+            "id": "ztCNc9CuKK8"
+        }
+    ],
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d7/3c/d1/d73cd11f-5a83-60fd-c028-14241d6aa8be/198391981821.jpg/1200x630bb.jpg",
+    "artist": "HOYO-MiX, Chevy, 知更鳥",
+    "lyricist": "Ruby Qu、王可鑫",
+    "title": "希望有羽毛和翅膀",
+    "subtitle": "《崩壞:星穹鐵道》匹諾康尼戰鬥主題曲",
+    "translation": {
         "available": true,
-        "folder": "HOYO-MiX, Chevy, Robin - Hope Is the Thing With Feathers",
-        "song_id": 1744861537,
-        "versions": [
+        "author": "官方 YouTube 翻譯",
+        "cite": "https://www.youtube.com/watch?v=pktTrSBAOJw&ab_channel=%E5%B4%A9%E5%A3%9E%3A%E6%98%9F%E7%A9%B9%E9%90%B5%E9%81%93"
+    },
+    "album": {
+        "name": "空氣蛹 - EP",
+        "link": "xL9n1en"
+    },
+    "updated_at": "2025-05-14",
+    "lang": "en",
+    "credits": {
+        "performance": [
             {
-                "version": "original",
-                "id": "m8VX1usnxlY",
-                "default": true
+                "name": "知更鳥",
+                "contribution": ["演出者"]
             },
             {
-                "version": "instrumental",
-                "id": "BPGF_w1p28U"
+                "name": "HOYO-MiX",
+                "contribution": ["演出者"]
             },
             {
-                "version": "live",
-                "id": "ztCNc9CuKK8"
+                "name": "Chevy",
+                "contribution": ["主唱"]
+            },
+            {
+                "name": "王可鑫",
+                "contribution": ["演出者"]
             }
         ],
-        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d7/3c/d1/d73cd11f-5a83-60fd-c028-14241d6aa8be/198391981821.jpg/1200x630bb.jpg",
-        "artist": "HOYO-MiX, Chevy, 知更鳥",
-        "lyricist": "Ruby Qu、王可鑫",
-        "title": "希望有羽毛和翅膀",
-        "subtitle": "《崩壞:星穹鐵道》匹諾康尼戰鬥主題曲",
-        "translation": {
-            "available": true,
-            "author": "官方 YouTube 翻譯",
-            "cite": "https://www.youtube.com/watch?v=pktTrSBAOJw&ab_channel=%E5%B4%A9%E5%A3%9E%3A%E6%98%9F%E7%A9%B9%E9%90%B5%E9%81%93"
-        },
-        "album": {
-            "name": "空氣蛹 - EP",
-            "link": "xL9n1en"
-        },
-        "updated_at": "2025-05-14",
-        "lang": "en",
-        "credits": {
-            "performance": [
-                {
-                    "name": "知更鳥",
-                    "contribution": ["演出者"]
-                },
-                {
-                    "name": "HOYO-MiX",
-                    "contribution": ["演出者"]
-                },
-                {
-                    "name": "Chevy",
-                    "contribution": ["主唱"]
-                },
-                {
-                    "name": "王可鑫",
-                    "contribution": ["演出者"]
-                }
-            ],
-            "song_writing": [
-                {
-                    "name": "Ruby Qu",
-                    "contribution": ["作詞"]
-                },
-                {
-                    "name": "王可鑫",
-                    "contribution": ["編曲", "詞曲創作"]
-                }
-            ],
-            "engineering": [
-                {
-                    "name": "王可鑫",
-                    "contribution": ["製作人", "母帶工程師"]
-                },
-                {
-                    "name": "阿烈",
-                    "contribution": ["混音師"]
-                },
-                {
-                    "name": "宮奇",
-                    "contribution": ["母帶工程師"]
-                }
-            ]
-        }
+        "song_writing": [
+            {
+                "name": "Ruby Qu",
+                "contribution": ["作詞"]
+            },
+            {
+                "name": "王可鑫",
+                "contribution": ["編曲", "詞曲創作"]
+            }
+        ],
+        "engineering": [
+            {
+                "name": "王可鑫",
+                "contribution": ["製作人", "母帶工程師"]
+            },
+            {
+                "name": "阿烈",
+                "contribution": ["混音師"]
+            },
+            {
+                "name": "宮奇",
+                "contribution": ["母帶工程師"]
+            }
+        ]
     }
-]
+}

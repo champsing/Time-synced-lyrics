@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY RELATED
 
 # 禁用瀏覽器 API 渲染
-REST_FRAMEWORK = {
-    "DEFAULT_RENDERER_CLASSES": [
-        "rest_framework.renderers.JSONRenderer",
-    ]
-}
+# REST_FRAMEWORK = {
+#     "DEFAULT_RENDERER_CLASSES": [
+#         "rest_framework.renderers.JSONRenderer",
+#     ]
+# }
 
 # 防止點目錄遍歷
 SECURE_REFERRER_POLICY = "same-origin"
@@ -55,7 +55,7 @@ LOGGING = {
 }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = "django-insecure-57^+xo6+czzq4@s)a+azrq1h^j25orgk166kll7sn=2f_84c4n"
+SECRET_KEY = "django-insecure-57^+xo6+czzq4@s)a+azrq1h^j25orgk166kll7sn=2f_84c4n"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -66,11 +66,11 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "api.timesl.online"]
 # Application definition
 
 INSTALLED_APPS = [
-    # "django.contrib.admin",
-    # "django.contrib.auth",
-    # "django.contrib.contenttypes",
-    # "django.contrib.sessions",
-    # "django.contrib.messages",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
@@ -78,13 +78,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
-    # "django.middleware.security.SecurityMiddleware",
-    # "django.contrib.sessions.middleware.SessionMiddleware",
-    # "django.middleware.common.CommonMiddleware",
-    # "django.middleware.csrf.CsrfViewMiddleware",
-    # "django.contrib.auth.middleware.AuthenticationMiddleware",
-    # "django.contrib.messages.middleware.MessageMiddleware",
-    # "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 CORS_ALLOWED_ORIGINS = [

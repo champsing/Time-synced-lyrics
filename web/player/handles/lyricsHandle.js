@@ -1,12 +1,8 @@
-import { ref, computed } from "vue";
-
 import { DEFAULT_DURATION } from "/web/utils/config.js";
-import { getLyricFilePath } from "./songsHandle.js";
 
 export const parseLyrics = (
     jsonMappingContent,
     currentSong,
-    songVersion,
     songDuration
 ) => {
     if (!jsonMappingContent) return [];
@@ -34,10 +30,7 @@ export const parseLyrics = (
                     line.background_voice.text.length
                 ).fill(0);
                 line.background_voice.duration = line.background_voice.text.map(
-                    (phr) =>
-                        phr.duration / 100 ||
-                        currentSong.value.default_phrase_duration ||
-                        DEFAULT_DURATION,
+                    (phr) => phr.duration / 100 || DEFAULT_DURATION,
                     0,
                     line.background_voice.text.length
                 );
@@ -108,38 +101,3 @@ export const parseLyrics = (
     });
 };
 
-export function useLyrics(currentSong, songVersion, currentTime, songDuration) {
-    const jsonMappingContent = ref(null);
-
-    const loadLyrics = async () => {
-        // axios.post({
-        //     url: BASE "/"
-        // })
-
-        const path = getLyricFilePath(
-            currentSong.value.folder,
-            songVersion.value
-        );
-        const response = await fetch(path);
-        jsonMappingContent.value = parseLyrics(
-            await response.json(),
-            currentSong,
-            songVersion,
-            songDuration
-        );
-
-        console.log(songVersion.value, jsonMappingContent.value);
-    };
-
-    const currentLineIndex = computed(() => {
-        if (!jsonMappingContent.value) return -1;
-        for (let i = jsonMappingContent.value.length - 1; i >= 0; i--) {
-            if (currentTime.value >= jsonMappingContent.value[i].time) {
-                return i;
-            }
-        }
-        return -1;
-    });
-
-    return { jsonMappingContent, currentLineIndex, loadLyrics };
-}

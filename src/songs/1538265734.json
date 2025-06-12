@@ -1,53 +1,51 @@
-[
-    {
+{
+    "available": true,
+    "folder": "Kenshi Yonezu - Campanella",
+    "song_id": 1538265734,
+    "versions": [
+        {
+            "version": "original",
+            "id": "XeFQJ6-XoD0",
+            "default": true
+        }
+    ],
+    "artist": "米津玄師",
+    "lyricist": "米津玄師",
+    "title": "カンパネルラ",
+    "album": {
+        "name": "STRAY SHEEP",
+        "link": "qvB12nv"
+    },
+    "art": "https://i.kfs.io/album/global/83019209,2v1/fit/500x500.jpg",
+    "translation": {
         "available": true,
-        "folder": "Kenshi Yonezu - Campanella",
-        "song_id": 1538265734,
-        "versions": [
+        "author": "Alice／箱庭博物館",
+        "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
+        "modified": true
+    },
+    "credits": {
+        "performance": [
             {
-                "version": "original",
-                "id": "XeFQJ6-XoD0",
-                "default": true
+                "name": "米津玄師",
+                "contribution": ["主唱", "吉他"]
+            },
+            {
+                "name": "須藤 優",
+                "contribution": ["貝斯"]
             }
         ],
-        "artist": "米津玄師",
-        "lyricist": "米津玄師",
-        "title": "カンパネルラ",
-        "album": {
-            "name": "STRAY SHEEP",
-            "link": "qvB12nv"
-        },
-        "art": "https://i.kfs.io/album/global/83019209,2v1/fit/500x500.jpg",
-        "translation": {
-            "available": true,
-            "author": "Alice／箱庭博物館",
-            "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
-            "modified": true
-        },
-        "credits": {
-            "performance": [
-                {
-                    "name": "米津玄師",
-                    "contribution": ["主唱", "吉他"]
-                },
-                {
-                    "name": "須藤 優",
-                    "contribution": ["貝斯"]
-                }
-            ],
-            "song_writing": [
-                {
-                    "name": "米津玄師",
-                    "contribution": ["詞曲創作", "編曲"]
-                },
-                {
-                    "name": "Yuta Bandoh",
-                    "contribution": ["編曲"]
-                }
-            ]
-        },
-        "updated_at": "2025-05-15",
-        "lang": "ja",
-        "furigana": true
-    }
-]
+        "song_writing": [
+            {
+                "name": "米津玄師",
+                "contribution": ["詞曲創作", "編曲"]
+            },
+            {
+                "name": "Yuta Bandoh",
+                "contribution": ["編曲"]
+            }
+        ]
+    },
+    "updated_at": "2025-05-15",
+    "lang": "ja",
+    "furigana": true
+}

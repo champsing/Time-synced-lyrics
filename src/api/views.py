@@ -8,7 +8,7 @@ from django.conf import settings
 from pathlib import Path
 from django.views.decorators.cache import cache_page, cache_control
 
-async def open_song_file(song_id):
+def open_song_file(song_id):
     song_file = Path(settings.BASE_DIR) / "songs" / f"{song_id}.json"
     # 如果歌曲不存在
     if not song_file.exists():
@@ -54,7 +54,7 @@ def api_status(request):
 
 @api_view(["GET"])
 @cache_page(60 * 30)  # 緩存30分鐘
-def get_song_list(request):
+def get_songs_list(request):
     from django.core.cache import cache
 
     # 從songs/<song_id>.json讀取歌曲列表

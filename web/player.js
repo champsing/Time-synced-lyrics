@@ -1,13 +1,13 @@
 import { computed, createApp, onMounted, ref, watch } from "vue";
 
-import { useLyrics } from "./player/handles/lyricsHandle.js";
 import {
     generatePhraseStyle,
     isActivePhrase,
 } from "./player/handles/phrasesHandle.js";
 import {
     getDefaultVersion,
-    loadSongList,
+    getLyricResponse,
+    loadSongData,
 } from "./player/handles/songsHandle.js";
 import { useTransation } from "./player/handles/translationHandle.js";
 import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
@@ -55,6 +55,7 @@ function main() {
     const songList = ref([]);
     const songVersion = ref(null);
     const currentSong = ref(null);
+    const jsonMappingContent = ref(null);
     const scrollToCurrentLine = ref(true);
     const enableTranslation = ref(true);
     const enablePronounciation = ref(false);
@@ -98,12 +99,15 @@ function main() {
             );
     });
 
-    const { jsonMappingContent, currentLineIndex, loadLyrics } = useLyrics(
-        currentSong,
-        songVersion,
-        currentTime,
-        songDuration
-    );
+    const currentLineIndex = computed(() => {
+        if (!jsonMappingContent.value) return -1;
+        for (let i = jsonMappingContent.value.length - 1; i >= 0; i--) {
+            if (currentTime.value >= jsonMappingContent.value[i].time) {
+                return i;
+            }
+        }
+        return -1;
+    });
 
     const { translationText, backgroundTranslationText, translationAuthor } =
         useTransation(currentSong, jsonMappingContent, currentLineIndex);
@@ -165,16 +169,13 @@ function main() {
         songDuration.value = 0;
     };
 
-    async function loadSong(song, version) {
+    async function loadSongLyric(song, version) {
         if (!song) return;
 
         document.title = song.value.title + MERCURY_TSL;
 
-        // 調試：輸出歌詞文件路徑
-        console.log(`Loading lyrics from: ${song.value.folder}/${version.value}.json`);
-
         // 載入新歌詞
-        loadLyrics();
+        jsonMappingContent.value = await getLyricResponse(song.id, version);
 
         onPlayerChangeSongVideo(song, version, window.ytPlayer);
 
@@ -207,27 +208,13 @@ function main() {
     // 初始化流程
     onMounted(async () => {
         try {
-            // 載入歌曲列表
-            songList.value = await loadSongList();
-            songList.value = songList.value.filter(
-                (song) => song.available === true
-            );
 
-            const matchedSong = songList.value.find(
-                (song) => parseInt(song.song_id) === songRequest
-            );
-
-            // 檢查歌曲列表是否為空
-            if (songList.value.length === 0) {
-                console.error("沒有可用歌曲");
-                return;
-            }
-
-            if (matchedSong) {
+            if (songRequest) {
+                const requestSongData = await loadSongData(songRequest);
                 console.log(
-                    `已帶入指定歌曲 ID: ${songRequest} - ${matchedSong.folder}`
+                    `已帶入指定歌曲 ID: ${songRequest} - ${requestSongData.folder}`
                 );
-                currentSong.value = matchedSong;
+                currentSong.value = requestSongData;
             } else {
                 currentSong.value = null;
                 console.warn(
@@ -251,7 +238,7 @@ function main() {
                 );
             }
 
-            loadSong(currentSong, songVersion);
+            loadSongLyric(currentSong, songVersion);
 
             // 初始化播放器
             const { init } = initYouTubePlayer({

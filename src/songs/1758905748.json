@@ -1,43 +1,41 @@
-[
-    {
+{
+    "available": true,
+    "folder": "Vaundy - Gift",
+    "song_id": 1758905748,
+    "versions": [
+        {
+            "version": "original",
+            "id": "sADskV54iNc",
+            "default": true
+        }
+    ],
+    "album": {
+        "name": "ホムンクルス/Gift"
+    },
+    "title": "Gift",
+    "subtitle": "『僕のヒーローアカデミア\nTHE MOVIE ユアネクスト』ED主題歌",
+    "artist": "Vaundy",
+    "lyricist": "Vaundy",
+    "translation": {
         "available": true,
-        "folder": "Vaundy - Gift",
-        "song_id": 1758905748,
-        "versions": [
+        "author": "香榭"
+    },
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/1f/49/e81f493c-1fca-8305-2664-25537206efe4/4547366698183.jpg/1200x1200bf-60.jpg",
+    "lang": "ja",
+    "updated_at": "2025-05-18",
+    "furigana": false,
+    "credits": {
+        "performance": [
             {
-                "version": "original",
-                "id": "sADskV54iNc",
-                "default": true
+                "name": "Vaundy",
+                "contribution": ["主唱"]
             }
         ],
-        "album": {
-            "name": "ホムンクルス/Gift"
-        },
-        "title": "Gift",
-        "subtitle": "『僕のヒーローアカデミア\nTHE MOVIE ユアネクスト』ED主題歌",
-        "artist": "Vaundy",
-        "lyricist": "Vaundy",
-        "translation": {
-            "available": true,
-            "author": "香榭"
-        },
-        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/1f/49/e81f493c-1fca-8305-2664-25537206efe4/4547366698183.jpg/1200x1200bf-60.jpg",
-        "lang": "ja",
-        "updated_at": "2025-05-18",
-        "furigana": false,
-        "credits": {
-            "performance": [
-                {
-                    "name": "Vaundy",
-                    "contribution": ["主唱"]
-                }
-            ],
-            "song_writing": [
-                {
-                    "name": "Vaundy",
-                    "contribution": ["詞曲創作", "編曲"]
-                }
-            ]
-        }
+        "song_writing": [
+            {
+                "name": "Vaundy",
+                "contribution": ["詞曲創作", "編曲"]
+            }
+        ]
     }
-]
+}

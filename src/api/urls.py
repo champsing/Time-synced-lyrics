@@ -2,8 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("", views.api_root, name="api_root"),
     path("status/", views.api_status, name="api_status"),
-    path("song/list/", views.get_song_list, name="song_list"),
-    path("song/<int:song_id>/", views.get_song_by_id, name="get_song_by_id"),
-    path("lyrics/<int:song_id>/<str:version>", views.get_mappings, name="get_song_by_id"),
+    path("songs/", views.get_songs_list, name="song_list"),
+    path("songs/<int:song_id>/", views.get_song_by_id, name="get_song_by_id"),
+    path(
+        "mappings/<int:song_id>/<str:version>", views.get_mappings, name="get_mappings"
+    ),
 ]
