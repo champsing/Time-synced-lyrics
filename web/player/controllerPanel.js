@@ -10,14 +10,16 @@ export const initControllerPanel = () => {
         panelSwitchIcon.innerText = "keyboard_arrow_down";
         if (window.screen.width >= 768)
             mainDisplaySection.style.marginLeft = "2rem";
+        mainDisplaySection.style.width = "68%";
     };
 
     const hide = () => {
         panel.style.display = "none";
         panelSwitchIcon.innerText = "keyboard_arrow_up";
         if (window.screen.width >= 768) {
-            let margin = window.screen.width / 8;
+            let margin = window.screen.width / 10 - 32;
             mainDisplaySection.style.marginLeft = `${margin}px`;
+            mainDisplaySection.style.width = "80%";
         }
     };
 
