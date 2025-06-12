@@ -423,44 +423,42 @@
                             </div>
                         </div>
 
-                        <div
-                            class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit select-none">
-                            <div class="flex flex-row gap-7">
-                                <button id="player-rewind-10sec" @click="rewind10Sec()" type="button" title="後退10秒"
-                                    aria-label="後退10秒">
-                                    <span class="material-icons mt-2">
-                                        fast_rewind
-                                    </span>
-                                </button>
-                                <button id="player-play" v-if="isPaused" @click="playVideo()" type="button" title="播放"
-                                    aria-label="播放">
-                                    <span class="material-icons mt-2">
-                                        play_arrow
-                                    </span>
-                                </button>
-                                <button id="player-pause" v-else @click="pauseVideo()" type="button" title="暫停"
-                                    aria-label="暫停">
-                                    <span class="material-icons mt-2">
-                                        pause
-                                    </span>
-                                </button>
-                                <button id="player-mf-10sec" @click="moveForward10Sec()" type="button" title="前進10秒"
-                                    aria-label="前進10秒">
-                                    <span class="material-icons mt-2">
-                                        fast_forward
-                                    </span>
-                                </button>
-                            </div>
-                            <span class="text-xl font-bold text-center text-[#94a4cb] font-[Source_Sans_Pro]">
-                                {{ formattedCurrentTime }} / {{ formattedSongDuration }}
-                            </span>
-                        </div>
-
                         <div class="items-center">
                             <div id="player"></div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div
+                class="p-4 flex flex-row justify-center items-center gap-7 bg-[#231f1f] rounded-[12px] w-fit select-none">
+                <div class="flex flex-row gap-7">
+                    <button id="player-rewind-10sec" @click="rewind10Sec()" type="button" title="後退10秒"
+                        aria-label="後退10秒">
+                        <span class="material-icons mt-2">
+                            fast_rewind
+                        </span>
+                    </button>
+                    <button id="player-play" v-if="isPaused" @click="playVideo()" type="button" title="播放"
+                        aria-label="播放">
+                        <span class="material-icons mt-2">
+                            play_arrow
+                        </span>
+                    </button>
+                    <button id="player-pause" v-else @click="pauseVideo()" type="button" title="暫停" aria-label="暫停">
+                        <span class="material-icons mt-2">
+                            pause
+                        </span>
+                    </button>
+                    <button id="player-mf-10sec" @click="moveForward10Sec()" type="button" title="前進10秒"
+                        aria-label="前進10秒">
+                        <span class="material-icons mt-2">
+                            fast_forward
+                        </span>
+                    </button>
+                </div>
+                <span class="text-xl font-bold text-center text-[#94a4cb] font-[Source_Sans_Pro]">
+                    {{ formattedCurrentTime }} / {{ formattedSongDuration }}
+                </span>
             </div>
         </div>
 
