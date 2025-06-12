@@ -6,7 +6,8 @@
         {
             "version": "original",
             "id": "pTwSEgflLq0",
-            "default": true
+            "default": true,
+            "duration": ""
         }
     ],
     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/34/84/9c/34849ce0-673d-a17d-cac9-edc48bbbf959/4547366570427.jpg/1200x630bb.jpg",
@@ -23,6 +24,9 @@
         "author": "Alice／箱庭博物館",
         "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"
     },
+    "updated_at": "2025-05-09",
+    "lang": "ja",
+    "furigana": false,
     "credits": {
         "performance": [
             {
@@ -40,8 +44,5 @@
                 "contribution": ["編曲"]
             }
         ]
-    },
-    "updated_at": "2025-05-09",
-    "lang": "ja",
-    "furigana": false
+    }
 }

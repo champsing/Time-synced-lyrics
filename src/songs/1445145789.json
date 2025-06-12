@@ -6,7 +6,8 @@
         {
             "version": "original",
             "id": "xefpHEg5UIA",
-            "default": true
+            "default": true,
+            "duration": "5:23"
         }
     ],
     "album": {
@@ -25,6 +26,7 @@
     "lang": "ja",
     "updated_at": "2025-05-19",
     "furigana": false,
+    
     "credits": {
         "performance": [
             {

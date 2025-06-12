@@ -6,7 +6,8 @@
         {
             "version": "original",
             "id": "sL-yJIyuEaM",
-            "default": true
+            "default": true,
+            "duration": "5:08"
         }
     ],
     "album": {
@@ -26,6 +27,7 @@
     "updated_at": "2025-06-08",
     "furigana": false,
     "is_duet": true,
+    
     "credits": {
         "performance": [
             {

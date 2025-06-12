@@ -6,11 +6,13 @@
         {
             "version": "original",
             "id": "M0cHair48Jg",
-            "default": true
+            "default": true,
+            "duration": ""
         },
         {
             "version": "live",
-            "id": "Y7IC9ccumcc"
+            "id": "Y7IC9ccumcc",
+            "duration": ""
         }
     ],
     "artist": "秋山黄色",
@@ -26,6 +28,7 @@
         "available": true,
         "author": "香榭"
     },
+    
     "credits": {
         "performance": [
             {

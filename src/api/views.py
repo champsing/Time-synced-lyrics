@@ -8,6 +8,10 @@ from django.conf import settings
 from pathlib import Path
 from django.views.decorators.cache import cache_page, cache_control
 
+from parse_lyrics import parse_lyrics
+from utils.parse_time_format_to_second import parse_time_format_to_second
+from utils.get_system_uptime import get_system_uptime
+
 def open_song_file(song_id):
     song_file = Path(settings.BASE_DIR) / "songs" / f"{song_id}.json"
     # 如果歌曲不存在
@@ -20,12 +24,6 @@ def open_song_file(song_id):
     with open(song_file, "r", encoding="utf-8") as f:
         song_data = json.load(f)
     return song_data
-
-def get_system_uptime():
-    with open("/proc/uptime", "r") as f:
-        uptime_seconds = float(f.readline().split()[0])
-
-    return uptime_seconds
 
 
 @api_view(["GET"])
@@ -130,6 +128,20 @@ def get_mappings(request, song_id, version):
     try:
         song_data = open_song_file(song_id)
         song_folder = song_data["folder"]
+        song_duration = 0
+
+        for v in song_data["versions"]:
+            if v["version"] == version:
+                song_duration = parse_time_format_to_second(v["duration"])
+                break
+            else:  # 如果沒有找到符合版本，使用預設版本
+                for v in song_data["versions"]:
+                    if v.get("default"):
+                        song_duration = parse_time_format_to_second(v["duration"])
+                        break
+                else:  # 如果沒有預設版本，使用第一個版本
+                    if song_data["versions"]:
+                        song_duration = parse_time_format_to_second(song_data["versions"][0]["duration"])
 
         # 如果沒有資料夾字段
         if not song_folder:
@@ -152,7 +164,11 @@ def get_mappings(request, song_id, version):
         # 存入緩存（1小時）
         cache.set(cache_key, requested_mapping, 60 * 60)
 
-        return Response(requested_mapping)
+        parsed_mapping = parse_lyrics(requested_mapping, song_data, song_duration)
+
+        print(parsed_mapping)
+
+        return Response(parsed_mapping)
 
     except Exception as e:
         # 記錄錯誤日誌（生產環境）

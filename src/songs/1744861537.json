@@ -6,15 +6,18 @@
         {
             "version": "original",
             "id": "m8VX1usnxlY",
-            "default": true
+            "default": true,
+            "duration": "3:49"
         },
         {
             "version": "instrumental",
-            "id": "BPGF_w1p28U"
+            "id": "BPGF_w1p28U",
+            "duration": "3:49"
         },
         {
             "version": "live",
-            "id": "ztCNc9CuKK8"
+            "id": "ztCNc9CuKK8",
+            "duration": ""
         }
     ],
     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d7/3c/d1/d73cd11f-5a83-60fd-c028-14241d6aa8be/198391981821.jpg/1200x630bb.jpg",

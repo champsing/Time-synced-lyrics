@@ -6,7 +6,8 @@
         {
             "version": "original",
             "id": "XeFQJ6-XoD0",
-            "default": true
+            "default": true,
+            "duration": "4:14"
         }
     ],
     "artist": "米津玄師",
@@ -23,6 +24,9 @@
         "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html",
         "modified": true
     },
+    "updated_at": "2025-05-15",
+    "lang": "ja",
+    "furigana": true,
     "credits": {
         "performance": [
             {
@@ -44,8 +48,5 @@
                 "contribution": ["編曲"]
             }
         ]
-    },
-    "updated_at": "2025-05-15",
-    "lang": "ja",
-    "furigana": true
+    }
 }
