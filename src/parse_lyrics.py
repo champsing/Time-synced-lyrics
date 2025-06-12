@@ -1,7 +1,4 @@
-import json
-
-
-DEFAULT_DURATION = 100  # 厘秒单位，使用时需除以100转为秒
+DEFAULT_DURATION = 100  # 厘秒，使用時除以100轉換為秒
 
 
 def parse_lyrics(json_mapping_content, current_song, song_duration):
@@ -11,14 +8,14 @@ def parse_lyrics(json_mapping_content, current_song, song_duration):
     parsed_lyrics = []
 
     for line in json_mapping_content:
-        # 处理时间格式转换 (mm:ss.ss → 秒)
+        # 處理時間格式轉換 (mm:ss.ss → 秒)
         if "time" in line:
             time_match = line["time"].split(":")
             if len(time_match) == 2:
                 minutes, seconds = time_match
                 line["time"] = float(minutes) * 60 + float(seconds)
 
-        # 处理背景人声 (background_voice)
+        # 處理背景人聲 (background_voice)
         if "background_voice" in line:
             bg_voice = line["background_voice"]
             if "time" in bg_voice:
@@ -27,11 +24,11 @@ def parse_lyrics(json_mapping_content, current_song, song_duration):
                     bg_minutes, bg_seconds = bg_time_match
                     bg_voice["time"] = float(bg_minutes) * 60 + float(bg_seconds)
 
-            # 计算背景人声每个短语的持续时间和延迟
+            # 計算背景人聲每個短語的持續時間和延遲
             bg_durations = []
             for phr in bg_voice["text"]:
-                duration = phr.get("duration", 0) / 100  # 厘秒转秒
-                if duration <= 0:  # 无效或缺失值处理
+                duration = phr.get("duration", 0) / 100  # 厘秒轉秒
+                if duration <= 0:  # 無效或缺失值處理
                     duration = (
                         current_song.get("default_phrase_duration", DEFAULT_DURATION)
                         / 100
@@ -39,7 +36,7 @@ def parse_lyrics(json_mapping_content, current_song, song_duration):
                 bg_durations.append(duration)
             bg_voice["duration"] = bg_durations
 
-            # 计算延迟 (每个短语的起始偏移)
+            # 計算延遲 (每個短語的起始偏移)
             bg_delays = []
             accumulated = 0.0
             for i in range(len(bg_durations)):
@@ -48,7 +45,7 @@ def parse_lyrics(json_mapping_content, current_song, song_duration):
                     accumulated += bg_durations[i]
             bg_voice["delay"] = bg_delays
 
-        # 处理特殊行类型
+        # 處理特殊行類型
         if line.get("type") in ["interlude", "prelude"]:
             line["text"] = [{"phrase": "● ● ●", "duration": 0}]
 
@@ -65,12 +62,12 @@ def parse_lyrics(json_mapping_content, current_song, song_duration):
                 }
             ]
 
-        # 计算主歌词的持续时间和延迟
+        # 計算主歌詞的持續時間和延遲
         if "text" in line:
             durations = []
             for phr in line["text"]:
-                duration = phr.get("duration", 0) / 100  # 厘秒转秒
-                if duration <= 0:  # 无效或缺失值处理
+                duration = phr.get("duration", 0) / 100  # 厘秒轉秒
+                if duration <= 0:  # 無效或缺失值處理
                     duration = DEFAULT_DURATION / 100
                 durations.append(duration)
             line["duration"] = durations
@@ -87,7 +84,7 @@ def parse_lyrics(json_mapping_content, current_song, song_duration):
         if line.get("text"):
             parsed_lyrics.append(line)
 
-    # 二次处理：计算间奏/前奏的持续时间
+    # 二次處理：計算間奏/前奏的持續時間
     for i in range(len(parsed_lyrics)):
         line = parsed_lyrics[i]
         if line.get("type") in ["interlude", "prelude"]:
