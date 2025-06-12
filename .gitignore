@@ -10,6 +10,5 @@ staticfiles/
 # 其他应忽略的文件
 *.pyc
 __pycache__/
-*.cpython-312.pyc
 .env
 db.sqlite3
