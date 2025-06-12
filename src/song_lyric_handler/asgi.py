@@ -1,5 +1,5 @@
 """
-ASGI config for songlyricparser project.
+ASGI config for song_lyric_handler project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'songlyricparser.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'song_lyric_handler.settings')
 
 application = get_asgi_application()

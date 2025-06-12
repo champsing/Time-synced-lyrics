@@ -1,5 +1,5 @@
 """
-WSGI config for songlyricparser project.
+WSGI config for song_lyric_handler project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'songlyricparser.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'song_lyric_handler.settings')
 
 application = get_wsgi_application()

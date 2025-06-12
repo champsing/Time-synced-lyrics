@@ -175,7 +175,9 @@ function main() {
         document.title = song.value.title + MERCURY_TSL;
 
         // 載入新歌詞
-        jsonMappingContent.value = await getLyricResponse(song.id, version);
+        jsonMappingContent.value = await getLyricResponse(song.value.song_id, version.value);
+
+        console.log(jsonMappingContent.value)
 
         onPlayerChangeSongVideo(song, version, window.ytPlayer);
 
