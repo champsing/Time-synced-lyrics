@@ -177,7 +177,7 @@ function main() {
         // 載入新歌詞
         jsonMappingContent.value = await getLyricResponse(song.value.song_id, version.value);
 
-        console.log(jsonMappingContent.value)
+        console.log(version.value, jsonMappingContent.value)
 
         onPlayerChangeSongVideo(song, version, window.ytPlayer);
 
