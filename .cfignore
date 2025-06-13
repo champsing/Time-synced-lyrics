@@ -15,3 +15,12 @@ py_output
 node_modules
 todo
 karaoke mappings
+
+# Tailwind CLI 啟動腳本
+launch tailwind-cli.bat
+
+# 後端相關
+src
+dockerfile
+docker-compose.prod.yml
+shell_scripts

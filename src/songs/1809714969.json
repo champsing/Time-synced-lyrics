@@ -1,0 +1,75 @@
+{
+    "available": true,
+    "folder": "HOYO-MiX, Vision Wei, Nea - On the Journey",
+    "song_id": 1809714969,
+    "versions": [
+        {
+            "version": "original",
+            "id": "0WyDtxRZ938",
+            "default": true,
+            "duration": "2:37"
+        },
+        {
+            "version": "instrumental",
+            "id": "YOWLfsIHkZg",
+            "duration": "2:37"
+        }
+    ],
+    "art": "https://lineimg.omusic.com.tw/img/album/7690376.jpg?v=20250428143032",
+    "artist": "HOYO-MiX, 魏晨, Nea",
+    "lyricist": "Ruby Qu、王可鑫",
+    "title": "不虛此行",
+    "subtitle": "《崩壞:星穹鐵道》兩週年紀念曲",
+    "is_duet": true,
+    "translation": {
+        "available": true,
+        "author": "官方 YouTube 翻譯",
+        "cite": "https://www.youtube.com/watch?v=GdBLXGUy2C0&pp=ygUM5LiN6Jmb5q2k6KGM"
+    },
+    "updated_at": "2025-05-09",
+    "lang": "en",
+    "credits": {
+        "performance": [
+            {
+                "name": "HOYO-MiX",
+                "contribution": ["演出者"]
+            },
+            {
+                "name": "魏晨",
+                "contribution": ["主唱"]
+            },
+            {
+                "name": "NEA",
+                "contribution": ["主唱"]
+            }
+        ],
+        "song_writing": [
+            {
+                "name": "王可鑫",
+                "contribution": ["詞曲創作", "編曲"]
+            },
+            {
+                "name": "Ruby Qu",
+                "contribution": ["作詞"]
+            }
+        ],
+        "engineering": [
+            {
+                "name": "崔瀚普",
+                "contribution": ["製作人"]
+            },
+            {
+                "name": "张迦南",
+                "contribution": ["母帶工程師"]
+            },
+            {
+                "name": "王可鑫",
+                "contribution": ["製作人", "母帶工程師"]
+            },
+            {
+                "name": "阿烈",
+                "contribution": ["混音師"]
+            }
+        ]
+    }
+}

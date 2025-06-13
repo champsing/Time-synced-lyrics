@@ -13,8 +13,6 @@ export const DEBUG_INFO = `播放器版本：${PLAYER_VERSION}
 
 export const DEFAULT_DURATION = 100;
 export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";
-export const SONGLIST_PATH = "/public/song_list.json";
-export const MAPPINGS_BASE_PATH = "/public/mappings/";
 export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/";
 export const TSL_LINK_BASE = "https://timesl.online/";
 export const TSL_PLAYER_LINK_BASE = "https://timesl.online/player/";
@@ -22,8 +20,8 @@ export const TSL_PLAYER_LINK_BASE = "https://timesl.online/player/";
 export const API_BASE_URL =
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1"
-        ? "http://127.0.0.1:8080"
-        : "https://timesl.online/api";
+        ? "http://localhost:8000"
+        : "https://api.timesl.online";
 
 export const MERCURY_TSL = " - 同步開唱";
 export const ORIGINAL = "original";

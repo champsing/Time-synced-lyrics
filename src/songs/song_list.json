@@ -1,0 +1,311 @@
+[
+    {
+        "available": true,
+        "folder": "Mrs Green Apple - Norn",
+        "song_id": 1691229817,
+        "versions": [
+            {
+                "version": "original",
+                "id": "9TqGIIVMigk",
+                "default": true,
+                "duration": "3:49"
+            }
+        ],
+        "album": {
+            "name": "Antenna"
+        },
+        "title": "Norn",
+        "artist": "Mrs. GREEN APPLE",
+        "lyricist": "大森元貴, Marcus Lindberg",
+        "translation": {
+            "available": false,
+            "author": "香榭"
+        },
+        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a4/ad/58/a4ad5816-0612-60d0-3ea2-917bea2e9c8e/23UMGIM61979.rgb.jpg/600x600bf-60.jpg",
+        "lang": "se",
+        "updated_at": "2025-06-08"
+    },
+    {
+        "available": true,
+        "folder": "Mrs Green Apple, Sonoko Inoue - Tenbyouno Uta",
+        "song_id": 1408505419,
+        "versions": [
+            {
+                "version": "original",
+                "id": "sL-yJIyuEaM",
+                "default": true,
+                "duration": "5:08"
+            }
+        ],
+        "album": {
+            "name": "Attitude"
+        },
+        "title": "点描の唄",
+        "artist": "Mrs. GREEN APPLE, Sonoko Inoue",
+        "lyricist": "大森元貴",
+        "translation": {
+            "available": true,
+            "author": "官方歌詞翻譯"
+        },
+        "art": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7NmbXHrqkonh23VACOzUY0JJjpRl1vKt75A&s",
+        "lang": "ja",
+        "updated_at": "2025-06-08"
+    },
+    {
+        "available": true,
+        "folder": "Vaundy - replica",
+        "song_id": 1714599807,
+        "versions": [
+            {
+                "version": "original",
+                "id": "Uv67h_E7xsM",
+                "default": true,
+                "duration": "5:20"
+            }
+        ],
+        "album": {
+            "name": "replica"
+        },
+        "title": "replica",
+        "artist": "Vaundy",
+        "lyricist": "Vaundy",
+        "translation": {
+            "available": true,
+            "author": "Oblivionis"
+        },
+        "art": "https://i.kfs.io/album/global/263116610,3v1/fit/500x500.jpg",
+        "lang": "ja",
+        "updated_at": "2025-05-20"
+    },
+    {
+        "available": true,
+        "folder": "Mrs Green Apple - Bokuno Koto",
+        "song_id": 1445145789,
+        "versions": [
+            {
+                "version": "original",
+                "id": "xefpHEg5UIA",
+                "default": true,
+                "duration": "5:23"
+            }
+        ],
+        "album": {
+            "name": "Attitude"
+        },
+        "title": "僕のこと",
+        "subtitle": "大塚製薬「カロリーメイト」の新テレビCMソング",
+        "artist": "Mrs. GREEN APPLE",
+        "lyricist": "大森元貴",
+        "translation": {
+            "available": true,
+            "author": "香榭"
+        },
+        "art": "https://i.kfs.io/album/global/216180674,0v1/fit/500x500.jpg",
+        "lang": "ja",
+        "updated_at": "2025-05-19"
+    },
+    {
+        "available": true,
+        "folder": "Vaundy - Gift",
+        "song_id": 1758905748,
+        "versions": [
+            {
+                "version": "original",
+                "id": "sADskV54iNc",
+                "default": true,
+                "duration": "4:04"
+            }
+        ],
+        "album": {
+            "name": "ホムンクルス/Gift"
+        },
+        "title": "Gift",
+        "subtitle": "『僕のヒーローアカデミア\nTHE MOVIE ユアネクスト』ED主題歌",
+        "artist": "Vaundy",
+        "lyricist": "Vaundy",
+        "translation": {
+            "available": true,
+            "author": "香榭"
+        },
+        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/1f/49/e81f493c-1fca-8305-2664-25537206efe4/4547366698183.jpg/1200x1200bf-60.jpg",
+        "lang": "ja",
+        "updated_at": "2025-05-18"
+    },
+    {
+        "available": true,
+        "folder": "HOYO-MiX, Chevy, Robin - Hope Is the Thing With Feathers",
+        "song_id": 1744861537,
+        "versions": [
+            {
+                "version": "original",
+                "id": "m8VX1usnxlY",
+                "default": true,
+                "duration": "3:49"
+            },
+            {
+                "version": "instrumental",
+                "id": "BPGF_w1p28U",
+                "duration": "3:49"
+            },
+            {
+                "version": "live",
+                "id": "ztCNc9CuKK8",
+                "duration": ""
+            }
+        ],
+        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d7/3c/d1/d73cd11f-5a83-60fd-c028-14241d6aa8be/198391981821.jpg/1200x630bb.jpg",
+        "artist": "HOYO-MiX, Chevy, 知更鳥",
+        "lyricist": "Ruby Qu、王可鑫",
+        "title": "希望有羽毛和翅膀",
+        "subtitle": "《崩壞:星穹鐵道》匹諾康尼戰鬥主題曲",
+        "translation": {
+            "available": true,
+            "author": "官方 YouTube 翻譯"
+        },
+        "album": {
+            "name": "空氣蛹 - EP"
+        },
+        "updated_at": "2025-05-14",
+        "lang": "en"
+    },
+    {
+        "available": true,
+        "folder": "HOYO-MiX, Vision Wei, Nea - On the Journey",
+        "song_id": 1809714969,
+        "versions": [
+            {
+                "version": "original",
+                "id": "0WyDtxRZ938",
+                "default": true
+            },
+            {
+                "version": "instrumental",
+                "id": "YOWLfsIHkZg"
+            }
+        ],
+        "art": "https://lineimg.omusic.com.tw/img/album/7690376.jpg?v=20250428143032",
+        "artist": "HOYO-MiX, 魏晨, Nea",
+        "lyricist": "Ruby Qu、王可鑫",
+        "title": "不虛此行",
+        "subtitle": "《崩壞:星穹鐵道》兩週年紀念曲",
+        "translation": {
+            "available": true,
+            "author": "官方 YouTube 翻譯"
+        },
+        "updated_at": "2025-05-09",
+        "lang": "en"
+    },
+    {
+        "available": true,
+        "folder": "amazarashi - Cassiopeia Keiryuujo",
+        "song_id": 1629869580,
+        "versions": [
+            {
+                "version": "original",
+                "id": "pTwSEgflLq0",
+                "default": true,
+                "duration": ""
+            }
+        ],
+        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/34/84/9c/34849ce0-673d-a17d-cac9-edc48bbbf959/4547366570427.jpg/1200x630bb.jpg",
+        "artist": "amazarashi",
+        "lyricist": "秋田ひろむ",
+        "title": "カシオピア係留所",
+        "subtitle": "漫画「チ。」とのコラボ曲",
+        "album": {
+            "name": "永遠市"
+        },
+        "translation": {
+            "available": true,
+            "author": "Alice／箱庭博物館"
+        },
+        "updated_at": "2025-05-09",
+        "lang": "ja"
+    },
+    {
+        "available": true,
+        "folder": "Vaundy - Shiwaawase",
+        "song_id": 1707027525,
+        "versions": [
+            {
+                "version": "original",
+                "id": "JwmGruvGt_I",
+                "default": true,
+                "duration": "4:43"
+            }
+        ],
+        "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/20/70/b3/2070b3d8-96d5-5e8b-1a4a-92a5e89f4b49/197189952913.jpg/600x600bf-60.jpg",
+        "artist": "Vaundy",
+        "lyricist": "Vaundy",
+        "title": "しわあわせ",
+        "subtitle": "専門学校 首都医校、大阪医専、\n名古屋医専の2021年度TVCMソング",
+        "translation": {
+            "available": true,
+            "author": "995GOLDFISH"
+        },
+        "album": {
+            "name": "replica"
+        },
+
+        "updated_at": "2025-05-16",
+        "lang": "ja"
+    },
+    {
+        "available": true,
+        "folder": "Kenshi Yonezu - Campanella",
+        "song_id": 1538265734,
+        "versions": [
+            {
+                "version": "original",
+                "id": "XeFQJ6-XoD0",
+                "default": true,
+                "duration": "4:14"
+            }
+        ],
+        "artist": "米津玄師",
+        "lyricist": "米津玄師",
+        "title": "カンパネルラ",
+        "album": {
+            "name": "STRAY SHEEP"
+        },
+        "art": "https://i.kfs.io/album/global/83019209,2v1/fit/500x500.jpg",
+        "translation": {
+            "available": true,
+            "author": "Alice／箱庭博物館"
+        },
+        "updated_at": "2025-05-15",
+        "lang": "ja"
+    },
+    {
+        "available": true,
+        "folder": "Kiro Akiyama - SKETCH",
+        "song_id": 1646398286,
+        "versions": [
+            {
+                "version": "original",
+                "id": "M0cHair48Jg",
+                "default": true,
+                "duration": ""
+            },
+            {
+                "version": "live",
+                "id": "Y7IC9ccumcc",
+                "duration": ""
+            }
+        ],
+        "artist": "秋山黄色",
+        "lyricist": "Kiro Akiyama",
+        "title": "SKETCH",
+        "art": "https://lineimg.omusic.com.tw/img/album/6389351.jpg?v=20221007122445",
+        "subtitle": "TVアニメ「僕のヒーローアカデミア」\n6期EDテーマ",
+        "album": {
+            "name": "Good Night Mare"
+        },
+        "translation": {
+            "available": true,
+            "author": "香榭"
+        },
+        "updated_at": "2025-05-01",
+        "lang": "ja"
+    }
+]

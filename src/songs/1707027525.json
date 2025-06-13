@@ -1,0 +1,45 @@
+{
+    "available": true,
+    "folder": "Vaundy - Shiwaawase",
+    "song_id": 1707027525,
+    "versions": [
+        {
+            "version": "original",
+            "id": "JwmGruvGt_I",
+            "default": true,
+            "duration": "4:43"
+        }
+    ],
+    "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/20/70/b3/2070b3d8-96d5-5e8b-1a4a-92a5e89f4b49/197189952913.jpg/600x600bf-60.jpg",
+    "artist": "Vaundy",
+    "lyricist": "Vaundy",
+    "title": "しわあわせ",
+    "subtitle": "専門学校 首都医校、大阪医専、\n名古屋医専の2021年度TVCMソング",
+    "translation": {
+        "available": true,
+        "author": "995GOLDFISH",
+        "cite": "https://www.995goldfish.com/2021/11/vaundy_22.html",
+        "modified": true
+    },
+    "album": {
+        "name": "replica",
+        "link": "UGs6ebR"
+    },
+    "credits": {
+        "performance": [
+            {
+                "name": "Vaundy",
+                "contribution": ["主唱"]
+            }
+        ],
+        "song_writing": [
+            {
+                "name": "Vaundy",
+                "contribution": ["詞曲創作", "編曲"]
+            }
+        ]
+    },
+    "updated_at": "2025-05-16",
+    "lang": "ja",
+    "furigana": true
+}
