@@ -16,3 +16,6 @@ staticfiles/
 */__pycache__/
 .env
 db.sqlite3
+
+# 密鑰
+keys

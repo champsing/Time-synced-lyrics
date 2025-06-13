@@ -58,7 +58,12 @@ LOGGING = {
 SECRET_KEY = "django-insecure-57^+xo6+czzq4@s)a+azrq1h^j25orgk166kll7sn=2f_84c4n"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+SECURE_HSTS_SECONDS = 31536000  # 1年
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # 添加允許的 API 域名
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "api.timesl.online"]
@@ -79,6 +84,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -168,6 +174,7 @@ STATICFILES_DIRS = [
 
 # 收集靜態文件的目標目錄（生产环境使用）
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
