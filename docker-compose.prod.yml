@@ -6,7 +6,6 @@ services:
     command: gunicorn --bind 0.0.0.0:8000 song_lyric_handler.wsgi
     volumes:
       - static_volume:/app/staticfiles
-      - media_volume:/app/media
     ports:
       - "8000:8000"
     environment:
@@ -17,4 +16,3 @@ services:
 
 volumes:
   static_volume:
-  media_volume:

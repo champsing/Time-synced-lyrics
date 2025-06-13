@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # 安裝 Python 依賴
-COPY requirements.txt .
+COPY ./src/requirements.txt .
 RUN pip install --no-cache-dir -r ./src/requirements.txt
 
 # 收集靜態文件
