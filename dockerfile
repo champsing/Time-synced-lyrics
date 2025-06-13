@@ -15,8 +15,10 @@ RUN apt-get update && apt-get install -y \
 # 設置工作目錄
 WORKDIR /app
 
+# 複製 src 目錄
+COPY ./src .
+
 # 安裝 Python 依賴
-COPY ./src/requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
