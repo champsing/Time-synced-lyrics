@@ -19,14 +19,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 複製項目代碼
-COPY . .
-
-# 提權至可執行
-RUN chmod +x /app/entrypoint.sh
+# 收集靜態文件
+RUN python manage.py collectstatic --noinput
 
 # 暴露端口
 EXPOSE 8000
 
 # 啟動命令
-ENTRYPOINT ["./entrypoint.sh"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "song_lyric_handler.wsgi"]
