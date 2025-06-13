@@ -17,7 +17,7 @@ WORKDIR /app
 
 # 安裝 Python 依賴
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r ./src/requirements.txt
 
 # 收集靜態文件
 RUN python manage.py collectstatic --noinput
