@@ -2,9 +2,9 @@
 FROM python:3.11.13-slim-bookworm
 
 # 設置環境變量
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-ENV DEBIAN_FRONTEND noninteractive
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DEBIAN_FRONTEND=noninteractive
 
 # 安裝系統依賴
 RUN apt-get update && apt-get install -y \

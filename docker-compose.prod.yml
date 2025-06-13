@@ -1,7 +1,5 @@
-version: '3.8'
-
 services:
-  web:
+  django:
     secrets:
       - django_secret
     build: .
@@ -11,13 +9,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DJANGO_SETTINGS_MODULE=song_lyric_handler.settings
+      - DJANGO_SETTINGS_MODULE=song_lyric_handler.settings_prod
       - SECRET_KEY_FILE=/run/secrets/django_secret
       - DEBUG=False
       - ALLOWED_HOSTS=api.timesl.online,localhost,127.0.0.1
 secrets:
   django_secret:
-    file: ./secrets/django_secret.txt
-
-volumes:
-  static_volume:
+    file: ./keys/django_secret.txt
