@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: PROJECT_DIR / 'subdir'.
-PROJECT_DIR = Path(__file__).resolve().parent.parent
+SOURCE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -164,8 +164,8 @@ STATIC_URL = "/static/"  # 靜態文件基礎URL
 
 # 添加靜態文件目錄
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "mappings"),
-    os.path.join(PROJECT_DIR, "songs"),
+    os.path.join(SOURCE_DIR, "mappings"),
+    os.path.join(SOURCE_DIR, "songs"),
 ]
 
 # Default primary key field type

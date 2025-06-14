@@ -10,8 +10,8 @@ import {
     loadSongData,
 } from "./player/handles/songsHandle.js";
 import { useTransation } from "./player/handles/translationHandle.js";
-import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
 import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
+import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
 import {
     ALBUM_GOOGLE_LINK_BASE,
     DEBUG_INFO,
@@ -175,16 +175,12 @@ function main() {
         document.title = song.value.title + MERCURY_TSL;
 
         // 載入新歌詞
-        jsonMappingContent.value = await getLyricResponse(song.value.song_id, version.value);
+        jsonMappingContent.value = await getLyricResponse(
+            song.value.song_id,
+            version.value
+        );
 
-        console.log(version.value, jsonMappingContent.value)
-
-        onPlayerChangeSongVideo(song, version, window.ytPlayer);
-
-        // 跳回開頭
-        jumpToCurrentLine(0);
-
-        resetTimer();
+        console.log(version.value, jsonMappingContent.value);
     }
 
     watch(currentLineIndex, (newVal) => {
@@ -207,10 +203,30 @@ function main() {
     const moveForward10Sec = () =>
         window.ytPlayer.seekTo(currentTime.value + 10, true);
 
+    async function setupPlayerAndLoadSong() {
+        // 1. 初始化播放器
+        try {
+            const { init } = await initYouTubePlayer({
+                currentSong,
+                currentTime,
+                songDuration,
+                songVersion,
+                isPaused,
+            });
+
+            window.ytPlayer = await init();
+
+            onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
+            jumpToCurrentLine(0);
+            resetTimer();
+        } catch (e) {
+            console.error("播放器初始化失敗", e);
+        }
+    }
+
     // 初始化流程
     onMounted(async () => {
         try {
-
             if (songRequest) {
                 const requestSongData = await loadSongData(songRequest);
                 console.log(
@@ -242,15 +258,7 @@ function main() {
 
             loadSongLyric(currentSong, songVersion);
 
-            // 初始化播放器
-            const { init } = initYouTubePlayer({
-                currentSong,
-                currentTime,
-                songDuration,
-                songVersion,
-                isPaused,
-            });
-            window.ytPlayer = await init();
+            await setupPlayerAndLoadSong();
 
             // 初始化模態框
             initSettingModal();
