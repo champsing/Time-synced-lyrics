@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
+with open('~/Time-synced-lyrics/.secrets/django_secret') as secret_file:
+    DJANGO_SECRET = secret_file.read()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -55,7 +58,7 @@ LOGGING = {
 }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-57^+xo6+czzq4@s)a+azrq1h^j25orgk166kll7sn=2f_84c4n"
+SECRET_KEY = DJANGO_SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -66,7 +69,7 @@ CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # 添加允許的 API 域名
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "api.timesl.online"]
+ALLOWED_HOSTS = ["api.timesl.online"]
 
 # Application definition
 
