@@ -36,12 +36,29 @@ REST_FRAMEWORK = {
 SECURE_REFERRER_POLICY = "same-origin"
 
 # LOGGING
+from datetime import datetime
+LOG_DIR = os.path.join(ROOT_DIR, "logs")
+os.makedirs(LOG_DIR, exist_ok=True)  # 確保 logs 資料夾存在
+
+LOG_FILENAME = datetime.now().strftime("%Y-%m-%d.log")
+LOG_FILE_PATH = os.path.join(LOG_DIR, LOG_FILENAME)
 
 LOGGING = {
     "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "standard": {
+            "format": "[%(asctime)s] [%(levelname)s] %(name)s: %(message)s"
+        },
+    },
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
+        },
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": LOG_FILE_PATH,
+            "formatter": "standard",
         },
     },
     "loggers": {
