@@ -14,7 +14,7 @@ from utils.get_system_uptime import get_system_uptime
 
 
 def open_song_file(song_id):
-    song_file = Path(settings.STATIC_ROOT) / "songs" / f"{song_id}.json"
+    song_file = Path(settings.SOURCE_DIR) / "songs" / f"{song_id}.json"
     # 如果歌曲不存在
     if not song_file.exists():
         return Response(
@@ -66,7 +66,7 @@ def get_songs_list(request):
 
     # 緩存未命中，讀取文件
     try:
-        song_file = Path(settings.STATIC_ROOT) / "songs" / "song_list.json"
+        song_file = Path(settings.SOURCE_DIR) / "songs" / "song_list.json"
         with open(song_file, "r", encoding="utf-8") as f:
             song_list_data = json.load(f)
 
@@ -151,7 +151,7 @@ def get_mappings(request, song_id, version):
                 status=status.HTTP_404_NOT_FOUND,
             )
 
-        mapping = Path(settings.STATIC_ROOT) / "mappings" / song_folder / f"{version}.json"
+        mapping = Path(settings.SOURCE_DIR) / "mappings" / song_folder / f"{version}.json"
         # 如果找不到mapping文件
         if not mapping.exists():
             return Response(
