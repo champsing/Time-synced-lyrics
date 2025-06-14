@@ -1,6 +1,7 @@
 import re
 import json
 
+
 def lrc_to_json(lrc_text):
     result = []
     lines = lrc_text.strip().split("\n")
@@ -58,7 +59,12 @@ def lrc_to_json(lrc_text):
                     {
                         "time": time_str,
                         "text": text_list,
-                        "background_voice": {"time": time_str, "text": bg_text_list},
+                        "background_voice": {
+                            "time": time_str,
+                            "text": bg_text_list,
+                            "translation": "",
+                        },
+                        "translation": "",
                     }
                 )
 
@@ -70,6 +76,7 @@ def lrc_to_json(lrc_text):
                     {
                         "time": time_str,
                         "text": text_list,
+                        "translation": "",
                     }
                 )
 
