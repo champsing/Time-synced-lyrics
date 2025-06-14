@@ -13,7 +13,8 @@
             { "phrase": "förbi ", "duration": 80 },
             { "phrase": "en ", "duration": 30 },
             { "phrase": "sjö", "duration": 60 }
-        ]
+        ],
+        "translation": "鹿群奔過湖邊"
     },
     {
         "time": "00:23.30",
@@ -25,7 +26,8 @@
             { "phrase": "berg ", "duration": 40 },
             { "phrase": "och ", "duration": 40 },
             { "phrase": "löv", "duration": 260, "kiai": true }
-        ]
+        ],
+        "translation": "在山林間嬉戲打鬧"
     },
     {
         "time": "00:29.70",
@@ -40,7 +42,8 @@
             { "phrase": "av ", "duration": 30 },
             { "phrase": "ett ", "duration": 30 },
             { "phrase": "liv", "duration": 30 }
-        ]
+        ],
+        "translation": "正如作物給予我們養分 世間萬物得以繁衍生息"
     },
     {
         "time": "00:34.96",
@@ -58,7 +61,8 @@
             { "phrase": "brasans ", "duration": 60, "kiai": true },
             { "phrase": "varma ", "duration": 80 },
             { "phrase": "sken", "duration": 30 }
-        ]
+        ],
+        "translation": "我們才能在溫暖的壁爐旁小憩片刻"
     },
     {
         "time": "00:40.30",
@@ -70,7 +74,8 @@
             { "phrase": "retar", "duration": 70 },
             { "phrase": " ", "duration": 60 },
             { "phrase": "flickorna", "duration": 200, "kiai": true }
-        ]
+        ],
+        "translation": "男孩故意捉弄女孩"
     },
     {
         "time": "00:46.14",
@@ -89,7 +94,8 @@
             { "phrase": "blir ", "duration": 30, "kiai": true },
             { "phrase": "gammal ", "duration": 80, "kiai": true },
             { "phrase": "nog", "duration": 30, "kiai": true }
-        ]
+        ],
+        "translation": "我想待你長大後就會懂的"
     },
     {
         "time": "00:52.62",
@@ -99,7 +105,8 @@
             { "phrase": "förstå ", "duration": 70 },
             { "phrase": "det ", "duration": 30 },
             { "phrase": "sen", "duration": 40 }
-        ]
+        ],
+        "translation": "將來的你會明白這一切"
     },
     {
         "time": "00:55.41",
@@ -112,7 +119,8 @@
             { "phrase": "gjort, ", "duration": 40 },
             { "phrase": "lilla ", "duration": 30 },
             { "phrase": "vän", "duration": 30 }
-        ]
+        ],
+        "translation": "正如我昔日對朋友做的那樣，孩子"
     },
     {
         "time": "00:58.07",
@@ -131,7 +139,8 @@
             { "phrase": "\"jag ", "duration": 50, "kiai": true },
             { "phrase": "älskar ", "duration": 120, "kiai": true },
             { "phrase": "dig\"", "duration": 160, "kiai": true }
-        ]
+        ],
+        "translation": "那是因為彼時的我們無法傳達喜歡的心情"
     },
     {
         "time": "01:07.03",
@@ -140,7 +149,8 @@
             { "phrase": "för ", "duration": 60 },
             { "phrase": "denna ", "duration": 120 },
             { "phrase": "sagostund", "duration": 200, "kiai": true }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "01:11.70",
@@ -154,7 +164,8 @@
             { "phrase": "att ", "duration": 30 },
             { "phrase": "ta ", "duration": 30 },
             { "phrase": "adjö?", "duration": 60 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "01:15.27",
@@ -163,7 +174,8 @@
             { "phrase": "jag ", "duration": 30 },
             { "phrase": "inte ", "duration": 60 },
             { "phrase": "alls", "duration": 50 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "01:18.63",
@@ -174,7 +186,8 @@
             { "phrase": "få ", "duration": 60 },
             { "phrase": "en ", "duration": 60 },
             { "phrase": "blund", "duration": 80 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "01:23.41",
@@ -191,7 +204,8 @@
             { "phrase": "I ", "duration": 50 },
             { "phrase": "vår ", "duration": 30 },
             { "phrase": "värld", "duration": 60 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "01:30.28",
@@ -214,7 +228,8 @@
             { "phrase": "ett ", "duration": 30 },
             { "phrase": "norrsken ", "duration": 80 },
             { "phrase": "har", "duration": 30 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "01:56.52",
@@ -225,7 +240,8 @@
             { "phrase": "så ", "duration": 30 },
             { "phrase": "undrar ", "duration": 80 },
             { "phrase": "jag", "duration": 30 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "01:59.80",
@@ -238,7 +254,8 @@
             { "phrase": "nu ", "duration": 30 },
             { "phrase": "som ", "duration": 30 },
             { "phrase": "då", "duration": 30 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:04.90",
@@ -276,7 +293,8 @@
             { "phrase": "om ", "duration": 50 },
             { "phrase": "en ", "duration": 30 },
             { "phrase": "stund", "duration": 80 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:16.41",
@@ -315,7 +333,8 @@
             { "phrase": " ", "duration": 30 },
             { "phrase": "egen ", "duration": 60 },
             { "phrase": "hand", "duration": 60 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:27.61",
@@ -327,7 +346,8 @@
             { "phrase": "vi ", "duration": 30 },
             { "phrase": "glatt ", "duration": 50 },
             { "phrase": "igen", "duration": 30 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:30.90",
@@ -339,7 +359,8 @@
             { "phrase": "göra, ", "duration": 40 },
             { "phrase": "min ", "duration": 30, "kiai": true },
             { "phrase": "vän?", "duration": 30, "kiai": true }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:33.43",
@@ -348,7 +369,8 @@
             { "phrase": "inte ", "duration": 40 },
             { "phrase": "tala ", "duration": 50 },
             { "phrase": "sanning", "duration": 90 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:36.25",
@@ -361,7 +383,8 @@
             { "phrase": "mycket ", "duration": 90, "kiai": true },
             { "phrase": "för ", "duration": 30 },
             { "phrase": "mig", "duration": 30 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:42.43",
@@ -370,7 +393,8 @@
             { "phrase": "för ", "duration": 60 },
             { "phrase": "denna ", "duration": 120 },
             { "phrase": "sagostund", "duration": 200 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:47.20",
@@ -384,7 +408,8 @@
             { "phrase": "att ", "duration": 30 },
             { "phrase": "ta ", "duration": 30 },
             { "phrase": "adjö?", "duration": 60 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:50.79",
@@ -393,7 +418,8 @@
             { "phrase": "jag ", "duration": 30 },
             { "phrase": "inte ", "duration": 60 },
             { "phrase": "alls", "duration": 50 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:54.06",
@@ -403,7 +429,8 @@
             { "phrase": "kan ", "duration": 60 },
             { "phrase": "vakna ", "duration": 150, "kiai": true },
             { "phrase": "upp", "duration": 40 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "02:58.70",
@@ -418,7 +445,8 @@
             { "phrase": "går ", "duration": 30 },
             { "phrase": "på ", "duration": 30 },
             { "phrase": "morgonen", "duration": 80, "kiai": true }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "03:02.60",
@@ -426,7 +454,8 @@
             { "phrase": "Norn,", "duration": 60, "kiai": true },
             { "phrase": " ", "duration": 30 },
             { "phrase": "norn", "duration": 60 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "03:04.60",
@@ -441,7 +470,8 @@
             { "phrase": "I ", "duration": 30 },
             { "phrase": "denna ", "duration": 30 },
             { "phrase": "värld", "duration": 30 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "03:08.40",
@@ -452,7 +482,8 @@
             { "phrase": "på ", "duration": 20 },
             { "phrase": "min ", "duration": 20 },
             { "phrase": "färd", "duration": 30 }
-        ]
+        ],
+        "translation": ""
     },
     {
         "time": "03:11.33",
