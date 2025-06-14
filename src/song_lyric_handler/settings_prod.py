@@ -13,10 +13,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Build paths inside the project like this: PROJECT_DIR / 'subdir'.
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent # ~/Time-synced-lyrics
+PROJECT_DIR = Path(__file__).resolve().parent.parent # ~/Time-synced-lyrics/src
 
-with open(os.path.join(BASE_DIR, "django_secret"), 'r', encoding='UTF-8') as secret_file:
+with open(os.path.join(ROOT_DIR, "django_secret"), 'r', encoding='UTF-8') as secret_file:
     DJANGO_SECRET = secret_file.read()
 
 # Quick-start development settings - unsuitable for production
@@ -127,7 +128,7 @@ WSGI_APPLICATION = "song_lyric_handler.wsgi.application"
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
+#         "NAME": PROJECT_DIR / "db.sqlite3",
 #     }
 # }
 
@@ -170,12 +171,12 @@ STATIC_URL = "/static/"  # 靜態文件基礎URL
 
 # 添加靜態文件目錄
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "mappings"),
-    os.path.join(BASE_DIR, "songs"),
+    os.path.join(PROJECT_DIR, "mappings"),
+    os.path.join(PROJECT_DIR, "songs"),
 ]
 
 # 收集靜態文件的目標目錄（生产环境使用）
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(PROJECT_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
