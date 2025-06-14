@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
-with open('/home/Time-synced-lyrics/.secrets/django_secret') as secret_file:
+with open('~/Time-synced-lyrics/.secrets/django_secret') as secret_file:
     DJANGO_SECRET = secret_file.read()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
