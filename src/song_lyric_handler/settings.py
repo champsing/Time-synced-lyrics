@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: PROJECT_DIR / 'subdir'.
 SOURCE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -167,6 +166,9 @@ STATICFILES_DIRS = [
     os.path.join(SOURCE_DIR, "mappings"),
     os.path.join(SOURCE_DIR, "songs"),
 ]
+
+# 收集靜態文件的目標目錄
+STATIC_ROOT = os.path.join(SOURCE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

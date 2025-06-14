@@ -14,7 +14,10 @@ from utils.get_system_uptime import get_system_uptime
 
 
 def open_song_file(song_id):
-    song_file = Path(settings.SOURCE_DIR) / "songs" / f"{song_id}.json"
+    if settings.DEBUG:
+        song_file = Path(settings.SOURCE_DIR) / "songs" / f"{song_id}.json"
+    else:
+        song_file = Path(settings.STATIC_ROOT) / f"{song_id}.json"
     # 如果歌曲不存在
     if not song_file.exists():
         return Response(
@@ -66,8 +69,12 @@ def get_songs_list(request):
 
     # 緩存未命中，讀取文件
     try:
-        song_file = Path(settings.SOURCE_DIR) / "songs" / "song_list.json"
-        with open(song_file, "r", encoding="utf-8") as f:
+        if settings.DEBUG:
+            song_list_file = Path(settings.SOURCE_DIR) / "songs" / "song_list.json"
+        else:
+            song_list_file = Path(settings.STATIC_ROOT) / "song_list.json"
+
+        with open(song_list_file, "r", encoding="utf-8") as f:
             song_list_data = json.load(f)
 
         # 存入緩存（半天）
@@ -142,7 +149,9 @@ def get_mappings(request, song_id, version):
                         break
                 else:  # 如果沒有預設版本，使用第一個版本
                     if song_data["versions"]:
-                        song_duration = parse_time_format_to_second(song_data["versions"][0]["duration"])
+                        song_duration = parse_time_format_to_second(
+                            song_data["versions"][0]["duration"]
+                        )
 
         # 如果沒有資料夾字段
         if not song_folder:
@@ -151,7 +160,13 @@ def get_mappings(request, song_id, version):
                 status=status.HTTP_404_NOT_FOUND,
             )
 
-        mapping = Path(settings.SOURCE_DIR) / "mappings" / song_folder / f"{version}.json"
+        if settings.DEBUG:
+            mapping = (
+                Path(settings.SOURCE_DIR) / "mappings" / song_folder / f"{version}.json"
+            )
+        else:
+            mapping = Path(settings.STATIC_ROOT) / song_folder / f"{version}.json"
+
         # 如果找不到mapping文件
         if not mapping.exists():
             return Response(
