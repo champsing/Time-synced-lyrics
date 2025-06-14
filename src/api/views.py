@@ -12,7 +12,7 @@ from parse_lyrics import parse_lyrics
 from utils.parse_time_format_to_second import parse_time_format_to_second
 from utils.get_system_uptime import get_system_uptime
 
-STATICFILES_DIR = Path(settings.ROOT_DIR) / "staticfiles"
+STATICFILES_DIR = Path(settings.SOURCE_DIR) / "staticfiles"
 
 def open_song_file(song_id):
     song_file = STATICFILES_DIR / "songs" / f"{song_id}.json"

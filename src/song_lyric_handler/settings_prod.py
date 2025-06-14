@@ -15,7 +15,8 @@ import os
 
 # Build paths inside the project like this: PROJECT_DIR / 'subdir'.
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent # ~/Time-synced-lyrics
-PROJECT_DIR = Path(__file__).resolve().parent.parent # ~/Time-synced-lyrics/src
+SOURCE_DIR = PROJECT_DIR = Path(__file__).resolve().parent.parent # ~/Time-synced-lyrics/src
+PROJECT_DIR = Path(__file__).resolve().parent # ~/Time-synced-lyrics/src/song_lyric_handler
 
 with open(os.path.join(ROOT_DIR, "django_secret"), 'r', encoding='UTF-8') as secret_file:
     DJANGO_SECRET = secret_file.read()
