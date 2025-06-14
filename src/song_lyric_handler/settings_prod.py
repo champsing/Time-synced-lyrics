@@ -14,11 +14,15 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: PROJECT_DIR / 'subdir'.
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent # ~/Time-synced-lyrics
-SOURCE_DIR = Path(__file__).resolve().parent.parent # ~/Time-synced-lyrics/src
-PROJECT_DIR = Path(__file__).resolve().parent # ~/Time-synced-lyrics/src/song_lyric_handler
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent  # ~/Time-synced-lyrics
+SOURCE_DIR = Path(__file__).resolve().parent.parent  # ~/Time-synced-lyrics/src
+PROJECT_DIR = (
+    Path(__file__).resolve().parent
+)  # ~/Time-synced-lyrics/src/song_lyric_handler
 
-with open(os.path.join(ROOT_DIR, "django_secret"), 'r', encoding='UTF-8') as secret_file:
+with open(
+    os.path.join(ROOT_DIR, "django_secret"), "r", encoding="UTF-8"
+) as secret_file:
     DJANGO_SECRET = secret_file.read()
 
 # Quick-start development settings - unsuitable for production
@@ -38,6 +42,7 @@ SECURE_REFERRER_POLICY = "same-origin"
 
 # LOGGING
 from datetime import datetime
+
 LOG_DIR = os.path.join(ROOT_DIR, "logs")
 os.makedirs(LOG_DIR, exist_ok=True)  # 確保 logs 資料夾存在
 
@@ -48,11 +53,12 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
-        "standard": {
-            "format": "[%(asctime)s] [%(levelname)s] %(name)s: %(message)s"
-        },
+        "standard": {"format": "[%(asctime)s] [%(levelname)s] %(name)s: %(message)s"},
     },
     "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
         "file": {
             "class": "logging.FileHandler",
             "filename": LOG_FILE_PATH,
@@ -61,11 +67,11 @@ LOGGING = {
     },
     "loggers": {
         "django": {
-            "handlers": ["console"],
+            "handlers": ["console", "file"],
             "level": "INFO",
         },
         "api": {
-            "handlers": ["console"],
+            "handlers": ["console", "file"],
             "level": "DEBUG",
             "propagate": False,
         },
@@ -81,7 +87,7 @@ SECURE_HSTS_SECONDS = 31536000  # 1年
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # 添加允許的 API 域名
 ALLOWED_HOSTS = ["api.timesl.online"]
@@ -102,7 +108,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -192,7 +198,7 @@ STATICFILES_DIRS = [
 
 # 收集靜態文件的目標目錄（生产环境使用）
 STATIC_ROOT = os.path.join(SOURCE_DIR, "staticfiles")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
