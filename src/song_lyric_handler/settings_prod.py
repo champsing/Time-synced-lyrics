@@ -53,9 +53,6 @@ LOGGING = {
         },
     },
     "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
         "file": {
             "class": "logging.FileHandler",
             "filename": LOG_FILE_PATH,
