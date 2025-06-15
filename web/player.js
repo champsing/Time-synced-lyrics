@@ -177,20 +177,23 @@ function main() {
 
         // 載入新歌詞
         // development
-        const rawJson = await getLyricResponsefromFile(
-            song.value.folder,
-            version.value
-        );
-        jsonMappingContent.value = parseLyrics(
-            rawJson,
-            currentSong,
-            songDuration.value
-        );
-        // prod
-        // jsonMappingContent.value = await getLyricResponsefromAPI(
-        //     song.value.song_id,
-        //     version.value
-        // );
+        if (window.location.hostname === "localhost") {
+            const rawJson = await getLyricResponsefromFile(
+                song.value.folder,
+                version.value
+            );
+            jsonMappingContent.value = parseLyrics(
+                rawJson,
+                currentSong,
+                songDuration.value
+            );
+        } else {
+            // prod
+            jsonMappingContent.value = await getLyricResponsefromAPI(
+                song.value.song_id,
+                version.value
+            );
+        }
 
         console.log(version.value, jsonMappingContent.value);
     }
@@ -240,7 +243,12 @@ function main() {
     onMounted(async () => {
         try {
             if (songRequest) {
-                const requestSongData = await loadSongData(songRequest);
+                let requestSongData;
+                if (sessionStorage.getItem(songRequest))
+                    requestSongData = JSON.parse(
+                        sessionStorage.getItem(songRequest)
+                    );
+                else requestSongData = await loadSongData(songRequest);
                 console.log(
                     `已帶入指定歌曲 ID: ${songRequest} - ${requestSongData.folder}`
                 );
