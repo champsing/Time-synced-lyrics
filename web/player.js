@@ -54,7 +54,6 @@ function main() {
     // 響應式狀態
     const currentTime = ref(0);
     const songDuration = ref(0);
-    const songList = ref([]);
     const songVersion = ref(null);
     const currentSong = ref(null);
     const jsonMappingContent = ref(null);
@@ -304,7 +303,6 @@ function main() {
         currentTime,
         currentLineIndex,
         songDuration,
-        songList,
         songVersion,
         enablePronounciation,
         enableLyricBackground,
