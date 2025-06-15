@@ -6,7 +6,8 @@ import {
 } from "./player/handles/phrasesHandle.js";
 import {
     getDefaultVersion,
-    getLyricResponse,
+    getLyricResponsefromFile,
+    getLyricResponsefromAPI,
     loadSongData,
 } from "./player/handles/songsHandle.js";
 import { useTransation } from "./player/handles/translationHandle.js";
@@ -34,6 +35,7 @@ import {
     initSettingModal,
     initShareModal,
 } from "./utils/modal.js";
+import { parseLyrics } from "./player/handles/lyricsHandle.js";
 
 const bodyBackgroundColor = ref("#365456");
 
@@ -65,19 +67,19 @@ function main() {
 
     const colorOptions = [
         "#365456", // 保留原色
-        "#CC5200", // 原#FF6900 → 深琥珀橙
-        "#D49A00", // 原#FCB900 → 暗金黃
-        "#4A9B7D", // 原#7BDCB5 → 墨綠
-        "#00855C", // 原#00D084 → 深翡翠綠
-        "#3A7A9E", // 原#8ED1FC → 午夜藍
-        "#0A5D8C", // 原#0693E3 → 深海藍
-        "#6B7984", // 原#ABB8C3 → 石板灰
-        "#8C0D2B", // 原#EB144C → 勃艮第紅
+        "#CC5200", // 深琥珀橙
+        "#D49A00", // 暗金黃
+        "#4A9B7D", // 墨綠
+        "#00855C", // 深翡翠綠
+        "#3A7A9E", // 午夜藍
+        "#0A5D8C", // 深海藍
+        "#6B7984", // 石板灰
+        "#8C0D2B", // 勃艮第紅
         "#a48b8b",
-        "#9E4D64", // 原#F78DA7 → 酒紅
-        "#4A0B6B", // 原#9900EF → 皇家紫
-        "#404040", // 原#FFFFFF → 炭灰
-        "#101010", // 原#000000 → 深淵黑
+        "#9E4D64", // 酒紅
+        "#4A0B6B", // 皇家紫
+        "#404040", // 炭灰
+        "#101010", // 深淵黑
     ];
 
     // 計算屬性
@@ -175,10 +177,21 @@ function main() {
         document.title = song.value.title + MERCURY_TSL;
 
         // 載入新歌詞
-        jsonMappingContent.value = await getLyricResponse(
-            song.value.song_id,
+        // development
+        const rawJson = await getLyricResponsefromFile(
+            song.value.folder,
             version.value
         );
+        jsonMappingContent.value = parseLyrics(
+            rawJson,
+            currentSong,
+            songDuration.value
+        );
+        // prod
+        // jsonMappingContent.value = await getLyricResponsefromAPI(
+        //     song.value.song_id,
+        //     version.value
+        // );
 
         console.log(version.value, jsonMappingContent.value);
     }
