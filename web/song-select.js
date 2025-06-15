@@ -38,8 +38,8 @@ function main() {
         en: "英語",
         ja: "日語",
         kr: "韓語",
-        se: "瑞典語"
-    }
+        se: "瑞典語",
+    };
 
     function sortSong(sortOption) {
         return (a, b) => {
@@ -121,11 +121,23 @@ function main() {
 
     async function fetchSongs() {
         try {
-            const data = await loadSongList();
-            for (let i = 0; i < data.length; i++) {
-                songs.value.push(await loadSongData(data[i].song_id));
+
+            // use sessionStorage 才不會每開一次下載一次 在還沒用成資料庫前先這樣吧
+            const song_list = JSON.parse(sessionStorage.getItem("songList"));
+            if (!song_list) {
+                let songList = await loadSongList();
+                for (let i = 0; i < songList.length; i++) {
+                    let songData = await loadSongData(songList[i].song_id);
+                    sessionStorage.setItem(songList[i].song_id, JSON.stringify(songData));
+                    songs.value.push(songData);
+                }
+                sessionStorage.setItem("songList", JSON.stringify(songList));
+            } else {
+                for (let i = 0; i < song_list.length; i++) {
+                    let songData = JSON.parse(sessionStorage.getItem(song_list[i].song_id));
+                    songs.value.push(songData);
+                }
             }
-            
 
             // 若無快取，初始化默認版本選擇
             if (!sessionStorage.getItem("selectedVersions")) {

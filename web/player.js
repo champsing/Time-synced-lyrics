@@ -177,20 +177,20 @@ function main() {
 
         // 載入新歌詞
         // development
-        // const rawJson = await getLyricResponsefromFile(
-        //     song.value.folder,
-        //     version.value
-        // );
-        // jsonMappingContent.value = parseLyrics(
-        //     rawJson,
-        //     currentSong,
-        //     songDuration.value
-        // );
-        // prod
-        jsonMappingContent.value = await getLyricResponsefromAPI(
-            song.value.song_id,
+        const rawJson = await getLyricResponsefromFile(
+            song.value.folder,
             version.value
         );
+        jsonMappingContent.value = parseLyrics(
+            rawJson,
+            currentSong,
+            songDuration.value
+        );
+        // prod
+        // jsonMappingContent.value = await getLyricResponsefromAPI(
+        //     song.value.song_id,
+        //     version.value
+        // );
 
         console.log(version.value, jsonMappingContent.value);
     }
