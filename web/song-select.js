@@ -1,5 +1,5 @@
 import { createApp, ref, computed, onMounted, watch } from "vue";
-import { loadSongList } from "./player/handles/songsHandle.js";
+import { loadSongData, loadSongList } from "./player/handles/songsHandle.js";
 import { SONGLIST_VERSION } from "./utils/base-version.js";
 import { PLAYER_VERSION } from "./utils/config.js";
 
@@ -122,7 +122,10 @@ function main() {
     async function fetchSongs() {
         try {
             const data = await loadSongList();
-            songs.value = data;
+            for (let i = 0; i < data.length; i++) {
+                songs.value.push(await loadSongData(data[i].song_id));
+            }
+            
 
             // 若無快取，初始化默認版本選擇
             if (!sessionStorage.getItem("selectedVersions")) {

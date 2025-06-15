@@ -15,7 +15,7 @@ export const loadSongList = async () => {
 
 export const loadSongData = async (songId) => {
     try {
-        console.log("獲取歌曲中...");
+        console.log("獲取歌曲中..." + `(${songId})`);
         const response = await fetch(API_BASE_URL + `/songs/${songId}`);
         if (!response.ok) throw new Error("載入失敗");
         return await response.json();
