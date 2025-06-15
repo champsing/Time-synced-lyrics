@@ -8,9 +8,10 @@ export const initControllerPanel = () => {
     const show = () => {
         panel.style.display = "flex";
         panelSwitchIcon.innerText = "keyboard_arrow_down";
-        if (window.screen.width >= 768)
+        if (window.screen.width >= 768) {
             mainDisplaySection.style.marginLeft = "2rem";
-        mainDisplaySection.style.width = "68%";
+            mainDisplaySection.style.width = "68%";
+        }
     };
 
     const hide = () => {
