@@ -1,2 +1,2 @@
-export const BASE_VERSION = "5.1.4";
-export const SONGLIST_VERSION = "2025.06.15";
+export const BASE_VERSION = "5.1.5";
+export const SONGLIST_VERSION = "2025.06.18";
