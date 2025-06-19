@@ -136,7 +136,6 @@ def get_mappings(request, song_id, version):
     # 緩存未命中，讀取文件
     try:
         song_data = find_song_by_id(song_id)
-        print(song_data)
         song_folder = song_data["folder"]
         song_duration = 0
 
