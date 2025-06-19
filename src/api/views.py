@@ -30,7 +30,7 @@ def api_status(request):
     return Response(
         {
             "status": "operational",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "uptime": get_system_uptime(),
         },
         status=status.HTTP_200_OK,

@@ -86,7 +86,7 @@ def find_song_by_id(song_id: int):
             song_dict = convert_bytes_fields(song_dict)
 
             # 处理可能的 JSON 字符串字段
-            json_fields = ["credits", "versions"]
+            json_fields = ["credits", "versions", "album"]
             for field in json_fields:
                 if field in song_dict and isinstance(song_dict[field], str):
                     try:

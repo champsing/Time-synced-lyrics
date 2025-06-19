@@ -12,12 +12,16 @@ try {
         .split("\n")
         .filter(Boolean);
 
-    const onlyMappings = changedFiles.every((file) =>
-        file.startsWith("public/") || file.startsWith("py_tools/") || file === "web/utils/config.js"
+    const ignoreVN = changedFiles.every(
+        (file) =>
+            file.startsWith("public/") ||
+            file.startsWith("py_tools/") ||
+            file.startsWith("src/") ||
+            file === "web/utils/config.js"
     );
 
-    if (onlyMappings) {
-        console.log("🟢 全部變更都在 public/，允許不改版本號。");
+    if (ignoreVN) {
+        console.log("🟢 全部變更都在 public/ 或非前端，允許不改版本號。");
         process.exit(0);
     }
 
