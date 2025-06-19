@@ -42,10 +42,10 @@ def import_song_files():
                 """
             INSERT INTO songs (
                 song_id, available, folder, art, artist, lyricist,
-                title, subtitle, is_duet, translation_available,
+                title, subtitle, album, versions, is_duet, translation_available,
                 translation_author, translation_cite, updated_at, lang,
-                versions, credits
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                credits
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
                 (
                     data["song_id"],
@@ -56,13 +56,14 @@ def import_song_files():
                     data["lyricist"],
                     data["title"],
                     data.get("subtitle"),
+                    json.dumps(data.get("album"), ensure_ascii=False),
+                    json.dumps(data["versions"]),
                     int(data.get("is_duet", False)),
                     int(translation.get("available", False)),
                     translation.get("author"),
                     translation.get("cite"),
                     data["updated_at"],
                     data["lang"],
-                    json.dumps(data["versions"]),
                     json.dumps(data["credits"], ensure_ascii=False),
                 ),
             )
