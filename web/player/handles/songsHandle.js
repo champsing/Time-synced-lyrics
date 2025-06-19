@@ -26,26 +26,11 @@ export const loadSongData = async (songId) => {
     }
 };
 
-export const getLyricResponsefromFile = async (folder, songVersion) => {
+export const getLyricResponse = async (folder, songVersion) => {
     try {
-        console.log("獲取歌詞檔案中...(File)");
+        console.log(`獲取歌詞檔案中...(File: /public/mappings/${folder}/${songVersion}.json)`);
         const response = await fetch(
-            `/src/mappings/${folder}/${songVersion}.json`
-        );
-        if (!response.ok) throw new Error("載入失敗");
-        return await response.json();
-    } catch (err) {
-        throw new Error("歌詞載入失敗：" + err.message);
-    } finally {
-        console.log("歌詞檔案獲取成功。");
-    }
-};
-
-export const getLyricResponsefromAPI = async (songId, songVersion) => {
-    try {
-        console.log("獲取歌詞檔案中...(API)");
-        const response = await fetch(
-            API_BASE_URL + `/mappings/${songId}/${songVersion}`
+            `/public/mappings/${folder}/${songVersion}.json`
         );
         if (!response.ok) throw new Error("載入失敗");
         return await response.json();

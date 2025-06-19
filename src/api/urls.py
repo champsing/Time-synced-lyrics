@@ -6,7 +6,4 @@ urlpatterns = [
     path("status/", views.api_status, name="api_status"),
     path("songs/", views.get_songs_list, name="song_list"),
     path("songs/<int:song_id>/", views.get_song_by_id, name="get_song_by_id"),
-    path(
-        "mappings/<int:song_id>/<str:version>", views.get_mappings, name="get_mappings"
-    ),
 ]

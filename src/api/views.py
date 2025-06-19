@@ -11,25 +11,7 @@ from django.views.decorators.cache import cache_page, cache_control
 from parse_lyrics import parse_lyrics
 from utils.parse_time_format_to_second import parse_time_format_to_second
 from utils.get_system_uptime import get_system_uptime
-from database.fing_song_by_id import find_song_by_id
-
-
-# def open_song_file(song_id):
-#     if settings.DEBUG:
-#         song_file = Path(settings.SOURCE_DIR) / "songs" / f"{song_id}.json"
-#     else:
-#         song_file = Path(settings.STATIC_ROOT) / f"{song_id}.json"
-#     # 如果歌曲不存在
-#     if not song_file.exists():
-#         return Response(
-#             {"error": "Song not found"},
-#             status=status.HTTP_404_NOT_FOUND,
-#         )
-
-#     with open(song_file, "r", encoding="utf-8") as f:
-#         song_data = json.load(f)
-#     return song_data
-
+from database.fing_song import find_song_by_id
 
 @api_view(["GET"])
 def api_root(request):
@@ -120,74 +102,74 @@ def get_song_by_id(request, song_id):
         )
 
 
-@api_view(["GET"])
-@cache_page(60 * 10)  # 緩存10分鐘
-def get_mappings(request, song_id, version):
-    from django.core.cache import cache
+# @api_view(["GET"])
+# @cache_page(60 * 10)  # 緩存10分鐘
+# def get_mappings(request, song_id, version):
+#     from django.core.cache import cache
 
-    # 從songs/<song_id>.json讀取歌曲列表
-    # 嘗試從緩存獲取
-    cache_key = f"mapping_{song_id}_{version}"
-    cached_data = cache.get(cache_key)
+#     # 從songs/<song_id>.json讀取歌曲列表
+#     # 嘗試從緩存獲取
+#     cache_key = f"mapping_{song_id}_{version}"
+#     cached_data = cache.get(cache_key)
 
-    if cached_data:
-        return Response(cached_data)
+#     if cached_data:
+#         return Response(cached_data)
 
-    # 緩存未命中，讀取文件
-    try:
-        song_data = find_song_by_id(song_id)
-        song_folder = song_data["folder"]
-        song_duration = 0
+#     # 緩存未命中，讀取文件
+#     try:
+#         song_data = find_song_by_id(song_id)
+#         song_folder = song_data["folder"]
+#         song_duration = 0
 
-        for v in song_data["versions"]:
-            if v["version"] == version:
-                song_duration = parse_time_format_to_second(v["duration"])
-                break
-            else:  # 如果沒有找到符合版本，使用預設版本
-                for v in song_data["versions"]:
-                    if v.get("default"):
-                        song_duration = parse_time_format_to_second(v["duration"])
-                        break
-                else:  # 如果沒有預設版本，使用第一個版本
-                    if song_data["versions"]:
-                        song_duration = parse_time_format_to_second(
-                            song_data["versions"][0]["duration"]
-                        )
+#         for v in song_data["versions"]:
+#             if v["version"] == version:
+#                 song_duration = parse_time_format_to_second(v["duration"])
+#                 break
+#             else:  # 如果沒有找到符合版本，使用預設版本
+#                 for v in song_data["versions"]:
+#                     if v.get("default"):
+#                         song_duration = parse_time_format_to_second(v["duration"])
+#                         break
+#                 else:  # 如果沒有預設版本，使用第一個版本
+#                     if song_data["versions"]:
+#                         song_duration = parse_time_format_to_second(
+#                             song_data["versions"][0]["duration"]
+#                         )
 
-        # 如果沒有資料夾字段
-        if not song_folder:
-            return Response(
-                {"error": "Song folder not found"},
-                status=status.HTTP_404_NOT_FOUND,
-            )
+#         # 如果沒有資料夾字段
+#         if not song_folder:
+#             return Response(
+#                 {"error": "Song folder not found"},
+#                 status=status.HTTP_404_NOT_FOUND,
+#             )
 
-        if settings.DEBUG:
-            mapping = (
-                Path(settings.SOURCE_DIR) / "mappings" / song_folder / f"{version}.json"
-            )
-        else:
-            mapping = Path(settings.STATIC_ROOT) / song_folder / f"{version}.json"
+#         if settings.DEBUG:
+#             mapping = (
+#                 Path(settings.SOURCE_DIR) / "mappings" / song_folder / f"{version}.json"
+#             )
+#         else:
+#             mapping = Path(settings.STATIC_ROOT) / song_folder / f"{version}.json"
 
-        # 如果找不到mapping文件
-        if not mapping.exists():
-            return Response(
-                {"error": "Song mapping file not found"},
-                status=status.HTTP_404_NOT_FOUND,
-            )
+#         # 如果找不到mapping文件
+#         if not mapping.exists():
+#             return Response(
+#                 {"error": "Song mapping file not found"},
+#                 status=status.HTTP_404_NOT_FOUND,
+#             )
 
-        with open(mapping, "r", encoding="utf-8") as mf:
-            requested_mapping = json.load(mf)
+#         with open(mapping, "r", encoding="utf-8") as mf:
+#             requested_mapping = json.load(mf)
 
-        # 存入緩存（1小時）
-        cache.set(cache_key, requested_mapping, 60 * 60)
+#         # 存入緩存（1小時）
+#         cache.set(cache_key, requested_mapping, 60 * 60)
 
-        parsed_mapping = parse_lyrics(requested_mapping, song_data, song_duration)
+#         parsed_mapping = parse_lyrics(requested_mapping, song_data, song_duration)
 
-        return Response(parsed_mapping)
+#         return Response(parsed_mapping)
 
-    except Exception as e:
-        # 記錄錯誤日誌（生產環境）
-        return Response(
-            {"error": "Internal server error", "detail": str(e)},
-            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-        )
+#     except Exception as e:
+#         # 記錄錯誤日誌（生產環境）
+#         return Response(
+#             {"error": "Internal server error", "detail": str(e)},
+#             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+#         )

@@ -6,8 +6,7 @@ import {
 } from "./player/handles/phrasesHandle.js";
 import {
     getDefaultVersion,
-    getLyricResponsefromFile,
-    getLyricResponsefromAPI,
+    getLyricResponse,
     loadSongData,
 } from "./player/handles/songsHandle.js";
 import { useTransation } from "./player/handles/translationHandle.js";
@@ -177,23 +176,16 @@ function main() {
 
         // 載入新歌詞
         // development
-        if (window.location.hostname === "localhost") {
-            const rawJson = await getLyricResponsefromFile(
+        
+            
+            jsonMappingContent.value = parseLyrics(
+                await getLyricResponse(
                 song.value.folder,
                 version.value
-            );
-            jsonMappingContent.value = parseLyrics(
-                rawJson,
+            ),
                 currentSong,
                 songDuration.value
             );
-        } else {
-            // prod
-            jsonMappingContent.value = await getLyricResponsefromAPI(
-                song.value.song_id,
-                version.value
-            );
-        }
 
         console.log(version.value, jsonMappingContent.value);
     }
