@@ -63,11 +63,6 @@ LOGGING = {
         },
     },
     "loggers": {
-        "": {
-            "handlers": ["console", "file"],
-            "level": "INFO",
-            "propagate": True,
-        },
         "django": {
             "handlers": ["console", "file"],
             "level": "INFO",
@@ -80,9 +75,6 @@ LOGGING = {
         },
     },
 }
-import logging
-logger = logging.getLogger("api")
-logger.debug("This is a test debug log")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = DJANGO_SECRET
