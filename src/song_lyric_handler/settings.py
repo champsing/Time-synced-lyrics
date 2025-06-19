@@ -162,9 +162,7 @@ USE_TZ = True
 STATIC_URL = "/static/"  # 靜態文件基礎URL
 
 # 添加靜態文件目錄
-STATICFILES_DIRS = [
-    os.path.join(SOURCE_DIR, "songs"),
-]
+STATICFILES_DIRS = []
 
 # 收集靜態文件的目標目錄
 STATIC_ROOT = os.path.join(SOURCE_DIR, "staticfiles")
