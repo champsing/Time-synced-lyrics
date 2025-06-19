@@ -41,8 +41,6 @@ REST_FRAMEWORK = {
 SECURE_REFERRER_POLICY = "same-origin"
 
 # LOGGING
-from logging.handlers import TimedRotatingFileHandler
-from logging import StreamHandler
 
 LOG_DIR = os.path.join(ROOT_DIR, "logs")
 os.makedirs(LOG_DIR, exist_ok=True)  # 確保 logs 資料夾存在
@@ -54,16 +52,22 @@ LOGGING = {
         "standard": {"format": "[%(asctime)s] [%(levelname)s] %(name)s: %(message)s"},
     },
     "handlers": {
-        "console": {"class": StreamHandler, "formatter": "standard"},
+        "console": {"class": "logging.StreamHandler", "formatter": "standard"},
         "file": {
-            "()": TimedRotatingFileHandler,  # 動態檔案名稱處理
+            "class": "logging.handlers.TimedRotatingFileHandler",
             "filename": os.path.join(LOG_DIR, "django-application.log"),
             "when": "midnight",
             "backupCount": 30,
             "formatter": "standard",
+            "encoding": "utf-8"
         },
     },
     "loggers": {
+        "": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": True,
+        },
         "django": {
             "handlers": ["console", "file"],
             "level": "INFO",
@@ -76,6 +80,9 @@ LOGGING = {
         },
     },
 }
+import logging
+logger = logging.getLogger("api")
+logger.debug("This is a test debug log")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = DJANGO_SECRET
