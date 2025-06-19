@@ -8,61 +8,6 @@ SRC_DIR = Path(__file__).resolve().parent.parent
 SONGS_DIR = Path(SRC_DIR, "songs")
 DB_PATH = Path(SRC_DIR, "db.sqlite3")
 
-
-def create_database():
-    """创建数据库和表结构"""
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-
-    cursor.execute(
-        """
-    CREATE TABLE IF NOT EXISTS songs (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        song_id INTEGER UNIQUE NOT NULL,
-        available BOOLEAN NOT NULL,
-        folder TEXT NOT NULL,
-        art TEXT,
-        artist TEXT NOT NULL,
-        lyricist TEXT,
-        title TEXT NOT NULL,
-        subtitle TEXT,
-        is_duet BOOLEAN NOT NULL,
-        translation_available BOOLEAN,
-        translation_author TEXT,
-        translation_cite TEXT,
-        updated_at DATE NOT NULL,
-        lang TEXT NOT NULL,
-        versions JSON NOT NULL,
-        credits JSON NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-    """
-    )
-
-    # 创建索引提升查询性能
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_song_id ON songs(song_id)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_title ON songs(title)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_artist ON songs(artist)")
-
-    conn.commit()
-    conn.close()
-    print(f"数据库已创建: {DB_PATH}")
-
-
-def process_lyricist(lyricist_str):
-    """处理作词者信息（将字符串转换为JSON数组）"""
-    if not lyricist_str:
-        return "[]"
-
-    # 根据常见分隔符拆分
-    for separator in ["、", ",", "，", "/"]:
-        if separator in lyricist_str:
-            return json.dumps([name.strip() for name in lyricist_str.split(separator)])
-
-    # 没有分隔符则作为单元素数组
-    return json.dumps([lyricist_str], ensure_ascii=False).encode("utf8")
-
-
 def import_song_files():
     """导入所有歌曲JSON文件到数据库"""
     conn = sqlite3.connect(DB_PATH)
@@ -91,7 +36,6 @@ def import_song_files():
                 continue
 
             # 准备插入数据
-            lyricist_json = process_lyricist(data.get("lyricist", ""))
             translation = data.get("translation", {})
 
             cursor.execute(
@@ -109,7 +53,7 @@ def import_song_files():
                     data["folder"],
                     data.get("art"),
                     data["artist"],
-                    lyricist_json,
+                    data["lyricist"],
                     data["title"],
                     data.get("subtitle"),
                     int(data.get("is_duet", False)),
@@ -119,7 +63,7 @@ def import_song_files():
                     data["updated_at"],
                     data["lang"],
                     json.dumps(data["versions"]),
-                    json.dumps(data["credits"], ensure_ascii=False).encode("utf8"),
+                    json.dumps(data["credits"], ensure_ascii=False),
                 ),
             )
 
@@ -156,5 +100,4 @@ if __name__ == "__main__":
     print(f"数据库路径: {DB_PATH}")
     print("=" * 50 + "\n")
 
-    create_database()
     import_song_files()

@@ -11,23 +11,24 @@ from django.views.decorators.cache import cache_page, cache_control
 from parse_lyrics import parse_lyrics
 from utils.parse_time_format_to_second import parse_time_format_to_second
 from utils.get_system_uptime import get_system_uptime
+from database.fing_song_by_id import find_song_by_id
 
 
-def open_song_file(song_id):
-    if settings.DEBUG:
-        song_file = Path(settings.SOURCE_DIR) / "songs" / f"{song_id}.json"
-    else:
-        song_file = Path(settings.STATIC_ROOT) / f"{song_id}.json"
-    # 如果歌曲不存在
-    if not song_file.exists():
-        return Response(
-            {"error": "Song not found"},
-            status=status.HTTP_404_NOT_FOUND,
-        )
+# def open_song_file(song_id):
+#     if settings.DEBUG:
+#         song_file = Path(settings.SOURCE_DIR) / "songs" / f"{song_id}.json"
+#     else:
+#         song_file = Path(settings.STATIC_ROOT) / f"{song_id}.json"
+#     # 如果歌曲不存在
+#     if not song_file.exists():
+#         return Response(
+#             {"error": "Song not found"},
+#             status=status.HTTP_404_NOT_FOUND,
+#         )
 
-    with open(song_file, "r", encoding="utf-8") as f:
-        song_data = json.load(f)
-    return song_data
+#     with open(song_file, "r", encoding="utf-8") as f:
+#         song_data = json.load(f)
+#     return song_data
 
 
 @api_view(["GET"])
@@ -104,7 +105,7 @@ def get_song_by_id(request, song_id):
 
     # 緩存未命中，讀取文件
     try:
-        song_data = open_song_file(song_id)
+        song_data = find_song_by_id(song_id)
 
         # 存入緩存（1小時）
         cache.set(cache_key, song_data, 60 * 60)
@@ -134,7 +135,8 @@ def get_mappings(request, song_id, version):
 
     # 緩存未命中，讀取文件
     try:
-        song_data = open_song_file(song_id)
+        song_data = find_song_by_id(song_id)
+        print(song_data)
         song_folder = song_data["folder"]
         song_duration = 0
 
