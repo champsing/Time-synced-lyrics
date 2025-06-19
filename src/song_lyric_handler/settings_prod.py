@@ -56,9 +56,7 @@ LOGGING = {
         "standard": {"format": "[%(asctime)s] [%(levelname)s] %(name)s: %(message)s"},
     },
     "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
+        "console": {"class": "logging.StreamHandler", "formatter": "standard"},
         "file": {
             "class": "logging.FileHandler",
             "filename": LOG_FILE_PATH,
@@ -69,6 +67,7 @@ LOGGING = {
         "django": {
             "handlers": ["console", "file"],
             "level": "INFO",
+            'propagate': True,
         },
         "api": {
             "handlers": ["console", "file"],
