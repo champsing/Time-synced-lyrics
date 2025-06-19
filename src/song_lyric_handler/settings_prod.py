@@ -41,13 +41,11 @@ REST_FRAMEWORK = {
 SECURE_REFERRER_POLICY = "same-origin"
 
 # LOGGING
-from datetime import datetime
+from logging.handlers import TimedRotatingFileHandler
+from logging import StreamHandler
 
 LOG_DIR = os.path.join(ROOT_DIR, "logs")
 os.makedirs(LOG_DIR, exist_ok=True)  # 確保 logs 資料夾存在
-
-LOG_FILENAME = datetime.now().strftime("%Y-%m-%d.log")
-LOG_FILE_PATH = os.path.join(LOG_DIR, LOG_FILENAME)
 
 LOGGING = {
     "version": 1,
@@ -56,10 +54,12 @@ LOGGING = {
         "standard": {"format": "[%(asctime)s] [%(levelname)s] %(name)s: %(message)s"},
     },
     "handlers": {
-        "console": {"class": "logging.StreamHandler", "formatter": "standard"},
+        "console": {"class": StreamHandler, "formatter": "standard"},
         "file": {
-            "class": "logging.FileHandler",
-            "filename": LOG_FILE_PATH,
+            "()": TimedRotatingFileHandler,  # 動態檔案名稱處理
+            "filename": os.path.join(LOG_DIR, "django-application.log"),
+            "when": "midnight",
+            "backupCount": 30,
             "formatter": "standard",
         },
     },
@@ -67,7 +67,7 @@ LOGGING = {
         "django": {
             "handlers": ["console", "file"],
             "level": "INFO",
-            'propagate': True,
+            "propagate": True,
         },
         "api": {
             "handlers": ["console", "file"],

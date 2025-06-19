@@ -1,13 +1,14 @@
+# 前端
 py_output
 node_modules
 todo
 karaoke mappings
-javascript
 
-# Django 静态文件
+# Django 靜態文件
 staticfiles/
 
-# 其他应忽略的文件
+# 後端
+logs
 *.log
 *.pot
 *.pyc
