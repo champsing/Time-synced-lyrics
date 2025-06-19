@@ -11,7 +11,7 @@ from django.views.decorators.cache import cache_page, cache_control
 from parse_lyrics import parse_lyrics
 from utils.parse_time_format_to_second import parse_time_format_to_second
 from utils.get_system_uptime import get_system_uptime
-from database.fing_song import find_song_by_id
+from database.fing_song import find_song_by_id, export_song_list
 
 @api_view(["GET"])
 def api_root(request):
@@ -52,13 +52,7 @@ def get_songs_list(request):
 
     # 緩存未命中，讀取文件
     try:
-        if settings.DEBUG:
-            song_list_file = Path(settings.SOURCE_DIR) / "songs" / "song_list.json"
-        else:
-            song_list_file = Path(settings.STATIC_ROOT) / "song_list.json"
-
-        with open(song_list_file, "r", encoding="utf-8") as f:
-            song_list_data = json.load(f)
+        song_list_data = export_song_list()
 
         # 存入緩存（半天）
         cache.set(cache_key, song_list_data, 60 * 60 * 12)
