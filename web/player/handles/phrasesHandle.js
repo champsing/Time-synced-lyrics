@@ -35,7 +35,7 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
     // 計算漸變的起始和結束位置
     const colorStop = phraseProgressValue * 100;
     let transitionStart = Math.max(0, colorStop - transitionWidth);
-    let transitionEnd = Math.min(100, colorStop + transitionWidth);
+    let transitionEnd = Math.min(100 + transitionWidth, colorStop + transitionWidth);
 
     if (phraseProgressValue === 0) {
         transitionStart = 0;
