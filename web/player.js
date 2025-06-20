@@ -176,16 +176,12 @@ function main() {
 
         // 載入新歌詞
         // development
-        
-            
-            jsonMappingContent.value = parseLyrics(
-                await getLyricResponse(
-                song.value.folder,
-                version.value
-            ),
-                currentSong,
-                songDuration.value
-            );
+
+        jsonMappingContent.value = parseLyrics(
+            await getLyricResponse(song.value.folder, version.value),
+            currentSong,
+            songDuration.value
+        );
 
         console.log(version.value, jsonMappingContent.value);
     }
@@ -244,11 +240,16 @@ function main() {
                 console.log(
                     `已帶入指定歌曲 ID: ${songRequest} - ${requestSongData.folder}`
                 );
-                currentSong.value = requestSongData;
+                if (requestSongData && requestSongData.available)
+                    currentSong.value = requestSongData;
+                else {
+                    currentSong.value = null;
+                    throw new Error("指定歌曲不存在未被啟用");
+                }
             } else {
                 currentSong.value = null;
-                console.warn(
-                    `未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在, 請由選歌系統選擇歌曲, 勿直接訪問 /player/ 目錄`
+                throw new Error(
+                    "未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在, 請由選歌系統選擇歌曲, 勿直接訪問 /player/ 目錄"
                 );
             }
 
