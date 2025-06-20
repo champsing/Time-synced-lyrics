@@ -8,6 +8,7 @@ SRC_DIR = Path(__file__).resolve().parent.parent
 SONGS_DIR = Path(SRC_DIR, "songs")
 DB_PATH = Path(SRC_DIR, "db.sqlite3")
 
+
 def import_song_files():
     """导入所有歌曲JSON文件到数据库"""
     conn = sqlite3.connect(DB_PATH)
@@ -42,10 +43,10 @@ def import_song_files():
                 """
             INSERT INTO songs (
                 song_id, available, folder, art, artist, lyricist,
-                title, subtitle, album, versions, is_duet, translation_available,
-                translation_author, translation_cite, updated_at, lang,
+                title, subtitle, album, versions, is_duet, translation, 
+                updated_at, lang,
                 credits
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
                 (
                     data["song_id"],
@@ -59,9 +60,7 @@ def import_song_files():
                     json.dumps(data.get("album"), ensure_ascii=False),
                     json.dumps(data["versions"]),
                     int(data.get("is_duet", False)),
-                    int(translation.get("available", False)),
-                    translation.get("author"),
-                    translation.get("cite"),
+                    json.dumps(data.get("translation"), ensure_ascii=False),
                     data["updated_at"],
                     data["lang"],
                     json.dumps(data["credits"], ensure_ascii=False),
