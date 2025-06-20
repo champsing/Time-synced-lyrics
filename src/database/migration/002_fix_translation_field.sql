@@ -160,7 +160,7 @@ VALUES
         NULL,
         'Omoinotake - One Day',
         'https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/66/15/63/6615632e-0049-f780-31b1-adcff2228853/4547366642797.jpg/600x600bf-60.jpg',
-        'omoinotake',
+        'Omoinotake',
         '福島智朗',
         'One Day',
         NULL,
