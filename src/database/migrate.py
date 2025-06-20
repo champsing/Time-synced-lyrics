@@ -79,7 +79,8 @@ if __name__ == "__main__":
     # 定義所有 migrations (格式: "migration_name:SQL")
     all_migrations = [
         "001_create_songs_table",
-        "002_fix_translation_field"
+        "002_fix_translation_field",
+        "003_make_one_day_available"
     ]
 
     # 初始化並執行 migrations
