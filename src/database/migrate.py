@@ -59,7 +59,9 @@ class SQLiteMigration:
 
         for migration in migrations:
 
-            with open(f"src/database/migration/{migration}.sql", "r", encoding="UTF-8") as m:
+            with open(
+                f"src/database/migration/{migration}.sql", "r", encoding="UTF-8"
+            ) as m:
                 sql = "".join(m.readlines())
 
             if migration in executed_migrations:
@@ -80,7 +82,8 @@ if __name__ == "__main__":
     all_migrations = [
         "001_create_songs_table",
         "002_fix_translation_field",
-        "003_make_one_day_available"
+        "003_make_one_day_available",
+        "004_fix_one_day_credits",
     ]
 
     # 初始化並執行 migrations
