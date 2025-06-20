@@ -3,14 +3,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework import status
-import json
-from django.conf import settings
-from pathlib import Path
 from django.views.decorators.cache import cache_page, cache_control
-
-from parse_lyrics import parse_lyrics
-from utils.parse_time_format_to_second import parse_time_format_to_second
-from utils.get_system_uptime import get_system_uptime
+from utils.get_system_info import get_system_uptime, get_version_number
 from database.fing_song import find_song_by_id, export_song_list
 
 @api_view(["GET"])
@@ -30,7 +24,7 @@ def api_status(request):
     return Response(
         {
             "status": "operational",
-            "version": "1.0.1",
+            "version": get_version_number(),
             "uptime": get_system_uptime(),
         },
         status=status.HTTP_200_OK,
