@@ -27,12 +27,11 @@ def export_song_list():
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
 
-        cursor.execute(
+        fetched_song_data = cursor.execute(
             f"""
             SELECT available, hidden, song_id, folder FROM songs;
             """
-        )
-        fetched_song_data = cursor.fetchall()
+        ).fetchall()
 
         if fetched_song_data:
             # 获取列名
@@ -64,13 +63,12 @@ def find_song_by_id(song_id: int):
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
 
-        song_data = cursor.execute(
+        fetched_song_data = cursor.execute(
             f"""
             SELECT * FROM songs WHERE song_id = ?;
             """,
             (song_id,),
-        )
-        fetched_song_data = cursor.fetchone()
+        ).fetchone()
 
         if fetched_song_data:
             # 获取列名
@@ -82,7 +80,7 @@ def find_song_by_id(song_id: int):
             song_dict = convert_bytes_fields(song_dict)
 
             # 处理可能的 JSON 字符串字段
-            json_fields = ["credits", "versions", "album"]
+            json_fields = ["credits", "versions", "album", "translation"]
             for field in json_fields:
                 if field in song_dict and isinstance(song_dict[field], str):
                     try:
