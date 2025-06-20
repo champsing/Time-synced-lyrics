@@ -5,7 +5,7 @@ def get_system_uptime():
     return uptime_seconds
 
 def get_version_number():
-    with open("../version_number", "r") as f:
+    with open("~/Time-synced-lyrics/src/version_number", "r") as f:
         version_number = float(f.readline().split())
 
     return version_number
