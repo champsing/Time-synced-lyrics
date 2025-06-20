@@ -16,7 +16,8 @@ logs
 */*/__pycache__/
 */__pycache__/
 .env
-db.sqlite3
+*.sqlite3
+
 
 # 密鑰
 keys
