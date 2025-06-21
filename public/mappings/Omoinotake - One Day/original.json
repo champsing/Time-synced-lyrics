@@ -199,7 +199,7 @@
             { "phrase": "僕", "duration": 30 },
             { "phrase": "は", "duration": 30 },
             { "phrase": "", "duration": 30 },
-            { "phrase": "灯火", "duration": 80 },
+            { "phrase": "灯火", "duration": 70 },
             { "phrase": "が", "duration": 30 },
             { "phrase": "消", "duration": 40 },
             { "phrase": "えない", "duration": 50 },
@@ -212,16 +212,16 @@
         "text": [
             { "phrase": "今", "duration": 30 },
             { "phrase": "歌", "duration": 30 },
-            { "phrase": "うから ", "duration": 80 },
-            { "phrase": "never ", "duration": 40 },
-            { "phrase": "let ", "duration": 20 },
-            { "phrase": "you ", "duration": 20 },
-            { "phrase": "down", "duration": 20 }
+            { "phrase": "うから ", "duration": 50 },
+            { "phrase": "never ", "duration": 30 },
+            { "phrase": "let ", "duration": 25 },
+            { "phrase": "you ", "duration": 25 },
+            { "phrase": "down", "duration": 25 }
         ],
         "translation": "現在唱著歌 Never let you down"
     },
     {
-        "time": "01:10.68",
+        "time": "01:10.58",
         "text": [
             { "phrase": "Delight ", "duration": 30 },
             { "phrase": "したい", "duration": 80 },
@@ -313,10 +313,11 @@
             { "phrase": "せい", "duration": 40 },
             { "phrase": "じゃない", "duration": 50 },
             { "phrase": "だから", "duration": 60 },
-            { "phrase": "辛", "duration": 50 },
+            { "phrase": "辛", "duration": 30 },
             { "phrase": "い", "duration": 30 },
-            { "phrase": "嘆", "duration": 30 },
+            { "phrase": "嘆", "duration": 20 },
             { "phrase": "く", "duration": 30 },
+            { "phrase": "", "duration": 30 },
             { "phrase": "宛先", "duration": 60 },
             { "phrase": "のない", "duration": 40 },
             { "phrase": "言葉", "duration": 100 }
@@ -355,9 +356,9 @@
             { "phrase": "膝", "duration": 30 },
             { "phrase": "を", "duration": 30 },
             { "phrase": "抱", "duration": 50 },
-            { "phrase": "えた", "duration": 50 },
+            { "phrase": "えた", "duration": 40 },
             { "phrase": "まま", "duration": 40 },
-            { "phrase": "じゃ", "duration": 50 }
+            { "phrase": "じゃ", "duration": 30 }
         ],
         "translation": "繼續抱著膝蓋不去看 不去聽的話就"
     },
@@ -370,7 +371,7 @@
             { "phrase": "foggy ", "duration": 40 },
             { "phrase": "night", "duration": 40 },
             { "phrase": " ", "duration": 30 },
-            { "phrase": "きっと", "duration": 50 },
+            { "phrase": "きっと", "duration": 40 },
             { "phrase": "答", "duration": 40 },
             { "phrase": "えは", "duration": 50 },
             { "phrase": "ない", "duration": 90 }
@@ -384,7 +385,7 @@
             { "phrase": "僕", "duration": 30 },
             { "phrase": "は", "duration": 30 },
             { "phrase": "", "duration": 30 },
-            { "phrase": "灯火", "duration": 80 },
+            { "phrase": "灯火", "duration": 70 },
             { "phrase": "が", "duration": 30 },
             { "phrase": "消", "duration": 40 },
             { "phrase": "えない", "duration": 50 },
@@ -397,16 +398,16 @@
         "text": [
             { "phrase": "今", "duration": 30 },
             { "phrase": "歌", "duration": 30 },
-            { "phrase": "うから ", "duration": 80 },
-            { "phrase": "never ", "duration": 40 },
-            { "phrase": "let ", "duration": 20 },
-            { "phrase": "you ", "duration": 20 },
-            { "phrase": "down", "duration": 20 }
+            { "phrase": "うから ", "duration": 50 },
+            { "phrase": "never ", "duration": 30 },
+            { "phrase": "let ", "duration": 25 },
+            { "phrase": "you ", "duration": 25 },
+            { "phrase": "down", "duration": 25 }
         ],
         "translation": "現在唱著歌 Never let you down"
     },
     {
-        "time": "02:09.58",
+        "time": "02:09.40",
         "text": [
             { "phrase": "Delight ", "duration": 30 },
             { "phrase": "したい", "duration": 80 },
@@ -553,7 +554,7 @@
         "translation": "想看著 不變的夢"
     },
     {
-        "time": "03:05.13",
+        "time": "03:05.03",
         "text": [
             { "phrase": "Delight ", "duration": 30 },
             { "phrase": "したい", "duration": 80 },
@@ -606,7 +607,7 @@
             { "phrase": "僕", "duration": 30 },
             { "phrase": "は", "duration": 30 },
             { "phrase": "", "duration": 30 },
-            { "phrase": "灯火", "duration": 80 },
+            { "phrase": "灯火", "duration": 70 },
             { "phrase": "が", "duration": 30 },
             { "phrase": "消", "duration": 40 },
             { "phrase": "えない", "duration": 50 },
@@ -619,16 +620,16 @@
         "text": [
             { "phrase": "今", "duration": 30 },
             { "phrase": "歌", "duration": 30 },
-            { "phrase": "うから ", "duration": 80 },
-            { "phrase": "never ", "duration": 40 },
-            { "phrase": "let ", "duration": 20 },
-            { "phrase": "you ", "duration": 20 },
-            { "phrase": "down", "duration": 20 }
+            { "phrase": "うから ", "duration": 50 },
+            { "phrase": "never ", "duration": 30 },
+            { "phrase": "let ", "duration": 25 },
+            { "phrase": "you ", "duration": 25 },
+            { "phrase": "down", "duration": 25 }
         ],
         "translation": "現在唱著歌 Never let you down"
     },
     {
-        "time": "03:25.64",
+        "time": "03:25.54",
         "text": [
             { "phrase": "Delight ", "duration": 30 },
             { "phrase": "したい", "duration": 80 },
