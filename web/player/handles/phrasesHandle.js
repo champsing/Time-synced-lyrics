@@ -30,7 +30,7 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
     const a = 0.35 + 0.5 * sinProgress; // 從0.35緩入到0.85
 
     // 設定過渡區間的寬度（百分比）
-    const transitionWidth = 5;
+    const transitionWidth = 8;
 
     // 計算漸變的起始和結束位置
     const colorStop = phraseProgressValue * 100;
