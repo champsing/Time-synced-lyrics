@@ -59,7 +59,7 @@ VALUES
         '{"name": "Attitude", "link": "4NtJudb"}',
         '[{"version": "original", "id": "sL-yJIyuEaM", "default": true, "duration": "5:08"}]',
         1,
-        '{"available": true, "author": "官方歌詞翻譯", "cite": "https://www.youtube.com/watch?v=rWsiVWlvw2E"}',
+        '{"available": true, "author": "官方 YouTube 翻譯", "cite": "https://www.youtube.com/watch?v=rWsiVWlvw2E"}',
         '2025-06-08',
         'ja',
         '{"performance": [{"name": "大森元貴", "contribution": ["主唱", "吉他"]}, {"name": "Sonoko Inoue", "contribution": ["主唱"]}, {"name": "若井滉斗", "contribution": ["吉他"]}, {"name": "山中綾華", "contribution": ["鼓"]}, {"name": "藤澤涼架", "contribution": ["鋼琴"]}, {"name": "高野清宗", "contribution": ["低音吉他"]}], "song_writing": [{"name": "大森元貴", "contribution": ["詞曲創作", "編曲"]}], "engineering": [{"name": "Mrs. GREEN APPLE", "contribution": ["製作人"]}]}'
@@ -167,7 +167,7 @@ VALUES
         '{"name": "Ammolite"}',
         '[{"version": "original", "id": "pOxWDTk7i1Y", "default": true, "duration": "3:46"}]',
         0,
-        '{"available": true, "author": "官方 YouTube 翻譯"}',
+        '{"available": true, "author": "官方 YouTube 翻譯", "cite":"https://www.youtube.com/watch?v=pOxWDTk7i1Y&t=50s&ab_channel=Omoinotake"}',
         '2025-06-20',
         'jp',
         '{"performance": [{"name": "Omoinotake", "contribution": ["混音師"]}, {"name": "Kohei Ishii", "contribution": ["混音師"]}], "song_writing": [{"name": "福島智朗", "contribution": ["作詞"]}, {"name": "藤井怜央", "contribution": ["作曲"]}, {"name": "Omoinotake", "contribution": ["編曲"]}, {"name": "Kohei Ishii", "contribution": ["編曲"]}]}'
