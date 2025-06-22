@@ -335,11 +335,6 @@ function main() {
         isKiai: (line, phraseIndex) => line.text[phraseIndex].kiai,
         isBackgroundKiai: (line, phraseIndex) =>
             line.background_voice.text[phraseIndex].kiai,
-        queryAlternativeVersion: (version) => {
-            return currentSong.value.versions?.find(
-                (x) => x.version === version
-            );
-        },
     };
 }
 
