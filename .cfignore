@@ -22,5 +22,3 @@ launch tailwind-cli.bat
 # 後端相關
 src
 dockerfile
-docker-compose.prod.yml
-shell_scripts

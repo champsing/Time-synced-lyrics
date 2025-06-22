@@ -1,21 +1,19 @@
 # 使用官方 Python 基礎鏡像
 FROM python:3.11.13-slim-bookworm
 
-# 設置環境變量
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV DEBIAN_FRONTEND=noninteractive
-
 # 安裝系統依賴
-RUN apt-get update && apt-get install -y \
-    gcc \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && \
+    apt-get install -y python3-gunicorn && \
+    rm -rf /var/lib/apt/lists/*
+
+# set env
+ENV DJANGO_SETTINGS_MODULE=song_lyric_handler.settings_prod
 
 # 設置工作目錄
 WORKDIR /app
 
 # 複製 src 目錄
+COPY ./keys/django_secret .
 COPY ./src .
 
 # 安裝 Python 依賴
@@ -29,4 +27,4 @@ RUN python manage.py collectstatic --noinput
 EXPOSE 8000
 
 # 啟動命令
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "song_lyric_handler.wsgi"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "song_lyric_handler.wsgi:application"]
