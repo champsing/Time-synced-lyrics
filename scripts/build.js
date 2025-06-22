@@ -8,15 +8,25 @@ async function main() {
     const root = process.cwd();
     const outDir = path.join(root, "dist");
     const cfignorePath = path.join(root, ".cfignore");
+    const gitignorePath = path.join(root, ".gitignore");
 
     // 1. 刪除舊的 dist 資料夾
     await fs.remove(outDir);
 
     // 2. 讀取 .cfignore，解析排除清單
-    let excludeList = [];
+    let cfIgnoreExcludeList = [];
     if (await fs.pathExists(cfignorePath)) {
         const content = await fs.readFile(cfignorePath, "utf8");
-        excludeList = content
+        cfIgnoreExcludeList = content
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter((line) => line && !line.startsWith("#"));
+    }
+
+    let gitIgnoreExcludeList = [];
+    if (await fs.pathExists(gitignorePath)) {
+        const content = await fs.readFile(gitignorePath, "utf8");
+        gitIgnoreExcludeList = content
             .split(/\r?\n/)
             .map((line) => line.trim())
             .filter((line) => line && !line.startsWith("#"));
@@ -29,7 +39,7 @@ async function main() {
         ".gitignore",
         "dist",
     ];
-    const exclude = new Set([...excludeList, ...defaults]);
+    const exclude = new Set([...cfIgnoreExcludeList, ...gitIgnoreExcludeList, ...defaults]);
 
     // 4. 複製非排除項目到 dist
     const items = await fs.readdir(root);

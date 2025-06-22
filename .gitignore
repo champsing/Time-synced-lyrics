@@ -3,6 +3,7 @@ py_output
 node_modules
 todo
 karaoke mappings
+dist
 
 # Django 靜態文件
 staticfiles/
@@ -17,7 +18,6 @@ logs
 */__pycache__/
 .env
 *.sqlite3
-
 
 # 密鑰
 keys
