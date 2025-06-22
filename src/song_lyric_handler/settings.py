@@ -90,8 +90,6 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5200",  # React/Vue 開發伺服器
-    "https://timesl.online",  # 生產環境域名
-    "https://www.timesl.online",  # 生產環境域名
 ]
 
 ROOT_URLCONF = "song_lyric_handler.urls"
