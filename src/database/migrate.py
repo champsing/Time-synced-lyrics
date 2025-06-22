@@ -84,6 +84,7 @@ if __name__ == "__main__":
         "002_fix_translation_field",
         "003_make_one_day_available",
         "004_fix_one_day_credits",
+        "005_drop_id_column",
     ]
 
     # 初始化並執行 migrations
