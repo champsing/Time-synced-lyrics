@@ -88,7 +88,7 @@ function main() {
 
     // 取得可用版本
     function parseSubtitle(subtitle) {
-        return subtitle?.replace(/\n/g, " · ") || "";
+        return subtitle?.replace(/\\n/g, " · ") || "";
     }
 
     function getVersionLabel(version) {
