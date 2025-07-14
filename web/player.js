@@ -35,6 +35,7 @@ import {
     initShareModal,
 } from "./utils/modal.js";
 import { parseLyrics } from "./player/handles/lyricsHandle.js";
+import { parseSubtitle } from "./song-select.js";
 
 const bodyBackgroundColor = ref("#365456");
 
@@ -321,6 +322,7 @@ function main() {
         isPaused,
         isLoading,
         debugInfo: DEBUG_INFO,
+        parseSubtitle,
         playVideo,
         pauseVideo,
         rewind10Sec,

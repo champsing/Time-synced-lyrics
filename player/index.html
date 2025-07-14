@@ -378,7 +378,7 @@
                                 </div>
                                 <div class="text-sm text-wrap whitespace-pre-wrap text-center"
                                     v-if="currentSong.subtitle">
-                                    {{ currentSong.subtitle? currentSong.subtitle : "" }}
+                                    {{ currentSong.subtitle? parseSubtitle(currentSong.subtitle) : "" }}
                                 </div>
                             </div>
 

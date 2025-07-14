@@ -3,6 +3,11 @@ import { loadSongData, loadSongList } from "./player/handles/songsHandle.js";
 import { SONGLIST_VERSION } from "./utils/base-version.js";
 import { PLAYER_VERSION } from "./utils/config.js";
 
+// 取得可用版本
+export function parseSubtitle(subtitle) {
+    return subtitle?.replace(/\\n/g, " · ") || "";
+}
+
 const VERSION_LABELS = {
     original: "原曲",
     instrumental: "伴奏",
@@ -85,11 +90,6 @@ function main() {
             })
             .sort(sortSong(sortOption.value));
     });
-
-    // 取得可用版本
-    function parseSubtitle(subtitle) {
-        return subtitle?.replace(/\\n/g, " · ") || "";
-    }
 
     function getVersionLabel(version) {
         return VERSION_LABELS[version] || version;
