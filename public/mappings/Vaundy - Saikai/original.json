@@ -161,10 +161,10 @@
         "text": [
             { "phrase": "ま", "duration": 18, "kiai": true },
             { "phrase": "た", "duration": 18, "kiai": true },
-            { "phrase": "出", "duration": 18, "kiai": true },
-            { "phrase": "会", "duration": 18, "kiai": true },
-            { "phrase": "え", "duration": 18, "kiai": true },
-            { "phrase": "る", "duration": 18, "kiai": true },
+            { "phrase": "出", "duration": 10, "kiai": true },
+            { "phrase": "会", "duration": 10, "kiai": true },
+            { "phrase": "え", "duration": 10, "kiai": true },
+            { "phrase": "る", "duration": 10, "kiai": true },
             { "phrase": "の", "duration": 18, "kiai": true },
             { "phrase": "な", "duration": 18, "kiai": true },
             { "phrase": "ら", "duration": 18, "kiai": true }
@@ -307,10 +307,10 @@
         "time": "01:43.90",
         "text": [
             { "phrase": "もう", "duration": 20 },
-            { "phrase": "すでに", "duration": 20 },
-            { "phrase": "力", "duration": 20 },
-            { "phrase": "んでる", "duration": 20 },
-            { "phrase": "マジ", "duration": 20 }
+            { "phrase": "すでに", "duration": 40 },
+            { "phrase": "力", "duration": 30 },
+            { "phrase": "んでる", "duration": 50 },
+            { "phrase": "マジ", "duration": 40 }
         ],
         "translation": ""
     },
@@ -319,20 +319,20 @@
         "text": [
             { "phrase": "どう", "duration": 20 },
             { "phrase": "見", "duration": 20 },
-            { "phrase": "たって", "duration": 20 },
-            { "phrase": "もう", "duration": 20 }
+            { "phrase": "たって", "duration": 50 },
+            { "phrase": "もう", "duration": 30 }
         ],
         "translation": ""
     },
     {
         "time": "01:48.93",
         "text": [
-            { "phrase": "無謀", "duration": 20 },
+            { "phrase": "無謀", "duration": 40 },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "コース", "duration": 20 },
-            { "phrase": "蠱毒", "duration": 20 },
-            { "phrase": "みたい", "duration": 20 },
-            { "phrase": "だね", "duration": 20 }
+            { "phrase": "コース", "duration": 50 },
+            { "phrase": "蠱毒", "duration": 60, "kiai": true },
+            { "phrase": "みたい", "duration": 50 },
+            { "phrase": "だね", "duration": 50 }
         ],
         "translation": ""
     },
@@ -353,21 +353,22 @@
             { "phrase": "の", "duration": 20 },
             { "phrase": "情", "duration": 20 },
             { "phrase": "を", "duration": 20 },
-            { "phrase": "掘", "duration": 20 },
-            { "phrase": "り", "duration": 20 },
+            { "phrase": "掘", "duration": 40 },
+            { "phrase": "り", "duration": 50 },
             { "phrase": "お", "duration": 20 },
-            { "phrase": "こし", "duration": 20 },
-            { "phrase": "てくれ", "duration": 20 }
+            { "phrase": "こし", "duration": 50 },
+            { "phrase": "てく", "duration": 50 },
+            { "phrase": "れ", "duration": 120, "kiai": true }
         ],
         "translation": ""
     },
     {
         "time": "02:02.10",
         "text": [
-            { "phrase": "宇宙", "duration": 20 },
-            { "phrase": "一", "duration": 20 },
+            { "phrase": "宇宙", "duration": 60 },
+            { "phrase": "一", "duration": 60 },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "快感", "duration": 20 },
+            { "phrase": "快感", "duration": 80, "kiai": true },
             { "phrase": "と", "duration": 20 }
         ],
         "translation": ""
@@ -377,9 +378,9 @@
         "text": [
             { "phrase": "咳", "duration": 20 },
             { "phrase": "き", "duration": 20 },
-            { "phrase": "込", "duration": 20 },
-            { "phrase": "める", "duration": 20 },
-            { "phrase": "重圧", "duration": 20 },
+            { "phrase": "込", "duration": 60 },
+            { "phrase": "める", "duration": 50 },
+            { "phrase": "重圧", "duration": 80 },
             { "phrase": "と", "duration": 20 }
         ],
         "translation": ""
@@ -389,7 +390,7 @@
         "text": [
             { "phrase": "僕", "duration": 40 },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "情熱", "duration": 60 },
+            { "phrase": "情熱", "duration": 60, "kiai": true },
             { "phrase": "で", "duration": 20 }
         ],
         "translation": ""
@@ -410,15 +411,16 @@
     {
         "time": "02:52.65",
         "text": [
-            { "phrase": "黄泉", "duration": 20 },
+            { "phrase": "黄泉", "duration": 80 },
             { "phrase": "の", "duration": 20 },
+            { "phrase": "", "duration": 100 },
             { "phrase": "果", "duration": 20 },
             { "phrase": "て", "duration": 20 },
             { "phrase": "繋", "duration": 20 },
             { "phrase": "ぐ", "duration": 20 },
-            { "phrase": "呪文", "duration": 20 },
+            { "phrase": "呪文", "duration": 60, "kiai": true },
             { "phrase": "と", "duration": 20 },
-            { "phrase": "航路", "duration": 20 },
+            { "phrase": "航路", "duration": 80 },
             { "phrase": "の", "duration": 20 }
         ],
         "translation": ""
@@ -426,15 +428,16 @@
     {
         "time": "02:59.19",
         "text": [
-            { "phrase": "在処", "duration": 20 },
-            { "phrase": "など", "duration": 20 },
+            { "phrase": "在処", "duration": 80 },
+            { "phrase": "など", "duration": 50 },
+            { "phrase": "", "duration": 100 },
             { "phrase": "僕", "duration": 20 },
-            { "phrase": "が", "duration": 20 },
+            { "phrase": "が", "duration": 40 },
             { "phrase": "知", "duration": 20 },
-            { "phrase": "ら", "duration": 20 },
-            { "phrase": "なか", "duration": 20 },
-            { "phrase": "った", "duration": 20 },
-            { "phrase": "ら", "duration": 20 }
+            { "phrase": "ら", "duration": 40 },
+            { "phrase": "なか", "duration": 40, "kiai": true },
+            { "phrase": "った", "duration": 20, "kiai": true },
+            { "phrase": "ら", "duration": 20, "kiai": true }
         ],
         "translation": ""
     },
@@ -443,8 +446,8 @@
         "text": [
             { "phrase": "君", "duration": 20 },
             { "phrase": "は", "duration": 20 },
-            { "phrase": "それ", "duration": 20 },
-            { "phrase": "でも", "duration": 20 }
+            { "phrase": "それ", "duration": 80 },
+            { "phrase": "でも", "duration": 80 }
         ],
         "translation": ""
     },
@@ -454,9 +457,9 @@
             { "phrase": "胸", "duration": 20 },
             { "phrase": "の", "duration": 20 },
             { "phrase": "奥", "duration": 20 },
-            { "phrase": "僕", "duration": 20 },
+            { "phrase": "僕", "duration": 40 },
             { "phrase": "の", "duration": 20 },
-            { "phrase": "何", "duration": 20 },
+            { "phrase": "何", "duration": 30 },
             { "phrase": "か", "duration": 20 },
             { "phrase": "の", "duration": 20 }
         ],
@@ -465,13 +468,14 @@
     {
         "time": "03:11.93",
         "text": [
-            { "phrase": "在処", "duration": 20 },
+            { "phrase": "在処", "duration": 80 },
             { "phrase": "を", "duration": 20 },
-            { "phrase": "それ", "duration": 20 },
-            { "phrase": "でも", "duration": 20 },
-            { "phrase": "探", "duration": 20 },
-            { "phrase": "す", "duration": 20 },
-            { "phrase": "だろう", "duration": 20 },
+            { "phrase": "", "duration": 100 },
+            { "phrase": "それ", "duration": 40 },
+            { "phrase": "でも", "duration": 40 },
+            { "phrase": "探", "duration": 50, "kiai": true },
+            { "phrase": "す", "duration": 30, "kiai": true },
+            { "phrase": "だろう", "duration": 60 },
             { "phrase": "か", "duration": 20 }
         ],
         "translation": ""
@@ -479,48 +483,63 @@
     {
         "time": "03:17.66",
         "text": [
-            { "phrase": "ねぇ、", "duration": 20 },
-            { "phrase": "もしも", "duration": 20 }
+            { "phrase": "ねぇ、", "duration": 40 },
+            { "phrase": "もしも", "duration": 80 }
         ],
+        "background_voice": {
+            "time": "03:18.40",
+            "text": [
+                { "phrase": "もしも ", "duration": 80 },
+                { "phrase": "もしも ", "duration": 80 },
+                { "phrase": "もしも  ", "duration": 80 },
+                { "phrase": "もしも ", "duration": 80 },
+                { "phrase": "もしも ", "duration": 80 },
+                { "phrase": "もしも", "duration": 80 }
+            ]
+        },
         "translation": ""
     },
     {
         "time": "03:24.33",
         "text": [
-            { "phrase": "もしも", "duration": 20 },
-            { "phrase": "ここ", "duration": 20 },
-            { "phrase": "から", "duration": 20 }
+            { "phrase": "もしも", "duration": 30 },
+            { "phrase": "ここ", "duration": 40 },
+            { "phrase": "から", "duration": 30 }
         ],
         "translation": ""
     },
     {
         "time": "03:25.81",
         "text": [
-            { "phrase": "ま", "duration": 20 },
-            { "phrase": "た", "duration": 20 },
-            { "phrase": "出", "duration": 20 },
-            { "phrase": "会", "duration": 20 },
-            { "phrase": "え", "duration": 20 },
-            { "phrase": "る", "duration": 20 },
-            { "phrase": "の", "duration": 20 },
-            { "phrase": "な", "duration": 20 },
-            { "phrase": "ら", "duration": 20 }
+            { "phrase": "ま", "duration": 18, "kiai": true },
+            { "phrase": "た", "duration": 18, "kiai": true },
+            { "phrase": "出", "duration": 10, "kiai": true },
+            { "phrase": "会", "duration": 10, "kiai": true },
+            { "phrase": "え", "duration": 10, "kiai": true },
+            { "phrase": "る", "duration": 10, "kiai": true },
+            { "phrase": "の", "duration": 18, "kiai": true },
+            { "phrase": "な", "duration": 18, "kiai": true },
+            { "phrase": "ら", "duration": 18, "kiai": true }
         ],
         "translation": ""
     },
     {
         "time": "03:28.09",
-        "text": [{ "phrase": "これまでの", "duration": 20 }],
+        "text": [
+            { "phrase": "これ", "duration": 120 },
+            { "phrase": "まで", "duration": 120, "kiai": true },
+            { "phrase": "の", "duration": 20 }
+        ],
         "translation": ""
     },
     {
         "time": "03:31.34",
         "text": [
-            { "phrase": "一瞬", "duration": 20 },
+            { "phrase": "一瞬", "duration": 80 },
             { "phrase": "も", "duration": 20 },
-            { "phrase": "一寸", "duration": 20 },
-            { "phrase": "の", "duration": 20 },
-            { "phrase": "隅", "duration": 20 },
+            { "phrase": "一寸", "duration": 100 },
+            { "phrase": "の", "duration": 40 },
+            { "phrase": "隅", "duration": 40 },
             { "phrase": "も", "duration": 20 }
         ],
         "translation": ""
@@ -530,70 +549,75 @@
         "text": [
             { "phrase": "忘", "duration": 20 },
             { "phrase": "れず", "duration": 20 },
-            { "phrase": "全部", "duration": 20 },
-            { "phrase": "覚", "duration": 20 },
-            { "phrase": "えて", "duration": 20 },
-            { "phrase": "おこ", "duration": 20 },
+            { "phrase": "全部", "duration": 60 },
+            { "phrase": "覚", "duration": 60, "kiai": true },
+            { "phrase": "えて", "duration": 40, "kiai": true },
+            { "phrase": "おこ", "duration": 40 },
             { "phrase": "う", "duration": 20 }
         ],
         "translation": ""
     },
     {
-        "time": "03:38.56",
+        "time": "03:38.46",
         "text": [
-            { "phrase": "目", "duration": 20 },
-            { "phrase": "を", "duration": 20 },
-            { "phrase": "閉", "duration": 20 },
-            { "phrase": "じ", "duration": 20 },
-            { "phrase": "あ", "duration": 20 },
-            { "phrase": "う", "duration": 20 },
-            { "phrase": "た", "duration": 20 },
-            { "phrase": "び", "duration": 20 }
+            { "phrase": "目", "duration": 20, "kiai": true },
+            { "phrase": "を", "duration": 20, "kiai": true },
+            { "phrase": "閉", "duration": 20, "kiai": true },
+            { "phrase": "じ", "duration": 20, "kiai": true },
+            { "phrase": "あ", "duration": 20, "kiai": true },
+            { "phrase": "う", "duration": 20, "kiai": true },
+            { "phrase": "た", "duration": 20, "kiai": true },
+            { "phrase": "び", "duration": 20, "kiai": true }
         ],
         "translation": ""
     },
     {
         "time": "03:40.92",
         "text": [
-            { "phrase": "まぶた", "duration": 20 },
-            { "phrase": "で", "duration": 20 },
-            { "phrase": "久", "duration": 20 },
-            { "phrase": "しく", "duration": 20 }
+            { "phrase": "まぶた", "duration": 120, "kiai": true },
+            { "phrase": "で", "duration": 50 },
+            { "phrase": "久", "duration": 40 },
+            { "phrase": "しく", "duration": 60 }
         ],
         "translation": ""
     },
     {
         "time": "03:44.81",
         "text": [
-            { "phrase": "君", "duration": 20 },
-            { "phrase": "に", "duration": 20 },
-            { "phrase": "出", "duration": 20 },
-            { "phrase": "会", "duration": 20 },
-            { "phrase": "え", "duration": 20 },
-            { "phrase": "る", "duration": 20 },
-            { "phrase": "か", "duration": 20 },
-            { "phrase": "ら", "duration": 20 }
+            { "phrase": "君", "duration": 20, "kiai": true },
+            { "phrase": "に", "duration": 20, "kiai": true },
+            { "phrase": "出", "duration": 20, "kiai": true },
+            { "phrase": "会", "duration": 20, "kiai": true },
+            { "phrase": "え", "duration": 20, "kiai": true },
+            { "phrase": "る", "duration": 20, "kiai": true },
+            { "phrase": "か", "duration": 20, "kiai": true },
+            { "phrase": "ら", "duration": 20, "kiai": true }
         ],
         "translation": ""
     },
     {
         "time": "03:47.70",
         "text": [
-            { "phrase": "また", "duration": 20 },
+            { "phrase": "また", "duration": 80 },
+            { "phrase": "", "duration": 50 },
             {
                 "phrase": "夏",
-                "duration": 20,
+                "duration": 50,
                 "pronounciation": "ここ",
                 "pncat_forced": true
             },
-            { "phrase": "で", "duration": 20 },
-            { "phrase": "話", "duration": 20 },
-            { "phrase": "そう", "duration": 20 }
+            { "phrase": "で", "duration": 30 },
+            { "phrase": "話", "duration": 90 },
+            { "phrase": "そう", "duration": 300, "kiai": true }
         ],
         "translation": ""
     },
     {
-        "time": "04:04.24",
+        "time": "03:55.70",
+        "type": "interlude"
+    },
+    {
+        "time": "04:16.24",
         "type": "end"
     }
 ]
