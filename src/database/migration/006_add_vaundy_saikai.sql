@@ -20,11 +20,11 @@ INSERT INTO
 VALUES
     (
         1823815962,
-        0,
+        1,
         NULL,
         'Vaundy - Saikai',
         'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d9/1f/40/d91f4049-6000-db1d-c0c7-25b8a0431787/4547366756067.jpg/300x300bb.webp',
-        'Vaundy - Saikai',
+        'Vaundy',
         'Vaundy',
         '再会',
         'TVアニメ「光が死んだ夏」OPテーマ',
