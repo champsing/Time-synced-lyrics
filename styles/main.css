@@ -112,7 +112,7 @@
     }
 
     .close {
-        @apply text-gray-500 text-3xl font-bold ml-2;
+        @apply select-none text-gray-500 text-3xl font-bold ml-2;
     }
 
     .close:hover,

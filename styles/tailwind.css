@@ -1918,6 +1918,8 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     color: var(--color-gray-500);
+    -webkit-user-select: none;
+    user-select: none;
   }
   .close:hover, .close:focus {
     cursor: pointer;
