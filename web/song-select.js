@@ -3,11 +3,6 @@ import { loadSongData, loadSongList } from "./player/handles/songsHandle.js";
 import { SONGLIST_VERSION } from "./utils/base-version.js";
 import { PLAYER_VERSION } from "./utils/config.js";
 
-// 取得可用版本
-export function parseSubtitle(subtitle) {
-    return subtitle?.replace(/\\n/g, " · ") || "";
-}
-
 const VERSION_LABELS = {
     original: "原曲",
     instrumental: "伴奏",
@@ -103,6 +98,10 @@ function main() {
         console.log("版本選擇變更：", selectedVersions.value);
     }
 
+    function parseSubtitle(subtitle) {
+        return subtitle?.replace(/\\n/g, " · ") || "";
+    }
+
     function selectSong(song) {
         if (!song.available) return;
 
@@ -121,20 +120,24 @@ function main() {
 
     async function fetchSongs() {
         try {
-
             // use sessionStorage 才不會每開一次下載一次 在還沒用成資料庫前先這樣吧
             const song_list = JSON.parse(sessionStorage.getItem("songList"));
             if (!song_list) {
                 let songList = await loadSongList();
                 for (let i = 0; i < songList.length; i++) {
                     let songData = await loadSongData(songList[i].song_id);
-                    sessionStorage.setItem(songList[i].song_id, JSON.stringify(songData));
+                    sessionStorage.setItem(
+                        songList[i].song_id,
+                        JSON.stringify(songData)
+                    );
                     songs.value.push(songData);
                 }
                 sessionStorage.setItem("songList", JSON.stringify(songList));
             } else {
                 for (let i = 0; i < song_list.length; i++) {
-                    let songData = JSON.parse(sessionStorage.getItem(song_list[i].song_id));
+                    let songData = JSON.parse(
+                        sessionStorage.getItem(song_list[i].song_id)
+                    );
                     songs.value.push(songData);
                 }
             }

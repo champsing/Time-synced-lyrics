@@ -35,7 +35,6 @@ import {
     initShareModal,
 } from "./utils/modal.js";
 import { parseLyrics } from "./player/handles/lyricsHandle.js";
-import { parseSubtitle } from "./song-select.js";
 
 const bodyBackgroundColor = ref("#365456");
 
@@ -206,6 +205,10 @@ function main() {
 
     const moveForward10Sec = () =>
         window.ytPlayer.seekTo(currentTime.value + 10, true);
+
+    const parseSubtitle = (subtitle) => {
+        return subtitle?.replace(/\\n/g, "\n") || "";
+    };
 
     async function setupPlayerAndLoadSong() {
         // 1. 初始化播放器
