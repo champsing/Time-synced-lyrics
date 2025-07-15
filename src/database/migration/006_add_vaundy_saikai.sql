@@ -30,7 +30,7 @@ VALUES
         'TVアニメ「光が死んだ夏」OPテーマ',
         NULL,
         '[{"version": "original", "id": "4flRaFrBqFU", "default": true, "duration": "4:20"}]',
-        1,
+        0,
         '{"available": false, "author": "", "cite": ""}',
         '2025-07-16',
         'ja',
