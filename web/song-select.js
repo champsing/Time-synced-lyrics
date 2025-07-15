@@ -2,6 +2,7 @@ import { createApp, ref, computed, onMounted, watch } from "vue";
 import { loadSongData, loadSongList } from "./player/handles/songsHandle.js";
 import { SONGLIST_VERSION } from "./utils/base-version.js";
 import { PLAYER_VERSION } from "./utils/config.js";
+import { initRefreshModal } from "./utils/modal.js";
 
 const VERSION_LABELS = {
     original: "原曲",
@@ -189,8 +190,14 @@ function main() {
         }
     }
 
+    function refreshSongList() {
+        sessionStorage.removeItem("songList");
+        location.reload();
+    }
+
     onMounted(async () => {
         await fetchSongs();
+        initRefreshModal();
     });
 
     return {
@@ -212,6 +219,7 @@ function main() {
         selectSong,
         selectVersion,
         fetchSongs,
+        refreshSongList,
     };
 }
 

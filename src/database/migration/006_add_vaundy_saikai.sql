@@ -27,7 +27,7 @@ VALUES
         'Vaundy - Saikai',
         'Vaundy',
         '再会',
-        NULL,
+        'TVアニメ「光が死んだ夏」OPテーマ',
         NULL,
         '[{"version": "original", "id": "4flRaFrBqFU", "default": true, "duration": "4:20"}]',
         1,

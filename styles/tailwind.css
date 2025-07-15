@@ -422,6 +422,9 @@
   .h-2 {
     height: calc(var(--spacing) * 2);
   }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
@@ -740,6 +743,10 @@
     border-style: var(--tw-border-style);
     border-width: 2px;
   }
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
+  }
   .border-none {
     --tw-border-style: none;
     border-style: none;
@@ -750,11 +757,20 @@
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
+  .border-gray-400 {
+    border-color: var(--color-gray-400);
+  }
   .border-gray-800 {
     border-color: var(--color-gray-800);
   }
+  .bg-\[\#1c7f13\] {
+    background-color: #1c7f13;
+  }
   .bg-\[\#1d94a1\] {
     background-color: #1d94a1;
+  }
+  .bg-\[\#2ba4b1\] {
+    background-color: #2ba4b1;
   }
   .bg-\[\#2c4f3d\] {
     background-color: #2c4f3d;
@@ -792,6 +808,9 @@
   .bg-\[\#545425\] {
     background-color: #545425;
   }
+  .bg-\[\#e42121\] {
+    background-color: #e42121;
+  }
   .bg-amber-900 {
     background-color: var(--color-amber-900);
   }
@@ -824,6 +843,9 @@
   }
   .bg-gray-500 {
     background-color: var(--color-gray-500);
+  }
+  .bg-gray-600 {
+    background-color: var(--color-gray-600);
   }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
@@ -956,6 +978,9 @@
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
+  }
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * 0.5);
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
@@ -1366,6 +1391,20 @@
     &:hover {
       @media (hover: hover) {
         background-color: #3aaabf;
+      }
+    }
+  }
+  .hover\:bg-\[\#6bc38b\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #6bc38b;
+      }
+    }
+  }
+  .hover\:bg-\[\#ea8181\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #ea8181;
       }
     }
   }
@@ -1873,7 +1912,6 @@
     text-shadow: 0 0 5px var(--tw-text-shadow-color, rgba(255 255 255 / 0.5));
   }
   .close {
-    float: right;
     margin-left: calc(var(--spacing) * 2);
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
@@ -2084,7 +2122,7 @@
   .modal-view-area {
     margin-top: calc(var(--spacing) * 2);
     display: flex;
-    max-height: 40%;
+    max-height: calc(1/2 * 100%);
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;

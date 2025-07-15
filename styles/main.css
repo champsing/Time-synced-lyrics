@@ -112,7 +112,7 @@
     }
 
     .close {
-        @apply text-gray-500 float-right text-3xl font-bold ml-2;
+        @apply text-gray-500 text-3xl font-bold ml-2;
     }
 
     .close:hover,
@@ -209,7 +209,7 @@
     }
 
     .modal-view-area {
-        @apply gap-1 flex flex-col justify-start items-center mt-2 max-h-[40%] overflow-y-scroll;
+        @apply gap-1 flex flex-col justify-start items-center mt-2 max-h-1/2 overflow-y-scroll;
     }
 
     .modal-mutual {
