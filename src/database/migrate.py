@@ -82,9 +82,11 @@ if __name__ == "__main__":
     all_migrations = [
         "001_create_songs_table",
         "002_fix_translation_field",
+        "002_insert_songs",
         "003_make_one_day_available",
         "004_fix_one_day_credits",
         "005_drop_id_column",
+        "006_add_vaundy_saikai",
     ]
 
     # 初始化並執行 migrations
