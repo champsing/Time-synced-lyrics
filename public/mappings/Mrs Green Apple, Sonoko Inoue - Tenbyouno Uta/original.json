@@ -630,7 +630,7 @@
                 "duration": 70,
                 "kiai": true,
                 "pronounciation": "いま",
-                "forced_pronounciation": true
+                "pncat_forced": true
             },
             { "phrase": "に", "duration": 27.3 }
         ],
