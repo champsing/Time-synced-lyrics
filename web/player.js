@@ -102,7 +102,7 @@ function main() {
     const currentLineIndex = computed(() => {
         if (!jsonMappingContent.value) return -1;
         for (let i = jsonMappingContent.value.length - 1; i >= 0; i--) {
-            if (currentTime.value >= jsonMappingContent.value[i].time) {
+            if (currentTime.value >= jsonMappingContent.value[i].time - 0.3) {
                 return i;
             }
         }
