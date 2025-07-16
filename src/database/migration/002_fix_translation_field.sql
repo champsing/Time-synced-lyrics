@@ -15,6 +15,7 @@ CREATE TABLE
         album JSON DEFAULT `{"album": "", link: ""}`,
         versions JSON NOT NULL DEFAULT `{"version": "original", "id": "", "default": true, "duration": "0:00"}`,
         is_duet BOOLEAN NOT NULL DEFAULT 0,
+        furigana BOOLEAN DEFAULT 0,
         translation JSON NOT NULL DEFAULT `{available: false}`,
         updated_at DATE NOT NULL DEFAULT CURRENT_DATE,
         lang TEXT NOT NULL DEFAULT "",
