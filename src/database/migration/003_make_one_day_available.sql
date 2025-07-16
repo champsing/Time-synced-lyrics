@@ -1,6 +1,5 @@
 UPDATE songs
 SET
-    `available` = 1,
-    `updated_at` = CURRENT_DATE
+    `available` = 1
 WHERE
     `song_id` = 1704107222;

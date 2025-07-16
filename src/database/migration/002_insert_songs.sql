@@ -149,7 +149,7 @@ VALUES
         0,
         '{"available": true, "author": "官方 YouTube 翻譯", "cite":"https://www.youtube.com/watch?v=pOxWDTk7i1Y&t=50s&ab_channel=Omoinotake"}',
         '2025-06-20',
-        'jp',
+        'ja',
         '{"performance": [{"name": "Omoinotake", "contribution": ["混音師"]}, {"name": "Kohei Ishii", "contribution": ["混音師"]}], "song_writing": [{"name": "福島智朗", "contribution": ["作詞"]}, {"name": "藤井怜央", "contribution": ["作曲"]}, {"name": "Omoinotake", "contribution": ["編曲"]}, {"name": "Kohei Ishii", "contribution": ["編曲"]}]}'
     ),
     (
