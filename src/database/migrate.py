@@ -87,6 +87,7 @@ if __name__ == "__main__":
         "004_fix_one_day_credits",
         "005_drop_id_column",
         "006_add_vaundy_saikai",
+        "007_make_saikai_translation_available",
     ]
 
     # 初始化並執行 migrations

@@ -10,7 +10,7 @@
             { "phrase": " more", "duration": 20 },
             { "phrase": " time", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "再一次"
     },
     {
         "time": "00:20.77",
@@ -27,7 +27,7 @@
             { "phrase": "i", "duration": 20, "kiai": true },
             { "phrase": "c", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "馬上就要喚起魔法了"
     },
     {
         "time": "00:25.66",
@@ -40,7 +40,7 @@
             },
             { "phrase": "TRY", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "超級嘗試"
     },
     {
         "time": "00:27.15",
@@ -54,7 +54,7 @@
             { "phrase": "d", "duration": 20, "kiai": true },
             { "phrase": "y", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "將光芒借給身體"
     },
     {
         "time": "00:30.33",
@@ -64,7 +64,7 @@
             { "phrase": "して", "duration": 30 },
             { "phrase": "でも", "duration": 40 }
         ],
-        "translation": ""
+        "translation": "無論如何"
     },
     {
         "time": "00:32.09",
@@ -78,7 +78,7 @@
             { "phrase": "いて", "duration": 40, "kiai": true },
             { "phrase": "くれ", "duration": 40, "kiai": true }
         ],
-        "translation": ""
+        "translation": "請聽我一個願望"
     },
     {
         "time": "00:37.22",
@@ -88,7 +88,7 @@
             { "phrase": "より", "duration": 20 },
             { "phrase": "も", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "比起說三道四"
     },
     {
         "time": "00:38.49",
@@ -103,7 +103,7 @@
             { "phrase": "く", "duration": 20, "kiai": true },
             { "phrase": "れ", "duration": 250, "kiai": true }
         ],
-        "translation": ""
+        "translation": "請領悟我的一個心意"
     },
     {
         "time": "00:45.26",
@@ -115,7 +115,7 @@
             { "phrase": "しみ", "duration": 40 },
             { "phrase": "と", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "與宇宙第一的悲傷"
     },
     {
         "time": "00:48.54",
@@ -127,7 +127,7 @@
             { "phrase": "けさ", "duration": 40 },
             { "phrase": "と", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "與迷霧散去的寧靜"
     },
     {
         "time": "00:51.77",
@@ -136,7 +136,7 @@
             { "phrase": "心拍", "duration": 80 },
             { "phrase": "で", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "以及我的心跳"
     },
     {
         "time": "00:54.10",
@@ -145,7 +145,7 @@
             { "phrase": " もし", "duration": 60 },
             { "phrase": " もし", "duration": 60 }
         ],
-        "translation": ""
+        "translation": "如果"
     },
     {
         "time": "00:56.34",
@@ -154,7 +154,7 @@
             { "phrase": "ここ", "duration": 20 },
             { "phrase": "から", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "如果能從這裡再次相遇的話"
     },
     {
         "time": "00:57.60",
@@ -169,7 +169,7 @@
             { "phrase": "な", "duration": 18, "kiai": true },
             { "phrase": "ら", "duration": 18, "kiai": true }
         ],
-        "translation": ""
+        "translation": "如果能從這裡再次相遇的話"
     },
     {
         "time": "01:00.14",
@@ -178,7 +178,7 @@
             { "phrase": "先", "duration": 100 },
             { "phrase": "は", "duration": 40 }
         ],
-        "translation": ""
+        "translation": "從今往後"
     },
     {
         "time": "01:03.32",
@@ -190,7 +190,7 @@
             { "phrase": "隅", "duration": 40 },
             { "phrase": "も", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "每一瞬間每一個角落"
     },
     {
         "time": "01:07.09",
@@ -203,7 +203,7 @@
             { "phrase": "おこ", "duration": 40 },
             { "phrase": "う", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "都不遺忘 全部記住吧"
     },
     {
         "time": "01:10.41",
@@ -217,7 +217,7 @@
             { "phrase": "た", "duration": 20, "kiai": true },
             { "phrase": "び", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "每當閉上雙眼"
     },
     {
         "time": "01:12.78",
@@ -227,7 +227,7 @@
             { "phrase": "久", "duration": 40 },
             { "phrase": "しく", "duration": 60 }
         ],
-        "translation": ""
+        "translation": "總能在眼皮後久違地"
     },
     {
         "time": "01:16.61",
@@ -241,7 +241,7 @@
             { "phrase": "か", "duration": 20, "kiai": true },
             { "phrase": "ら", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "與你相遇"
     },
     {
         "time": "01:19.56",
@@ -258,7 +258,7 @@
             { "phrase": "話", "duration": 90 },
             { "phrase": "そう", "duration": 40 }
         ],
-        "translation": ""
+        "translation": "所以我們夏天再聊吧"
     },
     {
         "time": "01:23.81",
@@ -271,7 +271,7 @@
             { "phrase": " more", "duration": 20 },
             { "phrase": " night", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "再一夜"
     },
     {
         "time": "01:37.56",
@@ -288,7 +288,7 @@
             { "phrase": "i", "duration": 20, "kiai": true },
             { "phrase": "c", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "馬上就要喚起魔法了"
     },
     {
         "time": "01:42.46",
@@ -301,7 +301,7 @@
             },
             { "phrase": "HIGH", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "超級興奮"
     },
     {
         "time": "01:43.90",
@@ -312,7 +312,7 @@
             { "phrase": "んでる", "duration": 50 },
             { "phrase": "マジ", "duration": 40 }
         ],
-        "translation": ""
+        "translation": "真的已經很用力了"
     },
     {
         "time": "01:47.38",
@@ -322,7 +322,7 @@
             { "phrase": "たって", "duration": 50 },
             { "phrase": "もう", "duration": 30 }
         ],
-        "translation": ""
+        "translation": "不管怎麼看"
     },
     {
         "time": "01:48.93",
@@ -334,7 +334,7 @@
             { "phrase": "みたい", "duration": 50 },
             { "phrase": "だね", "duration": 50 }
         ],
-        "translation": ""
+        "translation": "這都是一條魯莽的路線 簡直像蠱毒一樣呢"
     },
     {
         "time": "01:54.10",
@@ -344,7 +344,7 @@
             { "phrase": "より", "duration": 20 },
             { "phrase": "も", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "比起說三道四"
     },
     {
         "time": "01:55.28",
@@ -360,7 +360,7 @@
             { "phrase": "てく", "duration": 50 },
             { "phrase": "れ", "duration": 120, "kiai": true }
         ],
-        "translation": ""
+        "translation": "請挖掘出我隱藏的感情"
     },
     {
         "time": "02:02.10",
@@ -371,7 +371,7 @@
             { "phrase": "快感", "duration": 80, "kiai": true },
             { "phrase": "と", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "與宇宙第一的快感"
     },
     {
         "time": "02:05.31",
@@ -383,7 +383,7 @@
             { "phrase": "重圧", "duration": 80 },
             { "phrase": "と", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "與令人窒息的重壓"
     },
     {
         "time": "02:08.65",
@@ -393,7 +393,7 @@
             { "phrase": "情熱", "duration": 60, "kiai": true },
             { "phrase": "で", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "以及我的熱情"
     },
     {
         "time": "02:10.87",
@@ -402,7 +402,7 @@
             { "phrase": " もし", "duration": 60 },
             { "phrase": " もし", "duration": 60 }
         ],
-        "translation": ""
+        "translation": "如果"
     },
     {
         "time": "02:14.37",
@@ -423,7 +423,7 @@
             { "phrase": "航路", "duration": 80 },
             { "phrase": "の", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "連結黃泉盡頭的咒語與航路"
     },
     {
         "time": "02:59.19",
@@ -439,7 +439,7 @@
             { "phrase": "った", "duration": 20, "kiai": true },
             { "phrase": "ら", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "如果我並不知道它們的所在之處"
     },
     {
         "time": "03:04.83",
@@ -463,7 +463,7 @@
             { "phrase": "か", "duration": 20 },
             { "phrase": "の", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "即使如此，你還會尋找我內心深處"
     },
     {
         "time": "03:11.93",
@@ -478,7 +478,7 @@
             { "phrase": "だろう", "duration": 60 },
             { "phrase": "か", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "某些東西的所在之處嗎"
     },
     {
         "time": "03:17.66",
@@ -495,9 +495,10 @@
                 { "phrase": "もしも ", "duration": 80 },
                 { "phrase": "もしも ", "duration": 80 },
                 { "phrase": "もしも", "duration": 80 }
-            ]
+            ],
+            "translation": "如果"
         },
-        "translation": ""
+        "translation": "吶，如果"
     },
     {
         "time": "03:24.33",
@@ -506,7 +507,7 @@
             { "phrase": "ここ", "duration": 40 },
             { "phrase": "から", "duration": 30 }
         ],
-        "translation": ""
+        "translation": "如果能從這裡再次相遇的話"
     },
     {
         "time": "03:25.81",
@@ -521,7 +522,7 @@
             { "phrase": "な", "duration": 18, "kiai": true },
             { "phrase": "ら", "duration": 18, "kiai": true }
         ],
-        "translation": ""
+        "translation": "如果能從這裡再次相遇的話"
     },
     {
         "time": "03:28.09",
@@ -530,7 +531,7 @@
             { "phrase": "まで", "duration": 120, "kiai": true },
             { "phrase": "の", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "從今往後"
     },
     {
         "time": "03:31.34",
@@ -542,7 +543,7 @@
             { "phrase": "隅", "duration": 40 },
             { "phrase": "も", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "每一瞬間每一個角落"
     },
     {
         "time": "03:35.20",
@@ -555,7 +556,7 @@
             { "phrase": "おこ", "duration": 40 },
             { "phrase": "う", "duration": 20 }
         ],
-        "translation": ""
+        "translation": "都不遺忘 全部記住吧"
     },
     {
         "time": "03:38.46",
@@ -569,7 +570,7 @@
             { "phrase": "た", "duration": 20, "kiai": true },
             { "phrase": "び", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "每當閉上雙眼"
     },
     {
         "time": "03:40.92",
@@ -579,7 +580,7 @@
             { "phrase": "久", "duration": 40 },
             { "phrase": "しく", "duration": 60 }
         ],
-        "translation": ""
+        "translation": "總能在眼皮後久違地"
     },
     {
         "time": "03:44.81",
@@ -593,7 +594,7 @@
             { "phrase": "か", "duration": 20, "kiai": true },
             { "phrase": "ら", "duration": 20, "kiai": true }
         ],
-        "translation": ""
+        "translation": "與你相遇"
     },
     {
         "time": "03:47.70",
@@ -610,7 +611,7 @@
             { "phrase": "話", "duration": 90 },
             { "phrase": "そう", "duration": 300, "kiai": true }
         ],
-        "translation": ""
+        "translation": "所以我們夏天再聊吧"
     },
     {
         "time": "03:55.70",
