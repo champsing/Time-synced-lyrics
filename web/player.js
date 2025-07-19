@@ -116,7 +116,7 @@ function main() {
     const jumpToCurrentLine = (index) => {
         const line = jsonMappingContent.value[index];
         if (line && window.ytPlayer) {
-            window.ytPlayer.seekTo(line.time);
+            window.ytPlayer.seekTo(line.time - 0.2);
             scrollToLineIndex(index);
         }
     };
