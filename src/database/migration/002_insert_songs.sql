@@ -36,7 +36,22 @@ VALUES
         '{"available": true, "author": "官方 YouTube 翻譯", "cite": "https://www.youtube.com/watch?v=rWsiVWlvw2E"}',
         '2025-06-08',
         'ja',
-        '{"performance": [{"name": "大森元貴", "contribution": ["主唱", "吉他"]}, {"name": "Sonoko Inoue", "contribution": ["主唱"]}, {"name": "若井滉斗", "contribution": ["吉他"]}, {"name": "山中綾華", "contribution": ["鼓"]}, {"name": "藤澤涼架", "contribution": ["鋼琴"]}, {"name": "高野清宗", "contribution": ["低音吉他"]}], "song_writing": [{"name": "大森元貴", "contribution": ["詞曲創作", "編曲"]}], "engineering": [{"name": "Mrs. GREEN APPLE", "contribution": ["製作人"]}]}'
+        '
+        {
+            "performance": [
+                { "name": "大森元貴", "contribution": ["主唱", "吉他"] },
+                { "name": "Sonoko Inoue", "contribution": ["主唱"] },
+                { "name": "若井滉斗", "contribution": ["吉他"] },
+                { "name": "山中綾華", "contribution": ["鼓"] },
+                { "name": "藤澤涼架", "contribution": ["鋼琴"] },
+                { "name": "高野清宗", "contribution": ["低音吉他"] }
+            ],
+            "song_writing": [
+                { "name": "大森元貴", "contribution": ["詞曲創作", "編曲"] }
+            ],
+            "engineering": [{ "name": "Mrs. GREEN APPLE", "contribution": ["製作人"] }]
+        }
+        '
     ),
     (
         1445145789,
@@ -55,7 +70,24 @@ VALUES
         '{"available": true, "author": "香榭"}',
         '2025-05-19',
         'ja',
-        '{"performance": [{"name": "大森元貴", "contribution": ["主唱", "編程", "電吉他", "原聲吉他"]}, {"name": "若井滉斗", "contribution": ["電吉他"]}, {"name": "山中綾華", "contribution": ["鼓"]}, {"name": "藤澤涼架", "contribution": ["電子琴", "編程"]}, {"name": "高野清宗", "contribution": ["電子低音吉他"]}], "song_writing": [{"name": "大森元貴", "contribution": ["詞曲創作", "編曲"]}], "engineering": [{"name": "Mrs. GREEN APPLE", "contribution": ["製作人"]}]}'
+        '
+        {
+            "performance": [
+                {
+                    "name": "大森元貴",
+                    "contribution": ["主唱", "編程", "電吉他", "原聲吉他"]
+                },
+                { "name": "若井滉斗", "contribution": ["電吉他"] },
+                { "name": "山中綾華", "contribution": ["鼓"] },
+                { "name": "藤澤涼架", "contribution": ["電子琴", "編程"] },
+                { "name": "高野清宗", "contribution": ["電子低音吉他"] }
+            ],
+            "song_writing": [
+                { "name": "大森元貴", "contribution": ["詞曲創作", "編曲"] }
+            ],
+            "engineering": [{ "name": "Mrs. GREEN APPLE", "contribution": ["製作人"] }]
+        }
+        '
     ),
     (
         1538265734,
@@ -74,7 +106,18 @@ VALUES
         '{"available": true, "author": "Alice／箱庭博物館", "cite": "http://alicepika.blog.fc2.com/blog-entry-682.html", "modified": true}',
         '2025-05-15',
         'ja',
-        '{"performance": [{"name": "米津玄師", "contribution": ["主唱", "吉他"]}, {"name": "須藤 優", "contribution": ["貝斯"]}], "song_writing": [{"name": "米津玄師", "contribution": ["詞曲創作", "編曲"]}, {"name": "Yuta Bandoh", "contribution": ["編曲"]}]}'
+        '
+        {
+            "performance": [
+                { "name": "米津玄師", "contribution": ["主唱", "吉他"] },
+                { "name": "須藤 優", "contribution": ["貝斯"] }
+            ],
+            "song_writing": [
+                { "name": "米津玄師", "contribution": ["詞曲創作", "編曲"] },
+                { "name": "Yuta Bandoh", "contribution": ["編曲"] }
+            ]
+        }
+        '
     ),
     (
         1629869580,
@@ -93,7 +136,15 @@ VALUES
         '{"available": true, "author": "Alice／箱庭博物館", "cite": "http://alicepika.blog.fc2.com/blog-entry-737.html"}',
         '2025-05-09',
         'ja',
-        '{"performance": [{"name": "秋田ひろむ", "contribution": ["主唱"]}], "song_writing": [{"name": "秋田ひろむ", "contribution": ["詞曲創作"]}, {"name": "出羽良彰", "contribution": ["編曲"]}]}'
+        '
+        {
+            "performance": [{ "name": "秋田ひろむ", "contribution": ["主唱"] }],
+            "song_writing": [
+                { "name": "秋田ひろむ", "contribution": ["詞曲創作"] },
+                { "name": "出羽良彰", "contribution": ["編曲"] }
+            ]
+        }
+        '
     ),
     (
         1646398286,
@@ -106,13 +157,31 @@ VALUES
         'SKETCH',
         'TVアニメ「僕のヒーローアカデミア」\n6期EDテーマ',
         '{"name": "Good Night Mare", "link": "43VsTEF"}',
-        '[{"version": "original", "id": "M0cHair48Jg", "default": true, "duration": "4:16"}, {"version": "live", "id": "Y7IC9ccumcc", "duration": "4:10"}]',
+        '
+        [
+            {
+                "version": "original",
+                "id": "M0cHair48Jg",
+                "default": true,
+                "duration": "4:16"
+            },
+            { "version": "live", "id": "Y7IC9ccumcc", "duration": "4:10" }
+        ]
+        ',
         0,
         0,
         '{"available": true, "author": "香榭"}',
         '2025-05-01',
         'ja',
-        '{"performance": [{"name": "Kiro Akiyama", "contribution": ["主唱"]}], "song_writing": [{"name": "Kiro Akiyama", "contribution": ["詞曲創作", "編曲"]}, {"name": "川口圭太", "contribution": ["編曲"]}]}'
+        '
+        {
+            "performance": [{ "name": "Kiro Akiyama", "contribution": ["主唱"] }],
+            "song_writing": [
+                { "name": "Kiro Akiyama", "contribution": ["詞曲創作", "編曲"] },
+                { "name": "川口圭太", "contribution": ["編曲"] }
+            ]
+        }
+        '
     ),
     (
         1691229817,
@@ -131,7 +200,35 @@ VALUES
         '{"available": false, "author": "香榭"}',
         '2025-06-08',
         'se',
-        '{"performance": [{"name": "大森元貴", "contribution": ["主唱", "吉他"]}, {"name": "若井滉斗", "contribution": ["曼陀林", "原聲吉他"]}, {"name": "藤澤涼架", "contribution": ["電子琴"]}, {"name": "Ryo Hanai", "contribution": ["編程"]}, {"name": "Ryo Kanda", "contribution": ["鼓"]}, {"name": "Natsuhiko Mori", "contribution": ["立式貝斯", "低音提琴"]}, {"name": "Anzu Suhara", "contribution": ["小提琴"]}, {"name": "吉田篤貴", "contribution": ["小提琴"]}, {"name": "Sumire Segawa", "contribution": ["中提琴"]}, {"name": "Kirin Uchida", "contribution": ["大提琴"]}, {"name": "Patri", "contribution": ["民間提琴"]}], "song_writing": [{"name": "大森元貴", "contribution": ["詞曲創作", "編曲"]}, {"name": "Ryo Hanai", "contribution": ["編曲"]}, {"name": "Marcus Lindberg", "contribution": ["翻譯"]}], "engineering": [{"name": "大森元貴", "contribution": ["製作人"]}, {"name": "Yoshinori Adachi", "contribution": ["混音師", "錄音師"]}]}'
+        '
+        {
+            "performance": [
+                { "name": "大森元貴", "contribution": ["主唱", "吉他"] },
+                { "name": "若井滉斗", "contribution": ["曼陀林", "原聲吉他"] },
+                { "name": "藤澤涼架", "contribution": ["電子琴"] },
+                { "name": "Ryo Hanai", "contribution": ["編程"] },
+                { "name": "Ryo Kanda", "contribution": ["鼓"] },
+                {
+                    "name": "Natsuhiko Mori",
+                    "contribution": ["立式貝斯", "低音提琴"]
+                },
+                { "name": "Anzu Suhara", "contribution": ["小提琴"] },
+                { "name": "吉田篤貴", "contribution": ["小提琴"] },
+                { "name": "Sumire Segawa", "contribution": ["中提琴"] },
+                { "name": "Kirin Uchida", "contribution": ["大提琴"] },
+                { "name": "Patri", "contribution": ["民間提琴"] }
+            ],
+            "song_writing": [
+                { "name": "大森元貴", "contribution": ["詞曲創作", "編曲"] },
+                { "name": "Ryo Hanai", "contribution": ["編曲"] },
+                { "name": "Marcus Lindberg", "contribution": ["翻譯"] }
+            ],
+            "engineering": [
+                { "name": "大森元貴", "contribution": ["製作人"] },
+                { "name": "Yoshinori Adachi", "contribution": ["混音師", "錄音師"] }
+            ]
+        }
+        '
     ),
     (
         1704107222,
@@ -150,7 +247,20 @@ VALUES
         '{"available": true, "author": "官方 YouTube 翻譯", "cite":"https://www.youtube.com/watch?v=pOxWDTk7i1Y&t=50s&ab_channel=Omoinotake"}',
         '2025-06-20',
         'ja',
-        '{"performance": [{"name": "Omoinotake", "contribution": ["混音師"]}, {"name": "Kohei Ishii", "contribution": ["混音師"]}], "song_writing": [{"name": "福島智朗", "contribution": ["作詞"]}, {"name": "藤井怜央", "contribution": ["作曲"]}, {"name": "Omoinotake", "contribution": ["編曲"]}, {"name": "Kohei Ishii", "contribution": ["編曲"]}]}'
+        '
+        {
+            "performance": [
+                { "name": "Omoinotake", "contribution": ["混音師"] },
+                { "name": "Kohei Ishii", "contribution": ["混音師"] }
+            ],
+            "song_writing": [
+                { "name": "福島智朗", "contribution": ["作詞"] },
+                { "name": "藤井怜央", "contribution": ["作曲"] },
+                { "name": "Omoinotake", "contribution": ["編曲"] },
+                { "name": "Kohei Ishii", "contribution": ["編曲"] }
+            ]
+        }
+        '
     ),
     (
         1707027525,
@@ -169,7 +279,12 @@ VALUES
         '{"available": true, "author": "995GOLDFISH", "cite": "https://www.995goldfish.com/2021/11/vaundy_22.html", "modified": true}',
         '2025-05-16',
         'ja',
-        '{"performance": [{"name": "Vaundy", "contribution": ["主唱"]}], "song_writing": [{"name": "Vaundy", "contribution": ["詞曲創作", "編曲"]}]}'
+        '
+        {
+            "performance": [{ "name": "Vaundy", "contribution": ["主唱"] }],
+            "song_writing": [{ "name": "Vaundy", "contribution": ["詞曲創作", "編曲"] }]
+        }
+        '
     ),
     (
         1714599807,
@@ -188,7 +303,12 @@ VALUES
         '{"available": true, "author": "Oblivionis", "cite": "https://home.gamer.com.tw/artwork.php?sn=5830215"}',
         '2025-05-20',
         'ja',
-        '{"performance": [{"name": "Vaundy", "contribution": ["主唱"]}], "song_writing": [{"name": "Vaundy", "contribution": ["詞曲創作", "編曲"]}]}'
+        '
+        {
+            "performance": [{ "name": "Vaundy", "contribution": ["主唱"] }],
+            "song_writing": [{ "name": "Vaundy", "contribution": ["詞曲創作", "編曲"] }]
+        }
+        '
     ),
     (
         1744861537,
@@ -201,13 +321,42 @@ VALUES
         '希望有羽毛和翅膀',
         '《崩壞:星穹鐵道》匹諾康尼戰鬥主題曲',
         '{"name": "空氣蛹 - EP", "link": "xL9n1en"}',
-        '[{"version": "original", "id": "m8VX1usnxlY", "default": true, "duration": "3:49"}, {"version": "instrumental", "id": "BPGF_w1p28U", "duration": "3:49"}, {"version": "live", "id": "ztCNc9CuKK8", "duration": "4:06"}]',
+        '
+        [
+            {
+                "version": "original",
+                "id": "m8VX1usnxlY",
+                "default": true,
+                "duration": "3:49"
+            },
+            { "version": "instrumental", "id": "BPGF_w1p28U", "duration": "3:49" },
+            { "version": "live", "id": "ztCNc9CuKK8", "duration": "4:06" }
+        ]
+        ',
         0,
         NULL,
         '{"available": true, "author": "官方 YouTube 翻譯", "cite": "https://www.youtube.com/watch?v=pktTrSBAOJw&ab_channel=%E5%B4%A9%E5%A3%9E%3A%E6%98%9F%E7%A9%B9%E9%90%B5%E9%81%93"}',
         '2025-05-14',
         'en',
-        '{"performance": [{"name": "知更鳥", "contribution": ["演出者"]}, {"name": "HOYO-MiX", "contribution": ["演出者"]}, {"name": "Chevy", "contribution": ["主唱"]}, {"name": "王可鑫", "contribution": ["演出者"]}], "song_writing": [{"name": "Ruby Qu", "contribution": ["作詞"]}, {"name": "王可鑫", "contribution": ["編曲", "詞曲創作"]}], "engineering": [{"name": "王可鑫", "contribution": ["製作人", "母帶工程師"]}, {"name": "阿烈", "contribution": ["混音師"]}, {"name": "宮奇", "contribution": ["母帶工程師"]}]}'
+        '
+        {
+            "performance": [
+                { "name": "知更鳥", "contribution": ["演出者"] },
+                { "name": "HOYO-MiX", "contribution": ["演出者"] },
+                { "name": "Chevy", "contribution": ["主唱"] },
+                { "name": "王可鑫", "contribution": ["演出者"] }
+            ],
+            "song_writing": [
+                { "name": "Ruby Qu", "contribution": ["作詞"] },
+                { "name": "王可鑫", "contribution": ["編曲", "詞曲創作"] }
+            ],
+            "engineering": [
+                { "name": "王可鑫", "contribution": ["製作人", "母帶工程師"] },
+                { "name": "阿烈", "contribution": ["混音師"] },
+                { "name": "宮奇", "contribution": ["母帶工程師"] }
+            ]
+        }
+        '
     ),
     (
         1758905748,
@@ -226,7 +375,12 @@ VALUES
         '{"available": true, "author": "香榭"}',
         '2025-05-18',
         'ja',
-        '{"performance": [{"name": "Vaundy", "contribution": ["主唱"]}], "song_writing": [{"name": "Vaundy", "contribution": ["詞曲創作", "編曲"]}]}'
+        '
+        {
+            "performance": [{ "name": "Vaundy", "contribution": ["主唱"] }],
+            "song_writing": [{ "name": "Vaundy", "contribution": ["詞曲創作", "編曲"] }]
+        }
+        '
     ),
     (
         1809714969,
@@ -239,11 +393,39 @@ VALUES
         '不虛此行',
         '《崩壞:星穹鐵道》兩週年紀念曲',
         NULL,
-        '[{"version": "original", "id": "0WyDtxRZ938", "default": true, "duration": "2:37"}, {"version": "instrumental", "id": "YOWLfsIHkZg", "duration": "2:37"}]',
+        '
+        [
+            {
+                "version": "original",
+                "id": "0WyDtxRZ938",
+                "default": true,
+                "duration": "2:37"
+            },
+            { "version": "instrumental", "id": "YOWLfsIHkZg", "duration": "2:37" }
+        ]
+        ',
         1,
         NULL,
         '{"available": true, "author": "官方 YouTube 翻譯", "cite": "https://www.youtube.com/watch?v=GdBLXGUy2C0&pp=ygUM5LiN6Jmb5q2k6KGM"}',
         '2025-05-09',
         'en',
-        '{"performance": [{"name": "HOYO-MiX", "contribution": ["演出者"]}, {"name": "魏晨", "contribution": ["主唱"]}, {"name": "NEA", "contribution": ["主唱"]}], "song_writing": [{"name": "王可鑫", "contribution": ["詞曲創作", "編曲"]}, {"name": "Ruby Qu", "contribution": ["作詞"]}], "engineering": [{"name": "崔瀚普", "contribution": ["製作人"]}, {"name": "张迦南", "contribution": ["母帶工程師"]}, {"name": "王可鑫", "contribution": ["製作人", "母帶工程師"]}, {"name": "阿烈", "contribution": ["混音師"]}]}'
+        '
+        {
+            "performance": [
+                { "name": "HOYO-MiX", "contribution": ["演出者"] },
+                { "name": "魏晨", "contribution": ["主唱"] },
+                { "name": "NEA", "contribution": ["主唱"] }
+            ],
+            "song_writing": [
+                { "name": "王可鑫", "contribution": ["詞曲創作", "編曲"] },
+                { "name": "Ruby Qu", "contribution": ["作詞"] }
+            ],
+            "engineering": [
+                { "name": "崔瀚普", "contribution": ["製作人"] },
+                { "name": "张迦南", "contribution": ["母帶工程師"] },
+                { "name": "王可鑫", "contribution": ["製作人", "母帶工程師"] },
+                { "name": "阿烈", "contribution": ["混音師"] }
+            ]
+        }
+        '
     )

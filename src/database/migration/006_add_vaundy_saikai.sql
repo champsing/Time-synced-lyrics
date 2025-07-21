@@ -36,5 +36,13 @@ VALUES
         '{"available": false, "author": "", "cite": ""}',
         '2025-07-16',
         'ja',
-        '{"performance": [{"name": "Vaundy", "contribution": ["聲樂"]}], "song_writing": [{"name": "Vaundy", "contribution": ["作詞", "作曲", "編曲"]}], "engineering": [{"name": "Vaundy", "contribution": ["製作人"]}]}'
+        '
+        {
+            "performance": [{ "name": "Vaundy", "contribution": ["聲樂"] }],
+            "song_writing": [
+                { "name": "Vaundy", "contribution": ["作詞", "作曲", "編曲"] }
+            ],
+            "engineering": [{ "name": "Vaundy", "contribution": ["製作人"] }]
+        }
+        '
     )
