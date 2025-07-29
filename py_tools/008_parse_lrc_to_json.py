@@ -31,7 +31,7 @@ def lrc_to_json(lrc_text):
                 # 處理括號內的文本
                 bracket_content = bracket_match.group(1)
                 phrases = [p.strip() for p in bracket_content.split("|") if p.strip()]
-                text_list = [{"phrase": p, "duration": 0} for p in phrases]
+                text_list = [{"phrase": p, "duration": 20} for p in phrases]
 
                 result.append(
                     {
@@ -51,10 +51,10 @@ def lrc_to_json(lrc_text):
                 # 處理括號內的文本
                 main_content = content.replace(bracket_match.group(0), "")
                 phrases = [p for p in main_content.split("|")]
-                text_list = [{"phrase": p, "duration": 0} for p in phrases]
+                text_list = [{"phrase": p, "duration": 20} for p in phrases]
                 bracket_content = bracket_match.group(1)
                 bg_phrases = [p for p in bracket_content.split("|")]
-                bg_text_list = [{"phrase": p, "duration": 0} for p in bg_phrases]
+                bg_text_list = [{"phrase": p, "duration": 20} for p in bg_phrases]
                 result.append(
                     {
                         "time": time_str,
@@ -71,7 +71,7 @@ def lrc_to_json(lrc_text):
             else:
 
                 phrases = [p for p in content.split("|")]
-                text_list = [{"phrase": p, "duration": 0} for p in phrases]
+                text_list = [{"phrase": p, "duration": 20} for p in phrases]
                 result.append(
                     {
                         "time": time_str,
