@@ -204,7 +204,7 @@
                 class="scroll-smooth snap-y snap-proximity text-center p-4 w-full relative md:mb-10"
                 :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }">
                 <div class="md:h-svh md:overflow-scroll md:overflow-x-hidden" style="scrollbar-width: none;">
-                    <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-4 opacity-100 !text-2xl"
+                    <div v-for="(line, index) in jsonMappingContent" class="lyric-line !m-6 opacity-100"
                         :id="`lyric-line-${index}`"
                         :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }">
                         <button :id="`line-button-${index}`" @click="jumpToCurrentLine(index)"
