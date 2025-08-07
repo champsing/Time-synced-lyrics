@@ -50,8 +50,8 @@ VALUES
                 {"name": "yutori", "contribution": ["編曲"]}
             ],
             "engineering": [
-                {"name: "Fumiaki Unehara", "contribution": ["混音師"]},
-                {"name: "Akihiro Shiba", "contribution": ["母帶工程師"]},
+                {"name": "Fumiaki Unehara", "contribution": ["混音師"]},
+                {"name": "Akihiro Shiba", "contribution": ["母帶工程師"]}
             ]
         }
         '
