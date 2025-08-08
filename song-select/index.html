@@ -45,9 +45,9 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=filter_list" />
 </head>
 
-<body class="bg-[#37575b] min-h-screen text-gray-100">
+<body class="bg-[#1f7354] min-h-screen text-gray-100">
     <div id="app">
-        <nav class="fixed top-0 left-0 w-full bg-[#365456] shadow-lg z-50">
+        <nav class="fixed top-0 left-0 w-full bg-[#56773f] shadow-lg z-50">
             <div class="container mx-auto px-4 py-3 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <img src="/public/og_image/music.webp" alt="Logo" class="w-10 h-10 select-none rounded-xl">
@@ -121,12 +121,12 @@
                     </div>
 
                     <!-- 歌曲資訊 -->
-                    <div class="p-4 space-y-3">
+                    <div class="p-4 space-y-3 bg-gradient-to-br from-[#1d6b56] via-[#237a63] to-[#18523a]">
                         <!-- 藝人與專輯 -->
                         <div class="flex items-baseline gap-2">
-                            <span class="text-sm text-cyan-300">{{ song.artist }}</span>
-                            <span class="text-xs text-gray-400">/</span>
-                            <span class="text-xs text-gray-400 truncate" :title="song.album?.name">
+                            <span class="text-sm text-teal-200">{{ song.artist }}</span>
+                            <span class="text-xs text-gray-200">/</span>
+                            <span class="text-xs text-gray-200 truncate" :title="song.album?.name">
                                 {{ song.album?.name || '單曲' }}
                             </span>
                         </div>
@@ -150,16 +150,16 @@
 
                         <div class="flex flex-row">
                             <div class="text-xs space-y-1 overflow-y-scroll custom-scrollbar max-h-[60px] w-3/4">
-                                <p class="text-gray-400 truncate" :title="song.lyricist">
+                                <p class="text-gray-200 truncate" :title="song.lyricist">
                                     作詞：{{ song.lyricist || '未提供' }}
                                 </p>
-                                <p v-if="song.translation?.available" class="text-gray-400">
+                                <p v-if="song.translation?.available" class="text-gray-200">
                                     譯者：{{ song.translation.author }}
                                 </p>
-                                <p class="text-gray-400" :title="song.updated_at">
+                                <p class="text-gray-200" :title="song.updated_at">
                                     歌詞最後更新於：{{ song.updated_at || '未知' }}
                                 </p>
-                                <p class="text-gray-400" :title="langCodes[song.lang]">
+                                <p class="text-gray-200" :title="langCodes[song.lang]">
                                     語言：{{ langCodes[song.lang] || '未知' }}
                                 </p>
                             </div>
@@ -178,7 +178,7 @@
             </div>
 
             <!-- 無結果提示 -->
-            <div v-if="!isLoading && filteredSongs.length === 0" class="col-span-full text-center py-8 text-gray-400">
+            <div v-if="!isLoading && filteredSongs.length === 0" class="col-span-full text-center py-8 text-gray-200">
                 <span class="material-icons text-4xl mb-2">search_off</span>
                 <p>找不到符合的歌曲</p>
             </div>
@@ -186,10 +186,15 @@
             <div class="flex flex-col fixed bottom-5 w-full px-5 left-0 sm:px-0 z-50 mx-auto">
                 <div class="flex flex-row">
                     <div class="grow"></div>
-                    <button class="select-none mb-4 bg-gray-600 border-4 border-gray-400 rounded-md px-4 py-0.5 " id="refresh-btn">
-                        <div class="flex flex-row gap-2">
-                            <span class="material-icons">refresh</span>重新整理歌曲
-                        </div>
+                    <button id="refresh-btn" class="select-none mb-4 px-5 py-2 rounded-lg font-semibold text-white 
+                    bg-gradient-to-r from-cyan-700 to-teal-700 
+                    shadow-lg shadow-cyan-900/30 
+                    flex items-center gap-2
+                    hover:from-cyan-400 hover:to-teal-400 
+                    hover:scale-105 active:scale-95 
+                    transition-all duration-200 ease-out">
+                        <span class="material-icons text-white text-xl">refresh</span>
+                        重新整理歌曲
                     </button>
                     <div class="grow"></div>
                 </div>
@@ -247,31 +252,42 @@
                     </div>
                     <!-- Modal content -->
                     <div id="refresh-modal-content"
-                        class="modal-mutual bg-[#2ba4b1] top-2/5 left-[10%] w-4/5 md:left-[30%] md:top-[30%] md:w-2/5">
-                        <div class="flex flex-row">
-                            <span class="modal-name">重新整理歌曲資料</span>
-                            <div class="grow"></div>
-                            <span class="close" id="refresh-modal-close-btn" title="關閉" aria-label="關閉視窗">&times;</span>
+                        class="modal-mutual top-7/12 left-1/2 w-[85%] md:left-[50%] md:top-[45%] md:w-2/5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-6 animate-[modalPop_0.3s_ease-out_forwards]">
+
+                        <!-- 標題列 -->
+                        <div class="flex items-center mb-4">
+                            <span class="text-xl font-bold tracking-wide text-white">重新整理歌曲資料</span>
+                            <div class="flex-grow"></div>
+                            <button id="refresh-modal-close-btn" title="關閉" aria-label="關閉視窗" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 
+                       transition-all duration-200 text-white text-lg">
+                                &times;
+                            </button>
                         </div>
 
-                        <div class="modal-view-area custom-scrollbar">
-                            <span class="text-xl mt-4">
-                                您確定要刪除本地緩存並重新獲取歌曲資料嗎？
-                            </span>
-                            <span class="text-lg mt-4">
-                                須花費一些時間重新下載歌曲檔案。
-                            </span>
-                            <div class="h-4"></div>
-                            <div class="flex flex-row gap-10">
-                                <button @click="refreshSongList()" id="confirm-refresh" class="select-none px-4 py-2 bg-[#1c7f13] rounded-md hover:bg-[#6bc38b] transition-transform hover:scale-110 duration-400">
+                        <!-- 內容 -->
+                        <div class="custom-scrollbar text-white/90 space-y-4">
+                            <p class="text-lg">您確定要刪除本地緩存並重新獲取歌曲資料嗎？</p>
+                            <p class="text-base italic">須花費一些時間重新下載歌曲檔案。</p>
+
+                            <!-- 按鈕組 -->
+                            <div class="flex gap-4 pt-4">
+                                <button @click="refreshSongList()" id="confirm-refresh" class="flex-1 px-4 py-2 rounded-lg font-semibold text-white 
+                           bg-gradient-to-r from-emerald-400 to-teal-500 
+                           hover:from-emerald-300 hover:to-teal-400 
+                           transition-transform hover:scale-105 shadow-md">
                                     確定
                                 </button>
-                                <button id="cancel-refresh" class="select-none px-4 py-2 bg-[#e42121] rounded-md hover:bg-[#ea8181] transition-transform hover:scale-110 duration-400">
+                                <button id="cancel-refresh" class="flex-1 px-4 py-2 rounded-lg font-semibold text-white 
+                           bg-gradient-to-r from-rose-500 to-red-500 
+                           hover:from-rose-400 hover:to-red-400 
+                           transition-transform hover:scale-105 shadow-md">
                                     取消
                                 </button>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
 
