@@ -170,9 +170,9 @@
             { "phrase": "の", "duration": 50 },
             { "phrase": "スピード", "duration": 50 },
             { "phrase": "じゃ", "duration": 50 },
-            { "phrase": "頼", "duration": 50 },
+            { "phrase": "頼", "duration": 70 },
             { "phrase": "り", "duration": 50 },
-            { "phrase": "ない", "duration": 50 },
+            { "phrase": "ない", "duration": 80 },
             { "phrase": "けど", "duration": 50 }
         ],
         "translation": ""
@@ -200,7 +200,7 @@
         "time": "01:16.98",
         "text": [
             { "phrase": "不安", "duration": 50 },
-            { "phrase": "なんて", "duration": 50 },
+            { "phrase": "なんて", "duration": 70 },
             { "phrase": "僕", "duration": 50 },
             { "phrase": "が", "duration": 50 },
             { "phrase": "消", "duration": 40 },
@@ -308,13 +308,14 @@
         "text": [
             { "phrase": "悲", "duration": 50 },
             { "phrase": "しく", "duration": 50 },
-            { "phrase": "なるよ ", "duration": 50 },
+            { "phrase": "なるよ ", "duration": 120 },
             { "phrase": "今", "duration": 50 },
             { "phrase": "も", "duration": 50 },
+            { "phrase": "", "duration": 80 },
             { "phrase": "涙", "duration": 50 },
-            { "phrase": "だけが", "duration": 50 },
-            { "phrase": "邪魔", "duration": 50 },
-            { "phrase": "をする", "duration": 50 },
+            { "phrase": "だけが", "duration": 120 },
+            { "phrase": "邪魔", "duration": 100 },
+            { "phrase": "をする", "duration": 100 },
             { "phrase": "から", "duration": 50 }
         ],
         "translation": ""
@@ -323,9 +324,9 @@
         "time": "02:02.54",
         "text": [
             { "phrase": "僕", "duration": 50 },
-            { "phrase": "は", "duration": 50 },
-            { "phrase": "僕", "duration": 50 },
-            { "phrase": "のまま", "duration": 50 },
+            { "phrase": "は", "duration": 30 },
+            { "phrase": "僕", "duration": 70 },
+            { "phrase": "のまま", "duration": 80 },
             { "phrase": "でいい", "duration": 50 }
         ],
         "translation": ""
@@ -361,14 +362,16 @@
         "text": [
             {
                 "phrase": "最高到達点",
-                "duration": 50,
+                "duration": 70,
                 "pronounciation": "トップスピード",
                 "pncat_forced": true
             },
-            { "phrase": "超", "duration": 50 },
-            { "phrase": "えて 今", "duration": 50 },
+            { "phrase": "超", "duration": 70 },
+            { "phrase": "えて ", "duration": 50 },
+            { "phrase": "今", "duration": 50 },
             { "phrase": "君", "duration": 50 },
             { "phrase": "の", "duration": 50 },
+            { "phrase": "", "duration": 30 },
             { "phrase": "元", "duration": 50 },
             { "phrase": "へ", "duration": 50 }
         ],
@@ -383,7 +386,7 @@
             { "phrase": "僕", "duration": 50 },
             { "phrase": "に", "duration": 50 },
             { "phrase": "預", "duration": 50 },
-            { "phrase": "ければ", "duration": 50 },
+            { "phrase": "ければ", "duration": 70 },
             { "phrase": "いい", "duration": 50 }
         ],
         "translation": ""
@@ -393,39 +396,42 @@
         "text": [
             { "phrase": "それで", "duration": 50 },
             { "phrase": "いい", "duration": 50 },
-            { "phrase": "かい? ", "duration": 50 },
+            { "phrase": "かい?", "duration": 50 },
+            { "phrase": " ", "duration": 70 },
             { "phrase": "僕", "duration": 50 },
-            { "phrase": "は", "duration": 50 },
+            { "phrase": "は", "duration": 30 },
             { "phrase": "どう", "duration": 50 },
-            { "phrase": "だい?", "duration": 50 }
+            { "phrase": "だい?", "duration": 70 }
         ],
         "translation": ""
     },
     {
         "time": "02:31.42",
         "text": [
-            { "phrase": "弱気", "duration": 50 },
-            { "phrase": "な", "duration": 50 },
-            { "phrase": "奴", "duration": 50 },
-            { "phrase": "の", "duration": 50 },
-            { "phrase": "守", "duration": 50 },
-            { "phrase": "るだ", "duration": 50 },
-            { "phrase": "なんて", "duration": 50 }
+            { "phrase": "弱気", "duration": 20 },
+            { "phrase": "な", "duration": 20 },
+            { "phrase": "奴", "duration": 20 },
+            { "phrase": "の", "duration": 20 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "守", "duration": 40 },
+            { "phrase": "るだ", "duration": 30 },
+            { "phrase": "なんて", "duration": 20 }
         ],
         "translation": ""
     },
     {
         "time": "02:34.04",
         "text": [
-            { "phrase": "響", "duration": 50 },
-            { "phrase": "か", "duration": 50 },
-            { "phrase": "ない", "duration": 50 },
-            { "phrase": "よな ", "duration": 50 },
-            { "phrase": "わか", "duration": 50 },
+            { "phrase": "響", "duration": 20 },
+            { "phrase": "か", "duration": 20 },
+            { "phrase": "ない", "duration": 20 },
+            { "phrase": "よな ", "duration": 20 },
+            { "phrase": "わか", "duration": 20 },
             { "phrase": "ってる", "duration": 50 },
-            { "phrase": " わか", "duration": 50 },
+            { "phrase": " ", "duration": 50 },
+            { "phrase": "わか", "duration": 20 },
             { "phrase": "って", "duration": 50 },
-            { "phrase": "いても", "duration": 50 }
+            { "phrase": "いても", "duration": 60 }
         ],
         "translation": ""
     },
@@ -433,16 +439,17 @@
         "time": "02:46.40",
         "text": [
             { "phrase": "泥臭", "duration": 50 },
-            { "phrase": "くて", "duration": 50 },
-            { "phrase": "いい、", "duration": 50 },
-            { "phrase": "笑", "duration": 50 },
-            { "phrase": "われ", "duration": 50 },
-            { "phrase": "ても", "duration": 50 },
-            { "phrase": "いい ", "duration": 50 },
-            { "phrase": "聞", "duration": 50 },
-            { "phrase": "かせた", "duration": 50 },
-            { "phrase": "芯", "duration": 50 },
-            { "phrase": "の", "duration": 50 },
+            { "phrase": "くて", "duration": 20 },
+            { "phrase": "いい、", "duration": 20 },
+            { "phrase": "笑", "duration": 40 },
+            { "phrase": "われ", "duration": 20 },
+            { "phrase": "ても", "duration": 20 },
+            { "phrase": "いい", "duration": 20 },
+            { "phrase": " ", "duration": 50 },
+            { "phrase": "聞", "duration": 20 },
+            { "phrase": "かせた", "duration": 20 },
+            { "phrase": "芯", "duration": 80 },
+            { "phrase": "の", "duration": 30 },
             { "phrase": "臓", "duration": 50 }
         ],
         "translation": ""
@@ -467,7 +474,7 @@
         "text": [
             {
                 "phrase": "最高到達点",
-                "duration": 50,
+                "duration": 80,
                 "pronounciation": "トップスピード",
                 "pncat_forced": true
             },
@@ -476,6 +483,7 @@
             { "phrase": "今", "duration": 50 },
             { "phrase": "君", "duration": 50 },
             { "phrase": "の", "duration": 50 },
+            { "phrase": "", "duration": 50 },
             { "phrase": "元", "duration": 50 },
             { "phrase": "へ", "duration": 50 }
         ],
@@ -501,7 +509,9 @@
         "text": [
             { "phrase": "それで", "duration": 50 },
             { "phrase": "いい", "duration": 50 },
-            { "phrase": "かい? それで", "duration": 50 },
+            { "phrase": "かい?", "duration": 50 },
+            { "phrase": " ", "duration": 80 },
+            { "phrase": "それで", "duration": 50 },
             { "phrase": "いい", "duration": 50 },
             { "phrase": "かい?", "duration": 50 }
         ],
@@ -514,9 +524,9 @@
             { "phrase": "の", "duration": 50 },
             { "phrase": "スピード", "duration": 50 },
             { "phrase": "じゃ", "duration": 50 },
-            { "phrase": "頼", "duration": 50 },
+            { "phrase": "頼", "duration": 70 },
             { "phrase": "り", "duration": 50 },
-            { "phrase": "ない", "duration": 50 },
+            { "phrase": "ない", "duration": 80 },
             { "phrase": "けど", "duration": 50 }
         ],
         "translation": ""
@@ -526,12 +536,14 @@
         "text": [
             {
                 "phrase": "最高到達点",
-                "duration": 50,
+                "duration": 90,
                 "pronounciation": "トップスピード",
                 "pncat_forced": true
             },
             { "phrase": "超", "duration": 50 },
-            { "phrase": "えて 今", "duration": 50 },
+            { "phrase": "えて", "duration": 50 },
+            { "phrase": " ", "duration": 50 },
+            { "phrase": "今", "duration": 50 },
             { "phrase": "君", "duration": 50 },
             { "phrase": "を", "duration": 50 },
             { "phrase": "救", "duration": 50 },
@@ -543,13 +555,13 @@
         "time": "03:22.47",
         "text": [
             { "phrase": "不安", "duration": 50 },
-            { "phrase": "なんて", "duration": 50 },
+            { "phrase": "なんて", "duration": 90 },
             { "phrase": "僕", "duration": 50 },
             { "phrase": "が", "duration": 50 },
-            { "phrase": "消", "duration": 50 },
-            { "phrase": "し", "duration": 50 },
-            { "phrase": "去", "duration": 50 },
-            { "phrase": "る", "duration": 50 },
+            { "phrase": "消", "duration": 40 },
+            { "phrase": "し", "duration": 40 },
+            { "phrase": "去", "duration": 20 },
+            { "phrase": "る", "duration": 40 },
             { "phrase": "から", "duration": 50 }
         ],
         "translation": ""
@@ -557,35 +569,35 @@
     {
         "time": "03:27.54",
         "text": [
-            { "phrase": "君", "duration": 50 },
-            { "phrase": "は", "duration": 50 },
-            { "phrase": "ずっと", "duration": 50 },
-            { "phrase": "前", "duration": 50 },
-            { "phrase": "だけ", "duration": 50 },
-            { "phrase": "向", "duration": 50 },
-            { "phrase": "いてて", "duration": 50 },
-            { "phrase": "って", "duration": 50 }
+            { "phrase": "君", "duration": 30 },
+            { "phrase": "は", "duration": 30 },
+            { "phrase": "ずっと", "duration": 30 },
+            { "phrase": "前", "duration": 30 },
+            { "phrase": "だけ", "duration": 30 },
+            { "phrase": "向", "duration": 30 },
+            { "phrase": "いてて", "duration": 40 },
+            { "phrase": "って", "duration": 30 }
         ],
         "translation": ""
     },
     {
         "time": "03:30.61",
         "text": [
-            { "phrase": "流", "duration": 50 },
-            { "phrase": "さ", "duration": 50 },
-            { "phrase": "ないで", "duration": 50 },
-            { "phrase": "雫", "duration": 50 },
-            { "phrase": "だけ", "duration": 50 },
-            { "phrase": "は", "duration": 50 }
+            { "phrase": "流", "duration": 30 },
+            { "phrase": "さ", "duration": 30 },
+            { "phrase": "ないで", "duration": 40 },
+            { "phrase": "雫", "duration": 40 },
+            { "phrase": "だけ", "duration": 40 },
+            { "phrase": "は", "duration": 30 }
         ],
         "translation": ""
     },
     {
         "time": "03:33.14",
         "text": [
-            { "phrase": "嘘", "duration": 50 },
-            { "phrase": "じゃ", "duration": 50 },
-            { "phrase": "ないと", "duration": 50 },
+            { "phrase": "嘘", "duration": 40 },
+            { "phrase": "じゃ", "duration": 40 },
+            { "phrase": "ないと", "duration": 30 },
             { "phrase": "誓", "duration": 50 },
             { "phrase": "うから", "duration": 50 }
         ],
