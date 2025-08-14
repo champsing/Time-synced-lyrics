@@ -224,8 +224,6 @@ function main() {
             window.ytPlayer = await init();
 
             onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
-            jumpToCurrentLine(0);
-            resetTimer();
         } catch (e) {
             console.error("播放器初始化失敗", e);
         }
@@ -275,8 +273,6 @@ function main() {
 
             loadSongLyric(currentSong, songVersion);
 
-            await setupPlayerAndLoadSong();
-
             // 初始化模態框
             initSettingModal();
             initCreditModal();
@@ -291,10 +287,14 @@ function main() {
             } else {
                 document.body.style.backgroundColor = bodyBackgroundColor.value; // 應用初始顏色
             }
+
+            jumpToCurrentLine(0);
+            resetTimer();
         } catch (error) {
             console.error("初始化錯誤: ", error);
         } finally {
             isLoading.value = false;
+            await setupPlayerAndLoadSong();
         }
     });
 
