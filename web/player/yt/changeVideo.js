@@ -1,8 +1,4 @@
-export function onPlayerChangeSongVideo(
-    currentSong,
-    songVersion,
-    player
-) {
+export function onPlayerChangeSongVideo(currentSong, songVersion, player) {
     const videoID = currentSong.value.versions.find(
         (v) => v.version === songVersion.value
     ).id;
@@ -14,6 +10,8 @@ export function onPlayerChangeSongVideo(
         console.error("找不到影片 ID");
         return;
     }
-    setTimeout(() => player.loadVideoById(videoID), 1000);
-    player.pauseVideo();
+    setTimeout(() => {
+        player.loadVideoById(videoID);
+        player.pauseVideo();
+    }, 3000);
 }
