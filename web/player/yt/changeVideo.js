@@ -14,6 +14,6 @@ export function onPlayerChangeSongVideo(
         console.error("找不到影片 ID");
         return;
     }
-    player.loadVideoById(videoID);
+    setTimeout(() => player.loadVideoById(videoID), 1000);
     player.pauseVideo();
 }
