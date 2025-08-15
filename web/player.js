@@ -11,7 +11,6 @@ import {
 } from "./player/handles/songsHandle.js";
 import { useTransation } from "./player/handles/translationHandle.js";
 import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
-import { onPlayerChangeSongVideo } from "./player/yt/changeVideo.js";
 import {
     ALBUM_GOOGLE_LINK_BASE,
     DEBUG_INFO,
@@ -215,15 +214,14 @@ function main() {
         try {
             const { init } = await initYouTubePlayer({
                 currentSong,
+
+                songVersion,
                 currentTime,
                 songDuration,
-                songVersion,
                 isPaused,
             });
 
             window.ytPlayer = await init();
-
-            onPlayerChangeSongVideo(currentSong, songVersion, window.ytPlayer);
         } catch (e) {
             console.error("播放器初始化失敗", e);
         }

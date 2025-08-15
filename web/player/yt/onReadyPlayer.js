@@ -1,7 +1,10 @@
+import { onPlayerChangeSongVideo } from "./changeVideo.js";
 import { YOUTUBE_IFRAME_API } from "/web/utils/config.js";
 
 export const initYouTubePlayer = (vueContext) => {
     let player = null;
+    let currentSong = vueContext.currentSong.value;
+    let songVersion = vueContext.songVersion.value;
 
     const init = () => {
         return new Promise((resolve) => {
@@ -23,24 +26,6 @@ export const initYouTubePlayer = (vueContext) => {
         });
     };
 
-    const createPlayer = () => {
-        return new window.YT.Player("player", {
-            width: calcWidth().width,
-            height: calcWidth().height,
-            videoId: vueContext.currentSong.value.versions.find(
-                (v) => v.version === vueContext.songVersion.value
-            ).id,
-            events: {
-                onReady: onPlayerReady,
-                onStateChange: (e) => onPlayerStateChange(e, vueContext),
-            },
-        });
-    };
-
-    const onPlayerReady = () => {
-        console.log("播放器已準備好");
-    };
-
     const onPlayerStateChange = (
         event,
         { currentTime, songDuration, isPaused }
@@ -60,6 +45,24 @@ export const initYouTubePlayer = (vueContext) => {
         ) {
             songDuration.value = event.target.getDuration();
         }
+    };
+
+    const createPlayer = () => {
+        return new window.YT.Player("player", {
+            width: calcWidth().width,
+            height: calcWidth().height,
+            videoId: currentSong.versions.find((v) => v.version === songVersion)
+                .id,
+            events: {
+                onReady: onPlayerReady,
+                onStateChange: (e) => onPlayerStateChange(e, vueContext),
+            },
+        });
+    };
+
+    const onPlayerReady = () => {
+        onPlayerChangeSongVideo(currentSong, songVersion, player);
+        console.log("播放器已準備好");
     };
 
     return { init };
