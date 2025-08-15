@@ -4,7 +4,9 @@ import { YOUTUBE_IFRAME_API } from "/web/utils/config.js";
 export const initYouTubePlayer = (vueContext) => {
     let player = null;
     let currentSong = vueContext.currentSong.value;
-    let songVersion = vueContext.songVersion.value;
+    let videoID = vueContext.currentSong.value.versions.find(
+        (v) => v.version === vueContext.songVersion.value
+    ).id;
 
     const init = () => {
         return new Promise((resolve) => {
@@ -51,8 +53,7 @@ export const initYouTubePlayer = (vueContext) => {
         return new window.YT.Player("player", {
             width: calcWidth().width,
             height: calcWidth().height,
-            videoId: currentSong.versions.find((v) => v.version === songVersion)
-                .id,
+            videoId: videoID,
             events: {
                 onReady: onPlayerReady,
                 onStateChange: (e) => onPlayerStateChange(e, vueContext),
@@ -61,7 +62,7 @@ export const initYouTubePlayer = (vueContext) => {
     };
 
     const onPlayerReady = () => {
-        onPlayerChangeSongVideo(currentSong, songVersion, player);
+        onPlayerChangeSongVideo(currentSong, videoID, player);
         console.log("播放器已準備好");
     };
 

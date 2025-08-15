@@ -1,7 +1,4 @@
-export function onPlayerChangeSongVideo(currentSong, songVersion, player) {
-    const videoID = currentSong.versions.find(
-        (v) => v.version === songVersion
-    ).id;
+export function onPlayerChangeSongVideo(currentSong, videoID, player) {
 
     console.log("Loading video from video ID:", videoID);
 

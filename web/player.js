@@ -214,7 +214,6 @@ function main() {
         try {
             const { init } = await initYouTubePlayer({
                 currentSong,
-
                 songVersion,
                 currentTime,
                 songDuration,
