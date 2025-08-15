@@ -12,7 +12,7 @@ export function onPlayerChangeSongVideo(currentSong, songVersion, player) {
     }
     
     setTimeout(() => {
-        while (!player.loadVideoById(videoID)) {
+        while (!player) {
             continue
         }
         player.loadVideoById(videoID);
