@@ -1,5 +1,4 @@
 export function onPlayerChangeSongVideo(currentSong, videoID, player) {
-
     console.log("Loading video from video ID:", videoID);
 
     if (!videoID) {
@@ -7,9 +6,7 @@ export function onPlayerChangeSongVideo(currentSong, videoID, player) {
         console.error("找不到影片 ID");
         return;
     }
-    
-    setTimeout(() => {
-        player.loadVideoById(videoID);
-        player.pauseVideo();
-    }, 3000);
+
+    player.loadVideoById(videoID);
+    player.pauseVideo();
 }
