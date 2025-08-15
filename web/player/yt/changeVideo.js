@@ -6,11 +6,15 @@ export function onPlayerChangeSongVideo(currentSong, songVersion, player) {
     console.log("Loading video from video ID:", videoID);
 
     if (!videoID) {
-        window.ytPlayer.loadVideoById("");
+        player.loadVideoById("");
         console.error("找不到影片 ID");
         return;
     }
+    
     setTimeout(() => {
+        while (!player.loadVideoById(videoID)) {
+            continue
+        }
         player.loadVideoById(videoID);
         player.pauseVideo();
     }, 3000);
