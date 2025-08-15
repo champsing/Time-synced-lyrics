@@ -270,13 +270,6 @@ function main() {
 
             loadSongLyric(currentSong, songVersion);
 
-            // 初始化模態框
-            initSettingModal();
-            initCreditModal();
-            initControllerPanel();
-            initAboutModal();
-            initShareModal();
-
             // 初始化時讀取保存的顏色
             const savedColor = localStorage.getItem("bodyBackgroundColor");
             if (savedColor) {
@@ -292,6 +285,13 @@ function main() {
         } finally {
             isLoading.value = false;
             await setupPlayerAndLoadSong();
+
+             // 初始化模態框
+            initSettingModal();
+            initCreditModal();
+            initControllerPanel();
+            initAboutModal();
+            initShareModal();
         }
     });
 

@@ -9,9 +9,6 @@ export function onPlayerChangeSongVideo(currentSong, videoID, player) {
     }
     
     setTimeout(() => {
-        while (!player) {
-            continue
-        }
         player.loadVideoById(videoID);
         player.pauseVideo();
     }, 3000);
