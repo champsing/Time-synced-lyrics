@@ -8,6 +8,18 @@ export const initYouTubePlayer = (vueContext) => {
         (v) => v.version === vueContext.songVersion.value
     ).id;
 
+    const createPlayer = () => {
+        return new window.YT.Player("player", {
+            width: calcWidth().width,
+            height: calcWidth().height,
+            videoId: videoID,
+            events: {
+                onReady: onPlayerReady,
+                onStateChange: (e) => onPlayerStateChange(e, vueContext),
+            },
+        });
+    };
+
     const init = () => {
         return new Promise((resolve) => {
             if (!window.YT) {
@@ -47,18 +59,6 @@ export const initYouTubePlayer = (vueContext) => {
         ) {
             songDuration.value = event.target.getDuration();
         }
-    };
-
-    const createPlayer = () => {
-        return new window.YT.Player("player", {
-            width: calcWidth().width,
-            height: calcWidth().height,
-            videoId: videoID,
-            events: {
-                onReady: onPlayerReady,
-                onStateChange: (e) => onPlayerStateChange(e, vueContext),
-            },
-        });
     };
 
     const onPlayerReady = () => {
