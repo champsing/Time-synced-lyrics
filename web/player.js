@@ -162,11 +162,6 @@ function main() {
         return generatePhraseStyle(currentTime.value, line, phraseIndex);
     };
 
-    const resetTimer = () => {
-        // 清空現在時刻跟影片長度
-        currentTime.value = 0;
-        songDuration.value = 0;
-    };
 
     async function loadSongLyric(song, version) {
         if (!song) return;
@@ -221,6 +216,8 @@ function main() {
             });
 
             window.ytPlayer = await init();
+
+            // jumpToCurrentLine(0);
         } catch (e) {
             console.error("播放器初始化失敗", e);
         }
@@ -277,15 +274,11 @@ function main() {
             } else {
                 document.body.style.backgroundColor = bodyBackgroundColor.value; // 應用初始顏色
             }
-
-            jumpToCurrentLine(0);
-            resetTimer();
         } catch (error) {
             console.error("初始化錯誤: ", error);
         } finally {
             isLoading.value = false;
             await setupPlayerAndLoadSong();
-
              // 初始化模態框
             initSettingModal();
             initCreditModal();
