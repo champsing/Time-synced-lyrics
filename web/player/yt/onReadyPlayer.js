@@ -22,21 +22,15 @@ export const initYouTubePlayer = (vueContext) => {
 
     const init = () => {
         return new Promise((resolve) => {
-            if (!window.YT) {
-                const tag = document.createElement("script");
-                tag.src = YOUTUBE_IFRAME_API;
-                const firstScriptTag =
-                    document.getElementsByTagName("script")[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            const tag = document.createElement("script");
+            tag.src = YOUTUBE_IFRAME_API;
+            const firstScriptTag = document.getElementsByTagName("script")[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                window.onYouTubeIframeAPIReady = () => {
-                    player = createPlayer();
-                    resolve(player);
-                };
-            } else {
+            window.onYouTubeIframeAPIReady = () => {
                 player = createPlayer();
                 resolve(player);
-            }
+            };
         });
     };
 
