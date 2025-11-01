@@ -3,17 +3,15 @@ FROM python:3.11.13-slim-bookworm
 
 # 安裝系統依賴
 RUN apt-get update -y && \
-    apt-get install -y python3-gunicorn && \
     rm -rf /var/lib/apt/lists/*
 
 # set env
 ENV DJANGO_SETTINGS_MODULE=song_lyric_handler.settings_prod
 
 # 設置工作目錄
-WORKDIR /app
+WORKDIR /tsl
 
 # 複製 src 目錄
-COPY ./keys/django_secret .
 COPY ./src .
 
 # 安裝 Python 依賴
