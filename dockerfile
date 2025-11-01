@@ -12,6 +12,7 @@ ENV DJANGO_SETTINGS_MODULE=song_lyric_handler.settings_prod
 WORKDIR /tsl
 
 # 複製 src 目錄
+COPY ./keys/django_secret .
 COPY ./src .
 
 # 安裝 Python 依賴
