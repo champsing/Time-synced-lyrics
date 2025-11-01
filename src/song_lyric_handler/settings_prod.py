@@ -14,14 +14,13 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: PROJECT_DIR / 'subdir'.
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent  # ~/Time-synced-lyrics
 SOURCE_DIR = Path(__file__).resolve().parent.parent  # ~/Time-synced-lyrics/src
 PROJECT_DIR = (
     Path(__file__).resolve().parent
 )  # ~/Time-synced-lyrics/src/song_lyric_handler
 
 with open(
-    os.path.join(ROOT_DIR, "django_secret"), "r", encoding="UTF-8"
+    os.path.join(SOURCE_DIR, "django_secret"), "r", encoding="UTF-8"
 ) as secret_file:
     DJANGO_SECRET = secret_file.read()
 
@@ -42,7 +41,7 @@ SECURE_REFERRER_POLICY = "same-origin"
 
 # LOGGING
 
-LOG_DIR = os.path.join(ROOT_DIR, "logs")
+LOG_DIR = os.path.join(SOURCE_DIR, "logs")
 os.makedirs(LOG_DIR, exist_ok=True)  # 確保 logs 資料夾存在
 
 LOGGING = {
