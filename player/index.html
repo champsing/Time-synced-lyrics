@@ -505,7 +505,7 @@
 
                     <div class="modal-view-area custom-scrollbar">
                         <div id="change-body-background-container" class="settings-entry">
-                            <label for="change-body-background">背景顏色：</label>
+                            <label id="change-body-background">背景顏色：</label>
                             <div id="change-body-background" class="color-picker inline-block">
                                 <details class="dropdown relative">
                                     <summary
@@ -533,21 +533,21 @@
                                 <input type="checkbox" id="enable-background" v-model="enableLyricBackground" />
                                 <span class="slider round"></span>
                             </label>
-                            <label for="enable-background">開啟歌詞背景</label><br />
+                            <label id="enable-background">開啟歌詞背景</label><br />
                         </div>
                         <div id="enable-scroll-to-current-line-container" class="settings-entry">
                             <label class="switch mr-1">
                                 <input type="checkbox" id="enable-scroll-to-current-line" v-model="scrollToCurrentLine">
                                 <span class="slider round"></span>
                             </label>
-                            <label for="enable-scroll-to-current-line">自動滾動到當前行</label><br />
+                            <label id="enable-scroll-to-current-line">自動滾動到當前行</label><br />
                         </div>
                         <div id="enable-translation-container" class="settings-entry">
                             <label class="switch mr-2">
                                 <input type="checkbox" id="enable-translation" v-model="enableTranslation" />
                                 <span class="slider round"></span>
                             </label>
-                            <label for="enable-translation">開啟翻譯</label><br />
+                            <label id="enable-translation">開啟翻譯</label><br />
                         </div>
                         <div id="enable-pronounciation-container" class="settings-entry">
                             <label class="switch mr-2">
@@ -555,7 +555,7 @@
                                     v-model="enablePronounciation" />
                                 <span class="slider round"></span>
                             </label>
-                            <label for="enable-pronounciation">顯示假名讀音（僅部分歌曲可用）</label><br />
+                            <label id="enable-pronounciation">顯示假名讀音（僅部分歌曲可用）</label><br />
                         </div>
                     </div>
                 </div>
