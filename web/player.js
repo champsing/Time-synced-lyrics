@@ -52,6 +52,7 @@ function main() {
     // 響應式狀態
     const currentTime = ref(0);
     const songDuration = ref(0);
+    const volume = ref(sessionStorage.getItem("volume") || 70);
     const songVersion = ref(null);
     const currentSong = ref(null);
     const jsonMappingContent = ref(null);
@@ -61,6 +62,7 @@ function main() {
     const enableLyricBackground = ref(true);
     const isPaused = ref(true);
     const isLoading = ref(true);
+    const isMuted = ref(false);
 
     const colorOptions = [
         "#365456", // 保留原色
@@ -162,7 +164,6 @@ function main() {
         return generatePhraseStyle(currentTime.value, line, phraseIndex);
     };
 
-
     async function loadSongLyric(song, version) {
         if (!song) return;
 
@@ -184,6 +185,13 @@ function main() {
         if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
     });
 
+    watch(volume, (newVal) => {
+        const slider = document.getElementById("player-volume-slider");
+        if (slider) {
+            slider.style.setProperty("--value", newVal);
+        }
+    });
+
     const playVideo = () => {
         window.ytPlayer.playVideo();
         isPaused.value = false;
@@ -202,6 +210,27 @@ function main() {
 
     const parseSubtitle = (subtitle) => {
         return subtitle?.replace(/\\n/g, "\n") || "";
+    };
+
+    const toggleMute = () => {
+        if (isMuted.value) {
+            window.ytPlayer.unMute();
+            isMuted.value = false;
+        } else {
+            window.ytPlayer.mute();
+            isMuted.value = true;
+        }
+    };
+
+    const changeVolume = (newVolume) => {
+        volume.value = newVolume;
+        window.ytPlayer.setVolume(newVolume);
+        if (volume.value === 0) {
+            isMuted.value = true;
+        } else {
+            isMuted.value = false;
+        }
+        sessionStorage.setItem("volume", newVolume);
     };
 
     async function setupPlayerAndLoadSong() {
@@ -279,7 +308,7 @@ function main() {
         } finally {
             isLoading.value = false;
             await setupPlayerAndLoadSong();
-             // 初始化模態框
+            // 初始化模態框
             initSettingModal();
             initCreditModal();
             initControllerPanel();
@@ -313,6 +342,7 @@ function main() {
         bodyBackgroundColor,
         colorOptions,
         isPaused,
+        isMuted,
         isLoading,
         debugInfo: DEBUG_INFO,
         parseSubtitle,
@@ -320,6 +350,8 @@ function main() {
         pauseVideo,
         rewind10Sec,
         moveForward10Sec,
+        toggleMute,
+        changeVolume,
         initYouTubePlayer,
         copyToClipboard,
         jumpToCurrentLine,
