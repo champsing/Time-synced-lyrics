@@ -18,7 +18,8 @@ export const initSettingModal = () => {
         enableScroll();
     };
 
-    document.getElementById("setting-btn").addEventListener("click", show);
+    const settingBtn = document.getElementById("setting-btn");
+    settingBtn?.addEventListener("click", show);
     close.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
@@ -41,7 +42,8 @@ export const initCreditModal = () => {
         enableScroll();
     };
 
-    document.getElementById("credit-btn").addEventListener("click", show);
+    const creditBtn = document.getElementById("credit-btn");
+    creditBtn?.addEventListener("click", show);
     close.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
@@ -100,7 +102,8 @@ export const initShareModal = () => {
         enableScroll();
     };
 
-    document.getElementById("share-btn").addEventListener("click", show);
+    const shareBtn = document.getElementById("share-btn")
+    shareBtn?.addEventListener("click", show);
     close.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
@@ -126,7 +129,8 @@ export const initRefreshModal = () => {
         enableScroll();
     };
 
-    document.getElementById("refresh-btn").addEventListener("click", show);
+    const refreshBtn = document.getElementById("refresh-btn")
+    refreshBtn?.addEventListener("click", show);
     close.addEventListener("click", hide);
     cancel.addEventListener("click", hide);
     confirm.addEventListener("click", hide);
