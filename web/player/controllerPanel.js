@@ -24,7 +24,7 @@ export const initControllerPanel = () => {
         }
     };
 
-    panelSwitchIcon.addEventListener("click", () => {
+    panelSwitchIcon?.addEventListener("click", () => {
         const currentDisplay = window.getComputedStyle(panel).display;
         currentDisplay === "none" ? show() : hide();
     });
