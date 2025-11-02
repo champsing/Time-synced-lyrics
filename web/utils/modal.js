@@ -20,7 +20,7 @@ export const initSettingModal = () => {
 
     const settingBtn = document.getElementById("setting-btn");
     settingBtn?.addEventListener("click", show);
-    close.addEventListener("click", hide);
+    close?.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
     return { show, hide };
@@ -44,7 +44,7 @@ export const initCreditModal = () => {
 
     const creditBtn = document.getElementById("credit-btn");
     creditBtn?.addEventListener("click", show);
-    close.addEventListener("click", hide);
+    close?.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
     return { show, hide };
@@ -67,13 +67,15 @@ export const initAboutModal = () => {
     };
 
     if (window.screen.width >= 768)
-        document.getElementById("about-btn-sm").addEventListener("click", show);
+        document
+            .getElementById("about-btn-sm")
+            ?.addEventListener("click", show);
     else
         document
             .getElementById("about-btn-below-sm")
-            .addEventListener("click", show);
+            ?.addEventListener("click", show);
 
-    close.addEventListener("click", hide);
+    close?.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
     document.getElementById(
@@ -102,14 +104,13 @@ export const initShareModal = () => {
         enableScroll();
     };
 
-    const shareBtn = document.getElementById("share-btn")
+    const shareBtn = document.getElementById("share-btn");
     shareBtn?.addEventListener("click", show);
-    close.addEventListener("click", hide);
+    close?.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
     return { show, hide };
 };
-
 
 // 選歌：確認重新整理
 
@@ -129,13 +130,12 @@ export const initRefreshModal = () => {
         enableScroll();
     };
 
-    const refreshBtn = document.getElementById("refresh-btn")
+    const refreshBtn = document.getElementById("refresh-btn");
     refreshBtn?.addEventListener("click", show);
-    close.addEventListener("click", hide);
-    cancel.addEventListener("click", hide);
-    confirm.addEventListener("click", hide);
+    close?.addEventListener("click", hide);
+    cancel?.addEventListener("click", hide);
+    confirm?.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
-
 
     return { show, hide };
 };
