@@ -78,12 +78,15 @@ export const initAboutModal = () => {
     close?.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
 
-    document.getElementById(
-        "version"
-    ).innerText = `播放器版本：${PLAYER_VERSION}`;
+    const version = document.getElementById("version");
+    if (version) version.innerText = `播放器版本：${PLAYER_VERSION}`;
+    
     injectPlaybackID();
-    document.getElementById("copy-debug-info-btn").onclick = () =>
-        copyToClipboard(DEBUG_INFO.trim(), "偵錯資訊");
+
+    const cpDebugInfoBtn = document.getElementById("copy-debug-info-btn");
+    if (cpDebugInfoBtn)
+        cpDebugInfoBtn.onclick = () =>
+            copyToClipboard(DEBUG_INFO.trim(), "偵錯資訊");
 
     return { show, hide };
 };
