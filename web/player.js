@@ -65,21 +65,24 @@ function main() {
     const isMuted = ref(false);
 
     const colorOptions = [
-        "#365456", // 保留原色
-        "#CC5200", // 深琥珀橙
-        "#D49A00", // 暗金黃
-        "#4A9B7D", // 墨綠
-        "#00855C", // 深翡翠綠
-        "#3A7A9E", // 午夜藍
-        "#0A5D8C", // 深海藍
-        "#6B7984", // 石板灰
-        "#8C0D2B", // 勃艮第紅
-        "#a48b8b",
-        "#9E4D64", // 酒紅
-        "#4A0B6B", // 皇家紫
-        "#404040", // 炭灰
-        "#101010", // 深淵黑
+        { color: "#365456", name: "預設：礦石靛" },
+        { color: "#CC5200", name: "深琥珀橙" },
+        { color: "#D49A00", name: "暗金黃" },
+        { color: "#4A9B7D", name: "墨綠" },
+        { color: "#00855C", name: "深翡翠綠" },
+        { color: "#3A7A9E", name: "午夜藍" },
+        { color: "#0A5D8C", name: "深海藍" },
+        { color: "#6B7984", name: "石板灰" },
+        { color: "#8C0D2B", name: "勃艮第紅" },
+        { color: "#a48b8b", name: "煙霞粉" },
+        { color: "#9E4D64", name: "酒紅" },
+        { color: "#4A0B6B", name: "皇家紫" },
+        { color: "#404040", name: "炭灰" },
+        { color: "#101010", name: "深淵黑" },
+        { color: "#fb2b43", name: "Apple Music 粉紅" },
     ];
+
+    const bgColorName = computed(() => colorOptions.filter((x) => x.color === bodyBackgroundColor.value)[0].name || colorOptions[0].name);
 
     // 計算屬性
     const formattedCurrentTime = computed(() => formatTime(currentTime.value));
@@ -341,6 +344,7 @@ function main() {
         translationAuthor,
         bodyBackgroundColor,
         colorOptions,
+        bgColorName,
         isPaused,
         isMuted,
         isLoading,

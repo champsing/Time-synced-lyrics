@@ -512,15 +512,15 @@
                                         class="dropdown-trigger flex items-center gap-2 p-2 px-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">
                                         <span class="color-preview w-5 h-5 border border-gray-200 rounded-sm"
                                             :style="{ backgroundColor: bodyBackgroundColor }"></span>
-                                        <span class="text-sm font-mono">{{ bodyBackgroundColor }}</span>
+                                        <span class="text-sm font-mono">{{ bgColorName }}</span>
                                     </summary>
                                     <div
                                         class="dropdown-menu absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded shadow-md z-50 p-2 w-max">
                                         <div class="color-grid grid grid-cols-5 gap-1">
-                                            <button v-for="color in colorOptions" :key="color" type="button"
+                                            <button v-for="(colorObj, index) in colorOptions" :key="index" type="button"
                                                 class="color-square w-7 h-7 border border-gray-200 rounded cursor-pointer duration-200 transition-transform hover:scale-110 focus:outline-none"
-                                                :class="{ 'border-2 border-gray-800 ring-1 ring-gray-300': bodyBackgroundColor === color }"
-                                                :style="{ backgroundColor: color }" @click="bodyBackgroundColor = color"
+                                                :class="{ 'border-2 border-gray-800 ring-1 ring-gray-300': bodyBackgroundColor === colorObj.color }"
+                                                :style="{ backgroundColor: colorObj.color }" @click="bodyBackgroundColor = colorObj.color"
                                                 :title="color" :aria-label="color"></button>
                                         </div>
                                     </div>
