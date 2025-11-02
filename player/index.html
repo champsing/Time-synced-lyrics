@@ -462,10 +462,10 @@
                     </span>
                 </div>
 
-                <div class="flex flex-row gap-7">
+                <div class="flex flex-row gap-4">
                     <button id="player-mute-unmute" @click="toggleMute()" type="button" title="靜音/取消靜音"
                         aria-label="靜音/取消靜音">
-                        <span v-if="isMuted" class="material-icons mt-2">
+                        <span v-if="volume == 0 || isMuted" class="material-icons mt-2">
                             volume_off
                         </span>
                         <span v-else class="material-icons mt-2">
@@ -473,9 +473,14 @@
                         </span>
                     </button>
                     <div class="flex flex-row gap-2 items-center">
-                        <input id="player-volume-slider" type="range" min="0" max="100" step="1" v-model="volume"
-                            @input="changeVolume($event.target.value)" aria-label="音量調整滑桿" title="音量調整滑桿"
-                            class="w-40">
+                        <div class="relative flex items-center space-x-2">
+                            <div class="relative flex items-center w-48">
+                                <input id="player-volume-slider" type="range" min="0" max="100" step="1"
+                                    v-model="volume" @input="changeVolume($event.target.value)" aria-label="音量調整滑桿"
+                                    title="音量調整滑桿" class="volume-slider" :style="{'--fill': bodyBackgroundColor}" />
+                            </div>
+
+                        </div>
                         <span>{{ volume || 70 }}</span>
                     </div>
                 </div>

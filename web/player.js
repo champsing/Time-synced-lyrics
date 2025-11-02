@@ -164,7 +164,6 @@ function main() {
         return generatePhraseStyle(currentTime.value, line, phraseIndex);
     };
 
-
     async function loadSongLyric(song, version) {
         if (!song) return;
 
@@ -184,6 +183,13 @@ function main() {
 
     watch(currentLineIndex, (newVal) => {
         if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
+    });
+
+    watch(volume, (newVal) => {
+        const slider = document.getElementById("player-volume-slider");
+        if (slider) {
+            slider.style.setProperty("--value", newVal);
+        }
     });
 
     const playVideo = () => {
@@ -214,19 +220,18 @@ function main() {
             window.ytPlayer.mute();
             isMuted.value = true;
         }
-    }
+    };
 
     const changeVolume = (newVolume) => {
         volume.value = newVolume;
         window.ytPlayer.setVolume(newVolume);
-        console.log("音量已設置為:", newVolume);
-        if (newVolume === 0) {
+        if (volume.value === 0) {
             isMuted.value = true;
         } else {
             isMuted.value = false;
         }
         sessionStorage.setItem("volume", newVolume);
-    }
+    };
 
     async function setupPlayerAndLoadSong() {
         // 1. 初始化播放器
@@ -303,7 +308,7 @@ function main() {
         } finally {
             isLoading.value = false;
             await setupPlayerAndLoadSong();
-             // 初始化模態框
+            // 初始化模態框
             initSettingModal();
             initCreditModal();
             initControllerPanel();

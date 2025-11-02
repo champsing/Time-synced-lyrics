@@ -13,7 +13,6 @@ export const initYouTubePlayer = (vueContext) => {
             width: calcWidth().width,
             height: calcWidth().height,
             videoId: videoID,
-            playerVars: { 'controls': 0 },
             events: {
                 onReady: onPlayerReady,
                 onStateChange: (e) => onPlayerStateChange(e, vueContext),
