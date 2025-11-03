@@ -15,6 +15,7 @@ py_output
 node_modules
 todo
 karaoke mappings
+mappings
 
 # Tailwind CLI 啟動腳本
 launch tailwind-cli.bat
