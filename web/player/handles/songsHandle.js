@@ -28,9 +28,9 @@ export const loadSongData = async (songId) => {
 
 export const getLyricResponse = async (folder, songVersion) => {
     try {
-        console.log(`獲取歌詞檔案中...(File: /public/mappings/${folder}/${songVersion}.json)`);
+        console.log(`獲取歌詞檔案中...(Raw JSON: https://raw.githubusercontent.com/champsing/Time-synced-lyrics/master/mappings/${folder}/${songVersion}.json)`);
         const response = await fetch(
-            `/public/mappings/${folder}/${songVersion}.json`
+            `https://raw.githubusercontent.com/champsing/Time-synced-lyrics/master/mappings/${folder}/${songVersion}.json`
         );
         if (!response.ok) throw new Error("載入失敗");
         return await response.json();
