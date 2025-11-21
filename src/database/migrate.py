@@ -90,7 +90,8 @@ if __name__ == "__main__":
         "007_make_saikai_translation_available",
         "008_add_knk_kekka_orai",
         "009_add_yutori_speed",
-        "010_make_speed_translation_available"
+        "010_make_speed_translation_available",
+        "011_make_kekka_orai_available",
     ]
 
     # 初始化並執行 migrations
