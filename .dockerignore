@@ -1,0 +1,23 @@
+# 前端
+py_output
+node_modules
+todo
+karaoke mappings
+dist
+
+# Django 靜態文件
+staticfiles/
+
+# 後端
+logs
+*.log
+*.pot
+*.pyc
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
+.env
+*.sqlite3
+
+# 密鑰
+keys
