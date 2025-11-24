@@ -18,6 +18,3 @@ logs
 */__pycache__/
 .env
 *.sqlite3
-
-# 密鑰
-keys
