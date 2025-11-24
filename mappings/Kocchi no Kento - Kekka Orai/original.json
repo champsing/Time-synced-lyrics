@@ -793,5 +793,9 @@
             { "phrase": "らい!", "duration": 50 }
         ],
         "translation": ""
+    },
+    {
+        "time": "02:45.00",
+        "type": "end"
     }
 ]
