@@ -571,8 +571,7 @@
             ],
             "translation": "無論到何時"
         },
-        "is_together": true,
-        "concurrent_lines": [42]
+        "is_together": true
     },
     {
         "time": "03:52.96",
@@ -586,8 +585,7 @@
             { "phrase": "と", "duration": 61.1 }
         ],
         "translation": "一直祈禱著能夠繼續下去",
-        "is_secondary": true,
-        "concurrent_lines": [43]
+        "is_secondary": true
     },
     {
         "time": "03:56.45",

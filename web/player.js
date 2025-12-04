@@ -82,7 +82,11 @@ function main() {
         { color: "#fb2b43", name: "Apple Music 粉紅" },
     ];
 
-    const bgColorName = computed(() => colorOptions.filter((x) => x.color === bodyBackgroundColor.value)[0].name || colorOptions[0].name);
+    const bgColorName = computed(
+        () =>
+            colorOptions.filter((x) => x.color === bodyBackgroundColor.value)[0]
+                .name || colorOptions[0].name
+    );
 
     // 計算屬性
     const formattedCurrentTime = computed(() => formatTime(currentTime.value));
@@ -103,18 +107,87 @@ function main() {
             );
     });
 
-    const currentLineIndex = computed(() => {
-        if (!jsonMappingContent.value) return -1;
-        for (let i = jsonMappingContent.value.length - 1; i >= 0; i--) {
-            if (currentTime.value >= jsonMappingContent.value[i].time - 0.3) {
-                return i;
+    const processedLines = computed(() => {
+        if (!jsonMappingContent.value) return [];
+
+        return jsonMappingContent.value.map((line) => {
+            // 計算該行的總持續時間
+            let totalDuration = 0;
+
+            // 您的 JSON 中 duration 是一個數字陣列 (例如 [0.423, 0.707, ...])
+            // 我們將其加總得到整句的時長
+            if (Array.isArray(line.duration)) {
+                totalDuration = line.duration.reduce(
+                    (sum, val) => sum + val,
+                    0
+                );
+            } else if (typeof line.duration === "number") {
+                // 防呆：如果是單一數字
+                totalDuration = line.duration;
+            } else {
+                // 防呆：如果完全沒有 duration (例如某些 metadata)，給個預設值以免邏輯壞掉
+                totalDuration = 3.0;
             }
-        }
-        return -1;
+
+            return {
+                ...line,
+                // 算出精確的結束時間點
+                computedEndTime: line.time + totalDuration,
+            };
+        });
     });
 
+    // 2. 核心邏輯：找出所有「現在應該顯示」的行數索引
+    const activeLineIndices = computed(() => {
+        if (!processedLines.value) return [];
+
+        const activeIndices = [];
+        const now = currentTime.value;
+
+        // 提早 0.3 秒顯示 (配合您原本的邏輯)
+        const startOffset = 0.3;
+
+        // 延後 0.2 秒消失 (選用：讓歌詞唱完後稍微停留一下下再消失，感覺比較平滑)
+        // 如果想要唱完字瞬間消失，將此設為 0 即可
+        const endBuffer = 0.2;
+
+        processedLines.value.forEach((line, index) => {
+            // 定義顯示區間：
+            // 開始：表定時間 - 0.3秒
+            // 結束：表定時間 + 總時長 + 0.2秒緩衝
+            const startTime = line.time - startOffset;
+            const endTime = line.computedEndTime + endBuffer;
+
+            // 如果現在時間落在這個區間內，這行就是 active
+            if (now >= startTime && now < endTime) {
+                activeIndices.push(index);
+            }
+        });
+
+        return activeIndices;
+    });
+
+    // 3. 樣式判斷函式
+    // 直接檢查該 index 是否在活躍陣列中
+    const isCurrentLine = (index) => {
+        return activeLineIndices.value.includes(index);
+    };
+
+    // 4. 定義 currentLineIndex 以相容舊邏輯 (例如捲動、其他依賴單一行數的功能)
+    // 我們取活躍行中的最後一行 (通常是最新開始的一行) 作為當前主要行
+    const currentLineIndex = computed(() => {
+        if (
+            !activeLineIndices.value ||
+            activeLineIndices.value.length === 0
+        ) {
+            return -1;
+        }
+        return activeLineIndices.value[activeLineIndices.value.length - 1];
+    });
+
+    // 將 activeLineIndices 傳入翻譯處理，以支援多行翻譯
     const { translationText, backgroundTranslationText, translationAuthor } =
-        useTransation(currentSong, jsonMappingContent, currentLineIndex);
+        useTransation(currentSong, jsonMappingContent, activeLineIndices);
 
     // 跳至指定行
     const jumpToCurrentLine = (index) => {
@@ -123,24 +196,6 @@ function main() {
             window.ytPlayer.seekTo(line.time - 0.2);
             scrollToLineIndex(index);
         }
-    };
-
-    const isCurrentLine = (index) => {
-        const currentIndex = currentLineIndex.value;
-
-        // 基本條件：當前索引是否匹配
-        if (index === currentIndex) return true;
-
-        // 獲取當前播放行的數據
-        const currentLine = jsonMappingContent.value[currentIndex];
-
-        if (!currentLine || !currentLine.concurrent_lines) return false;
-
-        // 檢查當前播放行是否有定義 concurrent_lines 且包含目標索引
-        const isConcurrentLine =
-            currentLine.concurrent_lines.includes(index) ?? false;
-
-        return isConcurrentLine;
     };
 
     const getBackgroundPhraseStyle = (lineIndex, phraseIndex) => {

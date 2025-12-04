@@ -691,8 +691,7 @@
                 { "phrase": "は", "duration": 30 }
             ],
             "translation": "交疊的時日中我們將 流動的時光中我們將"
-        },
-        "concurrent_lines": [34]
+        }
     },
     {
         "time": "03:42.89",
@@ -819,8 +818,7 @@
                 { "phrase": "って", "duration": 20 }
             ],
             "translation": "會變得什麼都無法回想起來 會變成這樣吧 會變成這樣吧.....我想"
-        },
-        "concurrent_lines": [37]
+        }
     },
     { "time": "04:07.00", "type": "interlude" },
     { "time": "04:42.04", "type": "end" }

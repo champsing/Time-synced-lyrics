@@ -421,8 +421,7 @@
             { "phrase": "ney", "duration": 38 }
         ],
         "translation": "行於途中",
-        "is_secondary": true,
-        "concurrent_lines": [29]
+        "is_secondary": true
     },
     {
         "time": "02:08.73",
