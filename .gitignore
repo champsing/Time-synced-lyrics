@@ -21,3 +21,6 @@ logs
 
 # 密鑰
 keys
+
+# 插件
+.prettierrc
