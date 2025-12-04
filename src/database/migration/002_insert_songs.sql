@@ -24,7 +24,7 @@ VALUES
         1,
         NULL,
         'Mrs Green Apple, Sonoko Inoue - Tenbyouno Uta',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7NmbXHrqkonh23VACOzUY0JJjpRl1vKt75A&s',
+        'https://s3-aop.plusmember.jp/prod/public/mga/contents/discography/transfer/5995_MGA_AtoN_tsujo.jpg',
         'Mrs. GREEN APPLE, Sonoko Inoue',
         '大森元貴',
         '点描の唄',
