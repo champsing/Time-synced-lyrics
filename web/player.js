@@ -110,7 +110,7 @@ function main() {
     const processedLines = computed(() => {
         if (!jsonMappingContent.value) return [];
 
-        return jsonMappingContent.value.map((line) => {
+        const outcome = jsonMappingContent.value.map((line) => {
             // 計算該行的總持續時間
             let totalDuration = 0;
 
@@ -129,12 +129,47 @@ function main() {
                 totalDuration = 3.0;
             }
 
+            // 計算主歌詞的總時長
+            const mainTotalDuration = line.duration.reduce((a, b) => a + b, 0);
+
+            // 主歌詞的結束時間 (預設使用主歌詞的 startTime + mainTotalDuration)
+            let maxEndTime = line.time + mainTotalDuration;
+
+            // 處理 duration 防呆 (如果是 0，給個預設值，例如 3秒)
+            const validDuration =
+                mainTotalDuration > 0 ? mainTotalDuration : 3.0;
+
+            const lineBG = line.background_voice;
+            if (lineBG) {
+                // 🚨 新增邏輯：檢查背景和聲的結束時間 🚨
+                if (lineBG.time !== undefined && lineBG.duration) {
+                    // 計算背景和聲的總時長
+                    const bgTotalDuration = lineBG.duration.reduce(
+                        (a, b) => a + b,
+                        0
+                    );
+
+                    // 背景和聲的實際結束時間
+                    const bgEndTime = lineBG.time + bgTotalDuration;
+
+                    // 取主歌詞結束時間 和 背景和聲結束時間 兩者的最大值
+                    maxEndTime = Math.max(maxEndTime, bgEndTime);
+                }
+            }
+
+            // 如果 maxEndTime <= line.startTime (例如主歌詞 totalDuration 也是 0 的情況)
+            // 則使用 validDuration 作為安全預設值
+            const finalEndTime =
+                maxEndTime > line.time ? maxEndTime : line.time + validDuration;
+
             return {
                 ...line,
-                // 算出精確的結束時間點
-                computedEndTime: line.time + totalDuration,
+                computedEndTime: finalEndTime,
             };
         });
+
+        console.log(songVersion.value, outcome);
+        return outcome;
     });
 
     // 2. 核心邏輯：找出所有「現在應該顯示」的行數索引
@@ -176,10 +211,7 @@ function main() {
     // 4. 定義 currentLineIndex 以相容舊邏輯 (例如捲動、其他依賴單一行數的功能)
     // 我們取活躍行中的最後一行 (通常是最新開始的一行) 作為當前主要行
     const currentLineIndex = computed(() => {
-        if (
-            !activeLineIndices.value ||
-            activeLineIndices.value.length === 0
-        ) {
+        if (!activeLineIndices.value || activeLineIndices.value.length === 0) {
             return -1;
         }
         return activeLineIndices.value[activeLineIndices.value.length - 1];
@@ -235,8 +267,6 @@ function main() {
             currentSong,
             songDuration.value
         );
-
-        console.log(version.value, jsonMappingContent.value);
     }
 
     watch(currentLineIndex, (newVal) => {
