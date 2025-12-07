@@ -92,6 +92,7 @@ if __name__ == "__main__":
         "009_add_yutori_speed",
         "010_make_speed_translation_available",
         "011_make_kekka_orai_available",
+        "012_add_kenshi_hikaru_jane_doe",
     ]
 
     # 初始化並執行 migrations
