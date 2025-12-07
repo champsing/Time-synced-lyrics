@@ -28,7 +28,7 @@ VALUES
         '米津玄師, Hikaru Utada',
         '米津玄師',
         'JANE DOE',
-        '劇場版『チェンソーマン レゼ篇』エンディング・テーマ',
+        '劇場版『チェンソーマン レゼ篇』\nエンディング・テーマ',
         NULL,
         '[{"version": "original", "id": "sPLqsLsooJY", "default": true, "duration": "4:06"}]',
         0,
