@@ -7,7 +7,7 @@
         "is_together": true
     },
     {
-        "time": "00:14.90",
+        "time": "00:15.59",
         "text": [
             {
                 "phrase": "まる",
@@ -35,7 +35,8 @@
             },
             {
                 "phrase": "二人",
-                "duration": 131.4
+                "duration": 131.4,
+                "kiai": true
             },
             {
                 "phrase": "だ",
@@ -44,10 +45,6 @@
             {
                 "phrase": "け",
                 "duration": 69
-            },
-            {
-                "phrase": "",
-                "duration": 30
             },
             {
                 "phrase": "み",
@@ -98,7 +95,8 @@
             },
             {
                 "phrase": "夢",
-                "duration": 81.3
+                "duration": 81.3,
+                "kiai": true
             },
             {
                 "phrase": "を",
@@ -185,7 +183,8 @@
             },
             {
                 "phrase": "指",
-                "duration": 92
+                "duration": 92,
+                "kiai": true
             },
             {
                 "phrase": "に",
@@ -228,11 +227,13 @@
             },
             {
                 "phrase": "行かな",
-                "duration": 135.2
+                "duration": 135.2,
+                "kiai": true
             },
             {
                 "phrase": "きゃ",
-                "duration": 85.9
+                "duration": 85.9,
+                "kiai": true
             },
             {
                 "phrase": "何",
@@ -248,7 +249,8 @@
             },
             {
                 "phrase": "忘",
-                "duration": 101.3
+                "duration": 101.3,
+                "kiai": true
             },
             {
                 "phrase": "れ",
@@ -267,7 +269,8 @@
         "text": [
             {
                 "phrase": "硝子",
-                "duration": 137.6
+                "duration": 137.6,
+                "kiai": true
             },
             {
                 "phrase": "の",
@@ -307,7 +310,8 @@
             },
             {
                 "phrase": "痛",
-                "duration": 65.3
+                "duration": 65.3,
+                "kiai": true
             },
             {
                 "phrase": "む",
@@ -331,7 +335,8 @@
             },
             {
                 "phrase": "流",
-                "duration": 57.6
+                "duration": 57.6,
+                "kiai": true
             },
             {
                 "phrase": "れ",
@@ -343,15 +348,18 @@
             },
             {
                 "phrase": "落",
-                "duration": 73.3
+                "duration": 73.3,
+                "kiai": true
             },
             {
                 "phrase": "ちてい",
-                "duration": 54.4
+                "duration": 54.4,
+                "kiai": false
             },
             {
                 "phrase": "く",
-                "duration": 76
+                "duration": 76,
+                "kiai": true
             }
         ],
         "translation": "",
@@ -386,7 +394,8 @@
             },
             {
                 "phrase": "足跡",
-                "duration": 169.1
+                "duration": 169.1,
+                "kiai": true
             },
             {
                 "phrase": "を",
@@ -402,15 +411,18 @@
             },
             {
                 "phrase": "会い",
-                "duration": 93.6
+                "duration": 93.6,
+                "kiai": true
             },
             {
                 "phrase": "にき",
-                "duration": 37.1
+                "duration": 37.1,
+                "kiai": true
             },
             {
                 "phrase": "て",
-                "duration": 78.8
+                "duration": 78.8,
+                "kiai": true
             }
         ],
         "translation": "",
@@ -431,11 +443,13 @@
             },
             {
                 "phrase": "プー",
-                "duration": 48
+                "duration": 48,
+                "kiai": true
             },
             {
                 "phrase": "ルに",
-                "duration": 42.9
+                "duration": 42.9,
+                "kiai": true
             },
             {
                 "phrase": "放",
@@ -541,11 +555,13 @@
             },
             {
                 "phrase": "傷",
-                "duration": 83.8
+                "duration": 83.8,
+                "kiai": true
             },
             {
                 "phrase": "跡",
-                "duration": 138.4
+                "duration": 138.4,
+                "kiai": true
             },
             {
                 "phrase": "犬",
@@ -587,7 +603,8 @@
         "text": [
             {
                 "phrase": "どこ",
-                "duration": 50
+                "duration": 50,
+                "kiai": true
             },
             {
                 "phrase": "にい",
@@ -603,7 +620,8 @@
             },
             {
                 "phrase": "何を",
-                "duration": 20
+                "duration": 20,
+                "kiai": true
             },
             {
                 "phrase": "して",
@@ -624,7 +642,8 @@
             "text": [
                 {
                     "phrase": "ここに",
-                    "duration": 40
+                    "duration": 40,
+                    "kiai": true
                 },
                 {
                     "phrase": "いる",
@@ -640,7 +659,8 @@
                 },
                 {
                     "phrase": " ずっと",
-                    "duration": 40
+                    "duration": 40,
+                    "kiai": true
                 },
                 {
                     "phrase": "見",
