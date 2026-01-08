@@ -25,7 +25,12 @@ function main() {
     const sortOptions = ["name", "artist", "album", "date", "lang"];
     const sortOption = ref("date");
     const showSortOptions = ref(false);
-    const colorOptions = ref([]);
+    const colorOptions = ref([
+        {
+            color: "#56773f",
+            name: "預設 I：森林綠",
+        },
+    ]);
 
     const sortLabels = {
         name: "🎵 歌曲名稱",
@@ -265,8 +270,6 @@ function main() {
             colorOptions.value = await response.json();
         } catch (err) {
             console.error("無法讀取顏色設定檔:", err);
-            // 備援方案：至少給一個預設顏色
-            colorOptions.value = [{ "color": "#56773f", "name": "預設 I：森林綠" }];
         }
     };
 

@@ -64,7 +64,7 @@ function main() {
     const isLoading = ref(true);
     const isMuted = ref(false);
 
-    const colorOptions = ref([]);
+    const colorOptions = ref([{ color: "#365456", name: "預設 II：礦石靛" }]);
 
     // 非同步讀取 JSON
     const fetchColors = async () => {
@@ -73,8 +73,6 @@ function main() {
             colorOptions.value = await response.json();
         } catch (err) {
             console.error("無法讀取顏色設定檔:", err);
-            // 備援方案：至少給一個預設顏色
-            colorOptions.value = [{ color: "#365456", name: "預設 II：礦石靛" }];
         }
     };
 
