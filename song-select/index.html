@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
-<head>
-    <title>選擇歌曲 - 同步開唱</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="選擇要播放的歌曲與版本">
-    <link rel="icon" type="image/svg+xml" href="/public/og_image/music.webp" />
-    <link rel="canonical" href="https://timesl.online/song-select/" />
-    <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="選擇歌曲 - 同步開唱" />
-    <meta property="og:description" content="選擇要播放的歌曲與版本" />
-    <meta property="og:url" content="https://timesl.online/song-select/" />
-    <meta property="og:site_name" content="時間同步歌詞" />
-    <meta property="og:image" content="/public/og_image/music.webp" />
-    <meta property="og:image:width" content="2048" />
-    <meta property="og:image:height" content="2048" />
-    <meta property="og:image:type" content="image/png" />
-    <link rel="stylesheet" href="/styles/tailwind.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="preconnect" href="https://unpkg.com/">
-    </link>
-    <script type="importmap">
-        {
-          "imports": {
-            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js"
-          }
-        }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=filter_list" />
-</head>
-
-<body class="bg-[#1f7354] min-h-screen text-gray-100">
-    <div id="app">
+    <head>
+        <title>選擇歌曲 - 同步開唱</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="選擇要播放的歌曲與版本">
+        <link rel="icon" type="image/svg+xml" href="/public/og_image/music.webp" />
+        <link rel="canonical" href="https://timesl.online/song-select/" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:title" content="選擇歌曲 - 同步開唱" />
+        <meta property="og:description" content="選擇要播放的歌曲與版本" />
+        <meta property="og:url" content="https://timesl.online/song-select/" />
+        <meta property="og:site_name" content="時間同步歌詞" />
+        <meta property="og:image" content="/public/og_image/music.webp" />
+        <meta property="og:image:width" content="2048" />
+        <meta property="og:image:height" content="2048" />
+        <meta property="og:image:type" content="image/png" />
+        <link rel="stylesheet" href="/styles/tailwind.css">
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="preconnect" href="https://unpkg.com/">
+        <script type="importmap">
+            {
+              "imports": {
+                "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js"
+              }
+            }
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+            rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy" />
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=filter_list" />
+    </head>
+    <body class="bg-[#1f7354] min-h-screen text-gray-100">
+        <div id="app">
         <nav class="fixed top-0 left-0 w-full bg-[#56773f] shadow-lg z-50">
             <div class="container mx-auto px-4 py-3 flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -60,76 +56,11 @@
                     </div>
                     <a href="/"
                         class="select-none px-4 py-2 bg-[#4ac2d7] rounded-md hover:bg-[#3aaabf] transition-transform hover:scale-110 duration-400">
-                        返回首頁
+                    返回首頁
                     </a>
                 </div>
             </div>
         </nav>
-
-        <transition name="fade">
-            <div v-if="showDetailModal" class="fixed inset-0 z-100 flex items-center justify-center p-4">
-                <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="closeSongModal"></div>
-
-                <div
-                    class="relative bg-[#2d4a4d] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row animate-[modalPop_0.3s_ease-out]">
-
-                    <div class="w-full md:w-1/2 aspect-square">
-                        <img :src="selectedModalSong.art" class="w-full h-full object-cover">
-                    </div>
-
-                    <div class="w-full md:w-1/2 p-6 flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h2 class="text-2xl font-bold">{{ selectedModalSong.title }}</h2>
-                                <p class="text-teal-300">{{ selectedModalSong.artist }}</p>
-                            </div>
-                            <button @click="closeSongModal" class="text-gray-400 hover:text-white transition-colors">
-                                <span class="material-icons">close</span>
-                            </button>
-                        </div>
-
-                        <div class="space-y-4 flex-grow overflow-y-auto custom-scrollbar pr-2"
-                            style="max-height: 300px;">
-                            <p v-if="selectedModalSong.subtitle" class="text-sm text-gray-300 italic">
-                                {{ parseSubtitle(selectedModalSong.subtitle) }}
-                            </p>
-
-                            <div class="grid grid-cols-1 gap-2 text-xs text-gray-300">
-                                <p>💿 專輯：{{ selectedModalSong.album?.name || '單曲' }}</p>
-                                <p>✍️ 作詞：{{ selectedModalSong.lyricist || '未提供' }}</p>
-                                <p v-if="selectedModalSong.translation?.available">📝 譯者：{{
-                                    selectedModalSong.translation.author }}</p>
-                                <p>🌐 語言：{{ langCodes[selectedModalSong.lang] }}</p>
-                                <p>📅 更新：{{ selectedModalSong.updated_at }}</p>
-                            </div>
-
-                            <div class="pt-4 border-t border-white/10">
-                                <label
-                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">選擇版本</label>
-                                <div class="flex flex-wrap gap-2">
-                                    <button v-for="ver in selectedModalSong.versions" :key="ver.version"
-                                        class="px-3 py-1.5 text-xs rounded-lg transition-all border border-white/10"
-                                        :class="{
-                                    'bg-teal-600 text-white border-teal-400': selectedVersions[selectedModalSong.song_id] === ver.version,
-                                    'bg-white/5 hover:bg-white/10 text-gray-300': selectedVersions[selectedModalSong.song_id] !== ver.version
-                                }" @click="selectVersion(selectedModalSong.song_id, ver.version)">
-                                        {{ getVersionLabel(ver.version) }}
-                                        <span v-if="ver.default">⚡</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button @click="selectSong(selectedModalSong)"
-                            class="mt-6 w-full py-4 bg-rose-500 hover:bg-rose-300 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg">
-                            <span class="material-icons">play_circle</span>
-                            立即開始演唱
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </transition>
-
         <main class="container mx-auto px-4 py-8 pt-20 sm:pt-25 pb-40 min-h-screen">
             <div class="sm:hidden flex flex-col gap-0 text-center mb-4">
                 <div class="text-sm opacity-75">播放器版本：{{ PLAYER_VERSION }}</div>
@@ -143,7 +74,6 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                 </svg>
-
                 <!-- 跳動文字 -->
                 <div class="flex space-x-2 text-white text-3xl font-bold">
                     <span class="animate-bounce [animation-delay:50ms]">L</span>
@@ -154,7 +84,6 @@
                     <span class="animate-bounce [animation-delay:300ms]">N</span>
                     <span class="animate-bounce [animation-delay:350ms]">G</span>
                 </div>
-
                 <!-- 三點閃爍 -->
                 <div class="flex space-x-1 mt-4">
                     <div class="w-2 h-2 bg-white rounded-full animate-ping [animation-delay:0ms]"></div>
@@ -162,68 +91,68 @@
                     <div class="w-2 h-2 bg-white rounded-full animate-ping [animation-delay:400ms]"></div>
                 </div>
             </div>
-
             <!-- 歌曲列表 -->
             <div class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-6 ">
                 <article v-for="song in filteredSongs" :key="song.song_id"
                     class="group relative bg-white/5 rounded-xl overflow-hidden transition-all duration-300 hover:bg-white/10 cursor-pointer"
                     :class="{'opacity-50': !song.available}" @click="openSongModal(song)">
-
                     <div class="relative aspect-square overflow-hidden">
                         <img :src="song.art" :alt="song.title"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none">
-
+                        <div v-if="song.available"
+                            class="absolute top-2 left-2 px-2 py-1  backdrop-blur-md text-white text-[10px] rounded-md border border-white/20 pointer-events-none z-10"
+                            :class="{
+                            'bg-cyan-600/80': selectedVersions[song.song_id] === 'original',
+                            'bg-purple-600/80': selectedVersions[song.song_id] === 'instrumental',
+                            'bg-zinc-900/80': selectedVersions[song.song_id] === 'the_first_take',
+                            'bg-red-400/80': selectedVersions[song.song_id] === 'live'
+                            }">
+                            {{ getVersionLabel(selectedVersions[song.song_id]) }}
+                        </div>
                         <div v-if="!song.available"
                             class="absolute inset-0 bg-black/60 flex items-center justify-center">
                             <span class="text-xl font-bold rotate-12 text-white/70">COMING SOON</span>
                         </div>
-
                         <button v-if="song.available" @click.stop="selectSong(song)"
                             class="absolute bottom-3 right-3 w-10 h-10 bg-rose-500 rounded-full shadow-lg flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-rose-300 hover:scale-110">
-                            <span class="material-icons text-white">play_arrow</span>
+                        <span class="material-icons text-white">play_arrow</span>
                         </button>
                     </div>
-
                     <div class="p-3">
                         <h3 class="font-bold text-base truncate mb-0.5" :title="song.title">{{ song.title }}</h3>
                         <p class="text-sm text-gray-400 truncate">{{ song.artist }}</p>
                     </div>
                 </article>
-
                 <!-- 無結果提示 -->
                 <div v-if="!isLoading && filteredSongs.length === 0"
                     class="col-span-full text-center py-8 text-gray-200">
                     <span class="material-icons text-4xl mb-2">search_off</span>
                     <p>找不到符合的歌曲</p>
                 </div>
-
                 <div class="flex flex-col fixed bottom-5 w-full px-5 left-0 sm:px-0 z-50 mx-auto">
                     <div class="flex flex-row">
                         <div class="grow"></div>
                         <button id="refresh-btn" class="select-none mb-4 px-5 py-2 rounded-lg font-semibold text-white 
-                    bg-gradient-to-r from-cyan-700 to-teal-700 
-                    shadow-lg shadow-cyan-900/30 
-                    flex items-center gap-2
-                    hover:from-cyan-400 hover:to-teal-400 
-                    hover:scale-105 active:scale-95 
-                    transition-all duration-200 ease-out">
-                            <span class="material-icons text-white text-xl">refresh</span>
-                            重新整理歌曲
+                            bg-gradient-to-r from-cyan-700 to-teal-700 
+                            shadow-lg shadow-cyan-900/30 
+                            flex items-center gap-2
+                            hover:from-cyan-400 hover:to-teal-400 
+                            hover:scale-105 active:scale-95 
+                            transition-all duration-200 ease-out">
+                        <span class="material-icons text-white text-xl">refresh</span>
+                        重新整理歌曲
                         </button>
                         <div class="grow"></div>
                     </div>
-
                     <div class="flex flex-row">
                         <div class="hidden sm:block grow"></div>
                         <div
                             class="container py-4 bg-gray-300/20 backdrop-blur-lg rounded-2xl w-full sm:w-1/2 text-center">
-
                             <div class="flex sm:flex-row gap-3 p-3 mx-5 rounded-2xl shadow-inner">
                                 <div class="flex-1 bg-white/10 p-2 rounded-xl">
                                     <input v-model="searchQuery" type="text" placeholder="搜尋歌曲、藝人或專輯..."
                                         class="w-full p-2 bg-transparent border-none text-lg focus:ring-0 placeholder-gray-600">
                                 </div>
-
                                 <div class="bg-white/10 p-2 rounded-xl relative group"
                                     @click.stop="showSortOptions = !showSortOptions" @blur="showSortOptions = false"
                                     tabindex="0">
@@ -231,17 +160,16 @@
                                     <div
                                         class="flex items-center justify-between cursor-pointer text-gray-300 select-none">
                                         <span class="material-icons p-2">
-                                            filter_list
+                                        filter_list
                                         </span>
                                         <span class="bg-black rounded-2xl">{{
-                                            String.fromCodePoint(sortLabels[sortOption].codePointAt(0))
-                                            }}</span>
+                                        String.fromCodePoint(sortLabels[sortOption].codePointAt(0))
+                                        }}</span>
                                         <div class="hidden sm:flex">
                                             <span class="material-icons transform transition-transform duration-200"
                                                 :class="{ 'rotate-180': !showSortOptions }">expand_more</span>
                                         </div>
                                     </div>
-
                                     <transition name="fade">
                                         <div v-if="showSortOptions"
                                             class="min-w-[180px] absolute -left-15 right-0 sm:-left-5 mb-2 bottom-full bg-[#2d4a4d] rounded-lg shadow-xl z-50 origin-bottom-left select-none">
@@ -261,7 +189,6 @@
                         <div class="hidden sm:block grow"></div>
                     </div>
                 </div>
-
                 <div id="modals-container">
                     <div id="refresh-modal-container" class="hidden">
                         <div id="refresh-modal-mask" class="modal-mask">
@@ -269,48 +196,108 @@
                         <!-- Modal content -->
                         <div id="refresh-modal-content"
                             class="modal-mutual top-7/12 left-1/2 w-[85%] md:left-[50%] md:top-[45%] md:w-2/5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-6 animate-[modalPop_0.3s_ease-out_forwards]">
-
                             <!-- 標題列 -->
                             <div class="flex items-center mb-4">
                                 <span class="text-xl font-bold tracking-wide text-white">重新整理歌曲資料</span>
                                 <div class="flex-grow"></div>
                                 <button id="refresh-modal-close-btn" title="關閉" aria-label="關閉視窗" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 
-                       transition-all duration-200 text-white text-lg">
-                                    &times;
+                                    transition-all duration-200 text-white text-lg">
+                                &times;
                                 </button>
                             </div>
-
                             <!-- 內容 -->
                             <div class="custom-scrollbar text-white/90 space-y-4">
                                 <p class="text-lg">您確定要刪除本地緩存並重新獲取歌曲資料嗎？</p>
                                 <p class="text-base italic">須花費一些時間重新下載歌曲檔案。</p>
-
                                 <!-- 按鈕組 -->
                                 <div class="flex gap-4 pt-4">
                                     <button @click="refreshSongList()" id="confirm-refresh" class="flex-1 px-4 py-2 rounded-lg font-semibold text-white 
-                           bg-gradient-to-r from-emerald-400 to-teal-500 
-                           hover:from-emerald-300 hover:to-teal-400 
-                           transition-transform hover:scale-105 shadow-md">
-                                        確定
+                                        bg-gradient-to-r from-emerald-400 to-teal-500 
+                                        hover:from-emerald-300 hover:to-teal-400 
+                                        transition-transform hover:scale-105 shadow-md">
+                                    確定
                                     </button>
                                     <button id="cancel-refresh" class="flex-1 px-4 py-2 rounded-lg font-semibold text-white 
-                           bg-gradient-to-r from-rose-500 to-red-500 
-                           hover:from-rose-400 hover:to-red-400 
-                           transition-transform hover:scale-105 shadow-md">
-                                        取消
+                                        bg-gradient-to-r from-rose-500 to-red-500 
+                                        hover:from-rose-400 hover:to-red-400 
+                                        transition-transform hover:scale-105 shadow-md">
+                                    取消
                                     </button>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
+                    <transition name="fade">
+                        <div v-if="showDetailModal" class="fixed inset-0 z-100 flex items-center justify-center p-4">
+                            <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="closeSongModal"></div>
+                            <div
+                                class="relative bg-[#2d4a4d] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row animate-[modalPop_0.3s_ease-out]">
+                                <div class="w-full md:w-1/2 aspect-square">
+                                    <img :src="selectedModalSong.art" class="w-full h-full object-cover">
+                                </div>
+                                <div class="w-full md:w-1/2 p-6 flex flex-col">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h2 class="text-2xl font-bold">{{ selectedModalSong.title }}</h2>
+                                            <p class="text-teal-300">{{ selectedModalSong.artist }}</p>
+                                        </div>
+                                        <button @click="closeSongModal"
+                                            class="text-gray-400 hover:text-white transition-colors">
+                                        <span class="material-icons">close</span>
+                                        </button>
+                                    </div>
+                                    <div class="space-y-4 flex-grow overflow-y-auto custom-scrollbar pr-2"
+                                        style="max-height: 300px;">
+                                        <p v-if="selectedModalSong.subtitle" class="text-sm text-gray-300 italic">
+                                            {{ parseSubtitle(selectedModalSong.subtitle) }}
+                                        </p>
+                                        <div class="grid grid-cols-1 gap-2 text-xs text-gray-300">
+                                            <p>💿 專輯：{{ selectedModalSong.album?.name || '單曲' }}</p>
+                                            <p>✍️ 作詞：{{ selectedModalSong.lyricist || '未提供' }}</p>
+                                            <p v-if="selectedModalSong.translation?.available">📝 譯者：{{
+                                                selectedModalSong.translation.author }}
+                                            </p>
+                                            <p>🌐 語言：{{ langCodes[selectedModalSong.lang] }}</p>
+                                            <p>📅 更新：{{ selectedModalSong.updated_at }}</p>
+                                        </div>
+                                        <div class="pt-4 border-t border-white/10">
+                                            <label
+                                                class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">
+                                            選擇版本
+                                            </label>
+                                            <div class="flex flex-wrap gap-2 px-2 py-2">
+                                                <button v-for="ver in selectedModalSong.versions" :key="ver.version"
+                                                    class="px-3 py-1.5 text-xs rounded-lg transition-all border border-white/10"
+                                                    :class="{
+                                                    /* 選中狀態：根據版本顯示特定顏色 */
+                                                    'bg-cyan-600/80 text-white border-cyan-400': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'original',
+                                                    'bg-purple-600/80 text-white border-purple-400': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'instrumental',
+                                                    'bg-zinc-900/80 text-white border-zinc-500': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'the_first_take',
+                                                    'bg-red-400/80 text-white border-red-300': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'live',
+                                                    /* 未選中狀態：統一使用低調深色 */
+                                                    'bg-white/5 hover:bg-white/10 text-gray-300': selectedVersions[selectedModalSong.song_id] !== ver.version,
+                                                    /* 選中時的外框加強 */
+                                                    'ring-2 ring-white/50': selectedVersions[selectedModalSong.song_id] === ver.version
+                                                    }"
+                                                    @click="selectVersion(selectedModalSong.song_id, ver.version)">
+                                                {{ getVersionLabel(ver.version) }}
+                                                <span v-if="ver.default">⚡</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button @click="selectSong(selectedModalSong)"
+                                        class="mt-6 w-full py-4 bg-rose-500 hover:bg-rose-300 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg">
+                                    <span class="material-icons">play_circle</span>
+                                    立即開唱
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </transition>
                 </div>
-
-
         </main>
-    </div>
-    <script type="module" src="/web/song-select.js"></script>
-</body>
-
+        </div>
+        <script type="module" src="/web/song-select.js"></script>
+    </body>
 </html>

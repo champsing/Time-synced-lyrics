@@ -112,10 +112,17 @@ function main() {
 
             songs.value = songList;
 
-            // 載入使用者之前的版本選擇紀錄
+            // 修改後的版本初始化邏輯
             const storedVersions = sessionStorage.getItem("selectedVersions");
             if (storedVersions) {
                 selectedVersions.value = JSON.parse(storedVersions);
+            } else {
+                // 若抓不到字段，將所有歌曲預設設為 'original'
+                const defaults = {};
+                songList.forEach((song) => {
+                    defaults[song.song_id] = "original";
+                });
+                selectedVersions.value = defaults;
             }
         } catch (error) {
             console.error("歌曲清單加載失敗:", error);
@@ -129,7 +136,7 @@ function main() {
     // 在 main() 函數內部新增
     const showDetailModal = ref(false);
     const selectedModalSong = ref(null);
-    
+
     async function openSongModal(song) {
         if (!song.available) return;
         // 點擊後才去抓詳細資料
