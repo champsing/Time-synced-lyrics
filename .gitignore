@@ -19,6 +19,9 @@ logs
 .env
 *.sqlite3
 
+# docker映像
+tsl.tar
+
 # 密鑰
 keys
 
