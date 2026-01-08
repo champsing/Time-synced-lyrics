@@ -215,6 +215,48 @@ function main() {
         location.reload();
     }
 
+    async function nextSong() {
+        if (!selectedModalSong.value) return;
+
+        // 從過濾後的清單找到當前索引
+        const currentIndex = filteredSongs.value.findIndex(
+            (s) => s.song_id === selectedModalSong.value.song_id
+        );
+        // 找下一個可用的索引（循環切換）
+        const nextIndex = (currentIndex + 1) % filteredSongs.value.length;
+        const nextSongObj = filteredSongs.value[nextIndex];
+
+        // 如果下一首不可用 (coming soon)，則遞迴再找下一首
+        if (!nextSongObj.available) {
+            selectedModalSong.value = nextSongObj; // 先設值讓 findIndex 能運作
+            return nextSong();
+        }
+
+        const fullSong = await ensureSongData(nextSongObj);
+        selectedModalSong.value = fullSong;
+    }
+
+    async function prevSong() {
+        if (!selectedModalSong.value) return;
+
+        const currentIndex = filteredSongs.value.findIndex(
+            (s) => s.song_id === selectedModalSong.value.song_id
+        );
+        // 找上一個索引
+        const prevIndex =
+            (currentIndex - 1 + filteredSongs.value.length) %
+            filteredSongs.value.length;
+        const prevSongObj = filteredSongs.value[prevIndex];
+
+        if (!prevSongObj.available) {
+            selectedModalSong.value = prevSongObj;
+            return prevSong();
+        }
+
+        const fullSong = await ensureSongData(prevSongObj);
+        selectedModalSong.value = fullSong;
+    }
+
     onMounted(async () => {
         await fetchSongs();
         initRefreshModal();
@@ -244,6 +286,8 @@ function main() {
         selectVersion,
         fetchSongs,
         refreshSongList,
+        nextSong,
+        prevSong,
     };
 }
 

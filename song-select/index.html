@@ -132,27 +132,27 @@
                     </svg>
                     <!-- 跳動文字 -->
                     <div class="flex space-x-2 text-white text-3xl font-bold">
-                        <span class="animate-bounce [animation-delay:50ms]"
-                            >L</span
-                        >
-                        <span class="animate-bounce [animation-delay:100ms]"
-                            >O</span
-                        >
-                        <span class="animate-bounce [animation-delay:150ms]"
-                            >A</span
-                        >
-                        <span class="animate-bounce [animation-delay:200ms]"
-                            >D</span
-                        >
-                        <span class="animate-bounce [animation-delay:250ms]"
-                            >I</span
-                        >
-                        <span class="animate-bounce [animation-delay:300ms]"
-                            >N</span
-                        >
-                        <span class="animate-bounce [animation-delay:350ms]"
-                            >G</span
-                        >
+                        <span class="animate-bounce [animation-delay:50ms]">
+                            L
+                        </span>
+                        <span class="animate-bounce [animation-delay:100ms]">
+                            O
+                        </span>
+                        <span class="animate-bounce [animation-delay:150ms]">
+                            A
+                        </span>
+                        <span class="animate-bounce [animation-delay:200ms]">
+                            D
+                        </span>
+                        <span class="animate-bounce [animation-delay:250ms]">
+                            I
+                        </span>
+                        <span class="animate-bounce [animation-delay:300ms]">
+                            N
+                        </span>
+                        <span class="animate-bounce [animation-delay:350ms]">
+                            G
+                        </span>
                     </div>
                     <!-- 三點閃爍 -->
                     <div class="flex space-x-1 mt-4">
@@ -169,7 +169,7 @@
                 </div>
                 <!-- 歌曲列表 -->
                 <div
-                    class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6 gap-6"
+                    class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-6"
                 >
                     <article
                         v-for="song in filteredSongs"
@@ -188,11 +188,11 @@
                                 v-if="song.available"
                                 class="absolute top-2 left-2 px-2 py-1 backdrop-blur-md text-white text-[10px] rounded-md border border-white/20 pointer-events-none z-10"
                                 :class="{
-                            'bg-cyan-600/80': selectedVersions[song.song_id] === 'original',
-                            'bg-purple-600/80': selectedVersions[song.song_id] === 'instrumental',
-                            'bg-zinc-900/80': selectedVersions[song.song_id] === 'the_first_take',
-                            'bg-red-400/80': selectedVersions[song.song_id] === 'live'
-                            }"
+                                    'bg-cyan-600/80': selectedVersions[song.song_id] === 'original',
+                                    'bg-purple-600/80': selectedVersions[song.song_id] === 'instrumental',
+                                    'bg-zinc-900/80': selectedVersions[song.song_id] === 'the_first_take',
+                                    'bg-red-400/80': selectedVersions[song.song_id] === 'live'
+                                }"
                             >
                                 {{
                                 getVersionLabel(selectedVersions[song.song_id])
@@ -394,18 +394,70 @@
                                     @click="closeSongModal"
                                 ></div>
 
+                                <button
+                                    @click.stop="prevSong"
+                                    class="hidden md:flex absolute left-8 z-[110] w-14 h-14 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110"
+                                >
+                                    <span class="material-icons text-4xl"
+                                        >chevron_left</span
+                                    >
+                                </button>
+
                                 <div
                                     class="relative bg-white/5 backdrop-blur-2xl border border-white/10 w-full max-w-3xl rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row animate-[modalPop_0.3s_ease-out]"
                                 >
                                     <div
-                                        class="w-full md:w-5/12 aspect-square relative group"
+                                        class="w-full md:w-5/12 relative group"
                                     >
+                                        <div
+                                            class="md:hidden absolute top-0 left-0 w-full z-20 flex justify-between p-4 bg-gradient-to-b from-black/60 to-transparent"
+                                        >
+                                            <button
+                                                @click="prevSong"
+                                                class="flex items-center gap-1 text-white/90 hover:text-white transition-colors"
+                                            >
+                                                <span class="material-icons">
+                                                    chevron_left
+                                                </span>
+                                                <span
+                                                    class="text-sm font-medium"
+                                                >
+                                                    上一首
+                                                </span>
+                                            </button>
+                                            <button
+                                                @click="nextSong"
+                                                class="flex items-center gap-1 text-white/90 hover:text-white transition-colors"
+                                            >
+                                                <span
+                                                    class="text-sm font-medium"
+                                                >
+                                                    下一首
+                                                </span>
+                                                <span class="material-icons">
+                                                    chevron_right
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        <div
+                                            class="aspect-video md:hidden w-full"
+                                        >
+                                            <img
+                                                :src="selectedModalSong.art"
+                                                class="w-full h-full object-cover"
+                                            />
+                                            <div
+                                                class="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.5)]"
+                                            ></div>
+                                        </div>
+
                                         <img
                                             :src="selectedModalSong.art"
-                                            class="w-full h-full object-cover"
+                                            class="hidden md:block w-full h-full object-cover"
                                         />
                                         <div
-                                            class="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.5)]"
+                                            class="hidden md:block absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.5)]"
                                         ></div>
                                     </div>
 
@@ -430,15 +482,17 @@
                                                 </p>
                                             </div>
                                             <button
+                                                id="refresh-modal-close-btn"
                                                 @click="closeSongModal"
-                                                class="p-2 rounded-full bg-white/5 hover:bg-white/20 transition-all"
+                                                title="關閉"
+                                                aria-label="關閉視窗"
+                                                class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 text-white text-lg"
                                             >
-                                                <div>
-                                                    <span
-                                                        class="material-icons text-white"
-                                                        >close</span
-                                                    >
-                                                </div>
+                                                <span
+                                                    class="material-icons text-white"
+                                                >
+                                                    close
+                                                </span>
                                             </button>
                                         </div>
 
@@ -463,26 +517,28 @@
                                                 >
                                                     <span
                                                         class="material-icons text-xs"
-                                                        >album</span
                                                     >
-                                                    <span
-                                                        >專輯：{{
+                                                        album
+                                                    </span>
+                                                    <span>
+                                                        專輯：{{
                                                         selectedModalSong.album?.name
-                                                        || '單曲' }}</span
-                                                    >
+                                                        || '單曲' }}
+                                                    </span>
                                                 </div>
                                                 <div
                                                     class="flex items-center gap-2"
                                                 >
                                                     <span
                                                         class="material-icons text-xs"
-                                                        >edit</span
                                                     >
-                                                    <span
-                                                        >作詞：{{
+                                                        edit
+                                                    </span>
+                                                    <span>
+                                                        作詞：{{
                                                         selectedModalSong.lyricist
-                                                        || '未提供' }}</span
-                                                    >
+                                                        || '未提供' }}
+                                                    </span>
                                                 </div>
                                                 <div
                                                     class="flex items-center gap-2"
@@ -515,10 +571,10 @@
                                             </div>
 
                                             <div
-                                                class="pt-6 border-t border-white/10"
+                                                class="pt-4 border-t border-white/10"
                                             >
                                                 <h4
-                                                    class="text-xs font-bold text-gray-500 uppercase tracking-[0.2em] mb-4"
+                                                    class="text-xs font-bold text-gray-500 uppercase tracking-[0.2em] p-2"
                                                 >
                                                     版本選擇
                                                 </h4>
@@ -530,15 +586,15 @@
                                                         :key="ver.version"
                                                         class="px-5 py-1.5 text-xs rounded-full border transition-all duration-300"
                                                         :class="{
-                                                        /* 選中狀態：根據版本顯示特定顏色 */
-                                                        'bg-cyan-600/80 text-white border-cyan-400': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'original',
-                                                        'bg-purple-600/80 text-white border-purple-400': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'instrumental',
-                                                        'bg-zinc-900/80 text-white border-zinc-500': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'the_first_take',
-                                                        'bg-red-400/80 text-white border-red-300': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'live',
-                                                        /* 未選中狀態：統一使用低調深色 */
-                                                        'bg-white/5 hover:bg-white/10 text-gray-300': selectedVersions[selectedModalSong.song_id] !== ver.version,
-                                                        /* 選中時的外框加強 */
-                                                        'ring-2 ring-white/50': selectedVersions[selectedModalSong.song_id] === ver.version
+                                                            /* 選中狀態：根據版本顯示特定顏色 */
+                                                            'bg-cyan-600/80 text-white border-cyan-400': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'original',
+                                                            'bg-purple-600/80 text-white border-purple-400': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'instrumental',
+                                                            'bg-zinc-900/80 text-white border-zinc-500': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'the_first_take',
+                                                            'bg-red-400/80 text-white border-red-300': selectedVersions[selectedModalSong.song_id] === ver.version && ver.version === 'live',
+                                                            /* 未選中狀態：統一使用低調深色 */
+                                                            'bg-white/5 hover:bg-white/10 text-gray-300': selectedVersions[selectedModalSong.song_id] !== ver.version,
+                                                            /* 選中時的外框加強 */
+                                                            'ring-2 ring-white/50': selectedVersions[selectedModalSong.song_id] === ver.version
                                                         }"
                                                         @click="selectVersion(selectedModalSong.song_id, ver.version)"
                                                     >
@@ -567,6 +623,14 @@
                                         </button>
                                     </div>
                                 </div>
+                                <button
+                                    @click.stop="nextSong"
+                                    class="hidden md:flex absolute right-8 z-[110] w-14 h-14 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110"
+                                >
+                                    <span class="material-icons text-4xl"
+                                        >chevron_right</span
+                                    >
+                                </button>
                             </div>
                         </transition>
                     </div>
