@@ -410,7 +410,7 @@
                 <!-- 歌詞容器 -->
                 <div
                     id="lyrics-container"
-                    class="scroll-smooth snap-y snap-proximity text-center p-4 w-full relative md:mb-10"
+                    class="scroll-smooth snap-y snap-proximity text-center p-4 w-full relative mb-[30vh] md:mb-10"
                     :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
                 >
                     <div
@@ -592,21 +592,30 @@
                 id="main-ui-section"
                 class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed md:p-4 w-full px-4 p-2 md:w-[30%] rounded-[12px]"
             >
-                <div class="flex flex-row">
+                <div class="hidden md:flex flex-row">
                     <button
-                        type="button"
                         class="rounded-2xl bg-gray-500 outline-black outline-2"
-                        id="controller-panel-switch"
+                        id="controller-panel-switch-md"
                         aria_label="顯示或隱藏控制介面"
                         title="顯示或隱藏控制介面"
                     >
-                        <span
-                            class="material-icons p-2 select-none"
-                            id="controller-panel-switch-icon"
-                            >keyboard_arrow_down</span
-                        >
+                        <div class="flex flex-row p-1">
+                            <div
+                                class="material-icons p-2 select-none"
+                                id="controller-panel-switch-icon-md"
+                            >
+                                keyboard_arrow_down
+                            </div>
+                            <div
+                                id="controller-panel-switch-state-md"
+                                class="mt-2 px-2"
+                            >
+                                CLOSE
+                            </div>
+                        </div>
                     </button>
                 </div>
+
                 <div
                     id="translation-container-below-md"
                     v-if="enableTranslation"
@@ -786,6 +795,29 @@
                 <div
                     class="p-4 flex flex-col justify-center items-center gap-2 bg-[#231f1f] rounded-[12px] w-fit select-none"
                 >
+                    <div class="flex md:hidden">
+                        <button
+                            class="rounded-2xl outline-2"
+                            id="controller-panel-switch-below-md"
+                            aria_label="顯示或隱藏控制介面"
+                            title="顯示或隱藏控制介面"
+                        >
+                            <div class="flex flex-row p-1">
+                                <div
+                                    class="material-icons p-2 select-none"
+                                    id="controller-panel-switch-icon-below-md"
+                                >
+                                    keyboard_arrow_down
+                                </div>
+                                <div
+                                    id="controller-panel-switch-state-below-md"
+                                    class="mt-2 px-2"
+                                >
+                                    CLOSE
+                                </div>
+                            </div>
+                        </button>
+                    </div>
                     <div class="flex flex-row gap-7 items-center">
                         <div class="flex flex-row gap-7">
                             <button
@@ -1271,9 +1303,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 手機版底部留白 -->
-            <div id="bottom-blank-area" class="h-[20vh] md:h-0"></div>
         </div>
 
         <script src="/web/player.js" type="module"></script>

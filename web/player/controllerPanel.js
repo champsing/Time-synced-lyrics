@@ -1,13 +1,32 @@
 export const initControllerPanel = () => {
-    const panelSwitchIcon = document.getElementById(
-        "controller-panel-switch-icon"
+    let panelSwitch = document.getElementById(
+        "controller-panel-switch-below-md"
     );
+    let panelSwitchIcon = document.getElementById(
+        "controller-panel-switch-icon-below-md"
+    );
+    let panelSwitchState = document.getElementById(
+        "controller-panel-switch-state-below-md"
+    );
+
+    if (window.screen.width >= 768) {
+        panelSwitch = document.getElementById("controller-panel-switch-md");
+        panelSwitchIcon = document.getElementById(
+            "controller-panel-switch-icon-md"
+        );
+        panelSwitchState = document.getElementById(
+            "controller-panel-switch-state-md"
+        );
+    }
+
     const panel = document.getElementById("controller-panel");
     const mainDisplaySection = document.getElementById("main-display-section");
 
     const show = () => {
         panel.style.display = "flex";
         panelSwitchIcon.innerText = "keyboard_arrow_down";
+        panelSwitchState.innerText = "CLOSE";
+
         if (window.screen.width >= 768) {
             mainDisplaySection.style.marginLeft = "2rem";
             mainDisplaySection.style.width = "68%";
@@ -17,6 +36,8 @@ export const initControllerPanel = () => {
     const hide = () => {
         panel.style.display = "none";
         panelSwitchIcon.innerText = "keyboard_arrow_up";
+        panelSwitchState.innerText = "OPEN";
+
         if (window.screen.width >= 768) {
             let margin = window.screen.width / 10 - 32;
             mainDisplaySection.style.marginLeft = `${margin}px`;
@@ -24,7 +45,7 @@ export const initControllerPanel = () => {
         }
     };
 
-    panelSwitchIcon?.addEventListener("click", () => {
+    panelSwitch?.addEventListener("click", () => {
         const currentDisplay = window.getComputedStyle(panel).display;
         currentDisplay === "none" ? show() : hide();
     });
