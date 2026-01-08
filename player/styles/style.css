@@ -3,6 +3,12 @@ body {
     font-family: system-ui;
 }
 
+body,
+nav,
+.container {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .lyric-button.active {
     .lyric-phrase {
         -webkit-background-clip: text;

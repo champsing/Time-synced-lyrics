@@ -25,7 +25,8 @@
 .version-badge {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 600;
-    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 .version-badge:hover {
     transform: scale(1.08);
@@ -53,13 +54,25 @@
 
 /* 彈性淡入動畫 */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes modalPop {
-    0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    0% {
+        transform: translate(-50%, -50%) scale(0.95);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }
 
 /* 播放按鈕互動效果 */
@@ -75,4 +88,31 @@
 .version-badge,
 .song-card button {
     will-change: transform, box-shadow, opacity;
+}
+
+:root {
+    /* 預設值防止閃爍 */
+    --theme-bg: #365456;
+    --theme-nav: #2d4648;
+    --theme-accent: #4a6d70;
+}
+
+body {
+    background-color: var(--theme-bg);
+}
+
+nav {
+    background-color: var(--theme-nav);
+}
+
+body,
+nav,
+.container {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 讓滾動條也能稍微符合主題 */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--theme-accent);
+    border-radius: 10px;
 }

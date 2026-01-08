@@ -26,6 +26,26 @@ function main() {
     const sortOption = ref("date");
     const showSortOptions = ref(false);
 
+    const colorOptions = [
+        { color: "#56773f", name: "預設：森林綠" },
+        { color: "#365456", name: "礦石靛" },
+        { color: "#CC5200", name: "深琥珀橙" },
+        { color: "#D49A00", name: "暗金黃" },
+        { color: "#4A9B7D", name: "墨綠" },
+        { color: "#00855C", name: "深翡翠綠" },
+        { color: "#3A7A9E", name: "午夜藍" },
+        { color: "#0A5D8C", name: "深海藍" },
+        { color: "#6B7984", name: "石板灰" },
+        { color: "#8C0D2B", name: "勃艮第紅" },
+        { color: "#a48b8b", name: "煙霞粉" },
+        { color: "#9E4D64", name: "酒紅" },
+        { color: "#4A0B6B", name: "皇家紫" },
+        { color: "#404040", name: "炭灰" },
+        { color: "#101010", name: "深淵黑" },
+        { color: "#fb2b43", name: "Apple Music 粉紅" },
+    ];
+
+
     const sortLabels = {
         name: "🎵 歌曲名稱",
         artist: "🎤 藝人名稱",
@@ -257,6 +277,51 @@ function main() {
         selectedModalSong.value = fullSong;
     }
 
+    // 2. 響應式變數
+    const bodyBackgroundColor = ref(
+        localStorage.getItem("themeColor") || colorOptions[0].color
+    );
+
+    // 3. 自動獲取當前顏色名稱
+    const bgColorName = computed(() => {
+        const found = colorOptions.find(
+            (opt) => opt.color === bodyBackgroundColor.value
+        );
+        return found ? found.name : "自訂顏色";
+    });
+
+    // 4. 配色工具函式 (將主色調暗以生成導航列顏色)
+    function darkenColor(hex, percent) {
+        const num = parseInt(hex.replace("#", ""), 16),
+            amt = Math.round(2.55 * percent),
+            R = (num >> 16) + amt,
+            G = ((num >> 8) & 0x00ff) + amt,
+            B = (num & 0x0000ff) + amt;
+        return (
+            "#" +
+            (
+                0x1000000 +
+                (R < 255 ? (R < 0 ? 0 : R) : 255) * 0x10000 +
+                (G < 255 ? (G < 0 ? 0 : G) : 255) * 0x100 +
+                (B < 255 ? (B < 0 ? 0 : B) : 255)
+            )
+                .toString(16)
+                .slice(1)
+        );
+    }
+
+    // 5. 監聽變更並套用至全域樣式
+    watch(
+        bodyBackgroundColor,
+        (newColor) => {
+            const navColor = darkenColor(newColor, -15); // 導航列比背景深 15%
+            document.body.style.setProperty("--theme-bg", newColor);
+            document.body.style.setProperty("--theme-nav", navColor);
+            localStorage.setItem("themeColor", newColor);
+        },
+        { immediate: true }
+    );
+
     onMounted(async () => {
         await fetchSongs();
         initRefreshModal();
@@ -278,6 +343,9 @@ function main() {
         error,
         showDetailModal,
         selectedModalSong,
+        colorOptions,
+        bodyBackgroundColor,
+        bgColorName,
         openSongModal,
         closeSongModal,
         parseSubtitle,
