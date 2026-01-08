@@ -29,7 +29,7 @@ def export_song_list():
 
         fetched_song_data = cursor.execute(
             f"""
-            SELECT available, hidden, song_id, folder FROM songs;
+            SELECT available, hidden, song_id, folder, art, artist FROM songs;
             """
         ).fetchall()
 

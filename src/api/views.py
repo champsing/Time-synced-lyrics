@@ -32,7 +32,6 @@ def api_status(request):
 
 
 @api_view(["GET"])
-@cache_page(60 * 30)  # 緩存30分鐘
 def get_songs_list(request):
     from django.core.cache import cache
 
@@ -61,7 +60,6 @@ def get_songs_list(request):
 
 
 @api_view(["GET"])
-@cache_page(60 * 60 * 2)  # 緩存2小時
 def get_song_by_id(request, song_id):
     from django.core.cache import cache
 
