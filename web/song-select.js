@@ -42,6 +42,133 @@ function main() {
         se: "瑞典語",
     };
 
+    // 1. 優化過濾邏輯：增加防錯處理，因為初始清單可能沒有 subtitle 或 album
+    const filteredSongs = computed(() => {
+        const query = searchQuery.value.toLowerCase().trim();
+        return songs.value
+            .filter((song) => !song.hidden)
+            .filter((song) => {
+                const searchFields = [
+                    song.folder,
+                    song.title,
+                    song.artist,
+                    song.subtitle || "", // 初始列表可能為空
+                    song.album?.name || "", // 初始列表可能為空
+                    song.lyricist || "",
+                ]
+                    .join(" ")
+                    .toLowerCase();
+                return searchFields.includes(query);
+            })
+            .sort(sortSong(sortOption.value));
+    });
+
+    // 2. 新增：確保歌曲詳細資料已載入的函數
+    async function ensureSongData(song) {
+        // 如果已經有 versions 欄位，代表已經是完整資料，直接回傳
+        if (song.versions && song.versions.length > 0) {
+            return song;
+        }
+
+        try {
+            // 先嘗試從 SessionStorage 拿單曲詳細快取
+            let fullData = JSON.parse(
+                sessionStorage.getItem(`detail_${song.song_id}`)
+            );
+
+            if (!fullData) {
+                // 真正發送 API 請求
+                fullData = await loadSongData(song.song_id);
+                sessionStorage.setItem(
+                    `detail_${song.song_id}`,
+                    JSON.stringify(fullData)
+                );
+            }
+
+            // 將詳細資料合併回原本的歌曲物件中（保持響應式）
+            const index = songs.value.findIndex(
+                (s) => s.song_id === song.song_id
+            );
+            if (index !== -1) {
+                songs.value[index] = { ...songs.value[index], ...fullData };
+            }
+            return songs.value[index];
+        } catch (err) {
+            console.error(`載入歌曲詳細資訊失敗 (${song.song_id}):`, err);
+            return song;
+        }
+    }
+
+    // 3. 修改：獲取清單（現在只拿基礎欄位）
+    async function fetchSongs() {
+        try {
+            isLoading.value = true;
+            let songList = JSON.parse(sessionStorage.getItem("songList"));
+
+            if (!songList) {
+                songList = await loadSongList(); // 這裡現在拿到的是 8 個欄位的清單
+                sessionStorage.setItem("songList", JSON.stringify(songList));
+            }
+
+            songs.value = songList;
+
+            // 修改後的版本初始化邏輯
+            const storedVersions = sessionStorage.getItem("selectedVersions");
+            if (storedVersions) {
+                selectedVersions.value = JSON.parse(storedVersions);
+            } else {
+                // 若抓不到字段，將所有歌曲預設設為 'original'
+                const defaults = {};
+                songList.forEach((song) => {
+                    defaults[song.song_id] = "original";
+                });
+                selectedVersions.value = defaults;
+            }
+        } catch (error) {
+            console.error("歌曲清單加載失敗:", error);
+        } finally {
+            isLoading.value = false;
+        }
+    }
+
+    // 4. 修改：開啟 Modal（改為非同步）
+
+    // 在 main() 函數內部新增
+    const showDetailModal = ref(false);
+    const selectedModalSong = ref(null);
+
+    async function openSongModal(song) {
+        if (!song.available) return;
+        // 點擊後才去抓詳細資料
+        const fullSong = await ensureSongData(song);
+        selectedModalSong.value = fullSong;
+        showDetailModal.value = true;
+    }
+
+    function closeSongModal() {
+        showDetailModal.value = false;
+    }
+
+    // 5. 修改：直接播放（改為非同步）
+    async function selectSong(song) {
+        if (!song.available) return;
+
+        const fullSong = await ensureSongData(song);
+        const defaultVer =
+            fullSong.versions?.find((v) => v.default)?.version ||
+            fullSong.versions?.[0]?.version ||
+            "original";
+
+        const version = selectedVersions.value[fullSong.song_id] || defaultVer;
+
+        const params = new URLSearchParams({
+            song: fullSong.song_id,
+            version: version,
+        });
+
+        window.location.href = `/player/?${params}`;
+    }
+
     function sortSong(sortOption) {
         return (a, b) => {
             switch (sortOption) {
@@ -67,26 +194,6 @@ function main() {
         };
     }
 
-    const filteredSongs = computed(() => {
-        const query = searchQuery.value.toLowerCase().trim();
-        return songs.value
-            .filter((song) => !song.hidden) // 過濾隱藏歌曲
-            .filter((song) => {
-                const searchFields = [
-                    song.folder, // 純羅馬化的歌檔名，讓不會打日語的人打英文也搜的到
-                    song.title,
-                    song.artist,
-                    song.subtitle,
-                    song.album?.name,
-                    song.lyricist,
-                ]
-                    .join(" ")
-                    .toLowerCase();
-                return searchFields.includes(query);
-            })
-            .sort(sortSong(sortOption.value));
-    });
-
     function getVersionLabel(version) {
         return VERSION_LABELS[version] || version;
     }
@@ -101,93 +208,6 @@ function main() {
 
     function parseSubtitle(subtitle) {
         return subtitle?.replace(/\\n/g, " · ") || "";
-    }
-
-    function selectSong(song) {
-        if (!song.available) return;
-
-        const defaultVer =
-            song.versions.find((v) => v.default)?.version ||
-            song.versions[0].version;
-        const version = selectedVersions.value[song.song_id] || defaultVer;
-
-        const params = new URLSearchParams({
-            song: song.song_id,
-            version: version,
-        });
-
-        window.location.href = `/player/?${params}`;
-    }
-
-    async function fetchSongs() {
-        try {
-            // use sessionStorage 才不會每開一次下載一次 在還沒用成資料庫前先這樣吧
-            const song_list = JSON.parse(sessionStorage.getItem("songList"));
-            if (!song_list) {
-                let songList = await loadSongList();
-                for (let i = 0; i < songList.length; i++) {
-                    let songData = await loadSongData(songList[i].song_id);
-                    sessionStorage.setItem(
-                        songList[i].song_id,
-                        JSON.stringify(songData)
-                    );
-                    songs.value.push(songData);
-                }
-                sessionStorage.setItem("songList", JSON.stringify(songList));
-            } else {
-                for (let i = 0; i < song_list.length; i++) {
-                    let songData = JSON.parse(
-                        sessionStorage.getItem(song_list[i].song_id)
-                    );
-                    songs.value.push(songData);
-                }
-            }
-
-            // 若無快取，初始化默認版本選擇
-            if (!sessionStorage.getItem("selectedVersions")) {
-                console.log("未找到版本選擇記錄，使用各歌曲預設值。");
-
-                songs.value
-                    .filter((song) => song.available)
-                    .forEach((song) => {
-                        const defaultVer = song.versions.find((v) => v.default);
-                        if (defaultVer) {
-                            selectedVersions.value[song.song_id] =
-                                defaultVer.version;
-                        } else
-                            selectedVersions.value[song.song_id] = "original";
-                    });
-            } else {
-                console.log(
-                    "已帶入版本選擇：",
-                    JSON.parse(sessionStorage.getItem("selectedVersions"))
-                );
-                selectedVersions.value = JSON.parse(
-                    sessionStorage.getItem("selectedVersions")
-                );
-            }
-
-            const availableSongs = songs.value.filter((song) => song.available);
-
-            const unavailableSongs = songs.value.filter(
-                (song) => !song.available
-            );
-
-            // 調試：輸出實際加載的歌曲列表
-            console.log(
-                "Available songs:",
-                availableSongs.map((s) => `${s.song_id} - ${s.folder}`),
-                "Unavailable songs:",
-                unavailableSongs.map((s) => {
-                    if (s.hidden) return `${s.song_id} - ${s.folder} (hidden)`;
-                    else return `${s.song_id} - ${s.folder}`;
-                })
-            );
-        } catch (error) {
-            console.error("歌曲加載失敗:", error);
-        } finally {
-            isLoading.value = false;
-        }
     }
 
     function refreshSongList() {
@@ -214,6 +234,10 @@ function main() {
         sortLabels,
         langCodes,
         error,
+        showDetailModal,
+        selectedModalSong,
+        openSongModal,
+        closeSongModal,
         parseSubtitle,
         getVersionLabel,
         selectSong,

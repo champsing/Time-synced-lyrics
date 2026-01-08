@@ -111,24 +111,6 @@ function main() {
         if (!jsonMappingContent.value) return [];
 
         const outcome = jsonMappingContent.value.map((line) => {
-            // 計算該行的總持續時間
-            let totalDuration = 0;
-
-            // 您的 JSON 中 duration 是一個數字陣列 (例如 [0.423, 0.707, ...])
-            // 我們將其加總得到整句的時長
-            if (Array.isArray(line.duration)) {
-                totalDuration = line.duration.reduce(
-                    (sum, val) => sum + val,
-                    0
-                );
-            } else if (typeof line.duration === "number") {
-                // 防呆：如果是單一數字
-                totalDuration = line.duration;
-            } else {
-                // 防呆：如果完全沒有 duration (例如某些 metadata)，給個預設值以免邏輯壞掉
-                totalDuration = 3.0;
-            }
-
             // 計算主歌詞的總時長
             const mainTotalDuration = line.duration.reduce((a, b) => a + b, 0);
 
