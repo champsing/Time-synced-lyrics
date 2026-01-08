@@ -64,28 +64,24 @@ function main() {
     const isLoading = ref(true);
     const isMuted = ref(false);
 
-    const colorOptions = [
-        { color: "#365456", name: "預設：礦石靛" },
-        { color: "#CC5200", name: "深琥珀橙" },
-        { color: "#D49A00", name: "暗金黃" },
-        { color: "#4A9B7D", name: "墨綠" },
-        { color: "#00855C", name: "深翡翠綠" },
-        { color: "#3A7A9E", name: "午夜藍" },
-        { color: "#0A5D8C", name: "深海藍" },
-        { color: "#6B7984", name: "石板灰" },
-        { color: "#8C0D2B", name: "勃艮第紅" },
-        { color: "#a48b8b", name: "煙霞粉" },
-        { color: "#9E4D64", name: "酒紅" },
-        { color: "#4A0B6B", name: "皇家紫" },
-        { color: "#404040", name: "炭灰" },
-        { color: "#101010", name: "深淵黑" },
-        { color: "#fb2b43", name: "Apple Music 粉紅" },
-    ];
+    const colorOptions = ref([]);
+
+    // 非同步讀取 JSON
+    const fetchColors = async () => {
+        try {
+            const response = await fetch('/web/utils/colorOptions.json');
+            colorOptions.value = await response.json();
+        } catch (err) {
+            console.error("無法讀取顏色設定檔:", err);
+            // 備援方案：至少給一個預設顏色
+            colorOptions.value = [{ color: "#365456", name: "預設 II：礦石靛" }];
+        }
+    };
 
     const bgColorName = computed(
         () =>
-            colorOptions.filter((x) => x.color === bodyBackgroundColor.value)[0]
-                .name || colorOptions[0].name
+            colorOptions.value.filter((x) => x.color === bodyBackgroundColor.value)[0]
+                .name || colorOptions.value[0].name
     );
 
     // 計算屬性
@@ -377,6 +373,7 @@ function main() {
             console.error("初始化錯誤: ", error);
         } finally {
             isLoading.value = false;
+            await fetchColors(); // 讀取顏色
             await setupPlayerAndLoadSong();
             // 初始化模態框
             initSettingModal();
@@ -416,6 +413,7 @@ function main() {
         isMuted,
         isLoading,
         debugInfo: DEBUG_INFO,
+        fetchColors,
         parseSubtitle,
         playVideo,
         pauseVideo,
