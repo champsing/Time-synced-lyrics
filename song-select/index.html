@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
     <head>
         <title>選擇歌曲 - 同步開唱</title>
@@ -231,7 +231,7 @@
                                 {{ song.title }}
                             </h3>
                             <p class="text-sm text-gray-400 truncate">
-                                {{ song.artist }}
+                                {{ getArtistDisplay(song.artist) }}
                             </p>
                         </div>
                     </article>
@@ -538,7 +538,8 @@
                                                 <p
                                                     class="text-teal-400 text-lg font-medium"
                                                 >
-                                                    {{ selectedModalSong.artist
+                                                    {{
+                                                    getArtistDisplay(selectedModalSong.artist)
                                                     }}
                                                 </p>
                                             </div>
@@ -597,7 +598,7 @@
                                                     </span>
                                                     <span>
                                                         作詞：{{
-                                                        selectedModalSong.lyricist
+                                                        getArtistDisplay(selectedModalSong.lyricist)
                                                         || '未提供' }}
                                                     </span>
                                                 </div>

@@ -380,7 +380,7 @@
                 { "phrase": " ", "duration": 100 },
                 { "phrase": "time", "duration": 100, "kiai": true }
             ],
-            "translation":"不息，歲月"
+            "translation": "不息，歲月"
         }
     },
     {
@@ -435,7 +435,7 @@
         "background_voice": {
             "time": "02:08.73",
             "text": [{ "phrase": "Oh~", "duration": 100, "kiai": true }],
-            "translation":"喔～"
+            "translation": "喔～"
         }
     },
     {

@@ -5,7 +5,7 @@ export const initYouTubePlayer = (vueContext) => {
     let player = null;
     let currentSong = vueContext.currentSong.value;
     let videoID = vueContext.currentSong.value.versions.find(
-        (v) => v.version === vueContext.songVersion.value
+        (v) => v.version === vueContext.songVersion.value,
     ).id;
 
     const createPlayer = () => {
@@ -36,7 +36,7 @@ export const initYouTubePlayer = (vueContext) => {
 
     const onPlayerStateChange = (
         event,
-        { currentTime, songDuration, isPaused }
+        { currentTime, songDuration, isPaused },
     ) => {
         if (event.data === window.YT.PlayerState.PLAYING) {
             const update = () => {

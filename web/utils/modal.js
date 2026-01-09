@@ -80,7 +80,7 @@ export const initAboutModal = () => {
 
     const version = document.getElementById("version");
     if (version) version.innerText = `播放器版本：${PLAYER_VERSION}`;
-    
+
     injectPlaybackID();
 
     const cpDebugInfoBtn = document.getElementById("copy-debug-info-btn");

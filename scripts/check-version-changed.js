@@ -17,7 +17,7 @@ try {
             file.startsWith("public/") ||
             file.startsWith("py_tools/") ||
             file.startsWith("src/") ||
-            file === "web/utils/config.js"
+            file === "web/utils/config.js",
     );
 
     if (ignoreVN) {
@@ -26,12 +26,12 @@ try {
     }
 
     const packageChanged = changedFiles.some(
-        (file) => file === "web/utils/base-version.js"
+        (file) => file === "web/utils/base-version.js",
     );
 
     if (!packageChanged) {
         console.warn(
-            "❌ 你修改了除了 public/ 以外的檔案，但沒更新 base-version.js 的版本號！"
+            "❌ 你修改了除了 public/ 以外的檔案，但沒更新 base-version.js 的版本號！",
         );
         process.exit(1);
     }

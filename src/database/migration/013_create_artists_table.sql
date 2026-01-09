@@ -3,6 +3,7 @@ CREATE TABLE artists (
     artist_id INTEGER UNIQUE NOT NULL,
     romaji_name TEXT NOT NULL DEFAULT "",
     original_name TEXT NOT NULL DEFAULT "",
+    created_at DATE NOT NULL DEFAULT CURRENT_DATE,
 );
 
 CREATE INDEX idx_artist_id ON artist (artist_id);

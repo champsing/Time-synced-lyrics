@@ -3,6 +3,10 @@ import { loadSongData, loadSongList } from "./player/handles/songsHandle.js";
 import { SONGLIST_VERSION } from "./utils/base-version.js";
 import { PLAYER_VERSION } from "./utils/config.js";
 import { initRefreshModal } from "./utils/modal.js";
+import {
+    ensureArtistLoaded,
+    getArtistDisplay,
+} from "./player/handles/artistsHandle.js";
 
 const VERSION_LABELS = {
     original: "原曲",
@@ -54,17 +58,19 @@ function main() {
         return songs.value
             .filter((song) => !song.hidden)
             .filter((song) => {
-                const searchFields = [
-                    song.folder,
-                    song.title,
-                    song.artist,
-                    song.subtitle || "", // 初始列表可能為空
-                    song.album?.name || "", // 初始列表可能為空
-                    song.lyricist || "",
-                ]
-                    .join(" ")
-                    .toLowerCase();
-                return searchFields.includes(query);
+                // 搜尋名稱而非 ID
+                const artistNames = getArtistDisplay(song.artist).toLowerCase();
+                const lyricistNames = getArtistDisplay(
+                    song.lyricist,
+                ).toLowerCase();
+                const albumName = (song.album?.name || "").toLowerCase();
+
+                return (
+                    song.title.toLowerCase().includes(query) ||
+                    artistNames.includes(query) ||
+                    lyricistNames.includes(query) ||
+                    albumName.includes(query)
+                );
             })
             .sort(sortSong(sortOption.value));
     });
@@ -79,7 +85,7 @@ function main() {
         try {
             // 先嘗試從 SessionStorage 拿單曲詳細快取
             let fullData = JSON.parse(
-                sessionStorage.getItem(`detail_${song.song_id}`)
+                sessionStorage.getItem(`detail_${song.song_id}`),
             );
 
             if (!fullData) {
@@ -87,13 +93,13 @@ function main() {
                 fullData = await loadSongData(song.song_id);
                 sessionStorage.setItem(
                     `detail_${song.song_id}`,
-                    JSON.stringify(fullData)
+                    JSON.stringify(fullData),
                 );
             }
 
             // 將詳細資料合併回原本的歌曲物件中（保持響應式）
             const index = songs.value.findIndex(
-                (s) => s.song_id === song.song_id
+                (s) => s.song_id === song.song_id,
             );
             if (index !== -1) {
                 songs.value[index] = { ...songs.value[index], ...fullData };
@@ -117,6 +123,19 @@ function main() {
             }
 
             songs.value = songList;
+
+            // 預解析所有藝人與作詞家 ID
+            const requiredIds = new Set();
+            songList.forEach((song) => {
+                [song.artist, song.lyricist].forEach((val) => {
+                    if (Array.isArray(val))
+                        val.forEach((id) => requiredIds.add(id));
+                    else if (val) requiredIds.add(val);
+                });
+            });
+
+            // 批次觸發載入（不需 await，讓它在背景跑）
+            requiredIds.forEach((id) => ensureArtistLoaded(id));
 
             // 修改後的版本初始化邏輯
             const storedVersions = sessionStorage.getItem("selectedVersions");
@@ -185,14 +204,14 @@ function main() {
                 case "album":
                     return (a.album?.name || a?.title || "單曲").localeCompare(
                         b.album?.name || b?.title || "單曲",
-                        "zh-TW"
+                        "zh-TW",
                     );
                 case "date":
                     return new Date(b.updated_at) - new Date(a.updated_at);
                 case "lang":
                     return (a.lang || "未知").localeCompare(
                         b.lang || "未知",
-                        "zh-TW"
+                        "zh-TW",
                     );
                 default:
                     return 0;
@@ -226,7 +245,7 @@ function main() {
 
         // 從過濾後的清單找到當前索引
         const currentIndex = filteredSongs.value.findIndex(
-            (s) => s.song_id === selectedModalSong.value.song_id
+            (s) => s.song_id === selectedModalSong.value.song_id,
         );
         // 找下一個可用的索引（循環切換）
         const nextIndex = (currentIndex + 1) % filteredSongs.value.length;
@@ -246,7 +265,7 @@ function main() {
         if (!selectedModalSong.value) return;
 
         const currentIndex = filteredSongs.value.findIndex(
-            (s) => s.song_id === selectedModalSong.value.song_id
+            (s) => s.song_id === selectedModalSong.value.song_id,
         );
         // 找上一個索引
         const prevIndex =
@@ -277,13 +296,13 @@ function main() {
     const bgColorName = computed(
         () =>
             colorOptions.value.filter(
-                (x) => x.color === bodyBackgroundColor.value
-            )[0].name || colorOptions.value[0].name
+                (x) => x.color === bodyBackgroundColor.value,
+            )[0].name || colorOptions.value[0].name,
     );
 
     // 2. 響應式變數
     const bodyBackgroundColor = ref(
-        localStorage.getItem("themeColor") || colorOptions.value[0].color
+        localStorage.getItem("themeColor") || colorOptions.value[0].color,
     );
 
     // 4. 配色工具函式 (將主色調暗以生成導航列顏色)
@@ -315,7 +334,7 @@ function main() {
             document.body.style.setProperty("--theme-nav", navColor);
             localStorage.setItem("themeColor", newColor);
         },
-        { immediate: true }
+        { immediate: true },
     );
 
     onMounted(async () => {
@@ -343,6 +362,7 @@ function main() {
         colorOptions,
         bodyBackgroundColor,
         bgColorName,
+        getArtistDisplay,
         fetchColors,
         openSongModal,
         closeSongModal,
