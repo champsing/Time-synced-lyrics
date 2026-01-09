@@ -1,12 +1,12 @@
 INSERT INTO
-    artists (artist_id, romaji_name, original_name)
+    artists (`artist_id`, `romaji_name`, `original_name`)
 VALUES
-    (1, 'Kiro Akiyama', '秋山黄色'),
-    (2, 'HOYO-MiX', 'HOYO-MiX'),
-    (3, 'Wei Chen', '魏晨'),
-    (4, 'Nea', 'Nea'),
-    (5, 'Chevy', 'Chevy'),
-    (6, 'Robin', '知更鳥'),
-    (7, 'Kenshi Yonezu', '米津玄師'),
-    (8, 'Vaundy', 'Vaundy'),
-    (9, 'Mrs. GREEN APPLE', 'Mrs. GREEN APPLE');
+    (100, 'Kiro Akiyama', '秋山黄色'),
+    (200, 'HOYO-MiX', 'HOYO-MiX'),
+    (300, 'Wei Chen', '魏晨'),
+    (400, 'Nea', 'Nea'),
+    (500 'Chevy', 'Chevy'),
+    (600 'Robin', '知更鳥'),
+    (700 'Kenshi Yonezu', '米津玄師'),
+    (800 'Vaundy', 'Vaundy'),
+    (900 'Mrs. GREEN APPLE', 'Mrs. GREEN APPLE')
