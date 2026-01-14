@@ -13,4 +13,5 @@ VALUES
         96222103300,
         'Mrs. GREEN APPLE',
         'Mrs. GREEN APPLE'
-    )
+    ),
+    ()
