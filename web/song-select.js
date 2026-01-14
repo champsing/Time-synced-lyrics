@@ -342,6 +342,14 @@ function main() {
         await fetchColors();
         await fetchSongs();
         initRefreshModal();
+
+        // 監聽鍵盤事件
+        window.addEventListener("keydown", (e) => {
+            if (!showDetailModal.value) return;
+            if (e.key === "ArrowLeft") prevSong();
+            if (e.key === "ArrowRight") nextSong();
+            if (e.key === "Escape") closeSongModal();
+        });
     });
 
     return {
