@@ -20,11 +20,14 @@
     --color-green-600: oklch(62.7% 0.194 149.214);
     --color-emerald-300: oklch(84.5% 0.143 164.978);
     --color-emerald-400: oklch(76.5% 0.177 163.223);
+    --color-teal-200: oklch(91% 0.096 180.426);
     --color-teal-300: oklch(85.5% 0.138 181.071);
     --color-teal-400: oklch(77.7% 0.152 181.912);
     --color-teal-500: oklch(70.4% 0.14 182.503);
     --color-teal-700: oklch(51.1% 0.096 186.391);
+    --color-teal-800: oklch(43.7% 0.078 188.216);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
+    --color-cyan-500: oklch(71.5% 0.143 215.221);
     --color-cyan-600: oklch(60.9% 0.126 221.723);
     --color-cyan-700: oklch(52% 0.105 223.128);
     --color-cyan-800: oklch(45% 0.085 224.283);
@@ -1391,6 +1394,9 @@
   .text-blue-300 {
     color: var(--color-blue-300);
   }
+  .text-cyan-500 {
+    color: var(--color-cyan-500);
+  }
   .text-cyan-700 {
     color: var(--color-cyan-700);
   }
@@ -1436,6 +1442,9 @@
   .text-rose-700 {
     color: var(--color-rose-700);
   }
+  .text-teal-200 {
+    color: var(--color-teal-200);
+  }
   .text-teal-300 {
     color: var(--color-teal-300);
   }
@@ -1444,6 +1453,9 @@
   }
   .text-teal-500 {
     color: var(--color-teal-500);
+  }
+  .text-teal-800 {
+    color: var(--color-teal-800);
   }
   .text-white {
     color: var(--color-white);

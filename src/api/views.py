@@ -6,7 +6,7 @@ from rest_framework import status
 from django.views.decorators.cache import cache_control
 from utils.get_system_info import get_system_uptime, get_version_number
 from database.fing_song import find_song_by_id, export_song_list
-from database.find_artist import find_artist_by_id
+from database.find_artist import find_artists_by_ids
 
 
 @api_view(["GET"])
@@ -89,6 +89,7 @@ def get_song_by_id(request, song_id):
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
 
+
 @api_view(["GET"])
 def get_artist_by_id(request, artist_id):
     from django.core.cache import cache
@@ -103,7 +104,7 @@ def get_artist_by_id(request, artist_id):
 
     # 緩存未命中，讀取文件
     try:
-        artist_data = find_artist_by_id(artist_id)
+        artist_data = find_artists_by_ids(artist_id)
 
         # 存入緩存（10 mins）
         cache.set(cache_key, artist_data, 60 * 10)

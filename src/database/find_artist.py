@@ -1,39 +1,46 @@
+# find_artist.py
+
 from pathlib import Path
 import sqlite3
 from database.fing_song import convert_bytes_fields
-
 
 SRC_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = Path(SRC_DIR, "db.sqlite3")
 
 
-def find_artist_by_id(artist_id: int):
+def find_artists_by_ids(artist_ids: list):
+    """
+    輸入 [1, 2, 3]，回傳以 ID 為鍵的字典：{1: {...}, 2: {...}}
+    """
+    if not artist_ids:
+        return {}
+
     try:
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
 
-        fetched_artist_data = cursor.execute(
-            f"""
-            SELECT * FROM artists WHERE artist_id = ?;
-            """,
-            (artist_id,),
-        ).fetchone()
+        # 動態生成 SQL 的問號佔位符，例如 (?, ?, ?)
+        placeholders = ", ".join(["?"] * len(artist_ids))
+        query = f"SELECT * FROM artists WHERE artist_id IN ({placeholders});"
 
-        if fetched_artist_data:
-            # 获取列名
-            columns = [column[0] for column in cursor.description]
-            # 创建列名-值的字典
-            artist_dict = dict(zip(columns, fetched_artist_data))
+        cursor.execute(query, artist_ids)
+        rows = cursor.fetchall()
 
-            # 转换 bytes 字段为字符串
+        # 獲取列名
+        columns = [column[0] for column in cursor.description]
+
+        result_map = {}
+        for row in rows:
+            artist_dict = dict(zip(columns, row))
+            # 轉換 bytes 字段（沿用你原本的 helper）
             artist_dict = convert_bytes_fields(artist_dict)
+            # 以 ID 為 Key 方便前端查找
+            result_map[artist_dict["artist_id"]] = artist_dict
 
-            # 转换为JSON并输出
-            return artist_dict
-        else:
-            Exception({"error": "Artist not found"})
+        return result_map
     except Exception as e:
-        print(f"错误处理: {str(e)}")
+        print(f"批次查詢錯誤: {str(e)}")
+        return {}
     finally:
         if conn:
             conn.close()
