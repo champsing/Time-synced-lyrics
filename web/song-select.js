@@ -298,7 +298,7 @@ function main() {
         () =>
             colorOptions.value.filter(
                 (x) => x.color === bodyBackgroundColor.value
-            )[0].name || colorOptions.value[0].name
+            )[0].name || colorOptions.value[0].name || "預設顏色"
     );
 
     // 2. 響應式變數

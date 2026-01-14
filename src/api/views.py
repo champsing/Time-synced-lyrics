@@ -7,6 +7,8 @@ from django.views.decorators.cache import cache_control
 from utils.get_system_info import get_system_uptime, get_version_number
 from database.fing_song import find_song_by_id, export_song_list
 from database.find_artist import find_artists_by_ids
+from django.http import JsonResponse
+from database.find_artist import find_artists_by_ids
 
 
 @api_view(["GET"])
@@ -89,31 +91,22 @@ def get_song_by_id(request, song_id):
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
 
-
 @api_view(["GET"])
-def get_artist_by_id(request, artist_id):
-    from django.core.cache import cache
+def get_artists_batch(request):
+    # 支援 ?ids=1,2,3 或 ?id=1
+    ids_raw = request.GET.get('ids') or request.GET.get('id', '')
+    
+    if not ids_raw:
+        return JsonResponse({})
 
-    # 從artists/<artist_id>.json讀取歌曲列表
-    # 嘗試從緩存獲取
-    cache_key = f"artist_{artist_id}"
-    cached_data = cache.get(cache_key)
-
-    if cached_data:
-        return Response(cached_data)
-
-    # 緩存未命中，讀取文件
     try:
-        artist_data = find_artists_by_ids(artist_id)
+        # 將字串 "1,2,3" 轉換成整數列表 [1, 2, 3]
+        ids_list = [int(x.strip()) for x in str(ids_raw).split(',') if x.strip()]
+        
+        # 呼叫你寫好的 find_artists_by_ids
+        artists_data = find_artists_by_ids(ids_list)
+        
+        return JsonResponse(artists_data)
+    except ValueError:
+        return JsonResponse({"error": "ID 格式錯誤"}, status=400)
 
-        # 存入緩存（10 mins）
-        cache.set(cache_key, artist_data, 60 * 10)
-
-        return Response(artist_data)
-
-    except Exception as e:
-        # 記錄錯誤日誌（生產環境）
-        return Response(
-            {"error": "Internal server error", "detail": str(e)},
-            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-        )

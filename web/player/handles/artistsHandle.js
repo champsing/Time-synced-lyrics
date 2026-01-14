@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "/web/utils/config.js";
+
 /**
  * 核心邏輯：確保藝人資料已載入
  * 優先序：記憶體 (artistCache) > 本地緩存 (sessionStorage) > API 請求
@@ -18,9 +20,10 @@ export async function ensureArtistLoaded(id) {
 
     // 3. 發起 API 請求
     try {
-        const response = await fetch(`/artist?=${id}`);
+        const response = await fetch(API_BASE_URL + `/artists/?ids=${id}`);
         const data = await response.json();
-        const name = data.name; // 假設後端回傳 { "name": "..." }
+        console.log(data);
+        const name = data.original_name; // 假設後端回傳 { "name": "..." }
 
         // 存入 sessionStorage 與 記憶體
         sessionStorage.setItem(`artist_${id}`, name);
