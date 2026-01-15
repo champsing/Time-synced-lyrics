@@ -14,4 +14,9 @@ VALUES
         'Mrs. GREEN APPLE',
         'Mrs. GREEN APPLE'
     ),
-    ()
+    (18756224, 'Hikaru Utada', '宇多田ヒカル'),
+    (1185371943, 'Omoinotake', 'Omoinotake'),
+    (1668934157, 'Sonoko Inoue', '井上苑子'),
+    (342419284, 'amazarashi', 'amazarashi'),
+    (1639972219, 'Kocchi no Kento', 'こっちのけんと'),
+    (1566501388, 'yutori', 'yutori');

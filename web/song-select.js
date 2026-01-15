@@ -238,6 +238,23 @@ function main() {
 
     function refreshSongList() {
         sessionStorage.removeItem("songList");
+        sessionStorage.removeItem("selectedVersions");
+        // 刪除所有符合 detail_ 開頭的項目
+        const keysToRemove = [];
+
+        // 先找出所有符合條件的 Key
+        for (let i = 0; i < sessionStorage.length; i++) {
+            const key = sessionStorage.key(i);
+            if (key && key.startsWith("detail_")) {
+                keysToRemove.push(key);
+            }
+        }
+
+        // 執行刪除
+        keysToRemove.forEach((key) => {
+            sessionStorage.removeItem(key);
+        });
+        
         location.reload();
     }
 
@@ -298,7 +315,9 @@ function main() {
         () =>
             colorOptions.value.filter(
                 (x) => x.color === bodyBackgroundColor.value
-            )[0].name || colorOptions.value[0].name || "預設顏色"
+            )[0].name ||
+            colorOptions.value[0].name ||
+            "預設顏色"
     );
 
     // 2. 響應式變數

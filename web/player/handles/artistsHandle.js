@@ -9,78 +9,91 @@ const artistCache = reactive({}); // 用於響應式顯示：{ "1": "YOASOBI" }
 
 const pendingIds = new Set(); // 正在請求中的 ID
 
+const STORAGE_KEY = "artists_name";
+
+/**
+ * 核心邏輯：確保單一藝人資料已載入
+ * 修正點：確保 id 參數僅為單一標記，不含逗號
+ */
 export async function ensureArtistLoaded(id) {
-    if (!id) return;
+    // 轉為字串並過濾掉包含逗號的錯誤格式
+    const cleanId = String(id).trim();
+    if (!cleanId || cleanId.includes(',')) return; 
+
     // 1. 檢查記憶體
-    if (artistCache[id] || pendingIds.has(id)) return;
+    if (artistCache[cleanId] || pendingIds.has(cleanId)) return;
 
-    pendingIds.add(id);
+    pendingIds.add(cleanId);
 
-    // 2. 檢查 sessionStorage (使用 artist_<id> 格式)
-    const cachedName = sessionStorage.getItem(`artist_${id}`);
-    if (cachedName) {
-        artistCache[id] = cachedName;
-        return;
+    // 2. 檢查 sessionStorage
+    try {
+        const storedData = sessionStorage.getItem(STORAGE_KEY);
+        let artistsMap = storedData ? JSON.parse(storedData) : {};
+
+        if (artistsMap[cleanId]) {
+            artistCache[cleanId] = artistsMap[cleanId];
+            pendingIds.delete(cleanId);
+            return;
+        }
+    } catch (e) {
+        console.error("解析 sessionStorage 失敗", e);
     }
 
-    // 3. 發起 API 請求
+    // 3. 發起 API 請求 (請求單一 ID)
     try {
-        const response = await fetch(API_BASE_URL + `/artists/?ids=${id}`);
+        const response = await fetch(`${API_BASE_URL}/artists/?ids=${cleanId}`);
         const data = await response.json();
-        const name = data.original_name; // 假設後端回傳 { "name": "..." }
+        
+        // 注意：這裡假設後端回傳的是該 ID 的物件
+        // 如果後端回傳的是陣列，請改為 data[0].original_name
+        const name = data.original_name || "未知藝人";
 
-        // 存入 sessionStorage 與 記憶體
-        sessionStorage.setItem(`artist_${id}`, name);
-        artistCache[id] = name;
-        pendingIds.delete(id);
+        artistCache[cleanId] = name;
+
+        // 更新儲存
+        const currentStored = sessionStorage.getItem(STORAGE_KEY);
+        const currentMap = currentStored ? JSON.parse(currentStored) : {};
+        currentMap[cleanId] = name;
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(currentMap));
     } catch (err) {
-        console.error(`無法獲取藝人資料 (ID: ${id}):`, err);
-        artistCache[id] = "未知藝人";
-        pendingIds.delete(id);
+        console.error(`無法獲取藝人資料 (ID: ${cleanId}):`, err);
+        artistCache[cleanId] = "未知藝人";
+    } finally {
+        pendingIds.delete(cleanId);
     }
 }
 
 /**
- * 格式化顯示藝人/作詞家名稱
- * 支持單一數字字串、逗號分隔字串或 ID 陣列
+ * 格式化顯示：徹底拆分每個 ID 並獨立處理
  */
 export function getArtistDisplay(ids) {
     if (!ids) return "未提供";
 
-    let idArray;
+    let idArray = [];
 
+    // 統一轉化為「乾淨的 ID 陣列」
     if (Array.isArray(ids)) {
-        // 如果已經是陣列，直接使用
-        idArray = ids;
-    } else if (typeof ids === "string") {
-        // 如果是字串，先檢查有沒有逗號，並切分後轉成數字
-        // trim() 確保不會因為空格導致 parse 錯誤
-        idArray = ids
-            .split(",")
-            .map((id) => id.trim())
-            .filter((id) => id !== "");
-    } else if (typeof ids === "number") {
-        // 如果直接傳數字，包裝成陣列
-        idArray = [ids];
+        idArray = ids.map(String);
     } else {
-        return "格式錯誤";
+        // 處理數字或含逗號的字串
+        idArray = String(ids)
+            .split(",")
+            .map(s => s.trim())
+            .filter(s => s !== "");
     }
 
     if (idArray.length === 0) return "未提供";
 
-    return idArray
-        .map((id) => {
-            // 確保 id 是數字型態或是正確的 Cache Key 格式
-            // 建議統一轉成字串或數字作為 key
-            const key = String(id);
+    // 針對每個 ID 獨立查找或觸發載入
+    const results = idArray.map((id) => {
+        if (artistCache[id]) {
+            return artistCache[id];
+        }
 
-            if (artistCache[key]) {
-                return artistCache[key];
-            }
+        // 觸發單個 ID 的載入
+        ensureArtistLoaded(id);
+        return "...";
+    });
 
-            // 若尚未載入，觸發異步讀取並回傳佔位符
-            ensureArtistLoaded(key);
-            return "...";
-        })
-        .join(", ");
+    return results.join(", ");
 }
