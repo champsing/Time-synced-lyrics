@@ -1,16 +1,16 @@
 {
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.4",
-    "tailwindcss": "^4.1.4"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.26.0",
-    "eslint": "^9.26.0",
-    "eslint-plugin-vue": "^10.1.0",
-    "fs-extra": "^11.3.0",
-    "globals": "^16.1.0"
-  },
-  "scripts": {
-    "build": "node scripts/build.js"
-  }
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.4",
+        "tailwindcss": "^4.1.4"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.26.0",
+        "eslint": "^9.26.0",
+        "eslint-plugin-vue": "^10.1.0",
+        "fs-extra": "^11.3.0",
+        "globals": "^16.1.0"
+    },
+    "scripts": {
+        "build": "node scripts/build.js"
+    }
 }

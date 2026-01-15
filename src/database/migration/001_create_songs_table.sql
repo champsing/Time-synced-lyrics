@@ -22,5 +22,3 @@ CREATE TABLE songs (
 );
 
 CREATE INDEX idx_song_id ON songs (song_id);
-
-CREATE INDEX idx_title ON songs (title);

@@ -3,7 +3,7 @@ import { computed } from "vue";
 export function useTransation(
     currentSong,
     jsonMappingContent,
-    activeLineIndices // 改為接收活躍行索引陣列
+    activeLineIndices, // 改為接收活躍行索引陣列
 ) {
     const translationText = computed(() => {
         if (
@@ -32,7 +32,7 @@ export function useTransation(
             .map(
                 (index) =>
                     jsonMappingContent.value[index]?.background_voice
-                        ?.translation || ""
+                        ?.translation || "",
             )
             .filter((text) => text !== "")
             .join("\n");

@@ -33,13 +33,12 @@ async function main() {
     }
 
     // 3. 加入預設要排除的項目
-    const defaults = [
-        ".git",
-        ".cfignore",
-        ".gitignore",
-        "dist",
-    ];
-    const exclude = new Set([...cfIgnoreExcludeList, ...gitIgnoreExcludeList, ...defaults]);
+    const defaults = [".git", ".cfignore", ".gitignore", "dist"];
+    const exclude = new Set([
+        ...cfIgnoreExcludeList,
+        ...gitIgnoreExcludeList,
+        ...defaults,
+    ]);
 
     // 4. 複製非排除項目到 dist
     const items = await fs.readdir(root);

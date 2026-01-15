@@ -4,9 +4,9 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans: Noto Sans, ui-sans-serif, system-ui, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+    --font-sans:
+        Noto Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-poppins: Poppins, Noto Sans;
     --color-beige: rgb(245, 245, 220);
     --song-filter-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239CA3AF'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");

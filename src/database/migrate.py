@@ -93,6 +93,9 @@ if __name__ == "__main__":
         "010_make_speed_translation_available",
         "011_make_kekka_orai_available",
         "012_add_kenshi_hikaru_jane_doe",
+        "013_create_artists_table",
+        "013_insert_artists",
+        "014_update_artists_id",
     ]
 
     # 初始化並執行 migrations

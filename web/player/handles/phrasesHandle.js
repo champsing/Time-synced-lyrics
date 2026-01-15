@@ -35,7 +35,10 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
     // 計算漸變的起始和結束位置
     const colorStop = phraseProgressValue * 100;
     let transitionStart = Math.max(0, colorStop - transitionWidth);
-    let transitionEnd = Math.min(100 + transitionWidth, colorStop + transitionWidth);
+    let transitionEnd = Math.min(
+        100 + transitionWidth,
+        colorStop + transitionWidth,
+    );
 
     if (phraseProgressValue === 0) {
         transitionStart = 0;
@@ -55,7 +58,7 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
 
         // 使用正弦函數計算波浪縮放 (範圍 0~1 → 1.0~1.1~1.0)
         const scaleWave = Math.sin(
-            phraseProgressValue * Math.PI * waveFrequency
+            phraseProgressValue * Math.PI * waveFrequency,
         );
         const scaleValue = 1 + waveScale * scaleWave;
 

@@ -37,7 +37,12 @@
             { "phrase": "の", "duration": 37 },
             { "phrase": "丈", "duration": 37, "pronounciation": "たけ" },
             { "phrase": "に", "duration": 30 },
-            { "phrase": "似合", "duration": 40, "kiai": true, "pronounciation": "にあ" },
+            {
+                "phrase": "似合",
+                "duration": 40,
+                "kiai": true,
+                "pronounciation": "にあ"
+            },
             { "phrase": "わない", "duration": 70, "kiai": true },
             { "phrase": " ", "duration": 145 },
             { "phrase": "言葉", "duration": 50, "pronounciation": "ことば" },
@@ -55,7 +60,11 @@
         "text": [
             { "phrase": "カシオピア", "duration": 106 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            {
+                "phrase": "係留所",
+                "duration": 102,
+                "pronounciation": "けいりゅうじょ"
+            },
             { "phrase": "の", "duration": 24 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70, "kiai": true },
@@ -107,7 +116,11 @@
         "text": [
             { "phrase": "カシオピア", "duration": 106 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            {
+                "phrase": "係留所",
+                "duration": 102,
+                "pronounciation": "けいりゅうじょ"
+            },
             { "phrase": "の", "duration": 24 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70, "kiai": true },
@@ -278,7 +291,11 @@
         "text": [
             { "phrase": "カシオピア", "duration": 106 },
             { "phrase": "", "duration": 40 },
-            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            {
+                "phrase": "係留所",
+                "duration": 102,
+                "pronounciation": "けいりゅうじょ"
+            },
             { "phrase": "の", "duration": 24 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70, "kiai": true },
@@ -452,7 +469,11 @@
         "text": [
             { "phrase": "カシオピア", "duration": 106 },
             { "phrase": "", "duration": 20 },
-            { "phrase": "係留所", "duration": 102, "pronounciation": "けいりゅうじょ" },
+            {
+                "phrase": "係留所",
+                "duration": 102,
+                "pronounciation": "けいりゅうじょ"
+            },
             { "phrase": "の", "duration": 24 },
             { "phrase": "", "duration": 20 },
             { "phrase": "灯り", "duration": 70, "kiai": true },

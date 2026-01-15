@@ -1,21 +1,21 @@
 export const initControllerPanel = () => {
     let panelSwitch = document.getElementById(
-        "controller-panel-switch-below-md"
+        "controller-panel-switch-below-md",
     );
     let panelSwitchIcon = document.getElementById(
-        "controller-panel-switch-icon-below-md"
+        "controller-panel-switch-icon-below-md",
     );
     let panelSwitchState = document.getElementById(
-        "controller-panel-switch-state-below-md"
+        "controller-panel-switch-state-below-md",
     );
 
     if (window.screen.width >= 768) {
         panelSwitch = document.getElementById("controller-panel-switch-md");
         panelSwitchIcon = document.getElementById(
-            "controller-panel-switch-icon-md"
+            "controller-panel-switch-icon-md",
         );
         panelSwitchState = document.getElementById(
-            "controller-panel-switch-state-md"
+            "controller-panel-switch-state-md",
         );
     }
 

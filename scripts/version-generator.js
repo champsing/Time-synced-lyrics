@@ -24,6 +24,6 @@ export const BUILD_DATE = "${buildDate}";
     console.log("⚠️  Failed to get Git commit ID:", error.message);
     require("fs").writeFileSync(
         "./web/utils/commit-info.js",
-        "export const COMMIT_ID = null"
+        "export const COMMIT_ID = null",
     );
 }
