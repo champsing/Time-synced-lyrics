@@ -19,4 +19,11 @@ VALUES
     (1668934157, 'Sonoko Inoue', '井上苑子'),
     (342419284, 'amazarashi', 'amazarashi'),
     (1639972219, 'Kocchi no Kento', 'こっちのけんと'),
-    (1566501388, 'yutori', 'yutori');
+    (1566501388, 'yutori', 'yutori'),
+    (1360524149,'Motoki Omori', '大森元貴'),
+    (400500459931649, 'Tomoro Fukushima', '福島智朗'),
+    (400500791011570, 'Ren Urayama', 'Ren Urayama'),
+    (646867579, 'Hiromu Akita', '秋田ひろむ'),
+    (400500549134030, 'Ruby Qu', 'Ruby Qu'),
+    (400500668546150, 'Kexin Wang', '王可鑫'),
+    (984593137, 'Marcus Lindberg', 'Marcus Lindberg');

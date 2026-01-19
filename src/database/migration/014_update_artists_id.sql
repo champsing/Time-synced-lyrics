@@ -30,3 +30,34 @@ WHERE
         'HOYO-MiX, Chevy, 知更鳥',
         'yutori'
     );
+
+UPDATE songs
+SET
+    lyricist = CASE
+        WHEN lyricist = 'Kiro Akiyama' THEN 1398614676
+        WHEN lyricist = 'Vaundy' THEN 1487570516
+        WHEN lyricist = '米津玄師' THEN 530814268
+        WHEN lyricist = '大森元貴' THEN 1360524149
+        WHEN lyricist = 'Omoinotake' THEN 1185371943
+        WHEN lyricist = '福島智朗' THEN 400500459931649 --random
+        WHEN lyricist = 'Ren Urayama' THEN 400500791011570 --random
+        WHEN lyricist = 'Kocchi no Kento' THEN 1639972219
+        WHEN lyricist = '秋田ひろむ' THEN 646867579
+        WHEN lyricist = 'Ruby Qu、王可鑫' THEN '400500549134030, 400500668546150' --random
+        WHEN lyricist = '大森元貴, Marcus Lindberg' THEN '1360524149, 984593137'
+        ELSE lyricist = lyricist
+    END
+WHERE
+    lyricist IN (
+        'Kiro Akiyama',
+        'Vaundy',
+        '米津玄師',
+        '大森元貴',
+        'Omoinotake',
+        '福島智朗',
+        'Ren Urayama',
+        'Kocchi no Kento',
+        '秋田ひろむ',
+        'Ruby Qu、王可鑫',
+        '大森元貴, Marcus Lindberg'
+    );

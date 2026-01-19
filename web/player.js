@@ -34,6 +34,7 @@ import {
     initShareModal,
 } from "./utils/modal.js";
 import { parseLyrics } from "./player/handles/lyricsHandle.js";
+import { getArtistDisplay } from "./player/handles/artistsHandle.js";
 
 const bodyBackgroundColor = ref("#365456");
 
@@ -423,6 +424,7 @@ function main() {
         initYouTubePlayer,
         copyToClipboard,
         jumpToCurrentLine,
+        getArtistDisplay,
         getPhraseStyle,
         getBackgroundPhraseStyle,
         isCurrentLine,

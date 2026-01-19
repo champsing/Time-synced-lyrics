@@ -1,4 +1,4 @@
-import { getArtistDisplay } from "./artistsHandle";
+import { getArtistDisplay } from "./artistsHandle.js";
 import { DEFAULT_DURATION } from "/web/utils/config.js";
 
 export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
