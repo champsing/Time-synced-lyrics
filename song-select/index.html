@@ -230,8 +230,8 @@
                             >
                                 {{ song.title }}
                             </h3>
-                            <p class="text-sm text-gray-400 truncate">
-                                {{ song.artist }}
+                            <p class="text-sm text-teal-200 truncate">
+                                {{ getArtistDisplay(song.artist) }}
                             </p>
                         </div>
                     </article>
@@ -331,57 +331,67 @@
 
                                     <div
                                         id="change-body-background-container"
-                                        class="flex items-center bg-white/10 p-2 rounded-xl relative group"
+                                        class="bg-white/10 p-2 rounded-xl relative group focus:outline-none"
+                                        tabindex="0"
+                                        @click.stop="showColorPicker = !showColorPicker"
+                                        @blur="showColorPicker = false"
                                     >
                                         <div
                                             id="change-body-background"
-                                            class="color-picker inline-block"
+                                            class="mt-2 flex items-center justify-between cursor-pointer text-gray-300 select-none space-x-2"
                                         >
-                                            <details
-                                                class="dropdown relative group"
+                                            <div
+                                                class="flex items-center space-x-2 px-1"
                                             >
-                                                <summary
-                                                    class="dropdown-trigger flex items-center gap-2 p-2 px-3 border border-white/20 rounded-xl cursor-pointer hover:bg-white/10 list-none text-white transition-all"
+                                                <span
+                                                    class="color-preview w-5 h-5 border border-white/30 rounded-full shadow-sm block"
+                                                    :style="{ backgroundColor: bodyBackgroundColor }"
+                                                ></span>
+                                                <span
+                                                    class="text-sm font-medium hidden md:inline-block"
                                                 >
-                                                    <span
-                                                        class="color-preview w-5 h-5 border border-white/30 rounded-full shadow-sm"
-                                                        :style="{ backgroundColor: bodyBackgroundColor }"
-                                                    ></span>
-                                                    <span
-                                                        class="text-sm font-medium hidden md:inline-block"
-                                                        >{{ bgColorName }}</span
-                                                    >
-                                                    <span
-                                                        class="material-icons text-sm opacity-50"
-                                                        >expand_less</span
-                                                    >
-                                                </summary>
+                                                    {{ bgColorName }}
+                                                </span>
+                                            </div>
+
+                                            <span
+                                                class="material-icons text-sm opacity-50 transform transition-transform duration-200"
+                                                :class="{ 'rotate-180': showColorPicker }"
+                                            >
+                                                expand_less
+                                            </span>
+                                        </div>
+
+                                        <transition name="fade">
+                                            <div
+                                                v-if="showColorPicker"
+                                                class="min-w-[200px] absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#2d4a4d] border border-white/10 rounded-2xl shadow-2xl z-50 p-3 origin-bottom select-none"
+                                            >
+                                                <div
+                                                    class="text-[10px] text-gray-400 font-bold tracking-widest uppercase mb-2 px-1"
+                                                >
+                                                    主題色彩設定
+                                                </div>
 
                                                 <div
-                                                    class="dropdown-menu absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-[#2d4a4d] border border-white/10 rounded-2xl shadow-2xl z-50 p-3 w-max animate-[modalPop_0.2s_ease-out]"
+                                                    class="color-grid grid grid-cols-5 gap-2"
                                                 >
-                                                    <div
-                                                        class="text-[10px] text-gray-400 font-bold tracking-widest uppercase mb-2 px-1"
-                                                    >
-                                                        主題色彩設定
-                                                    </div>
-                                                    <div
-                                                        class="color-grid grid grid-cols-5 gap-2"
-                                                    >
-                                                        <button
-                                                            v-for="(colorObj, index) in colorOptions"
-                                                            :key="index"
-                                                            type="button"
-                                                            class="color-square w-8 h-8 rounded-lg cursor-pointer duration-200 transition-all hover:scale-125 focus:outline-none border-2"
-                                                            :class="{ 'border-white scale-110 shadow-lg': bodyBackgroundColor === colorObj.color, 'border-transparent': bodyBackgroundColor !== colorObj.color }"
-                                                            :style="{ backgroundColor: colorObj.color }"
-                                                            @click="bodyBackgroundColor = colorObj.color"
-                                                            :title="colorObj.name"
-                                                        ></button>
-                                                    </div>
+                                                    <button
+                                                        v-for="(colorObj, index) in colorOptions"
+                                                        :key="index"
+                                                        type="button"
+                                                        class="color-square w-8 h-8 rounded-lg cursor-pointer duration-200 transition-all hover:scale-125 focus:outline-none border-2"
+                                                        :class="{ 
+                        'border-white scale-110 shadow-lg': bodyBackgroundColor === colorObj.color, 
+                        'border-transparent': bodyBackgroundColor !== colorObj.color 
+                    }"
+                                                        :style="{ backgroundColor: colorObj.color }"
+                                                        @click.stop="bodyBackgroundColor = colorObj.color"
+                                                        :title="colorObj.name"
+                                                    ></button>
                                                 </div>
-                                            </details>
-                                        </div>
+                                            </div>
+                                        </transition>
                                     </div>
                                 </div>
                             </div>
@@ -538,7 +548,8 @@
                                                 <p
                                                     class="text-teal-400 text-lg font-medium"
                                                 >
-                                                    {{ selectedModalSong.artist
+                                                    {{
+                                                    getArtistDisplay(selectedModalSong.artist)
                                                     }}
                                                 </p>
                                             </div>
@@ -597,7 +608,7 @@
                                                     </span>
                                                     <span>
                                                         作詞：{{
-                                                        selectedModalSong.lyricist
+                                                        getArtistDisplay(selectedModalSong.lyricist)
                                                         || '未提供' }}
                                                     </span>
                                                 </div>

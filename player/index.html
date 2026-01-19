@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
     <head>
         <title>同步開唱：播放器</title>
@@ -736,13 +736,13 @@
                                                 aria-label="查看工作人員名單"
                                             >
                                                 {{ currentSong.artist?
-                                                currentSong.artist :
-                                                "未知的創作者" }}
+                                                getArtistDisplay(currentSong.artist)
+                                                : "未知的藝人" }}
                                             </button>
                                             <span v-else>
                                                 {{ currentSong.artist?
-                                                currentSong.artist :
-                                                "未知的創作者" }}
+                                                getArtistDisplay(currentSong.artist)
+                                                : "未知的藝人" }}
                                             </span>
                                         </div>
                                         <span>．</span>
@@ -1072,9 +1072,11 @@
                             >
                         </div>
                         <div id="artist-banner" class="text-center">
-                            <span id="artist" class="ml-6">演出藝人</span>
+                            <span id="artist">演出藝人</span>
                             <div class="text-2xl font-bold">
-                                {{ currentSong.artist }}
+                                {{ currentSong.artist ?
+                                getArtistDisplay(currentSong.artist) :
+                                "未知的藝人" }}
                             </div>
                         </div>
 
@@ -1117,19 +1119,18 @@
                             </div>
                             <div
                                 :id="`performance-contributors-${index + 1}`"
-                                class="text-center"
+                                class="flex flex-col gap-2 text-center"
                                 v-for="(contributor, index) in currentSong.credits.performance"
                             >
-                                <span :id="'contribution' + index"
-                                    >{{ contributor.contribution?.join("、")
-                                    }}</span
-                                >
                                 <div
                                     :id="'contributor' + index"
-                                    class="text-2xl font-bold mt-1.5"
+                                    class="text-2xl font-bold"
                                 >
                                     {{ contributor.name }}
                                 </div>
+                                <span :id="'contribution' + index" class="text-zinc-600">
+                                    {{ contributor.contribution?.join("、") }}
+                                </span>
                             </div>
                             <div
                                 class="credit-list-contribution-type-name"

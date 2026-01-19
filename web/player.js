@@ -34,6 +34,7 @@ import {
     initShareModal,
 } from "./utils/modal.js";
 import { parseLyrics } from "./player/handles/lyricsHandle.js";
+import { getArtistDisplay } from "./player/handles/artistsHandle.js";
 
 const bodyBackgroundColor = ref("#365456");
 
@@ -69,7 +70,7 @@ function main() {
     // 非同步讀取 JSON
     const fetchColors = async () => {
         try {
-            const response = await fetch('/web/utils/colorOptions.json');
+            const response = await fetch("/web/utils/colorOptions.json");
             colorOptions.value = await response.json();
         } catch (err) {
             console.error("無法讀取顏色設定檔:", err);
@@ -78,14 +79,15 @@ function main() {
 
     const bgColorName = computed(
         () =>
-            colorOptions.value.filter((x) => x.color === bodyBackgroundColor.value)[0]
-                .name || colorOptions.value[0].name
+            colorOptions.value.filter(
+                (x) => x.color === bodyBackgroundColor.value,
+            )[0].name || colorOptions.value[0].name,
     );
 
     // 計算屬性
     const formattedCurrentTime = computed(() => formatTime(currentTime.value));
     const formattedSongDuration = computed(() =>
-        formatTime(songDuration.value)
+        formatTime(songDuration.value),
     );
 
     const currentSongURI = computed(() => {
@@ -122,7 +124,7 @@ function main() {
                     // 計算背景和聲的總時長
                     const bgTotalDuration = lineBG.duration.reduce(
                         (a, b) => a + b,
-                        0
+                        0,
                     );
 
                     // 背景和聲的實際結束時間
@@ -217,7 +219,7 @@ function main() {
         return generatePhraseStyle(
             currentTime.value,
             line.background_voice,
-            phraseIndex
+            phraseIndex,
         );
     };
 
@@ -241,7 +243,7 @@ function main() {
         jsonMappingContent.value = parseLyrics(
             await getLyricResponse(song.value.folder, version.value),
             currentSong,
-            songDuration.value
+            songDuration.value,
         );
     }
 
@@ -323,11 +325,11 @@ function main() {
                 let requestSongData;
                 if (sessionStorage.getItem(songRequest))
                     requestSongData = JSON.parse(
-                        sessionStorage.getItem(songRequest)
+                        sessionStorage.getItem(songRequest),
                     );
                 else requestSongData = await loadSongData(songRequest);
                 console.log(
-                    `已帶入指定歌曲 ID: ${songRequest} - ${requestSongData.folder}`
+                    `已帶入指定歌曲 ID: ${songRequest} - ${requestSongData.folder}`,
                 );
                 if (requestSongData && requestSongData.available)
                     currentSong.value = requestSongData;
@@ -338,14 +340,14 @@ function main() {
             } else {
                 currentSong.value = null;
                 throw new Error(
-                    "未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在, 請由選歌系統選擇歌曲, 勿直接訪問 /player/ 目錄"
+                    "未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在, 請由選歌系統選擇歌曲, 勿直接訪問 /player/ 目錄",
                 );
             }
 
             // 這時歌曲才確定，才開始設定版本
 
             const matchedVersion = currentSong.value.versions?.find(
-                (v) => v.version.trim().toLowerCase() === versionRequest
+                (v) => v.version.trim().toLowerCase() === versionRequest,
             );
 
             if (matchedVersion) {
@@ -354,7 +356,7 @@ function main() {
             } else {
                 songVersion.value = getDefaultVersion(currentSong);
                 console.warn(
-                    `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`
+                    `未定義指定版本、版本未啟用或該版本不存在: ${versionRequest}, 使用該首歌曲的預設版本`,
                 );
             }
 
@@ -422,6 +424,7 @@ function main() {
         initYouTubePlayer,
         copyToClipboard,
         jumpToCurrentLine,
+        getArtistDisplay,
         getPhraseStyle,
         getBackgroundPhraseStyle,
         isCurrentLine,

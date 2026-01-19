@@ -3,6 +3,10 @@ import { loadSongData, loadSongList } from "./player/handles/songsHandle.js";
 import { SONGLIST_VERSION } from "./utils/base-version.js";
 import { PLAYER_VERSION } from "./utils/config.js";
 import { initRefreshModal } from "./utils/modal.js";
+import {
+    ensureArtistLoaded,
+    getArtistDisplay,
+} from "./player/handles/artistsHandle.js";
 
 const VERSION_LABELS = {
     original: "原曲",
@@ -25,6 +29,7 @@ function main() {
     const sortOptions = ["name", "artist", "album", "date", "lang"];
     const sortOption = ref("date");
     const showSortOptions = ref(false);
+    const showColorPicker = ref(false);
     const colorOptions = ref([
         {
             color: "#56773f",
@@ -54,17 +59,19 @@ function main() {
         return songs.value
             .filter((song) => !song.hidden)
             .filter((song) => {
-                const searchFields = [
-                    song.folder,
-                    song.title,
-                    song.artist,
-                    song.subtitle || "", // 初始列表可能為空
-                    song.album?.name || "", // 初始列表可能為空
-                    song.lyricist || "",
-                ]
-                    .join(" ")
-                    .toLowerCase();
-                return searchFields.includes(query);
+                // 搜尋名稱而非 ID
+                const artistNames = getArtistDisplay(song.artist).toLowerCase();
+                const lyricistNames = getArtistDisplay(
+                    song.lyricist
+                ).toLowerCase();
+                const albumName = (song.album?.name || "").toLowerCase();
+
+                return (
+                    song.title.toLowerCase().includes(query) ||
+                    artistNames.includes(query) ||
+                    lyricistNames.includes(query) ||
+                    albumName.includes(query)
+                );
             })
             .sort(sortSong(sortOption.value));
     });
@@ -117,6 +124,19 @@ function main() {
             }
 
             songs.value = songList;
+
+            // 預解析所有藝人與作詞家 ID
+            const requiredIds = new Set();
+            songList.forEach((song) => {
+                [song.artist, song.lyricist].forEach((val) => {
+                    if (Array.isArray(val))
+                        val.forEach((id) => requiredIds.add(id));
+                    else if (val) requiredIds.add(val);
+                });
+            });
+
+            // 批次觸發載入（不需 await，讓它在背景跑）
+            requiredIds.forEach((id) => ensureArtistLoaded(id));
 
             // 修改後的版本初始化邏輯
             const storedVersions = sessionStorage.getItem("selectedVersions");
@@ -218,6 +238,23 @@ function main() {
 
     function refreshSongList() {
         sessionStorage.removeItem("songList");
+        sessionStorage.removeItem("selectedVersions");
+        // 刪除所有符合 detail_ 開頭的項目
+        const keysToRemove = [];
+
+        // 先找出所有符合條件的 Key
+        for (let i = 0; i < sessionStorage.length; i++) {
+            const key = sessionStorage.key(i);
+            if (key && key.startsWith("detail_")) {
+                keysToRemove.push(key);
+            }
+        }
+
+        // 執行刪除
+        keysToRemove.forEach((key) => {
+            sessionStorage.removeItem(key);
+        });
+        
         location.reload();
     }
 
@@ -278,7 +315,9 @@ function main() {
         () =>
             colorOptions.value.filter(
                 (x) => x.color === bodyBackgroundColor.value
-            )[0].name || colorOptions.value[0].name
+            )[0].name ||
+            colorOptions.value[0].name ||
+            "預設顏色"
     );
 
     // 2. 響應式變數
@@ -322,6 +361,14 @@ function main() {
         await fetchColors();
         await fetchSongs();
         initRefreshModal();
+
+        // 監聽鍵盤事件
+        window.addEventListener("keydown", (e) => {
+            if (!showDetailModal.value) return;
+            if (e.key === "ArrowLeft") prevSong();
+            if (e.key === "ArrowRight") nextSong();
+            if (e.key === "Escape") closeSongModal();
+        });
     });
 
     return {
@@ -333,6 +380,7 @@ function main() {
         isLoading,
         filteredSongs,
         showSortOptions,
+        showColorPicker,
         sortOption,
         sortOptions,
         sortLabels,
@@ -343,6 +391,7 @@ function main() {
         colorOptions,
         bodyBackgroundColor,
         bgColorName,
+        getArtistDisplay,
         fetchColors,
         openSongModal,
         closeSongModal,

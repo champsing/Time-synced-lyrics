@@ -1,7 +1,14 @@
+import { getArtistDisplay } from "./artistsHandle.js";
 import { DEFAULT_DURATION } from "/web/utils/config.js";
 
 export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
     if (!jsonMappingContent) return [];
+
+    currentSong.value.artist_name = getArtistDisplay(currentSong.value.artist);
+
+    currentSong.value.lyricist_name = getArtistDisplay(
+        currentSong.value.lyricist,
+    );
 
     const parsedLyrics = jsonMappingContent
         .map((line) => {
@@ -23,16 +30,16 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 }
 
                 line.background_voice.duration = new Array(
-                    line.background_voice.text.length
+                    line.background_voice.text.length,
                 ).fill(0);
                 line.background_voice.duration = line.background_voice.text.map(
                     (phr) => phr.duration / 100 || DEFAULT_DURATION,
                     0,
-                    line.background_voice.text.length
+                    line.background_voice.text.length,
                 );
 
                 line.background_voice.delay = new Array(
-                    line.background_voice.duration.length
+                    line.background_voice.duration.length,
                 ).fill(0);
                 let accumulated = 0;
                 for (let i = 0; i < line.background_voice.delay.length; i++) {
@@ -51,8 +58,8 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                 line.text = [
                     {
                         phrase: `創作者：${
-                            currentSong.value.lyricist?.trim() ||
-                            currentSong.value.artist?.trim() ||
+                            currentSong.value.lyricist_name ||
+                            currentSong.value.artist_name ||
                             "未知的創作者"
                         }`,
                         duration: songDuration.value - line.time,
@@ -66,7 +73,7 @@ export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
                     phr.duration / 100 || // json 中的 duration 值單位是厘秒，秒的 1/100 倍
                     DEFAULT_DURATION,
                 0,
-                line.text.length
+                line.text.length,
             );
 
             line.delay = new Array(line.duration.length).fill(0);
