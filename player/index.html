@@ -1107,7 +1107,7 @@
                         </div>
 
                         <div
-                            class="custom-scrollbar whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-4 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
+                            class="pr-4 custom-scrollbar whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-6 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
                             v-if="currentSong.credits"
                         >
                             <!-- 演職員名單 需要可以再加 -->
@@ -1124,11 +1124,14 @@
                             >
                                 <div
                                     :id="'contributor' + index"
-                                    class="text-2xl font-bold"
+                                    class="text-xl font-bold"
                                 >
                                     {{ contributor.name }}
                                 </div>
-                                <span :id="'contribution' + index" class="text-zinc-600">
+                                <span
+                                    :id="'contribution' + index"
+                                    class="text-slate-300"
+                                >
                                     {{ contributor.contribution?.join("、") }}
                                 </span>
                             </div>
@@ -1140,19 +1143,21 @@
                             </div>
                             <div
                                 :id="`song-writing-contributors-${index + 1}`"
-                                class="text-center"
+                                class="flex flex-col gap-2 text-center"
                                 v-for="(contributor, index) in currentSong.credits.song_writing"
                             >
-                                <span :id="'contribution' + index"
-                                    >{{ contributor.contribution?.join("、")
-                                    }}</span
-                                >
                                 <div
                                     :id="'contributor' + index"
-                                    class="text-2xl font-bold mt-1.5"
+                                    class="text-xl font-bold"
                                 >
                                     {{ contributor.name }}
                                 </div>
+                                <span
+                                    :id="'contribution' + index"
+                                    class="text-slate-300"
+                                >
+                                    {{ contributor.contribution?.join("、") }}
+                                </span>
                             </div>
                             <div
                                 class="credit-list-contribution-type-name"
@@ -1162,19 +1167,21 @@
                             </div>
                             <div
                                 :id="`engineering-contributors-${index + 1}`"
-                                class="text-center"
+                                class="flex flex-col gap-2 text-center"
                                 v-for="(contributor, index) in currentSong.credits.engineering"
                             >
-                                <span :id="'contribution' + index"
-                                    >{{ contributor.contribution?.join("、")
-                                    }}</span
-                                >
                                 <div
                                     :id="'contributor' + index"
-                                    class="text-2xl font-bold mt-1.5"
+                                    class="text-xl font-bold"
                                 >
                                     {{ contributor.name }}
                                 </div>
+                                <span
+                                    :id="'contribution' + index"
+                                    class="text-slate-300"
+                                >
+                                    {{ contributor.contribution?.join("、") }}
+                                </span>
                             </div>
                         </div>
 
