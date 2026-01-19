@@ -231,7 +231,7 @@
                                 {{ song.title }}
                             </h3>
                             <p class="text-sm text-teal-200 truncate">
-                                {{ getArtistDisplay(song.artist) }}
+                                {{ song.displayArtist }}
                             </p>
                         </div>
                     </article>
@@ -636,8 +636,8 @@
                                                     </span>
                                                     <span>
                                                         譯者：{{
-                                                        selectedModalSong.translation?.author || "未提供"
-                                                        }}
+                                                        selectedModalSong.translation?.author
+                                                        || "未提供" }}
                                                     </span>
                                                 </div>
                                                 <div

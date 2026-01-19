@@ -58,12 +58,12 @@ function main() {
         const query = searchQuery.value.toLowerCase().trim();
         return songs.value
             .filter((song) => !song.hidden)
-            .filter((song) => {
+            .filter(async (song) => {
                 // 搜尋名稱而非 ID
-                const artistNames = getArtistDisplay(song.artist).toLowerCase();
-                const lyricistNames = getArtistDisplay(
-                    song.lyricist,
-                ).toLowerCase();
+                const artistNames = await getArtistDisplay(song.artist);
+                artistNames.toLowerCase();
+                const lyricistNames = await getArtistDisplay(song.lyricist);
+                lyricistNames.toLowerCase();
                 const albumName = (song.album?.name || "").toLowerCase();
 
                 return (
@@ -150,6 +150,21 @@ function main() {
                 });
                 selectedVersions.value = defaults;
             }
+
+            // 核心修正：將 songs 賦值後，立即跑一次轉換
+            const list = songList;
+
+            // 使用 Promise.all 同步處理所有歌曲的藝人名稱
+            await Promise.all(
+                list.map(async (song) => {
+                    // 在物件中新增一個用於顯示的欄位，例如 displayArtist
+                    song.displayArtist = await getArtistDisplay(
+                        song.artist,
+                    );
+                }),
+            );
+
+            songs.value = list;
         } catch (error) {
             console.error("歌曲清單加載失敗:", error);
         } finally {

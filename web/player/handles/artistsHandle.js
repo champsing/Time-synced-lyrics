@@ -64,18 +64,15 @@ export async function ensureArtistLoaded(id) {
 }
 
 /**
- * 格式化顯示：徹底拆分每個 ID 並獨立處理
+ * 非同步版本的格式化顯示：會等待所有 ID 載入完成才回傳
  */
-export function getArtistDisplay(ids) {
+export async function getArtistDisplay(ids) {
     if (!ids) return "未提供";
 
     let idArray = [];
-
-    // 統一轉化為「乾淨的 ID 陣列」
     if (Array.isArray(ids)) {
         idArray = ids.map(String);
     } else {
-        // 處理數字或含逗號的字串
         idArray = String(ids)
             .split(",")
             .map((s) => s.trim())
@@ -84,16 +81,10 @@ export function getArtistDisplay(ids) {
 
     if (idArray.length === 0) return "未提供";
 
-    // 針對每個 ID 獨立查找或觸發載入
-    const results = idArray.map((id) => {
-        if (artistCache[id]) {
-            return artistCache[id];
-        }
+    // 使用 Promise.all 等待所有 ID 載入
+    await Promise.all(idArray.map((id) => ensureArtistLoaded(id)));
 
-        // 觸發單個 ID 的載入
-        ensureArtistLoaded(id);
-        return "...";
-    });
-
+    // 此時 artistCache 應該已經有資料了，再透過原本的同步邏輯抓取
+    const results = idArray.map((id) => artistCache[id] || "載入中...");
     return results.join(", ");
 }

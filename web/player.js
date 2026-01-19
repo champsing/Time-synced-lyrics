@@ -240,7 +240,7 @@ function main() {
         // 載入新歌詞
         // development
 
-        jsonMappingContent.value = parseLyrics(
+        jsonMappingContent.value = await parseLyrics(
             await getLyricResponse(song.value.folder, version.value),
             currentSong,
             songDuration.value,

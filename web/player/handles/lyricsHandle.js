@@ -1,14 +1,22 @@
 import { getArtistDisplay } from "./artistsHandle.js";
 import { DEFAULT_DURATION } from "/web/utils/config.js";
 
-export const parseLyrics = (jsonMappingContent, currentSong, songDuration) => {
+export const parseLyrics = async (
+    jsonMappingContent,
+    currentSong,
+    songDuration,
+) => {
     if (!jsonMappingContent) return [];
 
-    currentSong.value.artist_name = getArtistDisplay(currentSong.value.artist);
+    currentSong.value.artist_name = await getArtistDisplay(
+        currentSong.value.artist,
+    );
 
-    currentSong.value.lyricist_name = getArtistDisplay(
+    currentSong.value.lyricist_name = await getArtistDisplay(
         currentSong.value.lyricist,
     );
+
+    console.log(currentSong.value.lyricist_name);
 
     const parsedLyrics = jsonMappingContent
         .map((line) => {
