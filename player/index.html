@@ -735,14 +735,12 @@
                                                 title="查看工作人員名單"
                                                 aria-label="查看工作人員名單"
                                             >
-                                                {{ currentSong.artist?
-                                                getArtistDisplay(currentSong.artist)
-                                                : "未知的藝人" }}
+                                                {{ currentSong.displayArtist ||
+                                                "未知的藝人" }}
                                             </button>
                                             <span v-else>
-                                                {{ currentSong.artist?
-                                                getArtistDisplay(currentSong.artist)
-                                                : "未知的藝人" }}
+                                                {{ currentSong.displayArtist ||
+                                                "未知的藝人" }}
                                             </span>
                                         </div>
                                         <span>．</span>
@@ -1074,9 +1072,7 @@
                         <div id="artist-banner" class="text-center">
                             <span id="artist">演出藝人</span>
                             <div class="text-2xl font-bold">
-                                {{ currentSong.artist ?
-                                getArtistDisplay(currentSong.artist) :
-                                "未知的藝人" }}
+                                {{ currentSong.displayArtist || "未知的藝人" }}
                             </div>
                         </div>
 

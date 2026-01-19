@@ -549,7 +549,7 @@
                                                     class="text-teal-400 text-lg font-medium"
                                                 >
                                                     {{
-                                                    getArtistDisplay(selectedModalSong.artist)
+                                                    selectedModalSong.displayArtist
                                                     }}
                                                 </p>
                                             </div>
@@ -608,7 +608,7 @@
                                                     </span>
                                                     <span>
                                                         作詞：{{
-                                                        getArtistDisplay(selectedModalSong.lyricist)
+                                                        selectedModalSong.displayLyricist
                                                         || '未提供' }}
                                                     </span>
                                                 </div>

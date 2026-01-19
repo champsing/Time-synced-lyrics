@@ -16,8 +16,6 @@ export const parseLyrics = async (
         currentSong.value.lyricist,
     );
 
-    console.log(currentSong.value.lyricist_name);
-
     const parsedLyrics = jsonMappingContent
         .map((line) => {
             const timeMatch = line.time.match(/(\d+):(\d+\.\d+)/);

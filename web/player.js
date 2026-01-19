@@ -362,6 +362,10 @@ function main() {
 
             loadSongLyric(currentSong, songVersion);
 
+            currentSong.value.displayArtist = await getArtistDisplay(
+                currentSong.value.artist,
+            );
+
             // 初始化時讀取保存的顏色
             const savedColor = localStorage.getItem("bodyBackgroundColor");
             if (savedColor) {

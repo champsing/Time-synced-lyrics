@@ -157,9 +157,9 @@ function main() {
             // 使用 Promise.all 同步處理所有歌曲的藝人名稱
             await Promise.all(
                 list.map(async (song) => {
-                    // 在物件中新增一個用於顯示的欄位，例如 displayArtist
-                    song.displayArtist = await getArtistDisplay(
-                        song.artist,
+                    song.displayArtist = await getArtistDisplay(song.artist);
+                    song.displayLyricist = await getArtistDisplay(
+                        song.lyricist,
                     );
                 }),
             );
