@@ -18,7 +18,7 @@ const STORAGE_KEY = "artists_name";
 export async function ensureArtistLoaded(id) {
     // 轉為字串並過濾掉包含逗號的錯誤格式
     const cleanId = String(id).trim();
-    if (!cleanId || cleanId.includes(',')) return; 
+    if (!cleanId || cleanId.includes(",")) return;
 
     // 1. 檢查記憶體
     if (artistCache[cleanId] || pendingIds.has(cleanId)) return;
@@ -43,7 +43,7 @@ export async function ensureArtistLoaded(id) {
     try {
         const response = await fetch(`${API_BASE_URL}/artists/?ids=${cleanId}`);
         const data = await response.json();
-        
+
         // 注意：這裡假設後端回傳的是該 ID 的物件
         // 如果後端回傳的是陣列，請改為 data[0].original_name
         const name = data.original_name || "未知藝人";
@@ -78,8 +78,8 @@ export function getArtistDisplay(ids) {
         // 處理數字或含逗號的字串
         idArray = String(ids)
             .split(",")
-            .map(s => s.trim())
-            .filter(s => s !== "");
+            .map((s) => s.trim())
+            .filter((s) => s !== "");
     }
 
     if (idArray.length === 0) return "未提供";
