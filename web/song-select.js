@@ -26,7 +26,7 @@ function main() {
     const songs = ref([]);
     const isLoading = ref(true);
     const error = ref(null);
-    const sortOptions = ["name", "artist", "album", "date", "lang"];
+    const sortOptions = ["date", "name", "artist", "album", "lang"];
     const sortOption = ref("date");
     const showSortOptions = ref(false);
     const showColorPicker = ref(false);
@@ -38,10 +38,10 @@ function main() {
     ]);
 
     const sortLabels = {
+        date: "📅 最後更新",
         name: "🎵 歌曲名稱",
         artist: "🎤 藝人名稱",
         album: "💿 專輯名稱",
-        date: "📅 最後更新",
         lang: "🌐 歌曲語言",
     };
 
@@ -56,18 +56,24 @@ function main() {
     // 1. 優化過濾邏輯：增加防錯處理，因為初始清單可能沒有 subtitle 或 album
     const filteredSongs = computed(() => {
         const query = searchQuery.value.toLowerCase().trim();
+
         return songs.value
             .filter((song) => !song.hidden)
-            .filter(async (song) => {
-                // 搜尋名稱而非 ID
-                const artistNames = await getArtistDisplay(song.artist);
-                artistNames.toLowerCase();
-                const lyricistNames = await getArtistDisplay(song.lyricist);
-                lyricistNames.toLowerCase();
+            .filter((song) => {
+                // 如果搜尋字串為空，直接過回傳 true
+                if (!query) return true;
+
+                // 直接取用 fetchSongs 階段已經封裝好的 display 屬性
+                // 增加選取性語法 ?. 以防資料尚未加載完成
+                const artistNames = (song.displayArtist || "").toLowerCase();
+                const lyricistNames = (
+                    song.displayLyricist || ""
+                ).toLowerCase();
                 const albumName = (song.album?.name || "").toLowerCase();
+                const title = (song.title || "").toLowerCase();
 
                 return (
-                    song.title.toLowerCase().includes(query) ||
+                    title.includes(query) ||
                     artistNames.includes(query) ||
                     lyricistNames.includes(query) ||
                     albumName.includes(query)
@@ -76,7 +82,7 @@ function main() {
             .sort(sortSong(sortOption.value));
     });
 
-    // 2. 新增：確保歌曲詳細資料已載入的函數
+    // 2. 修改：確保歌曲詳細資料已載入的函數
     async function ensureSongData(song) {
         // 如果已經有 versions 欄位，代表已經是完整資料，直接回傳
         if (song.versions && song.versions.length > 0) {
@@ -84,13 +90,11 @@ function main() {
         }
 
         try {
-            // 先嘗試從 SessionStorage 拿單曲詳細快取
             let fullData = JSON.parse(
                 sessionStorage.getItem(`detail_${song.song_id}`),
             );
 
             if (!fullData) {
-                // 真正發送 API 請求
                 fullData = await loadSongData(song.song_id);
                 sessionStorage.setItem(
                     `detail_${song.song_id}`,
@@ -98,11 +102,25 @@ function main() {
                 );
             }
 
-            // 將詳細資料合併回原本的歌曲物件中（保持響應式）
+            // --- 核心修正處 ---
+            // 確保詳細資料中的藝人和作詞家名稱也被轉換
+            if (fullData.artist) {
+                fullData.displayArtist = await getArtistDisplay(
+                    fullData.artist,
+                );
+            }
+            if (fullData.lyricist) {
+                fullData.displayLyricist = await getArtistDisplay(
+                    fullData.lyricist,
+                );
+            }
+            // ----------------
+
             const index = songs.value.findIndex(
                 (s) => s.song_id === song.song_id,
             );
             if (index !== -1) {
+                // 合併加工後的資料
                 songs.value[index] = { ...songs.value[index], ...fullData };
             }
             return songs.value[index];
@@ -111,7 +129,6 @@ function main() {
             return song;
         }
     }
-
     // 3. 修改：獲取清單（現在只拿基礎欄位）
     async function fetchSongs() {
         try {
