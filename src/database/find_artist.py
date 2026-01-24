@@ -14,7 +14,7 @@ def find_artists_by_ids(artist_ids: list):
     """
     if not artist_ids: return {}
     try:
-        conn = sqlite3.connect(DB_PATH) #
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
         # 動態生成 SQL 佔位符

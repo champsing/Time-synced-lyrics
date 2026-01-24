@@ -1,0 +1,1685 @@
+[
+    {
+        "time": "00:01.17",
+        "text": [
+            {
+                "phrase": "この",
+                "duration": 50.5
+            },
+            {
+                "phrase": "惑星",
+                "duration": 55.2
+            },
+            {
+                "phrase": "の",
+                "duration": 110.9
+            },
+            {
+                "phrase": "",
+                "duration": 120
+            },
+            {
+                "phrase": "真ん中",
+                "duration": 94.1
+            },
+            {
+                "phrase": "で",
+                "duration": 120.3
+            }
+        ],
+        "translation": "",
+        "is_secondary": false
+    },
+    {
+        "time": "00:08.66",
+        "text": [
+            {
+                "phrase": "時折り",
+                "duration": 97.9
+            },
+            {
+                "phrase": "描いた",
+                "duration": 74.7
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:10.39",
+        "text": [
+            {
+                "phrase": "暗闇",
+                "duration": 81.6
+            },
+            {
+                "phrase": "照らす",
+                "duration": 72.3
+            },
+            {
+                "phrase": "何",
+                "duration": 45.6
+            },
+            {
+                "phrase": "か",
+                "duration": 33.8
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:12.82",
+        "text": [
+            {
+                "phrase": "この部屋",
+                "duration": 81.6
+            },
+            {
+                "phrase": "を",
+                "duration": 43.9
+            },
+            {
+                "phrase": "立ち",
+                "duration": 47.2
+            },
+            {
+                "phrase": "籠めている",
+                "duration": 117.1
+            },
+            {
+                "phrase": "何",
+                "duration": 57.2
+            },
+            {
+                "phrase": "か",
+                "duration": 35.9
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:16.79",
+        "text": [
+            {
+                "phrase": "それは",
+                "duration": 63.8
+            },
+            {
+                "phrase": "紅色",
+                "duration": 98.4
+            },
+            {
+                "phrase": "の",
+                "duration": 70.2
+            },
+            {
+                "phrase": "",
+                "duration": 140
+            },
+            {
+                "phrase": "記憶の",
+                "duration": 95.9
+            },
+            {
+                "phrase": "よう",
+                "duration": 46.9
+            },
+            {
+                "phrase": "な",
+                "duration": 71.4
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:24.65",
+        "text": [
+            {
+                "phrase": "空いた",
+                "duration": 77.7
+            },
+            {
+                "phrase": "穴",
+                "duration": 75.3
+            },
+            {
+                "phrase": "を",
+                "duration": 19.5
+            },
+            {
+                "phrase": "埋めていくような",
+                "duration": 154.3
+            },
+            {
+                "phrase": "何",
+                "duration": 48.5
+            },
+            {
+                "phrase": "か",
+                "duration": 36.7
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:28.77",
+        "text": [
+            {
+                "phrase": "天井",
+                "duration": 92
+            },
+            {
+                "phrase": "の",
+                "duration": 42.9
+            },
+            {
+                "phrase": "しみ",
+                "duration": 58.4
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:30.70",
+        "text": [
+            {
+                "phrase": "無数の",
+                "duration": 98.1
+            },
+            {
+                "phrase": "何",
+                "duration": 50.8
+            },
+            {
+                "phrase": "か",
+                "duration": 51
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:32.67",
+        "text": [
+            {
+                "phrase": "「",
+                "duration": 10
+            },
+            {
+                "phrase": "この夢",
+                "duration": 96.6
+            },
+            {
+                "phrase": "が",
+                "duration": 63.8
+            },
+            {
+                "phrase": "覚",
+                "duration": 31.4
+            },
+            {
+                "phrase": "め",
+                "duration": 74.6
+            },
+            {
+                "phrase": "た",
+                "duration": 26.4
+            },
+            {
+                "phrase": "ら」",
+                "duration": 127
+            }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "00:36.24",
+        "text": [
+            {
+                "phrase": "逃げ出して",
+                "duration": 120.2
+            },
+            {
+                "phrase": "しまう",
+                "duration": 64.5
+            },
+            {
+                "phrase": "か",
+                "duration": 62.9
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:38.72",
+        "text": [
+            {
+                "phrase": "この",
+                "duration": 47.2
+            },
+            {
+                "phrase": "ま",
+                "duration": 47.9
+            },
+            {
+                "phrase": "ま",
+                "duration": 98.7
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:40.75",
+        "text": [
+            {
+                "phrase": "「",
+                "duration": 10
+            },
+            {
+                "phrase": "この夢",
+                "duration": 96.6
+            },
+            {
+                "phrase": "が",
+                "duration": 63.8
+            },
+            {
+                "phrase": "覚",
+                "duration": 31.4
+            },
+            {
+                "phrase": "め",
+                "duration": 74.6
+            },
+            {
+                "phrase": "た",
+                "duration": 26.4
+            },
+            {
+                "phrase": "ら」",
+                "duration": 127
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "00:44.76",
+        "text": [
+            {
+                "phrase": "寂",
+                "duration": 51.1
+            },
+            {
+                "phrase": "しく",
+                "duration": 33.9
+            },
+            {
+                "phrase": "なる",
+                "duration": 52.5
+            },
+            {
+                "phrase": "よ",
+                "duration": 48.5
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:46.74",
+        "text": [
+            {
+                "phrase": "だから",
+                "duration": 54.2
+            },
+            {
+                "phrase": "",
+                "duration": 40
+            },
+            {
+                "phrase": "い",
+                "duration": 55.5
+            },
+            {
+                "phrase": "つまで",
+                "duration": 49.9
+            },
+            {
+                "phrase": "も",
+                "duration": 56.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "00:49.20",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 34.4
+            }
+        ],
+        "translation": "",
+        "is_together": false
+    },
+    {
+        "time": "00:49.54",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 62.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 25.9
+            }
+        ],
+        "translation": "",
+        "is_together": false
+    },
+    {
+        "time": "00:50.43",
+        "text": [
+            {
+                "phrase": "どんな夜",
+                "duration": 126.7
+            },
+            {
+                "phrase": "も",
+                "duration": 95.1
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "00:52.76",
+        "text": [
+            {
+                "phrase": "輝い",
+                "duration": 96.7
+            },
+            {
+                "phrase": "て",
+                "duration": 59.9
+            },
+            {
+                "phrase": "消えないも",
+                "duration": 122.4
+            },
+            {
+                "phrase": "の",
+                "duration": 53.4
+            },
+            {
+                "phrase": "に",
+                "duration": 18.1
+            },
+            {
+                "phrase": "手を",
+                "duration": 54.3
+            },
+            {
+                "phrase": "伸ばし",
+                "duration": 68.8
+            },
+            {
+                "phrase": "て",
+                "duration": 75.6
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "00:58.48",
+        "text": [
+            {
+                "phrase": "僕らまだ",
+                "duration": 114.6
+            },
+            {
+                "phrase": "不",
+                "duration": 14.8
+            },
+            {
+                "phrase": "確",
+                "duration": 74.6
+            },
+            {
+                "phrase": "か",
+                "duration": 16
+            },
+            {
+                "phrase": "な",
+                "duration": 90
+            },
+            {
+                "phrase": "未来",
+                "duration": 74.3
+            },
+            {
+                "phrase": "歌えるよ",
+                "duration": 115.7
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:03.64",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 60.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 25.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:04.44",
+        "text": [
+            {
+                "phrase": "どんな日々",
+                "duration": 126.1
+            },
+            {
+                "phrase": "も",
+                "duration": 84
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:06.70",
+        "text": [
+            {
+                "phrase": "輝い",
+                "duration": 98.1
+            },
+            {
+                "phrase": "て",
+                "duration": 72.3
+            },
+            {
+                "phrase": "消えてくも",
+                "duration": 126.6
+            },
+            {
+                "phrase": "の",
+                "duration": 46.8
+            },
+            {
+                "phrase": "さ、",
+                "duration": 25
+            },
+            {
+                "phrase": "手を伸ばし",
+                "duration": 128.3
+            },
+            {
+                "phrase": "て",
+                "duration": 73.1
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "01:12.40",
+        "text": [
+            {
+                "phrase": "僕らまた",
+                "duration": 124
+            },
+            {
+                "phrase": "不",
+                "duration": 14.7
+            },
+            {
+                "phrase": "確",
+                "duration": 71.1
+            },
+            {
+                "phrase": "か",
+                "duration": 23.8
+            },
+            {
+                "phrase": "な",
+                "duration": 79.5
+            },
+            {
+                "phrase": "未来",
+                "duration": 78
+            },
+            {
+                "phrase": "歌える",
+                "duration": 87.4
+            },
+            {
+                "phrase": "よ",
+                "duration": 31.9
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:17.64",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 60.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 25.9
+            }
+        ],
+        "translation": "",
+        "background_voice": {
+            "time": "01:23.40",
+            "text": [
+                {
+                    "phrase": "ほら、",
+                    "duration": 60
+                },
+                {
+                    "phrase": "待ってる",
+                    "duration": 90
+                },
+                {
+                    "phrase": "よ",
+                    "duration": 20
+                },
+                {
+                    "phrase": "今",
+                    "duration": 50
+                },
+                {
+                    "phrase": "チェンジ",
+                    "duration": 50
+                }
+            ],
+            "translation": ""
+        },
+        "is_together": true
+    },
+    {
+        "time": "01:31.13",
+        "text": [
+            {
+                "phrase": "この",
+                "duration": 50.5
+            },
+            {
+                "phrase": "惑星",
+                "duration": 55.2
+            },
+            {
+                "phrase": "の",
+                "duration": 110.9
+            },
+            {
+                "phrase": "",
+                "duration": 120
+            },
+            {
+                "phrase": "真ん中",
+                "duration": 94.1
+            },
+            {
+                "phrase": "で",
+                "duration": 120.3
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:38.67",
+        "text": [
+            {
+                "phrase": "差し詰め、",
+                "duration": 96.9
+            },
+            {
+                "phrase": "希",
+                "duration": 13.9
+            },
+            {
+                "phrase": "望に",
+                "duration": 68.5
+            },
+            {
+                "phrase": "似た",
+                "duration": 43.8
+            },
+            {
+                "phrase": "溢れる",
+                "duration": 100.4
+            },
+            {
+                "phrase": "何",
+                "duration": 47.6
+            },
+            {
+                "phrase": "か",
+                "duration": 39
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:43.09",
+        "text": [
+            {
+                "phrase": "余さず",
+                "duration": 90.3
+            },
+            {
+                "phrase": "描いた",
+                "duration": 71.9
+            },
+            {
+                "phrase": "立ち",
+                "duration": 30
+            },
+            {
+                "phrase": "籠めていた",
+                "duration": 100
+            },
+            {
+                "phrase": "何",
+                "duration": 52.3
+            },
+            {
+                "phrase": "か",
+                "duration": 55.9
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:46.93",
+        "text": [
+            {
+                "phrase": "まだ",
+                "duration": 50.2
+            },
+            {
+                "phrase": "紅",
+                "duration": 59.8
+            },
+            {
+                "phrase": "色",
+                "duration": 88
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:50.61",
+        "text": [
+            {
+                "phrase": "幕開け",
+                "duration": 107.2
+            },
+            {
+                "phrase": "前",
+                "duration": 52.8
+            },
+            {
+                "phrase": "か",
+                "duration": 80
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:54.62",
+        "text": [
+            {
+                "phrase": "隙間",
+                "duration": 74.4
+            },
+            {
+                "phrase": "風",
+                "duration": 76.9
+            },
+            {
+                "phrase": "たどりここまで",
+                "duration": 147.8
+            },
+            {
+                "phrase": "来てい",
+                "duration": 74.3
+            },
+            {
+                "phrase": "た",
+                "duration": 35.9
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:58.75",
+        "text": [
+            {
+                "phrase": "明白",
+                "duration": 92
+            },
+            {
+                "phrase": "だ",
+                "duration": 53.4
+            },
+            {
+                "phrase": "が、",
+                "duration": 18
+            },
+            {
+                "phrase": "まだ知らない",
+                "duration": 152.6
+            },
+            {
+                "phrase": "何",
+                "duration": 44.7
+            },
+            {
+                "phrase": "か",
+                "duration": 75.4
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:03.14",
+        "text": [
+            {
+                "phrase": "これ",
+                "duration": 50.4
+            },
+            {
+                "phrase": "じゃ",
+                "duration": 65.9
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:04.30",
+        "text": [
+            {
+                "phrase": "不安だら",
+                "duration": 103.6
+            },
+            {
+                "phrase": "け",
+                "duration": 36.4
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:05.70",
+        "text": [
+            {
+                "phrase": "勘違い",
+                "duration": 119.9
+            },
+            {
+                "phrase": "だらけ",
+                "duration": 66
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:07.56",
+        "text": [
+            {
+                "phrase": "独",
+                "duration": 64.6
+            },
+            {
+                "phrase": "り",
+                "duration": 19.2
+            },
+            {
+                "phrase": "よがり",
+                "duration": 74.6
+            },
+            {
+                "phrase": "じゃ",
+                "duration": 33.4
+            },
+            {
+                "phrase": "ない",
+                "duration": 39.1
+            },
+            {
+                "phrase": "か",
+                "duration": 63.3
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:11.16",
+        "text": [
+            {
+                "phrase": "でも",
+                "duration": 45.5
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:11.61",
+        "text": [
+            {
+                "phrase": "震",
+                "duration": 53.8
+            },
+            {
+                "phrase": "えてる",
+                "duration": 76.1
+            },
+            {
+                "phrase": "声",
+                "duration": 60.3
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:13.51",
+        "text": [
+            {
+                "phrase": "武",
+                "duration": 20.1
+            },
+            {
+                "phrase": "者",
+                "duration": 52.8
+            },
+            {
+                "phrase": "震い",
+                "duration": 60.1
+            },
+            {
+                "phrase": "は",
+                "duration": 30.6
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:15.04",
+        "text": [
+            {
+                "phrase": "「",
+                "duration": 10
+            },
+            {
+                "phrase": "今",
+                "duration": 41.7
+            },
+            {
+                "phrase": "チェン",
+                "duration": 47.9
+            },
+            {
+                "phrase": "ジ」",
+                "duration": 18.6
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:16.23",
+        "text": [
+            {
+                "phrase": "このまま",
+                "duration": 92.4
+            },
+            {
+                "phrase": "この",
+                "duration": 45.6
+            },
+            {
+                "phrase": "続",
+                "duration": 96
+            },
+            {
+                "phrase": "き",
+                "duration": 15.6
+            },
+            {
+                "phrase": "を",
+                "duration": 52.3
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:19.25",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 42.2
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:19.67",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 56.5
+            },
+            {
+                "phrase": "ジ",
+                "duration": 15
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:20.45",
+        "text": [
+            {
+                "phrase": "どんな夜",
+                "duration": 126.7
+            },
+            {
+                "phrase": "も",
+                "duration": 95.1
+            }
+        ],
+        "translation": "",
+        "is_secondary": false,
+        "is_together": true
+    },
+    {
+        "time": "02:22.73",
+        "text": [
+            {
+                "phrase": "輝い",
+                "duration": 96.7
+            },
+            {
+                "phrase": "て",
+                "duration": 63.9
+            },
+            {
+                "phrase": "消えないも",
+                "duration": 131.4
+            },
+            {
+                "phrase": "の",
+                "duration": 53.4
+            },
+            {
+                "phrase": "に",
+                "duration": 18.1
+            },
+            {
+                "phrase": "手を",
+                "duration": 54.3
+            },
+            {
+                "phrase": "伸ばし",
+                "duration": 68.8
+            },
+            {
+                "phrase": "て",
+                "duration": 75.6
+            }
+        ],
+        "translation": "",
+        "is_secondary": false,
+        "is_together": true
+    },
+    {
+        "time": "02:28.51",
+        "text": [
+            {
+                "phrase": "僕らまだ",
+                "duration": 114.6
+            },
+            {
+                "phrase": "不",
+                "duration": 14.8
+            },
+            {
+                "phrase": "確",
+                "duration": 74.6
+            },
+            {
+                "phrase": "か",
+                "duration": 16
+            },
+            {
+                "phrase": "な",
+                "duration": 90
+            },
+            {
+                "phrase": "未来",
+                "duration": 74.3
+            },
+            {
+                "phrase": "歌えるよ",
+                "duration": 115.7
+            }
+        ],
+        "translation": "",
+        "is_secondary": false
+    },
+    {
+        "time": "02:33.66",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 60.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 25.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "02:46.57",
+        "text": [
+            {
+                "phrase": "「",
+                "duration": 10
+            },
+            {
+                "phrase": "この夢",
+                "duration": 96.6
+            },
+            {
+                "phrase": "が",
+                "duration": 63.8
+            },
+            {
+                "phrase": "覚",
+                "duration": 31.4
+            },
+            {
+                "phrase": "め",
+                "duration": 74.6
+            },
+            {
+                "phrase": "た",
+                "duration": 26.4
+            },
+            {
+                "phrase": "ら」",
+                "duration": 127
+            }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "02:50.75",
+        "text": [
+            {
+                "phrase": "呼び声",
+                "duration": 93.3
+            },
+            {
+                "phrase": "は",
+                "duration": 76.9
+            },
+            {
+                "phrase": "も",
+                "duration": 25.2
+            },
+            {
+                "phrase": "う",
+                "duration": 71.9
+            },
+            {
+                "phrase": "覚",
+                "duration": 36.5
+            },
+            {
+                "phrase": "え",
+                "duration": 45.3
+            },
+            {
+                "phrase": "た",
+                "duration": 106.9
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:54.70",
+        "text": [
+            {
+                "phrase": "「",
+                "duration": 10
+            },
+            {
+                "phrase": "この夢",
+                "duration": 96.6
+            },
+            {
+                "phrase": "が",
+                "duration": 63.8
+            },
+            {
+                "phrase": "覚",
+                "duration": 31.4
+            },
+            {
+                "phrase": "め",
+                "duration": 74.6
+            },
+            {
+                "phrase": "た",
+                "duration": 26.4
+            },
+            {
+                "phrase": "ら」",
+                "duration": 127
+            }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "02:58.71",
+        "text": [
+            {
+                "phrase": "唱える",
+                "duration": 95.8
+            },
+            {
+                "phrase": "わ",
+                "duration": 46.1
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:00.13",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 46.1
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:00.59",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 54.4
+            },
+            {
+                "phrase": "ジ",
+                "duration": 10.5
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:01.24",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 36.4
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:01.60",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 55.4
+            },
+            {
+                "phrase": "ジ",
+                "duration": 10
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:02.26",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 36.7
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:02.62",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 54.4
+            },
+            {
+                "phrase": "ジ",
+                "duration": 10
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:03.27",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 31.8
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:03.58",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 60.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 17.5
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:04.37",
+        "text": [
+            {
+                "phrase": "どんな夜",
+                "duration": 129.7
+            },
+            {
+                "phrase": "も",
+                "duration": 95.1
+            }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "03:06.68",
+        "text": [
+            {
+                "phrase": "輝い",
+                "duration": 96.7
+            },
+            {
+                "phrase": "て",
+                "duration": 63.9
+            },
+            {
+                "phrase": "消えないも",
+                "duration": 131.4
+            },
+            {
+                "phrase": "の",
+                "duration": 53.4
+            },
+            {
+                "phrase": "に",
+                "duration": 18.1
+            },
+            {
+                "phrase": "手を",
+                "duration": 54.3
+            },
+            {
+                "phrase": "伸ばし",
+                "duration": 68.8
+            },
+            {
+                "phrase": "て",
+                "duration": 75.6
+            }
+        ],
+        "translation": "",
+        "is_secondary": true
+    },
+    {
+        "time": "03:12.44",
+        "text": [
+            {
+                "phrase": "僕ら今",
+                "duration": 123.4
+            },
+            {
+                "phrase": "確",
+                "duration": 76.9
+            },
+            {
+                "phrase": "か",
+                "duration": 26.1
+            },
+            {
+                "phrase": "に、",
+                "duration": 71.1
+            },
+            {
+                "phrase": "",
+                "duration": 20
+            },
+            {
+                "phrase": "見上げて",
+                "duration": 80
+            },
+            {
+                "phrase": "いる",
+                "duration": 60
+            },
+            {
+                "phrase": "はず",
+                "duration": 17
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:17.14",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 50.2
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:17.64",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 60.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 25.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:18.43",
+        "text": [
+            {
+                "phrase": "どんな時",
+                "duration": 118.7
+            },
+            {
+                "phrase": "も",
+                "duration": 87.1
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:20.69",
+        "text": [
+            {
+                "phrase": "輝い",
+                "duration": 96.7
+            },
+            {
+                "phrase": "て",
+                "duration": 63.9
+            },
+            {
+                "phrase": "消えないも",
+                "duration": 131.4
+            },
+            {
+                "phrase": "の",
+                "duration": 53.4
+            },
+            {
+                "phrase": "に",
+                "duration": 18.1
+            },
+            {
+                "phrase": "手を",
+                "duration": 54.3
+            },
+            {
+                "phrase": "伸ばし",
+                "duration": 68.8
+            },
+            {
+                "phrase": "て",
+                "duration": 75.6
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:26.43",
+        "text": [
+            {
+                "phrase": "僕ら今",
+                "duration": 119.4
+            },
+            {
+                "phrase": "確",
+                "duration": 81.2
+            },
+            {
+                "phrase": "か",
+                "duration": 25.3
+            },
+            {
+                "phrase": "に、",
+                "duration": 77.8
+            },
+            {
+                "phrase": "未来",
+                "duration": 73.2
+            },
+            {
+                "phrase": "歌える",
+                "duration": 94.4
+            },
+            {
+                "phrase": "よ",
+                "duration": 28.4
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:31.64",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 60.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 25.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:32.37",
+        "text": [
+            {
+                "phrase": "どんな夜",
+                "duration": 126.7
+            },
+            {
+                "phrase": "も",
+                "duration": 95.1
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:39.13",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 48.2
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:39.62",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 77
+            },
+            {
+                "phrase": "ジ",
+                "duration": 10
+            }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:42.22",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 49.8
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:42.72",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 37.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 16.1
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:43.26",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 40.1
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:43.66",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 44.8
+            },
+            {
+                "phrase": "ジ",
+                "duration": 18.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:44.20",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 40.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:44.61",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 46.7
+            },
+            {
+                "phrase": "ジ",
+                "duration": 20
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:45.26",
+        "text": [
+            {
+                "phrase": "今",
+                "duration": 40.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    },
+    {
+        "time": "03:45.67",
+        "text": [
+            {
+                "phrase": "チェン",
+                "duration": 60.9
+            },
+            {
+                "phrase": "ジ",
+                "duration": 25.9
+            }
+        ],
+        "translation": "",
+        "is_together": true
+    }
+]
