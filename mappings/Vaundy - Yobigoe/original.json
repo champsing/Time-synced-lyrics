@@ -785,6 +785,7 @@
     },
     {
         "time": "03:46.00",
-        "type": "end"
+        "type": "end",
+        "is_together": true
     }
 ]
