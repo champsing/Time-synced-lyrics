@@ -96,7 +96,7 @@ if __name__ == "__main__":
         "013_create_artists_table",
         "013_insert_artists",
         "014_update_artists_id",
-        "015_add_Vaundy_yobigoe",
+        "015_add_vaundy_yobigoe",
     ]
 
     # 初始化並執行 migrations
