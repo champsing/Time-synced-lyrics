@@ -365,6 +365,6 @@
         "text": [],
         "translation": "",
         "type": "end",
-        "is_together": false
+        "is_together": true
     }
 ]

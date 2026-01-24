@@ -31,7 +31,7 @@ VALUES
         '劇場版『チェンソーマン レゼ篇』\nエンディング・テーマ',
         NULL,
         '[{"version": "original", "id": "sPLqsLsooJY", "default": true, "duration": "4:06"}]',
-        0,
+        1,
         0,
         '{"available": false, "author": "", "cite": ""}',
         '2025-12-07',
