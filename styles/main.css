@@ -100,7 +100,7 @@
     }
 
     .lyric-button.active {
-        @apply text-3xl font-bold p-2 text-pretty;
+        @apply max-w-60 md:max-w-[50%] text-3xl p-2 font-bold text-pretty;
     }
 
     .lyric-button.active {

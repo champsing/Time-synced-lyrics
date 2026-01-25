@@ -2084,11 +2084,6 @@
       width: 100%;
     }
   }
-  .md\:max-w-\[60\%\] {
-    @media (width >= 48rem) {
-      max-width: 60%;
-    }
-  }
   .md\:grow {
     @media (width >= 48rem) {
       flex-grow: 1;
@@ -2306,12 +2301,16 @@
     }
   }
   .lyric-button.active {
+    max-width: calc(var(--spacing) * 60);
     padding: calc(var(--spacing) * 2);
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     text-wrap: pretty;
+    @media (width >= 48rem) {
+      max-width: 50%;
+    }
   }
   .lyric-button.active {
     @media (width >= 48rem) {
