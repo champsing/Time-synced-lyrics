@@ -97,6 +97,7 @@ if __name__ == "__main__":
         "013_insert_artists",
         "014_update_artists_id",
         "015_add_vaundy_yobigoe",
+        "016_drop_is_duet_column",
     ]
 
     # 初始化並執行 migrations

@@ -76,15 +76,15 @@
         @apply transition-opacity duration-300;
     }
 
-    .lyric-line.is-duet {
+    .lyric-line {
         @apply text-left;
     }
 
-    .lyric-line.is-duet.is-secondary-vocalist {
+    .lyric-line.is-secondary-vocalist {
         @apply text-right;
     }
 
-    .lyric-line.is-duet.is-together {
+    .lyric-line.is-together {
         @apply text-center;
     }
 

@@ -64,6 +64,8 @@ function main() {
     const isPaused = ref(true);
     const isLoading = ref(true);
     const isMuted = ref(false);
+    const isError = ref(false);
+    const errorMessage = ref("");
 
     const colorOptions = ref([{ color: "#365456", name: "預設 II：礦石靛" }]);
 
@@ -338,10 +340,12 @@ function main() {
                     throw new Error("指定歌曲不存在未被啟用");
                 }
             } else {
+                // 觸發錯誤狀態
+                isError.value = true;
+                errorMessage.value =
+                    "未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在, 請由選歌系統選擇歌曲, 勿直接訪問 /player/ 目錄";
                 currentSong.value = null;
-                throw new Error(
-                    "未定義指定歌曲 ID、歌曲未啟用或該歌曲 ID 不存在, 請由選歌系統選擇歌曲, 勿直接訪問 /player/ 目錄",
-                );
+                throw new Error(errorMessage.value);
             }
 
             // 這時歌曲才確定，才開始設定版本
@@ -375,16 +379,24 @@ function main() {
             }
         } catch (error) {
             console.error("初始化錯誤: ", error);
+            isError.value = true; // 確保發生任何錯誤時都能顯示錯誤頁面
+            if (!errorMessage.value)
+                errorMessage.value = "載入歌曲時發生錯誤，請稍後再試。";
         } finally {
             isLoading.value = false;
-            await fetchColors(); // 讀取顏色
-            await setupPlayerAndLoadSong();
-            // 初始化模態框
-            initSettingModal();
-            initCreditModal();
-            initControllerPanel();
-            initAboutModal();
-            initShareModal();
+            // 注意：如果發生錯誤，可能不需要初始化播放器或部分模態框
+            if (!isError.value) {
+                await fetchColors();
+                await setupPlayerAndLoadSong();
+                initSettingModal();
+                initCreditModal();
+                initControllerPanel();
+                initAboutModal();
+                initShareModal();
+            } else {
+                // 即便錯誤，有些基礎 UI (如 About) 可能還是想讓它運作，視需求而定
+                initAboutModal();
+            }
         }
     });
 
@@ -416,6 +428,8 @@ function main() {
         isPaused,
         isMuted,
         isLoading,
+        isError,
+        errorMessage,
         debugInfo: DEBUG_INFO,
         fetchColors,
         parseSubtitle,
