@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Card from "@/components/home/Card.vue";
+</script>
 
 <template>
     <div class="bg-linear-to-b from-rose-50 to-white">
@@ -9,7 +11,7 @@
                 >
                     <div class="flex flex-row gap-1 md:gap-2">
                         <img
-                            src="/public/og_image/music.webp"
+                            src="/og_image/music.webp"
                             alt="同步開唱"
                             aria-label="同步開唱"
                             class="w-8 h-8 md:w-10 md:h-10 select-none rounded-xl"
@@ -105,7 +107,6 @@
                                         aria-label="這個專案的Repo"
                                         title="GitHub"
                                         class="text-gray-600 hover:text-rose-600 transition"
-                                        
                                     >
                                         <span>GitHub 開源</span>
                                     </a>
@@ -150,7 +151,7 @@
                     class="outline-4 rounded-2xl overflow-hidden outline-yellow-400"
                 >
                     <img
-                        src="/public/homepage_images/player-screenshot-lg.webp"
+                        src="/homepage_images/player-screenshot-lg.webp"
                         class="select-none"
                         alt="電腦端畫面"
                         aria-label="電腦端畫面"
@@ -186,7 +187,7 @@
                         <div class="grow"></div>
                     </div>
                     <img
-                        src="/public/homepage_images/instrumental.webp"
+                        src="/homepage_images/instrumental.webp"
                         class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
                         alt="伴唱帶徽章"
                         aria-label="伴唱帶徽章"
@@ -211,7 +212,7 @@
                             </a>
                         </div>
                         <img
-                            src="/public/homepage_images/translation.webp"
+                            src="/homepage_images/translation.webp"
                             class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
                             alt="翻譯框"
                             aria-label="翻譯框"
@@ -234,7 +235,7 @@
                 <div class="flex flex-row md:gap-10">
                     <div class="grow md:hidden"></div>
                     <img
-                        src="/public/homepage_images/change-theme-color.webp"
+                        src="/homepage_images/change-theme-color.webp"
                         class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 md:w-2/3 select-none"
                         alt="背景顏色更換"
                         aria-label="背景顏色更換"
@@ -276,7 +277,7 @@
                                 class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
                             >
                                 <img
-                                    src="/public/homepage_images/credit-list.webp"
+                                    src="/homepage_images/credit-list.webp"
                                     width="511"
                                     height="466"
                                     alt="工作人員名單"
@@ -317,8 +318,8 @@
                         <div class="grow"></div>
                     </div>
                     <img
-                        src="/public/homepage_images/player-screenshot-sm.webp"
-                        class="w-[271px] h-[586px] md:w-[180px] md:h-[391px] outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
+                        src="/homepage_images/player-screenshot-sm.webp"
+                        class="w-67.75 h-146.5 md:w-45 md:h-97.75 outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
                         alt="手機端畫面"
                         aria-label="手機端畫面"
                     />
@@ -391,3 +392,30 @@
         <!-- 導航欄 -->
     </div>
 </template>
+
+<style scoped>
+/* 添加完整 CSS 确保可见性 */
+body {
+    font-family: system-ui;
+}
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-scroll-trigger {
+    animation: slideUpFadeIn 0.6s ease-out forwards;
+}
+
+input[type="checkbox"]:checked ~ .zoom-in-able {
+    transform: scale(2);
+    cursor: zoom-out;
+}
+</style>

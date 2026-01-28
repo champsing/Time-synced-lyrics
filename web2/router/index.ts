@@ -8,7 +8,7 @@ const routes: Array<RouteRecordSingleView> = [
     {
         path: "/",
         name: "Home",
-        component: () => import("../components/Home.vue"),
+        component: () => import("../components/home/Home.vue"),
     },
     {
         path: "/select",
