@@ -1,4 +1,5 @@
 import sqlite3
+import json
 from typing import List
 
 
@@ -79,26 +80,8 @@ class SQLiteMigration:
 # 使用範例
 if __name__ == "__main__":
     # 定義所有 migrations (格式: "migration_name:SQL")
-    all_migrations = [
-        "001_create_songs_table",
-        "002_fix_translation_field",
-        "002_insert_songs",
-        "003_make_one_day_available",
-        "004_fix_one_day_credits",
-        "005_drop_id_column",
-        "006_add_vaundy_saikai",
-        "007_make_saikai_translation_available",
-        "008_add_knk_kekka_orai",
-        "009_add_yutori_speed",
-        "010_make_speed_translation_available",
-        "011_make_kekka_orai_available",
-        "012_add_kenshi_hikaru_jane_doe",
-        "013_create_artists_table",
-        "013_insert_artists",
-        "014_update_artists_id",
-        "015_add_vaundy_yobigoe",
-        "016_drop_is_duet_column",
-    ]
+    with open("src/database/migrations.json", "r", encoding="UTF-8") as migs:
+        all_migrations = json.load(migs)
 
     # 初始化並執行 migrations
     migrator = SQLiteMigration("./src/db.sqlite3")
