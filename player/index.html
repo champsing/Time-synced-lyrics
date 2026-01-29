@@ -451,7 +451,7 @@
                             v-for="(line, index) in jsonMappingContent"
                             class="lyric-line !m-6 opacity-100"
                             :id="`lyric-line-${index}`"
-                            :class="{ 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }"
+                            :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }"
                         >
                             <button
                                 :id="`line-button-${index}`"

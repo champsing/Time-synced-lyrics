@@ -16,6 +16,5 @@
     "013_insert_artists",
     "014_update_artists_id",
     "015_add_vaundy_yobigoe",
-    "016_drop_is_duet_column",
-    "017_add_mga_lulu"
+    "016_add_mga_lulu"
 ]

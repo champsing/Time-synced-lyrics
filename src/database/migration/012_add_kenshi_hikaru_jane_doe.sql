@@ -32,7 +32,7 @@ VALUES
         NULL,
         '[{"version": "original", "id": "sPLqsLsooJY", "default": true, "duration": "4:06"}]',
         1,
-        0,
+        1,
         '{"available": false, "author": "", "cite": ""}',
         '2025-12-07',
         'ja',
