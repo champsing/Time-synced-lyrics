@@ -162,18 +162,25 @@ function main() {
         // 提早 0.3 秒顯示 (配合您原本的邏輯)
         const startOffset = 0.3;
 
-        // 延後 0.2 秒消失 (選用：讓歌詞唱完後稍微停留一下下再消失，感覺比較平滑)
-        // 如果想要唱完字瞬間消失，將此設為 0 即可
-        const endBuffer = 0.2;
-
         processedLines.value.forEach((line, index) => {
-            // 定義顯示區間：
-            // 開始：表定時間 - 0.3秒
-            // 結束：表定時間 + 總時長 + 0.2秒緩衝
-            const startTime = line.time - startOffset;
-            const endTime = line.computedEndTime + endBuffer;
+            // 1. 開始時間：表定時間提前 0.3 秒
+            const startTime = line.time - 0.3; // 假設 startOffset 是 0.3
 
-            // 如果現在時間落在這個區間內，這行就是 active
+            // 2. 結束時間：
+            // 取得下一行的開始時間
+            const nextLine = processedLines.value[index + 1];
+
+            let endTime;
+            if (nextLine) {
+                // 核心邏輯：下一行開始時間 - 0.3 秒
+                // 這樣這行消失的瞬間，下一行剛好開始
+                endTime = nextLine.time - 0.3;
+            } else {
+                // 最後一行：使用它自己的預計結束時間，再多留一點緩衝
+                endTime = line.computedEndTime + 0.5;
+            }
+
+            // 3. 判定顯示
             if (now >= startTime && now < endTime) {
                 activeIndices.push(index);
             }
