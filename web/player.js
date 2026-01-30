@@ -174,7 +174,9 @@ function main() {
             if (nextLine) {
                 // 核心邏輯：下一行開始時間 - 0.3 秒
                 // 這樣這行消失的瞬間，下一行剛好開始
-                endTime = nextLine.time - 0.3;
+                if (nextLine.time - 0.3 < line.computedEndTime)
+                    endTime = line.computedEndTime;
+                else endTime = nextLine.time - 0.3;
             } else {
                 // 最後一行：使用它自己的預計結束時間，再多留一點緩衝
                 endTime = line.computedEndTime + 0.5;

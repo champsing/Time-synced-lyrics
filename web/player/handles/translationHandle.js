@@ -13,11 +13,11 @@ export function useTransation(
         )
             return "";
 
-        // 遍歷所有活躍行，取出翻譯，過濾掉空的，然後用換行符號連接
+        // 只取最後一個有翻譯的活躍行
         return activeLineIndices.value
             .map((index) => jsonMappingContent.value[index]?.translation || "")
             .filter((text) => text !== "")
-            .join("\n");
+            .reverse()[0];
     });
 
     const backgroundTranslationText = computed(() => {
@@ -35,7 +35,7 @@ export function useTransation(
                         ?.translation || "",
             )
             .filter((text) => text !== "")
-            .join("\n");
+            .reverse()[0];
     });
 
     const translationAuthor = computed(() => {
