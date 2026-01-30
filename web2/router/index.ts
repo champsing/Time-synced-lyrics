@@ -1,6 +1,6 @@
-import Home from "@/components/home/Home.vue";
-import Player from "@/components/Player.vue";
-import SongSelect from "@/components/SongSelect.vue";
+import Home from "@components/home/Home.vue";
+import Player from "@components/player/Player.vue";
+import SongSelect from "@components/song_select/SongSelect.vue";
 import {
     createRouter,
     createWebHistory,
