@@ -1,3 +1,6 @@
+import Home from "@/components/home/Home.vue";
+import Player from "@/components/Player.vue";
+import SongSelect from "@/components/SongSelect.vue";
 import {
     createRouter,
     createWebHistory,
@@ -8,17 +11,17 @@ const routes: Array<RouteRecordSingleView> = [
     {
         path: "/",
         name: "Home",
-        component: () => import("../components/home/Home.vue"),
+        component: Home,
     },
     {
-        path: "/select",
+        path: "/songs",
         name: "SongSelect",
-        component: () => import("../components/SongSelect.vue"),
+        component: SongSelect,
     },
     {
         path: "/player/:id?", // id 設為選填，兼容你原本的 query 邏輯
         name: "Player",
-        component: () => import("../components/Player.vue"),
+        component: Player,
         props: (route) => ({
             songId: route.query.song,
             version: route.query.version,
