@@ -337,6 +337,7 @@ function main() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     song_id: songData.song_id,
+                    // [TODO]: 現在只有available 過一陣子之後改成整個歌曲資料都送去驗證
                     available: songData.available,
                     signature: songData.signature,
                 }),
