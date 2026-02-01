@@ -400,6 +400,10 @@ function main() {
             if (e.key === "ArrowLeft") prevSong();
             if (e.key === "ArrowRight") nextSong();
             if (e.key === "Escape") closeSongModal();
+            if (e.key === "Enter") {
+                if (selectedModalSong.value)
+                    selectSong(selectedModalSong.value);
+            }
         });
     });
 
