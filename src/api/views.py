@@ -9,6 +9,9 @@ from database.fing_song import find_song_by_id, export_song_list
 from database.find_artist import find_artists_by_ids
 from django.http import JsonResponse
 from database.find_artist import find_artists_by_ids
+import json
+import hmac
+from api.verify_song import generate_signature
 
 
 @api_view(["GET"])
@@ -110,3 +113,29 @@ def get_artists_batch(request):
     except ValueError:
         return JsonResponse({"error": "ID 格式錯誤"}, status=400)
 
+@api_view(["POST"])
+def verify_song_signature(request):
+    """
+    極簡 API：僅驗證簽名是否有效
+    """
+    try:
+        data = json.loads(request.body)
+        song_id = data.get('song_id')
+        available = data.get('available')
+        received_signature = data.get('signature')
+
+        if song_id is None or available is None or not received_signature:
+            return JsonResponse({'valid': False, 'message': 'Missing parameters'}, status=400)
+
+        # 重新計算正確的簽名
+        expected_signature = generate_signature(song_id, available)
+
+
+        # 使用 hmac.compare_digest 防止計時攻擊 (Timing Attack)
+        if hmac.compare_digest(expected_signature, received_signature):
+            return JsonResponse({'valid': True})
+        else:
+            return JsonResponse({'valid': False}, status=403)
+            
+    except Exception:
+        return JsonResponse({'valid': False}, status=500)

@@ -7,4 +7,5 @@ urlpatterns = [
     path("songs/", views.get_songs_list, name="song_list"),
     path("songs/<int:song_id>/", views.get_song_by_id, name="get_song_by_id"),
     path("artists/", views.get_artists_batch, name="get_artist_batch"),
+    path("verify-song/", views.verify_song_signature, name="verify_song_signature"),
 ]

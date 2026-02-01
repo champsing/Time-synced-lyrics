@@ -1,6 +1,8 @@
 from pathlib import Path
 import sqlite3
 import json
+from api.verify_song import generate_signature
+
 
 SRC_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = Path(SRC_DIR, "db.sqlite3")
@@ -70,7 +72,9 @@ def find_song_by_id(song_id: int):
             (song_id,),
         ).fetchone()
 
+        # ... 原有的資料庫查詢邏輯 ...
         if fetched_song_data:
+
             # 获取列名
             columns = [column[0] for column in cursor.description]
             # 创建列名-值的字典
@@ -78,6 +82,13 @@ def find_song_by_id(song_id: int):
 
             # 转换 bytes 字段为字符串
             song_dict = convert_bytes_fields(song_dict)
+
+            # --- 新增簽名邏輯 ---
+            # 生成簽名並存入 dict，這會一起回傳給前端
+            song_dict["signature"] = generate_signature(
+                song_dict["song_id"], song_dict["available"]
+            )
+            # ------------------
 
             # 处理可能的 JSON 字符串字段
             json_fields = ["credits", "versions", "album", "translation"]
@@ -97,6 +108,3 @@ def find_song_by_id(song_id: int):
     finally:
         if conn:
             conn.close()
-
-
-

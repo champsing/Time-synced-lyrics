@@ -13,6 +13,7 @@ import { useTransation } from "./player/handles/translationHandle.js";
 import { initYouTubePlayer } from "./player/yt/onReadyPlayer.js";
 import {
     ALBUM_GOOGLE_LINK_BASE,
+    API_BASE_URL,
     DEBUG_INFO,
     INSTRUMENTAL,
     LIVE,
@@ -329,24 +330,68 @@ function main() {
         }
     }
 
+    async function verifySignature(songData) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/verify-song/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    song_id: songData.song_id,
+                    available: songData.available,
+                    signature: songData.signature,
+                }),
+            });
+            const result = await response.json();
+            return result.valid;
+        } catch (e) {
+            console.error("簽名驗證請求失敗", e);
+            return false;
+        }
+    }
+
     // 初始化流程
     onMounted(async () => {
         try {
             if (songRequest) {
                 let requestSongData;
-                if (sessionStorage.getItem(songRequest))
-                    requestSongData = JSON.parse(
-                        sessionStorage.getItem(songRequest),
-                    );
-                else requestSongData = await loadSongData(songRequest);
+                const cachedData = sessionStorage.getItem(
+                    `detail_${songRequest}`,
+                );
+
+                if (cachedData) {
+                    const parsed = JSON.parse(cachedData);
+
+                    // --- 核心修改：驗證快取資料的簽名 ---
+                    console.log("正在驗證快取資料的有效性...");
+                    const isValid = await verifySignature(parsed);
+
+                    if (isValid) {
+                        requestSongData = parsed;
+                        console.log("快取驗證成功");
+                    } else {
+                        console.warn("快取簽名無效，重新從伺服器獲取資料");
+                        requestSongData = await loadSongData(songRequest);
+                    }
+                    // ---------------------------------
+                } else {
+                    requestSongData = await loadSongData(songRequest);
+                }
+
                 console.log(
                     `已帶入指定歌曲 ID: ${songRequest} - ${requestSongData.folder}`,
                 );
-                if (requestSongData && requestSongData.available)
+
+                // 最終的 available 檢查 (後端返回的 requestSongData 應包含正確簽名)
+                if (requestSongData && requestSongData.available) {
                     currentSong.value = requestSongData;
-                else {
+                    // 確保最新的（含簽名）資料存回 session
+                    sessionStorage.setItem(
+                        `detail_${songRequest}`,
+                        JSON.stringify(requestSongData),
+                    );
+                } else {
                     currentSong.value = null;
-                    throw new Error("指定歌曲不存在未被啟用");
+                    throw new Error("指定歌曲不存在或未啟用");
                 }
             } else {
                 // 觸發錯誤狀態
