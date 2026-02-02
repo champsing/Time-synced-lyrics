@@ -225,7 +225,6 @@
                                 </svg>
                             </a>
                         </div>
-                        
 
                         <div
                             id="giticon-below-sm"
@@ -305,8 +304,6 @@
                                     </svg>
                                 </a>
                             </div>
-
-                            
 
                             <div
                                 id="giticon-sm"
@@ -697,7 +694,7 @@
                         </div>
 
                         <!-- 主控制按鈕組 -->
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between px-2">
                             <!-- 音量控制 (簡化) -->
                             <div class="group relative flex items-center">
                                 <button
@@ -708,23 +705,26 @@
                                         >{{ (volume == 0 || isMuted) ?
                                         'volume_off' : 'volume_up' }}</span
                                     >
+                                    
                                 </button>
+
                                 <div
-                                    class="ml-2 w-0 overflow-hidden group-hover:w-24 transition-all duration-300 ease-out flex items-center"
+                                    class="ml-2 w-0 overflow-hidden group-hover:w-40 transition-all duration-300 ease-out flex items-center"
                                 >
                                     <input
                                         type="range"
                                         min="0"
                                         max="100"
                                         v-model="volume"
-                                        class="w-full h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer"
+                                        class="w-full h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer py-3 mx-2"
                                         @input="changeVolume($event.target.value)"
                                     />
+                                    <span class="p-1">{{ volume || 70 }}</span>
                                 </div>
                             </div>
 
                             <!-- 播放核心按鈕 -->
-                            <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-10">
                                 <button
                                     @click="rewind10Sec()"
                                     class="text-white/60 hover:text-white transition-all transform active:scale-90"
