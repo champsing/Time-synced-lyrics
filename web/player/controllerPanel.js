@@ -14,16 +14,13 @@ export const initControllerPanel = () => {
         panelSwitchIcon = document.getElementById(
             "controller-panel-switch-icon-md",
         );
-        panelSwitchState = document.getElementById(
-            "controller-panel-switch-state-md",
-        );
     }
 
     const panel = document.getElementById("controller-panel");
     const mainDisplaySection = document.getElementById("main-display-section");
 
     const show = () => {
-        panel.style.display = "flex";
+        panel.style.display = "block";
         panelSwitchIcon.innerText = "keyboard_arrow_down";
         panelSwitchState.innerText = "CLOSE";
 

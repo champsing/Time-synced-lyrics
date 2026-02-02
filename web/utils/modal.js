@@ -66,14 +66,7 @@ export const initAboutModal = () => {
         enableScroll();
     };
 
-    if (window.screen.width >= 768)
-        document
-            .getElementById("about-btn-sm")
-            ?.addEventListener("click", show);
-    else
-        document
-            .getElementById("about-btn-below-sm")
-            ?.addEventListener("click", show);
+    document.getElementById("about-btn")?.addEventListener("click", show);
 
     close?.addEventListener("click", hide);
     window.addEventListener("click", (e) => e.target === mask && hide());
