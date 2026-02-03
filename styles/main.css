@@ -225,7 +225,7 @@
     }
 
     .modal-mutual {
-        @apply fixed z-[100] p-6 rounded-[32px] backdrop-blur-2xl border border-white/20 shadow-2xl transition-all duration-500 scale-100;
+        @apply fixed z-100 p-6 rounded-4xl backdrop-blur-2xl border border-white/20 shadow-2xl transition-all duration-500 scale-100;
         background: linear-gradient(
             135deg,
             rgba(40, 40, 40, 0.9) 0%,
@@ -235,7 +235,7 @@
     }
 
     .modal-mask {
-        @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] transition-opacity;
+        @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-90 transition-opacity;
     }
 
     .modal-name {

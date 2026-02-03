@@ -36,7 +36,7 @@ export const initControllerPanel = () => {
         panelSwitchState.innerText = "OPEN";
 
         if (window.screen.width >= 768) {
-            let margin = window.screen.width / 10 - 32;
+            let margin = window.screen.width / 10 - 15;
             mainDisplaySection.style.marginLeft = `${margin}px`;
             mainDisplaySection.style.width = "80%";
         }
