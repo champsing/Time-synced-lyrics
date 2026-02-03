@@ -692,31 +692,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- 手機端收合切換 -->
-                    <div class="md:hidden mt-3 flex justify-center">
-                        <button
-                            id="controller-panel-switch-below-md"
-                            class="px-4 py-1.5 bg-black/40 backdrop-blur-md rounded-full text-white/60 text-[10px] uppercase tracking-[0.2em] font-bold border border-white/5"
-                        >
-                            <div class="flex items-center gap-1">
-                                <span
-                                    class="material-icons text-sm"
-                                    id="controller-panel-switch-icon-below-md"
-                                    >keyboard_arrow_down</span
-                                >
-                                <span
-                                    id="controller-panel-switch-state-below-md"
-                                    >CLOSE</span
-                                >
-                            </div>
-                        </button>
-                    </div>
                 </div>
 
                 <div
                     id="controller-panel"
-                    class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all p-4"
+                    class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all p-4 mt-2"
                 >
                     <!-- 主控制按鈕組 -->
                     <div class="flex items-center justify-between">
@@ -799,6 +779,25 @@
                         />
                         <span class="p-1">{{ volume || 70 }}</span>
                     </div>
+                </div>
+
+                <!-- 手機端收合切換 -->
+                <div class="md:hidden mt-2 flex justify-center">
+                    <button
+                        id="controller-panel-switch-below-md"
+                        class="px-4 py-1.5 bg-black/40 backdrop-blur-md rounded-full text-white/60 text-[10px] uppercase tracking-[0.2em] font-bold border border-white/5"
+                    >
+                        <div class="flex items-center gap-1">
+                            <span
+                                class="material-icons text-sm"
+                                id="controller-panel-switch-icon-below-md"
+                                >keyboard_arrow_down</span
+                            >
+                            <span id="controller-panel-switch-state-below-md"
+                                >CLOSE</span
+                            >
+                        </div>
+                    </button>
                 </div>
             </div>
 
