@@ -64,7 +64,7 @@
     </head>
 
     <body
-        class="bg-[#365456] !text-white min-h-screen !m-0"
+        class="bg-[#365456] text-white! min-h-screen m-0!"
         :style="{ backgroundColor: bodyBackgroundColor.value}"
     >
         <div id="app">
@@ -72,7 +72,7 @@
             <div
                 v-if="isLoading"
                 id="loading-overlay"
-                class="col-span-full text-center py-8 fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center flex-col"
+                class="col-span-full text-center py-8 fixed inset-0 z-9999 bg-black/80 flex items-center justify-center flex-col"
             >
                 <!-- SVG Spinner -->
                 <svg
@@ -134,7 +134,7 @@
 
             <div
                 v-if="isError"
-                class="fixed inset-0 z-[80] bg-[#1a1a1a] flex flex-col items-center justify-center px-6 text-center"
+                class="fixed inset-0 z-80 bg-[#1a1a1a] flex flex-col items-center justify-center px-6 text-center"
             >
                 <div class="mb-6">
                     <span class="material-icons text-7xl text-rose-500"
@@ -449,7 +449,7 @@
                     >
                         <div
                             v-for="(line, index) in jsonMappingContent"
-                            class="lyric-line !m-6 opacity-100"
+                            class="lyric-line m-6! opacity-100"
                             :id="`lyric-line-${index}`"
                             :class="{ 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }"
                         >
@@ -573,7 +573,7 @@
                 >
                     <div
                         v-if="currentSong.translation?.available == true"
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-max"
+                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-xl w-max"
                     >
                         <div
                             class="text-2xl font-bold text-center text-teal-300 p-2"
@@ -610,7 +610,7 @@
                     </div>
                     <div
                         v-else
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-[12px] w-fit"
+                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-xl w-fit"
                     >
                         <span>本歌曲尚未提供翻譯</span>
                     </div>
@@ -620,7 +620,7 @@
             <!-- 主要 UI 區域 -->
             <div
                 id="main-ui-section"
-                class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed md:p-4 w-full px-4 p-2 md:w-[30%] rounded-[12px]"
+                class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed md:p-4 w-full px-4 p-2 md:w-[30%] rounded-xl"
             >
                 <div class="hidden md:flex flex-row">
                     <button
@@ -653,7 +653,7 @@
                 >
                     <div
                         v-if="currentSong.translation?.available == true"
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-fit"
+                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-xl w-fit"
                     >
                         <div
                             class="text-xl font-bold text-center text-teal-300"
@@ -688,7 +688,7 @@
                     </div>
                     <div
                         v-else
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-[12px] w-fit"
+                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-xl w-fit"
                     >
                         <span>本歌曲尚未提供翻譯</span>
                     </div>
@@ -699,7 +699,7 @@
                     <!-- [for debugging] show currentLineIndex -->
                     <!-- {{ currentLineIndex }} -->
                     <div
-                        class="flex flex-col justify-center gap-2 p-4 bg-[#443737] rounded-[12px] w-full"
+                        class="flex flex-col justify-center gap-2 p-4 bg-[#443737] rounded-xl w-full"
                     >
                         <div class="grid grid-cols-2 gap-x-4 w-full">
                             <button
@@ -727,13 +727,13 @@
                             class="flex flex-col w-full gap-2 justify-center items-center"
                         >
                             <div
-                                class="p-4 flex flex-row md:flex-col items-center gap-4 md:gap-2 bg-[#231f1f] rounded-[12px] w-full md:w-max-content text-center"
+                                class="p-4 flex flex-row md:flex-col items-center gap-4 md:gap-2 bg-[#231f1f] rounded-xl w-full md:w-max-content text-center"
                             >
                                 <div
                                     class="w-3/5 md:w-full flex flex-col gap-2"
                                 >
                                     <div
-                                        class="text-2xl sm:text-3xl md:text-4xl m-2 font-bold text-center text-white font-[family-name:var(--font-poppins)]"
+                                        class="text-2xl sm:text-3xl md:text-4xl m-2 font-bold text-center text-white font-poppins
                                     >
                                         {{ currentSong.title? currentSong.title
                                         : currentSong.folder }}
@@ -775,7 +775,7 @@
                                         </div>
                                         <span>．</span>
                                         <div
-                                            class="inline font-[family-name:var(--font-poppins)] text-sm text-center text-pretty"
+                                            class="inline font-poppins text-sm text-center text-pretty"
                                         >
                                             <span>
                                                 {{ currentSong.album?
@@ -792,21 +792,21 @@
                                     >
                                         <span
                                             v-if="songVersion == INSTRUMENTAL"
-                                            class="bg-cyan-700 text-xs mr-1 p-[5px] rounded-[5px]"
+                                            class="bg-cyan-700 text-xs mr-1 p-1.25 rounded-[5px]"
                                         >
                                             INSTRUMENTAL
                                         </span>
 
                                         <span
                                             v-if="songVersion == THE_FIRST_TAKE"
-                                            class="bg-black text-xs mr-1 p-[5px] rounded-[5px]"
+                                            class="bg-black text-xs mr-1 p-1.25 rounded-[5px]"
                                         >
                                             THE FIRST TAKE
                                         </span>
 
                                         <span
                                             v-if="songVersion == LIVE"
-                                            class="bg-rose-500 text-xs mr-1 p-[5px] rounded-[5px]"
+                                            class="bg-rose-500 text-xs mr-1 p-1.25 rounded-[5px]"
                                         >
                                             LIVE CONCERT
                                         </span>
@@ -821,7 +821,7 @@
                     </div>
                 </div>
                 <div
-                    class="p-4 flex flex-col justify-center items-center gap-2 bg-[#231f1f] rounded-[12px] w-fit select-none"
+                    class="p-4 flex flex-col justify-center items-center gap-2 bg-[#231f1f] rounded-xl w-fit select-none"
                 >
                     <div class="flex md:hidden">
                         <button
@@ -1111,7 +1111,7 @@
                         <div class="text-center items-center mr-2 mb-2">
                             <span id="collection-album">收錄專輯：</span>
                             <div
-                                class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-wrap bg-[#2cc3b9]"
+                                class="inline p-1.5 md:p-2 rounded-xl font-poppins underline md:no-underline md:hover:underline text-sm text-wrap bg-[#2cc3b9]"
                             >
                                 <a
                                     :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
@@ -1133,7 +1133,7 @@
                         </div>
 
                         <div
-                            class="pr-4 custom-scrollbar whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-6 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
+                            class="pr-4 custom-scrollbar whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-6 overflow-y-scroll max-h-70 font-poppins
                             v-if="currentSong.credits"
                         >
                             <!-- 演職員名單 需要可以再加 -->
@@ -1312,7 +1312,7 @@
 
                             <div
                                 id="debug-info"
-                                class="custom-scrollbar overflow-y-scroll max-h-20 font-[family-name:var(--font-poppins)]"
+                                class="custom-scrollbar overflow-y-scroll max-h-20 font-poppins
                             >
                                 <div class="m-4">
                                     <div id="version">播放器版本：</div>
