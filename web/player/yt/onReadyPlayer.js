@@ -13,6 +13,7 @@ export const initYouTubePlayer = (vueContext) => {
             width: calcWidth().width,
             height: calcWidth().height,
             videoId: videoID,
+            
             events: {
                 onReady: onPlayerReady,
                 onStateChange: (e) => onPlayerStateChange(e, vueContext),
@@ -56,6 +57,7 @@ export const initYouTubePlayer = (vueContext) => {
     };
 
     const onPlayerReady = () => {
+        window.ytPlayer.setVolume(70); // 設定音量為 70
         onPlayerChangeSongVideo(currentSong, videoID, player);
         console.log("播放器已準備好");
     };

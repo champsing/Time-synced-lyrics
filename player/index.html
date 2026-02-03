@@ -64,7 +64,7 @@
     </head>
 
     <body
-        class="bg-[#365456] !text-white min-h-screen !m-0"
+        class="bg-[#365456] text-white! min-h-screen m-0!"
         :style="{ backgroundColor: bodyBackgroundColor.value}"
     >
         <div id="app">
@@ -72,7 +72,7 @@
             <div
                 v-if="isLoading"
                 id="loading-overlay"
-                class="col-span-full text-center py-8 fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center flex-col"
+                class="col-span-full text-center py-8 fixed inset-0 z-9999 bg-black/80 flex items-center justify-center flex-col"
             >
                 <!-- SVG Spinner -->
                 <svg
@@ -134,7 +134,7 @@
 
             <div
                 v-if="isError"
-                class="fixed inset-0 z-[80] bg-[#1a1a1a] flex flex-col items-center justify-center px-6 text-center"
+                class="fixed inset-0 z-80 bg-[#1a1a1a] flex flex-col items-center justify-center px-6 text-center"
             >
                 <div class="mb-6">
                     <span class="material-icons text-7xl text-rose-500"
@@ -225,46 +225,6 @@
                                 </svg>
                             </a>
                         </div>
-                        <div
-                            id="abouticon-below-sm"
-                            class="sm:hidden bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200"
-                        >
-                            <button
-                                type="button"
-                                aria-label="關於"
-                                class="mt-1"
-                                id="about-btn-below-sm"
-                                title="關於"
-                            >
-                                <svg
-                                    width="50"
-                                    height="40"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M12 17V11"
-                                        stroke="#1C274C"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                    />
-                                    <circle
-                                        cx="1"
-                                        cy="1"
-                                        r="1"
-                                        transform="matrix(1 0 0 -1 11 9)"
-                                        fill="#1C274C"
-                                    />
-                                    <path
-                                        opacity="0.5"
-                                        d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"
-                                        stroke="#1C274C"
-                                        stroke-width="1.5"
-                                    />
-                                </svg>
-                            </button>
-                        </div>
 
                         <div
                             id="giticon-below-sm"
@@ -312,7 +272,7 @@
                         >
                             <div
                                 id="song-select-sm"
-                                class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200"
+                                class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-4xl hover:bg-sky-300 transition-colors duration-200"
                             >
                                 <a href="/song-select">
                                     <svg
@@ -346,49 +306,8 @@
                             </div>
 
                             <div
-                                id="abouticon-sm"
-                                class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200"
-                            >
-                                <button
-                                    type="button"
-                                    aria-label="關於"
-                                    class="mt-1"
-                                    id="about-btn-sm"
-                                    title="關於"
-                                >
-                                    <svg
-                                        width="50"
-                                        height="40"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M12 17V11"
-                                            stroke="#1C274C"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                        />
-                                        <circle
-                                            cx="1"
-                                            cy="1"
-                                            r="1"
-                                            transform="matrix(1 0 0 -1 11 9)"
-                                            fill="#1C274C"
-                                        />
-                                        <path
-                                            opacity="0.5"
-                                            d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"
-                                            stroke="#1C274C"
-                                            stroke-width="1.5"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div
                                 id="giticon-sm"
-                                class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200"
+                                class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-2xl hover:bg-sky-300 transition-colors duration-200"
                             >
                                 <a
                                     href="https://github.com/champsing/time-synced-lyrics"
@@ -449,7 +368,7 @@
                     >
                         <div
                             v-for="(line, index) in jsonMappingContent"
-                            class="lyric-line !m-6 opacity-100"
+                            class="lyric-line m-6! opacity-100"
                             :id="`lyric-line-${index}`"
                             :class="{ 'is-duet': currentSong.is_duet, 'is-secondary-vocalist': line.is_secondary, 'is-together': line.is_together }"
                         >
@@ -567,13 +486,13 @@
                 </div>
 
                 <div
-                    id="translation-container-md"
+                    id="translation-container"
                     v-if="enableTranslation"
                     class="hidden md:block fixed bottom-0 mb-4 px-4"
                 >
                     <div
                         v-if="currentSong.translation?.available == true"
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-max"
+                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-xl w-max"
                     >
                         <div
                             class="text-2xl font-bold text-center text-teal-300 p-2"
@@ -610,7 +529,7 @@
                     </div>
                     <div
                         v-else
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-[12px] w-fit"
+                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-xl w-fit"
                     >
                         <span>本歌曲尚未提供翻譯</span>
                     </div>
@@ -620,325 +539,265 @@
             <!-- 主要 UI 區域 -->
             <div
                 id="main-ui-section"
-                class="flex flex-col justify-center items-center gap-2 md:right-0 bottom-0 fixed md:p-4 w-full px-4 p-2 md:w-[30%] rounded-[12px]"
+                class="fixed bottom-0 right-0 w-full md:w-95 p-4 pl-0 z-50 transition-all duration-300"
             >
-                <div class="hidden md:flex flex-row">
+                <!-- 桌面端收合按鈕 (簡化為純圖示) -->
+                <div class="hidden md:flex justify-end mb-2">
                     <button
-                        class="rounded-2xl bg-gray-500 outline-black outline-2"
                         id="controller-panel-switch-md"
-                        aria_label="顯示或隱藏控制介面"
-                        title="顯示或隱藏控制介面"
+                        class="p-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-white transition-all shadow-lg border border-white/10"
+                        title="顯示/隱藏介面"
                     >
-                        <div class="flex flex-row p-1">
-                            <div
-                                class="material-icons p-2 select-none"
-                                id="controller-panel-switch-icon-md"
-                            >
-                                keyboard_arrow_down
-                            </div>
-                            <div
-                                id="controller-panel-switch-state-md"
-                                class="mt-2 px-2"
-                            >
-                                CLOSE
-                            </div>
-                        </div>
+                        <span
+                            class="material-icons block transition-transform duration-300"
+                            id="controller-panel-switch-icon-md"
+                            >expand_more</span
+                        >
                     </button>
                 </div>
 
+                <!-- 手機端翻譯顯示 (改為懸浮簡潔樣式) -->
                 <div
                     id="translation-container-below-md"
                     v-if="enableTranslation"
-                    class="md:hidden"
+                    class="md:hidden mb-3"
                 >
                     <div
-                        v-if="currentSong.translation?.available == true"
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-[12px] w-fit"
+                        v-if="currentSong.translation?.available"
+                        class="p-3 bg-black/60 backdrop-blur-lg rounded-2xl border border-white/10 text-center"
                     >
-                        <div
-                            class="text-xl font-bold text-center text-teal-300"
-                        >
+                        <p class="text-teal-300 font-medium leading-tight">
                             {{ translationText }}
-                            <div class="mt-1 text-sm text-center text-teal-500">
-                                {{ backgroundTranslationText }}
-                            </div>
-                        </div>
-
-                        <div class="mt-2">
-                            <div v-if="currentSong.translation?.cite">
-                                <a
-                                    :href="currentSong.translation?.cite"
-                                    title="翻譯作者姓名"
-                                    aria-label="翻譯作者姓名"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-xs font-bold text-center text-green-400 underline md:no-underline md:hover:underline"
-                                >
-                                    翻譯作者：{{ translationAuthor }}
-                                </a>
-                            </div>
-                            <div
-                                id="translate-author-without-link"
-                                class="opacity-100"
-                                v-else
+                        </p>
+                        <p class="text-teal-500/80 text-xs mt-1">
+                            {{ backgroundTranslationText }}
+                        </p>
+                        <div class="mt-2" v-if="translationAuthor">
+                            <a
+                                :href="currentSong.translation?.cite"
+                                class="text-[10px] text-white/40 hover:text-white/60 transition-colors"
                             >
                                 翻譯作者：{{ translationAuthor }}
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        v-else
-                        class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-[12px] w-fit"
-                    >
-                        <span>本歌曲尚未提供翻譯</span>
-                    </div>
-                </div>
-                <div id="controller-panel" class="relative w-full">
-                    <!-- [for debugging] show currentTime full value -->
-                    <!-- {{ currentTime }} -->
-                    <!-- [for debugging] show currentLineIndex -->
-                    <!-- {{ currentLineIndex }} -->
-                    <div
-                        class="flex flex-col justify-center gap-2 p-4 bg-[#443737] rounded-[12px] w-full"
-                    >
-                        <div class="grid grid-cols-2 gap-x-4 w-full">
-                            <button
-                                id="setting-btn"
-                                class="settings-button"
-                                type="button"
-                                aria-label="設定"
-                                title="設定"
-                            >
-                                <span>設定</span>
-                            </button>
-
-                            <button
-                                id="share-btn"
-                                class="share-button"
-                                type="button"
-                                aria-label="分享"
-                                title="分享歌曲"
-                            >
-                                <span>分享</span>
-                            </button>
-                        </div>
-
-                        <div
-                            class="flex flex-col w-full gap-2 justify-center items-center"
-                        >
-                            <div
-                                class="p-4 flex flex-row md:flex-col items-center gap-4 md:gap-2 bg-[#231f1f] rounded-[12px] w-full md:w-max-content text-center"
-                            >
-                                <div
-                                    class="w-3/5 md:w-full flex flex-col gap-2"
-                                >
-                                    <div
-                                        class="text-2xl sm:text-3xl md:text-4xl m-2 font-bold text-center text-white font-[family-name:var(--font-poppins)]"
-                                    >
-                                        {{ currentSong.title? currentSong.title
-                                        : currentSong.folder }}
-                                    </div>
-                                    <div
-                                        class="text-sm text-wrap whitespace-pre-wrap text-center"
-                                        v-if="currentSong.subtitle"
-                                    >
-                                        {{ currentSong.subtitle?
-                                        parseSubtitle(currentSong.subtitle) : ""
-                                        }}
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="w-2/5 md:w-4/5 flex flex-col gap-4 md:gap-2 items-center"
-                                >
-                                    <div
-                                        class="flex flex-col md:flex-row items-center gap-2"
-                                    >
-                                        <div
-                                            class="text-base text-center text-white"
-                                        >
-                                            <button
-                                                v-if="currentSong.credits"
-                                                id="credit-btn"
-                                                type="button"
-                                                class="underline md:no-underline md:hover:underline text-balance"
-                                                title="查看工作人員名單"
-                                                aria-label="查看工作人員名單"
-                                            >
-                                                {{ currentSong.displayArtist ||
-                                                "未知的藝人" }}
-                                            </button>
-                                            <span v-else>
-                                                {{ currentSong.displayArtist ||
-                                                "未知的藝人" }}
-                                            </span>
-                                        </div>
-                                        <span>．</span>
-                                        <div
-                                            class="inline font-[family-name:var(--font-poppins)] text-sm text-center text-pretty"
-                                        >
-                                            <span>
-                                                {{ currentSong.album?
-                                                currentSong.album.name :
-                                                currentSong.title + " - 單曲" }}
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <!-- 歌曲不同版本的徽章 -->
-                                    <div
-                                        v-if="songVersion !== ORIGINAL"
-                                        class="version-badge inline ml-2 items-center select-none"
-                                    >
-                                        <span
-                                            v-if="songVersion == INSTRUMENTAL"
-                                            class="bg-cyan-700 text-xs mr-1 p-[5px] rounded-[5px]"
-                                        >
-                                            INSTRUMENTAL
-                                        </span>
-
-                                        <span
-                                            v-if="songVersion == THE_FIRST_TAKE"
-                                            class="bg-black text-xs mr-1 p-[5px] rounded-[5px]"
-                                        >
-                                            THE FIRST TAKE
-                                        </span>
-
-                                        <span
-                                            v-if="songVersion == LIVE"
-                                            class="bg-rose-500 text-xs mr-1 p-[5px] rounded-[5px]"
-                                        >
-                                            LIVE CONCERT
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="items-center">
-                                <div id="player"></div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- 主控制面板 -->
                 <div
-                    class="p-4 flex flex-col justify-center items-center gap-2 bg-[#231f1f] rounded-[12px] w-fit select-none"
+                    id="controller-panel"
+                    class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all"
                 >
-                    <div class="flex md:hidden">
-                        <button
-                            class="rounded-2xl outline-2"
-                            id="controller-panel-switch-below-md"
-                            aria_label="顯示或隱藏控制介面"
-                            title="顯示或隱藏控制介面"
-                        >
-                            <div class="flex flex-row p-1">
-                                <div
-                                    class="material-icons p-2 select-none"
-                                    id="controller-panel-switch-icon-below-md"
+                    <!-- 歌曲資訊區塊 -->
+                    <div class="p-5 flex flex-col gap-4">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1 min-w-0">
+                                <h2
+                                    class="text-white text-xl md:text-2xl font-bold truncate tracking-tight"
                                 >
-                                    keyboard_arrow_down
-                                </div>
-                                <div
-                                    id="controller-panel-switch-state-below-md"
-                                    class="mt-2 px-2"
-                                >
-                                    CLOSE
+                                    {{ currentSong.title || currentSong.folder
+                                    }}
+                                </h2>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <button
+                                        v-if="currentSong.credits"
+                                        id="credit-btn"
+                                        class="text-white/60 hover:text-white text-sm transition-colors truncate underline underline-offset-4 md:no-underline"
+                                    >
+                                        {{ currentSong.displayArtist ||
+                                        "未知藝人" }}
+                                    </button>
+                                    <span
+                                        v-else
+                                        class="text-white/40 text-sm truncate underline underline-offset-4 md:no-underline"
+                                        >{{ currentSong.displayArtist ||
+                                        "未知藝人" }}</span
+                                    >
+                                    <span class="text-white/20 text-xs">•</span>
+                                    <span class="text-white/40 text-xs truncate"
+                                        >{{ currentSong.album?.name || "單曲"
+                                        }}</span
+                                    >
                                 </div>
                             </div>
-                        </button>
-                    </div>
-                    <div class="flex flex-row gap-7 items-center">
-                        <div class="flex flex-row gap-7">
-                            <button
-                                id="player-rewind-10sec"
-                                @click="rewind10Sec()"
-                                type="button"
-                                title="後退10秒"
-                                aria-label="後退10秒"
-                            >
-                                <span class="material-icons mt-2">
-                                    fast_rewind
-                                </span>
-                            </button>
-                            <button
-                                id="player-play"
-                                v-if="isPaused"
-                                @click="playVideo()"
-                                type="button"
-                                title="播放"
-                                aria-label="播放"
-                            >
-                                <span class="material-icons mt-2">
-                                    play_arrow
-                                </span>
-                            </button>
-                            <button
-                                id="player-pause"
-                                v-else
-                                @click="pauseVideo()"
-                                type="button"
-                                title="暫停"
-                                aria-label="暫停"
-                            >
-                                <span class="material-icons mt-2"> pause </span>
-                            </button>
-                            <button
-                                id="player-mf-10sec"
-                                @click="moveForward10Sec()"
-                                type="button"
-                                title="前進10秒"
-                                aria-label="前進10秒"
-                            >
-                                <span class="material-icons mt-2">
-                                    fast_forward
-                                </span>
-                            </button>
+
+                            <!-- 快速動作按鈕 (取代原本的大按鈕) -->
+                            <div class="flex gap-1 ml-2">
+                                <button
+                                    id="share-btn"
+                                    class="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                                >
+                                    <span class="material-icons text-xl"
+                                        >share</span
+                                    >
+                                </button>
+                                <button
+                                    id="setting-btn"
+                                    class="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                                >
+                                    <span class="material-icons text-xl"
+                                        >settings</span
+                                    >
+                                </button>
+                            </div>
                         </div>
-                        <span
-                            class="text-xl font-bold text-center text-[#94a4cb] font-[Source_Sans_Pro]"
+
+                        <!-- 副標題 (如果有) -->
+                        <p
+                            v-if="currentSong.subtitle"
+                            class="text-white/40 text-xs line-clamp-2 italic"
                         >
-                            {{ formattedCurrentTime }} / {{
-                            formattedSongDuration }}
-                        </span>
+                            {{ parseSubtitle(currentSong.subtitle) }}
+                        </p>
                     </div>
 
-                    <div class="flex flex-row gap-4">
-                        <button
-                            id="player-mute-unmute"
-                            @click="toggleMute()"
-                            type="button"
-                            title="靜音/取消靜音"
-                            aria-label="靜音/取消靜音"
-                        >
-                            <span
-                                v-if="volume == 0 || isMuted"
-                                class="material-icons mt-2"
-                            >
-                                volume_off
-                            </span>
-                            <span v-else class="material-icons mt-2">
-                                volume_up
-                            </span>
-                        </button>
-                        <div class="flex flex-row gap-2 items-center">
-                            <div class="relative flex items-center space-x-2">
-                                <div class="relative flex items-center w-48">
-                                    <input
-                                        id="player-volume-slider"
-                                        type="range"
-                                        min="0"
-                                        max="100"
-                                        step="1"
-                                        v-model="volume"
-                                        @input="changeVolume($event.target.value)"
-                                        aria-label="音量調整滑桿"
-                                        title="音量調整滑桿"
-                                        class="volume-slider"
-                                        :style="{'--fill': bodyBackgroundColor}"
-                                    />
+                    <!-- 播放控制區 -->
+                    <div class="px-5 pb-6 flex flex-col gap-5">
+                        <!-- 進度條與時間 -->
+                        <div class="flex flex-col gap-2">
+                            <div
+                                id="player"
+                                class="w-0 h-0 md:w-full md:h-full bg-white/10 rounded-3xl relative group cursor-pointer"
+                            ></div>
+                            <div class="flex justify-between items-center px-1">
+                                <span
+                                    class="text-[10px] font-mono text-white/40 tracking-tighter"
+                                    >{{ formattedCurrentTime }}</span
+                                >
+                                <!-- 版本徽章區 (更精緻的標籤) -->
+                                <div
+                                    v-if="songVersion !== ORIGINAL"
+                                    class="flex flex-wrap gap-2"
+                                >
+                                    <span
+                                        v-if="songVersion == INSTRUMENTAL"
+                                        class="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded-md border border-cyan-500/30 uppercase tracking-wider"
+                                        >Instrumental</span
+                                    >
+                                    <span
+                                        v-if="songVersion == THE_FIRST_TAKE"
+                                        class="px-2 py-0.5 bg-white/10 text-white text-[10px] font-bold rounded-md border border-white/20 uppercase tracking-wider"
+                                        >The First Take</span
+                                    >
+                                    <span
+                                        v-if="songVersion == LIVE"
+                                        class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-md border border-rose-500/30 uppercase tracking-wider"
+                                        >Live</span
+                                    >
                                 </div>
+                                <span
+                                    class="text-[10px] font-mono text-white/40 tracking-tighter"
+                                    >{{ formattedSongDuration }}</span
+                                >
                             </div>
-                            <span>{{ volume || 70 }}</span>
                         </div>
+                    </div>
+
+                    <!-- 手機端收合切換 -->
+                    <div class="md:hidden mt-3 flex justify-center">
+                        <button
+                            id="controller-panel-switch-below-md"
+                            class="px-4 py-1.5 bg-black/40 backdrop-blur-md rounded-full text-white/60 text-[10px] uppercase tracking-[0.2em] font-bold border border-white/5"
+                        >
+                            <div class="flex items-center gap-1">
+                                <span
+                                    class="material-icons text-sm"
+                                    id="controller-panel-switch-icon-below-md"
+                                    >keyboard_arrow_down</span
+                                >
+                                <span
+                                    id="controller-panel-switch-state-below-md"
+                                    >CLOSE</span
+                                >
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    id="controller-panel"
+                    class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all p-4"
+                >
+                    <!-- 主控制按鈕組 -->
+                    <div class="flex items-center justify-between">
+                        <!-- 音量控制 (簡化) -->
+                        <div class="group relative flex items-center">
+                            <button
+                                @click="toggleMute()"
+                                class="text-white/60 hover:text-white transition-colors"
+                            >
+                                <span class="material-icons"
+                                    >{{ (volume == 0 || isMuted) ? 'volume_off'
+                                    : 'volume_up' }}</span
+                                >
+                            </button>
+
+                            <div
+                                class="hidden md:flex ml-2 w-0 overflow-hidden group-hover:w-40 transition-all duration-300 ease-out items-center"
+                            >
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    v-model="volume"
+                                    class="w-full h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer py-3 mx-2"
+                                    @input="changeVolume($event.target.value)"
+                                />
+                                <span class="p-1">{{ volume || 70 }}</span>
+                            </div>
+                        </div>
+
+                        <!-- 播放核心按鈕 -->
+                        <div class="flex items-center gap-10">
+                            <button
+                                @click="rewind10Sec()"
+                                class="text-white/60 hover:text-white transition-all transform active:scale-90"
+                            >
+                                <span class="material-icons text-2xl"
+                                    >replay_10</span
+                                >
+                            </button>
+
+                            <button
+                                @click="isPaused ? playVideo() : pauseVideo()"
+                                class="w-14 h-14 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 transition-all"
+                            >
+                                <span class="material-icons text-4xl"
+                                    >{{ isPaused ? 'play_arrow' : 'pause'
+                                    }}</span
+                                >
+                            </button>
+
+                            <button
+                                @click="moveForward10Sec()"
+                                class="text-white/60 hover:text-white transition-all transform active:scale-90"
+                            >
+                                <span class="material-icons text-2xl"
+                                    >forward_10</span
+                                >
+                            </button>
+                        </div>
+
+                        <!-- 額外功能: 關於 (原本隱藏在設定中，現在可以放在這) -->
+                        <button
+                            id="about-btn"
+                            class="text-white/40 hover:text-white/80 transition-colors"
+                        >
+                            <span class="material-icons">info</span>
+                        </button>
+                    </div>
+                    <div
+                        class="flex md:hidden group-hover:w-40 transition-all duration-300 ease-out items-center"
+                    >
+                        <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            v-model="volume"
+                            class="w-full h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer py-3 mx-2"
+                            @input="changeVolume($event.target.value)"
+                        />
+                        <span class="p-1">{{ volume || 70 }}</span>
                     </div>
                 </div>
             </div>
@@ -1111,7 +970,7 @@
                         <div class="text-center items-center mr-2 mb-2">
                             <span id="collection-album">收錄專輯：</span>
                             <div
-                                class="inline p-[6px] md:p-[8px] rounded-[12px] font-[family-name:var(--font-poppins)] underline md:no-underline md:hover:underline text-sm text-wrap bg-[#2cc3b9]"
+                                class="inline p-1.5 md:p-2 rounded-xl font-poppins underline md:no-underline md:hover:underline text-sm text-wrap bg-[#2cc3b9]"
                             >
                                 <a
                                     :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
@@ -1133,7 +992,7 @@
                         </div>
 
                         <div
-                            class="pr-4 custom-scrollbar whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-6 overflow-y-scroll max-h-70 font-[family-name:var(--font-poppins)]"
+                            class="pr-4 custom-scrollbar whitespace-pre-wrap grid grid-row-3 md:grid-cols-3 gap-y-6 overflow-y-scroll max-h-70 font-poppins"
                             v-if="currentSong.credits"
                         >
                             <!-- 演職員名單 需要可以再加 -->
@@ -1312,7 +1171,7 @@
 
                             <div
                                 id="debug-info"
-                                class="custom-scrollbar overflow-y-scroll max-h-20 font-[family-name:var(--font-poppins)]"
+                                class="custom-scrollbar overflow-y-scroll max-h-20 font-poppins"
                             >
                                 <div class="m-4">
                                     <div id="version">播放器版本：</div>
