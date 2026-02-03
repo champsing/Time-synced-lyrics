@@ -1,12 +1,45 @@
 export interface Song {
-    id: string;
-    title: string;
+    song_id: number;
+    available: boolean;
+    hidden: boolean;
+    folder: string | "";
+    art: string;
     artist: string;
-    album?: string | null;
-    versions: SongVersion[];
+    lyricist: string;
+    title: string | "";
+    subtitle: string;
+    album: Album | null;
+    versions: Version[];
+    is_duet: boolean;
+    furigana: boolean | null;
+    translation: Translation;
+    updated_at: string;
+    lang: string;
+    credits: Credits;
 }
 
-export interface SongVersion {
+export interface Translation {
+    available: boolean | false;
+    author: string;
+    cite: string;
+}
+
+export interface Album {
+    album: string;
+    link: string;
+}
+export interface Credits {
+    performance: Contributor[];
+    song_writing: Contributor[];
+    engineering: Contributor[];
+}
+
+export interface Contributor {
+    name: string;
+    contribution: string[];
+}
+
+export interface Version {
     type: string;
     link: string;
     duration: string;
