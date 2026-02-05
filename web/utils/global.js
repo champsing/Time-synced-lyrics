@@ -7,20 +7,10 @@ export const formatTime = (seconds) => {
 export const scrollToLineIndex = (index) => {
     const currentLineId = document.getElementById(`line-button-${index}`);
 
-    if (window.screen.width < 768) {
-        currentLineId?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-        });
-        window.scrollBy({
-            top: 100,
-            behavior: "smooth",
-        }); // 微調位置，避免被底部遮擋
-    } else
-        currentLineId?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-        });
+    currentLineId?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+    });
 };
 
 export async function copyToClipboard(text, textType) {

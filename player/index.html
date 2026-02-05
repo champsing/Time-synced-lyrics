@@ -556,33 +556,6 @@
                     </button>
                 </div>
 
-                <!-- 手機端翻譯顯示 (改為懸浮簡潔樣式) -->
-                <div
-                    id="translation-container-below-md"
-                    v-if="enableTranslation"
-                    class="md:hidden mb-3"
-                >
-                    <div
-                        v-if="currentSong.translation?.available"
-                        class="p-3 bg-black/60 backdrop-blur-lg rounded-2xl border border-white/10 text-center"
-                    >
-                        <p class="text-teal-300 font-medium leading-tight">
-                            {{ translationText }}
-                        </p>
-                        <p class="text-teal-500/80 text-xs mt-1">
-                            {{ backgroundTranslationText }}
-                        </p>
-                        <div class="mt-2" v-if="translationAuthor">
-                            <a
-                                :href="currentSong.translation?.cite"
-                                class="text-[10px] text-white/40 hover:text-white/60 transition-colors"
-                            >
-                                翻譯作者：{{ translationAuthor }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- 主控制面板 -->
                 <div
                     id="controller-panel"
@@ -694,9 +667,46 @@
                     </div>
                 </div>
 
+                <!-- 手機端翻譯顯示 (改為懸浮簡潔樣式) -->
+                <div
+                    id="translation-container-below-md"
+                    v-if="enableTranslation"
+                    class="md:hidden mt-2"
+                >
+                    <div
+                        class="p-3 bg-black/60 backdrop-blur-lg rounded-2xl border border-white/10 text-center"
+                    >
+                        <div v-if="currentSong.translation?.available">
+                            <p class="text-teal-300 font-medium leading-tight">
+                                {{ translationText }}
+                            </p>
+                            <p class="text-teal-500/80 text-xs mt-1">
+                                {{ backgroundTranslationText }}
+                            </p>
+                            <div class="mt-2" v-if="translationAuthor">
+                                <a
+                                    :href="currentSong.translation?.cite"
+                                    class="text-[10px] text-white/40 hover:text-white/60 transition-colors"
+                                >
+                                    翻譯作者：{{ translationAuthor }}
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            v-else
+                            class="text-[10px] text-white/40 hover:text-white/60 transition-colors"
+                        >
+                            <span>本歌曲尚未提供翻譯</span>
+                            <button id="fast-close-translation" class="underline ml-4" @click="enableTranslation = false">
+                                關閉翻譯
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div
                     id="controller-panel"
-                    class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all p-4 mt-2"
+                    class="p-4 mt-2 bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all"
                 >
                     <!-- 主控制按鈕組 -->
                     <div class="flex items-center justify-between">
@@ -766,8 +776,9 @@
                             <span class="material-icons">info</span>
                         </button>
                     </div>
+                    <!-- 手機版音量滑桿 -->
                     <div
-                        class="flex md:hidden group-hover:w-40 transition-all duration-300 ease-out items-center"
+                        class="flex md:hidden group-hover:w-40 transition-all duration-300 ease-out items-center mt-2"
                     >
                         <input
                             type="range"
