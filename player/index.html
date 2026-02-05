@@ -565,12 +565,36 @@
                     <div class="p-5 pb-1 flex flex-col gap-4">
                         <div class="flex items-start justify-between">
                             <div class="flex-1 min-w-0">
-                                <h2
-                                    class="text-white text-xl md:text-2xl font-bold truncate tracking-tight"
-                                >
-                                    {{ currentSong.title || currentSong.folder
-                                    }}
-                                </h2>
+                                <div class="flex gap-2">
+                                    <h2
+                                        class="text-white text-xl md:text-2xl font-bold truncate tracking-tight"
+                                    >
+                                        {{ currentSong.title ||
+                                        currentSong.folder }}
+                                    </h2>
+                                    <!-- 版本徽章區 (更精緻的標籤) -->
+                                    <div
+                                        v-if="songVersion !== ORIGINAL"
+                                        class="md:hidden flex flex-wrap gap-2"
+                                    >
+                                        <span
+                                            v-if="songVersion == INSTRUMENTAL"
+                                            class="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded-md border border-cyan-500/30 uppercase tracking-wider"
+                                            >Instrumental</span
+                                        >
+                                        <span
+                                            v-if="songVersion == THE_FIRST_TAKE"
+                                            class="px-2 py-0.5 bg-white/10 text-white text-[10px] font-bold rounded-md border border-white/20 uppercase tracking-wider"
+                                            >The First Take</span
+                                        >
+                                        <span
+                                            v-if="songVersion == LIVE"
+                                            class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-md border border-rose-500/30 uppercase tracking-wider"
+                                            >Live</span
+                                        >
+                                    </div>
+                                </div>
+
                                 <div class="flex items-center gap-2 mt-1">
                                     <button
                                         v-if="currentSong.credits"
@@ -668,52 +692,12 @@
                             <div
                                 class="md:hidden flex justify-between items-center px-1"
                             >
-                                <!-- 版本徽章區 (更精緻的標籤) -->
-                                <div
-                                    class="flex flex-wrap gap-2"
-                                    v-if="songVersion !== ORIGINAL"
+                                <span
+                                    class="text-[10px] font-mono text-white/40 tracking-tighter"
                                 >
-                                    <span
-                                        class="text-[10px] font-mono text-white/40 tracking-tighter"
-                                        >{{ formattedCurrentTime }}</span
-                                    >
-                                    <!-- 版本徽章區 (更精緻的標籤) -->
-                                    <div
-                                        v-if="songVersion !== ORIGINAL"
-                                        class="flex flex-wrap gap-2"
-                                    >
-                                        <span
-                                            v-if="songVersion == INSTRUMENTAL"
-                                            class="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded-md border border-cyan-500/30 uppercase tracking-wider"
-                                            >Instrumental</span
-                                        >
-                                        <span
-                                            v-if="songVersion == THE_FIRST_TAKE"
-                                            class="px-2 py-0.5 bg-white/10 text-white text-[10px] font-bold rounded-md border border-white/20 uppercase tracking-wider"
-                                            >The First Take</span
-                                        >
-                                        <span
-                                            v-if="songVersion == LIVE"
-                                            class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-md border border-rose-500/30 uppercase tracking-wider"
-                                            >Live</span
-                                        >
-                                    </div>
-                                    <span
-                                        class="text-[10px] font-mono text-white/40 tracking-tighter"
-                                        >{{ formattedSongDuration }}</span
-                                    >
-                                    <div
-                                        class="flex justify-between items-center px-1"
-                                        v-if="songVersion === ORIGINAL"
-                                    >
-                                        <span
-                                            class="text-[10px] font-mono text-white/40 tracking-tighter"
-                                        >
-                                            {{ formattedCurrentTime }} / {{
-                                            formattedSongDuration }}
-                                        </span>
-                                    </div>
-                                </div>
+                                    {{ formattedCurrentTime }} / {{
+                                    formattedSongDuration }}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1036,7 +1020,7 @@
                         <div class="text-center items-center mr-2 mb-2">
                             <span id="collection-album">收錄專輯：</span>
                             <div
-                                class="inline p-1.5 md:p-2 rounded-xl font-poppins underline md:no-underline md:hover:underline text-sm text-wrap bg-[#2cc3b9]"
+                                class="p-1.5 md:p-2 rounded-xl font-poppins underline md:no-underline md:hover:underline text-sm text-wrap bg-[#2cc3b9]"
                             >
                                 <a
                                     :href="ALBUM_GOOGLE_LINK_BASE + currentSong.album.link"
