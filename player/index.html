@@ -562,7 +562,7 @@
                     class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all"
                 >
                     <!-- 歌曲資訊區塊 -->
-                    <div class="p-5 flex flex-col gap-4">
+                    <div class="p-5 pb-1 flex flex-col gap-4">
                         <div class="flex items-start justify-between">
                             <div class="flex-1 min-w-0">
                                 <h2
@@ -625,14 +625,16 @@
                     </div>
 
                     <!-- 播放控制區 -->
-                    <div class="px-5 pb-6 flex flex-col gap-5">
+                    <div class="px-5 pb-4 flex flex-col gap-5">
                         <!-- 進度條與時間 -->
                         <div class="flex flex-col gap-2">
                             <div
                                 id="player"
                                 class="w-0 h-0 md:w-full md:h-full bg-white/10 rounded-3xl relative group cursor-pointer"
                             ></div>
-                            <div class="flex justify-between items-center px-1">
+                            <div
+                                class="hidden md:flex justify-between items-center px-1"
+                            >
                                 <span
                                     class="text-[10px] font-mono text-white/40 tracking-tighter"
                                     >{{ formattedCurrentTime }}</span
@@ -662,6 +664,56 @@
                                     class="text-[10px] font-mono text-white/40 tracking-tighter"
                                     >{{ formattedSongDuration }}</span
                                 >
+                            </div>
+                            <div
+                                class="md:hidden flex justify-between items-center px-1"
+                            >
+                                <!-- 版本徽章區 (更精緻的標籤) -->
+                                <div
+                                    class="flex flex-wrap gap-2"
+                                    v-if="songVersion !== ORIGINAL"
+                                >
+                                    <span
+                                        class="text-[10px] font-mono text-white/40 tracking-tighter"
+                                        >{{ formattedCurrentTime }}</span
+                                    >
+                                    <!-- 版本徽章區 (更精緻的標籤) -->
+                                    <div
+                                        v-if="songVersion !== ORIGINAL"
+                                        class="flex flex-wrap gap-2"
+                                    >
+                                        <span
+                                            v-if="songVersion == INSTRUMENTAL"
+                                            class="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded-md border border-cyan-500/30 uppercase tracking-wider"
+                                            >Instrumental</span
+                                        >
+                                        <span
+                                            v-if="songVersion == THE_FIRST_TAKE"
+                                            class="px-2 py-0.5 bg-white/10 text-white text-[10px] font-bold rounded-md border border-white/20 uppercase tracking-wider"
+                                            >The First Take</span
+                                        >
+                                        <span
+                                            v-if="songVersion == LIVE"
+                                            class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-md border border-rose-500/30 uppercase tracking-wider"
+                                            >Live</span
+                                        >
+                                    </div>
+                                    <span
+                                        class="text-[10px] font-mono text-white/40 tracking-tighter"
+                                        >{{ formattedSongDuration }}</span
+                                    >
+                                    <div
+                                        class="flex justify-between items-center px-1"
+                                        v-if="songVersion === ORIGINAL"
+                                    >
+                                        <span
+                                            class="text-[10px] font-mono text-white/40 tracking-tighter"
+                                        >
+                                            {{ formattedCurrentTime }} / {{
+                                            formattedSongDuration }}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -697,7 +749,11 @@
                             class="text-[10px] text-white/40 hover:text-white/60 transition-colors"
                         >
                             <span>本歌曲尚未提供翻譯</span>
-                            <button id="fast-close-translation" class="underline ml-4" @click="enableTranslation = false">
+                            <button
+                                id="fast-close-translation"
+                                class="underline ml-4"
+                                @click="enableTranslation = false"
+                            >
                                 關閉翻譯
                             </button>
                         </div>
