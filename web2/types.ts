@@ -25,7 +25,7 @@ export interface Translation {
 }
 
 export interface Album {
-    album: string;
+    name: string;
     link: string;
 }
 export interface Credits {

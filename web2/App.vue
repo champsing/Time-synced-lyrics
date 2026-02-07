@@ -3,9 +3,8 @@
 <template>
     <div class="min-h-screen transition-colors duration-500">
         <router-view v-slot="{ Component }">
-            <transition name="fade" mode="out-in">
-                <component :is="Component" />
-            </transition>
+            <component :is="Component" />
+            <transition name="fade" mode="out-in"> </transition>
         </router-view>
     </div>
 </template>

@@ -23,32 +23,37 @@ export const initControllerPanel = () => {
     const mainDisplaySection = document.getElementById("main-display-section");
 
     const show = () => {
-        panel.style.display = "flex";
-        panelSwitchIcon.innerText = "keyboard_arrow_down";
-        panelSwitchState.innerText = "CLOSE";
+        if (panel && panelSwitchIcon && panelSwitchState) {
+            panel.style.display = "flex";
+            panelSwitchIcon.innerText = "keyboard_arrow_down";
+            panelSwitchState.innerText = "CLOSE";
+        }
 
-        if (window.screen.width >= 768) {
+        if (window.screen.width >= 768 && mainDisplaySection) {
             mainDisplaySection.style.marginLeft = "2rem";
             mainDisplaySection.style.width = "68%";
         }
     };
 
     const hide = () => {
-        panel.style.display = "none";
-        panelSwitchIcon.innerText = "keyboard_arrow_up";
-        panelSwitchState.innerText = "OPEN";
+        if (panel && panelSwitchIcon && panelSwitchState) {
+            panel.style.display = "none";
+            panelSwitchIcon.innerText = "keyboard_arrow_up";
+            panelSwitchState.innerText = "OPEN";
+        }
 
-        if (window.screen.width >= 768) {
+        if (window.screen.width >= 768 && mainDisplaySection) {
             let margin = window.screen.width / 10 - 32;
             mainDisplaySection.style.marginLeft = `${margin}px`;
             mainDisplaySection.style.width = "80%";
         }
     };
 
-    panelSwitch?.addEventListener("click", () => {
-        const currentDisplay = window.getComputedStyle(panel).display;
-        currentDisplay === "none" ? show() : hide();
-    });
+    if (panel)
+        panelSwitch?.addEventListener("click", () => {
+            const currentDisplay = window.getComputedStyle(panel).display;
+            currentDisplay === "none" ? show() : hide();
+        });
 
     return { show, hide };
 };
