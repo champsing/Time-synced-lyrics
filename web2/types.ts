@@ -70,3 +70,8 @@ export interface LyricLine {
 }
 
 export type LyricData = LyricLine[];
+
+export interface Color {
+    color: string;
+    name: string;
+}
