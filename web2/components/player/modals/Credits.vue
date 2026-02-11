@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ALBUM_GOOGLE_LINK_BASE } from '@/composables/utils/utils';
+import { ALBUM_GOOGLE_LINK_BASE } from '@/composables/utils/config';
 import type { Song } from '@/types';
 const currentSong: Song = {
     title: "未知的歌曲",

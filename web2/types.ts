@@ -16,6 +16,8 @@ export interface Song {
     updated_at: string;
     lang: string;
     credits: Credits;
+    display_artist?: string;
+    display_lyricist?: string;
 }
 
 export interface Translation {
@@ -40,7 +42,8 @@ export interface Contributor {
 }
 
 export interface Version {
-    type: string;
+    default?: boolean;
+    version: string;
     link: string;
     duration: string;
 }
@@ -75,3 +78,5 @@ export interface Color {
     color: string;
     name: string;
 }
+
+export type SortOption = "date" | "name" | "artist" | "album" | "lang";
