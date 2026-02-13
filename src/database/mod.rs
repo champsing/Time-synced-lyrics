@@ -1,13 +1,15 @@
+pub mod migration;
+
 use crate::error::ServerError;
 use r2d2::Pool;
 use r2d2_sqlite::SqliteConnectionManager;
-use rusqlite::{Connection, backup::Backup};
+use rusqlite::{ Connection, backup::Backup };
 use std::collections::HashMap;
 use std::fs;
 use std::panic::Location;
 use std::sync::Mutex;
 use std::sync::OnceLock;
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::atomic::{ AtomicU64, Ordering };
 use tempfile::NamedTempFile;
 
 // 建立全局靜態變數，類似 AUTH_CODE 的調用方式
@@ -66,8 +68,7 @@ pub(crate) fn get_connection() -> Result<ConnGuard, ServerError> {
     }
 
     // 2. 從池中拿新連接
-    let pool_conn = DB_POOL
-        .get()
+    let pool_conn = DB_POOL.get()
         .ok_or_else(|| ServerError::Internal("Database pool not initialized".to_string()))?
         .get()
         .map_err(|e| ServerError::Internal(e.to_string()))?;
@@ -88,7 +89,7 @@ pub fn init() -> Result<(), ServerError> {
     fs::create_dir_all("data/")?;
     fs::create_dir_all("/tmp/")?;
 
-    const DATABASE: &str = "data/sqlite.db";
+    const DATABASE: &str = "data/tsl.sqlite3";
 
     // 初始化連接池管理器
     let manager = SqliteConnectionManager::file(DATABASE).with_init(|c| {
@@ -104,9 +105,7 @@ pub fn init() -> Result<(), ServerError> {
         .build(manager)
         .map_err(|e| ServerError::Internal(e.to_string()))?;
 
-    DB_POOL
-        .set(pool)
-        .map_err(|_| ServerError::Internal("Failed to set DB_POOL".to_string()))?;
+    DB_POOL.set(pool).map_err(|_| ServerError::Internal("Failed to set DB_POOL".to_string()))?;
 
     // 執行遷移
     let mut conn = get_connection()?;
@@ -121,11 +120,7 @@ pub fn backup_database() -> Result<Vec<u8>, ServerError> {
     let temp_file = NamedTempFile::new()?;
     let mut dst = Connection::open(temp_file.path())?;
     let src = get_connection()?;
-    Backup::new(&src, &mut dst)?.run_to_completion(
-        5,
-        std::time::Duration::from_millis(250),
-        None,
-    )?;
+    Backup::new(&src, &mut dst)?.run_to_completion(5, std::time::Duration::from_millis(250), None)?;
     fs::read(temp_file.path()).map_err(ServerError::from)
 }
 

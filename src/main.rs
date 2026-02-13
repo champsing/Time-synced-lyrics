@@ -6,7 +6,7 @@ use tsl_api::webpage;
 
 fn main() -> Result<(), ServerError> {
     env_logger::init();
-    // tsl_api::database::init()?;
+    tsl_api::database::init()?;
 
     println!("======== server starting! ========");
 

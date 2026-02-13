@@ -1,4 +1,6 @@
 pub mod status;
+pub mod songs;
+pub mod artists;
 
 use crate::error::ServerError;
 use actix_cors::Cors;

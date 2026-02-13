@@ -2,7 +2,7 @@ use actix_web::{HttpResponse, Responder, get, http::header};
 
 use crate::{error::ServerError, utils};
 
-#[get("/status/")]
+#[get("/api/status/")]
 pub async fn handler() -> Result<impl Responder, ServerError> {
     Ok(HttpResponse::Ok()
         .insert_header((
