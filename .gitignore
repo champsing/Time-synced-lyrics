@@ -18,6 +18,7 @@ logs
 */__pycache__/
 .env
 *.sqlite3
+target
 
 # docker映像
 tsl.tar

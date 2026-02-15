@@ -11,55 +11,88 @@ const pendingIds = new Set(); // 正在請求中的 ID
 
 const STORAGE_KEY = "artists_name";
 
+// 外部狀態管理
+let isFullyLoaded = false;
+
 /**
- * 核心邏輯：確保單一藝人資料已載入
- * 修正點：確保 id 參數僅為單一標記，不含逗號
+ * 核心邏輯：確保藝人資料已載入
+ * @param {string|number} id - 選填。若傳入則確保該 ID 存在；若不傳則嘗試全量載入。
  */
-export async function ensureArtistLoaded(id) {
-    // 轉為字串並過濾掉包含逗號的錯誤格式
-    const cleanId = String(id).trim();
-    if (!cleanId || cleanId.includes(",")) return;
+export async function ensureArtistLoaded(id = null) {
+    const cleanId = id ? String(id).trim() : null;
 
-    // 1. 檢查記憶體
-    if (artistCache[cleanId] || pendingIds.has(cleanId)) return;
+    // 1. 如果有指定 ID，先檢查記憶體快取
+    if (cleanId && (artistCache[cleanId] || pendingIds.has(cleanId))) {
+        return;
+    }
 
-    pendingIds.add(cleanId);
+    // 2. 如果沒指定 ID 且已經全量載入過，直接返回
+    if (!cleanId && isFullyLoaded) return;
 
-    // 2. 檢查 sessionStorage
+    // 3. 嘗試從 sessionStorage 恢復資料並比對
     try {
         const storedData = sessionStorage.getItem(STORAGE_KEY);
-        let artistsMap = storedData ? JSON.parse(storedData) : {};
+        if (storedData) {
+            const artistsMap = JSON.parse(storedData);
+            Object.assign(artistCache, artistsMap);
 
-        if (artistsMap[cleanId]) {
-            artistCache[cleanId] = artistsMap[cleanId];
-            pendingIds.delete(cleanId);
-            return;
+            // 如果從 Storage 拿到了指定的 ID，就不用發請求了
+            if (cleanId && artistCache[cleanId]) return;
+            // 如果沒指定 ID，代表 Storage 已經有全量資料
+            if (!cleanId) {
+                isFullyLoaded = true;
+                return;
+            }
         }
     } catch (e) {
         console.error("解析 sessionStorage 失敗", e);
     }
 
-    // 3. 發起 API 請求 (請求單一 ID)
+    // 4. 發起 API 請求
+    // 鎖定狀態：若有 ID 則鎖定該 ID，否則鎖定全量標記
+    const lockKey = cleanId || "ALL_ARTISTS";
+    if (pendingIds.has(lockKey)) return;
+    pendingIds.add(lockKey);
+
     try {
-        const response = await fetch(`${API_BASE_URL}/artists/?ids=${cleanId}`);
+        // 根據是否有 cleanId 決定 URL (若有 ID 則帶參數，若無則請求全體)
+        const url = cleanId
+            ? `${API_BASE_URL}/artists/?ids=${cleanId}`
+            : `${API_BASE_URL}/artists/`;
+
+        const response = await fetch(url);
         const data = await response.json();
 
-        // 注意：這裡假設後端回傳的是該 ID 的物件
-        // 如果後端回傳的是陣列，請改為 data[0].original_name
-        const name = data.original_name || "未知藝人";
-
-        artistCache[cleanId] = name;
-
-        // 更新儲存
+        // 5. 資料處理與合併
         const currentStored = sessionStorage.getItem(STORAGE_KEY);
         const currentMap = currentStored ? JSON.parse(currentStored) : {};
-        currentMap[cleanId] = name;
+
+        if (cleanId) {
+            // 單一查詢模式：假設後端回傳物件或陣列首項
+            const name =
+                data.original_name ||
+                (Array.isArray(data) ? data[0]?.original_name : null) ||
+                "未知藝人";
+            artistCache[cleanId] = name;
+            currentMap[cleanId] = name;
+        } else {
+            // 全量查詢模式
+            const newMap = Array.isArray(data)
+                ? Object.fromEntries(data.map((a) => [a.id, a.original_name]))
+                : data; // 假設若是 Object 則直接使用
+
+            Object.assign(artistCache, newMap);
+            Object.assign(currentMap, newMap);
+            isFullyLoaded = true;
+        }
+
+        // 更新 Storage
         sessionStorage.setItem(STORAGE_KEY, JSON.stringify(currentMap));
     } catch (err) {
-        console.error(`無法獲取藝人資料 (ID: ${cleanId}):`, err);
-        artistCache[cleanId] = "未知藝人";
+        console.error(`獲取藝人資料失敗 (${lockKey}):`, err);
+        if (cleanId) artistCache[cleanId] = "未知藝人";
     } finally {
-        pendingIds.delete(cleanId);
+        pendingIds.delete(lockKey);
     }
 }
 
