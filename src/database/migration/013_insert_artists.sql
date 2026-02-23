@@ -26,4 +26,6 @@ VALUES
     (646867579, 'Hiromu Akita', '秋田ひろむ'),
     (400500549134030, 'Ruby Qu', 'Ruby Qu'),
     (400500668546150, 'Kexin Wang', '王可鑫'),
-    (984593137, 'Marcus Lindberg', 'Marcus Lindberg');
+    (984593137, 'Marcus Lindberg', 'Marcus Lindberg'),
+    (569738095, 'Laurence Larson', '羅藝恆'),
+    (400500768907076, 'Wu Jing', '武婧');

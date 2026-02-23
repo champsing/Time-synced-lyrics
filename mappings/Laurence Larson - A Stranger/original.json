@@ -1,0 +1,454 @@
+[
+    {
+        "time": "00:02.91",
+        "type": "prelude"
+    },
+    {
+        "time": "00:10.71",
+        "text": [
+            { "phrase": "Bells ", "duration": 100 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "chime, ", "duration": 50 },
+            { "phrase": "", "duration": 30 },
+            { "phrase": "a ", "duration": 50 },
+            { "phrase": "gentle ", "duration": 100 },
+            { "phrase": "sound", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:16.20",
+        "text": [
+            { "phrase": "Laughter ", "duration": 100 },
+            { "phrase": "in ", "duration": 50 },
+            { "phrase": "the ", "duration": 30 },
+            { "phrase": "air", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:18.47",
+        "text": [
+            { "phrase": "Such ", "duration": 50 },
+            { "phrase": "a ", "duration": 50 },
+            { "phrase": "simple ", "duration": 100 },
+            { "phrase": "tune", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:22.20",
+        "text": [
+            { "phrase": "Smiles ", "duration": 50 },
+            { "phrase": "and ", "duration": 50 },
+            { "phrase": "grace", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:24.43",
+        "text": [
+            { "phrase": "Like ", "duration": 50 },
+            { "phrase": "a ", "duration": 20 },
+            { "phrase": "familiar ", "duration": 120 },
+            { "phrase": "place", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:27.50",
+        "text": [
+            { "phrase": "But ", "duration": 40 },
+            { "phrase": "this ", "duration": 40 },
+            { "phrase": "fragile ", "duration": 120 },
+            { "phrase": "peace ", "duration": 70 },
+            { "phrase": "has ", "duration": 50 },
+            { "phrase": "a ", "duration": 50 },
+            { "phrase": "precious ", "duration": 120 },
+            { "phrase": "light", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:34.03",
+        "text": [
+            { "phrase": "This ", "duration": 50 },
+            { "phrase": "time ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "cost ", "duration": 50 },
+            { "phrase": "is ", "duration": 50 },
+            { "phrase": "paid ", "duration": 50 },
+            { "phrase": "in ", "duration": 50 },
+            { "phrase": "tears ", "duration": 50 },
+            { "phrase": "unseen", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:39.31",
+        "text": [
+            { "phrase": "Can ", "duration": 50 },
+            { "phrase": "I ", "duration": 40 },
+            { "phrase": "survive ", "duration": 90 },
+            { "phrase": "this ", "duration": 50 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "lonely ", "duration": 120 },
+            { "phrase": "role?", "duration": 80 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:44.93",
+        "text": [
+            { "phrase": "A ", "duration": 50 },
+            { "phrase": "stranger ", "duration": 80 },
+            { "phrase": "now", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:47.88",
+        "text": [
+            { "phrase": "On ", "duration": 40 },
+            { "phrase": "paths ", "duration": 50 },
+            { "phrase": "unknown", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:50.81",
+        "text": [
+            { "phrase": "For ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "home ", "duration": 50 },
+            { "phrase": "I ", "duration": 50 },
+            { "phrase": "lost", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:53.79",
+        "text": [
+            { "phrase": "I ", "duration": 20 },
+            { "phrase": "fight ", "duration": 20 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "tide, ", "duration": 50 },
+            { "phrase": "against ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "flow", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "00:56.91",
+        "text": [
+            { "phrase": "Longing ", "duration": 50 },
+            { "phrase": "for ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "place ", "duration": 50 },
+            { "phrase": "I ", "duration": 50 },
+            { "phrase": "used ", "duration": 50 },
+            { "phrase": "to ", "duration": 50 },
+            { "phrase": "know", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:03.63",
+        "text": [{ "phrase": "Home", "duration": 50 }],
+        "translation": ""
+    },
+    {
+        "time": "01:05.08",
+        "text": [{ "phrase": "Home", "duration": 50 }],
+        "translation": ""
+    },
+    {
+        "time": "01:06.49",
+        "text": [{ "phrase": "Home", "duration": 200 }],
+        "translation": ""
+    },
+    {
+        "time": "01:12.73",
+        "text": [
+            { "phrase": "The ", "duration": 20 },
+            { "phrase": "clown ", "duration": 20 },
+            { "phrase": "brought ", "duration": 30 },
+            { "phrase": "the ", "duration": 20 },
+            { "phrase": "flower ", "duration": 30 },
+            { "phrase": "before ", "duration": 20 },
+            { "phrase": "Melissa ", "duration": 20 },
+            { "phrase": "and ", "duration": 20 },
+            { "phrase": "Benson", "duration": 20 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:16.08",
+        "text": [
+            { "phrase": "The ", "duration": 20 },
+            { "phrase": "flower ", "duration": 30 },
+            { "phrase": "was ", "duration": 20 },
+            { "phrase": "golden ", "duration": 30 },
+            { "phrase": "in ", "duration": 20 },
+            { "phrase": "color ", "duration": 30 },
+            { "phrase": "and ", "duration": 20 },
+            { "phrase": "symbolized ", "duration": 30 },
+            { "phrase": "happiness", "duration": 40 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:20.49",
+        "text": [
+            { "phrase": "When ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "mask ", "duration": 50 },
+            { "phrase": "slips ", "duration": 50 },
+            { "phrase": "on", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:23.54",
+        "text": [
+            { "phrase": "Like ", "duration": 50 },
+            { "phrase": "chains ", "duration": 50 },
+            { "phrase": "holding ", "duration": 50 },
+            { "phrase": "me", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:27.34",
+        "text": [
+            { "phrase": "Blood ", "duration": 50 },
+            { "phrase": "it ", "duration": 50 },
+            { "phrase": "whispers ", "duration": 80 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "a ", "duration": 50 },
+            { "phrase": "price ", "duration": 50 },
+            { "phrase": "so ", "duration": 50 },
+            { "phrase": "high", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:32.30",
+        "text": [
+            { "phrase": "Beneath ", "duration": 50 },
+            { "phrase": "a ", "duration": 50 },
+            { "phrase": "merciless ", "duration": 150 },
+            { "phrase": "empty, ", "duration": 150 },
+            { "phrase": "starless ", "duration": 80 },
+            { "phrase": "sky", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:38.95",
+        "text": [
+            { "phrase": "Forced ", "duration": 50 },
+            { "phrase": "on ", "duration": 50 },
+            { "phrase": "forsaken ", "duration": 200 },
+            { "phrase": "roads ", "duration": 100 },
+            { "phrase": "ahead", "duration": 80 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:44.06",
+        "text": [
+            { "phrase": "Could ", "duration": 50 },
+            { "phrase": "it ", "duration": 20 },
+            { "phrase": "be", "duration": 20 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:44.91",
+        "text": [
+            { "phrase": "This ", "duration": 50 },
+            { "phrase": "time ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "costs ", "duration": 50 },
+            { "phrase": "paid, ", "duration": 50 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "all's ", "duration": 50 },
+            { "phrase": "beyond ", "duration": 100 },
+            { "phrase": "repair", "duration": 80 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:50.30",
+        "text": [
+            { "phrase": "Can ", "duration": 50 },
+            { "phrase": "I ", "duration": 50 },
+            { "phrase": "survive ", "duration": 50 },
+            { "phrase": "when ", "duration": 50 },
+            { "phrase": "all ", "duration": 50 },
+            { "phrase": "is ", "duration": 50 },
+            { "phrase": "changed?", "duration": 100 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "01:57.85",
+        "text": [
+            { "phrase": "A ", "duration": 50 },
+            { "phrase": "stranger ", "duration": 50 },
+            { "phrase": "now", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:00.78",
+        "text": [
+            { "phrase": "On ", "duration": 50 },
+            { "phrase": "paths ", "duration": 50 },
+            { "phrase": "unknown", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:03.91",
+        "text": [
+            { "phrase": "For ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "home ", "duration": 50 },
+            { "phrase": "I ", "duration": 50 },
+            { "phrase": "lost", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:06.88",
+        "text": [
+            { "phrase": "I ", "duration": 20 },
+            { "phrase": "fight ", "duration": 50 },
+            { "phrase": "the ", "duration": 20 },
+            { "phrase": "tide, ", "duration": 20 },
+            { "phrase": "against ", "duration": 50 },
+            { "phrase": "the ", "duration": 20 },
+            { "phrase": "flow", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:09.79",
+        "text": [
+            { "phrase": "Longing ", "duration": 50 },
+            { "phrase": "for ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "place ", "duration": 50 },
+            { "phrase": "I ", "duration": 50 },
+            { "phrase": "used ", "duration": 50 },
+            { "phrase": "to ", "duration": 50 },
+            { "phrase": "know", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:16.50",
+        "text": [{ "phrase": "Home", "duration": 50 }],
+        "translation": ""
+    },
+    {
+        "time": "02:17.51",
+        "text": [{ "phrase": "Home", "duration": 50 }],
+        "translation": ""
+    },
+    {
+        "time": "02:19.47",
+        "text": [{ "phrase": "Home", "duration": 50 }],
+        "translation": ""
+    },
+    {
+        "time": "02:21.49",
+        "text": [
+            { "phrase": "A ", "duration": 50 },
+            { "phrase": "stranger ", "duration": 50 },
+            { "phrase": "still", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:24.37",
+        "text": [
+            { "phrase": "On ", "duration": 50 },
+            { "phrase": "paths ", "duration": 50 },
+            { "phrase": "unknown", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:27.40",
+        "text": [
+            { "phrase": "For ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "home ", "duration": 50 },
+            { "phrase": "I ", "duration": 50 },
+            { "phrase": "lost", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:30.20",
+        "text": [
+            { "phrase": "I ", "duration": 20 },
+            { "phrase": "fight ", "duration": 20 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "tide, ", "duration": 50 },
+            { "phrase": "against ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "flow", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:33.35",
+        "text": [
+            { "phrase": "Longing ", "duration": 50 },
+            { "phrase": "for ", "duration": 50 },
+            { "phrase": "the ", "duration": 50 },
+            { "phrase": "place ", "duration": 50 },
+            { "phrase": "I ", "duration": 50 },
+            { "phrase": "can't ", "duration": 50 },
+            { "phrase": "return ", "duration": 200 },
+            { "phrase": "", "duration": 20 },
+            { "phrase": "to", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "02:40.00",
+        "text": [{ "phrase": "Home", "duration": 50 }],
+        "translation": ""
+    },
+    {
+        "time": "02:41.41",
+        "text": [{ "phrase": "Home", "duration": 50 }],
+        "translation": ""
+    },
+    {
+        "time": "02:42.91",
+        "text": [{ "phrase": "Home", "duration": 300, "kiai": true }],
+        "translation": ""
+    },
+    {
+        "time": "02:57.19",
+        "text": [
+            { "phrase": "No ", "duration": 50 },
+            { "phrase": "way ", "duration": 50 },
+            { "phrase": "back, ", "duration": 50 },
+            { "phrase": "", "duration": 90 },
+            { "phrase": "home", "duration": 50 }
+        ],
+        "translation": ""
+    },
+    {
+        "time": "03:01.57",
+        "type": "end"
+    }
+]
