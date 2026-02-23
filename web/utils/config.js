@@ -22,7 +22,7 @@ export const IS_DEV =
     window.location.hostname === "127.0.0.1";
 export const API_BASE_URL = IS_DEV
     ? "http://localhost:8000"
-    : "https://api.timesl.online:25570";
+    : "https://api.timesl.online";
 
 export const MERCURY_TSL = " - 同步開唱";
 export const ORIGINAL = "original";
