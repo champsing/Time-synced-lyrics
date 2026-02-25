@@ -1,8 +1,8 @@
 use hmac::{Hmac, Mac};
-use rand::{self, Rng};
 use sha2::Sha256;
-
-use std::{fs, sync::LazyLock};
+use std::convert::TryInto;
+use std::fs;
+use std::sync::LazyLock;
 
 pub fn get_system_uptime() -> f64 {
     std::fs::read_to_string("/proc/uptime")
@@ -12,29 +12,41 @@ pub fn get_system_uptime() -> f64 {
 }
 
 static PRIVATE_KEY: LazyLock<[u8; 32]> = LazyLock::new(|| {
-    let path = "data/hmac_private_key";
-
-    // 1. 嘗試讀取檔案並轉成字串（去除前後空白）
-    if let Ok(content_str) = fs::read_to_string(path) {
-        let trimmed = content_str.trim();
-
-        // 2. 嘗試將 Hex 字串解析為 bytes
-        // 註：這裡需要 hex crate (hex = "0.4")，若沒裝可用下面說明的替代方案
+    // 1. 優先嘗試從環境變數讀取 (HMAC_KEY)
+    if let Ok(env_key) = std::env::var("HMAC_KEY") {
+        let trimmed = env_key.trim();
         if let Ok(bytes_vec) = hex::decode(trimmed) {
             if let Ok(bytes) = bytes_vec.try_into() {
+                println!("[Auth] 密鑰加載成功：來自環境變數");
                 return bytes;
             }
         }
     }
 
-    // 3. 找不到檔案、解析失敗、或長度不對：隨機生成
-    let mut bytes = [0_u8; 32];
-    rand::rng().fill_bytes(&mut bytes);
-
-    // 將隨機生成的 key 寫回檔案，否則下次重啟伺服器 Token 會全部失效
-    let _ = fs::write(path, hex::encode(bytes));
-
-    bytes
+    // 2. 次要嘗試從檔案讀取
+    let path = "data/hmac_private_key";
+    match fs::read_to_string(path) {
+        Ok(content_str) => {
+            let trimmed = content_str.trim();
+            match hex::decode(trimmed) {
+                Ok(bytes_vec) => match bytes_vec.try_into() {
+                    Ok(bytes) => {
+                        println!("[Auth] 密鑰加載成功：來自檔案 ({})", path);
+                        return bytes;
+                    }
+                    Err(_) => panic!("[FATAL] 密鑰長度不正確，必須為 32 bytes (64 個 hex 字元)"),
+                },
+                Err(e) => panic!("[FATAL] 密鑰檔案 Hex 解碼失敗: {}", e),
+            }
+        }
+        Err(e) => {
+            // 因為你保證一定會映射檔案，如果讀不到代表部署配置出錯，直接停機最安全
+            panic!(
+                "[FATAL] 找不到密鑰檔案且未設定環境變數！路徑: {}, 錯誤: {}",
+                path, e
+            );
+        }
+    }
 });
 
 pub fn generate_signature(song_id: i32, available: bool) -> String {

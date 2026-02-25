@@ -57,7 +57,7 @@ impl Drop for ConnGuard {
 }
 
 pub fn load_csv_data() -> Result<(), ServerError> {
-    let csv_dir = "src/database/csv";
+    let csv_dir = "data/csv";
     let path = Path::new(csv_dir);
 
     if !path.exists() {

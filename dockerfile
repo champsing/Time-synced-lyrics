@@ -1,5 +1,5 @@
 # --- 階段一：編譯階段 ---
-FROM rust:1.75-slim-bookworm AS builder
+FROM rust:latest AS builder
 
 # 安裝編譯必要的系統依賴 (如 libsqlite3)
 RUN apt-get update && apt-get install -y \

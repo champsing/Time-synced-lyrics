@@ -3,9 +3,6 @@ name = "tsl_api"
 version = "2.0.0"
 edition = "2024"
 
-[lib]
-path = "src/lib.rs"
-
 [dependencies]
 actix-cors = "0.7.1"
 actix-web = "4.12.1"
@@ -37,5 +34,4 @@ sea-query-rusqlite = { version = "0.7", features = [
 r2d2 = "0.8.10"
 r2d2_sqlite = "0.25.0"
 tempfile = "3.25.0"
-rand = "0.10.0"
 csv = "1.3"
