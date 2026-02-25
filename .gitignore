@@ -19,6 +19,7 @@ logs
 .env
 *.sqlite3
 target
+data
 
 # docker映像
 tsl.tar
