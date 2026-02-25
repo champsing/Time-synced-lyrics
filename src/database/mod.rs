@@ -1,15 +1,19 @@
+pub mod artists;
 pub mod migration;
+pub mod songs;
 
 use crate::error::ServerError;
+use csv::ReaderBuilder;
 use r2d2::Pool;
 use r2d2_sqlite::SqliteConnectionManager;
-use rusqlite::{ Connection, backup::Backup };
+use rusqlite::{Connection, backup::Backup};
 use std::collections::HashMap;
 use std::fs;
 use std::panic::Location;
+use std::path::Path;
 use std::sync::Mutex;
 use std::sync::OnceLock;
-use std::sync::atomic::{ AtomicU64, Ordering };
+use std::sync::atomic::{AtomicU64, Ordering};
 use tempfile::NamedTempFile;
 
 // 建立全局靜態變數，類似 AUTH_CODE 的調用方式
@@ -52,6 +56,73 @@ impl Drop for ConnGuard {
     }
 }
 
+pub fn load_csv_data() -> Result<(), ServerError> {
+    let csv_dir = "src/database/csv";
+    let path = Path::new(csv_dir);
+
+    if !path.exists() {
+        log::warn!("CSV directory {} not found, skipping data load.", csv_dir);
+        return Ok(());
+    }
+
+    // 1. 取得連接並開啟事務
+    let mut conn_guard = get_connection()?;
+    let tx = conn_guard
+        .transaction()
+        .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+    for entry in fs::read_dir(path)? {
+        let entry = entry?;
+        let file_path = entry.path();
+
+        if file_path.extension().and_then(|s| s.to_str()) == Some("csv") {
+            let table_name = file_path
+                .file_stem()
+                .and_then(|s| s.to_str())
+                .ok_or_else(|| ServerError::Internal("Invalid CSV filename".into()))?;
+
+            log::info!("Importing {}...", table_name);
+
+            let mut rdr = ReaderBuilder::new()
+                .from_path(&file_path)
+                .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+            let headers = rdr
+                .headers()
+                .map_err(|e| ServerError::Internal(e.to_string()))?
+                .clone();
+
+            let columns = headers.iter().collect::<Vec<_>>().join(", ");
+            let placeholders = vec!["?"; headers.len()].join(", ");
+
+            // 使用 tx.prepare 而不是 conn.prepare
+            let sql = format!(
+                "INSERT OR IGNORE INTO {} ({}) VALUES ({});",
+                table_name, columns, placeholders
+            );
+
+            let mut stmt = tx
+                .prepare(&sql)
+                .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+            for result in rdr.records() {
+                let record = result.map_err(|e| ServerError::Internal(e.to_string()))?;
+                let params = rusqlite::params_from_iter(record.iter());
+                stmt.execute(params)
+                    .map_err(|e| ServerError::Internal(e.to_string()))?;
+            }
+            drop(stmt); // 釋放 statement 鎖定，以便後續操作
+        }
+    }
+
+    // 2. 關鍵：顯式提交事務
+    tx.commit()
+        .map_err(|e| ServerError::Internal(e.to_string()))?;
+    log::info!("All CSV data imported and committed successfully.");
+
+    Ok(())
+}
+
 #[track_caller] // 關鍵：捕捉呼叫此函數的位置
 pub(crate) fn get_connection() -> Result<ConnGuard, ServerError> {
     let caller = Location::caller();
@@ -68,7 +139,8 @@ pub(crate) fn get_connection() -> Result<ConnGuard, ServerError> {
     }
 
     // 2. 從池中拿新連接
-    let pool_conn = DB_POOL.get()
+    let pool_conn = DB_POOL
+        .get()
         .ok_or_else(|| ServerError::Internal("Database pool not initialized".to_string()))?
         .get()
         .map_err(|e| ServerError::Internal(e.to_string()))?;
@@ -105,13 +177,21 @@ pub fn init() -> Result<(), ServerError> {
         .build(manager)
         .map_err(|e| ServerError::Internal(e.to_string()))?;
 
-    DB_POOL.set(pool).map_err(|_| ServerError::Internal("Failed to set DB_POOL".to_string()))?;
+    DB_POOL
+        .set(pool)
+        .map_err(|_| ServerError::Internal("Failed to set DB_POOL".to_string()))?;
 
-    // 執行遷移
-    let mut conn = get_connection()?;
-    let tran = conn.transaction()?;
-    migration::run_migration(&tran)?;
-    tran.commit()?;
+    {
+        // 執行遷移
+        let mut conn = get_connection()?;
+        let tran = conn.transaction()?;
+        migration::run_migration(&tran)?;
+        tran.commit()?;
+    }
+
+    // 新增：載入 CSV 資料
+    // 放在 migration 之後，確保表結構已經建立
+    load_csv_data()?;
 
     Ok(())
 }
@@ -120,7 +200,11 @@ pub fn backup_database() -> Result<Vec<u8>, ServerError> {
     let temp_file = NamedTempFile::new()?;
     let mut dst = Connection::open(temp_file.path())?;
     let src = get_connection()?;
-    Backup::new(&src, &mut dst)?.run_to_completion(5, std::time::Duration::from_millis(250), None)?;
+    Backup::new(&src, &mut dst)?.run_to_completion(
+        5,
+        std::time::Duration::from_millis(250),
+        None,
+    )?;
     fs::read(temp_file.path()).map_err(ServerError::from)
 }
 

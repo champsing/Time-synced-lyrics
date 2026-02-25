@@ -1,10 +1,10 @@
-pub mod status;
-pub mod songs;
 pub mod artists;
+pub mod songs;
+pub mod status;
 
 use crate::error::ServerError;
 use actix_cors::Cors;
-use actix_web::{ App, HttpServer };
+use actix_web::{App, HttpServer};
 
 pub async fn run() -> Result<(), ServerError> {
     HttpServer::new(|| {
@@ -16,11 +16,17 @@ pub async fn run() -> Result<(), ServerError> {
             .allow_any_header()
             .allowed_methods(vec!["GET", "POST"]);
 
-        App::new().wrap(cors).service(status::handler)
-        //.service(auth::login::login_handler)
+        App::new()
+            .wrap(cors)
+            .service(status::handler)
+            .service(artists::artist::handler)
+            .service(songs::verify::handler)
+            .service(songs::list::handler)
+            .service(songs::song::handler)
     })
-        .bind(("0.0.0.0", 8000))?
-        .run().await?;
+    .bind(("0.0.0.0", 8000))?
+    .run()
+    .await?;
 
     Ok(())
 }

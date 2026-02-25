@@ -1,12 +1,11 @@
-use hmac::{ Hmac, Mac };
+use hmac::{Hmac, Mac};
+use rand::{self, Rng};
 use sha2::Sha256;
-use rand::{ self, Rng };
 
-use std::{ fs, sync::LazyLock };
+use std::{fs, sync::LazyLock};
 
 pub fn get_system_uptime() -> f64 {
-    std::fs
-        ::read_to_string("/proc/uptime")
+    std::fs::read_to_string("/proc/uptime")
         .ok()
         .and_then(|s| s.split_whitespace().next()?.parse::<f64>().ok())
         .unwrap_or(0.0)
@@ -48,4 +47,18 @@ pub fn generate_signature(song_id: i32, available: bool) -> String {
     mac.update(message.as_bytes());
 
     hex::encode(mac.finalize().into_bytes())
+}
+
+/// 針對日文編碼的解碼輔助 (對應 Python 版的邏輯)
+pub fn decode_bytes_with_japanese(bytes: &[u8]) -> String {
+    use encoding_rs::SHIFT_JIS;
+    if let Ok(s) = std::str::from_utf8(bytes) {
+        return s.to_string();
+    }
+    let (res, _, has_errors) = SHIFT_JIS.decode(bytes);
+    if !has_errors {
+        res.into_owned()
+    } else {
+        format!("{:?}", bytes)
+    }
 }

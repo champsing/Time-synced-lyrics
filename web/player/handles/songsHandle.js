@@ -4,7 +4,7 @@ import { API_BASE_URL } from "/web/utils/config.js";
 export const loadSongList = async () => {
     try {
         console.log("獲取歌曲列表中...");
-        const response = await fetch(API_BASE_URL + "/songs/");
+        const response = await fetch(`${API_BASE_URL}/songs/list`);
         if (!response.ok) throw new Error("載入失敗");
         return await response.json();
     } catch (err) {
@@ -17,7 +17,7 @@ export const loadSongList = async () => {
 export const loadSongData = async (songId) => {
     try {
         console.log("獲取歌曲中..." + `(${songId})`);
-        const response = await fetch(API_BASE_URL + `/songs/${songId}`);
+        const response = await fetch(`${API_BASE_URL}/songs/${songId}`);
         if (!response.ok) throw new Error("載入失敗");
         return await response.json();
     } catch (err) {
