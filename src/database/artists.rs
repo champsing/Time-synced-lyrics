@@ -33,8 +33,10 @@ pub fn find_artists_by_ids(artist_ids: Vec<i64>) -> Result<HashMap<i64, Value>, 
     let rows = stmt.query_map(params_from_iter(artist_ids), |row| {
         let mut map = Map::new();
         for name in &column_names {
-            // 嘗試讀取為字串，失敗則嘗試透過 utils 解碼 bytes
-            let val = if let Ok(s) = row.get::<_, String>(name.as_str()) {
+            // 優先嘗試讀取為 i64 (解決 ID 抓不到的問題)
+            let val = if let Ok(n) = row.get::<_, i64>(name.as_str()) {
+                serde_json::json!(n)
+            } else if let Ok(s) = row.get::<_, String>(name.as_str()) {
                 Value::String(s)
             } else if let Ok(b) = row.get::<_, Vec<u8>>(name.as_str()) {
                 Value::String(decode_bytes_with_japanese(&b))
@@ -49,9 +51,18 @@ pub fn find_artists_by_ids(artist_ids: Vec<i64>) -> Result<HashMap<i64, Value>, 
     let mut result_map = HashMap::new();
     for row_res in rows {
         let artist_json = row_res?;
-        // 取得 ID 作為 Key (假設欄位名稱是 artist_id)
+
+        // Debug 用：印出每一行解析出來的 JSON
+        // println!("DEBUG: Row JSON: {:?}", artist_json);
+
         if let Some(id) = artist_json.get("artist_id").and_then(|v| v.as_i64()) {
-            result_map.insert(id as i64, artist_json);
+            result_map.insert(id, artist_json);
+        } else {
+            // 如果還是失敗，看看到底 artist_id 變成了什麼
+            eprintln!(
+                "[DB_ERROR] 找不到 artist_id 欄位或類型錯誤: {:?}",
+                artist_json.get("artist_id")
+            );
         }
     }
 

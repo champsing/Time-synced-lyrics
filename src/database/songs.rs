@@ -1,8 +1,8 @@
 use crate::database::get_connection;
 use crate::error::ServerError;
-use crate::utils::{ decode_bytes_with_japanese, generate_signature };
-use rusqlite::{ params };
-use serde_json::{ Value, json };
+use crate::utils::{decode_bytes_with_japanese, generate_signature};
+use rusqlite::params;
+use serde_json::{Value, json};
 
 fn parse_dynamic_field(field_name: &str, row: &rusqlite::Row) -> Value {
     // 1. 先嘗試讀取為 Option<String>，這可以同時處理「真正的數據」和「真正的 NULL」
@@ -44,7 +44,7 @@ fn parse_dynamic_field(field_name: &str, row: &rusqlite::Row) -> Value {
 pub fn export_song_list() -> Result<Vec<Value>, ServerError> {
     let conn = get_connection()?;
     let mut stmt = conn.prepare(
-        "SELECT available, hidden, song_id, title, art, album, artist, updated_at, lang FROM songs"
+        "SELECT available, hidden, song_id, title, art, album, artist, updated_at, lang FROM songs",
     )?;
 
     let song_iter = stmt.query_map([], |row| {
@@ -100,10 +100,7 @@ pub fn find_song_by_id(song_id: i32) -> Result<Value, ServerError> {
 
     // --- 新增簽名邏輯 ---
     if let Some(obj) = song_json.as_object_mut() {
-        let id = obj
-            .get("song_id")
-            .and_then(|v| v.as_i64())
-            .unwrap_or(0) as i32;
+        let id = obj.get("song_id").and_then(|v| v.as_i64()).unwrap_or(0) as i32;
         let avail = obj
             .get("available")
             .and_then(|v| v.as_i64())

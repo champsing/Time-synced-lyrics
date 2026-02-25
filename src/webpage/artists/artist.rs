@@ -1,11 +1,11 @@
-use crate::{ database, error::ServerError };
-use actix_web::{ HttpResponse, Responder, get, web };
+use crate::{database, error::ServerError};
+use actix_web::{HttpResponse, Responder, get, web};
 use std::collections::HashMap;
 
 #[get("/api/artists")]
 pub async fn handler(
     // 使用 HashMap 接收所有的 Query Parameters
-    query: web::Query<HashMap<String, String>>
+    query: web::Query<HashMap<String, String>>,
 ) -> Result<impl Responder, ServerError> {
     // 1. 嘗試從 ?ids=... 或 ?id=... 取得字串
     let raw_id = query
@@ -31,8 +31,8 @@ pub async fn handler(
     }
 
     // 3. 呼叫資料庫邏輯
-    let artists_data = web
-        ::block(move || database::artists::find_artists_by_ids(ids_list)).await
+    let artists_data = web::block(move || database::artists::find_artists_by_ids(ids_list))
+        .await
         .map_err(|e| ServerError::Internal(e.to_string()))??;
 
     Ok(HttpResponse::Ok().json(artists_data))

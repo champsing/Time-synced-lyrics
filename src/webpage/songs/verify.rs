@@ -1,17 +1,23 @@
-use actix_web::{HttpResponse, Responder, get, web};
+use actix_web::{HttpResponse, Responder, post, web};
 
 use crate::{error::ServerError, utils};
 
 #[derive(serde::Deserialize)]
 struct SongVerifyRequest {
-    available: bool,
+    available: i32,
     song_id: i32,
     signature: String,
 }
 
-#[get("/api/verify/")]
+#[post("/api/songs/verify")]
 pub async fn handler(request: web::Json<SongVerifyRequest>) -> Result<impl Responder, ServerError> {
-    let expected = utils::generate_signature(request.song_id, request.available);
+    let is_available = match request.available {
+        1 => true,
+        0 => false,
+        _ => return Err(ServerError::Internal("Invalid boolean value".into())),
+    };
+
+    let expected = utils::generate_signature(request.song_id, is_available);
 
     if expected == request.signature {
         Ok(HttpResponse::Ok().json(serde_json::json!({ "valid": true })))

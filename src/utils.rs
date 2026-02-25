@@ -38,7 +38,7 @@ static PRIVATE_KEY: LazyLock<[u8; 32]> = LazyLock::new(|| {
 });
 
 pub fn generate_signature(song_id: i32, available: bool) -> String {
-    let message = format!("{}:{}", song_id, if available { 1 } else { 0 });
+    let message = format!("{}:{}", song_id, available);
 
     type HmacSha256 = Hmac<Sha256>;
 

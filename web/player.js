@@ -332,7 +332,7 @@ function main() {
 
     async function verifySignature(songData) {
         try {
-            const response = await fetch(`${API_BASE_URL}/song/verify`, {
+            const response = await fetch(`${API_BASE_URL}/songs/verify`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
