@@ -189,7 +189,6 @@ pub fn init() -> Result<(), ServerError> {
         tran.commit()?;
     }
 
-    // 新增：載入 CSV 資料
     // 放在 migration 之後，確保表結構已經建立
     load_csv_data()?;
 

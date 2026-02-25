@@ -49,9 +49,9 @@ pub fn export_song_list() -> Result<Vec<Value>, ServerError> {
 
     let song_iter = stmt.query_map([], |row| {
         let mut map = serde_json::Map::new();
-        // 這裡手動對應你 Python 的 zip(columns, song_data) 邏輯
+        // 這裡手動對應 Python 的 zip(columns, song_data) 邏輯
         map.insert("available".into(), json!(row.get::<_, i32>("available")?));
-        map.insert("hidden".into(), parse_dynamic_field("hidden", row)); // 使用動態解析
+        map.insert("hidden".into(), parse_dynamic_field("hidden", row));
         map.insert("song_id".into(), json!(row.get::<_, i32>("song_id")?));
         map.insert("title".into(), parse_dynamic_field("title", row));
         map.insert("art".into(), parse_dynamic_field("art", row));
@@ -107,7 +107,7 @@ pub fn find_song_by_id(song_id: i32) -> Result<Value, ServerError> {
             .map(|n| n == 1) // 如果是 1 則為 true，其餘為 false
             .unwrap_or(false); // 若欄位不存在則默認 false
 
-        // 呼叫你的簽名函數 (這裡假設你有定義)
+        // 呼叫簽名函數
         obj.insert("signature".into(), json!(generate_signature(id, avail)));
     }
 

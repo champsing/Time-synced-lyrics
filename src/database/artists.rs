@@ -1,9 +1,9 @@
-use crate::database::get_connection; // 取得你 mod.rs 定義的連接
+use crate::database::get_connection;
 use crate::error::ServerError;
 use crate::utils::decode_bytes_with_japanese;
 use rusqlite::params_from_iter;
 use serde_json::{Map, Value};
-use std::collections::HashMap; // 引用你移動後的位置
+use std::collections::HashMap;
 
 pub fn find_artists_by_ids(artist_ids: Vec<i64>) -> Result<HashMap<i64, Value>, ServerError> {
     // 1. 如果輸入是空的，直接回傳空字典，避免執行 SQL
@@ -52,13 +52,9 @@ pub fn find_artists_by_ids(artist_ids: Vec<i64>) -> Result<HashMap<i64, Value>, 
     for row_res in rows {
         let artist_json = row_res?;
 
-        // Debug 用：印出每一行解析出來的 JSON
-        // println!("DEBUG: Row JSON: {:?}", artist_json);
-
         if let Some(id) = artist_json.get("artist_id").and_then(|v| v.as_i64()) {
             result_map.insert(id, artist_json);
         } else {
-            // 如果還是失敗，看看到底 artist_id 變成了什麼
             eprintln!(
                 "[DB_ERROR] 找不到 artist_id 欄位或類型錯誤: {:?}",
                 artist_json.get("artist_id")
