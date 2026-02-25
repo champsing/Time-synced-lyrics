@@ -89,7 +89,7 @@ pub fn init() -> Result<(), ServerError> {
     fs::create_dir_all("data/")?;
     fs::create_dir_all("/tmp/")?;
 
-    const DATABASE: &str = "data/tsl.sqlite3";
+    const DATABASE: &str = "data/tsl.db";
 
     // 初始化連接池管理器
     let manager = SqliteConnectionManager::file(DATABASE).with_init(|c| {
