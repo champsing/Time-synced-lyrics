@@ -56,73 +56,6 @@ impl Drop for ConnGuard {
     }
 }
 
-pub fn load_csv_data() -> Result<(), ServerError> {
-    let csv_dir = "data/csv";
-    let path = Path::new(csv_dir);
-
-    if !path.exists() {
-        log::warn!("CSV directory {} not found, skipping data load.", csv_dir);
-        return Ok(());
-    }
-
-    // 1. 取得連接並開啟事務
-    let mut conn_guard = get_connection()?;
-    let tx = conn_guard
-        .transaction()
-        .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-    for entry in fs::read_dir(path)? {
-        let entry = entry?;
-        let file_path = entry.path();
-
-        if file_path.extension().and_then(|s| s.to_str()) == Some("csv") {
-            let table_name = file_path
-                .file_stem()
-                .and_then(|s| s.to_str())
-                .ok_or_else(|| ServerError::Internal("Invalid CSV filename".into()))?;
-
-            log::info!("Importing {}...", table_name);
-
-            let mut rdr = ReaderBuilder::new()
-                .from_path(&file_path)
-                .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-            let headers = rdr
-                .headers()
-                .map_err(|e| ServerError::Internal(e.to_string()))?
-                .clone();
-
-            let columns = headers.iter().collect::<Vec<_>>().join(", ");
-            let placeholders = vec!["?"; headers.len()].join(", ");
-
-            // 使用 tx.prepare 而不是 conn.prepare
-            let sql = format!(
-                "INSERT OR IGNORE INTO {} ({}) VALUES ({});",
-                table_name, columns, placeholders
-            );
-
-            let mut stmt = tx
-                .prepare(&sql)
-                .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-            for result in rdr.records() {
-                let record = result.map_err(|e| ServerError::Internal(e.to_string()))?;
-                let params = rusqlite::params_from_iter(record.iter());
-                stmt.execute(params)
-                    .map_err(|e| ServerError::Internal(e.to_string()))?;
-            }
-            drop(stmt); // 釋放 statement 鎖定，以便後續操作
-        }
-    }
-
-    // 2. 關鍵：顯式提交事務
-    tx.commit()
-        .map_err(|e| ServerError::Internal(e.to_string()))?;
-    log::info!("All CSV data imported and committed successfully.");
-
-    Ok(())
-}
-
 #[track_caller] // 關鍵：捕捉呼叫此函數的位置
 pub(crate) fn get_connection() -> Result<ConnGuard, ServerError> {
     let caller = Location::caller();
@@ -205,6 +138,128 @@ pub fn backup_database() -> Result<Vec<u8>, ServerError> {
         None,
     )?;
     fs::read(temp_file.path()).map_err(ServerError::from)
+}
+
+pub fn load_csv_data() -> Result<(), ServerError> {
+    let csv_dir = "data/csv";
+    let path = Path::new(csv_dir);
+
+    if !path.exists() {
+        log::warn!("CSV directory {} not found, skipping data load.", csv_dir);
+        return Ok(());
+    }
+
+    // 1. 取得連接並開啟事務
+    let mut conn_guard = get_connection()?;
+    let tx = conn_guard
+        .transaction()
+        .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+    for entry in fs::read_dir(path)? {
+        let entry = entry?;
+        let file_path = entry.path();
+
+        if file_path.extension().and_then(|s| s.to_str()) == Some("csv") {
+            let table_name = file_path
+                .file_stem()
+                .and_then(|s| s.to_str())
+                .ok_or_else(|| ServerError::Internal("Invalid CSV filename".into()))?;
+
+            log::info!("Importing {}...", table_name);
+
+            let mut rdr = ReaderBuilder::new()
+                .from_path(&file_path)
+                .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+            let headers = rdr
+                .headers()
+                .map_err(|e| ServerError::Internal(e.to_string()))?
+                .clone();
+
+            let columns = headers.iter().collect::<Vec<_>>().join(", ");
+            let placeholders = vec!["?"; headers.len()].join(", ");
+
+            // 使用 tx.prepare 而不是 conn.prepare
+            let sql = format!(
+                "INSERT OR REPLACE INTO {} ({}) VALUES ({});",
+                table_name, columns, placeholders
+            );
+
+            let mut stmt = tx
+                .prepare(&sql)
+                .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+            for result in rdr.records() {
+                let record = result.map_err(|e| ServerError::Internal(e.to_string()))?;
+                let params = rusqlite::params_from_iter(record.iter());
+                stmt.execute(params)
+                    .map_err(|e| ServerError::Internal(e.to_string()))?;
+            }
+            drop(stmt); // 釋放 statement 鎖定，以便後續操作
+        }
+    }
+
+    // 2. 關鍵：顯式提交事務
+    tx.commit()
+        .map_err(|e| ServerError::Internal(e.to_string()))?;
+    log::info!("All CSV data imported and committed successfully.");
+
+    Ok(())
+}
+
+pub fn export_db_to_csv() -> Result<(), ServerError> {
+    let conn = get_connection()?;
+    let tables = ["artists", "songs"];
+
+    for table in tables {
+        let path = format!("data/csv/{}.csv", table);
+        let mut wtr = csv::WriterBuilder::new()
+            .from_path(&path)
+            .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+        // 這裡改用具體的 SQL 查詢，確保順序與 CSV 標題一致
+        let sql = format!("SELECT * FROM {}", table);
+        let mut stmt = conn
+            .prepare(&sql)
+            .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+        // 寫入標題
+        let headers = stmt.column_names();
+        wtr.write_record(headers)
+            .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+        // 讀取每一行並轉為字串
+        let column_count = stmt.column_count();
+        let mut rows = stmt
+            .query([])
+            .map_err(|e| ServerError::Internal(e.to_string()))?;
+
+        while let Some(row) = rows
+            .next()
+            .map_err(|e| ServerError::Internal(e.to_string()))?
+        {
+            let mut record = Vec::new();
+            for i in 0..column_count {
+                // 利用 rusqlite 的 Value 型別彈性處理
+                let val: rusqlite::types::Value = row
+                    .get(i)
+                    .map_err(|e| ServerError::Internal(e.to_string()))?;
+                record.push(match val {
+                    rusqlite::types::Value::Null => "".to_string(),
+                    rusqlite::types::Value::Integer(n) => n.to_string(),
+                    rusqlite::types::Value::Real(f) => f.to_string(),
+                    rusqlite::types::Value::Text(s) => s,
+                    rusqlite::types::Value::Blob(_) => "<BLOB>".to_string(),
+                });
+            }
+            wtr.write_record(&record)
+                .map_err(|e| ServerError::Internal(e.to_string()))?;
+        }
+        wtr.flush()
+            .map_err(|e| ServerError::Internal(e.to_string()))?;
+        println!("✅ 已將資料表 [{}] 匯出至 {}", table, path);
+    }
+    Ok(())
 }
 
 #[cfg(test)]

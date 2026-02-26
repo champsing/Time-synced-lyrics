@@ -13,7 +13,8 @@ WORKDIR /app
 COPY . .
 
 # 編譯專案 (使用 --release 模式優化性能)
-RUN cargo build --release
+RUN cargo build --release --bin tsl_api
+RUN cargo build --release --bin tsl_exporter
 
 # --- 階段二：運行階段 ---
 FROM debian:bookworm-slim
@@ -27,6 +28,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 COPY --from=builder /app/target/release/tsl_api ./tsl_api
+COPY --from=builder /app/target/release/tsl_exporter ./tsl_exporter
 
 EXPOSE 8000
 

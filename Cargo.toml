@@ -3,6 +3,10 @@ name = "tsl_api"
 version = "2.0.0"
 edition = "2024"
 
+[[bin]]
+name = "tsl_exporter"
+path = "src/bin/exporter.rs"
+
 [dependencies]
 actix-cors = "0.7.1"
 actix-web = "4.12.1"
