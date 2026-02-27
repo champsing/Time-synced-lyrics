@@ -1,0 +1,421 @@
+<script setup lang="ts">
+import Card from "@/components/home/Card.vue";
+</script>
+
+<template>
+    <div class="bg-linear-to-b from-rose-50 to-white">
+        <nav class="bg-white shadow-sm">
+            <div class="max-w-full px-4 py-4">
+                <div
+                    class="flex flex-row justify-between items-center w-full gap-2 sm:gap-0"
+                >
+                    <div class="flex flex-row gap-1 md:gap-2">
+                        <img
+                            src="/og_image/music.webp"
+                            alt="同步開唱"
+                            aria-label="同步開唱"
+                            class="w-8 h-8 md:w-10 md:h-10 select-none rounded-xl"
+                        />
+                        <a href="/" aria-label="回首頁">
+                            <h1
+                                class="text-2xl md:text-4xl font-bold text-rose-600 font-playfair"
+                            >
+                                同步開唱
+                            </h1>
+                        </a>
+                    </div>
+                    <div class="grow"></div>
+                    <div class="sm:hidden bg-rose-600 rounded-2xl p-2">
+                        <a
+                            href="/song-select"
+                            class="text-neutral-200 transition"
+                            aria-label="立即開唱"
+                        >
+                            <div class="flex flex-row">
+                                <span class="material-icons">music_note</span>
+                                <span>立刻開唱</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="sm:flex sm:flex-row sm:gap-4 hidden">
+                        <a
+                            href="/song-select"
+                            class="bg-rose-600 rounded-2xl p-2 text-neutral-200 hover:text-orange-400 transition duration-200"
+                            aria-label="立即開唱"
+                        >
+                            <div class="flex flex-row mt-1">
+                                <span class="material-icons">music_note</span>
+                                <span>立刻開唱</span>
+                            </div>
+                        </a>
+
+                        <a
+                            href="https://github.com/champsing/time-synced-lyrics"
+                            target="_blank"
+                            rel="noopener"
+                            referrerpolicy="no-referrer"
+                            aria-label="這個專案的Repo"
+                            title="GitHub"
+                            class="text-gray-600 p-2 hover:bg-amber-400 outline-amber-400 outline-2 rounded-2xl transition"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 -5 64 64"
+                                height="30"
+                                width="30"
+                                aria-labelledby="這個專案的Repo"
+                                aria-describedby="GitHub的程式碼庫"
+                                role="img"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                            >
+                                <title>Github</title>
+                                <desc>
+                                    A solid styled icon from Orion Icon Library.
+                                </desc>
+                                <path fill="#374151"></path>
+                                <path
+                                    data-name="layer2"
+                                    d="M32 0a32.021 32.021 0 0 0-10.1 62.4c1.6.3 2.2-.7 2.2-1.5v-6c-8.9 1.9-10.8-3.8-10.8-3.8-1.5-3.7-3.6-4.7-3.6-4.7-2.9-2 .2-1.9.2-1.9 3.2.2 4.9 3.3 4.9 3.3 2.9 4.9 7.5 3.5 9.3 2.7a6.93 6.93 0 0 1 2-4.3c-7.1-.8-14.6-3.6-14.6-15.8a12.27 12.27 0 0 1 3.3-8.6 11.965 11.965 0 0 1 .3-8.5s2.7-.9 8.8 3.3a30.873 30.873 0 0 1 8-1.1 30.292 30.292 0 0 1 8 1.1c6.1-4.1 8.8-3.3 8.8-3.3a11.965 11.965 0 0 1 .3 8.5 12.1 12.1 0 0 1 3.3 8.6c0 12.3-7.5 15-14.6 15.8a7.746 7.746 0 0 1 2.2 5.9v8.8c0 .9.6 1.8 2.2 1.5A32.021 32.021 0 0 0 32 0z"
+                                    fill="#202020"
+                                ></path>
+                                <path
+                                    data-name="layer1"
+                                    d="M12.1 45.9c-.1.2-.3.2-.5.1s-.4-.3-.3-.5.3-.2.6-.1c.2.2.3.4.2.5zm1.3 1.5a.589.589 0 0 1-.8-.8.631.631 0 0 1 .7.1.494.494 0 0 1 .1.7zm1.3 1.8a.585.585 0 0 1-.7-.3.6.6 0 0 1 0-.8.585.585 0 0 1 .7.3c.2.3.2.7 0 .8zm1.7 1.8c-.2.2-.5.1-.8-.1-.3-.3-.4-.6-.2-.8a.619.619 0 0 1 .8.1.554.554 0 0 1 .2.8zm2.4 1c-.1.3-.4.4-.8.3s-.6-.4-.5-.7.4-.4.8-.3c.3.2.6.5.5.7zm2.6.2c0 .3-.3.5-.7.5s-.7-.2-.7-.5.3-.5.7-.5c.4.1.7.3.7.5zm2.4-.4q0 .45-.6.6a.691.691 0 0 1-.8-.3q0-.45.6-.6c.5-.1.8.1.8.3z"
+                                    fill="#202020"
+                                ></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="block sm:hidden text-right">
+                        <details class="dropdown sm:hidden relative">
+                            <summary
+                                class="dropdown-trigger flex items-center gap-2 p-2 px-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-50"
+                            >
+                                <div class="material-icons">menu</div>
+                            </summary>
+                            <div
+                                class="dropdown-menu sm:hidden absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded shadow-sm z-50 p-2 w-max"
+                            >
+                                <div class="flex flex-col gap-2 md:hidden">
+                                    <a
+                                        href="https://github.com/champsing/time-synced-lyrics"
+                                        target="_blank"
+                                        rel="noopener"
+                                        referrerpolicy="no-referrer"
+                                        aria-label="這個專案的Repo"
+                                        title="GitHub"
+                                        class="text-gray-600 hover:text-rose-600 transition"
+                                    >
+                                        <span>GitHub 開源</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="min-h-screen">
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative"
+            >
+                <card>
+                    <template #content>
+                        <h2
+                            class="text-5xl font-playfair font-bold text-gray-900 mb-6"
+                        >
+                            讓歌詞與旋律<span class="text-rose-700"
+                                >精準同步</span
+                            >
+                        </h2>
+                        <h3 class="text-2xl font-sans text-gray-900">
+                            你的隨身<span class="text-rose-700">卡啦OK</span
+                            >，走到哪聽到哪
+                        </h3>
+                    </template>
+                </card>
+            </section>
+
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative"
+            >
+                <div
+                    class="text-4xl mb-10 font-playfair font-bold text-gray-900"
+                >
+                    無需訂閱、無需購買，只要打開網頁就能收聽。
+                </div>
+                <div
+                    class="outline-4 rounded-2xl overflow-hidden outline-yellow-400"
+                >
+                    <img
+                        src="/homepage_images/player-screenshot-lg.webp"
+                        class="select-none"
+                        alt="電腦端畫面"
+                        aria-label="電腦端畫面"
+                    />
+                </div>
+            </section>
+
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative"
+            >
+                <div
+                    class="md:hidden mb-10 text-4xl font-playfair font-bold text-gray-900"
+                >
+                    使用音樂伴唱帶，跟隨旋律引吭高歌。<a
+                        href="#footnote-1"
+                        aria-label="註腳1"
+                        ><span class="text-xs align-super">1</span></a
+                    >
+                </div>
+                <div class="flex flex-row md:gap-40">
+                    <div class="grow md:hidden"></div>
+                    <div class="hidden md:flex flex-col w-1/2">
+                        <div class="grow"></div>
+                        <div
+                            class="text-4xl font-playfair font-bold text-gray-900"
+                        >
+                            使用<span class="text-cyan-700">音樂伴唱帶</span
+                            >，跟隨旋律引吭高歌。
+                            <a href="#footnote-1" aria-label="註腳1">
+                                <span class="text-xs align-super">1</span>
+                            </a>
+                        </div>
+                        <div class="grow"></div>
+                    </div>
+                    <img
+                        src="/homepage_images/instrumental.webp"
+                        class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
+                        alt="伴唱帶徽章"
+                        aria-label="伴唱帶徽章"
+                    />
+                    <div class="grow md:hidden"></div>
+                </div>
+            </section>
+
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative"
+            >
+                <card>
+                    <template #content>
+                        <div
+                            class="text-4xl mb-10 font-playfair font-bold text-gray-900"
+                        >
+                            貼心翻譯功能，理解歌詞<span class="text-rose-600"
+                                >零時差</span
+                            >。
+                            <a href="#footnote-1" aria-label="註腳1">
+                                <span class="text-xs align-super">1</span>
+                            </a>
+                        </div>
+                        <img
+                            src="/homepage_images/translation.webp"
+                            class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
+                            alt="翻譯框"
+                            aria-label="翻譯框"
+                        />
+                    </template>
+                </card>
+            </section>
+
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative"
+            >
+                <div
+                    class="md:hidden text-4xl mb-10 font-playfair font-bold text-gray-900"
+                >
+                    <span class="text-orange-600">背</span>
+                    <span class="text-blue-300">景</span>
+                    <span class="text-green-600">顏</span>
+                    <span class="text-rose-700">色</span>，由你決定個性風格。
+                </div>
+                <div class="flex flex-row md:gap-10">
+                    <div class="grow md:hidden"></div>
+                    <img
+                        src="/homepage_images/change-theme-color.webp"
+                        class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 md:w-2/3 select-none"
+                        alt="背景顏色更換"
+                        aria-label="背景顏色更換"
+                    />
+                    <div class="hidden md:grow"></div>
+                    <div class="hidden md:flex flex-col w-2/3">
+                        <div class="grow"></div>
+                        <div
+                            class="text-4xl font-playfair font-bold text-gray-900"
+                        >
+                            <span class="text-orange-600">背</span>
+                            <span class="text-blue-300">景</span>
+                            <span class="text-green-600">顏</span>
+                            <span class="text-rose-700">色</span
+                            >，由你決定個性風格。
+                        </div>
+                        <div class="grow"></div>
+                    </div>
+                    <div class="grow md:hidden"></div>
+                </div>
+            </section>
+
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative"
+            >
+                <div class="flex flex-col gap-10">
+                    <div class="text-4xl font-playfair font-bold text-gray-900">
+                        了解您喜愛的樂曲是由哪些人打造的。
+                        <a href="#footnote-2" aria-label="註腳2">
+                            <span class="text-xs align-super">2</span>
+                        </a>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="grow"></div>
+                        <!-- for image enlarge, not yet now -->
+                        <!-- <input type="checkbox" id="credit-list-img" class="hidden"> -->
+                        <label id="credit-list-img">
+                            <div
+                                class="outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
+                            >
+                                <img
+                                    src="/homepage_images/credit-list.webp"
+                                    width="511"
+                                    height="466"
+                                    alt="工作人員名單"
+                                    aria-label="工作人員名單"
+                                />
+                            </div>
+                        </label>
+
+                        <div class="grow"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-8 text-center relative"
+            >
+                <div
+                    class="md:hidden mb-10 text-4xl font-playfair font-bold text-gray-900"
+                >
+                    在<span class="text-rose-700">所有裝置</span>上都能使用。
+                    <a href="#footnote-3" aria-label="註腳3">
+                        <span class="text-xs align-super">3</span>
+                    </a>
+                </div>
+                <div class="flex flex-row md:gap-40">
+                    <div class="grow md:hidden"></div>
+                    <div class="hidden md:flex flex-col w-1/2">
+                        <div class="grow"></div>
+                        <div
+                            class="text-4xl font-playfair font-bold text-gray-900"
+                        >
+                            在<span class="text-rose-700">所有裝置</span
+                            >上都能使用。
+                            <a href="#footnote-3" aria-label="註腳3">
+                                <span class="text-xs align-super">3</span>
+                            </a>
+                        </div>
+                        <div class="grow"></div>
+                    </div>
+                    <img
+                        src="/homepage_images/player-screenshot-sm.webp"
+                        class="w-67.75 h-146.5 md:w-45 md:h-97.75 outline-4 rounded-2xl overflow-hidden outline-yellow-400 select-none"
+                        alt="手機端畫面"
+                        aria-label="手機端畫面"
+                    />
+                    <div class="grow md:hidden"></div>
+                </div>
+            </section>
+
+            <section
+                class="max-w-6xl mx-4 md:mx-auto px-4 py-10 text-center relative bg-rose-300 p-6 rounded-2xl"
+            >
+                <div class="flex flex-col gap-8 items-center">
+                    <div class="text-4xl font-playfair font-bold text-gray-900">
+                        現在就去收聽您最喜愛的音樂！
+                    </div>
+
+                    <div
+                        id="play-the-music"
+                        class="text-center rounded-md bg-rose-600 hover:bg-rose-400 px-4 py-2 text-xl font-semibold text-white duration-500 ease-in-out hover:scale-125 w-40"
+                    >
+                        <a href="/song-select" aria-label="前往播放器">
+                            <span class="text-center">前往播放器</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <hr class="mt-10" />
+            <section class="bg-gray-200">
+                <div
+                    class="max-w-6xl mx-4 md:mx-auto px-4 py-4 text-left relative text-black opacity-60"
+                >
+                    <p id="footnote-1">1. 僅部分歌曲提供。</p>
+                    <p id="footnote-2">
+                        2. 工作人員名單僅供參考，本站並不保證該名單 100%
+                        正確或樂曲之製作必然為工作人員名單所提供的分工。
+                    </p>
+                    <p id="footnote-3">
+                        3. 實際使用情況可能依裝置不同而有所差異。
+                    </p>
+                    <br />
+                    <div>
+                        <p id="music-credit">《再会》由 Vaundy 創作。</p>
+                        <p id="music-credit">
+                            《不虛此行》由 HOYO-MiX、魏晨和 Nea 創作。
+                        </p>
+                        <p id="music-credit">
+                            《希望有羽毛和翅膀》由 HOYO-MiX、Chevy
+                            和知更鳥創作。
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <hr class="mt-2" />
+            <div
+                class="text-center text-base text-zinc-200 pt-4 pb-4 bg-zinc-900"
+            >
+                <div style="font-family: playfair display">
+                    Copyright © 2026 TSL Online 同步開唱&ensp;保留一切權利。
+                </div>
+                <div class="mt-2">網站作者：香榭</div>
+                <!--
+                【&nbsp;】：半角スペースと同じサイズの空白
+                【&thinsp;】：&nbsp;の空白より小さい空白
+                【&ensp;】：半角スペースより間隔がやや広い空白
+                【&emsp;】：全角スペースとほぼ同じサイズの空白 -->
+            </div>
+        </footer>
+        <!-- 導航欄 -->
+    </div>
+</template>
+
+<style scoped>
+/* 添加完整 CSS 确保可见性 */
+body {
+    font-family: system-ui;
+}
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-scroll-trigger {
+    animation: slideUpFadeIn 0.6s ease-out forwards;
+}
+
+input[type="checkbox"]:checked ~ .zoom-in-able {
+    transform: scale(2);
+    cursor: zoom-out;
+}
+</style>
