@@ -20,6 +20,7 @@ pub async fn run() -> Result<(), ServerError> {
             .wrap(cors)
             .service(status::handler)
             .service(artists::artist::handler)
+            .service(artists::list::handler)
             .service(songs::verify::handler)
             .service(songs::list::handler)
             .service(songs::song::handler)
