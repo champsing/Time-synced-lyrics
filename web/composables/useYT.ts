@@ -1,4 +1,4 @@
-import { YOUTUBE_IFRAME_API } from "@/composables/utils/config";
+import { YOUTUBE_IFRAME_API } from "@composables/utils/config";
 import type { Song } from "@/types";
 
 export const initYouTubePlayer = (currentSong: Song, songVersion: string, currentTime: number, songDuration: number, isPaused: boolean) => {

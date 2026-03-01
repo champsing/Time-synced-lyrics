@@ -1,6 +1,6 @@
 import { ref, computed, watch, reactive, type ComputedRef } from "vue";
 import type { Song, SortOption } from "@/types";
-import { IS_DEV, API_BASE_URL } from "@/composables/utils/config";
+import { IS_DEV, API_BASE_URL } from "@composables/utils/config";
 
 export const loadSongList = async () => {
     try {

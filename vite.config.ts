@@ -10,8 +10,8 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": fileURLToPath(new URL("./web", import.meta.url)),
-            "@components/": fileURLToPath(new URL("./web/components", import.meta.url)),
-            "@composables/": fileURLToPath(new URL("./web/composables", import.meta.url)),
+            "@components": fileURLToPath(new URL("./web/components", import.meta.url)),
+            "@composables": fileURLToPath(new URL("./web/composables", import.meta.url)),
         },
     },
 });
