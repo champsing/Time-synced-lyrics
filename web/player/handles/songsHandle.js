@@ -1,4 +1,3 @@
-import { IS_DEV } from "/web/utils/config.js";
 import { API_BASE_URL } from "/web/utils/config.js";
 
 export const loadSongList = async () => {
@@ -27,17 +26,12 @@ export const loadSongData = async (songId) => {
     }
 };
 
-export const getLyricResponse = async (folder, songVersion) => {
+export const getLyricResponse = async (songId, folder, songVersion) => {
     try {
-        const address = () => {
-            if (IS_DEV) {
-                return `/mappings/${folder}/${songVersion}.json`;
-            } else {
-                return `https://raw.githubusercontent.com/champsing/Time-synced-lyrics/master/mappings/${folder}/${songVersion}.json`;
-            }
-        };
-        console.log(`獲取歌詞檔案中...(URL: ${address()})`);
-        const response = await fetch(address());
+        const address = `https://lyric.timesl.online/${songId}_${folder}/${songVersion}.json`;
+        console.log(`獲取歌詞檔案中...(URL: ${address})`);
+
+        const response = await fetch(address);
         if (!response.ok) throw new Error("載入失敗");
         return await response.json();
     } catch (err) {
