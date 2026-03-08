@@ -253,7 +253,11 @@ function main() {
         // development
 
         jsonMappingContent.value = await parseLyrics(
-            await getLyricResponse(song.value.folder, version.value),
+            await getLyricResponse(
+                song.value.song_id,
+                song.value.folder,
+                version.value,
+            ),
             currentSong,
             songDuration.value,
         );
