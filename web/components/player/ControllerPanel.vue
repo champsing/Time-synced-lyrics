@@ -165,6 +165,101 @@
             </div>
         </div>
 
+        <div
+            id="controller-panel"
+            class="p-4 mt-2 bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all"
+        >
+            <!-- 主控制按鈕組 -->
+            <div class="flex items-center justify-between">
+                <!-- 音量控制 (簡化) -->
+                <div class="group relative flex items-center">
+                    <button
+                        @click="emit('toggle-mute')"
+                        class="text-white/60 hover:text-white transition-colors"
+                    >
+                        <span class="material-icons">{{
+                            volume == 0 || isMuted ? "volume_off" : "volume_up"
+                        }}</span>
+                    </button>
+
+                    <div
+                        class="hidden md:flex ml-2 w-0 overflow-hidden group-hover:w-40 transition-all duration-300 ease-out items-center"
+                    >
+                        <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            :value="volume"
+                            class="w-full h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer py-3 mx-2"
+                            @input="
+                                emit(
+                                    'change-volume',
+                                    Number(
+                                        ($event.target as HTMLInputElement)
+                                            .value,
+                                    ),
+                                )
+                            "
+                        />
+                        <span class="p-1">{{ volume || 70 }}</span>
+                    </div>
+                </div>
+
+                <!-- 播放核心按鈕 -->
+                <div class="flex items-center gap-10">
+                    <button
+                        @click="emit('rewind')"
+                        class="text-white/60 hover:text-white transition-all transform active:scale-90"
+                    >
+                        <span class="material-icons text-2xl">replay_10</span>
+                    </button>
+
+                    <button
+                        @click="isPaused ? emit('play') : emit('pause')"
+                        class="w-14 h-14 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 transition-all"
+                    >
+                        <span class="material-icons text-4xl">{{
+                            isPaused ? "play_arrow" : "pause"
+                        }}</span>
+                    </button>
+
+                    <button
+                        @click="emit('forward')"
+                        class="text-white/60 hover:text-white transition-all transform active:scale-90"
+                    >
+                        <span class="material-icons text-2xl">forward_10</span>
+                    </button>
+                </div>
+
+                <!-- 額外功能: 關於 (原本隱藏在設定中，現在可以放在這) -->
+                <button
+                    id="about-btn"
+                    class="text-white/40 hover:text-white/80 transition-colors"
+                >
+                    <span class="material-icons">info</span>
+                </button>
+            </div>
+            <!-- 手機版音量滑桿 -->
+            <div
+                class="flex md:hidden group-hover:w-40 transition-all duration-300 ease-out items-center mt-2"
+            >
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    :value="volume"
+                    class="w-full h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer py-3 mx-2"
+                    @input="
+                        emit(
+                            'change-volume',
+                            Number(($event.target as HTMLInputElement).value),
+                        )
+                    "
+                />
+                <span class="p-1">{{ volume || 70 }}</span>
+            </div>
+        </div>
+
         <!-- 手機收合按鈕 -->
         <div class="md:hidden mt-2 flex justify-center">
             <button
