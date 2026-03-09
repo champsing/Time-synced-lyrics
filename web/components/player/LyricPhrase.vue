@@ -36,7 +36,7 @@
 
 <script setup lang="ts">
 import type { CSSProperties } from "vue";
-import type { LyricPhrase } from "../../types/types";
+import type { LyricPhrase } from "@/types/types";
 
 defineProps<{
     phrase: LyricPhrase;

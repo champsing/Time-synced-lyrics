@@ -112,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Song } from "../../types/types";
+import type { Song } from "@/types/types";
 
 defineProps<{
     isOpen: boolean;

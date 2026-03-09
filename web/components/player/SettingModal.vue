@@ -143,7 +143,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Color } from "../../../types";
+import type { Color } from "@/types/types";
 
 defineProps<{
     isOpen: boolean;
