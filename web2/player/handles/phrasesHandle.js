@@ -77,10 +77,4 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
         };
 };
 
-export const isActivePhrase = (currentTime, line, phraseIndex) => {
-    return (
-        currentTime - line.time > line.delay?.[phraseIndex] &&
-        currentTime - line.time - line.delay?.[phraseIndex] <
-            line.duration?.[phraseIndex]
-    );
-};
+

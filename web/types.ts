@@ -22,8 +22,8 @@ export interface Song {
 
 export interface Translation {
     available: boolean | false;
-    author: string;
-    cite: string;
+    author: string | "";
+    cite?: string;
 }
 
 export interface Album {
@@ -56,20 +56,40 @@ export interface LyricPhrase {
     pncat_forced?: boolean; // 新增此行
 }
 
+export interface LyricLine {
+    time: string;
+    type?: "prelude" | "interlude" | "end";
+    text?: LyricPhrase[];
+    translation?: string;
+    background_voice?: BackgroundVoiceLine; // 新增
+    is_secondary?: boolean;
+    is_together?: boolean;
+}
+
 export interface BackgroundVoiceLine {
     time: string;
     text: LyricPhrase[];
     translation?: string;
 }
 
-export interface LyricLine {
-    time: string;
-    type?: "prelude" | "interlude" | "end" | "normal";
+export interface parsedLyricLine {
+    time: number;
+    type?: "prelude" | "interlude" | "end";
     text?: LyricPhrase[];
+    duration: number[];
+    delay: number[];
     translation?: string;
-    background_voice?: BackgroundVoiceLine; // 新增
+    background_voice?: parsedBackgroundVoiceLine; // 新增
     is_secondary?: boolean;
     is_together?: boolean;
+}
+
+export interface parsedBackgroundVoiceLine {
+    time: number;
+    text: LyricPhrase[];
+    duration: number[];
+    delay: number[];
+    translation?: string;
 }
 
 export type LyricData = LyricLine[];
