@@ -33,23 +33,20 @@
                     :enable-pronounciation="enablePronounciation"
                 />
             </div>
-            <div v-if="line.background_voice" class="background-vocals">
+            <div v-if="bgLine" class="background-vocals">
                 <LyricPhrase
-                    v-for="(bvt, phraseIndex) in line.background_voice.text"
+                    v-for="(bvt, phraseIndex) in bgLine.text"
                     v-if="isCurrent"
                     :key="phraseIndex"
                     :phrase="bvt"
                     :line-index="index"
                     :phrase-index="phraseIndex"
-                    :duration="line.background_voice.duration[phraseIndex]"
-                    :delay="line.background_voice.delay[phraseIndex]"
-                    :style="getBackgroundPhraseStyle(index, phraseIndex)"
+                    :duration="bgLine.duration[phraseIndex] || 0"
+                    :delay="bgLine.delay[phraseIndex] || 0"
+                    :phrase-style="getPhraseStyle(index, phraseIndex)"
                     :is-active="
-                        isActivePhrase(
-                            currentTime,
-                            line.background_voice,
-                            phraseIndex,
-                        ) && index < totalLines - 1
+                        isActivePhrase(currentTime, bgLine, phraseIndex) &&
+                        index < totalLines - 1
                     "
                     :is-kiai="!!bvt.kiai"
                     :enable-pronounciation="enablePronounciation"
@@ -63,24 +60,25 @@
 <script setup lang="ts">
 import type { CSSProperties } from "vue";
 import LyricPhrase from "./LyricPhrase.vue";
-import type { LyricLine } from "@/types";
+import type {
+    parsedBackgroundVoiceLine,
+    parsedLyricLine,
+    ProcessedLine,
+} from "@/types/types";
 
 defineProps<{
-    line: LyricLine;
+    line: ProcessedLine;
+    bgLine?: parsedBackgroundVoiceLine;
     index: number;
     totalLines: number;
     isCurrent: boolean;
-    isDuet: boolean;
+    isDuet?: boolean;
     currentTime: number;
     enablePronounciation: boolean;
     getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
-    getBackgroundPhraseStyle: (
-        lineIndex: number,
-        phraseIndex: number,
-    ) => CSSProperties;
     isActivePhrase: (
         currentTime: number,
-        line: unknown,
+        line: parsedLyricLine | parsedBackgroundVoiceLine,
         phraseIndex: number,
     ) => boolean;
 }>();

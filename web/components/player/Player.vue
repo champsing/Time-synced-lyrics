@@ -20,12 +20,13 @@
                 class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
             >
                 <LyricsContainer
-                    :processed-lines="processedLines"
-                    :current-song="currentSong"
+                    :lines="processedLines"
+                    :song="currentSong"
                     :current-time="currentTime"
                     :enable-lyric-background="enableLyricBackground"
                     :enable-translation="enableTranslation"
                     :enable-pronounciation="enablePronounciation"
+                    :is-active-phrase="isActivePhrase"
                     :is-current-line="isCurrentLine"
                     :get-phrase-style="getPhraseStyle"
                     :get-background-phrase-style="getBackgroundPhraseStyle"
@@ -34,7 +35,7 @@
 
                 <TranslationBar
                     :enable-translation="enableTranslation"
-                    :current-song="currentSong"
+                    :song="currentSong"
                     :translation-text="translationText"
                     :background-translation-text="backgroundTranslationText"
                     :translation-author="translationAuthor"
@@ -56,6 +57,14 @@
                 :THE_FIRST_TAKE="THE_FIRST_TAKE"
                 :LIVE="LIVE"
                 :parse-subtitle="parseSubtitle"
+                :video-i-d="
+                    currentSong.versions.find(
+                        (v: Version) => v.version === songVersion,
+                    )?.id ?? null
+                "
+                @update:current-time="currentTime = $event"
+                @update:is-paused="isPaused = $event"
+                @update:song-duration="songDuration = $event"
                 @play="playVideo"
                 @pause="pauseVideo"
                 @rewind="rewind10Sec"
@@ -73,7 +82,7 @@
                 :scroll-to-current-line="scrollToCurrentLine"
                 :enable-translation="enableTranslation"
                 :enable-pronounciation="enablePronounciation"
-                :furigana-available="currentSong.furigana ?? null"
+                :furigana-available="currentSong.furigana == 1 ? true : false"
                 @close="settingModalOpen = false"
                 @change-bg-color="bodyBackgroundColor = $event"
                 @update:enableLyricBackground="enableLyricBackground = $event"
@@ -109,7 +118,15 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
 // ── Types ────────────────────────────────────────────────────────────────
-import type { Song, LyricData, Color } from "@/types";
+import type {
+    Song,
+    LyricData,
+    Color,
+    SongWithDisplay,
+    Version,
+    ProcessedLine,
+    ParsedLine,
+} from "@/types/types";
 
 // ── Vue 組件 ─────────────────────────────────────────────────────────────
 import LoadingOverlay from "@components/player/LoadingOverlay.vue";
@@ -137,7 +154,17 @@ import {
     PLAYER_VERSION,
     THE_FIRST_TAKE,
     TSL_PLAYER_LINK_BASE,
+    TSL_SUFFIX,
 } from "@/composables/utils/config";
+import {
+    generatePhraseStyle,
+    getDefaultVersion,
+    getLyricResponse,
+    isActivePhrase,
+    loadSongData,
+    parseLyrics,
+} from "@/composables/hooks/useSongs";
+import { useTransation } from "@/composables/hooks/useTranslation";
 
 // ── URL 參數 ─────────────────────────────────────────────────────────────
 const params = new URL(document.URL).searchParams;
@@ -157,7 +184,7 @@ const currentTime = ref(0);
 const songDuration = ref(0);
 const volume = ref<number>(Number(sessionStorage.getItem("volume")) || 70);
 const songVersion = ref<string | null>(null);
-const jsonMappingContent = ref<LyricData | null>(null);
+const jsonMappingContent = ref<LyricData>([] as LyricData);
 const scrollToCurrentLine = ref(true);
 const enableTranslation = ref(true);
 const enablePronounciation = ref(false);
@@ -168,10 +195,6 @@ const isMuted = ref(false);
 const isError = ref(false);
 const errorMessage = ref("");
 
-type SongWithDisplay = Song & {
-    displayArtist?: string;
-    displayLyricist?: string;
-};
 const currentSong = ref<SongWithDisplay | null>(null);
 
 // ── 顏色 ─────────────────────────────────────────────────────────────────
@@ -212,26 +235,11 @@ const currentSongURI = computed(() => {
 // ── 偵錯 ─────────────────────────────────────────────────────────────────
 const debugInfo = DEBUG_INFO;
 
-// ── 歌詞處理型別 ─────────────────────────────────────────────────────────
-// 原始 LyricLine 在 parseLyrics 後已被擴充，這裡用 any intersection 處理
-type ParsedLine = {
-    time: number;
-    duration: number[];
-    delay: number[];
-    text: any[];
-    background_voice?: any;
-    type?: string;
-    is_secondary?: boolean;
-    is_together?: boolean;
-};
-
-type ProcessedLine = ParsedLine & { computedEndTime: number };
-
 // ── processedLines：計算每行結束時間 ─────────────────────────────────────
 const processedLines = computed((): ProcessedLine[] => {
     if (!jsonMappingContent.value) return [];
 
-    return (jsonMappingContent.value as unknown as ParsedLine[]).map((line) => {
+    return (jsonMappingContent.value as ParsedLine[]).map((line) => {
         const mainTotal = line.duration.reduce((a, b) => a + b, 0);
         let maxEnd = line.time + mainTotal;
         const validDuration = mainTotal > 0 ? mainTotal : 3.0;
@@ -280,7 +288,6 @@ const activeLineIndices = computed(() => {
 const isCurrentLine = (index: number) =>
     activeLineIndices.value.includes(index);
 
-// 相容舊邏輯：取最後一個活躍行作為「當前行」（用於滾動）
 const currentLineIndex = computed(() => {
     const arr = activeLineIndices.value;
     return arr.length === 0 ? -1 : arr[arr.length - 1];
@@ -288,7 +295,15 @@ const currentLineIndex = computed(() => {
 
 // ── 翻譯 ─────────────────────────────────────────────────────────────────
 const { translationText, backgroundTranslationText, translationAuthor } =
-    useTransation(currentSong, jsonMappingContent, activeLineIndices);
+    useTransation(
+        currentSong.value,
+        jsonMappingContent.value,
+        activeLineIndices.value,
+    ) || {
+        translationText: computed(() => ""),
+        backgroundTranslationText: computed(() => ""),
+        translationAuthor: computed(() => ""),
+    };
 
 // ── 短語樣式 ─────────────────────────────────────────────────────────────
 const getPhraseStyle = (lineIndex: number, phraseIndex: number) => {
@@ -358,14 +373,14 @@ const jumpToCurrentLine = (index: number) => {
 // ── 歌詞載入 ─────────────────────────────────────────────────────────────
 async function loadSongLyric() {
     if (!currentSong.value || !songVersion.value) return;
-    document.title = currentSong.value.title + MERCURY_TSL;
+    document.title = currentSong.value.title + TSL_SUFFIX;
     jsonMappingContent.value = await parseLyrics(
         await getLyricResponse(
             currentSong.value.song_id,
             currentSong.value.folder,
             songVersion.value,
         ),
-        currentSong,
+        currentSong.value,
         songDuration.value,
     );
 }
@@ -381,38 +396,11 @@ async function setup() {
 
         songVersion.value = versionRequest || getDefaultVersion(song);
 
-        // YouTube 播放器
-        const ytInstance = initYouTubePlayer({
-            currentSong,
-            songVersion,
-            currentTime,
-            songDuration,
-            isPaused,
-        });
-        await ytInstance.init();
+        // YouTube 播放器現在由 YTPlayer.vue 組件自行初始化，這裡不再需要 initYouTubePlayer
 
         await loadSongLyric();
 
         isLoading.value = false;
-
-        // 初始化面板收合邏輯（保留原有 DOM 事件模組）
-        initControllerPanel();
-
-        // 綁定 Modal 開關（用 Vue ref 取代 initXxxModal）
-        document
-            .getElementById("setting-btn")
-            ?.addEventListener("click", () => {
-                settingModalOpen.value = true;
-            });
-        document.getElementById("credit-btn")?.addEventListener("click", () => {
-            creditModalOpen.value = true;
-        });
-        document.getElementById("share-btn")?.addEventListener("click", () => {
-            shareModalOpen.value = true;
-        });
-        document.getElementById("about-btn")?.addEventListener("click", () => {
-            aboutModalOpen.value = true;
-        });
     } catch (err: unknown) {
         isLoading.value = false;
         isError.value = true;

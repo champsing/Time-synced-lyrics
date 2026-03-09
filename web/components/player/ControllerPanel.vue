@@ -1,6 +1,6 @@
 <template>
     <section
-        class="fixed bottom-0 right-0 w-full md:w-[400px] p-4 md:pl-0 z-50 transition-all duration-300"
+        class="fixed bottom-0 right-0 w-full md:w-100 p-4 md:pl-0 z-50 transition-all duration-300"
     >
         <!-- 桌面收合按鈕 -->
         <div class="hidden md:flex justify-end mb-2">
@@ -22,58 +22,72 @@
             id="controller-panel"
             class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all"
         >
-            <!-- 歌曲資訊 -->
+            <!-- 歌曲資訊區塊 -->
             <div class="p-5 pb-1 flex flex-col gap-4">
                 <div class="flex items-start justify-between">
                     <div class="flex-1 min-w-0">
-                        <!-- 標題 + 版本徽章（手機） -->
-                        <div class="flex items-center gap-2">
+                        <div class="flex gap-2">
                             <h2
                                 class="text-white text-xl md:text-2xl font-bold truncate tracking-tight"
                             >
                                 {{ currentSong.title || currentSong.folder }}
                             </h2>
+                            <!-- 版本徽章區 -->
                             <div
                                 v-if="songVersion !== ORIGINAL"
-                                class="md:hidden flex flex-wrap gap-1"
+                                class="md:hidden flex flex-wrap gap-2"
                             >
                                 <span
-                                    v-if="songVersion === INSTRUMENTAL"
+                                    v-if="songVersion == INSTRUMENTAL"
                                     class="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded-md border border-cyan-500/30 uppercase tracking-wider"
                                     >Instrumental</span
                                 >
                                 <span
-                                    v-if="songVersion === THE_FIRST_TAKE"
-                                    class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-md border border-red-500/30 uppercase tracking-wider"
-                                    >THE FIRST TAKE</span
+                                    v-if="songVersion == THE_FIRST_TAKE"
+                                    class="px-2 py-0.5 bg-white/10 text-white text-[10px] font-bold rounded-md border border-white/20 uppercase tracking-wider"
+                                    >The First Take</span
                                 >
                                 <span
-                                    v-if="songVersion === LIVE"
-                                    class="px-2 py-0.5 bg-purple-500/20 text-purple-400 text-[10px] font-bold rounded-md border border-purple-500/30 uppercase tracking-wider"
-                                    >LIVE</span
+                                    v-if="songVersion == LIVE"
+                                    class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-md border border-rose-500/30 uppercase tracking-wider"
+                                    >Live</span
                                 >
                             </div>
                         </div>
-                        <p class="text-white/60 text-sm mt-0.5 truncate">
-                            {{
-                                currentSong.displayArtist || currentSong.artist
-                            }}
-                        </p>
+
+                        <div class="flex items-center gap-2 mt-1">
+                            <button
+                                v-if="currentSong.credits"
+                                id="credit-btn"
+                                class="text-white/60 hover:text-white text-sm transition-colors truncate underline underline-offset-4 md:no-underline"
+                            >
+                                {{ currentSong.displayArtist || "未知藝人" }}
+                            </button>
+                            <span
+                                v-else
+                                class="text-white/40 text-sm truncate underline underline-offset-4 md:no-underline"
+                                >{{
+                                    currentSong.displayArtist || "未知藝人"
+                                }}</span
+                            >
+                            <span class="text-white/20 text-xs">•</span>
+                            <span class="text-white/40 text-xs truncate">{{
+                                currentSong.album?.name || "單曲"
+                            }}</span>
+                        </div>
                     </div>
 
-                    <!-- 分享 + 設定 -->
-                    <div class="flex items-center ml-2">
+                    <!-- 快速動作按鈕 -->
+                    <div class="flex gap-1 ml-2">
                         <button
                             id="share-btn"
                             class="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                            aria-label="分享"
                         >
                             <span class="material-icons text-xl">share</span>
                         </button>
                         <button
                             id="setting-btn"
                             class="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                            aria-label="設定"
                         >
                             <span class="material-icons text-xl">settings</span>
                         </button>
@@ -87,174 +101,67 @@
                 >
                     {{ parseSubtitle(currentSong.subtitle) }}
                 </p>
+
+                <!-- YT Player：有 videoID 才渲染 -->
+                <YTPlayer
+                    v-if="videoID"
+                    :video-id="videoID"
+                    :current-song="currentSong"
+                    :song-version="songVersion"
+                    @update:current-time="emit('update:currentTime', $event)"
+                    @update:is-paused="emit('update:isPaused', $event)"
+                    @update:song-duration="emit('update:songDuration', $event)"
+                />
             </div>
 
-            <!-- 播放控制 -->
-            <div class="px-5 pb-4 flex flex-col gap-4">
-                <!-- YouTube iframe + 時間列 -->
+            <!-- 播放控制區 -->
+            <div class="px-5 pb-4 flex flex-col gap-5">
+                <!-- 進度條與時間 -->
                 <div class="flex flex-col gap-2">
-                    <div
-                        id="player"
-                        class="w-0 h-0 md:w-full md:h-full bg-white/10 rounded-3xl relative group cursor-pointer"
-                    />
-                    <!-- 桌面版時間 + 版本徽章 -->
                     <div
                         class="hidden md:flex justify-between items-center px-1"
                     >
                         <span
                             class="text-[10px] font-mono text-white/40 tracking-tighter"
+                            >{{ formattedCurrentTime }}</span
                         >
-                            {{ formattedCurrentTime }}
-                        </span>
+                        <!-- 版本徽章區 -->
                         <div
                             v-if="songVersion !== ORIGINAL"
-                            class="flex flex-wrap gap-1"
+                            class="flex flex-wrap gap-2"
                         >
                             <span
-                                v-if="songVersion === INSTRUMENTAL"
+                                v-if="songVersion == INSTRUMENTAL"
                                 class="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold rounded-md border border-cyan-500/30 uppercase tracking-wider"
                                 >Instrumental</span
                             >
                             <span
-                                v-if="songVersion === THE_FIRST_TAKE"
-                                class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-md border border-red-500/30 uppercase tracking-wider"
-                                >THE FIRST TAKE</span
+                                v-if="songVersion == THE_FIRST_TAKE"
+                                class="px-2 py-0.5 bg-white/10 text-white text-[10px] font-bold rounded-md border border-white/20 uppercase tracking-wider"
+                                >The First Take</span
                             >
                             <span
-                                v-if="songVersion === LIVE"
-                                class="px-2 py-0.5 bg-purple-500/20 text-purple-400 text-[10px] font-bold rounded-md border border-purple-500/30 uppercase tracking-wider"
-                                >LIVE</span
+                                v-if="songVersion == LIVE"
+                                class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-md border border-rose-500/30 uppercase tracking-wider"
+                                >Live</span
                             >
                         </div>
                         <span
                             class="text-[10px] font-mono text-white/40 tracking-tighter"
+                            >{{ formattedSongDuration }}</span
                         >
+                    </div>
+                    <div
+                        class="md:hidden flex justify-between items-center px-1"
+                    >
+                        <span
+                            class="text-[10px] font-mono text-white/40 tracking-tighter"
+                        >
+                            {{ formattedCurrentTime }} /
                             {{ formattedSongDuration }}
                         </span>
                     </div>
                 </div>
-
-                <!-- 主按鈕列 -->
-                <div class="flex items-center justify-between">
-                    <!-- 音量（hover 展開滑桿） -->
-                    <div class="group relative flex items-center gap-1">
-                        <button
-                            class="text-white/60 hover:text-white transition-colors"
-                            aria-label="靜音切換"
-                            @click="emit('toggle-mute')"
-                        >
-                            <span class="material-icons">
-                                {{
-                                    volume === 0 || isMuted
-                                        ? "volume_off"
-                                        : "volume_up"
-                                }}
-                            </span>
-                        </button>
-                        <div
-                            class="hidden md:flex w-0 group-hover:w-36 overflow-hidden transition-all duration-300 ease-out items-center"
-                        >
-                            <input
-                                type="range"
-                                min="0"
-                                max="100"
-                                :value="volume"
-                                class="w-full h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer py-3 mx-2"
-                                @input="
-                                    emit(
-                                        'change-volume',
-                                        Number(
-                                            ($event.target as HTMLInputElement)
-                                                .value,
-                                        ),
-                                    )
-                                "
-                            />
-                            <span class="text-white/60 text-xs">{{
-                                volume
-                            }}</span>
-                        </div>
-                    </div>
-
-                    <!-- 播放核心三鍵 -->
-                    <div class="flex items-center gap-6">
-                        <button
-                            class="text-white/60 hover:text-white transition-all active:scale-90"
-                            aria-label="倒退 10 秒"
-                            @click="emit('rewind')"
-                        >
-                            <span class="material-icons text-2xl"
-                                >replay_10</span
-                            >
-                        </button>
-
-                        <button
-                            class="w-14 h-14 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 transition-all"
-                            :aria-label="isPaused ? '播放' : '暫停'"
-                            @click="isPaused ? emit('play') : emit('pause')"
-                        >
-                            <span class="material-icons text-4xl">
-                                {{ isPaused ? "play_arrow" : "pause" }}
-                            </span>
-                        </button>
-
-                        <button
-                            class="text-white/60 hover:text-white transition-all active:scale-90"
-                            aria-label="快進 10 秒"
-                            @click="emit('forward')"
-                        >
-                            <span class="material-icons text-2xl"
-                                >forward_10</span
-                            >
-                        </button>
-                    </div>
-
-                    <!-- 關於按鈕 -->
-                    <button
-                        id="about-btn"
-                        class="text-white/40 hover:text-white/80 transition-colors"
-                        aria-label="關於"
-                    >
-                        <span class="material-icons">info</span>
-                    </button>
-                </div>
-
-                <!-- 手機版音量滑桿 -->
-                <div class="flex md:hidden items-center gap-2">
-                    <span class="material-icons text-white/60 text-sm">
-                        {{
-                            volume === 0 || isMuted ? "volume_off" : "volume_up"
-                        }}
-                    </span>
-                    <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        :value="volume"
-                        class="flex-1 h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer py-3"
-                        @input="
-                            emit(
-                                'change-volume',
-                                Number(
-                                    ($event.target as HTMLInputElement).value,
-                                ),
-                            )
-                        "
-                    />
-                    <span class="text-white/60 text-xs w-6 text-right">{{
-                        volume
-                    }}</span>
-                </div>
-            </div>
-
-            <!-- 工作人員名單連結 -->
-            <div class="px-5 pb-4 flex justify-center">
-                <button
-                    id="credit-btn"
-                    class="text-white/40 hover:text-white/70 text-xs transition-colors"
-                >
-                    工作人員名單
-                </button>
             </div>
         </div>
 
@@ -280,11 +187,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Song } from "../../../types";
+import type { Song } from "@/types/types";
+import YTPlayer from "./YTPlayer.vue";
 
 defineProps<{
     currentSong: Song & { displayArtist?: string };
     songVersion: string | null;
+    videoID: string | null; // 新增：由父層從 currentSong.versions 解析後傳入
     isPaused: boolean;
     isMuted: boolean;
     volume: number;
@@ -304,5 +213,9 @@ const emit = defineEmits<{
     (e: "forward"): void;
     (e: "toggle-mute"): void;
     (e: "change-volume", value: number): void;
+    // 新增：從 YTPlayer 往上透傳
+    (e: "update:currentTime", value: number): void;
+    (e: "update:isPaused", value: boolean): void;
+    (e: "update:songDuration", value: number): void;
 }>();
 </script>

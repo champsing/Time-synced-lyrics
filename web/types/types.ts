@@ -1,7 +1,7 @@
 export interface Song {
     song_id: number;
-    available: boolean;
-    hidden: boolean;
+    available: number;
+    hidden: number;
     folder: string | "";
     art: string;
     artist: string;
@@ -10,20 +10,19 @@ export interface Song {
     subtitle: string;
     album: Album | null;
     versions: Version[];
-    is_duet: boolean;
-    furigana: boolean | null;
+    is_duet: number;
+    furigana: number | null;
     translation: Translation;
     updated_at: string;
     lang: string;
     credits: Credits;
-    display_artist?: string;
-    display_lyricist?: string;
 }
 
 export interface Translation {
-    available: boolean | false;
+    available: number | false;
     author: string | "";
     cite?: string;
+    modified?: number | false;
 }
 
 export interface Album {
@@ -44,7 +43,7 @@ export interface Contributor {
 export interface Version {
     default?: boolean;
     version: string;
-    link: string;
+    id: string;
     duration: string;
 }
 
@@ -92,7 +91,27 @@ export interface parsedBackgroundVoiceLine {
     translation?: string;
 }
 
-export type LyricData = LyricLine[];
+export type RawLyricData = LyricLine[];
+export type LyricData = parsedLyricLine[];
+
+// ── 歌詞處理型別 ─────────────────────────────────────────────────────────
+
+export type ParsedLine = {
+    time: number;
+    duration: number[];
+    delay: number[];
+    text: any[];
+    background_voice?: any;
+    type?: string;
+    is_secondary?: boolean;
+    is_together?: boolean;
+};
+export type ProcessedLine = ParsedLine & { computedEndTime: number };
+
+export type SongWithDisplay = Song & {
+    displayArtist?: string;
+    displayLyricist?: string;
+};
 
 export interface Color {
     color: string;

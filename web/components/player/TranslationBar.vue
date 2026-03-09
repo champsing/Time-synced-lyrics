@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Song } from "@/types";
+import type { Song } from "@/types/types";
 defineProps<{
     enableTranslation: boolean;
     song: Song;

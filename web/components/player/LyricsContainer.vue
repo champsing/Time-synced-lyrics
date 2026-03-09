@@ -12,14 +12,15 @@
                 v-for="(line, index) in lines"
                 :key="index"
                 :line="line"
+                :bg-line="line.background_voice"
                 :index="index"
                 :total-lines="lines.length"
                 :is-current="isCurrentLine(index)"
-                :is-duet="song.is_duet"
+                :is-duet="isDuet"
                 :current-time="currentTime"
                 :enable-pronounciation="enablePronounciation"
                 :get-phrase-style="getPhraseStyle"
-                :get-background-phrase-style="getBackgroundPhraseStyle"
+                :get-background-phrase-style="getPhraseStyle"
                 :is-active-phrase="isActivePhrase"
                 @jump="$emit('jump', $event)"
             />
@@ -39,12 +40,17 @@
 </template>
 
 <script setup lang="ts">
-import type { CSSProperties } from "vue";
-import type { Song } from "@/types";
+import { computed, type CSSProperties } from "vue";
+import type {
+    parsedBackgroundVoiceLine,
+    parsedLyricLine,
+    ProcessedLine,
+    Song,
+} from "@/types/types";
 import LyricLine from "./LyricLine.vue";
 
-defineProps<{
-    lines: any[];
+const props = defineProps<{
+    lines: ProcessedLine[];
     song: Song;
     currentTime: number;
     enablePronounciation: boolean;
@@ -58,9 +64,10 @@ defineProps<{
     ) => CSSProperties;
     isActivePhrase: (
         currentTime: number,
-        line: unknown,
+        line: parsedLyricLine | parsedBackgroundVoiceLine,
         phraseIndex: number,
     ) => boolean;
 }>();
 defineEmits<{ (e: "jump", index: number): void }>();
+const isDuet = computed(() => props.song.is_duet === 1);
 </script>

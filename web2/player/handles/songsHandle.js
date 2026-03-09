@@ -41,5 +41,4 @@ export const getLyricResponse = async (songId, folder, songVersion) => {
     }
 };
 
-export const getDefaultVersion = (currentSong) =>
-    currentSong.value.versions.find((v) => v.default === true).version;
+

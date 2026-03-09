@@ -9,7 +9,7 @@ use actix_web::{App, HttpServer};
 pub async fn run() -> Result<(), ServerError> {
     HttpServer::new(|| {
         let cors = Cors::default()
-            .allowed_origin("http://localhost:5200")
+            .allowed_origin("http://localhost:5173")
             .allowed_origin("https://timesl.online")
             .allowed_origin("https://www.timesl.online")
             .allowed_origin("https://edit.timesl.online")

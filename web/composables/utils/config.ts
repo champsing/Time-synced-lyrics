@@ -13,10 +13,9 @@ export const TSL_PLAYER_LINK_BASE = "https://timesl.online/player/";
 export const IS_DEV =
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1";
-
 export const API_BASE_URL = IS_DEV
-    ? "http://localhost:8000"
-    : "https://api.timesl.online";
+    ? "http://localhost:8000/api"
+    : "https://api.timesl.online/api";
 
 export const TSL_SUFFIX = " - 同步開唱";
 export const ORIGINAL = "original";
