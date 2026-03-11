@@ -1,4 +1,6 @@
+pub mod admin;
 pub mod artists;
+pub mod auth;
 pub mod songs;
 pub mod status;
 
@@ -24,6 +26,10 @@ pub async fn run() -> Result<(), ServerError> {
             .service(songs::verify::handler)
             .service(songs::list::handler)
             .service(songs::song::handler)
+            .service(auth::github::login_handler)
+            .service(auth::github::callback_handler)
+            .service(admin::update_lyrics::handler)
+            .service(admin::update_song::handler)
     })
     .bind(("0.0.0.0", 8000))?
     .run()

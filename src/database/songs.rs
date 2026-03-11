@@ -75,3 +75,61 @@ pub fn find_song_by_id(song_id: i32) -> Result<Value, ServerError> {
 
     Ok(Value::Object(song_map))
 }
+
+use crate::webpage::admin::update_song::UpdateSongRequest;
+
+pub fn update_song(req: UpdateSongRequest) -> Result<(), ServerError> {
+    let conn = get_connection()?;
+
+    // 動態建構 SET 子句
+    let mut sets: Vec<String> = vec![];
+    let mut params: Vec<Box<dyn rusqlite::ToSql>> = vec![];
+
+    macro_rules! push_field {
+        ($field:expr, $col:expr) => {
+            if let Some(v) = $field {
+                sets.push(format!("{} = ?", $col));
+                params.push(Box::new(v));
+            }
+        };
+        (json $field:expr, $col:expr) => {
+            if let Some(v) = $field {
+                let s =
+                    serde_json::to_string(&v).map_err(|e| ServerError::Internal(e.to_string()))?;
+                sets.push(format!("{} = ?", $col));
+                params.push(Box::new(s));
+            }
+        };
+    }
+
+    push_field!(req.title, "title");
+    push_field!(req.subtitle, "subtitle");
+    push_field!(req.artist, "artist");
+    push_field!(req.lyricist, "lyricist");
+    push_field!(req.lang, "lang");
+    push_field!(req.available.map(|b| b as i32), "available");
+    push_field!(req.hidden.map(|b| b as i32), "hidden");
+    push_field!(req.is_duet.map(|b| b as i32), "is_duet");
+    push_field!(req.furigana.map(|b| b as i32), "furigana");
+    push_field!(req.folder, "folder");
+    push_field!(req.art, "art");
+    push_field!(json req.album, "album");
+    push_field!(json req.versions, "versions");
+    push_field!(json req.translation, "translation");
+    push_field!(json req.credits, "credits");
+
+    // 永遠更新 updated_at
+    sets.push("updated_at = CURRENT_DATE".to_string());
+
+    if sets.is_empty() {
+        return Ok(()); // 沒有欄位要更新
+    }
+
+    let sql = format!("UPDATE songs SET {} WHERE song_id = ?", sets.join(", "));
+    params.push(Box::new(req.song_id));
+
+    let refs: Vec<&dyn rusqlite::ToSql> = params.iter().map(|b| b.as_ref()).collect();
+    conn.execute(&sql, refs.as_slice())?;
+
+    Ok(())
+}
