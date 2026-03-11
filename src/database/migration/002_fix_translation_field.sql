@@ -1,7 +1,7 @@
-DROP TABLE songs;
+DROP TABLE song;
 
 CREATE TABLE
-    songs (
+    song (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         song_id INTEGER UNIQUE NOT NULL,
         available BOOLEAN NOT NULL,
@@ -23,6 +23,6 @@ CREATE TABLE
         credits JSON NOT NULL DEFAULT `[]`
     );
 
-CREATE INDEX idx_song_id ON songs (song_id);
+CREATE INDEX idx_song_id ON song (song_id);
 
-CREATE INDEX idx_title ON songs (title);
+CREATE INDEX idx_title ON song (title);

@@ -13,19 +13,44 @@ pub struct Song {
     pub available: bool,
     pub hidden: Option<bool>,
     pub folder: String,
-    pub art: Option<String>,
+    pub art: String,
     pub artist: String,
-    pub lyricist: Option<String>,
+    pub lyricist: String,
     pub title: String,
     pub subtitle: Option<String>,
     pub album: Value,
     pub versions: Value,
     pub is_duet: bool,
-    pub furigana: bool,
+    pub furigana: Option<bool>,
     pub translation: Value,
     pub updated_at: NaiveDate,
     pub lang: String,
     pub credits: Value,
+}
+
+fn get_bool(row: &Row<'_>, col: &str) -> Result<bool, rusqlite::Error> {
+    Ok(match row.get::<_, rusqlite::types::Value>(col)? {
+        rusqlite::types::Value::Integer(n) => n != 0,
+        rusqlite::types::Value::Text(s) => s == "1",
+        _ => false,
+    })
+}
+
+fn get_bool_option(row: &Row<'_>, col: &str) -> Result<Option<bool>, rusqlite::Error> {
+    Ok(match row.get::<_, rusqlite::types::Value>(col)? {
+        rusqlite::types::Value::Integer(1) => Some(true),
+        rusqlite::types::Value::Integer(0) => Some(false),
+        rusqlite::types::Value::Text(s) if s == "1" => Some(true),
+        rusqlite::types::Value::Text(s) if s == "0" => Some(false),
+        _ => None,
+    })
+}
+
+fn get_string_option(row: &Row<'_>, col: &str) -> Result<Option<String>, rusqlite::Error> {
+    Ok(match row.get::<_, rusqlite::types::Value>(col)? {
+        rusqlite::types::Value::Text(s) if s != "NULL" => Some(s),
+        _ => None,
+    })
 }
 
 impl TryFrom<&Row<'_>> for Song {
@@ -50,20 +75,18 @@ impl TryFrom<&Row<'_>> for Song {
 
         Ok(Self {
             song_id: row.get(SongIden::SongId.as_str())?,
-            available: row.get::<_, i64>(SongIden::Available.as_str())? != 0,
-            hidden: row
-                .get::<_, Option<i64>>(SongIden::Hidden.as_str())?
-                .map(|n| n != 0),
+            available: get_bool(row, SongIden::Available.as_str())?,
+            hidden: get_bool_option(row, SongIden::Hidden.as_str())?,
             folder: row.get(SongIden::Folder.as_str())?,
             art: row.get(SongIden::Art.as_str())?,
             artist: row.get(SongIden::Artist.as_str())?,
             lyricist: row.get(SongIden::Lyricist.as_str())?,
             title: row.get(SongIden::Title.as_str())?,
-            subtitle: row.get(SongIden::Subtitle.as_str())?,
+            subtitle: get_string_option(row, SongIden::Subtitle.as_str())?,
             album: get_json(row, SongIden::Album.as_str())?,
             versions: get_json(row, SongIden::Versions.as_str())?,
-            is_duet: row.get::<_, i64>(SongIden::IsDuet.as_str())? != 0,
-            furigana: row.get::<_, i64>(SongIden::Furigana.as_str())? != 0,
+            is_duet: get_bool(row, SongIden::IsDuet.as_str())?,
+            furigana: get_bool_option(row, SongIden::Furigana.as_str())?,
             translation: get_json(row, SongIden::Translation.as_str())?,
             updated_at,
             lang: row.get(SongIden::Lang.as_str())?,
@@ -78,20 +101,8 @@ impl Song {
         let conn = get_connection()?;
         let tran = conn.unchecked_transaction()?;
 
-        let (query, values) = Query::select()
-            .columns([
-                SongIden::SongId,
-                SongIden::Available,
-                SongIden::Hidden,
-                SongIden::Title,
-                SongIden::Art,
-                SongIden::Album,
-                SongIden::Artist,
-                SongIden::UpdatedAt,
-                SongIden::Lang,
-            ])
-            .from(SongIden::Table)
-            .build_rusqlite(SqliteQueryBuilder);
+        let (query, values) =
+            Song::select_all_columns(&mut Query::select()).build_rusqlite(SqliteQueryBuilder);
 
         let mut stmt = tran.prepare(&query)?;
         let songs = stmt
@@ -106,27 +117,7 @@ impl Song {
         let conn = get_connection()?;
         let tran = conn.unchecked_transaction()?;
 
-        let (query, values) = Query::select()
-            .columns([
-                SongIden::SongId,
-                SongIden::Available,
-                SongIden::Hidden,
-                SongIden::Folder,
-                SongIden::Art,
-                SongIden::Artist,
-                SongIden::Lyricist,
-                SongIden::Title,
-                SongIden::Subtitle,
-                SongIden::Album,
-                SongIden::Versions,
-                SongIden::IsDuet,
-                SongIden::Furigana,
-                SongIden::Translation,
-                SongIden::UpdatedAt,
-                SongIden::Lang,
-                SongIden::Credits,
-            ])
-            .from(SongIden::Table)
+        let (query, values) = Song::select_all_columns(&mut Query::select())
             .and_where(Expr::col(SongIden::SongId).eq(song_id))
             .build_rusqlite(SqliteQueryBuilder);
 
@@ -159,7 +150,7 @@ impl Song {
                     to_string(&self.versions).unwrap_or_default().into(),
                 ),
                 (SongIden::IsDuet, (self.is_duet as i64).into()),
-                (SongIden::Furigana, (self.furigana as i64).into()),
+                (SongIden::Furigana, self.furigana.map(|b| b as i64).into()),
                 (
                     SongIden::Translation,
                     to_string(&self.translation).unwrap_or_default().into(),
@@ -179,6 +170,33 @@ impl Song {
 
         let affected = tran.execute(&query, &*values.as_params())?;
         Ok(affected)
+    }
+
+    // 調出所有欄位
+    pub fn select_all_columns(
+        query: &mut sea_query::SelectStatement,
+    ) -> &mut sea_query::SelectStatement {
+        query
+            .columns([
+                SongIden::SongId,
+                SongIden::Available,
+                SongIden::Hidden,
+                SongIden::Folder,
+                SongIden::Art,
+                SongIden::Artist,
+                SongIden::Lyricist,
+                SongIden::Title,
+                SongIden::Subtitle,
+                SongIden::Album,
+                SongIden::Versions,
+                SongIden::IsDuet,
+                SongIden::Furigana,
+                SongIden::Translation,
+                SongIden::UpdatedAt,
+                SongIden::Lang,
+                SongIden::Credits,
+            ])
+            .from(SongIden::Table)
     }
 
     /// 序列化為列表摘要 JSON（附簽名）

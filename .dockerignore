@@ -1,7 +1,9 @@
 # Rust 相關
-target/
+target
 .git
 .env
+data
 
 # 資料庫與密鑰
 *.db
+keys

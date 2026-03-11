@@ -2,7 +2,7 @@ DROP INDEX IF EXISTS idx_song_id;
 DROP INDEX IF EXISTS idx_title;
 
 CREATE TABLE
-    songs2 (
+    song2 (
         song_id INTEGER UNIQUE PRIMARY KEY NOT NULL,
         available BOOLEAN NOT NULL,
         `hidden` BOOLEAN,
@@ -23,12 +23,12 @@ CREATE TABLE
         credits JSON NOT NULL DEFAULT `[]`
     );
 
-CREATE INDEX idx_song_id ON songs2 (song_id);
+CREATE INDEX idx_song_id ON song2 (song_id);
 
-CREATE INDEX idx_title ON songs2 (title);
+CREATE INDEX idx_title ON song2 (title);
 
 INSERT INTO
-    songs2 (
+    song2 (
         song_id,
         available,
         hidden,
@@ -66,7 +66,7 @@ SELECT
     lang,
     credits
 FROM
-    songs;
+    song;
 
-DROP TABLE songs;
-ALTER TABLE songs2 RENAME TO songs;
+DROP TABLE song;
+ALTER TABLE song2 RENAME TO song;
