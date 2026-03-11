@@ -20,6 +20,7 @@ logs
 *.sqlite3
 target
 data
+.cargo
 
 # docker映像
 tsl.tar

@@ -28,6 +28,24 @@ pub struct Song {
     pub credits: Value,
 }
 
+fn get_bool(row: &Row<'_>, col: &str) -> Result<bool, rusqlite::Error> {
+    Ok(match row.get::<_, rusqlite::types::Value>(col)? {
+        rusqlite::types::Value::Integer(n) => n != 0,
+        rusqlite::types::Value::Text(s) => s == "1",
+        _ => false,
+    })
+}
+
+fn get_bool_option(row: &Row<'_>, col: &str) -> Result<Option<bool>, rusqlite::Error> {
+    Ok(match row.get::<_, rusqlite::types::Value>(col)? {
+        rusqlite::types::Value::Integer(1) => Some(true),
+        rusqlite::types::Value::Integer(0) => Some(false),
+        rusqlite::types::Value::Text(s) if s == "1" => Some(true),
+        rusqlite::types::Value::Text(s) if s == "0" => Some(false),
+        _ => None,
+    })
+}
+
 impl TryFrom<&Row<'_>> for Song {
     type Error = rusqlite::Error;
 
@@ -50,12 +68,8 @@ impl TryFrom<&Row<'_>> for Song {
 
         Ok(Self {
             song_id: row.get(SongIden::SongId.as_str())?,
-            available: row.get::<_, i64>(SongIden::Available.as_str())? != 0,
-            hidden: match row.get::<_, Option<String>>(SongIden::Hidden.as_str())? {
-                Some(s) if s == "1" => Some(true),
-                Some(s) if s == "0" => Some(false),
-                _ => None,
-            },
+            available: get_bool(row, SongIden::Available.as_str())?,
+            hidden: get_bool_option(row, SongIden::Hidden.as_str())?,
             folder: row.get(SongIden::Folder.as_str())?,
             art: row.get(SongIden::Art.as_str())?,
             artist: row.get(SongIden::Artist.as_str())?,
@@ -64,12 +78,8 @@ impl TryFrom<&Row<'_>> for Song {
             subtitle: row.get(SongIden::Subtitle.as_str())?,
             album: get_json(row, SongIden::Album.as_str())?,
             versions: get_json(row, SongIden::Versions.as_str())?,
-            is_duet: row.get::<_, i64>(SongIden::IsDuet.as_str())? != 0,
-            furigana: match row.get::<_, Option<String>>(SongIden::Furigana.as_str())? {
-                Some(s) if s == "1" => Some(true),
-                Some(s) if s == "0" => Some(false),
-                _ => None,
-            },
+            is_duet: get_bool(row, SongIden::IsDuet.as_str())?,
+            furigana: get_bool_option(row, SongIden::Furigana.as_str())?,
             translation: get_json(row, SongIden::Translation.as_str())?,
             updated_at,
             lang: row.get(SongIden::Lang.as_str())?,
@@ -133,7 +143,7 @@ impl Song {
                     to_string(&self.versions).unwrap_or_default().into(),
                 ),
                 (SongIden::IsDuet, (self.is_duet as i64).into()),
-                (SongIden::Furigana, (self.furigana.map(|b| b as i64)).into()),
+                (SongIden::Furigana, self.furigana.map(|b| b as i64).into()),
                 (
                     SongIden::Translation,
                     to_string(&self.translation).unwrap_or_default().into(),
