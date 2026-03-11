@@ -1,77 +1,128 @@
-use crate::database::get_connection;
-use crate::error::ServerError;
-use crate::utils::decode_bytes_with_japanese;
-use rusqlite::types::ValueRef;
-use rusqlite::{Error as SqliteError, Row};
-use serde_json::{Map, Value};
-use std::collections::HashMap;
+use crate::{database::get_connection, error::ServerError};
+use chrono::NaiveDate;
+use rusqlite::{Row, Transaction, types::Type};
+use sea_query::{Expr, IdenStatic, Query, SqliteQueryBuilder, enum_def};
+use sea_query_rusqlite::RusqliteBinder;
+use serde::{Deserialize, Serialize};
 
-// 通用的 Row 轉 JSON 函數
-fn row_to_json(row: &Row, column_names: &[String]) -> Result<Value, SqliteError> {
-    let mut map = Map::new();
-    for (i, name) in column_names.iter().enumerate() {
-        let val = match row.get_ref_unwrap(i) {
-            ValueRef::Null => Value::Null,
-            ValueRef::Integer(n) => serde_json::json!(n),
-            ValueRef::Real(f) => serde_json::json!(f),
-            ValueRef::Text(t) => {
-                let s = std::str::from_utf8(t).unwrap_or("").to_string();
-                Value::String(s)
-            }
-            ValueRef::Blob(b) => Value::String(decode_bytes_with_japanese(b)),
-        };
-        map.insert(name.clone(), val);
-    }
-    Ok(Value::Object(map))
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[enum_def]
+pub struct Artist {
+    pub artist_id: i64,
+    pub romaji_name: String,
+    pub original_name: String,
+    pub created_at: NaiveDate,
 }
 
-pub fn find_artists_by_ids(artist_ids: Vec<i64>) -> Result<HashMap<i64, Value>, ServerError> {
-    if artist_ids.is_empty() {
-        return Ok(HashMap::new());
+impl TryFrom<&Row<'_>> for Artist {
+    type Error = rusqlite::Error;
+
+    fn try_from(row: &Row<'_>) -> Result<Self, Self::Error> {
+        let date_str: String = row.get(ArtistIden::CreatedAt.as_str())?;
+        let created_at = NaiveDate::parse_from_str(&date_str, "%Y-%m-%d")
+            .map_err(|e| rusqlite::Error::FromSqlConversionFailure(0, Type::Text, Box::new(e)))?;
+
+        Ok(Self {
+            artist_id: row.get(ArtistIden::ArtistId.as_str())?,
+            romaji_name: row.get(ArtistIden::RomajiName.as_str())?,
+            original_name: row.get(ArtistIden::OriginalName.as_str())?,
+            created_at,
+        })
+    }
+}
+
+impl Artist {
+    pub fn all() -> Result<Vec<Self>, ServerError> {
+        let conn = get_connection()?;
+        let tran = conn.unchecked_transaction()?;
+
+        let (query, values) = Query::select()
+            .columns([
+                ArtistIden::ArtistId,
+                ArtistIden::RomajiName,
+                ArtistIden::OriginalName,
+                ArtistIden::CreatedAt,
+            ])
+            .from(ArtistIden::Table)
+            .build_rusqlite(SqliteQueryBuilder);
+
+        let mut stmt = tran.prepare(&query)?;
+        let artists = stmt
+            .query_and_then(&*values.as_params(), |row| Artist::try_from(row))?
+            .collect::<Result<Vec<_>, _>>()?;
+
+        Ok(artists)
     }
 
-    let conn = get_connection()?;
-    let placeholders = vec!["?"; artist_ids.len()].join(", ");
-    let query = format!(
-        "SELECT * FROM artists WHERE artist_id IN ({});",
-        placeholders
-    );
-    let mut stmt = conn.prepare(&query)?;
-
-    let column_names: Vec<String> = stmt
-        .column_names()
-        .into_iter()
-        .map(|s| s.to_string())
-        .collect();
-
-    // 使用 params_from_iter 傳入參數
-    let rows = stmt.query_map(rusqlite::params_from_iter(artist_ids), |row| {
-        row_to_json(row, &column_names)
-    })?;
-
-    let mut result_map = HashMap::new();
-    for row_res in rows {
-        let artist_json = row_res?;
-        if let Some(id) = artist_json.get("artist_id").and_then(|v| v.as_i64()) {
-            result_map.insert(id, artist_json);
+    pub fn find_by_ids(ids: Vec<i64>) -> Result<Vec<Self>, ServerError> {
+        if ids.is_empty() {
+            return Ok(vec![]);
         }
+
+        let conn = get_connection()?;
+        let tran = conn.unchecked_transaction()?;
+
+        let (query, values) = Query::select()
+            .columns([
+                ArtistIden::ArtistId,
+                ArtistIden::RomajiName,
+                ArtistIden::OriginalName,
+                ArtistIden::CreatedAt,
+            ])
+            .from(ArtistIden::Table)
+            .and_where(Expr::col(ArtistIden::ArtistId).is_in(ids))
+            .build_rusqlite(SqliteQueryBuilder);
+
+        let mut stmt = tran.prepare(&query)?;
+        let artists = stmt
+            .query_and_then(&*values.as_params(), |row| Artist::try_from(row))?
+            .collect::<Result<Vec<_>, _>>()?;
+
+        Ok(artists)
     }
 
-    Ok(result_map)
-}
+    pub fn insert(&self, tran: &Transaction) -> Result<(), ServerError> {
+        let (query, values) = Query::insert()
+            .into_table(ArtistIden::Table)
+            .columns([
+                ArtistIden::ArtistId,
+                ArtistIden::RomajiName,
+                ArtistIden::OriginalName,
+                ArtistIden::CreatedAt,
+            ])
+            .values([
+                self.artist_id.into(),
+                self.romaji_name.clone().into(),
+                self.original_name.clone().into(),
+                self.created_at.format("%Y-%m-%d").to_string().into(),
+            ])?
+            .build_rusqlite(SqliteQueryBuilder);
 
-pub fn export_artists_list() -> Result<Vec<Value>, ServerError> {
-    let conn = get_connection()?;
-    let mut stmt = conn.prepare("SELECT * FROM artists;")?;
+        tran.execute(&query, &*values.as_params())?;
+        Ok(())
+    }
 
-    let column_names: Vec<String> = stmt
-        .column_names()
-        .into_iter()
-        .map(|s| s.to_string())
-        .collect();
+    pub fn update(&self, tran: &Transaction) -> Result<usize, ServerError> {
+        let (query, values) = Query::update()
+            .table(ArtistIden::Table)
+            .values([
+                (ArtistIden::RomajiName, self.romaji_name.clone().into()),
+                (ArtistIden::OriginalName, self.original_name.clone().into()),
+            ])
+            .and_where(Expr::col(ArtistIden::ArtistId).eq(self.artist_id))
+            .build_rusqlite(SqliteQueryBuilder);
 
-    let rows = stmt.query_map([], |row| row_to_json(row, &column_names))?;
+        let affected = tran.execute(&query, &*values.as_params())?;
+        Ok(affected)
+    }
 
-    rows.collect::<Result<Vec<_>, _>>()
-        .map_err(ServerError::from)
+    pub fn delete(&self, tran: &Transaction) -> Result<usize, ServerError> {
+        let (query, values) = Query::delete()
+            .from_table(ArtistIden::Table)
+            .and_where(Expr::col(ArtistIden::ArtistId).eq(self.artist_id))
+            .build_rusqlite(SqliteQueryBuilder);
+
+        let affected = tran.execute(&query, &*values.as_params())?;
+        Ok(affected)
+    }
 }

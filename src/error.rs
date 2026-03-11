@@ -5,10 +5,10 @@ use derive_more::{Display, From};
 pub enum ServerError {
     SystemTime(std::time::SystemTimeError),
     Io(std::io::Error),
-    //    Jwt(jwt::Error),
+    Jwt(jsonwebtoken::errors::Error),
     Json(serde_json::Error),
     Rusqlite(rusqlite::Error),
-    //    SeaQuery(sea_query::error::Error),
+    SeaQuery(sea_query::error::Error),
     Internal(String),
 }
 
