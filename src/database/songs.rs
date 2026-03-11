@@ -80,20 +80,8 @@ impl Song {
         let conn = get_connection()?;
         let tran = conn.unchecked_transaction()?;
 
-        let (query, values) = Query::select()
-            .columns([
-                SongIden::SongId,
-                SongIden::Available,
-                SongIden::Hidden,
-                SongIden::Title,
-                SongIden::Art,
-                SongIden::Album,
-                SongIden::Artist,
-                SongIden::UpdatedAt,
-                SongIden::Lang,
-            ])
-            .from(SongIden::Table)
-            .build_rusqlite(SqliteQueryBuilder);
+        let (query, values) =
+            Song::select_all_columns(&mut Query::select()).build_rusqlite(SqliteQueryBuilder);
 
         let mut stmt = tran.prepare(&query)?;
         let songs = stmt
@@ -108,27 +96,7 @@ impl Song {
         let conn = get_connection()?;
         let tran = conn.unchecked_transaction()?;
 
-        let (query, values) = Query::select()
-            .columns([
-                SongIden::SongId,
-                SongIden::Available,
-                SongIden::Hidden,
-                SongIden::Folder,
-                SongIden::Art,
-                SongIden::Artist,
-                SongIden::Lyricist,
-                SongIden::Title,
-                SongIden::Subtitle,
-                SongIden::Album,
-                SongIden::Versions,
-                SongIden::IsDuet,
-                SongIden::Furigana,
-                SongIden::Translation,
-                SongIden::UpdatedAt,
-                SongIden::Lang,
-                SongIden::Credits,
-            ])
-            .from(SongIden::Table)
+        let (query, values) = Song::select_all_columns(&mut Query::select())
             .and_where(Expr::col(SongIden::SongId).eq(song_id))
             .build_rusqlite(SqliteQueryBuilder);
 
@@ -181,6 +149,33 @@ impl Song {
 
         let affected = tran.execute(&query, &*values.as_params())?;
         Ok(affected)
+    }
+
+    // 調出所有欄位
+    pub fn select_all_columns(
+        query: &mut sea_query::SelectStatement,
+    ) -> &mut sea_query::SelectStatement {
+        query
+            .columns([
+                SongIden::SongId,
+                SongIden::Available,
+                SongIden::Hidden,
+                SongIden::Folder,
+                SongIden::Art,
+                SongIden::Artist,
+                SongIden::Lyricist,
+                SongIden::Title,
+                SongIden::Subtitle,
+                SongIden::Album,
+                SongIden::Versions,
+                SongIden::IsDuet,
+                SongIden::Furigana,
+                SongIden::Translation,
+                SongIden::UpdatedAt,
+                SongIden::Lang,
+                SongIden::Credits,
+            ])
+            .from(SongIden::Table)
     }
 
     /// 序列化為列表摘要 JSON（附簽名）
