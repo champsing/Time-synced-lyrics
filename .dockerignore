@@ -5,3 +5,4 @@ target/
 
 # 資料庫與密鑰
 *.db
+keys
