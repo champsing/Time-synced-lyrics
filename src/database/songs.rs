@@ -51,9 +51,9 @@ impl TryFrom<&Row<'_>> for Song {
         Ok(Self {
             song_id: row.get(SongIden::SongId.as_str())?,
             available: row.get::<_, i64>(SongIden::Available.as_str())? != 0,
-            hidden: match row.get::<_, Option<i64>>(SongIden::Hidden.as_str())? {
-                Some(1) => Some(true),
-                Some(0) => Some(false),
+            hidden: match row.get::<_, Option<String>>(SongIden::Hidden.as_str())? {
+                Some(s) if s == "1" => Some(true),
+                Some(s) if s == "0" => Some(false),
                 _ => None,
             },
             folder: row.get(SongIden::Folder.as_str())?,
