@@ -41,10 +41,10 @@ fn build_r2_client() -> S3Client {
     S3Client::from_conf(config)
 }
 
-/// POST /api/admin/lyrics
+/// POST /api/songs/lyrics/update
 /// Body: { song_id, version_id, lyrics }
 /// Header: Authorization: Bearer <jwt>
-#[post("/api/admin/lyrics")]
+#[post("/api/songs/lyrics/update")]
 pub async fn handler(
     req: HttpRequest,
     body: web::Json<UpdateLyricsRequest>,

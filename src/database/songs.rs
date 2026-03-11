@@ -1,135 +1,218 @@
-use rusqlite::{params, types::ValueRef};
-use serde_json::{Map, Value, json};
+use crate::{database::get_connection, error::ServerError, utils::generate_signature};
+use chrono::NaiveDate;
+use rusqlite::{Row, Transaction, types::Type};
+use sea_query::{Expr, IdenStatic, Query, SqliteQueryBuilder, enum_def};
+use sea_query_rusqlite::RusqliteBinder;
+use serde::{Deserialize, Serialize};
+use serde_json::{Value, from_str, to_string};
 
-use crate::{
-    database::get_connection,
-    error::ServerError,
-    utils::{decode_bytes_with_japanese, generate_signature},
-};
+// JSON 欄位名稱清單，用於反序列化時判斷是否要 parse
+const JSON_FIELDS: &[&str] = &["credits", "versions", "album", "translation"];
 
-/// 高效地將單個 Row 轉為 JSON Object
-fn row_to_json_generic(row: &rusqlite::Row) -> Result<Map<String, Value>, rusqlite::Error> {
-    let mut map = Map::new();
-    let column_names = row.as_ref().column_names();
-    let json_fields = ["credits", "versions", "album", "translation"];
-
-    for (i, name) in column_names.iter().enumerate() {
-        let val = match row.get_ref_unwrap(i) {
-            ValueRef::Null => Value::Null,
-            ValueRef::Integer(n) => json!(n),
-            ValueRef::Real(f) => json!(f),
-            ValueRef::Text(t) => {
-                let s = std::str::from_utf8(t).unwrap_or("");
-                // 處理原本邏輯中的 "NULL" 或空字串
-                if s == "NULL" || s.is_empty() {
-                    Value::Null
-                } else if json_fields.contains(name) {
-                    serde_json::from_str(s).unwrap_or_else(|_| Value::String(s.to_string()))
-                } else {
-                    Value::String(s.to_string())
-                }
-            }
-            ValueRef::Blob(b) => Value::String(decode_bytes_with_japanese(b)),
-        };
-        map.insert(name.to_string(), val);
-    }
-    Ok(map)
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[enum_def]
+pub struct Song {
+    pub song_id: i64,
+    pub available: bool,
+    pub hidden: Option<bool>,
+    pub folder: String,
+    pub art: Option<String>,
+    pub artist: String,
+    pub lyricist: Option<String>,
+    pub title: String,
+    pub subtitle: Option<String>,
+    pub album: Value,
+    pub versions: Value,
+    pub is_duet: bool,
+    pub furigana: bool,
+    pub translation: Value,
+    pub updated_at: NaiveDate,
+    pub lang: String,
+    pub credits: Value,
 }
 
-pub fn export_song_list() -> Result<Vec<Value>, ServerError> {
-    let conn = get_connection()?;
-    let mut stmt = conn.prepare(
-        "SELECT available, hidden, song_id, title, art, album, artist, updated_at, lang FROM songs",
-    )?;
+impl TryFrom<&Row<'_>> for Song {
+    type Error = rusqlite::Error;
 
-    let song_iter = stmt.query_map([], |row| {
-        let map = row_to_json_generic(row)?;
-        Ok(Value::Object(map))
-    })?;
+    fn try_from(row: &Row<'_>) -> Result<Self, Self::Error> {
+        fn parse_json(s: &str) -> Value {
+            from_str(s).unwrap_or(Value::Null)
+        }
 
-    song_iter
-        .collect::<Result<Vec<Value>, _>>()
-        .map_err(|e| ServerError::Internal(e.to_string()))
+        fn get_json(row: &Row<'_>, col: &str) -> Result<Value, rusqlite::Error> {
+            let s: Option<String> = row.get(col)?;
+            Ok(s.as_deref()
+                .filter(|s| !s.is_empty() && *s != "NULL")
+                .map(parse_json)
+                .unwrap_or(Value::Null))
+        }
+
+        let date_str: String = row.get(SongIden::UpdatedAt.as_str())?;
+        let updated_at = NaiveDate::parse_from_str(&date_str, "%Y-%m-%d")
+            .map_err(|e| rusqlite::Error::FromSqlConversionFailure(0, Type::Text, Box::new(e)))?;
+
+        Ok(Self {
+            song_id: row.get(SongIden::SongId.as_str())?,
+            available: row.get::<_, i64>(SongIden::Available.as_str())? != 0,
+            hidden: row
+                .get::<_, Option<i64>>(SongIden::Hidden.as_str())?
+                .map(|n| n != 0),
+            folder: row.get(SongIden::Folder.as_str())?,
+            art: row.get(SongIden::Art.as_str())?,
+            artist: row.get(SongIden::Artist.as_str())?,
+            lyricist: row.get(SongIden::Lyricist.as_str())?,
+            title: row.get(SongIden::Title.as_str())?,
+            subtitle: row.get(SongIden::Subtitle.as_str())?,
+            album: get_json(row, SongIden::Album.as_str())?,
+            versions: get_json(row, SongIden::Versions.as_str())?,
+            is_duet: row.get::<_, i64>(SongIden::IsDuet.as_str())? != 0,
+            furigana: row.get::<_, i64>(SongIden::Furigana.as_str())? != 0,
+            translation: get_json(row, SongIden::Translation.as_str())?,
+            updated_at,
+            lang: row.get(SongIden::Lang.as_str())?,
+            credits: get_json(row, SongIden::Credits.as_str())?,
+        })
+    }
 }
 
-pub fn find_song_by_id(song_id: i32) -> Result<Value, ServerError> {
-    let conn = get_connection()?;
-    let mut stmt = conn.prepare("SELECT * FROM songs WHERE song_id = ?")?;
+impl Song {
+    /// 列表用：只取摘要欄位，附帶簽名
+    pub fn list() -> Result<Vec<Value>, ServerError> {
+        let conn = get_connection()?;
+        let tran = conn.unchecked_transaction()?;
 
-    let mut song_map = stmt
-        .query_row(params![song_id], |row| row_to_json_generic(row))
-        .map_err(|_| ServerError::Internal("Song not found".into()))?;
+        let (query, values) = Query::select()
+            .columns([
+                SongIden::SongId,
+                SongIden::Available,
+                SongIden::Hidden,
+                SongIden::Title,
+                SongIden::Art,
+                SongIden::Album,
+                SongIden::Artist,
+                SongIden::UpdatedAt,
+                SongIden::Lang,
+            ])
+            .from(SongIden::Table)
+            .build_rusqlite(SqliteQueryBuilder);
 
-    // --- 簽名邏輯 ---
-    let id = song_map
-        .get("song_id")
-        .and_then(|v| v.as_i64())
-        .unwrap_or(0) as i32;
-    let avail = song_map
-        .get("available")
-        .and_then(|v| v.as_i64())
-        .map(|n| n == 1)
-        .unwrap_or(false);
+        let mut stmt = tran.prepare(&query)?;
+        let songs = stmt
+            .query_and_then(&*values.as_params(), |row| Song::try_from(row))?
+            .collect::<Result<Vec<_>, _>>()?;
 
-    song_map.insert("signature".into(), json!(generate_signature(id, avail)));
-
-    Ok(Value::Object(song_map))
-}
-
-use crate::webpage::admin::update_song::UpdateSongRequest;
-
-pub fn update_song(req: UpdateSongRequest) -> Result<(), ServerError> {
-    let conn = get_connection()?;
-
-    // 動態建構 SET 子句
-    let mut sets: Vec<String> = vec![];
-    let mut params: Vec<Box<dyn rusqlite::ToSql>> = vec![];
-
-    macro_rules! push_field {
-        ($field:expr, $col:expr) => {
-            if let Some(v) = $field {
-                sets.push(format!("{} = ?", $col));
-                params.push(Box::new(v));
-            }
-        };
-        (json $field:expr, $col:expr) => {
-            if let Some(v) = $field {
-                let s =
-                    serde_json::to_string(&v).map_err(|e| ServerError::Internal(e.to_string()))?;
-                sets.push(format!("{} = ?", $col));
-                params.push(Box::new(s));
-            }
-        };
+        Ok(songs.into_iter().map(|s| s.to_list_json()).collect())
     }
 
-    push_field!(req.title, "title");
-    push_field!(req.subtitle, "subtitle");
-    push_field!(req.artist, "artist");
-    push_field!(req.lyricist, "lyricist");
-    push_field!(req.lang, "lang");
-    push_field!(req.available.map(|b| b as i32), "available");
-    push_field!(req.hidden.map(|b| b as i32), "hidden");
-    push_field!(req.is_duet.map(|b| b as i32), "is_duet");
-    push_field!(req.furigana.map(|b| b as i32), "furigana");
-    push_field!(req.folder, "folder");
-    push_field!(req.art, "art");
-    push_field!(json req.album, "album");
-    push_field!(json req.versions, "versions");
-    push_field!(json req.translation, "translation");
-    push_field!(json req.credits, "credits");
+    /// 單首：取全部欄位，附帶簽名
+    pub fn find_by_id(song_id: i64) -> Result<Option<Self>, ServerError> {
+        let conn = get_connection()?;
+        let tran = conn.unchecked_transaction()?;
 
-    // 永遠更新 updated_at
-    sets.push("updated_at = CURRENT_DATE".to_string());
+        let (query, values) = Query::select()
+            .columns([
+                SongIden::SongId,
+                SongIden::Available,
+                SongIden::Hidden,
+                SongIden::Folder,
+                SongIden::Art,
+                SongIden::Artist,
+                SongIden::Lyricist,
+                SongIden::Title,
+                SongIden::Subtitle,
+                SongIden::Album,
+                SongIden::Versions,
+                SongIden::IsDuet,
+                SongIden::Furigana,
+                SongIden::Translation,
+                SongIden::UpdatedAt,
+                SongIden::Lang,
+                SongIden::Credits,
+            ])
+            .from(SongIden::Table)
+            .and_where(Expr::col(SongIden::SongId).eq(song_id))
+            .build_rusqlite(SqliteQueryBuilder);
 
-    if sets.is_empty() {
-        return Ok(()); // 沒有欄位要更新
+        let mut stmt = tran.prepare(&query)?;
+        let song = stmt
+            .query_and_then(&*values.as_params(), |row| Song::try_from(row))?
+            .next();
+
+        Ok(song.transpose()?)
     }
 
-    let sql = format!("UPDATE songs SET {} WHERE song_id = ?", sets.join(", "));
-    params.push(Box::new(req.song_id));
+    pub fn update(&self, tran: &Transaction) -> Result<usize, ServerError> {
+        let (query, values) = Query::update()
+            .table(SongIden::Table)
+            .values([
+                (SongIden::Available, (self.available as i64).into()),
+                (SongIden::Hidden, self.hidden.map(|b| b as i64).into()),
+                (SongIden::Folder, self.folder.clone().into()),
+                (SongIden::Art, self.art.clone().into()),
+                (SongIden::Artist, self.artist.clone().into()),
+                (SongIden::Lyricist, self.lyricist.clone().into()),
+                (SongIden::Title, self.title.clone().into()),
+                (SongIden::Subtitle, self.subtitle.clone().into()),
+                (
+                    SongIden::Album,
+                    to_string(&self.album).unwrap_or_default().into(),
+                ),
+                (
+                    SongIden::Versions,
+                    to_string(&self.versions).unwrap_or_default().into(),
+                ),
+                (SongIden::IsDuet, (self.is_duet as i64).into()),
+                (SongIden::Furigana, (self.furigana as i64).into()),
+                (
+                    SongIden::Translation,
+                    to_string(&self.translation).unwrap_or_default().into(),
+                ),
+                (
+                    SongIden::UpdatedAt,
+                    self.updated_at.format("%Y-%m-%d").to_string().into(),
+                ),
+                (SongIden::Lang, self.lang.clone().into()),
+                (
+                    SongIden::Credits,
+                    to_string(&self.credits).unwrap_or_default().into(),
+                ),
+            ])
+            .and_where(Expr::col(SongIden::SongId).eq(self.song_id))
+            .build_rusqlite(SqliteQueryBuilder);
 
-    let refs: Vec<&dyn rusqlite::ToSql> = params.iter().map(|b| b.as_ref()).collect();
-    conn.execute(&sql, refs.as_slice())?;
+        let affected = tran.execute(&query, &*values.as_params())?;
+        Ok(affected)
+    }
 
-    Ok(())
+    /// 序列化為列表摘要 JSON（附簽名）
+    pub fn to_list_json(&self) -> Value {
+        let signature = generate_signature(self.song_id as i32, self.available);
+        serde_json::json!({
+            "song_id": self.song_id,
+            "available": self.available,
+            "hidden": self.hidden,
+            "title": self.title,
+            "art": self.art,
+            "album": self.album,
+            "artist": self.artist,
+            "updated_at": self.updated_at.format("%Y-%m-%d").to_string(),
+            "lang": self.lang,
+            "signature": signature,
+        })
+    }
+
+    /// 序列化為完整 JSON（附簽名）
+    pub fn to_full_json(&self) -> Value {
+        let signature = generate_signature(self.song_id as i32, self.available);
+        let mut val = serde_json::to_value(self).unwrap_or(Value::Null);
+        if let Some(obj) = val.as_object_mut() {
+            obj.insert("signature".into(), Value::String(signature));
+            // updated_at 序列化為字串
+            obj.insert(
+                "updated_at".into(),
+                Value::String(self.updated_at.format("%Y-%m-%d").to_string()),
+            );
+        }
+        val
+    }
 }

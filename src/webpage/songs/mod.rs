@@ -1,3 +1,5 @@
 pub mod list;
 pub mod song;
+pub mod update_lyrics;
+pub mod update_song;
 pub mod verify;
