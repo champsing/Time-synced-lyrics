@@ -31,7 +31,7 @@ pub async fn handler(
     }
 
     // 3. 呼叫資料庫邏輯
-    let artists_data = web::block(move || database::artists::find_artists_by_ids(ids_list))
+    let artists_data = web::block(move || database::artists::Artist::find_by_ids(ids_list))
         .await
         .map_err(|e| ServerError::Internal(e.to_string()))??;
 
