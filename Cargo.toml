@@ -1,6 +1,6 @@
 [package]
 name = "tsl_api"
-version = "2.1.0"
+version = "2.1.1"
 edition = "2024"
 
 [[bin]]
@@ -8,20 +8,24 @@ name = "tsl_exporter"
 path = "src/bin/exporter.rs"
 
 [dependencies]
-actix-cors = "0.7.1"
-actix-web = "4.12.1"
-derive_more = "2.1.1"
-env_logger = "0.11.9"
-hex = "0.4.3"
-hmac = "0.12.1"
-log = "0.4.29"
-serde_json = "1.0.149"
-sha2 = "0.10.9"
-tokio = { version = "1.49.0", features = ["full"] }
-encoding_rs = "0.8"
-serde = { version = "*", features = ["derive"] }
 
-# database
+# ── Web Framework ─────────────────────────────────────────────────────────────
+actix-web     = "4.12.1"
+actix-cors    = "0.7.1"
+
+# ── Async Runtime ─────────────────────────────────────────────────────────────
+tokio = { version = "1.49.0", features = ["full"] }
+
+# ── HTTP Client ───────────────────────────────────────────────────────────────
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+
+# ── Serialization ─────────────────────────────────────────────────────────────
+serde      = { version = "*", features = ["derive"] }
+serde_json = "1.0.149"
+chrono     = { version = "0.4", features = ["serde"] }
+base64     = "0.22.1"
+
+# ── Database ──────────────────────────────────────────────────────────────────
 rusqlite = { version = "0.32.0", features = [
     "bundled",
     "uuid",
@@ -29,19 +33,29 @@ rusqlite = { version = "0.32.0", features = [
     "chrono",
     "backup",
 ] }
-r2d2 = "0.8.10"
-r2d2_sqlite = "0.25.0"
-tempfile = "3.25.0"
-csv = "1.3"
-dotenv = "0.15.0"
-
-# CRUD
-reqwest = { version = "0.12", features = ["json"] }
-jsonwebtoken = { version = "10", features = ["aws_lc_rs"] }
-aws-sdk-s3 = "1"          # 用於 Cloudflare R2 (S3-compatible)
-aws-config = "1"
-aws-credential-types = "1"
-chrono = { version = "0.4", features = ["serde"] }
-base64 = "0.22.1"
-sea-query = "0.32.7"
+r2d2          = "0.8.10"
+r2d2_sqlite   = "0.25.0"
+sea-query         = "0.32.7"
 sea-query-rusqlite = "0.7.0"
+tempfile      = "3.25.0"
+csv           = "1.3"
+
+# ── Cloud Storage (Cloudflare R2 / S3-compatible) ─────────────────────────────
+aws-sdk-s3          = "1"
+aws-config          = "1"
+aws-credential-types = "1"
+
+# ── Auth & Cryptography ───────────────────────────────────────────────────────
+hmac         = "0.12.1"
+sha2         = "0.10.9"
+hex          = "0.4.3"
+rand         = "0.8"
+jsonwebtoken = { version = "10", features = ["aws_lc_rs"] }
+urlencoding  = "2"
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+derive_more  = "2.1.1"
+encoding_rs  = "0.8"
+dotenv       = "0.15.0"
+env_logger   = "0.11.9"
+log          = "0.4.29"

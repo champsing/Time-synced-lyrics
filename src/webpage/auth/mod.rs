@@ -1,5 +1,7 @@
 pub mod github;
 
+pub mod me;
+
 use crate::error::ServerError;
 use jsonwebtoken::{DecodingKey, EncodingKey, Header, Validation, decode, encode};
 use serde::{Deserialize, Serialize};
