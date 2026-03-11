@@ -52,14 +52,14 @@ pub async fn handler(
             if let Some(v) = req_data.title       { song.title = v; }
             if let Some(v) = req_data.subtitle    { song.subtitle = Some(v); }
             if let Some(v) = req_data.artist      { song.artist = v; }
-            if let Some(v) = req_data.lyricist    { song.lyricist = Some(v); }
+            if let Some(v) = req_data.lyricist    { song.lyricist = v; }
             if let Some(v) = req_data.lang        { song.lang = v; }
             if let Some(v) = req_data.available   { song.available = v; }
             if let Some(v) = req_data.hidden      { song.hidden = Some(v); }
             if let Some(v) = req_data.is_duet     { song.is_duet = v; }
             if let Some(v) = req_data.furigana    { song.furigana = Some(v); }
             if let Some(v) = req_data.folder      { song.folder = v; }
-            if let Some(v) = req_data.art         { song.art = Some(v); }
+            if let Some(v) = req_data.art         { song.art = v; }
             if let Some(v) = req_data.album       { song.album = v; }
             if let Some(v) = req_data.versions    { song.versions = v; }
             if let Some(v) = req_data.translation { song.translation = v; }

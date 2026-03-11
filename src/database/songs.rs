@@ -13,9 +13,9 @@ pub struct Song {
     pub available: bool,
     pub hidden: Option<bool>,
     pub folder: String,
-    pub art: Option<String>,
+    pub art: String,
     pub artist: String,
-    pub lyricist: Option<String>,
+    pub lyricist: String,
     pub title: String,
     pub subtitle: Option<String>,
     pub album: Value,
@@ -42,6 +42,13 @@ fn get_bool_option(row: &Row<'_>, col: &str) -> Result<Option<bool>, rusqlite::E
         rusqlite::types::Value::Integer(0) => Some(false),
         rusqlite::types::Value::Text(s) if s == "1" => Some(true),
         rusqlite::types::Value::Text(s) if s == "0" => Some(false),
+        _ => None,
+    })
+}
+
+fn get_string_option(row: &Row<'_>, col: &str) -> Result<Option<String>, rusqlite::Error> {
+    Ok(match row.get::<_, rusqlite::types::Value>(col)? {
+        rusqlite::types::Value::Text(s) if s != "NULL" => Some(s),
         _ => None,
     })
 }
@@ -75,7 +82,7 @@ impl TryFrom<&Row<'_>> for Song {
             artist: row.get(SongIden::Artist.as_str())?,
             lyricist: row.get(SongIden::Lyricist.as_str())?,
             title: row.get(SongIden::Title.as_str())?,
-            subtitle: row.get(SongIden::Subtitle.as_str())?,
+            subtitle: get_string_option(row, SongIden::Subtitle.as_str())?,
             album: get_json(row, SongIden::Album.as_str())?,
             versions: get_json(row, SongIden::Versions.as_str())?,
             is_duet: get_bool(row, SongIden::IsDuet.as_str())?,
