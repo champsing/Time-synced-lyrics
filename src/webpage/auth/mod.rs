@@ -42,7 +42,7 @@ pub fn issue_jwt(github_id: u64, login: &str) -> Result<String, ServerError> {
         &claims,
         &EncodingKey::from_secret(JWT_SECRET.as_bytes()),
     )
-    .map_err(|e| ServerError::Internal(format!("JWT 簽發失敗: {}", e)))
+    .map_err(ServerError::Jwt)
 }
 
 pub fn verify_jwt(token: &str) -> Result<Claims, ServerError> {
@@ -50,8 +50,7 @@ pub fn verify_jwt(token: &str) -> Result<Claims, ServerError> {
         token,
         &DecodingKey::from_secret(JWT_SECRET.as_bytes()),
         &Validation::default(),
-    )
-    .map_err(|e| ServerError::Internal(format!("JWT 驗證失敗: {}", e)))?;
+    )?;
 
     if data.claims.uid != *ALLOWED_GITHUB_ID {
         return Err(ServerError::Internal("Forbidden: 非授權帳號".into()));

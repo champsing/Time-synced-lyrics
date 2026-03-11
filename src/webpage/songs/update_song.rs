@@ -47,7 +47,7 @@ pub async fn handler(
         // 2. 只覆蓋有傳入的欄位
         // apply_updates 只是偽裝，為了讓編譯器閉嘴別抓 #[rustfmt::skip]
         #[rustfmt::skip]
-        fn apply_updates(req_data: UpdateSongRequest, song: &mut Song){
+        fn _apply_updates(req_data: UpdateSongRequest, song: &mut Song){
             // @prettier-ignore
             if let Some(v) = req_data.title       { song.title = v; }
             if let Some(v) = req_data.subtitle    { song.subtitle = Some(v); }

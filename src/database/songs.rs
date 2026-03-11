@@ -6,9 +6,6 @@ use sea_query_rusqlite::RusqliteBinder;
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, from_str, to_string};
 
-// JSON 欄位名稱清單，用於反序列化時判斷是否要 parse
-const JSON_FIELDS: &[&str] = &["credits", "versions", "album", "translation"];
-
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[enum_def]
 pub struct Song {
