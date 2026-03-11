@@ -12,6 +12,7 @@ logs
 *.db
 target
 data
+.cargo
 
 # docker映像
 tsl.tar

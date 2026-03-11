@@ -29,6 +29,7 @@ pub fn run_migration(transaction: &rusqlite::Transaction) -> Result<(), ServerEr
     migrate!(2, "002_fix_translation_field.sql");
     migrate!(3, "003_drop_id_column.sql");
     migrate!(4, "004_create_artists_table.sql");
+    migrate!(5, "005_tighten_song_fields.sql");
 
     if version != VERSION {
         Err(format!(
