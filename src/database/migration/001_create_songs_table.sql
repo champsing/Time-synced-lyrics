@@ -21,4 +21,4 @@ CREATE TABLE song (
     credits JSON NOT NULL DEFAULT []
 );
 
-CREATE INDEX idx_song_id ON songs (song_id);
+CREATE INDEX idx_song_id ON song (song_id);

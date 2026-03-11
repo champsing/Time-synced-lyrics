@@ -6,5 +6,5 @@ CREATE TABLE artist (
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
--- 修正表名為 artists，並移除重複的 artist_id 索引
+-- 修正表名為 artist，並移除重複的 artist_id 索引
 CREATE INDEX idx_romaji_name ON artist (romaji_name);
