@@ -1,4 +1,3 @@
-pub mod admin;
 pub mod artists;
 pub mod auth;
 pub mod songs;

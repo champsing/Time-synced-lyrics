@@ -257,7 +257,7 @@ pub fn export_db_to_csv() -> Result<(), ServerError> {
         }
         wtr.flush()
             .map_err(|e| ServerError::Internal(e.to_string()))?;
-        println!("✅ 已將資料表 [{}] 匯出至 {}", table, path);
+        println!("✅ Successfully exported [{}] as CSV file {}", table, path);
     }
     Ok(())
 }
