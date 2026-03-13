@@ -17,7 +17,7 @@ static PRIVATE_KEY: LazyLock<[u8; 32]> = LazyLock::new(|| {
         let trimmed = env_key.trim();
         if let Ok(bytes_vec) = hex::decode(trimmed) {
             if let Ok(bytes) = bytes_vec.try_into() {
-                println!("[Auth] 密鑰加載成功：來自環境變數");
+                println!("[Auth] Successfully loaded SECRET from: environment variables");
                 return bytes;
             }
         }
@@ -31,18 +31,20 @@ static PRIVATE_KEY: LazyLock<[u8; 32]> = LazyLock::new(|| {
             match hex::decode(trimmed) {
                 Ok(bytes_vec) => match bytes_vec.try_into() {
                     Ok(bytes) => {
-                        println!("[Auth] 密鑰加載成功：來自檔案 ({})", path);
+                        println!("[Auth] Successfully loaded SECRET from: File ({})", path);
                         return bytes;
                     }
-                    Err(_) => panic!("[FATAL] 密鑰長度不正確，必須為 32 bytes (64 個 hex 字元)"),
+                    Err(_) => {
+                        panic!("[FATAL] Incorrect SECRET length, must be a 32-byte (64 hex chars)")
+                    }
                 },
-                Err(e) => panic!("[FATAL] 密鑰檔案 Hex 解碼失敗: {}", e),
+                Err(e) => panic!("[FATAL] Failed to HEX-decode SECRET file: {}", e),
             }
         }
         Err(e) => {
             // 如果讀不到代表部署配置出錯，直接停機最安全
             panic!(
-                "[FATAL] 找不到密鑰檔案且未設定環境變數！路徑: {}, 錯誤: {}",
+                "[FATAL] No SECRET file configured or no environment variables specified! Path: {}, Err: {}",
                 path, e
             );
         }
@@ -54,7 +56,8 @@ pub fn generate_signature(song_id: i32, available: bool) -> String {
 
     type HmacSha256 = Hmac<Sha256>;
 
-    let mut mac = HmacSha256::new_from_slice(&*PRIVATE_KEY).expect("HMAC 密鑰初始化失敗");
+    let mut mac =
+        HmacSha256::new_from_slice(&*PRIVATE_KEY).expect("HMAC key initialization failed");
 
     mac.update(message.as_bytes());
 

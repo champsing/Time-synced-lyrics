@@ -99,34 +99,82 @@ impl Song {
     /// 列表用：只取摘要欄位，附帶簽名
     pub fn list() -> Result<Vec<Value>, ServerError> {
         let conn = get_connection()?;
-        let tran = conn.unchecked_transaction()?;
 
         let (query, values) =
             Song::select_all_columns(&mut Query::select()).build_rusqlite(SqliteQueryBuilder);
 
-        let mut stmt = tran.prepare(&query)?;
+        let mut stmt = conn.prepare(&query)?;
         let songs = stmt
             .query_and_then(&*values.as_params(), |row| Song::try_from(row))?
             .collect::<Result<Vec<_>, _>>()?;
 
+        drop(stmt);
         Ok(songs.into_iter().map(|s| s.to_list_json()).collect())
     }
 
     /// 單首：取全部欄位，附帶簽名
     pub fn find_by_id(song_id: i64) -> Result<Option<Self>, ServerError> {
         let conn = get_connection()?;
-        let tran = conn.unchecked_transaction()?;
 
         let (query, values) = Song::select_all_columns(&mut Query::select())
             .and_where(Expr::col(SongIden::SongId).eq(song_id))
             .build_rusqlite(SqliteQueryBuilder);
 
-        let mut stmt = tran.prepare(&query)?;
+        let mut stmt = conn.prepare(&query)?;
         let song = stmt
             .query_and_then(&*values.as_params(), |row| Song::try_from(row))?
             .next();
 
+        drop(stmt);
         Ok(song.transpose()?)
+    }
+
+    /// 新增：傳入 Song 結構，寫入資料庫
+    pub fn insert(&self, tran: &Transaction) -> Result<(), ServerError> {
+        let (query, values) = Query::insert()
+            .into_table(SongIden::Table)
+            .columns([
+                SongIden::SongId,
+                SongIden::Available,
+                SongIden::Hidden,
+                SongIden::Folder,
+                SongIden::Art,
+                SongIden::Artist,
+                SongIden::Lyricist,
+                SongIden::Title,
+                SongIden::Subtitle,
+                SongIden::Album,
+                SongIden::Versions,
+                SongIden::IsDuet,
+                SongIden::Furigana,
+                SongIden::Translation,
+                SongIden::UpdatedAt,
+                SongIden::Lang,
+                SongIden::Credits,
+            ])
+            .values([
+                self.song_id.into(),
+                (self.available as i64).into(),
+                self.hidden.map(|b| b as i64).into(),
+                self.folder.clone().into(),
+                self.art.clone().into(),
+                self.artist.clone().into(),
+                self.lyricist.clone().into(),
+                self.title.clone().into(),
+                self.subtitle.clone().into(),
+                to_string(&self.album).unwrap_or_default().into(),
+                to_string(&self.versions).unwrap_or_default().into(),
+                (self.is_duet as i64).into(),
+                self.furigana.map(|b| b as i64).into(),
+                to_string(&self.translation).unwrap_or_default().into(),
+                self.updated_at.format("%Y-%m-%d").to_string().into(),
+                self.lang.clone().into(),
+                to_string(&self.credits).unwrap_or_default().into(),
+            ])?
+            .build_rusqlite(SqliteQueryBuilder);
+
+        tran.execute(&query, &*values.as_params())?;
+        Ok(())
     }
 
     pub fn update(&self, tran: &Transaction) -> Result<usize, ServerError> {
