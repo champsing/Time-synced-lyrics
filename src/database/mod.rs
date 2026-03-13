@@ -64,9 +64,9 @@ pub(crate) fn get_connection() -> Result<ConnGuard, ServerError> {
     // 1. 先檢查有沒有人在佔用連接
     if let Ok(reg) = registry.lock() {
         if !reg.is_empty() {
-            eprintln!("[DB_DEBUG] 發現未關閉的連接！");
+            eprintln!("[DB_DEBUG] Unclosed connections detected!");
             for (id, (file, line)) in reg.iter() {
-                eprintln!("  - ID: {}, 位置: {}:{}", id, file, line);
+                eprintln!("  - ID: {}, Caller: {}:{}", id, file, line);
             }
         }
     }

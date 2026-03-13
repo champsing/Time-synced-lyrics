@@ -99,12 +99,11 @@ impl Song {
     /// 列表用：只取摘要欄位，附帶簽名
     pub fn list() -> Result<Vec<Value>, ServerError> {
         let conn = get_connection()?;
-        let tran = conn.unchecked_transaction()?;
 
         let (query, values) =
             Song::select_all_columns(&mut Query::select()).build_rusqlite(SqliteQueryBuilder);
 
-        let mut stmt = tran.prepare(&query)?;
+        let mut stmt = conn.prepare(&query)?;
         let songs = stmt
             .query_and_then(&*values.as_params(), |row| Song::try_from(row))?
             .collect::<Result<Vec<_>, _>>()?;
@@ -129,8 +128,7 @@ impl Song {
         Ok(song.transpose()?)
     }
 
-    // database/songs.rs — 在 Song impl 內，update() 之前加入：
-
+    /// 新增：傳入 Song 結構，寫入資料庫
     pub fn insert(&self, tran: &Transaction) -> Result<(), ServerError> {
         let (query, values) = Query::insert()
             .into_table(SongIden::Table)
