@@ -11,8 +11,8 @@ static GH_CLIENT_SECRET: LazyLock<String> = LazyLock::new(|| {
     std::env::var("GITHUB_CLIENT_SECRET").expect("[FATAL] GITHUB_CLIENT_SECRET 未設定")
 });
 
-static ALLOWED_FRONTEND_ORIGIN: LazyLock<Vec<String>> = LazyLock::new(|| {
-    std::env::var("ALLOWED_FRONTEND_ORIGIN")
+static ALLOW_ORIGINS: LazyLock<Vec<String>> = LazyLock::new(|| {
+    std::env::var("ALLOW_ORIGINS")
         .unwrap_or_else(|_| "https://edit.timesl.online".to_string())
         .split(',')
         .map(|s| s.trim().to_string())
@@ -45,7 +45,7 @@ fn extract_allowed_origin(req: &HttpRequest) -> Option<String> {
         .and_then(|v| v.to_str().ok())?;
 
     // 比對白名單（Referer 可能帶 path，所以用 starts_with）
-    ALLOWED_FRONTEND_ORIGIN
+    ALLOW_ORIGINS
         .iter()
         .find(|allowed| candidate.starts_with(allowed.as_str()))
         .cloned()
@@ -61,7 +61,7 @@ fn extract_allowed_origin(req: &HttpRequest) -> Option<String> {
 pub async fn login_handler(req: HttpRequest) -> impl Responder {
     // 記錄發起登入的來源
     let origin = extract_allowed_origin(&req)
-        .unwrap_or_else(|| ALLOWED_FRONTEND_ORIGIN.first().cloned().unwrap_or_default());
+        .unwrap_or_else(|| ALLOW_ORIGINS.first().cloned().unwrap_or_default());
 
     // 將 origin base64 編碼後放入 state（GitHub 會原樣帶回 callback）
     let state = general_purpose::URL_SAFE_NO_PAD.encode(&origin);
@@ -95,12 +95,12 @@ pub async fn callback_handler(
         .and_then(|s| general_purpose::URL_SAFE_NO_PAD.decode(s).ok())
         .and_then(|b| String::from_utf8(b).ok())
         .and_then(|candidate| {
-            ALLOWED_FRONTEND_ORIGIN
+            ALLOW_ORIGINS
                 .iter()
                 .find(|allowed| candidate.starts_with(allowed.as_str()))
                 .cloned()
         })
-        .unwrap_or_else(|| ALLOWED_FRONTEND_ORIGIN.first().cloned().unwrap_or_default());
+        .unwrap_or_else(|| ALLOW_ORIGINS.first().cloned().unwrap_or_default());
 
     let client = reqwest::Client::new();
     // 換 access token
