@@ -129,6 +129,55 @@ impl Song {
         Ok(song.transpose()?)
     }
 
+    // database/songs.rs — 在 Song impl 內，update() 之前加入：
+
+    pub fn insert(&self, tran: &Transaction) -> Result<(), ServerError> {
+        let (query, values) = Query::insert()
+            .into_table(SongIden::Table)
+            .columns([
+                SongIden::SongId,
+                SongIden::Available,
+                SongIden::Hidden,
+                SongIden::Folder,
+                SongIden::Art,
+                SongIden::Artist,
+                SongIden::Lyricist,
+                SongIden::Title,
+                SongIden::Subtitle,
+                SongIden::Album,
+                SongIden::Versions,
+                SongIden::IsDuet,
+                SongIden::Furigana,
+                SongIden::Translation,
+                SongIden::UpdatedAt,
+                SongIden::Lang,
+                SongIden::Credits,
+            ])
+            .values([
+                self.song_id.into(),
+                (self.available as i64).into(),
+                self.hidden.map(|b| b as i64).into(),
+                self.folder.clone().into(),
+                self.art.clone().into(),
+                self.artist.clone().into(),
+                self.lyricist.clone().into(),
+                self.title.clone().into(),
+                self.subtitle.clone().into(),
+                to_string(&self.album).unwrap_or_default().into(),
+                to_string(&self.versions).unwrap_or_default().into(),
+                (self.is_duet as i64).into(),
+                self.furigana.map(|b| b as i64).into(),
+                to_string(&self.translation).unwrap_or_default().into(),
+                self.updated_at.format("%Y-%m-%d").to_string().into(),
+                self.lang.clone().into(),
+                to_string(&self.credits).unwrap_or_default().into(),
+            ])?
+            .build_rusqlite(SqliteQueryBuilder);
+
+        tran.execute(&query, &*values.as_params())?;
+        Ok(())
+    }
+
     pub fn update(&self, tran: &Transaction) -> Result<usize, ServerError> {
         let (query, values) = Query::update()
             .table(SongIden::Table)

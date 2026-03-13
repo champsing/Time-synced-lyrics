@@ -5,14 +5,16 @@ use aws_sdk_s3::config::{Credentials, Region};
 use serde::Deserialize;
 use std::sync::LazyLock;
 
-static R2_BUCKET: LazyLock<String> =
-    LazyLock::new(|| std::env::var("R2_BUCKET_NAME").expect("[FATAL] R2_BUCKET_NAME not configured"));
+static R2_BUCKET: LazyLock<String> = LazyLock::new(|| {
+    std::env::var("R2_BUCKET_NAME").expect("[FATAL] R2_BUCKET_NAME not configured")
+});
 static R2_ENDPOINT: LazyLock<String> = LazyLock::new(|| {
     std::env::var("R2_ENDPOINT").expect("[FATAL] R2_ENDPOINT not configured")
     // 格式: https://<account_id>.r2.cloudflarestorage.com
 });
-static R2_ACCESS_KEY: LazyLock<String> =
-    LazyLock::new(|| std::env::var("R2_ACCESS_KEY_ID").expect("[FATAL] R2_ACCESS_KEY_ID not configured"));
+static R2_ACCESS_KEY: LazyLock<String> = LazyLock::new(|| {
+    std::env::var("R2_ACCESS_KEY_ID").expect("[FATAL] R2_ACCESS_KEY_ID not configured")
+});
 static R2_SECRET_KEY: LazyLock<String> = LazyLock::new(|| {
     std::env::var("R2_SECRET_ACCESS_KEY").expect("[FATAL] R2_SECRET_ACCESS_KEY not configured")
 });
@@ -20,7 +22,7 @@ static R2_SECRET_KEY: LazyLock<String> = LazyLock::new(|| {
 #[derive(Deserialize)]
 pub struct UpdateLyricsRequest {
     pub song_id: i32,
-    pub folder: String, // 羅馬化歌名
+    pub folder: String,  // 羅馬化歌名
     pub version: String, // 例如 "original"
     pub lyrics: serde_json::Value,
 }
