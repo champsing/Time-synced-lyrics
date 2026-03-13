@@ -51,6 +51,12 @@ fn extract_allowed_origin(req: &HttpRequest) -> Option<String> {
         .cloned()
 }
 
+/// GET /api/auth/github
+/// 發起 GitHub OAuth 登入流程
+///
+/// 將發起請求的前端 Origin 進行 base64 編碼後放入 state 參數，
+/// 以便 callback 時知道要重導回哪個前端（支援多來源白名單）。
+/// 重導至 GitHub 授權頁面。
 #[get("/api/auth/github")]
 pub async fn login_handler(req: HttpRequest) -> impl Responder {
     // 記錄發起登入的來源
@@ -69,6 +75,15 @@ pub async fn login_handler(req: HttpRequest) -> impl Responder {
         .finish()
 }
 
+/// GET /api/auth/callback
+/// GitHub OAuth 授權完成後的回調端點
+///
+/// 流程：
+///   1. 從 state 還原並驗證前端 Origin
+///   2. 用 code 向 GitHub 換取 access_token
+///   3. 用 access_token 取得使用者的 GitHub 帳號資訊
+///   4. 簽發 JWT（issue_jwt 內部會驗 ALLOWED_GITHUB_ID 白名單）
+///   5. 重導回前端，token 附在 query param：`/?token=<jwt>`
 #[get("/api/auth/callback")]
 pub async fn callback_handler(
     query: web::Query<CallbackQuery>,
