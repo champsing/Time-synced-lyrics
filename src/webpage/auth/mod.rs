@@ -22,20 +22,23 @@ static ALLOWED_GITHUB_ID: LazyLock<u64> = LazyLock::new(|| {
 pub struct Claims {
     pub sub: String, // GitHub username
     pub uid: u64,    // GitHub user ID
+    pub iat: usize,  // issued at timestamp
     pub exp: usize,  // expiry timestamp
 }
 
 pub fn issue_jwt(github_id: u64, login: &str) -> Result<String, ServerError> {
     use std::time::{SystemTime, UNIX_EPOCH};
-    let exp = SystemTime::now()
+    let iat = SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .unwrap()
-        .as_secs() as usize
-        + 86400 * 7; // 7 天
+        .as_secs() as usize;
+    
+    let exp = iat + 86400 * 7; // 7 天
 
     let claims = Claims {
         sub: login.to_string(),
         uid: github_id,
+        iat,
         exp,
     };
 
