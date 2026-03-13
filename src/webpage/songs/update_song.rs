@@ -70,8 +70,8 @@ pub async fn handler(
         song.updated_at = chrono::Local::now().date_naive();
 
         // 3. 寫回資料庫
-        let conn = database::get_connection()?;
-        let tran = conn.unchecked_transaction()?;
+        let mut conn = database::get_connection()?;
+        let tran = conn.transaction()?;
         song.update(&tran)?;
         tran.commit()?;
 

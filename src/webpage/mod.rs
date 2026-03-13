@@ -9,7 +9,7 @@ use actix_web::{App, HttpServer};
 
 pub async fn run() -> Result<(), ServerError> {
     // 從 FRONTEND_ORIGIN 解析允許的來源清單（逗號分隔）
-    let allowed_origins: Vec<String> = std::env::var("FRONTEND_ORIGIN")
+    let allowed_origins: Vec<String> = std::env::var("ALLOWED_ORIGINS")
         .unwrap_or_else(|_| "https://edit.timesl.online".to_string())
         .split(',')
         .map(|s| s.trim().to_string())

@@ -63,8 +63,8 @@ pub async fn handler(
             updated_at: Local::now().date_naive(),
         };
 
-        let conn = database::get_connection()?;
-        let tran = conn.unchecked_transaction()?;
+        let mut conn = database::get_connection()?;
+        let tran = conn.transaction()?;
         song.insert(&tran)?;
         tran.commit()?;
 

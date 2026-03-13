@@ -56,29 +56,31 @@ impl Drop for ConnGuard {
     }
 }
 
-#[track_caller] // 關鍵：捕捉呼叫此函數的位置
+#[track_caller]
 pub(crate) fn get_connection() -> Result<ConnGuard, ServerError> {
     let caller = Location::caller();
     let registry = get_registry();
 
-    // 1. 先檢查有沒有人在佔用連接
+    // 超過 8 個同時未釋放才視為異常（連接池上限為 10）
     if let Ok(reg) = registry.lock() {
-        if !reg.is_empty() {
-            eprintln!("[DB_DEBUG] Unclosed connections detected!");
+        if reg.len() > 8 {
+            eprintln!(
+                "[DB_DEBUG] Warning: {} unclosed connections detected!",
+                reg.len()
+            );
             for (id, (file, line)) in reg.iter() {
                 eprintln!("  - ID: {}, Caller: {}:{}", id, file, line);
             }
         }
     }
 
-    // 2. 從池中拿新連接
+    // 從池中拿新連接（池自己會排隊等待，不需要手動阻擋）
     let pool_conn = DB_POOL
         .get()
         .ok_or_else(|| ServerError::Internal("Database pool not initialized".to_string()))?
         .get()
         .map_err(|e| ServerError::Internal(e.to_string()))?;
 
-    // 3. 註冊這條連接
     let id = CONN_ID_COUNTER.fetch_add(1, Ordering::SeqCst);
     if let Ok(mut reg) = registry.lock() {
         reg.insert(id, (caller.file(), caller.line()));

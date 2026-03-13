@@ -108,23 +108,24 @@ impl Song {
             .query_and_then(&*values.as_params(), |row| Song::try_from(row))?
             .collect::<Result<Vec<_>, _>>()?;
 
+        drop(stmt);
         Ok(songs.into_iter().map(|s| s.to_list_json()).collect())
     }
 
     /// 單首：取全部欄位，附帶簽名
     pub fn find_by_id(song_id: i64) -> Result<Option<Self>, ServerError> {
         let conn = get_connection()?;
-        let tran = conn.unchecked_transaction()?;
 
         let (query, values) = Song::select_all_columns(&mut Query::select())
             .and_where(Expr::col(SongIden::SongId).eq(song_id))
             .build_rusqlite(SqliteQueryBuilder);
 
-        let mut stmt = tran.prepare(&query)?;
+        let mut stmt = conn.prepare(&query)?;
         let song = stmt
             .query_and_then(&*values.as_params(), |row| Song::try_from(row))?
             .next();
 
+        drop(stmt);
         Ok(song.transpose()?)
     }
 
