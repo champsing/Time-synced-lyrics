@@ -6,21 +6,22 @@ use serde::Deserialize;
 use std::sync::LazyLock;
 
 static R2_BUCKET: LazyLock<String> =
-    LazyLock::new(|| std::env::var("R2_BUCKET_NAME").expect("[FATAL] R2_BUCKET_NAME 未設定"));
+    LazyLock::new(|| std::env::var("R2_BUCKET_NAME").expect("[FATAL] R2_BUCKET_NAME not configured"));
 static R2_ENDPOINT: LazyLock<String> = LazyLock::new(|| {
-    std::env::var("R2_ENDPOINT").expect("[FATAL] R2_ENDPOINT 未設定")
+    std::env::var("R2_ENDPOINT").expect("[FATAL] R2_ENDPOINT not configured")
     // 格式: https://<account_id>.r2.cloudflarestorage.com
 });
 static R2_ACCESS_KEY: LazyLock<String> =
-    LazyLock::new(|| std::env::var("R2_ACCESS_KEY_ID").expect("[FATAL] R2_ACCESS_KEY_ID 未設定"));
+    LazyLock::new(|| std::env::var("R2_ACCESS_KEY_ID").expect("[FATAL] R2_ACCESS_KEY_ID not configured"));
 static R2_SECRET_KEY: LazyLock<String> = LazyLock::new(|| {
-    std::env::var("R2_SECRET_ACCESS_KEY").expect("[FATAL] R2_SECRET_ACCESS_KEY 未設定")
+    std::env::var("R2_SECRET_ACCESS_KEY").expect("[FATAL] R2_SECRET_ACCESS_KEY not configured")
 });
 
 #[derive(Deserialize)]
 pub struct UpdateLyricsRequest {
     pub song_id: i32,
-    pub version_id: String, // 對應 versions[].id，例如 "original"
+    pub folder: String, // 羅馬化歌名
+    pub version: String, // 例如 "original"
     pub lyrics: serde_json::Value,
 }
 
@@ -52,7 +53,7 @@ pub async fn handler(
     // 驗 JWT
     auth::extract_bearer(&req)?;
 
-    let key = format!("lyrics/{}/{}.json", body.song_id, body.version_id);
+    let key = format!("{}_{}/{}.json", body.song_id, body.folder, body.version);
     let content = serde_json::to_string_pretty(&body.lyrics)
         .map_err(|e| ServerError::Internal(e.to_string()))?;
 
@@ -65,7 +66,7 @@ pub async fn handler(
         .body(content.into_bytes().into())
         .send()
         .await
-        .map_err(|e| ServerError::Internal(format!("R2 上傳失敗: {}", e)))?;
+        .map_err(|e| ServerError::Internal(format!("R2 Upload Failed: {}", e)))?;
 
     Ok(HttpResponse::Ok().json(serde_json::json!({
         "ok": true,

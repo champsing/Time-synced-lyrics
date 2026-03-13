@@ -135,7 +135,7 @@ pub async fn callback_handler(
     let jwt = auth::issue_jwt(user.id, &user.login)?;
 
     // Redirect 回前端，附上 token（fragment，不會送到 server）
-    let redirect = format!("{}/?token={}", origin, jwt);
+    let redirect = format!("{}/#token={}", origin, jwt);
     Ok(HttpResponse::Found()
         .insert_header(("Location", redirect))
         .finish())

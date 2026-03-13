@@ -8,14 +8,14 @@ use serde::{Deserialize, Serialize};
 use std::sync::LazyLock;
 
 static JWT_SECRET: LazyLock<String> =
-    LazyLock::new(|| std::env::var("JWT_SECRET").expect("[FATAL] JWT_SECRET 環境變數未設定"));
+    LazyLock::new(|| std::env::var("JWT_SECRET").expect("[FATAL] JWT_SECRET ENV not configured"));
 
 /// 你的 GitHub User ID（登入後比對用）
 static ALLOWED_GITHUB_ID: LazyLock<u64> = LazyLock::new(|| {
     std::env::var("ALLOWED_GITHUB_ID")
-        .expect("[FATAL] ALLOWED_GITHUB_ID 環境變數未設定")
+        .expect("[FATAL] ALLOWED_GITHUB_ID ENV not configured")
         .parse()
-        .expect("[FATAL] ALLOWED_GITHUB_ID 必須是數字")
+        .expect("[FATAL] ALLOWED_GITHUB_ID must be a number")
 });
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -55,7 +55,9 @@ pub fn verify_jwt(token: &str) -> Result<Claims, ServerError> {
     )?;
 
     if data.claims.uid != *ALLOWED_GITHUB_ID {
-        return Err(ServerError::Internal("Forbidden: 非授權帳號".into()));
+        return Err(ServerError::Internal(
+            "Forbidden: Unauthorized account".into(),
+        ));
     }
     Ok(data.claims)
 }
@@ -66,11 +68,11 @@ pub fn extract_bearer(req: &actix_web::HttpRequest) -> Result<Claims, ServerErro
         .headers()
         .get("Authorization")
         .and_then(|v| v.to_str().ok())
-        .ok_or_else(|| ServerError::Internal("缺少 Authorization header".into()))?;
+        .ok_or_else(|| ServerError::Internal("Lack Authorization header".into()))?;
 
     let token = header
         .strip_prefix("Bearer ")
-        .ok_or_else(|| ServerError::Internal("Authorization header 格式錯誤".into()))?;
+        .ok_or_else(|| ServerError::Internal("Authorization header Format Incorrect".into()))?;
 
     verify_jwt(token)
 }
