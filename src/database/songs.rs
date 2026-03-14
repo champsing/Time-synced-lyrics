@@ -220,6 +220,16 @@ impl Song {
         Ok(affected)
     }
 
+    pub fn delete(&self, tran: &Transaction) -> Result<usize, ServerError> {
+        let (query, values) = Query::delete()
+            .from_table(SongIden::Table)
+            .and_where(Expr::col(SongIden::SongId).eq(self.song_id))
+            .build_rusqlite(SqliteQueryBuilder);
+
+        let affected = tran.execute(&query, &*values.as_params())?;
+        Ok(affected)
+    }
+
     // 調出所有欄位
     pub fn select_all_columns(
         query: &mut sea_query::SelectStatement,

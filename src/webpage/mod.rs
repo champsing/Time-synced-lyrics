@@ -33,6 +33,7 @@ pub async fn run() -> Result<(), ServerError> {
             // Artists
             .service(artists::artist::handler)
             .service(artists::list::handler)
+            .service(artists::create::handler)
             // Songs
             .service(songs::verify::handler)
             .service(songs::list::handler)
