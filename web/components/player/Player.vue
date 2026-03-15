@@ -1,120 +1,3 @@
-<template>
-    <div
-        id="body"
-        class="min-h-screen m-0!"
-        :style="{ backgroundColor: bodyBackgroundColor }"
-    >
-        <!-- 載入中 -->
-        <LoadingOverlay :is-loading="isLoading" />
-
-        <!-- 錯誤 -->
-        <ErrorDisplay :is-error="isError" :error-message="errorMessage" />
-
-        <template v-if="!isLoading && !isError && currentSong">
-            <!-- 頂部導覽 -->
-            <PlayerNav />
-
-            <!-- 左側：歌詞 -->
-            <div
-                id="main-display-section"
-                class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
-            >
-                <LyricsContainer
-                    :lines="processedLines"
-                    :song="currentSong"
-                    :current-time="currentTime"
-                    :enable-lyric-background="enableLyricBackground"
-                    :enable-translation="enableTranslation"
-                    :enable-pronounciation="enablePronounciation"
-                    :is-active-phrase="isActivePhrase"
-                    :is-current-line="isCurrentLine"
-                    :get-phrase-style="getPhraseStyle"
-                    :get-background-phrase-style="getBackgroundPhraseStyle"
-                    @jump="jumpToCurrentLine"
-                />
-
-                <TranslationBar
-                    :enable-translation="enableTranslation"
-                    :song="currentSong"
-                    :translation-text="translationText"
-                    :background-translation-text="backgroundTranslationText"
-                    :translation-author="translationAuthor"
-                    @disable-translation="enableTranslation = false"
-                />
-            </div>
-
-            <!-- 右側：播放控制面板 -->
-            <ControllerPanel
-                :current-song="currentSong"
-                :song-version="songVersion"
-                :is-paused="isPaused"
-                :is-muted="isMuted"
-                :volume="volume"
-                :formatted-current-time="formattedCurrentTime"
-                :formatted-song-duration="formattedSongDuration"
-                :ORIGINAL="ORIGINAL"
-                :INSTRUMENTAL="INSTRUMENTAL"
-                :THE_FIRST_TAKE="THE_FIRST_TAKE"
-                :LIVE="LIVE"
-                :parse-subtitle="parseSubtitle"
-                :video-i-d="
-                    currentSong.versions.find(
-                        (v: Version) => v.version === songVersion,
-                    )?.id ?? null
-                "
-                @update:current-time="currentTime = $event"
-                @update:is-paused="isPaused = $event"
-                @update:song-duration="songDuration = $event"
-                @play="playVideo"
-                @pause="pauseVideo"
-                @rewind="rewind10Sec"
-                @forward="moveForward10Sec"
-                @toggle-mute="toggleMute"
-                @change-volume="changeVolume"
-            />
-
-            <!-- Modals -->
-            <SettingModal
-                :is-open="settingModalOpen"
-                :bg-color-name="bgColorName"
-                :color-options="colorOptions"
-                :enable-lyric-background="enableLyricBackground"
-                :scroll-to-current-line="scrollToCurrentLine"
-                :enable-translation="enableTranslation"
-                :enable-pronounciation="enablePronounciation"
-                :furigana-available="currentSong.furigana == 1 ? true : false"
-                @close="settingModalOpen = false"
-                @change-bg-color="bodyBackgroundColor = $event"
-                @update:enableLyricBackground="enableLyricBackground = $event"
-                @update:scrollToCurrentLine="scrollToCurrentLine = $event"
-                @update:enableTranslation="enableTranslation = $event"
-                @update:enablePronounciation="enablePronounciation = $event"
-            />
-
-            <CreditModal
-                :is-open="creditModalOpen"
-                :current-song="currentSong"
-                :ALBUM_GOOGLE_LINK_BASE="ALBUM_GOOGLE_LINK_BASE"
-                @close="creditModalOpen = false"
-            />
-
-            <ShareModal
-                :is-open="shareModalOpen"
-                :current-song-u-r-i="currentSongURI"
-                @close="shareModalOpen = false"
-                @copy-link="copyToClipboard($event, '歌曲連結')"
-            />
-
-            <AboutModal
-                :is-open="aboutModalOpen"
-                :player-version="PLAYER_VERSION"
-                @close="aboutModalOpen = false"
-                @copy-debug-info="copyToClipboard(debugInfo, '偵錯資訊')"
-            />
-        </template>
-    </div>
-</template>
-
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
 // ── Types ────────────────────────────────────────────────────────────────
@@ -424,3 +307,122 @@ watch(volume, (newVal) => {
 // ── 啟動 ─────────────────────────────────────────────────────────────────
 onMounted(setup);
 </script>
+
+<template>
+    <div
+        id="body"
+        class="min-h-screen m-0!"
+        :style="{ backgroundColor: bodyBackgroundColor }"
+    >
+        <!-- 載入中 -->
+        <LoadingOverlay :is-loading="isLoading" />
+
+        <!-- 錯誤 -->
+        <ErrorDisplay :is-error="isError" :error-message="errorMessage" />
+
+        <template v-if="!isLoading && !isError && currentSong">
+            <!-- 頂部導覽 -->
+            <PlayerNav />
+
+            <!-- 左側：歌詞 -->
+            <div
+                id="main-display-section"
+                class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
+            >
+                <LyricsContainer
+                    :lines="processedLines"
+                    :song="currentSong"
+                    :current-time="currentTime"
+                    :enable-lyric-background="enableLyricBackground"
+                    :enable-translation="enableTranslation"
+                    :enable-pronounciation="enablePronounciation"
+                    :is-active-phrase="isActivePhrase"
+                    :is-current-line="isCurrentLine"
+                    :get-phrase-style="getPhraseStyle"
+                    :get-background-phrase-style="getBackgroundPhraseStyle"
+                    @jump="jumpToCurrentLine"
+                />
+
+                <TranslationBar
+                    :enable-translation="enableTranslation"
+                    :song="currentSong"
+                    :translation-text="translationText || ''"
+                    :background-translation-text="
+                        backgroundTranslationText || ''
+                    "
+                    :translation-author="translationAuthor"
+                    @disable-translation="enableTranslation = false"
+                />
+            </div>
+
+            <!-- 右側：播放控制面板 -->
+            <ControllerPanel
+                :current-song="currentSong"
+                :song-version="songVersion"
+                :is-paused="isPaused"
+                :is-muted="isMuted"
+                :volume="volume"
+                :formatted-current-time="formattedCurrentTime"
+                :formatted-song-duration="formattedSongDuration"
+                :ORIGINAL="ORIGINAL"
+                :INSTRUMENTAL="INSTRUMENTAL"
+                :THE_FIRST_TAKE="THE_FIRST_TAKE"
+                :LIVE="LIVE"
+                :parse-subtitle="parseSubtitle"
+                :video-i-d="
+                    currentSong.versions.find(
+                        (v: Version) => v.version === songVersion,
+                    )?.id ?? null
+                "
+                @update:current-time="currentTime = $event"
+                @update:is-paused="isPaused = $event"
+                @update:song-duration="songDuration = $event"
+                @play="playVideo"
+                @pause="pauseVideo"
+                @rewind="rewind10Sec"
+                @forward="moveForward10Sec"
+                @toggle-mute="toggleMute"
+                @change-volume="changeVolume"
+            />
+
+            <!-- Modals -->
+            <SettingModal
+                :is-open="settingModalOpen"
+                :bg-color-name="bgColorName"
+                :color-options="colorOptions"
+                :enable-lyric-background="enableLyricBackground"
+                :scroll-to-current-line="scrollToCurrentLine"
+                :enable-translation="enableTranslation"
+                :enable-pronounciation="enablePronounciation"
+                :furigana-available="currentSong.furigana == 1 ? true : false"
+                @close="settingModalOpen = false"
+                @change-bg-color="bodyBackgroundColor = $event"
+                @update:enableLyricBackground="enableLyricBackground = $event"
+                @update:scrollToCurrentLine="scrollToCurrentLine = $event"
+                @update:enableTranslation="enableTranslation = $event"
+                @update:enablePronounciation="enablePronounciation = $event"
+            />
+
+            <CreditModal
+                :is-open="creditModalOpen"
+                :current-song="currentSong"
+                :ALBUM_GOOGLE_LINK_BASE="ALBUM_GOOGLE_LINK_BASE"
+                @close="creditModalOpen = false"
+            />
+
+            <ShareModal
+                :is-open="shareModalOpen"
+                :current-song-u-r-i="currentSongURI"
+                @close="shareModalOpen = false"
+                @copy-link="copyToClipboard($event, '歌曲連結')"
+            />
+
+            <AboutModal
+                :is-open="aboutModalOpen"
+                :player-version="PLAYER_VERSION"
+                @close="aboutModalOpen = false"
+                @copy-debug-info="copyToClipboard(debugInfo, '偵錯資訊')"
+            />
+        </template>
+    </div>
+</template>

@@ -1,3 +1,10 @@
+<script setup lang="ts">
+defineProps<{
+    isError: boolean;
+    errorMessage: string;
+}>();
+</script>
+
 <template>
     <div
         v-if="isError"
@@ -14,10 +21,3 @@
         </a>
     </div>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-    isError: boolean;
-    errorMessage: string;
-}>();
-</script>

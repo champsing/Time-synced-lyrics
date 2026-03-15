@@ -1,3 +1,36 @@
+<script setup lang="ts">
+import { computed, type CSSProperties } from "vue";
+import type {
+    parsedBackgroundVoiceLine,
+    parsedLyricLine,
+    ProcessedLine,
+    Song,
+} from "@/types/types";
+import LyricLine from "./LyricLine.vue";
+
+const props = defineProps<{
+    lines: ProcessedLine[];
+    song: Song;
+    currentTime: number;
+    enablePronounciation: boolean;
+    enableLyricBackground: boolean;
+    enableTranslation: boolean;
+    isCurrentLine: (index: number) => boolean;
+    getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
+    getBackgroundPhraseStyle: (
+        lineIndex: number,
+        phraseIndex: number,
+    ) => CSSProperties;
+    isActivePhrase: (
+        currentTime: number,
+        line: parsedLyricLine | parsedBackgroundVoiceLine,
+        phraseIndex: number,
+    ) => boolean;
+}>();
+defineEmits<{ (e: "jump", index: number): void }>();
+const isDuet = computed(() => props.song.is_duet === 1);
+</script>
+
 <template>
     <div
         id="lyrics-container"
@@ -39,35 +72,4 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import { computed, type CSSProperties } from "vue";
-import type {
-    parsedBackgroundVoiceLine,
-    parsedLyricLine,
-    ProcessedLine,
-    Song,
-} from "@/types/types";
-import LyricLine from "./LyricLine.vue";
 
-const props = defineProps<{
-    lines: ProcessedLine[];
-    song: Song;
-    currentTime: number;
-    enablePronounciation: boolean;
-    enableLyricBackground: boolean;
-    enableTranslation: boolean;
-    isCurrentLine: (index: number) => boolean;
-    getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
-    getBackgroundPhraseStyle: (
-        lineIndex: number,
-        phraseIndex: number,
-    ) => CSSProperties;
-    isActivePhrase: (
-        currentTime: number,
-        line: parsedLyricLine | parsedBackgroundVoiceLine,
-        phraseIndex: number,
-    ) => boolean;
-}>();
-defineEmits<{ (e: "jump", index: number): void }>();
-const isDuet = computed(() => props.song.is_duet === 1);
-</script>

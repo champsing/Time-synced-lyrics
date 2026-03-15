@@ -1,3 +1,15 @@
+<script setup lang="ts">
+defineProps<{
+    isOpen: boolean;
+    currentSongURI: string;
+}>();
+
+const emit = defineEmits<{
+    (e: "close"): void;
+    (e: "copy-link", uri: string): void;
+}>();
+</script>
+
 <template>
     <div id="share-modal-container" :class="{ hidden: !isOpen }">
         <div id="share-modal-mask" class="modal-mask" @click="emit('close')" />
@@ -54,14 +66,4 @@
     </div>
 </template>
 
-<script setup lang="ts">
-defineProps<{
-    isOpen: boolean;
-    currentSongURI: string;
-}>();
 
-const emit = defineEmits<{
-    (e: "close"): void;
-    (e: "copy-link", uri: string): void;
-}>();
-</script>

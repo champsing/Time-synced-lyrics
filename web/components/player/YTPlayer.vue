@@ -1,9 +1,3 @@
-<template>
-    <div ref="playerContainer">
-        <div v-if="visible" id="player" />
-    </div>
-</template>
-
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 import { YOUTUBE_IFRAME_API } from "@/composables/utils/config";
@@ -141,3 +135,9 @@ defineExpose({
     getPlayer: () => ytPlayer,
 });
 </script>
+
+<template>
+    <div ref="playerContainer">
+        <div v-if="visible" id="player" />
+    </div>
+</template>

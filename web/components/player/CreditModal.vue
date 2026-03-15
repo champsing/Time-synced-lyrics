@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import type { Song } from "@/types/types";
+
+defineProps<{
+    isOpen: boolean;
+    currentSong: Song & { displayArtist?: string };
+    ALBUM_GOOGLE_LINK_BASE: string;
+}>();
+
+const emit = defineEmits<{
+    (e: "close"): void;
+}>();
+</script>
+
+
 <template>
     <div id="credit-modal-container" :class="{ hidden: !isOpen }">
         <div id="credit-modal-mask" class="modal-mask" @click="emit('close')" />
@@ -111,16 +126,3 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import type { Song } from "@/types/types";
-
-defineProps<{
-    isOpen: boolean;
-    currentSong: Song & { displayArtist?: string };
-    ALBUM_GOOGLE_LINK_BASE: string;
-}>();
-
-const emit = defineEmits<{
-    (e: "close"): void;
-}>();
-</script>

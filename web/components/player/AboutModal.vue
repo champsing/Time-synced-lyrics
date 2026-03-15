@@ -1,3 +1,15 @@
+<script setup lang="ts">
+defineProps<{
+    isOpen: boolean;
+    playerVersion: string;
+}>();
+
+const emit = defineEmits<{
+    (e: "close"): void;
+    (e: "copy-debug-info"): void;
+}>();
+</script>
+
 <template>
     <div id="about-modal-container" :class="{ hidden: !isOpen }">
         <div id="about-modal-mask" class="modal-mask" @click="emit('close')" />
@@ -53,14 +65,4 @@
     </div>
 </template>
 
-<script setup lang="ts">
-defineProps<{
-    isOpen: boolean;
-    playerVersion: string;
-}>();
 
-const emit = defineEmits<{
-    (e: "close"): void;
-    (e: "copy-debug-info"): void;
-}>();
-</script>

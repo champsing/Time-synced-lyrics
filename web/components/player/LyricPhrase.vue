@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import type { CSSProperties } from "vue";
+import type { LyricPhrase } from "@/types/types";
+
+defineProps<{
+    phrase: LyricPhrase;
+    duration: number;
+    delay: number;
+    phraseStyle: CSSProperties;
+    isActive: boolean;
+    enablePronounciation: boolean;
+}>();
+</script>
+
 <template>
     <span
         class="lyric-phrase"
@@ -34,16 +48,4 @@
     </span>
 </template>
 
-<script setup lang="ts">
-import type { CSSProperties } from "vue";
-import type { LyricPhrase } from "@/types/types";
 
-defineProps<{
-    phrase: LyricPhrase;
-    duration: number;
-    delay: number;
-    phraseStyle: CSSProperties;
-    isActive: boolean;
-    enablePronounciation: boolean;
-}>();
-</script>

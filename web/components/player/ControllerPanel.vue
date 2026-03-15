@@ -1,3 +1,38 @@
+<script setup lang="ts">
+import type { Song } from "@/types/types";
+import YTPlayer from "./YTPlayer.vue";
+
+defineProps<{
+    currentSong: Song & { displayArtist?: string };
+    songVersion: string | null;
+    videoID: string | null; // 新增：由父層從 currentSong.versions 解析後傳入
+    isPaused: boolean;
+    isMuted: boolean;
+    volume: number;
+    formattedCurrentTime: string;
+    formattedSongDuration: string;
+    ORIGINAL: string;
+    INSTRUMENTAL: string;
+    THE_FIRST_TAKE: string;
+    LIVE: string;
+    parseSubtitle: (subtitle: string) => string;
+}>();
+
+const emit = defineEmits<{
+    (e: "play"): void;
+    (e: "pause"): void;
+    (e: "rewind"): void;
+    (e: "forward"): void;
+    (e: "toggle-mute"): void;
+    (e: "change-volume", value: number): void;
+    // 新增：從 YTPlayer 往上透傳
+    (e: "update:currentTime", value: number): void;
+    (e: "update:isPaused", value: boolean): void;
+    (e: "update:songDuration", value: number): void;
+}>();
+</script>
+
+
 <template>
     <section
         class="fixed bottom-0 right-0 w-full md:w-100 p-4 md:pl-0 z-50 transition-all duration-300"
@@ -281,36 +316,3 @@
     </section>
 </template>
 
-<script setup lang="ts">
-import type { Song } from "@/types/types";
-import YTPlayer from "./YTPlayer.vue";
-
-defineProps<{
-    currentSong: Song & { displayArtist?: string };
-    songVersion: string | null;
-    videoID: string | null; // 新增：由父層從 currentSong.versions 解析後傳入
-    isPaused: boolean;
-    isMuted: boolean;
-    volume: number;
-    formattedCurrentTime: string;
-    formattedSongDuration: string;
-    ORIGINAL: string;
-    INSTRUMENTAL: string;
-    THE_FIRST_TAKE: string;
-    LIVE: string;
-    parseSubtitle: (subtitle: string) => string;
-}>();
-
-const emit = defineEmits<{
-    (e: "play"): void;
-    (e: "pause"): void;
-    (e: "rewind"): void;
-    (e: "forward"): void;
-    (e: "toggle-mute"): void;
-    (e: "change-volume", value: number): void;
-    // 新增：從 YTPlayer 往上透傳
-    (e: "update:currentTime", value: number): void;
-    (e: "update:isPaused", value: boolean): void;
-    (e: "update:songDuration", value: number): void;
-}>();
-</script>

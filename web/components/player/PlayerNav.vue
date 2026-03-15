@@ -63,7 +63,3 @@
         </div>
     </nav>
 </template>
-
-<script setup lang="ts">
-// 純展示元件，不需要 props
-</script>

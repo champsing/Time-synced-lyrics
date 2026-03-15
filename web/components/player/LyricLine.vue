@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import type { CSSProperties } from "vue";
+import LyricPhrase from "./LyricPhrase.vue";
+import type {
+    parsedBackgroundVoiceLine,
+    parsedLyricLine,
+    ProcessedLine,
+} from "@/types/types";
+
+defineProps<{
+    line: ProcessedLine;
+    bgLine?: parsedBackgroundVoiceLine;
+    index: number;
+    totalLines: number;
+    isCurrent: boolean;
+    isDuet?: boolean;
+    currentTime: number;
+    enablePronounciation: boolean;
+    getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
+    isActivePhrase: (
+        currentTime: number,
+        line: parsedLyricLine | parsedBackgroundVoiceLine,
+        phraseIndex: number,
+    ) => boolean;
+}>();
+defineEmits<{ (e: "jump", index: number): void }>();
+</script>
+
 <template>
     <div
         :id="`lyric-line-${index}`"
@@ -57,30 +85,4 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import type { CSSProperties } from "vue";
-import LyricPhrase from "./LyricPhrase.vue";
-import type {
-    parsedBackgroundVoiceLine,
-    parsedLyricLine,
-    ProcessedLine,
-} from "@/types/types";
 
-defineProps<{
-    line: ProcessedLine;
-    bgLine?: parsedBackgroundVoiceLine;
-    index: number;
-    totalLines: number;
-    isCurrent: boolean;
-    isDuet?: boolean;
-    currentTime: number;
-    enablePronounciation: boolean;
-    getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
-    isActivePhrase: (
-        currentTime: number,
-        line: parsedLyricLine | parsedBackgroundVoiceLine,
-        phraseIndex: number,
-    ) => boolean;
-}>();
-defineEmits<{ (e: "jump", index: number): void }>();
-</script>

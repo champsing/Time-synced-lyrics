@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import type { Song } from "@/types/types";
+defineProps<{
+    enableTranslation: boolean;
+    song: Song;
+    translationText: string | "";
+    backgroundTranslationText: string | "";
+    translationAuthor: string;
+}>();
+defineEmits<{ (e: "disableTranslation"): void }>();
+</script>
+
 <template>
     <div
         v-if="enableTranslation"
@@ -32,15 +44,3 @@
         </template>
     </div>
 </template>
-
-<script setup lang="ts">
-import type { Song } from "@/types/types";
-defineProps<{
-    enableTranslation: boolean;
-    song: Song;
-    translationText: string;
-    backgroundTranslationText: string;
-    translationAuthor: string;
-}>();
-defineEmits<{ (e: "disableTranslation"): void }>();
-</script>

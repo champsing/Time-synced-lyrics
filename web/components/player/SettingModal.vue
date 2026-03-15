@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import type { Color } from "@/types/types";
+
+defineProps<{
+    isOpen: boolean;
+    bgColorName: string;
+    colorOptions: Color[];
+    enableLyricBackground: boolean;
+    scrollToCurrentLine: boolean;
+    enableTranslation: boolean;
+    enablePronounciation: boolean;
+    furiganaAvailable: boolean | null;
+}>();
+
+const emit = defineEmits<{
+    (e: "close"): void;
+    (e: "change-bg-color", color: string): void;
+    (e: "update:enableLyricBackground", val: boolean): void;
+    (e: "update:scrollToCurrentLine", val: boolean): void;
+    (e: "update:enableTranslation", val: boolean): void;
+    (e: "update:enablePronounciation", val: boolean): void;
+}>();
+</script>
+
 <template>
     <Teleport to="body">
         <div v-if="isOpen" id="setting-modal-container">
@@ -142,26 +166,4 @@
     </Teleport>
 </template>
 
-<script setup lang="ts">
-import type { Color } from "@/types/types";
 
-defineProps<{
-    isOpen: boolean;
-    bgColorName: string;
-    colorOptions: Color[];
-    enableLyricBackground: boolean;
-    scrollToCurrentLine: boolean;
-    enableTranslation: boolean;
-    enablePronounciation: boolean;
-    furiganaAvailable: boolean | null;
-}>();
-
-const emit = defineEmits<{
-    (e: "close"): void;
-    (e: "change-bg-color", color: string): void;
-    (e: "update:enableLyricBackground", val: boolean): void;
-    (e: "update:scrollToCurrentLine", val: boolean): void;
-    (e: "update:enableTranslation", val: boolean): void;
-    (e: "update:enablePronounciation", val: boolean): void;
-}>();
-</script>

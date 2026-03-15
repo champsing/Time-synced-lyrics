@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineProps<{
+    isLoading: boolean;
+}>();
+</script>
+
 <template>
     <div
         v-if="isLoading"
@@ -48,8 +54,4 @@
     </div>
 </template>
 
-<script setup lang="ts">
-defineProps<{
-    isLoading: boolean;
-}>();
-</script>
+
