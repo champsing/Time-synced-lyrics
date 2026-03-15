@@ -26,6 +26,7 @@ fn build_client() -> S3Client {
         "r2",
     );
     let config = aws_sdk_s3::Config::builder()
+        .behavior_version(aws_sdk_s3::config::BehaviorVersion::latest())
         .endpoint_url(R2_ENDPOINT.as_str())
         .region(Region::new("auto"))
         .credentials_provider(creds)
