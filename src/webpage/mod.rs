@@ -41,7 +41,7 @@ pub async fn run() -> Result<(), ServerError> {
             .service(songs::song::handler)
             // Lyrics
             .service(lyrics::update::handler)
-            .service(songs::update_song::handler)
+            .service(songs::update::handler)
             // Auth
             .service(auth::github::login_handler)
             .service(auth::github::callback_handler)
