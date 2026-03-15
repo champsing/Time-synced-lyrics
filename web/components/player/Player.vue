@@ -311,7 +311,7 @@ onMounted(setup);
 <template>
     <div
         id="body"
-        class="min-h-screen m-0!"
+        class="min-h-screen m-0! "
         :style="{ backgroundColor: bodyBackgroundColor }"
     >
         <!-- 載入中 -->
@@ -322,12 +322,12 @@ onMounted(setup);
 
         <template v-if="!isLoading && !isError && currentSong">
             <!-- 頂部導覽 -->
-            <PlayerNav />
+            <PlayerNav :body-background-color="bodyBackgroundColor" />
 
-            <!-- 左側：歌詞（手機 / 桌面都是 flex column） -->
+            <!-- 左側：歌詞 -->
             <div
                 id="main-display-section"
-                class="flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
+                class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
             >
                 <LyricsContainer
                     :lines="processedLines"
@@ -424,5 +424,4 @@ onMounted(setup);
         </template>
     </div>
 </template>
-
 

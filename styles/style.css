@@ -1,4 +1,5 @@
 /* 添加完整 CSS 确保可见性 */
+@import "tailwindcss";
 body {
     font-family: system-ui;
 }

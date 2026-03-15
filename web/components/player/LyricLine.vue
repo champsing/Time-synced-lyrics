@@ -39,7 +39,7 @@ defineEmits<{ (e: "jump", index: number): void }>();
         <button
             :id="`line-button-${index}`"
             type="button"
-            class="lyric-button text-2xl bg-transparent p-0 cursor-pointer max-w-[50%]"
+            class="z-20 lyric-button text-2xl bg-transparent p-0 cursor-pointer max-w-[50%] relative"
             :class="{ active: isCurrent }"
             @click="$emit('jump', index)"
         >
