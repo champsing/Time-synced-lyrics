@@ -11,8 +11,8 @@ static GH_CLIENT_SECRET: LazyLock<String> = LazyLock::new(|| {
     std::env::var("GITHUB_CLIENT_SECRET").expect("[FATAL] GITHUB_CLIENT_SECRET 未設定")
 });
 
-static ALLOWED_FRONTEND_ORIGIN: LazyLock<Vec<String>> = LazyLock::new(|| {
-    std::env::var("ALLOWED_FRONTEND_ORIGIN")
+static ALLOW_ORIGINS: LazyLock<Vec<String>> = LazyLock::new(|| {
+    std::env::var("ALLOW_ORIGINS")
         .unwrap_or_else(|_| "https://edit.timesl.online".to_string())
         .split(',')
         .map(|s| s.trim().to_string())
@@ -45,17 +45,23 @@ fn extract_allowed_origin(req: &HttpRequest) -> Option<String> {
         .and_then(|v| v.to_str().ok())?;
 
     // 比對白名單（Referer 可能帶 path，所以用 starts_with）
-    ALLOWED_FRONTEND_ORIGIN
+    ALLOW_ORIGINS
         .iter()
         .find(|allowed| candidate.starts_with(allowed.as_str()))
         .cloned()
 }
 
+/// GET /api/auth/github
+/// 發起 GitHub OAuth 登入流程
+///
+/// 將發起請求的前端 Origin 進行 base64 編碼後放入 state 參數，
+/// 以便 callback 時知道要重導回哪個前端（支援多來源白名單）。
+/// 重導至 GitHub 授權頁面。
 #[get("/api/auth/github")]
 pub async fn login_handler(req: HttpRequest) -> impl Responder {
     // 記錄發起登入的來源
     let origin = extract_allowed_origin(&req)
-        .unwrap_or_else(|| ALLOWED_FRONTEND_ORIGIN.first().cloned().unwrap_or_default());
+        .unwrap_or_else(|| ALLOW_ORIGINS.first().cloned().unwrap_or_default());
 
     // 將 origin base64 編碼後放入 state（GitHub 會原樣帶回 callback）
     let state = general_purpose::URL_SAFE_NO_PAD.encode(&origin);
@@ -69,6 +75,15 @@ pub async fn login_handler(req: HttpRequest) -> impl Responder {
         .finish()
 }
 
+/// GET /api/auth/callback
+/// GitHub OAuth 授權完成後的回調端點
+///
+/// 流程：
+///   1. 從 state 還原並驗證前端 Origin
+///   2. 用 code 向 GitHub 換取 access_token
+///   3. 用 access_token 取得使用者的 GitHub 帳號資訊
+///   4. 簽發 JWT（issue_jwt 內部會驗 ALLOWED_GITHUB_ID 白名單）
+///   5. 重導回前端，token 附在 query param：`/?token=<jwt>`
 #[get("/api/auth/callback")]
 pub async fn callback_handler(
     query: web::Query<CallbackQuery>,
@@ -80,12 +95,12 @@ pub async fn callback_handler(
         .and_then(|s| general_purpose::URL_SAFE_NO_PAD.decode(s).ok())
         .and_then(|b| String::from_utf8(b).ok())
         .and_then(|candidate| {
-            ALLOWED_FRONTEND_ORIGIN
+            ALLOW_ORIGINS
                 .iter()
                 .find(|allowed| candidate.starts_with(allowed.as_str()))
                 .cloned()
         })
-        .unwrap_or_else(|| ALLOWED_FRONTEND_ORIGIN.first().cloned().unwrap_or_default());
+        .unwrap_or_else(|| ALLOW_ORIGINS.first().cloned().unwrap_or_default());
 
     let client = reqwest::Client::new();
     // 換 access token
@@ -120,7 +135,7 @@ pub async fn callback_handler(
     let jwt = auth::issue_jwt(user.id, &user.login)?;
 
     // Redirect 回前端，附上 token（fragment，不會送到 server）
-    let redirect = format!("{}/?token={}", origin, jwt);
+    let redirect = format!("{}/#token={}", origin, jwt);
     Ok(HttpResponse::Found()
         .insert_header(("Location", redirect))
         .finish())

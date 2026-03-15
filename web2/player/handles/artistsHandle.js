@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "/web/utils/config.js";
 import { reactive } from "vue";
 
-const artistCache = reactive({});
+const artistCache = reactive([]);
 const pendingIds = new Set();
 const STORAGE_KEY = "artists_name";
 
@@ -35,8 +35,10 @@ async function processBatch() {
         const currentMap = currentStored ? JSON.parse(currentStored) : {};
 
         idsToFetch.forEach((id) => {
-            // 從 Rust HashMap { "id": { data } } 中提取
-            const artistData = data[id];
+            // 從 Rust [ { "id": XXX } ] 中提取
+            const artistData = data.find(
+                (atst) => String(atst.artist_id) === String(id),
+            );
             const name =
                 artistData && artistData.original_name
                     ? artistData.original_name

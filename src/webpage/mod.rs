@@ -1,4 +1,3 @@
-pub mod admin;
 pub mod artists;
 pub mod auth;
 pub mod songs;
@@ -9,27 +8,42 @@ use actix_cors::Cors;
 use actix_web::{App, HttpServer};
 
 pub async fn run() -> Result<(), ServerError> {
-    HttpServer::new(|| {
-        let cors = Cors::default()
-            .allowed_origin("http://localhost:5173")
-            .allowed_origin("https://timesl.online")
-            .allowed_origin("https://www.timesl.online")
-            .allowed_origin("https://edit.timesl.online")
+    // 從 FRONTEND_ORIGIN 解析允許的來源清單（逗號分隔）
+    let allowed_origins: Vec<String> = std::env::var("ALLOWED_ORIGINS")
+        .unwrap_or_else(|_| "https://edit.timesl.online".to_string())
+        .split(',')
+        .map(|s| s.trim().to_string())
+        .filter(|s| !s.is_empty())
+        .collect();
+
+    HttpServer::new(move || {
+        let mut cors = Cors::default()
             .allow_any_header()
-            .allowed_methods(vec!["GET", "POST"]);
+            .allowed_methods(vec!["GET", "POST", "OPTIONS"])
+            .supports_credentials();
+
+        for origin in &allowed_origins {
+            cors = cors.allowed_origin(origin);
+        }
 
         App::new()
             .wrap(cors)
+            // Status
             .service(status::handler)
+            // Artists
             .service(artists::artist::handler)
             .service(artists::list::handler)
+            .service(artists::create::handler)
+            // Songs
             .service(songs::verify::handler)
             .service(songs::list::handler)
             .service(songs::song::handler)
             .service(songs::update_lyrics::handler)
             .service(songs::update_song::handler)
+            // Auth
             .service(auth::github::login_handler)
             .service(auth::github::callback_handler)
+            .service(auth::me::handler)
     })
     .bind(("0.0.0.0", 8000))?
     .run()
