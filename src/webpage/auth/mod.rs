@@ -32,7 +32,7 @@ pub fn issue_jwt(github_id: u64, login: &str) -> Result<String, ServerError> {
         .duration_since(UNIX_EPOCH)
         .unwrap()
         .as_secs() as usize;
-    
+
     let exp = iat + 86400 * 7; // 7 天
 
     let claims = Claims {
