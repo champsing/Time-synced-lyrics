@@ -1,5 +1,6 @@
 pub mod artists;
 pub mod auth;
+pub mod lyrics;
 pub mod songs;
 pub mod status;
 
@@ -38,7 +39,8 @@ pub async fn run() -> Result<(), ServerError> {
             .service(songs::verify::handler)
             .service(songs::list::handler)
             .service(songs::song::handler)
-            .service(songs::update_lyrics::handler)
+            // Lyrics
+            .service(lyrics::update::handler)
             .service(songs::update_song::handler)
             // Auth
             .service(auth::github::login_handler)
