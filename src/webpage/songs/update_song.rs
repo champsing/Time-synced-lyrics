@@ -66,6 +66,8 @@ pub async fn handler(
             if let Some(v) = req_data.credits     { song.credits = v; }
         }
 
+        // 執行寫入
+        _apply_updates(req_data, &mut song);
         // updated_at 永遠更新成今天
         song.updated_at = chrono::Local::now().date_naive();
 
