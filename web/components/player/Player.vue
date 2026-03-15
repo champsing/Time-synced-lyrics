@@ -324,10 +324,10 @@ onMounted(setup);
             <!-- 頂部導覽 -->
             <PlayerNav />
 
-            <!-- 左側：歌詞 -->
+            <!-- 左側：歌詞（手機 / 桌面都是 flex column） -->
             <div
                 id="main-display-section"
-                class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
+                class="flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
             >
                 <LyricsContainer
                     :lines="processedLines"
@@ -347,9 +347,7 @@ onMounted(setup);
                     :enable-translation="enableTranslation"
                     :song="currentSong"
                     :translation-text="translationText || ''"
-                    :background-translation-text="
-                        backgroundTranslationText || ''
-                    "
+                    :background-translation-text="backgroundTranslationText || ''"
                     :translation-author="translationAuthor"
                     @disable-translation="enableTranslation = false"
                 />
@@ -426,3 +424,5 @@ onMounted(setup);
         </template>
     </div>
 </template>
+
+

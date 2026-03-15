@@ -1,45 +1,56 @@
 <script setup lang="ts">
 import type { Song } from "@/types/types";
+
 defineProps<{
     enableTranslation: boolean;
     song: Song;
-    translationText: string | "";
-    backgroundTranslationText: string | "";
+    translationText: string;
+    backgroundTranslationText: string;
     translationAuthor: string;
 }>();
+
 defineEmits<{ (e: "disableTranslation"): void }>();
 </script>
 
 <template>
     <div
         v-if="enableTranslation"
-        class="fixed bottom-28 md:bottom-auto md:relative left-0 right-0 md:left-auto md:right-auto mx-4 md:mx-0 md:mt-4 p-3 bg-black/40 backdrop-blur-lg rounded-2xl border border-white/10 text-center"
+        id="translation-container"
+        class="hidden md:block fixed bottom-0 mb-4 px-4"
     >
         <template v-if="song.translation?.available">
-            <p class="text-teal-300 font-medium leading-tight">
-                {{ translationText }}
-            </p>
-            <p class="text-teal-500/80 text-xs mt-1">
-                {{ backgroundTranslationText }}
-            </p>
-            <div v-if="translationAuthor" class="mt-2">
-                <a
-                    :href="song.translation?.cite"
-                    class="text-[10px] text-white/40 hover:text-white/60 transition-colors"
-                >
-                    翻譯作者：{{ translationAuthor }}
-                </a>
+            <div
+                class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-xl w-max"
+            >
+                <div class="text-2xl font-bold text-center text-teal-300 p-2">
+                    {{ translationText }}
+                    <div class="mt-1 text-base text-center text-teal-500">
+                        {{ backgroundTranslationText }}
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <a
+                        v-if="song.translation?.cite"
+                        :href="song.translation?.cite"
+                        title="翻譯作者姓名"
+                        aria-label="翻譯作者姓名"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-xs font-bold text-center text-green-400 underline md:no-underline md:hover:underline"
+                    >
+                        翻譯作者：{{ translationAuthor }}
+                    </a>
+                    <div v-else class="text-xs text-center text-white/60">
+                        翻譯作者：{{ translationAuthor }}
+                    </div>
+                </div>
             </div>
         </template>
         <template v-else>
-            <div class="text-[10px] text-white/40">
+            <div
+                class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-xl w-fit"
+            >
                 <span>本歌曲尚未提供翻譯</span>
-                <button
-                    class="underline ml-4"
-                    @click="$emit('disableTranslation')"
-                >
-                    關閉翻譯
-                </button>
             </div>
         </template>
     </div>

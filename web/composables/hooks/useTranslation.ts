@@ -48,7 +48,7 @@ export function useTransation(
 
     const translationAuthor = computed(() => {
         if (!currentSong.translation?.author) return "";
-        if (currentSong.translation?.modified === true)
+        if (currentSong.translation?.modified === 1)
             return currentSong.translation?.author + "〔已修改〕";
         else return currentSong.translation?.author;
     });

@@ -26,27 +26,30 @@
             </a>
         </div>
 
-        <!-- 桌面版標題 + GitHub 連結 -->
         <div
-            class="hidden sm:flex flex-row gap-2 items-center text-white/80 text-sm"
+            class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-full hover:bg-sky-300 transition-colors duration-200"
         >
-            <a
-                href="https://github.com/champsing/time-synced-lyrics"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="GitHub Repo"
-                title="GitHub"
-                class="hover:text-white transition-colors"
+            <!-- 桌面版標題 + GitHub 連結 -->
+            <div
+                class="hidden sm:flex flex-row gap-2 items-center text-white/80 text-sm"
             >
-                <!-- GitHub mark SVG（單色） -->
-                <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 64 64"
-                    xmlns="http://www.w3.org/2000/svg"
+                <a
+                    href="https://github.com/champsing/time-synced-lyrics"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label="GitHub Repo"
+                    title="GitHub"
+                    class="hover:text-white transition-colors"
                 >
-                    <path
-                        d="M32 0a32.021 32.021 0 0 0-10.1 62.4c1.6.3 2.2-.7 2.2-1.5v-6
+                    <!-- GitHub mark SVG（單色） -->
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 64 64"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M32 0a32.021 32.021 0 0 0-10.1 62.4c1.6.3 2.2-.7 2.2-1.5v-6
                c-8.9 1.9-10.8-3.8-10.8-3.8-1.5-3.7-3.6-4.7-3.6-4.7-2.9-2 .2-1.9.2-1.9
                3.2.2 4.9 3.3 4.9 3.3 2.9 4.9 7.5 3.5 9.3 2.7a6.93 6.93 0 0 1 2-4.3
                c-7.1-.8-14.6-3.6-14.6-15.8a12.27 12.27 0 0 1 3.3-8.6
@@ -55,11 +58,11 @@
                a11.965 11.965 0 0 1 .3 8.5 12.1 12.1 0 0 1 3.3 8.6
                c0 12.3-7.5 15-14.6 15.8a7.746 7.746 0 0 1 2.2 5.9v8.8
                c0 .9.6 1.8 2.2 1.5A32.021 32.021 0 0 0 32 0z"
-                        fill="currentColor"
-                    />
-                </svg>
-            </a>
-            <span>Time-synced-lyrics</span>
+                            fill="currentColor"
+                        />
+                    </svg>
+                </a>
+            </div>
         </div>
     </nav>
 </template>
