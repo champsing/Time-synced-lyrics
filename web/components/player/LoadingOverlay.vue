@@ -1,12 +1,5 @@
-<script setup lang="ts">
-defineProps<{
-    isLoading: boolean;
-}>();
-</script>
-
 <template>
     <div
-        v-if="isLoading"
         id="loading-overlay"
         class="col-span-full text-center py-8 fixed inset-0 z-9999 bg-black/80 flex items-center justify-center flex-col"
     >
@@ -53,5 +46,3 @@ defineProps<{
         </div>
     </div>
 </template>
-
-

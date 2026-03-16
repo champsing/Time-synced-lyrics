@@ -13,7 +13,40 @@ defineProps<{
             <div
                 class="flex flex-row justify-between items-center w-full gap-2 sm:gap-0"
             >
-                <!-- 左側：logo + 標題 + 手機版返回按鈕 -->
+                <!-- 左側：logo + 標題 + 返回按鈕 -->
+                <div
+                    class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200"
+                >
+                    <a
+                        href="/song-select"
+                        title="返回選歌系統"
+                        aria-label="返回選歌系統"
+                    >
+                        <svg
+                            height="50"
+                            width="50"
+                            viewBox="-143.36 -143.36 1310.72 1310.72"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="#000000"
+                        >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                                />
+                                <path
+                                    d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                                />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+
                 <div class="flex flex-row gap-3 md:ml-8">
                     <img
                         src="/og_image/music.webp"
@@ -24,7 +57,10 @@ defineProps<{
                     <a href="/" aria-label="回首頁">
                         <h1
                             class="text-2xl md:text-3xl font-bold text-black font-playfair mt-1"
-                            :class="{ 'text-rose-600': bodyBackgroundColor === '#101010' }"
+                            :class="{
+                                'text-rose-600':
+                                    bodyBackgroundColor === '#101010',
+                            }"
                         >
                             同步開唱
                         </h1>
@@ -101,42 +137,8 @@ defineProps<{
                             ></path>
                         </svg>
                     </a>
-
-                    <div
-                        class="bg-[#4ac2d7] outline-2 outline-cyan-800 rounded-md hover:bg-sky-300 transition-colors duration-200"
-                    >
-                        <a
-                            href="/song-select"
-                            title="返回選歌系統"
-                            aria-label="返回選歌系統"
-                        >
-                            <svg
-                                height="50"
-                                width="50"
-                                viewBox="-143.36 -143.36 1310.72 1310.72"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="#000000"
-                            >
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g
-                                    id="SVGRepo_tracerCarrier"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                ></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path
-                                        d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
-                                    />
-                                    <path
-                                        d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
-                                    />
-                                </g>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </nav>
 </template>
-

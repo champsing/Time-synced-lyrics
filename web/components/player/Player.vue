@@ -2,32 +2,24 @@
 import { computed, onMounted, ref, watch } from "vue";
 // ── Types ────────────────────────────────────────────────────────────────
 import type {
-    Song,
-    LyricData,
     Color,
+    LyricData,
+    ParsedLine,
+    ProcessedLine,
     SongWithDisplay,
     Version,
-    ProcessedLine,
-    ParsedLine,
 } from "@/types/types";
 
 // ── Vue 組件 ─────────────────────────────────────────────────────────────
-import LoadingOverlay from "@components/player/LoadingOverlay.vue";
-import ErrorDisplay from "@components/player/ErrorDisplay.vue";
-import PlayerNav from "@components/player/PlayerNav.vue";
-import LyricsContainer from "@components/player/LyricsContainer.vue";
-import TranslationBar from "@components/player/TranslationBar.vue";
-import ControllerPanel from "@components/player/ControllerPanel.vue";
-import SettingModal from "@components/player/SettingModal.vue";
-import CreditModal from "@components/player/CreditModal.vue";
-import ShareModal from "@components/player/ShareModal.vue";
-import AboutModal from "@components/player/AboutModal.vue";
 import {
-    copyToClipboard,
-    formatTime,
-    scrollToLineIndex,
-} from "@/composables/utils/global";
-import colorOptions from "@composables/colorOptions.json";
+    generatePhraseStyle,
+    getDefaultVersion,
+    getLyricResponse,
+    isActivePhrase,
+    loadSongData,
+    parseLyrics,
+} from "@/composables/hooks/useSongs";
+import { useTransation } from "@/composables/hooks/useTranslation";
 import {
     ALBUM_GOOGLE_LINK_BASE,
     DEBUG_INFO,
@@ -40,14 +32,21 @@ import {
     TSL_SUFFIX,
 } from "@/composables/utils/config";
 import {
-    generatePhraseStyle,
-    getDefaultVersion,
-    getLyricResponse,
-    isActivePhrase,
-    loadSongData,
-    parseLyrics,
-} from "@/composables/hooks/useSongs";
-import { useTransation } from "@/composables/hooks/useTranslation";
+    copyToClipboard,
+    formatTime,
+    scrollToLineIndex,
+} from "@/composables/utils/global";
+import AboutModal from "@components/player/AboutModal.vue";
+import ControllerPanel from "@components/player/ControllerPanel.vue";
+import CreditModal from "@components/player/CreditModal.vue";
+import ErrorDisplay from "@components/player/ErrorDisplay.vue";
+import LoadingOverlay from "@components/player/LoadingOverlay.vue";
+import LyricsContainer from "@components/player/LyricsContainer.vue";
+import PlayerNav from "@components/player/PlayerNav.vue";
+import SettingModal from "@components/player/SettingModal.vue";
+import ShareModal from "@components/player/ShareModal.vue";
+import TranslationBar from "@components/player/TranslationBar.vue";
+import colorOptions from "@composables/colorOptions.json";
 
 // ── URL 參數 ─────────────────────────────────────────────────────────────
 const params = new URL(document.URL).searchParams;
@@ -311,14 +310,16 @@ onMounted(setup);
 <template>
     <div
         id="body"
-        class="min-h-screen m-0! "
+        class="min-h-screen m-0!"
         :style="{ backgroundColor: bodyBackgroundColor }"
     >
         <!-- 載入中 -->
-        <LoadingOverlay :is-loading="isLoading" />
+        <LoadingOverlay v-if="isLoading" />
 
         <!-- 錯誤 -->
-        <ErrorDisplay :is-error="isError" :error-message="errorMessage" />
+        <div class="x-20">
+            <ErrorDisplay v-if="isError" :error-message="errorMessage" />
+        </div>
 
         <template v-if="!isLoading && !isError && currentSong">
             <!-- 頂部導覽 -->
@@ -347,7 +348,9 @@ onMounted(setup);
                     :enable-translation="enableTranslation"
                     :song="currentSong"
                     :translation-text="translationText || ''"
-                    :background-translation-text="backgroundTranslationText || ''"
+                    :background-translation-text="
+                        backgroundTranslationText || ''
+                    "
                     :translation-author="translationAuthor"
                     @disable-translation="enableTranslation = false"
                 />
@@ -367,7 +370,7 @@ onMounted(setup);
                 :THE_FIRST_TAKE="THE_FIRST_TAKE"
                 :LIVE="LIVE"
                 :parse-subtitle="parseSubtitle"
-                :video-i-d="
+                :video-id="
                     currentSong.versions.find(
                         (v: Version) => v.version === songVersion,
                     )?.id ?? null
@@ -424,4 +427,3 @@ onMounted(setup);
         </template>
     </div>
 </template>
-

@@ -5,7 +5,7 @@ import YTPlayer from "./YTPlayer.vue";
 defineProps<{
     currentSong: Song & { displayArtist?: string };
     songVersion: string | null;
-    videoID: string | null;
+    videoId: string | null;
     isPaused: boolean;
     isMuted: boolean;
     volume: number;
@@ -36,19 +36,7 @@ const emit = defineEmits<{
         class="fixed bottom-0 right-0 w-full md:w-100 p-4 md:pl-0 z-50 transition-all duration-300"
     >
         <!-- 桌面收合按鈕 -->
-        <div class="hidden md:flex justify-end mb-2">
-            <button
-                id="controller-panel-switch-md"
-                class="p-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-white transition-all shadow-lg border border-white/10"
-                title="顯示/隱藏介面"
-            >
-                <span
-                    class="material-icons block transition-transform duration-300"
-                    id="controller-panel-switch-icon-md"
-                    >expand_more</span
-                >
-            </button>
-        </div>
+        <div class="hidden md:flex justify-end mb-2"></div>
 
         <!-- 主面板（單一容器） -->
         <div
@@ -134,6 +122,12 @@ const emit = defineEmits<{
                                     >settings</span
                                 >
                             </button>
+                            <button
+                                id="about-btn"
+                                class="text-white/40 hover:text-white/80 transition-colors"
+                            >
+                                <span class="material-icons">info</span>
+                            </button>
                         </div>
                     </div>
 
@@ -147,8 +141,8 @@ const emit = defineEmits<{
 
                     <!-- YT Player：有 videoID 才渲染 -->
                     <YTPlayer
-                        v-if="videoID"
-                        :video-id="videoID"
+                        v-if="videoId"
+                        :video-id="videoId"
                         :current-song="currentSong"
                         :song-version="songVersion"
                         @update:current-time="
@@ -281,11 +275,17 @@ const emit = defineEmits<{
                     </div>
 
                     <!-- 關於按鈕 -->
+
                     <button
-                        id="about-btn"
-                        class="text-white/40 hover:text-white/80 transition-colors"
+                        id="controller-panel-switch-md"
+                        class="p-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-white transition-all shadow-lg border border-white/10"
+                        title="顯示/隱藏介面"
                     >
-                        <span class="material-icons">info</span>
+                        <span
+                            class="material-icons block transition-transform duration-300"
+                            id="controller-panel-switch-icon-md"
+                            >expand_more</span
+                        >
                     </button>
                 </div>
 
