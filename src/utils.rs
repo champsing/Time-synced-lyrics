@@ -17,7 +17,7 @@ static PRIVATE_KEY: LazyLock<[u8; 32]> = LazyLock::new(|| {
         let trimmed = env_key.trim();
         if let Ok(bytes_vec) = hex::decode(trimmed) {
             if let Ok(bytes) = bytes_vec.try_into() {
-                println!("[Auth] Successfully loaded SECRET from: environment variables");
+                println!("[Auth] Successfully loaded PRIVATE_KEY from: environment variables");
                 return bytes;
             }
         }
@@ -31,20 +31,25 @@ static PRIVATE_KEY: LazyLock<[u8; 32]> = LazyLock::new(|| {
             match hex::decode(trimmed) {
                 Ok(bytes_vec) => match bytes_vec.try_into() {
                     Ok(bytes) => {
-                        println!("[Auth] Successfully loaded SECRET from: File ({})", path);
+                        println!(
+                            "[Auth] Successfully loaded PRIVATE_KEY from: File ({})",
+                            path
+                        );
                         return bytes;
                     }
                     Err(_) => {
-                        panic!("[FATAL] Incorrect SECRET length, must be a 32-byte (64 hex chars)")
+                        panic!(
+                            "[FATAL] Incorrect PRIVATE_KEY length, must be a 32-byte (64 hex chars)"
+                        )
                     }
                 },
-                Err(e) => panic!("[FATAL] Failed to HEX-decode SECRET file: {}", e),
+                Err(e) => panic!("[FATAL] Failed to HEX-decode PRIVATE_KEY file: {}", e),
             }
         }
         Err(e) => {
             // 如果讀不到代表部署配置出錯，直接停機最安全
             panic!(
-                "[FATAL] No SECRET file configured or no environment variables specified! Path: {}, Err: {}",
+                "[FATAL] No PRIVATE_KEY file configured or no environment variables specified! Path: {}, Err: {}",
                 path, e
             );
         }
