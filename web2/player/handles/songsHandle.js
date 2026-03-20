@@ -40,5 +40,3 @@ export const getLyricResponse = async (songId, folder, songVersion) => {
         console.log("歌詞檔案獲取成功。");
     }
 };
-
-

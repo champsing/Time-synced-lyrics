@@ -84,5 +84,3 @@ defineEmits<{ (e: "jump", index: number): void }>();
         </button>
     </div>
 </template>
-
-

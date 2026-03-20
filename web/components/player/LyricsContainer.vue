@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, type CSSProperties } from "vue";
 import type {
     parsedBackgroundVoiceLine,
     parsedLyricLine,
     ProcessedLine,
     Song,
 } from "@/types/types";
+import { computed, type CSSProperties } from "vue";
 import LyricLine from "./LyricLine.vue";
 
 const props = defineProps<{
@@ -62,7 +62,7 @@ const isDuet = computed(() => props.song.is_duet === 1);
         <!-- 背景圖 -->
         <div
             v-if="enableLyricBackground"
-            class="  absolute inset-0 pointer-events-none overflow-hidden rounded-2xl select-none"
+            class="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl select-none"
         >
             <img
                 :src="song.art"

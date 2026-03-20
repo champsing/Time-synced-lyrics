@@ -76,5 +76,3 @@ export const generatePhraseStyle = (currentTime, line, phraseIndex) => {
             "background-image": `${linearGradient}`,
         };
 };
-
-

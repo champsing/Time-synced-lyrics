@@ -12,7 +12,6 @@ const emit = defineEmits<{
 }>();
 </script>
 
-
 <template>
     <div id="credit-modal-container" :class="{ hidden: !isOpen }">
         <div id="credit-modal-mask" class="modal-mask" @click="emit('close')" />
@@ -125,4 +124,3 @@ const emit = defineEmits<{
         </div>
     </div>
 </template>
-

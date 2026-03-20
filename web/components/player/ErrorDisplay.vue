@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
     <div
-        class="w-200 h-100 rounded-4xl  bg-[#1a1a1a] flex flex-col items-center justify-center px-6 text-center"
+        class="w-200 h-100 rounded-4xl bg-[#1a1a1a] flex flex-col items-center justify-center px-6 text-center"
     >
         <div class="mb-6">
             <span class="material-icons text-7xl text-rose-500"

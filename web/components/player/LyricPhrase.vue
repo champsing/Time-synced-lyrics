@@ -49,4 +49,3 @@ defineProps<{
         <template v-else>{{ phrase.phrase }}</template>
     </span>
 </template>
-

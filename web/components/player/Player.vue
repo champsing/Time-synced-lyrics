@@ -308,7 +308,7 @@ onMounted(setup);
             <!-- 左側：歌詞 -->
             <div
                 id="main-display-section"
-                class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 mt-20"
+                class="md:flex flex-col items-center md:w-[68%] md:ml-8 px-4 pt-24"
             >
                 <LyricsContainer
                     :lines="processedLines"
