@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 import { YOUTUBE_IFRAME_API } from "@/composables/utils/config";
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 
 // ── Props ──────────────────────────────────────────────────────────────────
 const props = defineProps<{
@@ -138,6 +138,9 @@ defineExpose({
 
 <template>
     <div ref="playerContainer">
-        <div v-if="visible" id="player" />
+        <div
+            id="player"
+            class="w-0 h-0 md:w-full md:h-full bg-white/10 rounded-2xl relative group cursor-pointer"
+        />
     </div>
 </template>

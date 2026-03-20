@@ -1,8 +1,19 @@
 <script setup lang="ts">
-import type { Song } from "@/types/types";
+import {
+    ALBUM_GOOGLE_LINK_BASE,
+    DEBUG_INFO,
+    PLAYER_VERSION,
+} from "@/composables/utils/config";
+import { copyToClipboard } from "@/composables/utils/global";
+import type { Color, Song } from "@/types/types";
+import AboutModal from "@components/player/AboutModal.vue";
+import CreditModal from "@components/player/CreditModal.vue";
+import SettingModal from "@components/player/SettingModal.vue";
+import ShareModal from "@components/player/ShareModal.vue";
+import { ref } from "vue";
 import YTPlayer from "./YTPlayer.vue";
 
-defineProps<{
+const props = defineProps<{
     currentSong: Song & { displayArtist?: string };
     songVersion: string | null;
     videoId: string | null;
@@ -16,6 +27,15 @@ defineProps<{
     THE_FIRST_TAKE: string;
     LIVE: string;
     parseSubtitle: (subtitle: string) => string;
+    // 設定相關 props（雙向綁定由 Player.vue 管理）
+    bgColorName: string;
+    colorOptions: Color[];
+    enableLyricBackground: boolean;
+    scrollToCurrentLine: boolean;
+    enableTranslation: boolean;
+    enablePronounciation: boolean;
+    currentSongURI: string;
+    debugInfo?: string;
 }>();
 
 const emit = defineEmits<{
@@ -28,23 +48,35 @@ const emit = defineEmits<{
     (e: "update:currentTime", value: number): void;
     (e: "update:isPaused", value: boolean): void;
     (e: "update:songDuration", value: number): void;
+    // 設定變更
+    (e: "change-bg-color", color: string): void;
+    (e: "update:enableLyricBackground", val: boolean): void;
+    (e: "update:scrollToCurrentLine", val: boolean): void;
+    (e: "update:enableTranslation", val: boolean): void;
+    (e: "update:enablePronounciation", val: boolean): void;
 }>();
+
+// ── Modal 開關（本地管理，完全 Vue 驅動，無 DOM addListener）────────────
+const settingModalOpen = ref(false);
+const creditModalOpen = ref(false);
+const shareModalOpen = ref(false);
+const aboutModalOpen = ref(false);
+
+// 收合面板狀態
+const panelCollapsed = ref(false);
 </script>
 
 <template>
     <section
         class="fixed bottom-0 right-0 w-full md:w-100 p-4 md:pl-0 z-50 transition-all duration-300"
     >
-        <!-- 桌面收合按鈕 -->
-        <div class="hidden md:flex justify-end mb-2"></div>
-
-        <!-- 主面板（單一容器） -->
+        <!-- 主面板 -->
         <div
             id="controller-panel"
             class="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl overflow-hidden transition-all"
         >
             <!-- ▼ 可收合區塊：歌曲資訊 + YTPlayer + 進度條 -->
-            <div id="controller-panel-collapsible">
+            <div :class="{ hidden: panelCollapsed }">
                 <!-- 歌曲資訊區塊 -->
                 <div class="p-5 pb-1 flex flex-col gap-4">
                     <div class="flex items-start justify-between">
@@ -81,9 +113,10 @@ const emit = defineEmits<{
                             </div>
 
                             <div class="flex items-center gap-2 mt-1">
+                                <!-- 工作人員名單按鈕 -->
                                 <button
                                     v-if="currentSong.credits"
-                                    id="credit-btn"
+                                    @click="creditModalOpen = true"
                                     class="text-white/60 hover:text-white text-sm transition-colors truncate underline underline-offset-4 md:no-underline"
                                 >
                                     {{
@@ -107,24 +140,30 @@ const emit = defineEmits<{
                         <!-- 快速動作按鈕 -->
                         <div class="flex gap-1 ml-2">
                             <button
-                                id="share-btn"
+                                @click="shareModalOpen = true"
                                 class="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                                title="分享"
+                                aria-label="分享"
                             >
                                 <span class="material-icons text-xl"
                                     >share</span
                                 >
                             </button>
                             <button
-                                id="setting-btn"
+                                @click="settingModalOpen = true"
                                 class="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                                title="設定"
+                                aria-label="設定"
                             >
                                 <span class="material-icons text-xl"
                                     >settings</span
                                 >
                             </button>
                             <button
-                                id="about-btn"
-                                class="text-white/40 hover:text-white/80 transition-colors"
+                                @click="aboutModalOpen = true"
+                                class="p-2 text-white/40 hover:text-white/80 transition-colors"
+                                title="關於"
+                                aria-label="關於"
                             >
                                 <span class="material-icons">info</span>
                             </button>
@@ -138,13 +177,14 @@ const emit = defineEmits<{
                     >
                         {{ parseSubtitle(currentSong.subtitle) }}
                     </p>
+                </div>
 
-                    <!-- YT Player：有 videoID 才渲染 -->
+                <!-- 進度條與時間 -->
+                <div class="px-5 pb-2 flex flex-col gap-2">
+                    <!-- YT Player -->
                     <YTPlayer
                         v-if="videoId"
                         :video-id="videoId"
-                        :current-song="currentSong"
-                        :song-version="songVersion"
                         @update:current-time="
                             emit('update:currentTime', $event)
                         "
@@ -153,10 +193,7 @@ const emit = defineEmits<{
                             emit('update:songDuration', $event)
                         "
                     />
-                </div>
 
-                <!-- 進度條與時間 -->
-                <div class="px-5 pb-2 flex flex-col gap-2">
                     <!-- 桌面版時間 + 版本徽章 -->
                     <div
                         class="hidden md:flex justify-between items-center px-1"
@@ -206,7 +243,7 @@ const emit = defineEmits<{
             <!-- ▲ 可收合區塊結束 -->
 
             <!-- ▼ 永遠顯示：播放控制區 -->
-            <div id="player-control" class="px-5 pb-4 pt-2 flex flex-col gap-3">
+            <div id="player-control" class="px-5 pb-4 pt-4 flex flex-col gap-3">
                 <!-- 主控制按鈕組 -->
                 <div class="flex items-center justify-between">
                     <!-- 音量控制（桌面版：hover 展開滑桿） -->
@@ -274,17 +311,30 @@ const emit = defineEmits<{
                         </button>
                     </div>
 
-                    <!-- 關於按鈕 -->
+                    <!-- 桌面收合按鈕 -->
+                    <div class="hidden md:flex justify-end mb-2">
+                        <button
+                            @click="panelCollapsed = !panelCollapsed"
+                            class="mt-2 text-white/60 hover:text-white transition-all transform active:scale-90"
+                            title="顯示/隱藏介面"
+                        >
+                            <span
+                                class="material-icons block transition-transform duration-300"
+                                :class="{ 'rotate-180': panelCollapsed }"
+                                >expand_more</span
+                            >
+                        </button>
+                    </div>
 
+                    <!-- 手機收合按鈕（右側） -->
                     <button
-                        id="controller-panel-switch-md"
-                        class="p-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-white transition-all shadow-lg border border-white/10"
-                        title="顯示/隱藏介面"
+                        class="md:hidden text-white/40 hover:text-white/80 transition-colors"
+                        @click="panelCollapsed = !panelCollapsed"
                     >
                         <span
-                            class="material-icons block transition-transform duration-300"
-                            id="controller-panel-switch-icon-md"
-                            >expand_more</span
+                            class="material-icons transition-transform duration-300"
+                            :class="{ 'rotate-180': panelCollapsed }"
+                            >keyboard_arrow_down</span
                         >
                     </button>
                 </div>
@@ -312,23 +362,51 @@ const emit = defineEmits<{
             <!-- ▲ 永遠顯示區塊結束 -->
         </div>
 
-        <!-- 手機收合按鈕 -->
-        <div class="md:hidden mt-2 flex justify-center">
-            <button
-                id="controller-panel-switch-below-md"
-                class="px-4 py-1.5 bg-black/40 backdrop-blur-md rounded-full text-white/60 text-[10px] uppercase tracking-[0.2em] font-bold border border-white/5"
-            >
-                <div class="flex items-center gap-1">
-                    <span
-                        class="material-icons text-sm"
-                        id="controller-panel-switch-icon-below-md"
-                        >keyboard_arrow_down</span
-                    >
-                    <span id="controller-panel-switch-state-below-md"
-                        >CLOSE</span
-                    >
-                </div>
-            </button>
-        </div>
+        <!-- ── Modals（Teleport 到 body，v-if 條件渲染） ──────────────── -->
+        <SettingModal
+            :is-open="settingModalOpen"
+            :bg-color-name="bgColorName"
+            :color-options="colorOptions"
+            :enable-lyric-background="enableLyricBackground"
+            :scroll-to-current-line="scrollToCurrentLine"
+            :enable-translation="enableTranslation"
+            :enable-pronounciation="enablePronounciation"
+            :furigana-available="currentSong.furigana == 1"
+            @close="settingModalOpen = false"
+            @change-bg-color="emit('change-bg-color', $event)"
+            @update:enableLyricBackground="
+                emit('update:enableLyricBackground', $event)
+            "
+            @update:scrollToCurrentLine="
+                emit('update:scrollToCurrentLine', $event)
+            "
+            @update:enableTranslation="emit('update:enableTranslation', $event)"
+            @update:enablePronounciation="
+                emit('update:enablePronounciation', $event)
+            "
+        />
+
+        <CreditModal
+            :is-open="creditModalOpen"
+            :current-song="currentSong"
+            :ALBUM_GOOGLE_LINK_BASE="ALBUM_GOOGLE_LINK_BASE"
+            @close="creditModalOpen = false"
+        />
+
+        <ShareModal
+            :is-open="shareModalOpen"
+            :current-song-u-r-i="currentSongURI"
+            @close="shareModalOpen = false"
+            @copy-link="copyToClipboard($event, '歌曲連結')"
+        />
+
+        <AboutModal
+            :is-open="aboutModalOpen"
+            :player-version="PLAYER_VERSION"
+            @close="aboutModalOpen = false"
+            @copy-debug-info="
+                copyToClipboard(debugInfo ?? DEBUG_INFO, '偵錯資訊')
+            "
+        />
     </section>
 </template>

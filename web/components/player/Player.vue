@@ -11,6 +11,7 @@ import type {
 } from "@/types/types";
 
 // ── Vue 組件 ─────────────────────────────────────────────────────────────
+import { getArtistDisplay } from "@/composables/hooks/useArtist";
 import {
     generatePhraseStyle,
     getDefaultVersion,
@@ -21,30 +22,20 @@ import {
 } from "@/composables/hooks/useSongs";
 import { useTransation } from "@/composables/hooks/useTranslation";
 import {
-    ALBUM_GOOGLE_LINK_BASE,
     DEBUG_INFO,
     INSTRUMENTAL,
     LIVE,
     ORIGINAL,
-    PLAYER_VERSION,
     THE_FIRST_TAKE,
     TSL_PLAYER_LINK_BASE,
     TSL_SUFFIX,
 } from "@/composables/utils/config";
-import {
-    copyToClipboard,
-    formatTime,
-    scrollToLineIndex,
-} from "@/composables/utils/global";
-import AboutModal from "@components/player/AboutModal.vue";
+import { formatTime, scrollToLineIndex } from "@/composables/utils/global";
 import ControllerPanel from "@components/player/ControllerPanel.vue";
-import CreditModal from "@components/player/CreditModal.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
 import LoadingOverlay from "@components/player/LoadingOverlay.vue";
 import LyricsContainer from "@components/player/LyricsContainer.vue";
 import PlayerNav from "@components/player/PlayerNav.vue";
-import SettingModal from "@components/player/SettingModal.vue";
-import ShareModal from "@components/player/ShareModal.vue";
 import TranslationBar from "@components/player/TranslationBar.vue";
 import colorOptions from "@composables/colorOptions.json";
 
@@ -54,12 +45,6 @@ const songRequest = parseInt(decodeURIComponent(params.get("song") ?? ""));
 const versionRequest = decodeURIComponent(params.get("version") ?? "")
     .trim()
     .toLowerCase();
-
-// ── Modal 開關 ───────────────────────────────────────────────────────────
-const settingModalOpen = ref(false);
-const creditModalOpen = ref(false);
-const shareModalOpen = ref(false);
-const aboutModalOpen = ref(false);
 
 // ── 播放狀態 ─────────────────────────────────────────────────────────────
 const currentTime = ref(0);
@@ -113,9 +98,6 @@ const currentSongURI = computed(() => {
         return `${TSL_PLAYER_LINK_BASE}?song=${currentSong.value.song_id}`;
     return `${TSL_PLAYER_LINK_BASE}?song=${currentSong.value.song_id}&version=${songVersion.value}`;
 });
-
-// ── 偵錯 ─────────────────────────────────────────────────────────────────
-const debugInfo = DEBUG_INFO;
 
 // ── processedLines：計算每行結束時間 ─────────────────────────────────────
 const processedLines = computed((): ProcessedLine[] => {
@@ -278,9 +260,8 @@ async function setup() {
 
         songVersion.value = versionRequest || getDefaultVersion(song);
 
-        // YouTube 播放器現在由 YTPlayer.vue 組件自行初始化，這裡不再需要 initYouTubePlayer
-
         await loadSongLyric();
+        await getArtistDisplay(currentSong.value?.artist || "");
 
         isLoading.value = false;
     } catch (err: unknown) {
@@ -356,7 +337,7 @@ onMounted(setup);
                 />
             </div>
 
-            <!-- 右側：播放控制面板 -->
+            <!-- 右側：播放控制面板（含 Modals） -->
             <ControllerPanel
                 :current-song="currentSong"
                 :song-version="songVersion"
@@ -375,6 +356,14 @@ onMounted(setup);
                         (v: Version) => v.version === songVersion,
                     )?.id ?? null
                 "
+                :bg-color-name="bgColorName"
+                :color-options="colorOptionsList"
+                :enable-lyric-background="enableLyricBackground"
+                :scroll-to-current-line="scrollToCurrentLine"
+                :enable-translation="enableTranslation"
+                :enable-pronounciation="enablePronounciation"
+                :current-song-u-r-i="currentSongURI"
+                :debug-info="DEBUG_INFO"
                 @update:current-time="currentTime = $event"
                 @update:is-paused="isPaused = $event"
                 @update:song-duration="songDuration = $event"
@@ -384,45 +373,11 @@ onMounted(setup);
                 @forward="moveForward10Sec"
                 @toggle-mute="toggleMute"
                 @change-volume="changeVolume"
-            />
-
-            <!-- Modals -->
-            <SettingModal
-                :is-open="settingModalOpen"
-                :bg-color-name="bgColorName"
-                :color-options="colorOptions"
-                :enable-lyric-background="enableLyricBackground"
-                :scroll-to-current-line="scrollToCurrentLine"
-                :enable-translation="enableTranslation"
-                :enable-pronounciation="enablePronounciation"
-                :furigana-available="currentSong.furigana == 1 ? true : false"
-                @close="settingModalOpen = false"
                 @change-bg-color="bodyBackgroundColor = $event"
                 @update:enableLyricBackground="enableLyricBackground = $event"
                 @update:scrollToCurrentLine="scrollToCurrentLine = $event"
                 @update:enableTranslation="enableTranslation = $event"
                 @update:enablePronounciation="enablePronounciation = $event"
-            />
-
-            <CreditModal
-                :is-open="creditModalOpen"
-                :current-song="currentSong"
-                :ALBUM_GOOGLE_LINK_BASE="ALBUM_GOOGLE_LINK_BASE"
-                @close="creditModalOpen = false"
-            />
-
-            <ShareModal
-                :is-open="shareModalOpen"
-                :current-song-u-r-i="currentSongURI"
-                @close="shareModalOpen = false"
-                @copy-link="copyToClipboard($event, '歌曲連結')"
-            />
-
-            <AboutModal
-                :is-open="aboutModalOpen"
-                :player-version="PLAYER_VERSION"
-                @close="aboutModalOpen = false"
-                @copy-debug-info="copyToClipboard(debugInfo, '偵錯資訊')"
             />
         </template>
     </div>
