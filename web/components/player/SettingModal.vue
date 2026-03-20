@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Color } from "@/types/types";
 
-defineProps<{
+const props = defineProps<{
     isOpen: boolean;
-    bgColorName: string;
+    bgColor: Color;
     colorOptions: Color[];
     enableLyricBackground: boolean;
     scrollToCurrentLine: boolean;
@@ -51,9 +51,17 @@ const emit = defineEmits<{
                     <div class="settings-entry">
                         <label>背景顏色：</label>
                         <div class="flex flex-row gap-2 items-center mt-1">
-                            <span class="text-sm text-white/70">{{
-                                bgColorName
-                            }}</span>
+                            <span class="flex gap-2 text-sm text-white/70">
+                                <span
+                                    class="color-preview w-5 h-5 border border-gray-200 rounded-sm"
+                                    :style="{
+                                        backgroundColor: bgColor.color,
+                                    }"
+                                ></span>
+                                <span class="text-sm font-mono">{{
+                                    bgColor.name
+                                }}</span>
+                            </span>
                             <details class="relative">
                                 <summary
                                     class="cursor-pointer text-sm text-teal-300 underline list-none"
@@ -61,7 +69,7 @@ const emit = defineEmits<{
                                     選擇顏色
                                 </summary>
                                 <div
-                                    class="absolute z-10 mt-2 p-3 bg-gray-800 rounded-xl border border-white/20 flex flex-wrap gap-2 w-52 shadow-2xl"
+                                    class="mt-2 p-3 bg-gray-800 rounded-xl border border-white/20 flex flex-wrap gap-2 w-52 shadow-2xl"
                                 >
                                     <button
                                         v-for="colorObj in colorOptions"
@@ -165,5 +173,3 @@ const emit = defineEmits<{
         </div>
     </Teleport>
 </template>
-
-

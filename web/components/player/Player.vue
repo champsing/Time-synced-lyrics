@@ -78,13 +78,12 @@ watch(bodyBackgroundColor, (newColor) => {
     localStorage.setItem("bodyBackgroundColor", newColor);
 });
 
-const bgColorName = computed(
+const bgColor = computed(
     () =>
         colorOptionsList.value.find(
             (x) => x.color === bodyBackgroundColor.value,
-        )?.name ??
-        colorOptionsList.value[0]?.name ??
-        "預設顏色",
+        ) ??
+        colorOptionsList.value[0] ?? { color: "#56773f", name: "預設顏色" },
 );
 
 // ── 時間格式 ─────────────────────────────────────────────────────────────
@@ -356,7 +355,7 @@ onMounted(setup);
                         (v: Version) => v.version === songVersion,
                     )?.id ?? null
                 "
-                :bg-color-name="bgColorName"
+                :bg-color="bgColor"
                 :color-options="colorOptionsList"
                 :enable-lyric-background="enableLyricBackground"
                 :scroll-to-current-line="scrollToCurrentLine"

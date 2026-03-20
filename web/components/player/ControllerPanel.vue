@@ -28,7 +28,7 @@ const props = defineProps<{
     LIVE: string;
     parseSubtitle: (subtitle: string) => string;
     // 設定相關 props（雙向綁定由 Player.vue 管理）
-    bgColorName: string;
+    bgColor: Color;
     colorOptions: Color[];
     enableLyricBackground: boolean;
     scrollToCurrentLine: boolean;
@@ -78,7 +78,7 @@ const panelCollapsed = ref(false);
             <!-- ▼ 可收合區塊：歌曲資訊 + YTPlayer + 進度條 -->
             <div :class="{ hidden: panelCollapsed }">
                 <!-- 歌曲資訊區塊 -->
-                <div class="p-5 pb-1 flex flex-col gap-4">
+                <div class="p-5 pb-4 flex flex-col gap-4">
                     <div class="flex items-start justify-between">
                         <div class="flex-1 min-w-0">
                             <div class="flex gap-2">
@@ -243,7 +243,7 @@ const panelCollapsed = ref(false);
             <!-- ▲ 可收合區塊結束 -->
 
             <!-- ▼ 永遠顯示：播放控制區 -->
-            <div id="player-control" class="px-5 pb-4 pt-4 flex flex-col gap-3">
+            <div id="player-control" class="px-5 py-4 flex flex-col gap-3">
                 <!-- 主控制按鈕組 -->
                 <div class="flex items-center justify-between">
                     <!-- 音量控制（桌面版：hover 展開滑桿） -->
@@ -365,7 +365,7 @@ const panelCollapsed = ref(false);
         <!-- ── Modals（Teleport 到 body，v-if 條件渲染） ──────────────── -->
         <SettingModal
             :is-open="settingModalOpen"
-            :bg-color-name="bgColorName"
+            :bg-color="bgColor"
             :color-options="colorOptions"
             :enable-lyric-background="enableLyricBackground"
             :scroll-to-current-line="scrollToCurrentLine"
