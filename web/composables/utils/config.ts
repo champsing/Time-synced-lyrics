@@ -6,7 +6,7 @@ export const DEBUG_INFO = `播放器版本：${PLAYER_VERSION}`;
 
 export const DEFAULT_DURATION = 100;
 export const YOUTUBE_IFRAME_API = "https://www.youtube.com/iframe_api";
-export const ALBUM_GOOGLE_LINK_BASE = "https://g.co/kgs/";
+export const ALBUM_GOOGLE_LINK_BASE = "https://share.google/";
 export const TSL_LINK_BASE = "https://timesl.online/";
 export const TSL_PLAYER_LINK_BASE = "https://timesl.online/player/";
 
