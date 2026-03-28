@@ -1,3 +1,7 @@
+// 統一定義所有類型
+
+// ── 歌曲資料處理型別 ─────────────────────────────────────────────────────────
+
 export interface Song {
     song_id: number;
     available: number;
@@ -18,6 +22,22 @@ export interface Song {
     credits: Credits;
 }
 
+export type SongWithDisplay = Song & {
+    displayArtist?: string;
+    displayLyricist?: string;
+};
+
+// 歌曲資料細節
+
+//  專輯
+
+export interface Album {
+    name: string;
+    link: string;
+}
+
+//  翻譯
+
 export interface Translation {
     available: number | false;
     author: string | "";
@@ -25,10 +45,8 @@ export interface Translation {
     modified?: number | false;
 }
 
-export interface Album {
-    name: string;
-    link: string;
-}
+//  工作人員名單
+
 export interface Credits {
     performance: Contributor[];
     song_writing: Contributor[];
@@ -40,12 +58,21 @@ export interface Contributor {
     contribution: string[];
 }
 
+//  版本
+
 export interface Version {
     default?: boolean;
     version: string;
     id: string;
     duration: string;
 }
+
+// ── 歌詞處理型別 ─────────────────────────────────────────────────────────
+
+export type RawLyricData = LyricLine[];
+export type LyricData = ProcessedLine[];
+
+// 歌詞片語
 
 export interface LyricPhrase {
     phrase: string;
@@ -55,15 +82,28 @@ export interface LyricPhrase {
     pncat_forced?: boolean; // 新增此行
 }
 
+//  主聲歌詞行
+
 export interface LyricLine {
     time: string;
     type?: "prelude" | "interlude" | "end";
     text?: LyricPhrase[];
+
     translation?: string;
     background_voice?: BackgroundVoiceLine; // 新增
     is_secondary?: boolean;
     is_together?: boolean;
 }
+
+export type ProcessedLine = LyricLine & {
+    background_voice?: ProcessedBGLine;
+    time: number;
+    delay: number[];
+    duration: number[];
+    computedEndTime: number;
+};
+
+//  背景聲歌詞行
 
 export interface BackgroundVoiceLine {
     time: string;
@@ -71,51 +111,9 @@ export interface BackgroundVoiceLine {
     translation?: string;
 }
 
-export interface parsedLyricLine {
-    time: number;
-    type?: "prelude" | "interlude" | "end";
-    text?: LyricPhrase[];
-    duration: number[];
-    delay: number[];
-    translation?: string;
-    background_voice?: parsedBackgroundVoiceLine; // 新增
-    is_secondary?: boolean;
-    is_together?: boolean;
-}
-
-export interface parsedBackgroundVoiceLine {
-    time: number;
-    text: LyricPhrase[];
-    duration: number[];
-    delay: number[];
-    translation?: string;
-}
-
-export type RawLyricData = LyricLine[];
-export type LyricData = parsedLyricLine[];
-
-// ── 歌詞處理型別 ─────────────────────────────────────────────────────────
-
-export type ParsedLine = {
+export type ProcessedBGLine = BackgroundVoiceLine & {
     time: number;
     duration: number[];
     delay: number[];
-    text: any[];
-    background_voice?: any;
-    type?: string;
-    is_secondary?: boolean;
-    is_together?: boolean;
+    computedEndTime: number;
 };
-export type ProcessedLine = ParsedLine & { computedEndTime: number };
-
-export type SongWithDisplay = Song & {
-    displayArtist?: string;
-    displayLyricist?: string;
-};
-
-export interface Color {
-    color: string;
-    name: string;
-}
-
-export type SortOption = "date" | "name" | "artist" | "album" | "lang";

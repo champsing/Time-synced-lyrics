@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import type { Song } from "@/types/types";
+import type { Song } from "@/types/player";
 
 const props = defineProps<{
     show: boolean;

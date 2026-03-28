@@ -1,9 +1,9 @@
-import type { LyricData, SongWithDisplay } from "@/types/types";
+import type { LyricData, ProcessedLine, SongWithDisplay } from "@/types/player";
 import { computed } from "vue";
 
 export function useTransation(
     currentSong: SongWithDisplay | null,
-    jsonMappingContent: LyricData,
+    jsonMappingContent: LyricData | ProcessedLine[],
     activeLineIndices: number[], // 改為接收活躍行索引陣列
 ) {
     if (!currentSong) {

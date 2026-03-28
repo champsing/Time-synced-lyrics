@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import type { Song } from "@/types/player";
 import SongCard from "@components/song_select/SongCard.vue";
 import SongDetailModal from "@components/song_select/SongDetailModal.vue";
-import type { Song } from "@/types/types";
+import { onMounted, ref } from "vue";
 
 const { filteredSongs, isLoading, searchQuery, selectedVersions, fetchSongs } =
     useSongs();

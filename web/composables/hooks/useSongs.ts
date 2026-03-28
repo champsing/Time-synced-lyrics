@@ -1,11 +1,11 @@
 import type {
     LyricLine,
     LyricPhrase,
-    parsedBackgroundVoiceLine,
-    parsedLyricLine,
+    ProcessedBGLine,
+    ProcessedLine,
     RawLyricData,
     Song,
-} from "@/types/types";
+} from "@/types/player";
 import { API_BASE_URL, DEFAULT_DURATION } from "../utils/config";
 import { getArtistDisplay } from "./useArtist";
 
@@ -70,11 +70,11 @@ export const parseLyrics = async (
 
     const parsedLyrics = jsonMappingContent
         .map((line: LyricLine) => {
-            const parsedLine: parsedLyricLine = {
+            const parsedLine: ProcessedLine = {
                 // @ts-ignore
                 time: 0,
-                duration: [],
                 delay: [],
+                computedEndTime: 0,
                 ...line,
             };
             const timeMatch = line.time.match(/(\d+):(\d+\.\d+)/);
@@ -87,11 +87,11 @@ export const parseLyrics = async (
 
             if (line.background_voice) {
                 const bgLine = line.background_voice;
-                const parsedBgLine: parsedBackgroundVoiceLine = {
+                const parsedBgLine: ProcessedBGLine = {
                     // @ts-ignore
                     time: 0,
-                    duration: [],
                     delay: [],
+                    computedEndTime: 0,
                     ...line.background_voice,
                 };
 
@@ -163,9 +163,9 @@ export const parseLyrics = async (
                 ...parsedLine,
             };
         })
-        .filter((line: parsedLyricLine) => line && line.text);
+        .filter((line: ProcessedLine) => line && line.text);
 
-    return parsedLyrics.map((line: parsedLyricLine, index: number) => {
+    return parsedLyrics.map((line: ProcessedLine, index: number) => {
         if (line.type === "interlude" || line.type === "prelude") {
             const interludeDuration = parsedLyrics[index + 1]!.time - line.time;
             line.duration = [interludeDuration];
@@ -179,7 +179,7 @@ export const parseLyrics = async (
 
 export const generatePhraseStyle = (
     currentTime: number,
-    line: parsedLyricLine,
+    line: ProcessedLine,
     phraseIndex: number,
 ) => {
     if (!line) return {};
@@ -262,7 +262,7 @@ export const generatePhraseStyle = (
 
 export const isActivePhrase = (
     currentTime: number,
-    line: parsedLyricLine | parsedBackgroundVoiceLine,
+    line: ProcessedLine | ProcessedBGLine,
     phraseIndex: number,
 ) => {
     if (!line || !line.duration[phraseIndex] || !line.delay[phraseIndex])

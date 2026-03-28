@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Color } from "@/types/types";
+import type { Color } from "@/types/song_select";
 
 const props = defineProps<{
     isOpen: boolean;

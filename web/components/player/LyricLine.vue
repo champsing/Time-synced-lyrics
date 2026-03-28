@@ -1,15 +1,11 @@
 <script setup lang="ts">
+import type { ProcessedBGLine, ProcessedLine } from "@/types/player";
 import type { CSSProperties } from "vue";
 import LyricPhrase from "./LyricPhrase.vue";
-import type {
-    parsedBackgroundVoiceLine,
-    parsedLyricLine,
-    ProcessedLine,
-} from "@/types/types";
 
 defineProps<{
     line: ProcessedLine;
-    bgLine?: parsedBackgroundVoiceLine;
+    bgLine?: ProcessedBGLine;
     index: number;
     totalLines: number;
     isCurrent: boolean;
@@ -19,7 +15,7 @@ defineProps<{
     getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
     isActivePhrase: (
         currentTime: number,
-        line: parsedLyricLine | parsedBackgroundVoiceLine,
+        line: ProcessedLine | ProcessedBGLine,
         phraseIndex: number,
     ) => boolean;
 }>();

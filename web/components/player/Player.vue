@@ -2,13 +2,11 @@
 import { computed, onMounted, ref, watch } from "vue";
 // ── Types ────────────────────────────────────────────────────────────────
 import type {
-    Color,
     LyricData,
-    ParsedLine,
     ProcessedLine,
     SongWithDisplay,
     Version,
-} from "@/types/types";
+} from "@/types/player";
 
 // ── Vue 組件 ─────────────────────────────────────────────────────────────
 import { getArtistDisplay } from "@/composables/hooks/useArtist";
@@ -20,7 +18,6 @@ import {
     loadSongData,
     parseLyrics,
 } from "@/composables/hooks/useSongs";
-import { useTransation } from "@/composables/hooks/useTranslation";
 import {
     DEBUG_INFO,
     INSTRUMENTAL,
@@ -31,12 +28,12 @@ import {
     TSL_SUFFIX,
 } from "@/composables/utils/config";
 import { formatTime, scrollToLineIndex } from "@/composables/utils/global";
+import type { Color } from "@/types/song_select";
 import ControllerPanel from "@components/player/ControllerPanel.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
 import LoadingOverlay from "@components/player/LoadingOverlay.vue";
 import LyricsContainer from "@components/player/LyricsContainer.vue";
 import PlayerNav from "@components/player/PlayerNav.vue";
-import TranslationBar from "@components/player/TranslationBar.vue";
 import colorOptions from "@composables/colorOptions.json";
 
 // ── URL 參數 ─────────────────────────────────────────────────────────────
@@ -102,7 +99,7 @@ const currentSongURI = computed(() => {
 const processedLines = computed((): ProcessedLine[] => {
     if (!jsonMappingContent.value) return [];
 
-    return (jsonMappingContent.value as ParsedLine[]).map((line) => {
+    return (jsonMappingContent.value as ProcessedLine[]).map((line) => {
         const mainTotal = line.duration.reduce((a, b) => a + b, 0);
         let maxEnd = line.time + mainTotal;
         const validDuration = mainTotal > 0 ? mainTotal : 3.0;
@@ -156,33 +153,21 @@ const currentLineIndex = computed(() => {
     return arr.length === 0 ? -1 : arr[arr.length - 1];
 });
 
-// ── 翻譯 ─────────────────────────────────────────────────────────────────
-const { translationText, backgroundTranslationText, translationAuthor } =
-    useTransation(
-        currentSong.value,
-        jsonMappingContent.value,
-        activeLineIndices.value,
-    ) || {
-        translationText: computed(() => ""),
-        backgroundTranslationText: computed(() => ""),
-        translationAuthor: computed(() => ""),
-    };
-
 // ── 短語樣式 ─────────────────────────────────────────────────────────────
 const getPhraseStyle = (lineIndex: number, phraseIndex: number) => {
     if (!isCurrentLine(lineIndex)) return {};
-    const line = (jsonMappingContent.value as unknown as ParsedLine[] | null)?.[
-        lineIndex
-    ];
+    const line = (
+        jsonMappingContent.value as unknown as ProcessedLine[] | null
+    )?.[lineIndex];
     if (!line) return {};
     return generatePhraseStyle(currentTime.value, line as any, phraseIndex);
 };
 
 const getBackgroundPhraseStyle = (lineIndex: number, phraseIndex: number) => {
     if (!isCurrentLine(lineIndex)) return {};
-    const line = (jsonMappingContent.value as unknown as ParsedLine[] | null)?.[
-        lineIndex
-    ];
+    const line = (
+        jsonMappingContent.value as unknown as ProcessedLine[] | null
+    )?.[lineIndex];
     if (!line?.background_voice) return {};
     return generatePhraseStyle(
         currentTime.value,
@@ -224,9 +209,9 @@ const changeVolume = (newVolume: number) => {
 };
 
 const jumpToCurrentLine = (index: number) => {
-    const line = (jsonMappingContent.value as unknown as ParsedLine[] | null)?.[
-        index
-    ];
+    const line = (
+        jsonMappingContent.value as unknown as ProcessedLine[] | null
+    )?.[index];
     if (line && window.ytPlayer) {
         window.ytPlayer.seekTo(line.time - 0.2);
         scrollToLineIndex(index);
@@ -313,6 +298,7 @@ onMounted(setup);
                 <LyricsContainer
                     :lines="processedLines"
                     :song="currentSong"
+                    :active-line-indices="activeLineIndices"
                     :current-time="currentTime"
                     :enable-lyric-background="enableLyricBackground"
                     :enable-translation="enableTranslation"
@@ -322,17 +308,6 @@ onMounted(setup);
                     :get-phrase-style="getPhraseStyle"
                     :get-background-phrase-style="getBackgroundPhraseStyle"
                     @jump="jumpToCurrentLine"
-                />
-
-                <TranslationBar
-                    :enable-translation="enableTranslation"
-                    :song="currentSong"
-                    :translation-text="translationText || ''"
-                    :background-translation-text="
-                        backgroundTranslationText || ''
-                    "
-                    :translation-author="translationAuthor"
-                    @disable-translation="enableTranslation = false"
                 />
             </div>
 

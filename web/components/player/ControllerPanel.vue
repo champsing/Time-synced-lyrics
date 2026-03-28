@@ -5,7 +5,7 @@ import {
     PLAYER_VERSION,
 } from "@/composables/utils/config";
 import { copyToClipboard } from "@/composables/utils/global";
-import type { Color, Song } from "@/types/types";
+import type { Color, Song } from "@/types/player";
 import AboutModal from "@components/player/AboutModal.vue";
 import CreditModal from "@components/player/CreditModal.vue";
 import SettingModal from "@components/player/SettingModal.vue";

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import type { LyricPhrase } from "@/types/player";
 import type { CSSProperties } from "vue";
-import type { LyricPhrase } from "@/types/types";
 
 defineProps<{
     phrase: LyricPhrase;

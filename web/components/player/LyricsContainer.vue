@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import type {
-    parsedBackgroundVoiceLine,
-    parsedLyricLine,
-    ProcessedLine,
-    Song,
-} from "@/types/types";
+import { useTransation } from "@/composables/hooks/useTranslation";
+import type { ProcessedBGLine, ProcessedLine, Song } from "@/types/player";
+import TranslationBar from "@components/player/TranslationBar.vue";
 import { computed, type CSSProperties } from "vue";
-import LyricLine from "./LyricLine.vue";
 
 const props = defineProps<{
     lines: ProcessedLine[];
     song: Song;
+    activeLineIndices: number[];
     currentTime: number;
     enablePronounciation: boolean;
     enableLyricBackground: boolean;
@@ -23,12 +20,20 @@ const props = defineProps<{
     ) => CSSProperties;
     isActivePhrase: (
         currentTime: number,
-        line: parsedLyricLine | parsedBackgroundVoiceLine,
+        line: ProcessedLine | ProcessedBGLine,
         phraseIndex: number,
     ) => boolean;
 }>();
 defineEmits<{ (e: "jump", index: number): void }>();
 const isDuet = computed(() => props.song.is_duet === 1);
+
+// ── 翻譯 ─────────────────────────────────────────────────────────────────
+const { translationText, backgroundTranslationText, translationAuthor } =
+    useTransation(props.song, props.lines, props.activeLineIndices) || {
+        translationText: computed(() => ""),
+        backgroundTranslationText: computed(() => ""),
+        translationAuthor: computed(() => ""),
+    };
 </script>
 
 <template>
@@ -72,6 +77,15 @@ const isDuet = computed(() => props.song.is_duet === 1);
         </div>
 
         <div v-if="enableTranslation" class="md:h-[10vh] h-0" />
+
+        <TranslationBar
+            :enable-translation="enableTranslation"
+            :song="song"
+            :translation-text="translationText || ''"
+            :background-translation-text="backgroundTranslationText || ''"
+            :translation-author="translationAuthor"
+            @disable-translation="enableTranslation = false"
+        />
     </div>
 </template>
 
