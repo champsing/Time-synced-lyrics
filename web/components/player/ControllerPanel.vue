@@ -5,7 +5,8 @@ import {
     PLAYER_VERSION,
 } from "@/composables/utils/config";
 import { copyToClipboard } from "@/composables/utils/global";
-import type { Color, Song } from "@/types/player";
+import type { Song } from "@/types/player";
+import type { Color } from "@/types/song_select";
 import AboutModal from "@components/player/AboutModal.vue";
 import CreditModal from "@components/player/CreditModal.vue";
 import SettingModal from "@components/player/SettingModal.vue";
@@ -277,7 +278,9 @@ const panelCollapsed = ref(false);
                                     )
                                 "
                             />
-                            <span class="p-1">{{ volume || 70 }}</span>
+                            <span class="p-1 text-white">{{
+                                volume || 70
+                            }}</span>
                         </div>
                     </div>
 
@@ -356,7 +359,7 @@ const panelCollapsed = ref(false);
                             )
                         "
                     />
-                    <span class="p-1">{{ volume || 70 }}</span>
+                    <span class="p-1 text-white">{{ volume || 70 }}</span>
                 </div>
             </div>
             <!-- ▲ 永遠顯示區塊結束 -->

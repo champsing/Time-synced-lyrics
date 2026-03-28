@@ -2,7 +2,6 @@
 import type { Song } from "@/types/player";
 
 defineProps<{
-    enableTranslation: boolean;
     song: Song;
     translationText: string;
     backgroundTranslationText: string;
@@ -13,11 +12,7 @@ defineEmits<{ (e: "disableTranslation"): void }>();
 </script>
 
 <template>
-    <div
-        v-if="enableTranslation"
-        id="translation-container"
-        class="hidden md:block fixed bottom-0 mb-4 px-4"
-    >
+    <div id="translation-container" class="z-2 hidden md:block fixed bottom-10">
         <template v-if="song.translation?.available">
             <div
                 class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-90 rounded-xl w-max"

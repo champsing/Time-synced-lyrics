@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useTransation } from "@/composables/hooks/useTranslation";
 import type { ProcessedBGLine, ProcessedLine, Song } from "@/types/player";
 import TranslationBar from "@components/player/TranslationBar.vue";
 import { computed, type CSSProperties } from "vue";
+import LyricLine from "./LyricLine.vue";
 
 const props = defineProps<{
     lines: ProcessedLine[];
@@ -12,6 +12,9 @@ const props = defineProps<{
     enablePronounciation: boolean;
     enableLyricBackground: boolean;
     enableTranslation: boolean;
+    translationText: string;
+    backgroundTranslationText: string;
+    translationAuthor: string;
     isCurrentLine: (index: number) => boolean;
     getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
     getBackgroundPhraseStyle: (
@@ -26,20 +29,12 @@ const props = defineProps<{
 }>();
 defineEmits<{ (e: "jump", index: number): void }>();
 const isDuet = computed(() => props.song.is_duet === 1);
-
-// ── 翻譯 ─────────────────────────────────────────────────────────────────
-const { translationText, backgroundTranslationText, translationAuthor } =
-    useTransation(props.song, props.lines, props.activeLineIndices) || {
-        translationText: computed(() => ""),
-        backgroundTranslationText: computed(() => ""),
-        translationAuthor: computed(() => ""),
-    };
 </script>
 
 <template>
     <div
         id="lyrics-container"
-        class="z-20 scroll-smooth snap-y snap-proximity text-center p-4 w-full relative mb-[30vh] md:mb-10"
+        class="scroll-smooth snap-y snap-proximity text-center p-4 w-full relative mb-[30vh] md:mb-10"
         :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
     >
         <div
@@ -60,7 +55,13 @@ const { translationText, backgroundTranslationText, translationAuthor } =
                 :get-phrase-style="getPhraseStyle"
                 :get-background-phrase-style="getBackgroundPhraseStyle"
                 :is-active-phrase="isActivePhrase"
-                @jump="$emit('jump', $event)"
+                @jump="
+                    try {
+                        $emit('jump', $event);
+                    } catch (e) {
+                        console.error('Failed to emit jump event:', e);
+                    }
+                "
             />
         </div>
 
@@ -76,17 +77,17 @@ const { translationText, backgroundTranslationText, translationAuthor } =
             />
         </div>
 
-        <div v-if="enableTranslation" class="md:h-[10vh] h-0" />
-
-        <TranslationBar
-            :enable-translation="enableTranslation"
-            :song="song"
-            :translation-text="translationText || ''"
-            :background-translation-text="backgroundTranslationText || ''"
-            :translation-author="translationAuthor"
-            @disable-translation="enableTranslation = false"
-        />
+        <div v-if="enableTranslation" class="md:h-[15vh] h-0" />
     </div>
+    <TranslationBar
+        v-if="enableTranslation"
+        :song="song"
+        :translation-text="translationText"
+        :background-translation-text="backgroundTranslationText"
+        :translation-author="translationAuthor"
+        @disable-translation="enableTranslation = false"
+    />
+    {{ translationText }}
 </template>
 
 <style scoped>

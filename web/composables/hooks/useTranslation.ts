@@ -21,11 +21,14 @@ export function useTransation(
         )
             return "";
 
+        console.log(activeLineIndices);
         // 只取最後一個有翻譯的活躍行
-        return activeLineIndices
-            .map((index) => jsonMappingContent[index]?.translation || "")
-            .filter((text) => text !== "")
-            .reverse()[0];
+        return (
+            activeLineIndices
+                .map((index) => jsonMappingContent[index]?.translation)
+                .filter((text) => text !== "")
+                .reverse()[0] || ""
+        );
     });
 
     const backgroundTranslationText = computed(() => {
@@ -36,14 +39,16 @@ export function useTransation(
         )
             return "";
 
-        return activeLineIndices
-            .map(
-                (index: number) =>
-                    jsonMappingContent[index]?.background_voice?.translation ||
-                    "",
-            )
-            .filter((text: string) => text !== "")
-            .reverse()[0];
+        return (
+            activeLineIndices
+                .map(
+                    (index: number) =>
+                        jsonMappingContent[index]?.background_voice
+                            ?.translation,
+                )
+                .filter((text) => text !== "")
+                .reverse()[0] || ""
+        );
     });
 
     const translationAuthor = computed(() => {
