@@ -258,7 +258,15 @@ async function setup() {
         songVersion.value = versionRequest || getDefaultVersion(song);
 
         await loadSongLyric();
-        await getArtistDisplay(currentSong.value?.artist || "");
+
+        if (currentSong.value) {
+            currentSong.value.displayArtist = await getArtistDisplay(
+                currentSong.value.artist.split(","),
+            );
+            currentSong.value.displayLyricist = await getArtistDisplay(
+                currentSong.value.lyricist.split(","),
+            );
+        }
 
         isLoading.value = false;
     } catch (err: unknown) {

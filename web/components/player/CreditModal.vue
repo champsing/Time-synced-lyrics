@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Song } from "@/types/player";
 
-defineProps<{
+const props = defineProps<{
     isOpen: boolean;
     currentSong: Song & { displayArtist?: string };
     ALBUM_GOOGLE_LINK_BASE: string;

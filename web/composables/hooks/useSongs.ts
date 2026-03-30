@@ -82,6 +82,7 @@ export const parseLyrics = async (
                 // eslint-disable-next-line no-unused-vars
                 const [_, mm, ss] = timeMatch;
                 if (mm && ss)
+                    
                     parsedLine.time = parseFloat(mm) * 60 + parseFloat(ss);
             }
 

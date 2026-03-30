@@ -5,17 +5,17 @@ import {
     PLAYER_VERSION,
 } from "@/composables/utils/config";
 import { copyToClipboard } from "@/composables/utils/global";
-import type { Song } from "@/types/player";
+import type { SongWithDisplay } from "@/types/player";
 import type { Color } from "@/types/song_select";
 import AboutModal from "@components/player/AboutModal.vue";
 import CreditModal from "@components/player/CreditModal.vue";
 import SettingModal from "@components/player/SettingModal.vue";
 import ShareModal from "@components/player/ShareModal.vue";
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import YTPlayer from "./YTPlayer.vue";
 
 const props = defineProps<{
-    currentSong: Song & { displayArtist?: string };
+    currentSong: SongWithDisplay;
     songVersion: string | null;
     videoId: string | null;
     isPaused: boolean;
@@ -28,7 +28,6 @@ const props = defineProps<{
     THE_FIRST_TAKE: string;
     LIVE: string;
     parseSubtitle: (subtitle: string) => string;
-    // 設定相關 props（雙向綁定由 Player.vue 管理）
     bgColor: Color;
     colorOptions: Color[];
     enableLyricBackground: boolean;
@@ -65,6 +64,23 @@ const aboutModalOpen = ref(false);
 
 // 收合面板狀態
 const panelCollapsed = ref(false);
+
+onMounted(() => {
+    // 監聽 Esc 鍵以關閉 Modal
+    const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+            if (settingModalOpen.value) settingModalOpen.value = false;
+            if (creditModalOpen.value) creditModalOpen.value = false;
+            if (shareModalOpen.value) shareModalOpen.value = false;
+            if (aboutModalOpen.value) aboutModalOpen.value = false;
+        }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    onUnmounted(() => {
+        window.removeEventListener("keydown", handleKeyDown);
+    });
+    
+});
 </script>
 
 <template>
