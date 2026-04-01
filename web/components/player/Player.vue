@@ -260,12 +260,16 @@ async function setup() {
         await loadSongLyric();
 
         if (currentSong.value) {
-            currentSong.value.displayArtist = await getArtistDisplay(
-                currentSong.value.artist.split(","),
-            );
-            currentSong.value.displayLyricist = await getArtistDisplay(
-                currentSong.value.lyricist.split(","),
-            );
+            currentSong.value = {
+                ...currentSong.value,
+                displayArtist: await getArtistDisplay(
+                    currentSong.value.artist.split(","),
+                ),
+                displayLyricist: await getArtistDisplay(
+                    currentSong.value.lyricist.split(","),
+                ),
+            };
+            console.log(currentSong.value);
         }
 
         isLoading.value = false;

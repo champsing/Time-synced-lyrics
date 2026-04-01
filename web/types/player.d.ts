@@ -88,14 +88,13 @@ export interface LyricLine {
     time: string;
     type?: "prelude" | "interlude" | "end";
     text?: LyricPhrase[];
-
     translation?: string;
-    background_voice?: BackgroundVoiceLine; // 新增
+    background_voice?: BackgroundVoiceLine;
     is_secondary?: boolean;
     is_together?: boolean;
 }
 
-export type ProcessedLine = LyricLine & {
+export type ProcessedLine = Omit<LyricLine, "time" | "background_voice"> & {
     background_voice?: ProcessedBGLine;
     time: number;
     delay: number[];
@@ -111,7 +110,7 @@ export interface BackgroundVoiceLine {
     translation?: string;
 }
 
-export type ProcessedBGLine = BackgroundVoiceLine & {
+export type ProcessedBGLine = Omit<BackgroundVoiceLine, "time"> & {
     time: number;
     duration: number[];
     delay: number[];

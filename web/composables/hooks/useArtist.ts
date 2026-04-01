@@ -1,9 +1,11 @@
-import { API_BASE_URL } from "../utils/config";
 import { reactive } from "vue";
+import { API_BASE_URL } from "../utils/config";
 
 interface ArtistData {
-    original_name?: string;
-    [key: string]: unknown;
+    artist_id: number;
+    original_name: string;
+    romaji_name?: string;
+    created_at?: string;
 }
 
 type ArtistMap = Record<string, string>;
@@ -36,7 +38,7 @@ async function processBatch(): Promise<void> {
 
         if (!response.ok) throw new Error("Batch fetch failed");
 
-        const data: ArtistApiResponse = await response.json();
+        const data: ArtistData[] = await response.json();
 
         // 更新快取與 SessionStorage
         const currentStored = sessionStorage.getItem(STORAGE_KEY);
@@ -45,8 +47,9 @@ async function processBatch(): Promise<void> {
             : {};
 
         idsToFetch.forEach((id) => {
-            // 從 Rust HashMap { "id": { data } } 中提取
-            const artistData = data[id];
+            const artistData = data.find(
+                (a) => String(a.artist_id) === String(id),
+            );
             const name = artistData?.original_name ?? "未知藝人";
 
             artistCache[id] = name;
@@ -110,7 +113,7 @@ export function ensureArtistLoaded(id: string | number): Promise<void> {
                 clearInterval(check);
                 resolve();
             }
-        }, 50);
+        }, 120);
     });
 }
 

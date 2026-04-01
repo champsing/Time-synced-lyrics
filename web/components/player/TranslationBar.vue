@@ -45,7 +45,7 @@ defineEmits<{ (e: "disableTranslation"): void }>();
             <div
                 class="p-4 flex flex-col items-center gap-2 bg-[#231f1f] opacity-80 rounded-xl w-fit"
             >
-                <span>本歌曲尚未提供翻譯</span>
+                <span class="text-white/60">本歌曲尚未提供翻譯</span>
             </div>
         </template>
     </div>
