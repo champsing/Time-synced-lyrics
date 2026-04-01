@@ -4,7 +4,6 @@
     "exclude": ["web/**/__tests__/*"],
 
     "compilerOptions": {
-        "baseUrl": ".",
         "paths": {
             "@/*": ["./web/*"],
             "@components/*": ["./web/components/*"],
