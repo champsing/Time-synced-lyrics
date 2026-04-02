@@ -67,7 +67,7 @@ const emit = defineEmits<{
             <h3 class="font-bold text-base truncate mb-0.5" :title="song.title">
                 {{ song.title }}
             </h3>
-            <p class="text-sm text-teal-200 truncate">
+            <p class="text-sm text-purple-100 truncate">
                 {{ song.displayArtist }}
             </p>
         </div>

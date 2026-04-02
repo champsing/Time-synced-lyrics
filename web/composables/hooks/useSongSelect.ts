@@ -72,20 +72,25 @@ export function useSongSelect() {
 
     const filteredSongs = computed(() => {
         const query = searchQuery.value.toLowerCase().trim();
-        return songs.value
-            .filter((song) => !song.hidden)
-            .filter((song) => {
-                if (!query) return true;
-                return (
-                    (song.title || "").toLowerCase().includes(query) ||
-                    (song.displayArtist || "").toLowerCase().includes(query) ||
-                    (song.displayLyricist || "")
-                        .toLowerCase()
-                        .includes(query) ||
-                    (song.album?.name || "").toLowerCase().includes(query)
-                );
-            })
-            .sort(sortSong(sortOption.value));
+
+        return (
+            songs.value
+                .filter((song) => !song.hidden)
+                .filter((song) => {
+                    if (!query) return true;
+                    return (
+                        (song.title || "").toLowerCase().includes(query) ||
+                        (song.displayArtist || "")
+                            .toLowerCase()
+                            .includes(query) ||
+                        (song.displayLyricist || "")
+                            .toLowerCase()
+                            .includes(query) ||
+                        (song.album?.name || "").toLowerCase().includes(query)
+                    );
+                })
+                .sort(sortSong(sortOption.value)) || []
+        );
     });
 
     const bgColorName = computed(
@@ -217,8 +222,14 @@ export function useSongSelect() {
                 (s) => s.song_id === song.song_id,
             );
             if (index !== -1) {
-                songs.value[index] = { ...songs.value[index], ...fullData! };
-                return songs.value[index];
+                // 建立一個全新的物件並替換數組中的該項
+                const updatedSong = { ...songs.value[index], ...fullData! };
+                songs.value[index] = updatedSong;
+
+                // 再次確保觸發 filteredSongs 更新
+                songs.value = [...songs.value];
+
+                return songs.value[index] || { ...song, ...fullData! };
             }
             return { ...song, ...fullData! };
         } catch (err) {
@@ -230,19 +241,17 @@ export function useSongSelect() {
     async function fetchSongs() {
         try {
             isLoading.value = true;
-
             let songList: SongListItem[] | null = null;
+
+            // 1. 取得原始資料
             const cached = sessionStorage.getItem("songList");
             if (cached) songList = JSON.parse(cached);
-
             if (!songList) {
                 songList = await loadSongList();
                 sessionStorage.setItem("songList", JSON.stringify(songList));
             }
 
-            songs.value = songList!;
-
-            // 預觸發藝人 ID 批次載入
+            // 2. 準備所有需要的藝人資料 (預觸發快取)
             const requiredIds = new Set<string>();
             songList!.forEach((song) => {
                 [String(song.artist || ""), String(song.lyricist || "")]
@@ -256,38 +265,43 @@ export function useSongSelect() {
             });
             requiredIds.forEach((id) => ensureArtistLoaded(id));
 
-            // 版本選擇初始化
-            const storedVersions = sessionStorage.getItem("selectedVersions");
-            if (storedVersions) {
-                Object.assign(
-                    selectedVersions,
-                    JSON.parse(storedVersions) as SelectedVersionMap,
-                );
-            } else {
-                songList!.forEach((song) => {
-                    selectedVersions[song.song_id] = "original";
-                });
-            }
-
-            // 批次解析 displayArtist / displayLyricist
-            await Promise.all(
+            // 3. 處理加工欄位 (核心修正：不要提早賦值給 songs.value)
+            const processedSongs = await Promise.all(
                 songList!.map(async (song) => {
-                    song.displayArtist = await getArtistDisplay(
+                    const displayArtist = await getArtistDisplay(
                         String(song.artist || "")
                             .split(",")
                             .map((s) => s.trim())
                             .filter(Boolean),
                     );
-                    song.displayLyricist = await getArtistDisplay(
+                    const displayLyricist = await getArtistDisplay(
                         String(song.lyricist || "")
                             .split(",")
                             .map((s) => s.trim())
                             .filter(Boolean),
                     );
+
+                    // 回傳包含加工欄位的新物件
+                    return {
+                        ...song,
+                        displayArtist,
+                        displayLyricist,
+                    };
                 }),
             );
 
-            songs.value = [...songList!];
+            // 4. 最後一次性更新，觸發所有響應式渲染
+            songs.value = processedSongs;
+
+            // 5. 初始化版本選擇 (保持不變)
+            const storedVersions = sessionStorage.getItem("selectedVersions");
+            if (storedVersions) {
+                Object.assign(selectedVersions, JSON.parse(storedVersions));
+            } else {
+                processedSongs.forEach((song) => {
+                    selectedVersions[song.song_id] = "original";
+                });
+            }
         } catch (err) {
             console.error("歌曲清單加載失敗:", err);
         } finally {
