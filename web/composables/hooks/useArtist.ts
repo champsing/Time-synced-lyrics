@@ -129,8 +129,6 @@ export async function getArtistDisplay(
               .map((s) => s.trim())
               .filter(Boolean);
 
-    console.log(idArray);
-
     if (idArray.length === 0) return "未提供";
 
     // 等待所有 ID 的事件被觸發

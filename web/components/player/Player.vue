@@ -246,8 +246,6 @@ async function setup() {
 
         songVersion.value = versionRequest || getDefaultVersion(song);
 
-        await loadSongLyric();
-
         if (currentSong.value) {
             currentSong.value = {
                 ...currentSong.value,
@@ -260,6 +258,8 @@ async function setup() {
             };
             console.log(currentSong.value);
         }
+
+        await loadSongLyric();
 
         isLoading.value = false;
     } catch (err: unknown) {
