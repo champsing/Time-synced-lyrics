@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSongSelect } from "@/composables/hooks/useSongSelect";
-import { PLAYER_VERSION, SONGLIST_VERSION } from "@/composables/utils/config";
+import { PLAYER_VERSION } from "@/composables/utils/config";
 import type { SortOption } from "@/types/song_select";
 import RefreshModal from "@components/song_select/RefreshModal.vue";
 import SearchBar from "@components/song_select/SearchBar.vue";
@@ -8,6 +8,7 @@ import SongCard from "@components/song_select/SongCard.vue";
 import SongDetailModal from "@components/song_select/SongDetailModal.vue";
 import { ref } from "vue";
 import LoadingOverlay from "../player/LoadingOverlay.vue";
+import SongSelectNav from "./SongSelectNav.vue";
 
 const {
     searchQuery,
@@ -39,7 +40,11 @@ const showRefreshModal = ref(false);
         class="min-h-screen text-gray-100 transition-colors duration-500"
         style="background-color: var(--theme-bg)"
     >
-        <!-- <SongSelectNav /> -->
+        <nav
+            class="fixed top-0 left-0 w-full shadow-lg z-50 transition-colors duration-500"
+        >
+            <SongSelectNav />
+        </nav>
 
         <main
             class="container mx-auto px-4 py-8 pt-20 sm:pt-25 pb-40 min-h-screen"
@@ -48,9 +53,6 @@ const showRefreshModal = ref(false);
             <div class="sm:hidden flex flex-col gap-0 text-center mb-4">
                 <div class="text-sm opacity-75">
                     播放器版本：{{ PLAYER_VERSION }}
-                </div>
-                <div class="text-sm opacity-75">
-                    資料版本：{{ SONGLIST_VERSION }}
                 </div>
             </div>
 
