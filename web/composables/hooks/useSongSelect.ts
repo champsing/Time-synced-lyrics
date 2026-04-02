@@ -80,7 +80,11 @@ export function useSongSelect() {
                     if (!query) return true;
                     return (
                         (song.title || "").toLowerCase().includes(query) ||
-                        (song.folder || "").toLowerCase().includes(query) ||
+                        (song.folder || "")
+                            .replace("-", " ")
+                            // 在遠端因為格式只能用-代表空格，但這裡可以用空格搜尋
+                            .toLowerCase()
+                            .includes(query) ||
                         (song.displayArtist || "")
                             .toLowerCase()
                             .includes(query) ||
