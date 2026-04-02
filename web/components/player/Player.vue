@@ -18,7 +18,6 @@ import {
     loadSongData,
     parseLyrics,
 } from "@/composables/hooks/useSongs";
-import { useTransation } from "@/composables/hooks/useTranslation";
 import {
     DEBUG_INFO,
     INSTRUMENTAL,
@@ -235,16 +234,6 @@ async function loadSongLyric() {
 }
 
 // ── 翻譯 ─────────────────────────────────────────────────────────────────
-const { translationText, backgroundTranslationText, translationAuthor } =
-    useTransation(
-        currentSong.value,
-        jsonMappingContent.value,
-        activeLineIndices.value,
-    ) || {
-        translationText: computed(() => ""),
-        backgroundTranslationText: computed(() => ""),
-        translationAuthor: computed(() => ""),
-    };
 
 // ── 初始化 ───────────────────────────────────────────────────────────────
 async function setup() {
@@ -318,7 +307,7 @@ onMounted(setup);
             <!-- 左側：歌詞 -->
             <div
                 id="main-display-section"
-                class="md:flex flex-col items-center md:w-5/6 md:ml-8 px-10 pt-24"
+                class="md:flex flex-col items-center md:w-5/6 md:mx-8 px-10 pt-20"
             >
                 <LyricsContainer
                     :lines="processedLines"
@@ -328,9 +317,6 @@ onMounted(setup);
                     :enable-lyric-background="enableLyricBackground"
                     :enable-translation="enableTranslation"
                     :enable-pronounciation="enablePronounciation"
-                    :translation-text="translationText"
-                    :background-translation-text="backgroundTranslationText"
-                    :translation-author="translationAuthor"
                     :is-active-phrase="isActivePhrase"
                     :is-current-line="isCurrentLine"
                     :get-phrase-style="getPhraseStyle"

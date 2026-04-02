@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useTranslation } from "@/composables/hooks/useTranslation";
 import type { ProcessedBGLine, ProcessedLine, Song } from "@/types/player";
 import TranslationBar from "@components/player/TranslationBar.vue";
 import { computed, type CSSProperties } from "vue";
@@ -12,9 +13,6 @@ const props = defineProps<{
     enablePronounciation: boolean;
     enableLyricBackground: boolean;
     enableTranslation: boolean;
-    translationText: string;
-    backgroundTranslationText: string;
-    translationAuthor: string;
     isCurrentLine: (index: number) => boolean;
     getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
     getBackgroundPhraseStyle: (
@@ -29,6 +27,14 @@ const props = defineProps<{
 }>();
 defineEmits<{ (e: "jump", index: number): void }>();
 const isDuet = computed(() => props.song.is_duet === 1);
+
+// 在 <script setup> 中
+const { translationText, backgroundTranslationText, translationAuthor } =
+    useTranslation(
+        () => props.song,
+        () => props.lines,
+        () => props.activeLineIndices,
+    );
 </script>
 
 <template>
@@ -87,7 +93,6 @@ const isDuet = computed(() => props.song.is_duet === 1);
         :translation-author="translationAuthor"
         @disable-translation="enableTranslation = false"
     />
-    {{ translationText }}
 </template>
 
 <style scoped>

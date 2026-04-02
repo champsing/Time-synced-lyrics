@@ -5,9 +5,9 @@ import type {
     ProcessedLine,
     RawLyricData,
     Song,
+    SongWithDisplay,
 } from "@/types/player";
 import { API_BASE_URL, DEFAULT_DURATION } from "../utils/config";
-import { getArtistDisplay } from "./useArtist";
 
 export const loadSongList = async () => {
     try {
@@ -59,14 +59,10 @@ export const getDefaultVersion = (currentSong: Song) =>
 
 export const parseLyrics = async (
     jsonMappingContent: RawLyricData,
-    currentSong: Song,
+    currentSong: SongWithDisplay,
     songDuration: number,
 ) => {
     if (!jsonMappingContent) return [];
-
-    const display_artist = await getArtistDisplay(currentSong.artist);
-
-    const display_lyricist = await getArtistDisplay(currentSong.lyricist);
 
     const parsedLyrics = jsonMappingContent
         .map((line: LyricLine) => {
@@ -82,7 +78,6 @@ export const parseLyrics = async (
                 // eslint-disable-next-line no-unused-vars
                 const [_, mm, ss] = timeMatch;
                 if (mm && ss)
-                    
                     parsedLine.time = parseFloat(mm) * 60 + parseFloat(ss);
             }
 
@@ -136,7 +131,9 @@ export const parseLyrics = async (
                 parsedLine.text = [
                     {
                         phrase: `創作者：${
-                            display_lyricist || display_artist || "未知的創作者"
+                            currentSong.displayLyricist ||
+                            currentSong.displayArtist ||
+                            "未知的創作者"
                         }`,
                         duration: songDuration - parsedLine.time,
                     },

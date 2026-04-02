@@ -1,61 +1,48 @@
-import type { LyricData, ProcessedLine, SongWithDisplay } from "@/types/player";
-import { computed } from "vue";
+import type { LyricData, SongWithDisplay } from "@/types/player";
+import { computed, toValue, type MaybeRefOrGetter } from "vue";
 
-export function useTransation(
-    currentSong: SongWithDisplay | null,
-    jsonMappingContent: LyricData | ProcessedLine[],
-    activeLineIndices: number[], // 改為接收活躍行索引陣列
+export function useTranslation(
+    songSource: MaybeRefOrGetter<SongWithDisplay>,
+    contentSource: MaybeRefOrGetter<LyricData>,
+    indicesSource: MaybeRefOrGetter<number[]>,
 ) {
-    if (!currentSong) {
-        return {
-            translationAuthor: computed(() => ""),
-            translationText: computed(() => ""),
-            backgroundTranslationText: computed(() => ""),
-        };
-    }
+    // 使用 toValue (Vue 3.3+) 可以同時相容 Ref、Getter 函數或普通值
     const translationText = computed(() => {
-        if (
-            !jsonMappingContent ||
-            !activeLineIndices ||
-            activeLineIndices.length === 0
-        )
-            return "";
+        const song = toValue(songSource);
+        const content = toValue(contentSource);
+        const indices = toValue(indicesSource);
 
-        console.log(activeLineIndices);
-        // 只取最後一個有翻譯的活躍行
+        if (!song || !content || !indices?.length) return "";
+
         return (
-            activeLineIndices
-                .map((index) => jsonMappingContent[index]?.translation)
-                .filter((text) => text !== "")
+            indices
+                .map((index) => content[index]?.translation)
+                .filter((text) => !!text)
                 .reverse()[0] || ""
         );
     });
 
     const backgroundTranslationText = computed(() => {
-        if (
-            !jsonMappingContent ||
-            !activeLineIndices ||
-            activeLineIndices.length === 0
-        )
-            return "";
+        const song = toValue(songSource);
+        const content = toValue(contentSource);
+        const indices = toValue(indicesSource);
+
+        if (!song || !content || !indices?.length) return "";
 
         return (
-            activeLineIndices
-                .map(
-                    (index: number) =>
-                        jsonMappingContent[index]?.background_voice
-                            ?.translation,
-                )
-                .filter((text) => text !== "")
+            indices
+                .map((index) => content[index]?.background_voice?.translation)
+                .filter((text) => !!text)
                 .reverse()[0] || ""
         );
     });
 
     const translationAuthor = computed(() => {
-        if (!currentSong.translation?.author) return "";
-        if (currentSong.translation?.modified === 1)
-            return currentSong.translation?.author + "〔已修改〕";
-        else return currentSong.translation?.author;
+        const song = toValue(songSource);
+        if (!song?.translation?.author) return "";
+        return song.translation.modified === 1
+            ? `${song.translation.author}〔已修改〕`
+            : song.translation.author;
     });
 
     return { translationAuthor, translationText, backgroundTranslationText };

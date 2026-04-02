@@ -1,26 +1,29 @@
 import { reactive } from "vue";
 import { API_BASE_URL } from "../utils/config";
 
+// --- 型別定義 ---
 interface ArtistData {
     artist_id: number;
     original_name: string;
-    romaji_name?: string;
-    created_at?: string;
 }
-
 type ArtistMap = Record<string, string>;
-type ArtistApiResponse = Record<string, ArtistData>;
+type ArtistApiResponse = ArtistData[];
 
+// --- 狀態管理 ---
 const artistCache = reactive<ArtistMap>({});
-const pendingIds = new Set<string>();
 const STORAGE_KEY = "artists_name";
 
-// 批次請求隊列
+/**
+ * 事件中心：key 是 ID，value 是 resolve 函數的陣列
+ * 當資料抓到時，一次執行該 ID 下所有的 resolve
+ */
+const listeners = new Map<string, Array<() => void>>();
+
 let batchQueue = new Set<string>();
 let batchTimeout: ReturnType<typeof setTimeout> | null = null;
 
 /**
- * 核心邏輯：處理批次請求
+ * 核心邏輯：執行批次請求並通知所有聽眾
  */
 async function processBatch(): Promise<void> {
     if (batchQueue.size === 0) return;
@@ -30,116 +33,109 @@ async function processBatch(): Promise<void> {
     batchTimeout = null;
 
     try {
-        // idsToFetch 會變成 "1,2,3"
-        const idsString = idsToFetch.join(",");
         const response = await fetch(
-            `${API_BASE_URL}/artists?ids=${idsString}`,
+            `${API_BASE_URL}/artists?ids=${idsToFetch.join(",")}`,
         );
-
         if (!response.ok) throw new Error("Batch fetch failed");
 
-        const data: ArtistData[] = await response.json();
+        // 確保取到的是 Array
+        const data: ArtistApiResponse = await response.json();
 
-        // 更新快取與 SessionStorage
-        const currentStored = sessionStorage.getItem(STORAGE_KEY);
-        const currentMap: ArtistMap = currentStored
-            ? JSON.parse(currentStored)
-            : {};
+        const currentStored = JSON.parse(
+            sessionStorage.getItem(STORAGE_KEY) || "{}",
+        );
+
+        // 優化：先建立一個 Map 方便快速查找，避免在迴圈裡一直用 .find()
+        // 這樣處理 O(n) 比起原本的 O(n^2) 效能更好
+        const dataMap = new Map(
+            data.map((item) => [String(item.artist_id), item.original_name]),
+        );
 
         idsToFetch.forEach((id) => {
-            const artistData = data.find(
-                (a) => String(a.artist_id) === String(id),
-            );
-            const name = artistData?.original_name ?? "未知藝人";
+            // 從 map 中取出名字，如果找不到則給予預設值
+            const name = dataMap.get(id) ?? "未知藝人";
 
+            // 寫入響應式狀態與持久化緩存
             artistCache[id] = name;
-            currentMap[id] = name;
-            pendingIds.delete(id);
+            currentStored[id] = name;
+
+            // 觸發 EventEmitter 通知等待中的 Promise
+            if (listeners.has(id)) {
+                listeners.get(id)?.forEach((resolve) => resolve());
+                listeners.delete(id);
+            }
         });
 
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(currentMap));
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(currentStored));
     } catch (err) {
         console.error("批次獲取藝人失敗:", err);
         idsToFetch.forEach((id) => {
             artistCache[id] = "未知藝人";
-            pendingIds.delete(id);
+            if (listeners.has(id)) {
+                listeners.get(id)?.forEach((resolve) => resolve());
+                listeners.delete(id);
+            }
         });
     }
 }
 
 /**
- * 確保藝人資料已載入（支援自動批次合併）
+ * 確保藝人資料已載入
  */
 export function ensureArtistLoaded(id: string | number): Promise<void> {
     const cleanId = String(id).trim();
-    if (!cleanId || cleanId.includes(",")) return Promise.resolve();
+    if (!cleanId) return Promise.resolve();
 
-    // 1. 檢查記憶體
+    // 1. 命中快取：直接返回
     if (artistCache[cleanId]) return Promise.resolve();
 
-    // 2. 檢查是否已經在請求中
-    if (pendingIds.has(cleanId)) {
-        return new Promise<void>((resolve) => {
-            const check = setInterval(() => {
-                if (artistCache[cleanId]) {
-                    clearInterval(check);
-                    resolve();
-                }
-            }, 50);
-        });
-    }
-
-    // 3. 檢查 sessionStorage
-    const storedData = sessionStorage.getItem(STORAGE_KEY);
-    const artistsMap: ArtistMap = storedData ? JSON.parse(storedData) : {};
-    if (artistsMap[cleanId]) {
-        artistCache[cleanId] = artistsMap[cleanId];
+    // 2. 命中 SessionStorage：同步到快取並返回
+    const storedData = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "{}");
+    if (storedData[cleanId]) {
+        artistCache[cleanId] = storedData[cleanId];
         return Promise.resolve();
     }
 
-    // 4. 加入批次隊列
-    pendingIds.add(cleanId);
-    batchQueue.add(cleanId);
-
-    // 設置微小延遲（50ms），收集同一畫面裡所有的請求
-    if (!batchTimeout) {
-        batchTimeout = setTimeout(processBatch, 50);
-    }
-
-    // 返回一個等待資料出現的 Promise
+    // 3. 進入等待邏輯
     return new Promise<void>((resolve) => {
-        const check = setInterval(() => {
-            if (artistCache[cleanId]) {
-                clearInterval(check);
-                resolve();
+        // 如果還沒有人在等這個 ID，將其加入批次隊列
+        if (!listeners.has(cleanId)) {
+            listeners.set(cleanId, []);
+            batchQueue.add(cleanId);
+
+            // 啟動 50ms 窗口收集其他請求
+            if (!batchTimeout) {
+                batchTimeout = setTimeout(processBatch, 50);
             }
-        }, 120);
+        }
+
+        // 將自己的 resolve 註冊到聽眾清單中
+        listeners.get(cleanId)!.push(resolve);
     });
 }
 
 /**
- * 顯示邏輯不變
+ * 最終顯示邏輯：現在 Promise.all 會精準地在資料填入後結束
  */
 export async function getArtistDisplay(
     ids: string | number | (string | number)[] | null | undefined,
 ): Promise<string> {
     if (!ids) return "未提供";
 
-    let idArray: string[];
-    if (Array.isArray(ids)) {
-        idArray = ids.map(String);
-    } else {
-        idArray = String(ids)
-            .split(",")
-            .map((s) => s.trim())
-            .filter((s) => s !== "");
-    }
+    const idArray = Array.isArray(ids)
+        ? ids.map(String).map((s) => s.trim())
+        : String(ids)
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean);
+
+    console.log(idArray);
 
     if (idArray.length === 0) return "未提供";
 
-    // 觸發多次 ensureArtistLoaded，由 batchQueue 合併成一個請求
+    // 等待所有 ID 的事件被觸發
     await Promise.all(idArray.map((id) => ensureArtistLoaded(id)));
 
-    const results = idArray.map((id) => artistCache[id] ?? "載入中...");
-    return results.join(", ");
+    // 到這裡時，artistCache[id] 絕對已經有值了
+    return idArray.map((id) => artistCache[id] || "未知藝人").join(", ");
 }
