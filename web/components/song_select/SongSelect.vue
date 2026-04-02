@@ -1,88 +1,134 @@
 <script setup lang="ts">
-import type { Song } from "@/types/player";
+import { useSongSelect } from "@/composables/hooks/useSongSelect";
+import { PLAYER_VERSION, SONGLIST_VERSION } from "@/composables/utils/config";
+import type { SortOption } from "@/types/song_select";
+import RefreshModal from "@components/song_select/RefreshModal.vue";
+import SearchBar from "@components/song_select/SearchBar.vue";
 import SongCard from "@components/song_select/SongCard.vue";
 import SongDetailModal from "@components/song_select/SongDetailModal.vue";
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
+import LoadingOverlay from "../player/LoadingOverlay.vue";
 
-const { filteredSongs, isLoading, searchQuery, selectedVersions, fetchSongs } =
-    useSongs();
-const showDetail = ref(false);
-const selectedSong = ref<Song | null>(filteredSongs.value[0] || null);
+const {
+    searchQuery,
+    sortOption,
+    showSortOptions,
+    showColorPicker,
+    filteredSongs,
+    isLoading,
+    selectedVersions,
+    colorOptions,
+    bodyBackgroundColor,
+    bgColorName,
+    showDetailModal,
+    selectedModalSong,
+    openSongModal,
+    closeSongModal,
+    selectSong,
+    selectVersion,
+    nextSong,
+    prevSong,
+    refreshSongList,
+} = useSongSelect();
 
-const handleOpenModal = async (song: Song) => {
-    // 這裡可以實作 lazy loading 詳細資料
-    selectedSong.value = song;
-    showDetail.value = true;
-};
-
-const handleSelect = (song: Song) => {
-    const version = selectedVersions.value[song.song_id];
-    window.location.href = `/player/?song=${song.song_id}&version=${version}`;
-};
-
-onMounted(fetchSongs);
+const showRefreshModal = ref(false);
 </script>
 
 <template>
-    <div class="min-h-screen bg-[#0f1a1b] text-white">
-        <nav
-            class="fixed top-0 w-full bg-black/20 backdrop-blur-lg z-50 p-4"
-        ></nav>
+    <div
+        class="min-h-screen text-gray-100 transition-colors duration-500"
+        style="background-color: var(--theme-bg)"
+    >
+        <!-- <SongSelectNav /> -->
 
-        <main class="container mx-auto px-4 pt-24 pb-40">
-            <div
-                v-if="isLoading"
-                class="flex flex-col items-center justify-center h-64"
-            >
-                <div
-                    class="animate-spin rounded-full h-12 w-12 border-t-2 border-teal-500"
-                ></div>
-                <p class="mt-4">載入中...</p>
+        <main
+            class="container mx-auto px-4 py-8 pt-20 sm:pt-25 pb-40 min-h-screen"
+        >
+            <!-- 版本資訊（手機） -->
+            <div class="sm:hidden flex flex-col gap-0 text-center mb-4">
+                <div class="text-sm opacity-75">
+                    播放器版本：{{ PLAYER_VERSION }}
+                </div>
+                <div class="text-sm opacity-75">
+                    資料版本：{{ SONGLIST_VERSION }}
+                </div>
             </div>
 
+            <!-- 載入中 -->
             <div
-                v-else
-                class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
+                v-if="isLoading"
+                class="w-full h-60 flex items-center justify-center"
+            >
+                <LoadingOverlay />
+            </div>
+
+            <!-- 歌曲網格 -->
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-6 mb-20"
             >
                 <SongCard
                     v-for="song in filteredSongs"
                     :key="song.song_id"
                     :song="song"
                     :selected-version="
-                        selectedVersions[song.song_id] || 'original'
+                        selectedVersions[song.song_id] ?? 'original'
                     "
-                    @open="handleOpenModal"
-                    @play="handleSelect"
+                    @open="openSongModal"
+                    @play="selectSong"
                 />
+
+                <div
+                    v-if="!isLoading && filteredSongs.length === 0"
+                    class="col-span-full text-center py-8 text-gray-200"
+                >
+                    <span class="material-icons text-4xl mb-2">search_off</span>
+                    <p>找不到符合的歌曲</p>
+                </div>
             </div>
         </main>
 
-        <footer class="fixed bottom-5 w-full px-4">
-            <div
-                class="max-w-2xl mx-auto bg-white/10 backdrop-blur-xl p-4 rounded-2xl flex gap-4"
-            >
-                <input
-                    v-model="searchQuery"
-                    placeholder="搜尋歌曲..."
-                    class="flex-1 bg-transparent outline-none"
-                />
-            </div>
-        </footer>
+        <SearchBar
+            :search-query="searchQuery"
+            :sort-option="sortOption"
+            :show-sort-options="showSortOptions"
+            :show-color-picker="showColorPicker"
+            :color-options="colorOptions"
+            :body-background-color="bodyBackgroundColor"
+            :bg-color-name="bgColorName"
+            @update:search-query="searchQuery = $event"
+            @update:sort-option="sortOption = $event as SortOption"
+            @update:show-sort-options="showSortOptions = $event"
+            @update:show-color-picker="showColorPicker = $event"
+            @update:body-background-color="bodyBackgroundColor = $event"
+            @refresh="showRefreshModal = true"
+        />
 
         <SongDetailModal
-            :show="showDetail"
-            :song="selectedSong"
-            :current-version="
-                selectedVersions[selectedSong!.song_id] || 'original'
-            "
-            @close="showDetail = false"
-            @update:version="
-                (v) =>
-                    selectedSong
-                        ? (selectedVersions[selectedSong.song_id] = v)
-                        : v
-            "
-            @select="handleSelect"
+            :is-open="showDetailModal"
+            :song="selectedModalSong"
+            :selected-versions="selectedVersions"
+            @close="closeSongModal"
+            @select-version="selectVersion"
+            @play="selectSong"
+            @prev="prevSong"
+            @next="nextSong"
+        />
+
+        <RefreshModal
+            :is-open="showRefreshModal"
+            @close="showRefreshModal = false"
+            @confirm="refreshSongList"
         />
     </div>
 </template>
+
+<style>
+:root {
+    --theme-bg: #365456;
+    --theme-nav: #2d4648;
+}
+body,
+nav {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+</style>

@@ -27,7 +27,7 @@ import Card from "./Card.vue";
                     <div class="grow"></div>
                     <div class="sm:hidden bg-rose-600 rounded-2xl p-2">
                         <a
-                            href="/song-select"
+                            href="/songs"
                             class="text-neutral-200 transition"
                             aria-label="立即開唱"
                         >
@@ -40,7 +40,7 @@ import Card from "./Card.vue";
 
                     <div class="sm:flex sm:flex-row sm:gap-4 hidden">
                         <a
-                            href="/song-select"
+                            href="/songs"
                             class="bg-rose-600 rounded-2xl p-2 text-neutral-200 hover:text-orange-400 transition duration-200"
                             aria-label="立即開唱"
                         >
@@ -339,7 +339,7 @@ import Card from "./Card.vue";
                         id="play-the-music"
                         class="text-center rounded-md bg-rose-600 hover:bg-rose-400 px-4 py-2 text-xl font-semibold text-white duration-500 ease-in-out hover:scale-125 w-40"
                     >
-                        <a href="/song-select" aria-label="前往播放器">
+                        <a href="/songs" aria-label="前往播放器">
                             <span class="text-center">前往播放器</span>
                         </a>
                     </div>

@@ -20,7 +20,7 @@ defineProps<{
         </h2>
         <p class="text-gray-400 mb-8 max-w-md">{{ errorMessage }}</p>
         <a
-            href="/song-select"
+            href="/songs"
             class="bg-teal-600 hover:bg-teal-500 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2"
         >
             <span class="material-icons">library_music</span>

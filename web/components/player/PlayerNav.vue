@@ -15,7 +15,7 @@ defineProps<{
             >
                 <div class="flex items-center gap-4">
                     <a
-                        href="/song-select"
+                        href="/songs"
                         class="group flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg"
                         title="返回選歌系統"
                         aria-label="返回選歌系統"
