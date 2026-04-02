@@ -192,7 +192,7 @@
     }
 
     .modal-mutual {
-        @apply opacity-100 m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left fixed z-100 p-6 rounded-4xl backdrop-blur-2xl border border-white/20 shadow-2xl transition-all duration-500 scale-100;
+        @apply opacity-100 m-auto p-5 border-solid border-[#aba988] rounded-2xl text-left fixed z-100 backdrop-blur-2xl border shadow-2xl transition-all duration-500 scale-100;
         background: linear-gradient(
             135deg,
             rgba(40, 40, 40, 0.9) 0%,
@@ -202,7 +202,7 @@
     }
 
     .modal-mask {
-        @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-90 transition-opacity block pb-100 left-0 top-0 w-full h-full overflow-auto bg-black opacity-40 duration-30 ease-in-out;
+        @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-90 transition-opacity block pb-100 left-0 top-0 w-full h-full overflow-auto opacity-40 duration-30 ease-in-out;
     }
 
     .modal-name {
@@ -210,7 +210,7 @@
     }
 
     .close {
-        @apply cursor-pointer w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-2xl select-none text-xl font-bold ml-2;
+        @apply cursor-pointer w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-2xl select-none font-bold ml-2;
     }
 
     .close:hover,

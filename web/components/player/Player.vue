@@ -1,0 +1,372 @@
+<script setup lang="ts">
+import { computed, onMounted, ref, watch } from "vue";
+// ── Types ────────────────────────────────────────────────────────────────
+import type {
+    LyricData,
+    ProcessedLine,
+    SongWithDisplay,
+    Version,
+} from "@/types/player";
+
+// ── Vue 組件 ─────────────────────────────────────────────────────────────
+import { getArtistDisplay } from "@/composables/hooks/useArtist";
+import {
+    generatePhraseStyle,
+    getDefaultVersion,
+    getLyricResponse,
+    isActivePhrase,
+    loadSongData,
+    parseLyrics,
+} from "@/composables/hooks/useSongs";
+import {
+    DEBUG_INFO,
+    INSTRUMENTAL,
+    LIVE,
+    ORIGINAL,
+    THE_FIRST_TAKE,
+    TSL_PLAYER_LINK_BASE,
+    TSL_SUFFIX,
+} from "@/composables/utils/config";
+import { formatTime, scrollToLineIndex } from "@/composables/utils/global";
+import type { Color } from "@/types/song_select";
+import ControllerPanel from "@components/player/ControllerPanel.vue";
+import ErrorDisplay from "@components/player/ErrorDisplay.vue";
+import LoadingOverlay from "@components/player/LoadingOverlay.vue";
+import LyricsContainer from "@components/player/LyricsContainer.vue";
+import PlayerNav from "@components/player/PlayerNav.vue";
+import colorOptions from "@composables/colorOptions.json";
+
+// ── URL 參數 ─────────────────────────────────────────────────────────────
+const params = new URL(document.URL).searchParams;
+const songRequest = parseInt(decodeURIComponent(params.get("song") ?? ""));
+const versionRequest = decodeURIComponent(params.get("version") ?? "")
+    .trim()
+    .toLowerCase();
+
+// ── 播放狀態 ─────────────────────────────────────────────────────────────
+const currentTime = ref(0);
+const songDuration = ref(0);
+const volume = ref<number>(Number(sessionStorage.getItem("volume")) || 70);
+const songVersion = ref<string | null>(null);
+const jsonMappingContent = ref<LyricData>([] as LyricData);
+const scrollToCurrentLine = ref(true);
+const enableTranslation = ref(true);
+const enablePronounciation = ref(false);
+const enableLyricBackground = ref(true);
+const isPaused = ref(true);
+const isLoading = ref(true);
+const isMuted = ref(false);
+const isError = ref(false);
+const errorMessage = ref("");
+
+const currentSong = ref<SongWithDisplay | null>(null);
+
+// ── 顏色 ─────────────────────────────────────────────────────────────────
+const colorOptionsList = ref<Color[]>(
+    colorOptions || [{ color: "#365456", name: "預設 II：礦石靛" }],
+);
+
+const bodyBackgroundColor = ref(
+    localStorage.getItem("bodyBackgroundColor") ?? "#365456",
+);
+
+watch(bodyBackgroundColor, (newColor) => {
+    document.body.style.backgroundColor = newColor;
+    localStorage.setItem("bodyBackgroundColor", newColor);
+});
+
+const bgColor = computed(
+    () =>
+        colorOptionsList.value.find(
+            (x) => x.color === bodyBackgroundColor.value,
+        ) ??
+        colorOptionsList.value[0] ?? { color: "#56773f", name: "預設顏色" },
+);
+
+// ── 時間格式 ─────────────────────────────────────────────────────────────
+const formattedCurrentTime = computed(() => formatTime(currentTime.value));
+const formattedSongDuration = computed(() => formatTime(songDuration.value));
+
+// ── 分享連結 ─────────────────────────────────────────────────────────────
+const currentSongURI = computed(() => {
+    if (!currentSong.value) return "";
+    if (songVersion.value === ORIGINAL)
+        return `${TSL_PLAYER_LINK_BASE}?song=${currentSong.value.song_id}`;
+    return `${TSL_PLAYER_LINK_BASE}?song=${currentSong.value.song_id}&version=${songVersion.value}`;
+});
+
+// ── processedLines：計算每行結束時間 ─────────────────────────────────────
+const processedLines = computed((): ProcessedLine[] => {
+    if (!jsonMappingContent.value) return [];
+
+    return (jsonMappingContent.value as ProcessedLine[]).map((line) => {
+        const mainTotal = line.duration.reduce((a, b) => a + b, 0);
+        let maxEnd = line.time + mainTotal;
+        const validDuration = mainTotal > 0 ? mainTotal : 3.0;
+
+        if (
+            line.background_voice?.time !== undefined &&
+            line.background_voice?.duration
+        ) {
+            const bgTotal = line.background_voice.duration.reduce(
+                (a: number, b: number) => a + b,
+                0,
+            );
+            maxEnd = Math.max(maxEnd, line.background_voice.time + bgTotal);
+        }
+
+        const finalEnd =
+            maxEnd > line.time ? maxEnd : line.time + validDuration;
+        return { ...line, computedEndTime: finalEnd };
+    });
+});
+
+// ── activeLineIndices：哪幾行目前應顯示 ──────────────────────────────────
+const activeLineIndices = computed(() => {
+    const result: number[] = [];
+    const now = currentTime.value;
+
+    processedLines.value.forEach((line, index) => {
+        const startTime = line.time - 0.3;
+        const nextLine = processedLines.value[index + 1];
+
+        let endTime: number;
+        if (nextLine) {
+            endTime =
+                nextLine.time - 0.3 < line.computedEndTime
+                    ? line.computedEndTime
+                    : nextLine.time - 0.3;
+        } else {
+            endTime = line.computedEndTime + 0.5;
+        }
+
+        if (now >= startTime && now < endTime) result.push(index);
+    });
+    return result;
+});
+
+const isCurrentLine = (index: number) =>
+    activeLineIndices.value.includes(index);
+
+const currentLineIndex = computed(() => {
+    const arr = activeLineIndices.value;
+    return arr.length === 0 ? -1 : arr[arr.length - 1];
+});
+
+// ── 短語樣式 ─────────────────────────────────────────────────────────────
+const getPhraseStyle = (lineIndex: number, phraseIndex: number) => {
+    if (!isCurrentLine(lineIndex)) return {};
+    const line = (
+        jsonMappingContent.value as unknown as ProcessedLine[] | null
+    )?.[lineIndex];
+    if (!line) return {};
+    return generatePhraseStyle(currentTime.value, line as any, phraseIndex);
+};
+
+const getBackgroundPhraseStyle = (lineIndex: number, phraseIndex: number) => {
+    if (!isCurrentLine(lineIndex)) return {};
+    const line = (
+        jsonMappingContent.value as unknown as ProcessedLine[] | null
+    )?.[lineIndex];
+    if (!line?.background_voice) return {};
+    return generatePhraseStyle(
+        currentTime.value,
+        line.background_voice,
+        phraseIndex,
+    );
+};
+
+// ── 播放控制 ─────────────────────────────────────────────────────────────
+const playVideo = () => {
+    window.ytPlayer.playVideo();
+    isPaused.value = false;
+};
+const pauseVideo = () => {
+    window.ytPlayer.pauseVideo();
+    isPaused.value = true;
+};
+const rewind10Sec = () => window.ytPlayer.seekTo(currentTime.value - 10, true);
+const moveForward10Sec = () =>
+    window.ytPlayer.seekTo(currentTime.value + 10, true);
+const parseSubtitle = (subtitle: string) =>
+    subtitle?.replace(/\\n/g, "\n") || "";
+
+const toggleMute = () => {
+    if (isMuted.value) {
+        window.ytPlayer.unMute();
+        isMuted.value = false;
+    } else {
+        window.ytPlayer.mute();
+        isMuted.value = true;
+    }
+};
+
+const changeVolume = (newVolume: number) => {
+    volume.value = newVolume;
+    window.ytPlayer.setVolume(newVolume);
+    isMuted.value = newVolume === 0;
+    sessionStorage.setItem("volume", String(newVolume));
+};
+
+const jumpToCurrentLine = (index: number) => {
+    const line = (
+        jsonMappingContent.value as unknown as ProcessedLine[] | null
+    )?.[index];
+    if (line && window.ytPlayer) {
+        window.ytPlayer.seekTo(line.time - 0.2);
+        scrollToLineIndex(index);
+    }
+};
+
+// ── 歌詞載入 ─────────────────────────────────────────────────────────────
+async function loadSongLyric() {
+    if (!currentSong.value || !songVersion.value) return;
+    document.title = currentSong.value.title + TSL_SUFFIX;
+    jsonMappingContent.value = await parseLyrics(
+        await getLyricResponse(
+            currentSong.value.song_id,
+            currentSong.value.folder,
+            songVersion.value,
+        ),
+        currentSong.value,
+        songDuration.value,
+    );
+}
+
+// ── 翻譯 ─────────────────────────────────────────────────────────────────
+
+// ── 初始化 ───────────────────────────────────────────────────────────────
+async function setup() {
+    try {
+        isLoading.value = true;
+
+        const song = await loadSongData(songRequest);
+        if (!song) throw new Error("找不到歌曲資料");
+        currentSong.value = song;
+
+        songVersion.value = versionRequest || getDefaultVersion(song);
+
+        if (currentSong.value) {
+            currentSong.value = {
+                ...currentSong.value,
+                displayArtist: await getArtistDisplay(
+                    currentSong.value.artist.split(","),
+                ),
+                displayLyricist: await getArtistDisplay(
+                    currentSong.value.lyricist.split(","),
+                ),
+            };
+            console.log(currentSong.value);
+        }
+
+        await loadSongLyric();
+
+        isLoading.value = false;
+    } catch (err: unknown) {
+        isLoading.value = false;
+        isError.value = true;
+        errorMessage.value = err instanceof Error ? err.message : "未知錯誤";
+    }
+}
+
+// ── Watchers ──────────────────────────────────────────────────────────────
+watch(currentLineIndex, (newVal) => {
+    if (newVal === -1 || typeof newVal === "undefined") return;
+    if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
+});
+
+watch(volume, (newVal) => {
+    const slider = document.getElementById(
+        "player-volume-slider",
+    ) as HTMLInputElement | null;
+    slider?.style.setProperty("--value", String(newVal));
+});
+
+// ── 啟動 ─────────────────────────────────────────────────────────────────
+onMounted(setup);
+</script>
+
+<template>
+    <div
+        id="body"
+        class="min-h-screen m-0!"
+        :style="{ backgroundColor: bodyBackgroundColor }"
+    >
+        <!-- 載入中 -->
+        <LoadingOverlay v-if="isLoading" />
+
+        <!-- 錯誤 -->
+        <div class="x-20">
+            <ErrorDisplay v-if="isError" :error-message="errorMessage" />
+        </div>
+
+        <template v-if="!isLoading && !isError && currentSong">
+            <!-- 頂部導覽 -->
+            <PlayerNav :body-background-color="bodyBackgroundColor" />
+
+            <!-- 左側：歌詞 -->
+            <div
+                id="main-display-section"
+                class="md:flex flex-col items-center md:w-5/6 md:mx-8 px-10 pt-20"
+            >
+                <LyricsContainer
+                    :lines="processedLines"
+                    :song="currentSong"
+                    :active-line-indices="activeLineIndices"
+                    :current-time="currentTime"
+                    :enable-lyric-background="enableLyricBackground"
+                    :enable-translation="enableTranslation"
+                    :enable-pronounciation="enablePronounciation"
+                    :is-active-phrase="isActivePhrase"
+                    :is-current-line="isCurrentLine"
+                    :get-phrase-style="getPhraseStyle"
+                    :get-background-phrase-style="getBackgroundPhraseStyle"
+                    @jump="jumpToCurrentLine"
+                />
+            </div>
+
+            <!-- 右側：播放控制面板（含 Modals） -->
+            <ControllerPanel
+                :current-song="currentSong"
+                :song-version="songVersion"
+                :is-paused="isPaused"
+                :is-muted="isMuted"
+                :volume="volume"
+                :formatted-current-time="formattedCurrentTime"
+                :formatted-song-duration="formattedSongDuration"
+                :ORIGINAL="ORIGINAL"
+                :INSTRUMENTAL="INSTRUMENTAL"
+                :THE_FIRST_TAKE="THE_FIRST_TAKE"
+                :LIVE="LIVE"
+                :parse-subtitle="parseSubtitle"
+                :video-id="
+                    currentSong.versions.find(
+                        (v: Version) => v.version === songVersion,
+                    )?.id ?? null
+                "
+                :bg-color="bgColor"
+                :color-options="colorOptionsList"
+                :enable-lyric-background="enableLyricBackground"
+                :scroll-to-current-line="scrollToCurrentLine"
+                :enable-translation="enableTranslation"
+                :enable-pronounciation="enablePronounciation"
+                :current-song-u-r-i="currentSongURI"
+                :debug-info="DEBUG_INFO"
+                @update:current-time="currentTime = $event"
+                @update:is-paused="isPaused = $event"
+                @update:song-duration="songDuration = $event"
+                @play="playVideo"
+                @pause="pauseVideo"
+                @rewind="rewind10Sec"
+                @forward="moveForward10Sec"
+                @toggle-mute="toggleMute"
+                @change-volume="changeVolume"
+                @change-bg-color="bodyBackgroundColor = $event"
+                @update:enableLyricBackground="enableLyricBackground = $event"
+                @update:scrollToCurrentLine="scrollToCurrentLine = $event"
+                @update:enableTranslation="enableTranslation = $event"
+                @update:enablePronounciation="enablePronounciation = $event"
+            />
+        </template>
+    </div>
+</template>

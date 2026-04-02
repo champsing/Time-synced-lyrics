@@ -1,0 +1,13 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "include": ["web/**/*", "web/**/*.vue"],
+    "exclude": ["web/**/__tests__/*"],
+
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./web/*"],
+            "@components/*": ["./web/components/*"],
+            "@composables/*": ["./web/composables/*"]
+        }
+    }
+}
