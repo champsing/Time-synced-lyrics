@@ -14,7 +14,7 @@ export interface Song {
     subtitle: string;
     album: Album | null;
     versions: Version[];
-    is_duet: number;
+    is_duet: boolean;
     furigana: number | null;
     translation: Translation;
     updated_at: string;
