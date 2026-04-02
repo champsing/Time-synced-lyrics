@@ -26,7 +26,7 @@ const props = defineProps<{
     ) => boolean;
 }>();
 defineEmits<{ (e: "jump", index: number): void }>();
-const isDuet = computed(() => props.song.is_duet === 1);
+const isDuet = computed(() => props.song.is_duet);
 
 // 在 <script setup> 中
 const { translationText, backgroundTranslationText, translationAuthor } =
@@ -40,7 +40,7 @@ const { translationText, backgroundTranslationText, translationAuthor } =
 <template>
     <div
         id="lyrics-container"
-        class="scroll-smooth snap-y snap-proximity text-center p-4 w-full relative mb-[30vh] md:mb-10"
+        class="scroll-smooth snap-y snap-proximity p-4 w-full relative mb-[30vh] md:mb-10"
         :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
     >
         <div
