@@ -264,6 +264,7 @@ impl Song {
             "song_id": self.song_id,
             "available": self.available,
             "hidden": self.hidden,
+            "folder": self.folder,
             "title": self.title,
             "art": self.art,
             "album": self.album,

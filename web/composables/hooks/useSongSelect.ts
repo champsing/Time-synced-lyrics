@@ -80,6 +80,7 @@ export function useSongSelect() {
                     if (!query) return true;
                     return (
                         (song.title || "").toLowerCase().includes(query) ||
+                        (song.folder || "").toLowerCase().includes(query) ||
                         (song.displayArtist || "")
                             .toLowerCase()
                             .includes(query) ||
