@@ -42,6 +42,7 @@ const showRefreshModal = ref(false);
     >
         <nav
             class="fixed top-0 left-0 w-full shadow-lg z-50 transition-colors duration-500"
+            style="background-color: rgba(var(--theme-nav) / 0.8)"
         >
             <SongSelectNav />
         </nav>
