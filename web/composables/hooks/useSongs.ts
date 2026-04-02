@@ -57,6 +57,29 @@ export const getLyricResponse = async (
 export const getDefaultVersion = (currentSong: Song) =>
     currentSong.versions.find((v) => v.default === true)?.version || "original";
 
+// 1. 抽取時間轉換邏輯
+const parseTimeToSeconds = (timeStr: string): number => {
+    const match = timeStr.match(/(\d+):(\d+\.\d+)/);
+    if (!match) return 0;
+    const [, mm, ss] = match;
+    if (mm && ss) return parseFloat(mm) * 60 + parseFloat(ss);
+    else return 0;
+};
+
+// 2. 抽取計算 duration 與 delay 的邏輯
+const processTiming = (text: LyricPhrase[], lineTime: number) => {
+    const durations = text.map((phr) => phr.duration / 100 || DEFAULT_DURATION);
+
+    let accumulated = 0;
+    const delays = durations.map((dur, i) => {
+        const currentDelay = accumulated;
+        accumulated += dur;
+        return currentDelay;
+    });
+
+    return { durations, delays };
+};
+
 export const parseLyrics = async (
     jsonMappingContent: RawLyricData,
     currentSong: SongWithDisplay,
@@ -66,112 +89,67 @@ export const parseLyrics = async (
 
     const parsedLyrics = jsonMappingContent
         .map((line: LyricLine) => {
-            const parsedLine: ProcessedLine = {
-                // @ts-ignore
-                time: 0,
-                delay: [],
-                computedEndTime: 0,
-                ...line,
-            };
-            const timeMatch = line.time.match(/(\d+):(\d+\.\d+)/);
-            if (timeMatch) {
-                // eslint-disable-next-line no-unused-vars
-                const [_, mm, ss] = timeMatch;
-                if (mm && ss)
-                    parsedLine.time = parseFloat(mm) * 60 + parseFloat(ss);
-            }
+            // 初始轉換時間
+            const startTime = parseTimeToSeconds(line.time);
 
-            if (line.background_voice) {
-                const bgLine = line.background_voice;
-                const parsedBgLine: ProcessedBGLine = {
-                    // @ts-ignore
-                    time: 0,
-                    delay: [],
-                    computedEndTime: 0,
-                    ...line.background_voice,
-                };
-
-                const bgTimeMatch = bgLine.time.match(/(\d+):(\d+\.\d+)/);
-                if (bgTimeMatch) {
-                    // eslint-disable-next-line no-unused-vars
-                    const [_, mm, ss] = bgTimeMatch;
-                    if (mm && ss)
-                        parsedBgLine.time =
-                            parseFloat(mm) * 60 + parseFloat(ss);
-                }
-
-                parsedBgLine.duration = new Array(
-                    parsedBgLine.text.length,
-                ).fill(0) as number[];
-
-                parsedBgLine.duration = parsedBgLine.text.map(
-                    (phr) => phr.duration / 100 || DEFAULT_DURATION,
-                );
-
-                parsedBgLine.delay = new Array(
-                    parsedBgLine.duration.length,
-                ).fill(0);
-                let accumulated = 0;
-                for (let i = 0; i < parsedBgLine.delay.length; i++) {
-                    parsedBgLine.delay[i] = accumulated;
-                    if (i < parsedBgLine.duration.length - 1) {
-                        accumulated += parsedBgLine.duration[i] as number;
-                    }
-                }
-            }
-
-            if (
-                parsedLine.type === "interlude" ||
-                parsedLine.type === "prelude"
-            ) {
-                parsedLine.text = [{ phrase: "● ● ●", duration: 0 }];
-            }
-
-            if (parsedLine.type === "end") {
-                parsedLine.text = [
+            // 處理特殊類型文字
+            let lineText = line.text || [];
+            if (line.type === "interlude" || line.type === "prelude") {
+                lineText = [{ phrase: "● ● ●", duration: 0 }];
+            } else if (line.type === "end") {
+                lineText = [
                     {
-                        phrase: `創作者：${
-                            currentSong.displayLyricist ||
-                            currentSong.displayArtist ||
-                            "未知的創作者"
-                        }`,
-                        duration: songDuration - parsedLine.time,
+                        phrase: `創作者：${currentSong.displayLyricist || currentSong.displayArtist || "未知的創作者"}`,
+                        duration: (songDuration - startTime) * 100, // 轉回厘秒以符合 processTiming 的計算
                     },
                 ];
             }
 
-            parsedLine.duration = new Array(parsedLine.text?.length).fill(0);
-            parsedLine.duration = parsedLine.text?.map(
-                (phr: LyricPhrase) =>
-                    phr.duration / 100 || // json 中的 duration 值單位是厘秒，秒的 1/100 倍
-                    DEFAULT_DURATION,
-                0,
-            ) as number[];
+            // 計算主線 Timing
+            const { durations, delays } = processTiming(lineText, startTime);
 
-            parsedLine.delay = new Array(parsedLine.duration.length).fill(0);
-            let accumulated = 0;
-            for (let i = 0; i < parsedLine.delay.length; i++) {
-                parsedLine.delay[i] = accumulated;
-                if (i < parsedLine.duration.length - 1) {
-                    accumulated += parsedLine.duration[i] || 0;
-                }
+            // 處理背景音 (如有)
+            let processedBg = undefined;
+            if (line.background_voice) {
+                const bgStartTime = parseTimeToSeconds(
+                    line.background_voice.time,
+                );
+                const { durations: bgDurs, delays: bgDels } = processTiming(
+                    line.background_voice.text,
+                    bgStartTime,
+                );
+                processedBg = {
+                    ...line.background_voice,
+                    time: bgStartTime,
+                    duration: bgDurs,
+                    delay: bgDels,
+                    computedEndTime: 0, // 依據需求初始化
+                };
             }
 
             return {
-                ...parsedLine,
-            };
+                ...line,
+                text: lineText,
+                time: startTime,
+                duration: durations,
+                delay: delays,
+                background_voice: processedBg,
+                computedEndTime: 0,
+            } as ProcessedLine;
         })
-        .filter((line: ProcessedLine) => line && line.text);
+        .filter((line) => line && line.text);
 
-    return parsedLyrics.map((line: ProcessedLine, index: number) => {
-        if (line.type === "interlude" || line.type === "prelude") {
-            const interludeDuration = parsedLyrics[index + 1]!.time - line.time;
+    // 第二次遍歷處理間奏長度
+    return parsedLyrics.map((line, index, array) => {
+        if (
+            (line.type === "interlude" || line.type === "prelude") &&
+            array[index + 1]
+        ) {
+            const interludeDuration = array[index + 1]!.time - line.time;
             line.duration = [interludeDuration];
             line.delay = [0];
         }
-        return {
-            ...line,
-        };
+        return line;
     });
 };
 
