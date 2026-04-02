@@ -1,0 +1,122 @@
+name: Pull Request Check
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+        branches: [main]
+
+jobs:
+    changes:
+        name: File Change
+        runs-on: ubuntu-latest
+        outputs:
+            rust: ${{ steps.filter.outputs.rust }}
+            docker: ${{ steps.filter.outputs.docker }}
+            vue: ${{ steps.filter.outputs.vue }}
+            version: ${{ steps.filter.outputs.version }}
+        steps:
+            - uses: actions/checkout@v4
+            - uses: dorny/paths-filter@v2
+              id: filter
+              with:
+                  filters: |
+                      rust:
+                        - 'Cargo.toml'
+                        - 'Cargo.lock'
+                        - 'src/**'
+                      docker:
+                        - 'Dockerfile'
+                        - 'docker-compose.yml'
+                        - '.dockerignore'
+                      vue:
+                        - 'web/**'
+                        - 'public/**'
+                        - 'package.json'
+                        - 'package-lock.json'
+                        - 'tsconfig.json'
+                        - 'tsconfig.node.json'
+                        - 'vite.config.ts'
+                        - 'tailwind.config.js'
+                        - 'postcss.config.js'
+                        - 'index.html'
+                      version:
+                        - 'Cargo.toml'
+                        - 'Cargo.lock'
+                        - 'package.json'
+                        - 'package-lock.json'
+    rust:
+        name: Rust
+        runs-on: ubuntu-latest
+        needs: changes
+        if: needs.changes.outputs.rust == 'true'
+        steps:
+            - name: Check out Source Code
+              uses: actions/checkout@v4
+
+            - name: Setup Rust Toolchain
+              uses: actions-rs/toolchain@v1
+              with:
+                  profile: minimal
+                  toolchain: stable
+                  override: true
+                  components: rustfmt
+
+            - name: Format Check
+              run: cargo fmt --all -- --check
+
+            # - name: Test
+            #   run: cargo test
+
+    docker:
+        name: Docker
+        runs-on: ubuntu-latest
+        needs: changes
+        if: needs.changes.outputs.docker == 'true'
+        steps:
+            - name: Check out Source Code
+              uses: actions/checkout@v4
+            - name: Build
+              run: docker build -t tsl .
+
+    vue_js:
+        name: Vue.js
+        runs-on: ubuntu-latest
+        needs: changes
+        if: needs.changes.outputs.vue == 'true'
+        steps:
+            - name: Check out Source Code
+              uses: actions/checkout@v4
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: npm
+            - name: Install Dependencies
+              run: npm ci
+            - name: Format Check
+              run: npm run format:check
+            - name: Type Check
+              run: npx vue-tsc --noEmit
+            - name: Build
+              run: npm run build
+
+    version_check:
+        name: Version
+        runs-on: ubuntu-latest
+        needs: changes
+        if: needs.changes.outputs.version == 'true'
+        steps:
+            - name: Check out Source Code
+              uses: actions/checkout@v4
+            - name: Check Version Consistency
+              run: |
+                  CARGO_VERSION=$(cargo metadata --format-version=1 --no-deps | jq -r '.packages[0].version')
+                  PACKAGE_VERSION=$(jq -r '.version' package.json)
+
+                  if [ "$CARGO_VERSION" != "$PACKAGE_VERSION" ]; then
+                    echo "Version mismatch:"
+                    echo "Cargo.toml: $CARGO_VERSION"
+                    echo "package.json: $PACKAGE_VERSION"
+                    exit 1
+                  fi
+                  echo "All versions are consistent: $CARGO_VERSION"

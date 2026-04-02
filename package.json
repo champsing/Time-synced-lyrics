@@ -8,7 +8,9 @@
         "preview": "vite preview",
         "build": "vite build",
         "type-check": "vue-tsc --build",
-        "lint": "eslint . --fix --cache"
+        "lint": "eslint . --fix --cache",
+        "format": "prettier . --write",
+        "format:check": "prettier . --check"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.18",
