@@ -13,6 +13,10 @@ defineProps<{
     currentTime: number;
     enablePronounciation: boolean;
     getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
+    getBackgroundPhraseStyle: (
+        lineIndex: number,
+        phraseIndex: number,
+    ) => CSSProperties;
     isActivePhrase: (
         currentTime: number,
         line: ProcessedLine | ProcessedBGLine,
@@ -67,7 +71,7 @@ defineEmits<{ (e: "jump", index: number): void }>();
                     :phrase-index="phraseIndex"
                     :duration="bgLine.duration[phraseIndex] || 0"
                     :delay="bgLine.delay[phraseIndex] || 0"
-                    :phrase-style="getPhraseStyle(index, phraseIndex)"
+                    :phrase-style="getBackgroundPhraseStyle(index, phraseIndex)"
                     :is-active="
                         isActivePhrase(currentTime, bgLine, phraseIndex) &&
                         index < totalLines - 1
