@@ -1,6 +1,5 @@
 pub mod create;
 pub mod list;
 pub mod song;
-pub mod update_lyrics;
-pub mod update_song;
+pub mod update;
 pub mod verify;
