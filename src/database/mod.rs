@@ -211,7 +211,7 @@ pub fn load_csv_data() -> Result<(), ServerError> {
 
 pub fn export_db_to_csv() -> Result<(), ServerError> {
     let conn = get_connection()?;
-    let tables = ["artists", "songs"];
+    let tables = ["artists", "songs"]; // update to artist and song later
 
     for table in tables {
         let path = format!("data/csv/{}.csv", table);

@@ -15,6 +15,7 @@ async fn main() -> Result<(), ServerError> {
             }
         }
         _ = tokio::signal::ctrl_c() => {
+        // add exporter::main() here later
             println!("\n======== shutting down! ========");
         }
     }
