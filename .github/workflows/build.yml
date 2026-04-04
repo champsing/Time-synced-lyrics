@@ -31,25 +31,19 @@ jobs:
                   docker build -t tsl .
                   docker images
                   docker save --output tsl.tar tsl:latest
-            - name: Upload Docker Image to Compute Engine VM
+            - name: Upload Docker Image to tyc-imac Server
               if: steps.version_check.outputs.version_changed == 'true'
               env:
-                  GCE_VM: time-synced-lyrics
-                  GCE_ZONE: us-west1-c
-                  GCP_PROJECT: time-synced-lyrics-462810
+                  SSH_URL: ssh.mercuryland.pp.ua
               run: |
-                  echo '${{ secrets.GCP_SA_KEY }}' > gcp-key.json
-                  echo '${{ secrets.GCP_SSH_PRIVATE_KEY }}' > ssh-key
+                  # 1. 搞到金鑰
+                  echo '${{ secrets.SSH_PRIVATE_KEY }}' > ssh-key
                   chmod 600 ssh-key
 
-                  # 登入 Google Cloud
-                  gcloud auth activate-service-account tsl@time-synced-lyrics-462810.iam.gserviceaccount.com --key-file=gcp-key.json
-                  gcloud config set project $GCP_PROJECT
+                  # 2. 驗證 cloudflare tunnel
 
-                  # 驗證連線
-                  gcloud compute instances list --filter="name=$GCE_VM"
 
-                  # 上傳 docker image 檔案
-                  gcloud compute scp tsl.tar tsl@$GCE_VM:~/tsl --zone=$GCE_ZONE --ssh-key-file=ssh-key --quiet
+                  # 3. 上傳 docker image 檔案
+                   scp tsl.tar champsing@$SSH_URL:~/custom_apps/tsl --ssh-key-file=ssh-key --quiet
 
-                  gcloud compute ssh tsl@$GCE_VM --zone=$GCE_ZONE --ssh-key-file=ssh-key --quiet --command="cd ~; docker load -i tsl/tsl.tar && ./restart_docker_compose.sh;"
+                   ssh tsl@$SSH_URL --ssh-key-file=ssh-key --quiet --command="cd ~/custom_apps; docker load -i tsl/tsl.tar && ./restart_docker_compose.sh;"
