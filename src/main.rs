@@ -1,10 +1,10 @@
 use tsl_api::error::ServerError;
-use tsl_api::webpage;
+use tsl_api::{database, webpage};
 
 #[tokio::main]
 async fn main() -> Result<(), ServerError> {
     env_logger::init();
-    tsl_api::database::init()?;
+    database::init()?;
 
     println!("======== server starting! ========");
 
@@ -15,7 +15,7 @@ async fn main() -> Result<(), ServerError> {
             }
         }
         _ = tokio::signal::ctrl_c() => {
-        // add exporter::main() here later
+            database::export_db_to_csv()?;
             println!("\n======== shutting down! ========");
         }
     }

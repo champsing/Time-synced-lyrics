@@ -6,7 +6,6 @@ use crate::error::ServerError;
 use csv::ReaderBuilder;
 use r2d2::Pool;
 use r2d2_sqlite::SqliteConnectionManager;
-use rusqlite::{Connection, backup::Backup};
 use std::collections::HashMap;
 use std::fs;
 use std::panic::Location;
@@ -14,12 +13,10 @@ use std::path::Path;
 use std::sync::Mutex;
 use std::sync::OnceLock;
 use std::sync::atomic::{AtomicU64, Ordering};
-use tempfile::NamedTempFile;
 
 // 建立全局靜態變數，類似 AUTH_CODE 的調用方式
 pub static DB_POOL: OnceLock<Pool<SqliteConnectionManager>> = OnceLock::new();
 
-// 用來追蹤目前使用中的連接
 static CONN_ID_COUNTER: AtomicU64 = AtomicU64::new(0);
 static ACTIVE_CONNECTIONS: OnceLock<Mutex<HashMap<u64, (&'static str, u32)>>> = OnceLock::new();
 
@@ -130,18 +127,6 @@ pub fn init() -> Result<(), ServerError> {
     Ok(())
 }
 
-pub fn backup_database() -> Result<Vec<u8>, ServerError> {
-    let temp_file = NamedTempFile::new()?;
-    let mut dst = Connection::open(temp_file.path())?;
-    let src = get_connection()?;
-    Backup::new(&src, &mut dst)?.run_to_completion(
-        5,
-        std::time::Duration::from_millis(250),
-        None,
-    )?;
-    fs::read(temp_file.path()).map_err(ServerError::from)
-}
-
 pub fn load_csv_data() -> Result<(), ServerError> {
     let csv_dir = "data/csv";
     let path = Path::new(csv_dir);
@@ -211,7 +196,7 @@ pub fn load_csv_data() -> Result<(), ServerError> {
 
 pub fn export_db_to_csv() -> Result<(), ServerError> {
     let conn = get_connection()?;
-    let tables = ["artists", "songs"]; // update to artist and song later
+    let tables = ["artist", "song"];
 
     for table in tables {
         let path = format!("data/csv/{}.csv", table);
@@ -266,6 +251,8 @@ pub fn export_db_to_csv() -> Result<(), ServerError> {
 
 #[cfg(test)]
 mod tests {
+    use rusqlite::Connection;
+
     use super::*;
 
     #[test]
