@@ -35,15 +35,27 @@ jobs:
               if: steps.version_check.outputs.version_changed == 'true'
               env:
                   SSH_URL: ssh.mercuryland.pp.ua
+                  # 從 GitHub Secrets 讀取 Service Token
+                  CF_ID: ${{ secrets.CF_CLIENT_ID }}
+                  CF_SECRET: ${{ secrets.CF_CLIENT_SECRET }}
+                  PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
               run: |
                   # 1. 搞到金鑰
-                  echo '${{ secrets.SSH_PRIVATE_KEY }}' > ssh-key
+                  echo $PRIVATE_KEY > ssh-key
                   chmod 600 ssh-key
 
-                  # 2. 驗證 cloudflare tunnel
+                  # 2. 安裝與驗證 cloudflare tunnel
+                  # 下載並安裝 cloudflared 執行檔
+                  curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+                  sudo dpkg -i cloudflared.deb
 
+                  # 3. 使用 ProxyCommand 穿透隧道並上傳
+                  # 注意：我們透過 -o ProxyCommand 讓 SSH 流量經過 cloudflared access 並帶上 Token
+                  scp -v -o "ProxyCommand=cloudflared access ssh --id $CF_ID --secret $CF_SECRET --destination %h" \
+                      -i ssh-key \
+                      tsl.tar champsing@$SSH_URL:~/custom_apps/tsl/
 
-                  # 3. 上傳 docker image 檔案
-                   scp tsl.tar champsing@$SSH_URL:~/custom_apps/tsl --ssh-key-file=ssh-key --quiet
-
-                   ssh tsl@$SSH_URL --ssh-key-file=ssh-key --quiet --command="cd ~/custom_apps; docker load -i tsl/tsl.tar && ./restart_docker_compose.sh;"
+                  # 4. 遠端執行 Docker 指令
+                  ssh -o "ProxyCommand=cloudflared access ssh --id $CF_ID --secret $CF_SECRET --destination %h" \
+                      -i ssh-key \
+                      champsing@$SSH_URL "cd ~/custom_apps && docker load -i tsl/tsl.tar && ./restart_docker_compose.sh"
