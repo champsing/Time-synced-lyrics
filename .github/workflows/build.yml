@@ -51,11 +51,17 @@ jobs:
 
                   # 3. 使用 ProxyCommand 穿透隧道並上傳
                   # 注意：我們透過 -o ProxyCommand 讓 SSH 流量經過 cloudflared access 並帶上 Token
-                  scp -v -o "ProxyCommand=cloudflared access ssh --id $CF_ID --secret $CF_SECRET --destination %h" \
-                      -i ssh-key \
-                      tsl.tar champsing@$SSH_URL:~/custom_apps/tsl/
+                    scp -o "ProxyCommand=cloudflared access ssh \
+                                --hostname $SSH_URL \
+                                --service-token-id $CF_CLIENT_ID \
+                                --service-token-secret $CF_CLIENT_SECRET" \
+                        -i ssh-key \    
+                    tsl.tar champsing@$SSH_URL:~/custom_apps/tsl/
 
                   # 4. 遠端執行 Docker 指令
-                  ssh -o "ProxyCommand=cloudflared access ssh --id $CF_ID --secret $CF_SECRET --destination %h" \
-                      -i ssh-key \
-                      champsing@$SSH_URL "cd ~/custom_apps && docker load -i tsl/tsl.tar && ./restart_docker_compose.sh"
+                    ssh -o "ProxyCommand=cloudflared access ssh \
+                                --hostname $SSH_URL \
+                                --service-token-id $CF_CLIENT_ID \
+                                --service-token-secret $CF_CLIENT_SECRET" \
+                        -i ssh-key \
+                    champsing@$SSH_URL "cd ~/custom_apps && docker load -i tsl/tsl.tar && ./restart_docker_compose.sh"
