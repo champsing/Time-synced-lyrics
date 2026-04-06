@@ -1,6 +1,6 @@
 [package]
 name = "tsl_api"
-version = "7.0.3"
+version = "7.0.4"
 edition = "2024"
 
 [[bin]]
