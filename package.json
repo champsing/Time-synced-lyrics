@@ -12,6 +12,9 @@
         "format": "prettier . --write",
         "format:check": "prettier . --check"
     },
+    "prettier": {
+        "tabWidth": 4
+    },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.18",
         "tailwindcss": "^4.1.18",
