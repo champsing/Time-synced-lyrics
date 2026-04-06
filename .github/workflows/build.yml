@@ -31,25 +31,31 @@ jobs:
                   docker build -t tsl .
                   docker images
                   docker save --output tsl.tar tsl:latest
-            - name: Upload Docker Image to Compute Engine VM
+            - name: Upload Docker Image to tyc-imac Server
               if: steps.version_check.outputs.version_changed == 'true'
               env:
-                  GCE_VM: time-synced-lyrics
-                  GCE_ZONE: us-west1-c
-                  GCP_PROJECT: time-synced-lyrics-462810
+                  SSH_URL: ssh.mercuryland.pp.ua
+                  # 從 GitHub Secrets 讀取 Service Token
+                  CF_ID: ${{ secrets.CF_CLIENT_ID }}
+                  CF_SECRET: ${{ secrets.CF_CLIENT_SECRET }}
+                  PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
               run: |
-                  echo '${{ secrets.GCP_SA_KEY }}' > gcp-key.json
-                  echo '${{ secrets.GCP_SSH_PRIVATE_KEY }}' > ssh-key
+                  # 1. 搞到金鑰
+                  echo $PRIVATE_KEY > ssh-key
                   chmod 600 ssh-key
 
-                  # 登入 Google Cloud
-                  gcloud auth activate-service-account tsl@time-synced-lyrics-462810.iam.gserviceaccount.com --key-file=gcp-key.json
-                  gcloud config set project $GCP_PROJECT
+                  # 2. 安裝與驗證 cloudflare tunnel
+                  # 下載並安裝 cloudflared 執行檔
+                  curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+                  sudo dpkg -i cloudflared.deb
 
-                  # 驗證連線
-                  gcloud compute instances list --filter="name=$GCE_VM"
+                  # 3. 使用 ProxyCommand 穿透隧道並上傳
+                  # 注意：我們透過 -o ProxyCommand 讓 SSH 流量經過 cloudflared access 並帶上 Token
+                  scp -v -o "ProxyCommand=cloudflared access ssh --id $CF_ID --secret $CF_SECRET --destination %h" \
+                      -i ssh-key \
+                      tsl.tar champsing@$SSH_URL:~/custom_apps/tsl/
 
-                  # 上傳 docker image 檔案
-                  gcloud compute scp tsl.tar tsl@$GCE_VM:~/tsl --zone=$GCE_ZONE --ssh-key-file=ssh-key --quiet
-
-                  gcloud compute ssh tsl@$GCE_VM --zone=$GCE_ZONE --ssh-key-file=ssh-key --quiet --command="cd ~; docker load -i tsl/tsl.tar && ./restart_docker_compose.sh;"
+                  # 4. 遠端執行 Docker 指令
+                  ssh -o "ProxyCommand=cloudflared access ssh --id $CF_ID --secret $CF_SECRET --destination %h" \
+                      -i ssh-key \
+                      champsing@$SSH_URL "cd ~/custom_apps && docker load -i tsl/tsl.tar && ./restart_docker_compose.sh"

@@ -1,6 +1,6 @@
 {
     "name": "time-synced-lyrics",
-    "version": "7.0.1",
+    "version": "7.0.2",
     "private": true,
     "type": "module",
     "scripts": {
@@ -11,6 +11,9 @@
         "lint": "eslint . --fix --cache",
         "format": "prettier . --write",
         "format:check": "prettier . --check"
+    },
+    "prettier": {
+        "tabWidth": 4
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.18",
