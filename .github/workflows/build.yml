@@ -58,4 +58,4 @@ jobs:
                   # 4. 遠端執行 Docker 指令
                     ssh -o "ProxyCommand=cloudflared access ssh --hostname $SSH_URL --service-token-id $CF_CLIENT_ID --service-token-secret $CF_CLIENT_SECRET" \
                         -i ssh-key \
-                    champsing@$SSH_URL "cd ~/custom_apps/tsl && docker load -i tsl.tar && ./restart_docker_compose.sh"
+                    champsing@$SSH_URL "cd ~/custom_apps/tsl && docker load -i tsl.tar && ../restart_docker_compose.sh"
