@@ -55,8 +55,8 @@ jobs:
                             --hostname $SSH_URL \
                             --service-token-id $CF_CLIENT_ID \
                             --service-token-secret $CF_CLIENT_SECRET" \
-                      -o "StrictHostKeyChecking=no"
-                      -i ssh-key \
+                        -o "StrictHostKeyChecking=no"
+                        -i ssh-key \
                     tsl.tar champsing@$SSH_URL:~/custom_apps/tsl/
 
                   # 4. 遠端執行 Docker 指令
