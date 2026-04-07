@@ -1,5 +1,5 @@
 use crate::{
-    database::{self, artists::Artist},
+    database::{self, artist::Artist},
     error::ServerError,
     webpage::auth,
 };

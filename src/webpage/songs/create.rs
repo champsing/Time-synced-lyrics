@@ -1,5 +1,5 @@
 use crate::{
-    database::{self, songs::Song},
+    database::{self, song::Song},
     error::ServerError,
     webpage::{auth, lyrics::r2},
 };

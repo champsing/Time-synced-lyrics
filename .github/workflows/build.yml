@@ -41,7 +41,7 @@ jobs:
                   PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
               run: |
                   # 1. 搞到金鑰
-                  echo $PRIVATE_KEY > ssh-key
+                  echo "$PRIVATE_KEY" > ssh-key
                   chmod 600 ssh-key
 
                   # 2. 安裝與驗證 cloudflare tunnel
