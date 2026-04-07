@@ -1,5 +1,5 @@
 use crate::{
-    database::{self, songs::Song},
+    database::{self, song::Song},
     error::ServerError,
     webpage::{auth, lyrics::r2},
 };
@@ -50,7 +50,7 @@ pub async fn handler(
 
     // ── 取出現有資料（R2 操作需要舊值）────────────────────────────────────────
     let old_song = web::block(move || {
-        database::songs::Song::find_by_id(song_id as i64)?
+        database::song::Song::find_by_id(song_id as i64)?
             .ok_or_else(|| ServerError::Internal("Song not found".into()))
     })
     .await

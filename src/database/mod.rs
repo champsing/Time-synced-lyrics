@@ -1,6 +1,6 @@
-pub mod artists;
+pub mod artist;
 pub mod migration;
-pub mod songs;
+pub mod song;
 
 use crate::error::ServerError;
 use csv::ReaderBuilder;
