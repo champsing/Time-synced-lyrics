@@ -41,7 +41,7 @@ export const getLyricResponse = async (
     songVersion: string,
 ) => {
     try {
-        const address = `https://lyric.timesl.online/${songId}_${folder}/${songVersion}.json`;
+        const address = `https://lyric.tslyric.com/${songId}_${folder}/${songVersion}.json`;
         console.log(`獲取歌詞檔案中...(URL: ${address})`);
 
         const response = await fetch(address);
