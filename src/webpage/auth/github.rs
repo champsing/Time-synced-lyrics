@@ -4,6 +4,8 @@ use base64::{Engine, engine::general_purpose};
 use serde::Deserialize;
 use std::sync::LazyLock;
 
+const ALLOWED_ORIGINS_DEFAULT: &str = "https://tslyric.com, https://edit.tslyric.com";
+
 static GH_CLIENT_ID: LazyLock<String> =
     LazyLock::new(|| std::env::var("GITHUB_CLIENT_ID").expect("[FATAL] GITHUB_CLIENT_ID 未設定"));
 
@@ -13,7 +15,7 @@ static GH_CLIENT_SECRET: LazyLock<String> = LazyLock::new(|| {
 
 static ALLOW_ORIGINS: LazyLock<Vec<String>> = LazyLock::new(|| {
     std::env::var("ALLOW_ORIGINS")
-        .unwrap_or_else(|_| "https://edit.timesl.online".to_string())
+        .unwrap_or_else(|_| ALLOWED_ORIGINS_DEFAULT.to_string())
         .split(',')
         .map(|s| s.trim().to_string())
         .collect()

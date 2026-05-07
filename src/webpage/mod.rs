@@ -8,10 +8,12 @@ use crate::error::ServerError;
 use actix_cors::Cors;
 use actix_web::{App, HttpServer};
 
+const ALLOWED_ORIGINS_DEFAULT: &str = "https://tslyric.com, https://edit.tslyric.com";
+
 pub async fn run() -> Result<(), ServerError> {
     // 從 FRONTEND_ORIGIN 解析允許的來源清單（逗號分隔）
     let allowed_origins: Vec<String> = std::env::var("ALLOWED_ORIGINS")
-        .unwrap_or_else(|_| "https://edit.timesl.online".to_string())
+        .unwrap_or_else(|_| ALLOWED_ORIGINS_DEFAULT.to_string())
         .split(',')
         .map(|s| s.trim().to_string())
         .filter(|s| !s.is_empty())
