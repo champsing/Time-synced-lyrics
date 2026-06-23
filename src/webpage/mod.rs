@@ -38,12 +38,14 @@ pub async fn run() -> Result<(), ServerError> {
             .service(artists::list::handler)
             .service(artists::create::handler)
             // Songs
+            .service(songs::create::handler)
             .service(songs::verify::handler)
             .service(songs::list::handler)
             .service(songs::song::handler)
             // Lyrics
             .service(lyrics::update::handler)
             .service(songs::update::handler)
+            .service(songs::delete::handler)
             // Auth
             .service(auth::github::login_handler)
             .service(auth::github::callback_handler)
