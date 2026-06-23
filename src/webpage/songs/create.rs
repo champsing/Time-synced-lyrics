@@ -28,15 +28,10 @@ pub async fn handler(
     let req = body.into_inner();
     let song_id = req.song_id;
 
-    // ── 防呆：folder 不可為空 ─────────────────────────────────────────────────
-    if req.folder.trim().is_empty() {
-        return Err(ServerError::Internal("folder is required".into()));
-    }
-
     let default_versions = serde_json::json!([
         {"version": "original", "id": "", "default": true, "duration": "0:00"}
     ]);
-    let versions_value = req.versions.clone().unwrap_or(default_versions.clone());
+    let versions_value = req.versions.unwrap_or(default_versions);
 
     // ── 解出 version 名稱列表 ─────────────────────────────────────────────────
     let version_names: Vec<String> = versions_value
@@ -49,8 +44,12 @@ pub async fn handler(
     let folder = req.folder.trim().to_string();
     let song = Song {
         song_id: req.song_id,
-        title: req.title,
-        folder: folder.clone(),
+        title: req.title.clone(),
+        folder: format!(
+            "{}_{}",
+            req.song_id.to_string(),
+            req.title.trim().replace(' ', "-")
+        ),
         versions: versions_value,
         artist: String::new(),
         lyricist: String::new(),
