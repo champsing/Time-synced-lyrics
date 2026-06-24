@@ -12,7 +12,6 @@ use serde_json::Value;
 pub struct CreateSongRequest {
     pub song_id: i64,
     pub title: String,
-    pub folder: String, // 必填，R2 key 的一部分
     pub versions: Option<Value>,
 }
 
@@ -41,7 +40,6 @@ pub async fn handler(
         .filter_map(|v| v.get("version")?.as_str().map(str::to_string))
         .collect();
 
-    let folder = req.folder.trim().to_string();
     let song = Song {
         song_id: req.song_id,
         title: req.title.clone(),
@@ -67,16 +65,17 @@ pub async fn handler(
     };
 
     // ── 寫入 SQLite ───────────────────────────────────────────────────────────
+    let song_for_db = song.clone();
     web::block(move || {
-        if Song::find_by_id(song.song_id)?.is_some() {
+        if Song::find_by_id(song_for_db.song_id)?.is_some() {
             return Err(ServerError::Internal(format!(
                 "song_id {} already exists",
-                song.song_id
+                song_for_db.song_id
             )));
         }
         let mut conn = database::get_connection()?;
         let tran = conn.transaction()?;
-        song.insert(&tran)?;
+        song_for_db.insert(&tran)?;
         tran.commit()?;
         Ok::<_, ServerError>(())
     })
@@ -84,8 +83,9 @@ pub async fn handler(
     .map_err(|e| ServerError::Internal(e.to_string()))??;
 
     // ── 為每個 version 在 R2 建立空檔案 ──────────────────────────────────────
+    let folder = song.folder.as_str();
     for version in &version_names {
-        r2::put_empty(song_id as i32, &folder, version).await?;
+        r2::put_empty(song_id as i32, folder, version).await?;
     }
 
     Ok(HttpResponse::Created().json(serde_json::json!({
