@@ -152,6 +152,14 @@ pub fn load_csv_data() -> Result<(), ServerError> {
                 .and_then(|s| s.to_str())
                 .ok_or_else(|| ServerError::Internal("Invalid CSV filename".into()))?;
 
+            // 在 load_csv_data 迴圈內處理每個表之前先檢查
+            let mut check_stmt = tx.prepare(&format!("SELECT COUNT(*) FROM {}", table_name))?;
+            let count: i64 = check_stmt.query_row([], |row| row.get(0))?;
+            if count > 0 {
+                log::info!("Table {} is not empty, skipping CSV import.", table_name);
+                continue; // 已經有資料就跳過，避免覆寫
+            }
+
             log::info!("Importing {}...", table_name);
 
             let mut rdr = ReaderBuilder::new()
