@@ -41,12 +41,12 @@ const { translationText, backgroundTranslationText, translationAuthor } =
     <div class="lyrics-wrapper relative w-full h-full">
         <div
             id="lyrics-container"
-            class="scroll-smooth snap-y snap-proximity p-4 w-full h-full relative"
+            class="scroll-smooth snap-y snap-proximity p-4 w-full h-full relative mr-4 md:mr-12"
             :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
             :style="{ '--lyric-font-size': lyricFontSize + 'px' }"
         >
             <div
-                class="h-full overflow-y-auto overflow-x-hidden rounded-2xl relative pr-4 md:pr-8 pb-[15vh]"
+                class="h-full overflow-y-auto overflow-x-hidden rounded-2xl relative pb-[15vh]"
                 style="scrollbar-width: none"
             >
                 <LyricLine
