@@ -100,13 +100,141 @@ const durationPercent = computed(() => {
     return (currentTime.value / songDuration.value) * 100;
 });
 
-const progressBarSeek = (event: MouseEvent) => {
-    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    const ratio = Math.max(
-        0,
-        Math.min(1, (event.clientX - rect.left) / rect.width),
-    );
-    window.ytPlayer?.seekTo(ratio * songDuration.value, true);
+// ── 拖曳狀態 ─────────────────────────────────────────────────────────────
+const isDragging = ref(false);
+const isHoveringProgress = ref(false);
+const dragPercent = ref(0);
+
+/** 拖曳期間儲存啟動的那條 bar 元素，避免 desktop/mobile 雙 ref 衝突 */
+let activeBarEl: HTMLElement | null = null;
+
+const displayPercent = computed(() => {
+    if (isDragging.value) return dragPercent.value;
+    return durationPercent.value;
+});
+
+const getSeekRatio = (clientX: number, bar: HTMLElement): number => {
+    const rect = bar.getBoundingClientRect();
+    return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+};
+
+const seekToRatio = (ratio: number) => {
+    if (songDuration.value > 0) {
+        window.ytPlayer?.seekTo(ratio * songDuration.value, true);
+    }
+};
+
+// ── 滑鼠拖曳 ─────────────────────────────────────────────────────────────
+const onBarMouseDown = (event: MouseEvent) => {
+    event.preventDefault();
+    activeBarEl = event.currentTarget as HTMLElement;
+    isDragging.value = true;
+    const ratio = getSeekRatio(event.clientX, activeBarEl);
+    dragPercent.value = ratio * 100;
+    seekToRatio(ratio);
+    document.addEventListener("mousemove", onBarMouseMove);
+    document.addEventListener("mouseup", onBarMouseUp);
+};
+
+const onBarMouseMove = (event: MouseEvent) => {
+    if (!isDragging.value || !activeBarEl) return;
+    const ratio = getSeekRatio(event.clientX, activeBarEl);
+    dragPercent.value = ratio * 100;
+    seekToRatio(ratio);
+};
+
+const onBarMouseUp = () => {
+    isDragging.value = false;
+    activeBarEl = null;
+    document.removeEventListener("mousemove", onBarMouseMove);
+    document.removeEventListener("mouseup", onBarMouseUp);
+};
+
+// ── 觸控拖曳 ─────────────────────────────────────────────────────────────
+const onBarTouchStart = (event: TouchEvent) => {
+    event.preventDefault();
+    activeBarEl = event.currentTarget as HTMLElement;
+    isDragging.value = true;
+    const ratio = getSeekRatio(event.touches[0].clientX, activeBarEl);
+    dragPercent.value = ratio * 100;
+    seekToRatio(ratio);
+    document.addEventListener("touchmove", onBarTouchMove, { passive: false });
+    document.addEventListener("touchend", onBarTouchEnd);
+};
+
+const onBarTouchMove = (event: TouchEvent) => {
+    if (!isDragging.value || !activeBarEl) return;
+    event.preventDefault();
+    const ratio = getSeekRatio(event.touches[0].clientX, activeBarEl);
+    dragPercent.value = ratio * 100;
+    seekToRatio(ratio);
+};
+
+const onBarTouchEnd = () => {
+    isDragging.value = false;
+    activeBarEl = null;
+    document.removeEventListener("touchmove", onBarTouchMove);
+    document.removeEventListener("touchend", onBarTouchEnd);
+};
+
+// ── 音量條拖曳 ─────────────────────────────────────────────────────────────
+const isDraggingVolume = ref(false);
+const isHoveringVolume = ref(false);
+
+let activeVolumeBarEl: HTMLElement | null = null;
+
+const getVolumeRatio = (clientX: number, bar: HTMLElement): number => {
+    const rect = bar.getBoundingClientRect();
+    return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+};
+
+const onVolumeMouseDown = (event: MouseEvent) => {
+    event.preventDefault();
+    activeVolumeBarEl = event.currentTarget as HTMLElement;
+    isDraggingVolume.value = true;
+    const ratio = getVolumeRatio(event.clientX, activeVolumeBarEl);
+    changeVolume(Math.round(ratio * 100));
+    document.addEventListener("mousemove", onVolumeMouseMove);
+    document.addEventListener("mouseup", onVolumeMouseUp);
+};
+
+const onVolumeMouseMove = (event: MouseEvent) => {
+    if (!isDraggingVolume.value || !activeVolumeBarEl) return;
+    const ratio = getVolumeRatio(event.clientX, activeVolumeBarEl);
+    changeVolume(Math.round(ratio * 100));
+};
+
+const onVolumeMouseUp = () => {
+    isDraggingVolume.value = false;
+    activeVolumeBarEl = null;
+    document.removeEventListener("mousemove", onVolumeMouseMove);
+    document.removeEventListener("mouseup", onVolumeMouseUp);
+};
+
+const onVolumeTouchStart = (event: TouchEvent) => {
+    event.preventDefault();
+    activeVolumeBarEl = event.currentTarget as HTMLElement;
+    isDraggingVolume.value = true;
+    const ratio = getVolumeRatio(event.touches[0].clientX, activeVolumeBarEl);
+    changeVolume(Math.round(ratio * 100));
+    document.addEventListener("touchmove", onVolumeTouchMove, {
+        passive: false,
+    });
+    document.addEventListener("touchend", onVolumeTouchEnd);
+};
+
+const onVolumeTouchMove = (event: TouchEvent) => {
+    if (!isDraggingVolume.value || !activeVolumeBarEl) return;
+    event.preventDefault();
+    const ratio = getVolumeRatio(event.touches[0].clientX, activeVolumeBarEl);
+    changeVolume(Math.round(ratio * 100));
+};
+
+const onVolumeTouchEnd = () => {
+    isDraggingVolume.value = false;
+    activeVolumeBarEl = null;
+    document.removeEventListener("touchmove", onVolumeTouchMove);
+    document.removeEventListener("touchend", onVolumeTouchEnd);
 };
 
 // ── 分享連結 ─────────────────────────────────────────────────────────────
@@ -314,13 +442,6 @@ watch(currentLineIndex, (newVal) => {
     if (scrollToCurrentLine.value) scrollToLineIndex(newVal);
 });
 
-watch(volume, (newVal) => {
-    const slider = document.getElementById(
-        "player-volume-slider",
-    ) as HTMLInputElement | null;
-    slider?.style.setProperty("--value", String(newVal));
-});
-
 // ── 啟動 ─────────────────────────────────────────────────────────────────
 onMounted(() => {
     window.addEventListener("keydown", onKeydown);
@@ -329,6 +450,14 @@ onMounted(() => {
 
 onUnmounted(() => {
     window.removeEventListener("keydown", onKeydown);
+    document.removeEventListener("mousemove", onBarMouseMove);
+    document.removeEventListener("mouseup", onBarMouseUp);
+    document.removeEventListener("touchmove", onBarTouchMove);
+    document.removeEventListener("touchend", onBarTouchEnd);
+    document.removeEventListener("mousemove", onVolumeMouseMove);
+    document.removeEventListener("mouseup", onVolumeMouseUp);
+    document.removeEventListener("touchmove", onVolumeTouchMove);
+    document.removeEventListener("touchend", onVolumeTouchEnd);
 });
 </script>
 
@@ -359,9 +488,7 @@ onUnmounted(() => {
                     class="left-panel flex flex-col items-center w-[40%] lg:w-[35%] overflow-y-auto pl-10 pr-6 py-6"
                 >
                     <!-- 影片播放器 -->
-                    <div
-                        class="video-container w-full max-w-95alg:max-w-110"
-                    >
+                    <div class="video-container w-full max-w-95alg:max-w-110">
                         <div
                             class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-black/50 bg-black"
                         >
@@ -387,9 +514,7 @@ onUnmounted(() => {
                     </div>
 
                     <!-- 歌曲資訊 -->
-                    <div
-                        class="song-info w-full max-w-95 lg:max-w-1105"
-                    >
+                    <div class="song-info w-full max-w-95 lg:max-w-1105">
                         <!-- 標題 -->
                         <h1
                             class="text-white text-2xl lg:text-3xl font-bold tracking-tight leading-tight line-clamp-2"
@@ -452,24 +577,33 @@ onUnmounted(() => {
                         </p>
                     </div>
 
-                    <!-- 進度條 -->
+                    <!-- 進度條（桌面版） -->
                     <div
-                        class="duration-bar-container w-full max-w-95 lg:max-w-1103"
+                        class="duration-bar-container w-full max-w-95 lg:max-w-1103 pt-3"
                     >
-                        <div class="relative w-full group cursor-pointer">
+                        <div
+                            class="relative w-full group cursor-pointer py-2 -my-2"
+                            @mousedown="onBarMouseDown"
+                            @touchstart.prevent="onBarTouchStart"
+                            @mouseenter="isHoveringProgress = true"
+                            @mouseleave="isHoveringProgress = false"
+                        >
+                            <!-- 軌道 -->
                             <div
-                                class="relative w-full h-1 bg-white/10 rounded-full overflow-hidden"
-                                @click="progressBarSeek"
+                                class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
+                                :class="{
+                                    'h-1': !isHoveringProgress && !isDragging,
+                                    'h-1.5': isHoveringProgress && !isDragging,
+                                    'h-4': isDragging,
+                                }"
+                                style="
+                                    background-color: rgba(255, 255, 255, 0.12);
+                                "
                             >
+                                <!-- 已播放進度 -->
                                 <div
-                                    class="absolute top-0 left-0 h-full bg-white rounded-full transition-all duration-100 ease-linear group-hover:bg-teal-400!"
-                                    :style="{ width: durationPercent + '%' }"
-                                />
-                                <div
-                                    class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
-                                    :style="{
-                                        left: `calc(${durationPercent}% - 6px)`,
-                                    }"
+                                    class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
+                                    :style="{ width: displayPercent + '%' }"
                                 />
                             </div>
                         </div>
@@ -546,22 +680,39 @@ onUnmounted(() => {
                                     }}
                                 </span>
                             </button>
-                            <input
-                                id="player-volume-slider"
-                                type="range"
-                                min="0"
-                                max="100"
-                                :value="volume"
-                                class="w-24 h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer"
-                                @input="
-                                    changeVolume(
-                                        Number(
-                                            ($event.target as HTMLInputElement)
-                                                .value,
-                                        ),
-                                    )
-                                "
-                            />
+                            <div
+                                class="relative w-24 cursor-pointer py-2 -my-2"
+                                @mousedown="onVolumeMouseDown"
+                                @touchstart.prevent="onVolumeTouchStart"
+                                @mouseenter="isHoveringVolume = true"
+                                @mouseleave="isHoveringVolume = false"
+                            >
+                                <div
+                                    class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
+                                    :class="{
+                                        'h-1':
+                                            !isHoveringVolume &&
+                                            !isDraggingVolume,
+                                        'h-1.5':
+                                            isHoveringVolume &&
+                                            !isDraggingVolume,
+                                        'h-4': isDraggingVolume,
+                                    }"
+                                    style="
+                                        background-color: rgba(
+                                            255,
+                                            255,
+                                            255,
+                                            0.12
+                                        );
+                                    "
+                                >
+                                    <div
+                                        class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
+                                        :style="{ width: volume + '%' }"
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         <div class="flex items-center gap-1">
@@ -623,12 +774,12 @@ onUnmounted(() => {
             <!-- 手機版：全螢幕歌詞 + 底部固定控制欄                      -->
             <!-- ═══════════════════════════════════════════════════════════ -->
             <div class="md:hidden flex-1 flex flex-col overflow-hidden pt-16">
-                <!-- 歌詞區域（獨立捲軸） -->
+                <!-- 歌詞區域：pb 值對應底部固定面板高度，確保 scrollIntoView 置中在可見區域內 -->
                 <div
-                    class="flex-1 overflow-y-auto overflow-x-hidden"
+                    class="flex-1 overflow-hidden"
                     :class="{
-                        'mb-35': !mobilePanelCollapsed,
-                        'mb-18': mobilePanelCollapsed,
+                        'pb-46.25': !mobilePanelCollapsed,
+                        'pb-33.75': mobilePanelCollapsed,
                     }"
                 >
                     <LyricsContainer
@@ -765,14 +916,38 @@ onUnmounted(() => {
                         >
                             <!-- 進度條（手機版） -->
                             <div
-                                class="relative w-full h-1 bg-white/10 rounded-full overflow-hidden cursor-pointer mb-3"
+                                class="relative w-full cursor-pointer mb-3 py-2 -my-2"
                                 :class="{ 'mt-3': mobilePanelCollapsed }"
-                                @click="progressBarSeek"
+                                @mousedown="onBarMouseDown"
+                                @touchstart.prevent="onBarTouchStart"
+                                @mouseenter="isHoveringProgress = true"
+                                @mouseleave="isHoveringProgress = false"
                             >
+                                <!-- 軌道 -->
                                 <div
-                                    class="absolute top-0 left-0 h-full bg-white rounded-full"
-                                    :style="{ width: durationPercent + '%' }"
-                                />
+                                    class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
+                                    :class="{
+                                        'h-1':
+                                            !isHoveringProgress && !isDragging,
+                                        'h-1.5':
+                                            isHoveringProgress && !isDragging,
+                                        'h-4': isDragging,
+                                    }"
+                                    style="
+                                        background-color: rgba(
+                                            255,
+                                            255,
+                                            255,
+                                            0.12
+                                        );
+                                    "
+                                >
+                                    <!-- 已播放進度 -->
+                                    <div
+                                        class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
+                                        :style="{ width: displayPercent + '%' }"
+                                    />
+                                </div>
                             </div>
 
                             <!-- 時間標籤 -->
@@ -806,22 +981,39 @@ onUnmounted(() => {
                                             }}
                                         </span>
                                     </button>
-                                    <input
-                                        type="range"
-                                        min="0"
-                                        max="100"
-                                        :value="volume"
-                                        class="w-16 h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer"
-                                        @input="
-                                            changeVolume(
-                                                Number(
-                                                    (
-                                                        $event.target as HTMLInputElement
-                                                    ).value,
-                                                ),
-                                            )
-                                        "
-                                    />
+                                    <div
+                                        class="relative w-16 cursor-pointer py-2 -my-2"
+                                        @mousedown="onVolumeMouseDown"
+                                        @touchstart.prevent="onVolumeTouchStart"
+                                        @mouseenter="isHoveringVolume = true"
+                                        @mouseleave="isHoveringVolume = false"
+                                    >
+                                        <div
+                                            class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
+                                            :class="{
+                                                'h-1':
+                                                    !isHoveringVolume &&
+                                                    !isDraggingVolume,
+                                                'h-1.5':
+                                                    isHoveringVolume &&
+                                                    !isDraggingVolume,
+                                                'h-4': isDraggingVolume,
+                                            }"
+                                            style="
+                                                background-color: rgba(
+                                                    255,
+                                                    255,
+                                                    255,
+                                                    0.12
+                                                );
+                                            "
+                                        >
+                                            <div
+                                                class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
+                                                :style="{ width: volume + '%' }"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- 核心播放按鈕 -->
@@ -930,47 +1122,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* ── 進度條樣式 ── */
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 4px;
-    border-radius: 2px;
-    outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #fff;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-input[type="range"]:hover::-webkit-slider-thumb {
-    opacity: 1;
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #fff;
-    cursor: pointer;
-    border: none;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-}
-
-input[type="range"]:hover::-moz-range-thumb {
-    opacity: 1;
-}
-
 /* ── 左側面板捲軸 ── */
 .left-panel::-webkit-scrollbar {
     width: 3px;

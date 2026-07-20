@@ -14,11 +14,11 @@ defineEmits<{ (e: "disableTranslation"): void }>();
 <template>
     <div
         id="translation-container"
-        class="z-2 hidden md:block absolute bottom-6 left-4 max-w-md"
+        class="z-2 block absolute bottom-6 left-4 right-4 md:right-auto md:max-w-md"
     >
         <template v-if="song.translation?.available">
             <div
-                class="p-5 flex flex-col items-start gap-2 bg-white/[0.04] backdrop-blur-xl rounded-2xl border border-white/[0.06]"
+                class="p-5 flex flex-col items-start gap-2 bg-white/4 backdrop-blur-xl rounded-2xl border border-white/6"
             >
                 <div class="text-2xl font-bold text-white/90 leading-snug">
                     {{ translationText }}
@@ -46,7 +46,7 @@ defineEmits<{ (e: "disableTranslation"): void }>();
         </template>
         <template v-else>
             <div
-                class="p-4 flex flex-col items-start gap-2 bg-white/[0.03] backdrop-blur-xl rounded-2xl border border-white/[0.04]"
+                class="p-4 flex flex-col items-start gap-2 bg-white/3 backdrop-blur-xl rounded-2xl border border-white/4"
             >
                 <span class="text-white/25 text-sm">本歌曲尚未提供翻譯</span>
             </div>
