@@ -29,7 +29,7 @@ defineEmits<{ (e: "jump", index: number): void }>();
 <template>
     <div
         :id="`lyric-line-${index}`"
-        class="lyric-line mx-6 my-10"
+        class="lyric-line mx-6 my-8 md:my-12"
         :class="{
             'is-duet': isDuet,
             'is-secondary-vocalist': line.is_secondary,
@@ -39,7 +39,7 @@ defineEmits<{ (e: "jump", index: number): void }>();
         <button
             :id="`line-button-${index}`"
             type="button"
-            class="z-1 lyric-button text-2xl bg-transparent p-0 cursor-pointer max-w-[50%] relative"
+            class="z-1 lyric-button bg-transparent p-0 cursor-pointer max-w-[50%] relative"
             :class="{ active: isCurrent }"
             @click="$emit('jump', index)"
         >

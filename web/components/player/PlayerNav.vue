@@ -1,14 +1,16 @@
 <script setup lang="ts">
 defineProps<{
-    bodyBackgroundColor: string;
+    dominantColor: string;
 }>();
 </script>
 
 <template>
     <nav>
         <div
-            class="top-0 fixed w-full py-4 z-50 backdrop-blur-md transition-all duration-300"
-            :style="{ backgroundColor: `${bodyBackgroundColor}cc` }"
+            class="top-0 fixed w-full py-4 z-50 backdrop-blur-xl transition-all duration-1000"
+            :style="{
+                background: `linear-gradient(to bottom, ${dominantColor}40 0%, ${dominantColor}10 100%)`,
+            }"
         >
             <div
                 class="flex flex-row justify-between items-center w-full px-4 md:px-8"
@@ -42,12 +44,7 @@ defineProps<{
                         />
                         <a href="/" class="hover:opacity-80 transition-opacity">
                             <h1
-                                class="text-xl md:text-2xl font-bold tracking-tight font-playfair"
-                                :class="
-                                    bodyBackgroundColor === '#101010'
-                                        ? 'text-rose-500'
-                                        : 'text-white/90'
-                                "
+                                class="text-xl md:text-2xl font-bold tracking-tight font-playfair text-white/90"
                             >
                                 同步開唱
                             </h1>
