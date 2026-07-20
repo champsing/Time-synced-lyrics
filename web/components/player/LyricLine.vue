@@ -29,7 +29,7 @@ defineEmits<{ (e: "jump", index: number): void }>();
 <template>
     <div
         :id="`lyric-line-${index}`"
-        class="lyric-line mx-6 my-7 md:my-9"
+        class="lyric-line mx-6 my-8 md:my-12"
         :class="{
             'is-duet': isDuet,
             'is-secondary-vocalist': line.is_secondary,

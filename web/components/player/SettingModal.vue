@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import type { Color } from "@/types/song_select";
-
 const props = defineProps<{
     isOpen: boolean;
-    bgColor: Color;
-    colorOptions: Color[];
     enableLyricBackground: boolean;
     scrollToCurrentLine: boolean;
     enableTranslation: boolean;
@@ -15,7 +11,6 @@ const props = defineProps<{
 
 const emit = defineEmits<{
     (e: "close"): void;
-    (e: "change-bg-color", color: string): void;
     (e: "update:enableLyricBackground", val: boolean): void;
     (e: "update:scrollToCurrentLine", val: boolean): void;
     (e: "update:enableTranslation", val: boolean): void;
@@ -32,7 +27,7 @@ const emit = defineEmits<{
 
             <!-- 內容 -->
             <div
-                class="modal-mutual bg-[#455a47] top-2/5 left-[10%] w-4/5 md:left-[30%] md:top-[30%] md:w-2/5"
+                class="modal-mutual top-2/5 left-[10%] w-4/5 md:left-[30%] md:top-[30%] md:w-2/5"
             >
                 <!-- 標題列 -->
                 <div class="flex flex-row items-center">
@@ -53,9 +48,9 @@ const emit = defineEmits<{
                     <div class="settings-entry flex-col">
                         <div class="flex items-center justify-between w-full">
                             <label class="text-base">歌詞字型大小</label>
-                            <span class="text-sm font-mono text-white/60">{{
-                                lyricFontSize
-                            }}px</span>
+                            <span class="text-sm font-mono text-white/60">
+                                {{ lyricFontSize }}px
+                            </span>
                         </div>
                         <div class="flex items-center gap-3 w-full mt-2">
                             <span class="text-xs text-white/40">16px</span>
@@ -87,51 +82,6 @@ const emit = defineEmits<{
                             >
                                 歌詞預覽 Aa
                             </span>
-                        </div>
-                    </div>
-
-                    <!-- 背景顏色 -->
-                    <div class="settings-entry">
-                        <label>背景顏色：</label>
-                        <div class="flex flex-row gap-2 items-center mt-1">
-                            <span class="flex gap-2 text-sm text-white/70">
-                                <span
-                                    class="color-preview w-5 h-5 border border-gray-200 rounded-sm"
-                                    :style="{
-                                        backgroundColor: bgColor.color,
-                                    }"
-                                ></span>
-                                <span class="text-sm font-mono">{{
-                                    bgColor.name
-                                }}</span>
-                            </span>
-                            <details class="relative">
-                                <summary
-                                    class="cursor-pointer text-sm text-teal-300 underline list-none"
-                                >
-                                    選擇顏色
-                                </summary>
-                                <div
-                                    class="mt-2 p-3 bg-gray-800 rounded-xl border border-white/20 flex flex-wrap gap-2 w-52 shadow-2xl"
-                                >
-                                    <button
-                                        v-for="colorObj in colorOptions"
-                                        :key="colorObj.color"
-                                        class="w-7 h-7 rounded-full border-2 border-white/20 hover:scale-125 transition-transform"
-                                        :style="{
-                                            backgroundColor: colorObj.color,
-                                        }"
-                                        :title="colorObj.name"
-                                        :aria-label="colorObj.name"
-                                        @click="
-                                            emit(
-                                                'change-bg-color',
-                                                colorObj.color,
-                                            )
-                                        "
-                                    />
-                                </div>
-                            </details>
                         </div>
                     </div>
 
