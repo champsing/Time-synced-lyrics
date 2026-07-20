@@ -95,8 +95,13 @@
         }
     }
 
+    .lyric-button {
+        font-size: var(--lyric-font-size);
+    }
+
     .lyric-button.active {
-        @apply max-w-60 md:max-w-[50%] text-3xl p-2 font-bold text-pretty;
+        @apply max-w-60 md:max-w-[50%] p-2 font-bold text-pretty;
+        font-size: calc(var(--lyric-font-size) * 1.1);
     }
 
     .lyric-button.active {

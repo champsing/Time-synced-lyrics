@@ -13,6 +13,7 @@ const props = defineProps<{
     enablePronounciation: boolean;
     enableLyricBackground: boolean;
     enableTranslation: boolean;
+    lyricFontSize: number;
     isCurrentLine: (index: number) => boolean;
     getPhraseStyle: (lineIndex: number, phraseIndex: number) => CSSProperties;
     getBackgroundPhraseStyle: (
@@ -28,7 +29,6 @@ const props = defineProps<{
 defineEmits<{ (e: "jump", index: number): void }>();
 const isDuet = computed(() => props.song.is_duet);
 
-// 在 <script setup> 中
 const { translationText, backgroundTranslationText, translationAuthor } =
     useTranslation(
         () => props.song,
@@ -40,11 +40,12 @@ const { translationText, backgroundTranslationText, translationAuthor } =
 <template>
     <div
         id="lyrics-container"
-        class="scroll-smooth snap-y snap-proximity p-4 w-full relative mb-[30vh] md:mb-10"
+        class="scroll-smooth snap-y snap-proximity p-4 w-full h-full relative"
         :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
+        :style="{ '--lyric-font-size': lyricFontSize + 'px' }"
     >
         <div
-            class="md:h-svh md:overflow-scroll md:overflow-x-hidden rounded-2xl relative"
+            class="h-full md:overflow-y-auto md:overflow-x-hidden rounded-2xl relative pb-[15vh]"
             style="scrollbar-width: none"
         >
             <LyricLine
@@ -82,8 +83,6 @@ const { translationText, backgroundTranslationText, translationAuthor } =
                 class="animate-background w-full h-full object-cover opacity-50 brightness-50 blur-xl relative overflow-hidden translate-z-0 backface-hidden"
             />
         </div>
-
-        <div v-if="enableTranslation" class="md:h-[15vh] h-0" />
     </div>
     <TranslationBar
         v-if="enableTranslation"

@@ -10,6 +10,7 @@ const props = defineProps<{
     enableTranslation: boolean;
     enablePronounciation: boolean;
     furiganaAvailable: boolean | null;
+    lyricFontSize: number;
 }>();
 
 const emit = defineEmits<{
@@ -19,6 +20,7 @@ const emit = defineEmits<{
     (e: "update:scrollToCurrentLine", val: boolean): void;
     (e: "update:enableTranslation", val: boolean): void;
     (e: "update:enablePronounciation", val: boolean): void;
+    (e: "update:lyricFontSize", val: number): void;
 }>();
 </script>
 
@@ -47,6 +49,47 @@ const emit = defineEmits<{
                 </div>
 
                 <div class="modal-view-area custom-scrollbar">
+                    <!-- 歌詞字型大小 -->
+                    <div class="settings-entry flex-col">
+                        <div class="flex items-center justify-between w-full">
+                            <label class="text-base">歌詞字型大小</label>
+                            <span class="text-sm font-mono text-white/60">{{
+                                lyricFontSize
+                            }}px</span>
+                        </div>
+                        <div class="flex items-center gap-3 w-full mt-2">
+                            <span class="text-xs text-white/40">16px</span>
+                            <input
+                                type="range"
+                                min="16"
+                                max="40"
+                                :value="lyricFontSize"
+                                class="w-full h-1.5 bg-white/20 rounded-full appearance-none accent-teal-400 cursor-pointer"
+                                @input="
+                                    emit(
+                                        'update:lyricFontSize',
+                                        Number(
+                                            ($event.target as HTMLInputElement)
+                                                .value,
+                                        ),
+                                    )
+                                "
+                            />
+                            <span class="text-xs text-white/40">40px</span>
+                        </div>
+                        <!-- 預覽 -->
+                        <div
+                            class="mt-2 py-2 px-4 bg-black/20 rounded-lg w-full text-center"
+                        >
+                            <span
+                                class="text-white/80 transition-all duration-150"
+                                :style="{ fontSize: lyricFontSize + 'px' }"
+                            >
+                                歌詞預覽 Aa
+                            </span>
+                        </div>
+                    </div>
+
                     <!-- 背景顏色 -->
                     <div class="settings-entry">
                         <label>背景顏色：</label>

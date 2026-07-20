@@ -19,7 +19,7 @@ defineProps<{
         :class="{
             active: isActive,
             kiai: phrase.kiai,
-            'text-lg': isBackground,
+            'text-base': isBackground,
         }"
         :duration="duration * 100"
         :delay="delay * 100"
