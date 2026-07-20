@@ -9,6 +9,7 @@ import type {
 } from "@/types/player";
 
 // ── Vue 組件 ─────────────────────────────────────────────────────────────
+import { useAlbumColors } from "@/composables/hooks/useAlbumColors";
 import { getArtistDisplay } from "@/composables/hooks/useArtist";
 import {
     generatePhraseStyle,
@@ -34,7 +35,6 @@ import {
     formatTime,
     scrollToLineIndex,
 } from "@/composables/utils/global";
-import { useAlbumColors } from "@/composables/hooks/useAlbumColors";
 import AboutModal from "@components/player/AboutModal.vue";
 import CreditModal from "@components/player/CreditModal.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
@@ -88,9 +88,7 @@ const shareModalOpen = ref(false);
 const aboutModalOpen = ref(false);
 
 // ── 專輯封面漸層背景 ─────────────────────────────────────────────────
-const { colors: albumColors } = useAlbumColors(
-    () => currentSong.value?.art,
-);
+const { colors: albumColors } = useAlbumColors(() => currentSong.value?.art);
 
 // ── 時間格式 ─────────────────────────────────────────────────────────────
 const formattedCurrentTime = computed(() => formatTime(currentTime.value));
@@ -362,7 +360,7 @@ onUnmounted(() => {
                 >
                     <!-- 影片播放器 -->
                     <div
-                        class="video-container w-full max-w-[380px] lg:max-w-[440px] mb-6"
+                        class="video-container w-full max-w-95alg:max-w-110"
                     >
                         <div
                             class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-black/50 bg-black"
@@ -390,7 +388,7 @@ onUnmounted(() => {
 
                     <!-- 歌曲資訊 -->
                     <div
-                        class="song-info w-full max-w-[380px] lg:max-w-[440px] mb-5"
+                        class="song-info w-full max-w-95 lg:max-w-1105"
                     >
                         <!-- 標題 -->
                         <h1
@@ -456,7 +454,7 @@ onUnmounted(() => {
 
                     <!-- 進度條 -->
                     <div
-                        class="duration-bar-container w-full max-w-[380px] lg:max-w-[440px] mb-3"
+                        class="duration-bar-container w-full max-w-95 lg:max-w-1103"
                     >
                         <div class="relative w-full group cursor-pointer">
                             <div
@@ -464,7 +462,7 @@ onUnmounted(() => {
                                 @click="progressBarSeek"
                             >
                                 <div
-                                    class="absolute top-0 left-0 h-full bg-white rounded-full transition-all duration-100 ease-linear group-hover:!bg-teal-400"
+                                    class="absolute top-0 left-0 h-full bg-white rounded-full transition-all duration-100 ease-linear group-hover:bg-teal-400!"
                                     :style="{ width: durationPercent + '%' }"
                                 />
                                 <div
@@ -491,7 +489,7 @@ onUnmounted(() => {
 
                     <!-- 播放控制 -->
                     <div
-                        class="playback-controls w-full max-w-[380px] lg:max-w-[440px] mb-4"
+                        class="playback-controls w-full max-w-95 lg:max-w-110 mb-4"
                     >
                         <div class="flex items-center justify-center gap-8">
                             <button
@@ -531,7 +529,7 @@ onUnmounted(() => {
 
                     <!-- 音量 + 功能按鈕 -->
                     <div
-                        class="utility-controls w-full max-w-[380px] lg:max-w-[440px] flex items-center justify-between"
+                        class="utility-controls w-full max-w-95 lg:max-w-110 flex items-center justify-between"
                     >
                         <div class="flex items-center gap-2">
                             <button
@@ -629,8 +627,8 @@ onUnmounted(() => {
                 <div
                     class="flex-1 overflow-y-auto overflow-x-hidden"
                     :class="{
-                        'mb-[140px]': !mobilePanelCollapsed,
-                        'mb-[72px]': mobilePanelCollapsed,
+                        'mb-35': !mobilePanelCollapsed,
+                        'mb-18': mobilePanelCollapsed,
                     }"
                 >
                     <LyricsContainer
@@ -655,7 +653,7 @@ onUnmounted(() => {
                     class="fixed bottom-0 left-0 right-0 z-50 px-3 pb-3 pt-0 transition-all duration-300"
                 >
                     <div
-                        class="bg-[#1a1a1a]/90 backdrop-blur-xl rounded-[24px] border border-white/10 shadow-2xl overflow-hidden"
+                        class="bg-[#1a1a1a]/90 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden"
                     >
                         <!-- 可收合區塊：歌曲資訊 -->
                         <div :class="{ hidden: mobilePanelCollapsed }">
