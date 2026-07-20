@@ -23,7 +23,7 @@ let rafId: number | null = null;
 // ── Helpers ────────────────────────────────────────────────────────────────
 const calcSize = () => {
     if (window.screen.width >= 960 && window.screen.height >= 768) {
-        return { width: "300", height: "200" };
+        return { width: "100%", height: "100%" };
     }
     return { width: "0", height: "0" };
 };
@@ -137,10 +137,10 @@ defineExpose({
 </script>
 
 <template>
-    <div ref="playerContainer">
+    <div ref="playerContainer" class="w-full h-full">
         <div
             id="player"
-            class="w-0 h-0 md:w-full md:h-full bg-white/10 rounded-2xl relative group cursor-pointer"
+            class="w-full h-full bg-black rounded-2xl relative"
         />
     </div>
 </template>

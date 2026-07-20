@@ -38,60 +38,64 @@ const { translationText, backgroundTranslationText, translationAuthor } =
 </script>
 
 <template>
-    <div
-        id="lyrics-container"
-        class="scroll-smooth snap-y snap-proximity p-4 w-full h-full relative"
-        :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
-        :style="{ '--lyric-font-size': lyricFontSize + 'px' }"
-    >
+    <div class="lyrics-wrapper relative w-full h-full">
         <div
-            class="h-full md:overflow-y-auto md:overflow-x-hidden rounded-2xl relative pb-[15vh]"
-            style="scrollbar-width: none"
+            id="lyrics-container"
+            class="scroll-smooth snap-y snap-proximity p-4 w-full h-full relative"
+            :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
+            :style="{ '--lyric-font-size': lyricFontSize + 'px' }"
         >
-            <LyricLine
-                v-for="(line, index) in lines"
-                :key="index"
-                :line="line"
-                :bg-line="line.background_voice"
-                :index="index"
-                :total-lines="lines.length"
-                :is-current="isCurrentLine(index)"
-                :is-duet="isDuet"
-                :current-time="currentTime"
-                :enable-pronounciation="enablePronounciation"
-                :get-phrase-style="getPhraseStyle"
-                :get-background-phrase-style="getBackgroundPhraseStyle"
-                :is-active-phrase="isActivePhrase"
-                @jump="
-                    try {
-                        $emit('jump', $event);
-                    } catch (e) {
-                        console.error('Failed to emit jump event:', e);
-                    }
-                "
-            />
+            <div
+                class="h-full overflow-y-auto overflow-x-hidden rounded-2xl relative pr-4 md:pr-8 pb-[15vh]"
+                style="scrollbar-width: none"
+            >
+                <LyricLine
+                    v-for="(line, index) in lines"
+                    :key="index"
+                    :line="line"
+                    :bg-line="line.background_voice"
+                    :index="index"
+                    :total-lines="lines.length"
+                    :is-current="isCurrentLine(index)"
+                    :is-duet="isDuet"
+                    :current-time="currentTime"
+                    :enable-pronounciation="enablePronounciation"
+                    :get-phrase-style="getPhraseStyle"
+                    :get-background-phrase-style="getBackgroundPhraseStyle"
+                    :is-active-phrase="isActivePhrase"
+                    @jump="
+                        try {
+                            $emit('jump', $event);
+                        } catch (e) {
+                            console.error('Failed to emit jump event:', e);
+                        }
+                    "
+                />
+            </div>
+
+            <!-- 背景圖 -->
+            <div
+                v-if="enableLyricBackground"
+                class="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl select-none"
+            >
+                <img
+                    :src="song.art"
+                    :alt="song.folder"
+                    class="animate-background w-full h-full object-cover opacity-50 brightness-50 blur-xl relative overflow-hidden translate-z-0 backface-hidden"
+                />
+            </div>
         </div>
 
-        <!-- 背景圖 -->
-        <div
-            v-if="enableLyricBackground"
-            class="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl select-none"
-        >
-            <img
-                :src="song.art"
-                :alt="song.folder"
-                class="animate-background w-full h-full object-cover opacity-50 brightness-50 blur-xl relative overflow-hidden translate-z-0 backface-hidden"
-            />
-        </div>
+        <!-- 翻譯列：與歌詞容器對齊 -->
+        <TranslationBar
+            v-if="enableTranslation"
+            :song="song"
+            :translation-text="translationText"
+            :background-translation-text="backgroundTranslationText"
+            :translation-author="translationAuthor"
+            @disable-translation="enableTranslation = false"
+        />
     </div>
-    <TranslationBar
-        v-if="enableTranslation"
-        :song="song"
-        :translation-text="translationText"
-        :background-translation-text="backgroundTranslationText"
-        :translation-author="translationAuthor"
-        @disable-translation="enableTranslation = false"
-    />
 </template>
 
 <style scoped>

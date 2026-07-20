@@ -75,6 +75,9 @@ watch(lyricFontSize, (newSize) => {
     localStorage.setItem("lyricFontSize", String(newSize));
 });
 
+// ── 手機版面板收合 ───────────────────────────────────────────────────────
+const mobilePanelCollapsed = ref(false);
+
 // ── Modal 開關 ───────────────────────────────────────────────────────────
 const settingModalOpen = ref(false);
 const creditModalOpen = ref(false);
@@ -113,10 +116,10 @@ const durationPercent = computed(() => {
     return (currentTime.value / songDuration.value) * 100;
 });
 
-const seekTo = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    const time = (Number(target.value) / 1000) * songDuration.value;
-    window.ytPlayer?.seekTo(time, true);
+const progressBarSeek = (event: MouseEvent) => {
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+    window.ytPlayer?.seekTo(ratio * songDuration.value, true);
 };
 
 // ── 分享連結 ─────────────────────────────────────────────────────────────
@@ -343,7 +346,7 @@ onUnmounted(() => {
 <template>
     <div
         id="body"
-        class="min-h-screen m-0! flex flex-col"
+        class="h-screen m-0! flex flex-col overflow-hidden"
         :style="{ backgroundColor: bodyBackgroundColor }"
     >
         <!-- 載入中 -->
@@ -358,31 +361,42 @@ onUnmounted(() => {
             <!-- 頂部導覽 -->
             <PlayerNav :body-background-color="bodyBackgroundColor" />
 
-            <!-- 主佈局：兩欄式設計 -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- 桌面版：兩欄式佈局                                        -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
             <div
-                class="player-layout flex flex-col md:flex-row flex-1 pt-20 md:pt-24 gap-0"
+                class="hidden md:flex flex-1 overflow-hidden pt-20"
             >
-                <!-- ── 左側面板：歌曲資訊 + 影片 + 控制 ── -->
+                <!-- ── 左側面板：影片 + 歌曲資訊 + 控制 ── -->
                 <div
-                    class="left-panel flex flex-col items-center md:w-[40%] lg:w-[35%] md:fixed md:left-0 md:top-24 md:bottom-0 px-6 py-4 md:overflow-y-auto"
+                    class="left-panel flex flex-col items-center w-[40%] lg:w-[35%] overflow-y-auto px-6 py-6"
                 >
-                    <!-- 專輯封面 -->
-                    <div class="album-art-container w-full max-w-[320px] lg:max-w-[380px] mb-6">
-                        <div class="relative aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/40 group">
-                            <img
-                                :src="currentSong.art"
-                                :alt="currentSong.folder"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    <!-- 影片播放器 -->
+                    <div class="video-container w-full max-w-[380px] lg:max-w-[440px] mb-6">
+                        <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-black/50 bg-black">
+                            <YTPlayer
+                                v-if="currentVideoId"
+                                :video-id="currentVideoId"
+                                @update:current-time="currentTime = $event"
+                                @update:is-paused="isPaused = $event"
+                                @update:song-duration="songDuration = $event"
                             />
-                            <!-- 封面光澤疊層 -->
+                            <!-- 無影片時的封面替代 -->
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"
-                            />
+                                v-else
+                                class="w-full h-full flex items-center justify-center"
+                            >
+                                <img
+                                    :src="currentSong.art"
+                                    :alt="currentSong.folder"
+                                    class="w-full h-full object-cover opacity-60"
+                                />
+                            </div>
                         </div>
                     </div>
 
                     <!-- 歌曲資訊 -->
-                    <div class="song-info w-full max-w-[320px] lg:max-w-[380px] mb-5">
+                    <div class="song-info w-full max-w-[380px] lg:max-w-[440px] mb-5">
                         <!-- 標題 -->
                         <h1
                             class="text-white text-2xl lg:text-3xl font-bold tracking-tight leading-tight line-clamp-2"
@@ -390,7 +404,7 @@ onUnmounted(() => {
                             {{ currentSong.title || currentSong.folder }}
                         </h1>
 
-                        <!-- 藝人（可點擊檢視工作人員） -->
+                        <!-- 藝人 -->
                         <div class="flex items-center gap-2 mt-2">
                             <button
                                 v-if="currentSong.credits"
@@ -399,15 +413,12 @@ onUnmounted(() => {
                             >
                                 {{ currentSong.displayArtist || "未知藝人" }}
                             </button>
-                            <span
-                                v-else
-                                class="text-white/40 text-sm lg:text-base"
-                            >
+                            <span v-else class="text-white/40 text-sm lg:text-base">
                                 {{ currentSong.displayArtist || "未知藝人" }}
                             </span>
                         </div>
 
-                        <!-- 專輯名稱 + 版本徽章 -->
+                        <!-- 專輯 + 版本徽章 -->
                         <div class="flex items-center gap-2 mt-2 flex-wrap">
                             <span class="text-white/40 text-xs lg:text-sm">
                                 {{ currentSong.album?.name || "單曲" }}
@@ -446,28 +457,22 @@ onUnmounted(() => {
                     </div>
 
                     <!-- 進度條 -->
-                    <div class="duration-bar-container w-full max-w-[320px] lg:max-w-[380px] mb-3">
-                        <div class="relative w-full group">
-                            <!-- 進度條背景軌道 -->
-                            <div class="relative w-full h-1 bg-white/10 rounded-full overflow-hidden cursor-pointer"
-                                 @click="(e: MouseEvent) => {
-                                     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-                                     const ratio = (e.clientX - rect.left) / rect.width;
-                                     window.ytPlayer?.seekTo(ratio * songDuration, true);
-                                 }">
-                                <!-- 已播放進度 -->
+                    <div class="duration-bar-container w-full max-w-[380px] lg:max-w-[440px] mb-3">
+                        <div class="relative w-full group cursor-pointer">
+                            <div
+                                class="relative w-full h-1 bg-white/10 rounded-full overflow-hidden"
+                                @click="progressBarSeek"
+                            >
                                 <div
-                                    class="absolute top-0 left-0 h-full bg-white rounded-full transition-all duration-100 ease-linear group-hover:bg-teal-400"
+                                    class="absolute top-0 left-0 h-full bg-white rounded-full transition-all duration-100 ease-linear group-hover:!bg-teal-400"
                                     :style="{ width: durationPercent + '%' }"
                                 />
-                                <!-- 拖曳圓點 -->
                                 <div
                                     class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
                                     :style="{ left: `calc(${durationPercent}% - 6px)` }"
                                 />
                             </div>
                         </div>
-                        <!-- 時間標籤 -->
                         <div class="flex justify-between mt-1.5">
                             <span class="text-[10px] font-mono text-white/40 tracking-tight">
                                 {{ formattedCurrentTime }}
@@ -479,9 +484,8 @@ onUnmounted(() => {
                     </div>
 
                     <!-- 播放控制 -->
-                    <div class="playback-controls w-full max-w-[320px] lg:max-w-[380px] mb-4">
+                    <div class="playback-controls w-full max-w-[380px] lg:max-w-[440px] mb-4">
                         <div class="flex items-center justify-center gap-8">
-                            <!-- 倒轉 10 秒 -->
                             <button
                                 @click="rewind10Sec"
                                 class="text-white/50 hover:text-white transition-all transform active:scale-90"
@@ -491,7 +495,6 @@ onUnmounted(() => {
                                 <span class="material-icons text-2xl">replay_10</span>
                             </button>
 
-                            <!-- 播放 / 暫停 -->
                             <button
                                 @click="isPaused ? playVideo() : pauseVideo()"
                                 class="w-16 h-16 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all"
@@ -503,7 +506,6 @@ onUnmounted(() => {
                                 </span>
                             </button>
 
-                            <!-- 快轉 10 秒 -->
                             <button
                                 @click="moveForward10Sec"
                                 class="text-white/50 hover:text-white transition-all transform active:scale-90"
@@ -515,9 +517,8 @@ onUnmounted(() => {
                         </div>
                     </div>
 
-                    <!-- 音量控制 + 功能按鈕 -->
-                    <div class="utility-controls w-full max-w-[320px] lg:max-w-[380px] flex items-center justify-between">
-                        <!-- 音量 -->
+                    <!-- 音量 + 功能按鈕 -->
+                    <div class="utility-controls w-full max-w-[380px] lg:max-w-[440px] flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <button
                                 @click="toggleMute"
@@ -546,7 +547,6 @@ onUnmounted(() => {
                             />
                         </div>
 
-                        <!-- 功能按鈕 -->
                         <div class="flex items-center gap-1">
                             <button
                                 @click="shareModalOpen = true"
@@ -574,22 +574,36 @@ onUnmounted(() => {
                             </button>
                         </div>
                     </div>
-
-                    <!-- YouTube 播放器（隱藏，僅供音源） -->
-                    <div class="w-0 h-0 overflow-hidden opacity-0 pointer-events-none">
-                        <YTPlayer
-                            v-if="currentVideoId"
-                            :video-id="currentVideoId"
-                            @update:current-time="currentTime = $event"
-                            @update:is-paused="isPaused = $event"
-                            @update:song-duration="songDuration = $event"
-                        />
-                    </div>
                 </div>
 
                 <!-- ── 右側面板：歌詞 ── -->
+                <div class="right-panel flex-1 overflow-hidden relative">
+                    <LyricsContainer
+                        :lines="processedLines"
+                        :song="currentSong"
+                        :active-line-indices="activeLineIndices"
+                        :current-time="currentTime"
+                        :enable-lyric-background="enableLyricBackground"
+                        :enable-translation="enableTranslation"
+                        :enable-pronounciation="enablePronounciation"
+                        :lyric-font-size="lyricFontSize"
+                        :is-active-phrase="isActivePhrase"
+                        :is-current-line="isCurrentLine"
+                        :get-phrase-style="getPhraseStyle"
+                        :get-background-phrase-style="getBackgroundPhraseStyle"
+                        @jump="jumpToCurrentLine"
+                    />
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- 手機版：全螢幕歌詞 + 底部固定控制欄                      -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <div class="md:hidden flex-1 flex flex-col overflow-hidden pt-16">
+                <!-- 歌詞區域（獨立捲軸） -->
                 <div
-                    class="right-panel flex-1 md:ml-[40%] lg:ml-[35%] md:min-h-screen"
+                    class="flex-1 overflow-y-auto overflow-x-hidden"
+                    :class="{ 'mb-[140px]': !mobilePanelCollapsed, 'mb-[72px]': mobilePanelCollapsed }"
                 >
                     <LyricsContainer
                         :lines="processedLines"
@@ -607,6 +621,183 @@ onUnmounted(() => {
                         @jump="jumpToCurrentLine"
                     />
                 </div>
+
+                <!-- 手機版底部控制面板 -->
+                <section
+                    class="fixed bottom-0 left-0 right-0 z-50 px-3 pb-3 pt-0 transition-all duration-300"
+                >
+                    <div
+                        class="bg-[#1a1a1a]/90 backdrop-blur-xl rounded-[24px] border border-white/10 shadow-2xl overflow-hidden"
+                    >
+                        <!-- 可收合區塊：歌曲資訊 -->
+                        <div :class="{ hidden: mobilePanelCollapsed }">
+                            <div class="px-5 pt-4 pb-3 flex items-start justify-between">
+                                <div class="flex-1 min-w-0 mr-3">
+                                    <h2 class="text-white text-base font-bold truncate tracking-tight">
+                                        {{ currentSong.title || currentSong.folder }}
+                                    </h2>
+                                    <div class="flex items-center gap-2 mt-0.5 flex-wrap">
+                                        <button
+                                            v-if="currentSong.credits"
+                                            @click="creditModalOpen = true"
+                                            class="text-white/50 hover:text-white text-xs transition-colors truncate"
+                                        >
+                                            {{ currentSong.displayArtist || "未知藝人" }}
+                                        </button>
+                                        <span v-else class="text-white/40 text-xs truncate">
+                                            {{ currentSong.displayArtist || "未知藝人" }}
+                                        </span>
+                                        <span
+                                            v-if="songVersion !== ORIGINAL"
+                                            class="px-1.5 py-0.5 text-[9px] font-bold rounded-md border uppercase tracking-wider"
+                                            :class="{
+                                                'bg-cyan-500/20 text-cyan-400 border-cyan-500/30':
+                                                    songVersion === INSTRUMENTAL,
+                                                'bg-white/10 text-white border-white/20':
+                                                    songVersion === THE_FIRST_TAKE,
+                                                'bg-rose-500/20 text-rose-400 border-rose-500/30':
+                                                    songVersion === LIVE,
+                                            }"
+                                        >
+                                            {{
+                                                songVersion === INSTRUMENTAL
+                                                    ? "Inst."
+                                                    : songVersion === THE_FIRST_TAKE
+                                                      ? "TFT"
+                                                      : songVersion === LIVE
+                                                        ? "Live"
+                                                        : songVersion
+                                            }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1 shrink-0">
+                                    <button
+                                        @click="shareModalOpen = true"
+                                        class="p-1.5 text-white/50 hover:text-white rounded-full transition-colors"
+                                        aria-label="分享"
+                                    >
+                                        <span class="material-icons text-lg">share</span>
+                                    </button>
+                                    <button
+                                        @click="settingModalOpen = true"
+                                        class="p-1.5 text-white/50 hover:text-white rounded-full transition-colors"
+                                        aria-label="設定"
+                                    >
+                                        <span class="material-icons text-lg">settings</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- YTPlayer（手機版隱藏，僅供音源） -->
+                            <div class="w-0 h-0 overflow-hidden opacity-0 pointer-events-none">
+                                <YTPlayer
+                                    v-if="currentVideoId"
+                                    :video-id="currentVideoId"
+                                    @update:current-time="currentTime = $event"
+                                    @update:is-paused="isPaused = $event"
+                                    @update:song-duration="songDuration = $event"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- 永遠顯示：進度條 + 控制按鈕 -->
+                        <div :class="{ 'px-5': true, 'pb-2': mobilePanelCollapsed }">
+                            <!-- 進度條（手機版） -->
+                            <div
+                                class="relative w-full h-1 bg-white/10 rounded-full overflow-hidden cursor-pointer mb-3"
+                                :class="{ 'mt-3': mobilePanelCollapsed }"
+                                @click="progressBarSeek"
+                            >
+                                <div
+                                    class="absolute top-0 left-0 h-full bg-white rounded-full"
+                                    :style="{ width: durationPercent + '%' }"
+                                />
+                            </div>
+
+                            <!-- 時間標籤 -->
+                            <div class="flex justify-between -mt-1 mb-2">
+                                <span class="text-[9px] font-mono text-white/35 tracking-tight">
+                                    {{ formattedCurrentTime }}
+                                </span>
+                                <span class="text-[9px] font-mono text-white/35 tracking-tight">
+                                    {{ formattedSongDuration }}
+                                </span>
+                            </div>
+
+                            <!-- 控制按鈕 -->
+                            <div class="flex items-center justify-between pb-3">
+                                <!-- 音量 -->
+                                <div class="flex items-center gap-1.5">
+                                    <button
+                                        @click="toggleMute"
+                                        class="text-white/50 hover:text-white transition-colors"
+                                        aria-label="靜音切換"
+                                    >
+                                        <span class="material-icons text-lg">
+                                            {{ volume === 0 || isMuted ? "volume_off" : "volume_up" }}
+                                        </span>
+                                    </button>
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="100"
+                                        :value="volume"
+                                        class="w-16 h-1 bg-white/20 rounded-full appearance-none accent-white cursor-pointer"
+                                        @input="
+                                            changeVolume(
+                                                Number(
+                                                    ($event.target as HTMLInputElement).value,
+                                                ),
+                                            )
+                                        "
+                                    />
+                                </div>
+
+                                <!-- 核心播放按鈕 -->
+                                <div class="flex items-center gap-8">
+                                    <button
+                                        @click="rewind10Sec"
+                                        class="text-white/50 hover:text-white transition-all active:scale-90"
+                                        aria-label="倒轉 10 秒"
+                                    >
+                                        <span class="material-icons text-xl">replay_10</span>
+                                    </button>
+
+                                    <button
+                                        @click="isPaused ? playVideo() : pauseVideo()"
+                                        class="w-12 h-12 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all"
+                                        aria-label="播放 / 暫停"
+                                    >
+                                        <span class="material-icons text-3xl">
+                                            {{ isPaused ? "play_arrow" : "pause" }}
+                                        </span>
+                                    </button>
+
+                                    <button
+                                        @click="moveForward10Sec"
+                                        class="text-white/50 hover:text-white transition-all active:scale-90"
+                                        aria-label="快轉 10 秒"
+                                    >
+                                        <span class="material-icons text-xl">forward_10</span>
+                                    </button>
+                                </div>
+
+                                <!-- 收合按鈕 -->
+                                <button
+                                    @click="mobilePanelCollapsed = !mobilePanelCollapsed"
+                                    class="text-white/40 hover:text-white/80 transition-colors"
+                                    aria-label="展開/收合"
+                                >
+                                    <span
+                                        class="material-icons transition-transform duration-300"
+                                        :class="{ 'rotate-180': mobilePanelCollapsed }"
+                                    >expand_more</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <!-- ── Modals ── -->
@@ -707,12 +898,5 @@ input[type="range"]:hover::-moz-range-thumb {
 }
 .left-panel::-webkit-scrollbar-track {
     background: transparent;
-}
-
-/* ── 專輯封面發光效果 ── */
-.album-art-container .shadow-2xl {
-    box-shadow:
-        0 25px 50px -12px rgba(0, 0, 0, 0.5),
-        0 0 40px -10px v-bind("bodyBackgroundColor + '66'");
 }
 </style>
