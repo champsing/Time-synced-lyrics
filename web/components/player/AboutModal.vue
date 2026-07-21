@@ -11,56 +11,101 @@ const emit = defineEmits<{
 </script>
 
 <template>
-    <div id="about-modal-container" :class="{ hidden: !isOpen }">
-        <div id="about-modal-mask" class="modal-mask" @click="emit('close')" />
-        <div
-            id="about-modal-content"
-            class="modal-mutual bg-[#545425] left-[10%] top-2/5 w-4/5 md:left-[30%] md:top-[30%] md:w-2/5"
-        >
-            <div class="flex flex-row">
-                <span class="modal-name">關於</span>
-                <div class="grow" />
-                <span
-                    class="close"
-                    id="about-modal-close-btn"
-                    title="關閉"
-                    aria-label="關閉視窗"
+    <Teleport to="body">
+        <Transition name="modal-fade">
+            <div
+                v-if="isOpen"
+                class="fixed inset-0 z-100 flex items-center justify-center p-3 md:p-4"
+            >
+                <!-- Glass backdrop -->
+                <div
+                    class="absolute inset-0 bg-black/60 backdrop-blur-sm"
                     @click="emit('close')"
-                    >&times;</span
-                >
-            </div>
+                />
 
-            <div class="flex flex-col gap-4 items-center">
-                <div class="flex flex-col">
-                    <div id="champsing-banner" class="text-center">
-                        <span id="champsing">網站作者</span>
-                        <div class="text-2xl font-bold">香榭 Champsing</div>
-                    </div>
-                </div>
-
+                <!-- Glass content card -->
                 <div
-                    id="debug-info"
-                    class="custom-scrollbar overflow-y-scroll max-h-20 font-poppins"
+                    class="relative w-full max-w-sm bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden animate-modal-pop"
                 >
-                    <div class="m-4">
-                        <div id="version">播放器版本：{{ playerVersion }}</div>
-                    </div>
-                </div>
-
-                <div
-                    id="copy-debug-info"
-                    class="text-center rounded-md bg-[#1d94a1] px-4 py-2 text-sm font-semibold text-white duration-300 ease-in-out hover:scale-125 w-40"
-                >
-                    <button
-                        type="button"
-                        id="copy-debug-info-btn"
-                        aria-label="複製偵錯資訊"
-                        @click="emit('copy-debug-info')"
+                    <!-- Header -->
+                    <div
+                        class="flex items-center justify-between px-5 py-4 border-b border-white/10"
                     >
-                        <span class="text-center">複製偵錯資訊</span>
-                    </button>
+                        <h2
+                            class="text-lg font-bold text-white/90 tracking-tight"
+                        >
+                            關於
+                        </h2>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors"
+                            title="關閉"
+                            aria-label="關閉視窗"
+                            @click="emit('close')"
+                        >
+                            <span class="material-icons text-lg">close</span>
+                        </button>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="px-5 py-6 flex flex-col items-center gap-5">
+                        <!-- Author -->
+                        <div class="text-center">
+                            <p class="text-sm text-white/40">網站作者</p>
+                            <p class="text-2xl font-bold text-white mt-1">
+                                香榭 Champsing
+                            </p>
+                        </div>
+
+                        <!-- Version -->
+                        <div
+                            class="w-full text-center py-3 px-4 rounded-xl bg-white/5 border border-white/5"
+                        >
+                            <p class="text-xs text-white/40 mb-1">播放器版本</p>
+                            <p class="text-sm font-mono text-white/70">
+                                {{ playerVersion }}
+                            </p>
+                        </div>
+
+                        <!-- Copy debug info -->
+                        <button
+                            class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-teal-500/15 border border-teal-500/25 hover:bg-teal-500/25 text-teal-300 text-sm font-medium transition-all active:scale-[0.98]"
+                            @click="emit('copy-debug-info')"
+                        >
+                            <span class="material-icons text-base"
+                                >bug_report</span
+                            >
+                            <span>複製偵錯資訊</span>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </Transition>
+    </Teleport>
 </template>
+
+<style scoped>
+@keyframes modal-pop {
+    0% {
+        transform: scale(0.95) translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+.animate-modal-pop {
+    animation: modal-pop 0.3s ease-out;
+}
+
+.modal-fade-enter-active {
+    transition: opacity 0.2s ease;
+}
+.modal-fade-leave-active {
+    transition: opacity 0.15s ease;
+}
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+    opacity: 0;
+}
+</style>
