@@ -27,7 +27,7 @@ const emit = defineEmits<{
 
                 <!-- Glass content card -->
                 <div
-                    class="relative w-full max-w-lg bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden animate-modal-pop flex flex-col max-h-[90vh] md:max-h-[85vh]"
+                    class="relative w-full max-w-lg bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden animate-modal-pop flex flex-col max-h-[60vh]"
                 >
                     <!-- Header -->
                     <div

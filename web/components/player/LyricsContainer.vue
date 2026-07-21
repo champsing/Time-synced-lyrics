@@ -29,7 +29,7 @@ const props = defineProps<{
 defineEmits<{ (e: "jump", index: number): void }>();
 const isDuet = computed(() => props.song.is_duet);
 
-const { translationText, backgroundTranslationText, translationAuthor } =
+const { translationText, backgroundTranslationText, translationAuthor, translationModified } =
     useTranslation(
         () => props.song,
         () => props.lines,
@@ -93,6 +93,7 @@ const { translationText, backgroundTranslationText, translationAuthor } =
             :translation-text="translationText"
             :background-translation-text="backgroundTranslationText"
             :translation-author="translationAuthor"
+            :translation-modified="translationModified"
             @disable-translation="enableTranslation = false"
         />
     </div>

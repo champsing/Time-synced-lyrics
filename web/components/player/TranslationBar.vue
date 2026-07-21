@@ -6,6 +6,7 @@ defineProps<{
     translationText: string;
     backgroundTranslationText: string;
     translationAuthor: string;
+    translationModified: boolean;
 }>();
 
 defineEmits<{ (e: "disableTranslation"): void }>();
@@ -36,10 +37,18 @@ defineEmits<{ (e: "disableTranslation"): void }>();
                         rel="noopener noreferrer"
                         class="text-xs font-medium text-white/35 hover:text-white/70 underline decoration-white/20 hover:decoration-white/50 underline-offset-2 transition-colors"
                     >
-                        翻譯作者：{{ translationAuthor }}
+                        翻譯作者：{{ translationAuthor
+                        }}<span
+                            v-if="translationModified"
+                            class="text-[10px] text-white/15 font-normal no-underline"
+                        > 已編輯</span>
                     </a>
                     <div v-else class="text-xs text-white/25">
-                        翻譯作者：{{ translationAuthor }}
+                        翻譯作者：{{ translationAuthor
+                        }}<span
+                            v-if="translationModified"
+                            class="text-[10px] text-white/10 font-normal"
+                        > 已編輯</span>
                     </div>
                 </div>
             </div>

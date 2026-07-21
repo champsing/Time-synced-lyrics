@@ -39,11 +39,13 @@ export function useTranslation(
 
     const translationAuthor = computed(() => {
         const song = toValue(songSource);
-        if (!song?.translation?.author) return "";
-        return song.translation.modified === 1
-            ? `${song.translation.author}〔已修改〕`
-            : song.translation.author;
+        return song?.translation?.author || "";
     });
 
-    return { translationAuthor, translationText, backgroundTranslationText };
+    const translationModified = computed(() => {
+        const song = toValue(songSource);
+        return song?.translation?.modified === 1;
+    });
+
+    return { translationAuthor, translationModified, translationText, backgroundTranslationText };
 }
