@@ -514,7 +514,9 @@ onUnmounted(() => {
                     </div>
 
                     <!-- 歌曲資訊 -->
-                    <div class="song-info w-full max-w-95 lg:max-w-1105">
+                    <div
+                        class="song-info w-full max-w-95 lg:max-w-1105 md:pt-10"
+                    >
                         <!-- 標題 -->
                         <h1
                             class="text-white text-2xl lg:text-3xl font-bold tracking-tight leading-tight line-clamp-2"
@@ -801,7 +803,7 @@ onUnmounted(() => {
 
                 <!-- 手機版底部控制面板 -->
                 <section
-                    class="fixed bottom-0 left-0 right-0 z-50 px-3 pb-3 pt-0 transition-all duration-300"
+                    class="fixed bottom-0 left-0 right-0 z-50 px-3 pb-3 pt-3 transition-all duration-300"
                 >
                     <div
                         class="bg-[#1a1a1a]/90 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden"
@@ -964,13 +966,13 @@ onUnmounted(() => {
                                 </span>
                             </div>
 
-                            <!-- 控制按鈕 -->
+                            <!-- 控制按鈕：Apple Music 風格 -->
                             <div class="flex items-center justify-between pb-3">
-                                <!-- 音量 -->
-                                <div class="flex items-center gap-1.5">
+                                <!-- 音量（左側） -->
+                                <div class="flex items-center gap-1.5 w-[88px]">
                                     <button
                                         @click="toggleMute"
-                                        class="text-white/50 hover:text-white transition-colors"
+                                        class="text-white/50 hover:text-white transition-colors shrink-0"
                                         aria-label="靜音切換"
                                     >
                                         <span class="material-icons text-lg">
@@ -982,7 +984,7 @@ onUnmounted(() => {
                                         </span>
                                     </button>
                                     <div
-                                        class="relative w-16 cursor-pointer py-2 -my-2"
+                                        class="relative flex-1 cursor-pointer py-2 -my-2"
                                         @mousedown="onVolumeMouseDown"
                                         @touchstart.prevent="onVolumeTouchStart"
                                         @mouseenter="isHoveringVolume = true"
@@ -1016,28 +1018,33 @@ onUnmounted(() => {
                                     </div>
                                 </div>
 
-                                <!-- 核心播放按鈕 -->
-                                <div class="flex items-center gap-8">
+                                <!-- 核心播放按鈕：Apple Music 風格 -->
+                                <div class="flex items-center gap-6">
+                                    <!-- 倒轉 10 秒 -->
                                     <button
                                         @click="rewind10Sec"
-                                        class="text-white/50 hover:text-white transition-all active:scale-90"
+                                        class="w-10 h-10 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:bg-white/10 active:scale-90 transition-all duration-200"
                                         aria-label="倒轉 10 秒"
                                     >
-                                        <span class="material-icons text-xl"
+                                        <span
+                                            class="material-icons text-[28px] leading-none"
                                             >replay_10</span
                                         >
                                     </button>
 
+                                    <!-- 播放 / 暫停：Apple Music 風格外光按鈕 -->
                                     <button
                                         @click="
                                             isPaused
                                                 ? playVideo()
                                                 : pauseVideo()
                                         "
-                                        class="w-12 h-12 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all"
+                                        class="apple-play-btn relative w-14 h-14 flex items-center justify-center bg-white rounded-full active:scale-95 transition-all duration-200"
                                         aria-label="播放 / 暫停"
                                     >
-                                        <span class="material-icons text-3xl">
+                                        <span
+                                            class="material-icons text-4xl text-black leading-none"
+                                        >
                                             {{
                                                 isPaused
                                                     ? "play_arrow"
@@ -1046,24 +1053,26 @@ onUnmounted(() => {
                                         </span>
                                     </button>
 
+                                    <!-- 快轉 10 秒 -->
                                     <button
                                         @click="moveForward10Sec"
-                                        class="text-white/50 hover:text-white transition-all active:scale-90"
+                                        class="w-10 h-10 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:bg-white/10 active:scale-90 transition-all duration-200"
                                         aria-label="快轉 10 秒"
                                     >
-                                        <span class="material-icons text-xl"
+                                        <span
+                                            class="material-icons text-[28px] leading-none"
                                             >forward_10</span
                                         >
                                     </button>
                                 </div>
 
-                                <!-- 收合按鈕 -->
+                                <!-- 收合按鈕（右側） -->
                                 <button
                                     @click="
                                         mobilePanelCollapsed =
                                             !mobilePanelCollapsed
                                     "
-                                    class="text-white/40 hover:text-white/80 transition-colors"
+                                    class="w-[88px] flex justify-end text-white/40 hover:text-white/80 transition-colors"
                                     aria-label="展開/收合"
                                 >
                                     <span
@@ -1132,5 +1141,19 @@ onUnmounted(() => {
 }
 .left-panel::-webkit-scrollbar-track {
     background: transparent;
+}
+
+/* ── Apple Music 風格播放按鈕光暈 ── */
+.apple-play-btn {
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.06),
+        0 0 30px rgba(255, 255, 255, 0.12),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.apple-play-btn:active {
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.04),
+        0 0 15px rgba(255, 255, 255, 0.08),
+        0 4px 16px rgba(0, 0, 0, 0.3);
 }
 </style>

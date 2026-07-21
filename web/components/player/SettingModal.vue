@@ -87,8 +87,9 @@ const emit = defineEmits<{
                                         emit(
                                             'update:lyricFontSize',
                                             Number(
-                                                ($event.target as HTMLInputElement)
-                                                    .value,
+                                                (
+                                                    $event.target as HTMLInputElement
+                                                ).value,
                                             ),
                                         )
                                     "
@@ -126,8 +127,9 @@ const emit = defineEmits<{
                                         @change="
                                             emit(
                                                 'update:enableLyricBackground',
-                                                ($event.target as HTMLInputElement)
-                                                    .checked,
+                                                (
+                                                    $event.target as HTMLInputElement
+                                                ).checked,
                                             )
                                         "
                                     />
@@ -149,8 +151,9 @@ const emit = defineEmits<{
                                         @change="
                                             emit(
                                                 'update:scrollToCurrentLine',
-                                                ($event.target as HTMLInputElement)
-                                                    .checked,
+                                                (
+                                                    $event.target as HTMLInputElement
+                                                ).checked,
                                             )
                                         "
                                     />
@@ -172,8 +175,9 @@ const emit = defineEmits<{
                                         @change="
                                             emit(
                                                 'update:enableTranslation',
-                                                ($event.target as HTMLInputElement)
-                                                    .checked,
+                                                (
+                                                    $event.target as HTMLInputElement
+                                                ).checked,
                                             )
                                         "
                                     />
@@ -196,8 +200,9 @@ const emit = defineEmits<{
                                         @change="
                                             emit(
                                                 'update:enablePronounciation',
-                                                ($event.target as HTMLInputElement)
-                                                    .checked,
+                                                (
+                                                    $event.target as HTMLInputElement
+                                                ).checked,
                                             )
                                         "
                                     />
@@ -259,7 +264,7 @@ input:checked + .slider {
     border-color: rgba(20, 184, 166, 0.5);
 }
 input:checked + .slider:before {
-    transform: translateX(18px);
+    transform: translateX(28px);
     background: white;
 }
 input:disabled + .slider {
