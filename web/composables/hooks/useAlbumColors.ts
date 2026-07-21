@@ -55,10 +55,7 @@ export function useAlbumColors(imageUrl: () => string | undefined) {
                         const qg = Math.round(g / 32) * 32;
                         const qb = Math.round(b / 32) * 32;
                         const key = `${qr},${qg},${qb}`;
-                        colorCounts.set(
-                            key,
-                            (colorCounts.get(key) || 0) + 1,
-                        );
+                        colorCounts.set(key, (colorCounts.get(key) || 0) + 1);
                     }
 
                     // 按出現次數排序，取前 5 個主色
@@ -84,14 +81,8 @@ export function useAlbumColors(imageUrl: () => string | undefined) {
 
                     // 根據主色計算深色版本用於背景漸層
                     const dark1 = darkenHex(palette[0], 0.25);
-                    const dark2 = darkenHex(
-                        palette[1] || palette[0],
-                        0.2,
-                    );
-                    const dark3 = darkenHex(
-                        palette[2] || palette[0],
-                        0.3,
-                    );
+                    const dark2 = darkenHex(palette[1] || palette[0], 0.2);
+                    const dark3 = darkenHex(palette[2] || palette[0], 0.3);
 
                     const gradient = `linear-gradient(135deg, ${dark1} 0%, ${dark2} 50%, ${dark3} 100%)`;
                     const dominant = dark1;

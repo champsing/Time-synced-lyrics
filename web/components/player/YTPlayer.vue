@@ -138,9 +138,6 @@ defineExpose({
 
 <template>
     <div ref="playerContainer" class="w-full h-full">
-        <div
-            id="player"
-            class="w-full h-full bg-black rounded-2xl relative"
-        />
+        <div id="player" class="w-full h-full bg-black rounded-2xl relative" />
     </div>
 </template>
