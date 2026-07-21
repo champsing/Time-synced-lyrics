@@ -56,9 +56,7 @@ const emit = defineEmits<{
                         <div class="text-center mb-4">
                             <span class="text-sm text-white/50">演出藝人</span>
                             <div class="text-2xl font-bold text-white mt-1">
-                                {{
-                                    currentSong.displayArtist || "未知的藝人"
-                                }}
+                                {{ currentSong.displayArtist || "未知的藝人" }}
                             </div>
                         </div>
 
@@ -103,9 +101,7 @@ const emit = defineEmits<{
                             v-if="currentSong.credits"
                             class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-y-6 max-h-[50vh] md:max-h-[55vh] overflow-y-auto custom-scrollbar pr-2"
                         >
-                            <template
-                                v-if="currentSong.credits.performance"
-                            >
+                            <template v-if="currentSong.credits.performance">
                                 <div
                                     class="md:col-span-3 text-sm font-bold text-teal-400 mt-2 tracking-wide uppercase"
                                 >
@@ -126,9 +122,7 @@ const emit = defineEmits<{
                                 </div>
                             </template>
 
-                            <template
-                                v-if="currentSong.credits.song_writing"
-                            >
+                            <template v-if="currentSong.credits.song_writing">
                                 <div
                                     class="md:col-span-3 text-sm font-bold text-teal-400 mt-2 tracking-wide uppercase"
                                 >
@@ -149,9 +143,7 @@ const emit = defineEmits<{
                                 </div>
                             </template>
 
-                            <template
-                                v-if="currentSong.credits.engineering"
-                            >
+                            <template v-if="currentSong.credits.engineering">
                                 <div
                                     class="md:col-span-3 text-sm font-bold text-teal-400 mt-2 tracking-wide uppercase"
                                 >

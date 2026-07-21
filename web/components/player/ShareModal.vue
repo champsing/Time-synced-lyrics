@@ -50,9 +50,7 @@ const emit = defineEmits<{
                     <div class="px-5 py-4 space-y-4">
                         <!-- Link section -->
                         <div class="flex items-center gap-3">
-                            <span
-                                class="material-icons text-white/40 shrink-0"
-                            >
+                            <span class="material-icons text-white/40 shrink-0">
                                 link
                             </span>
                             <div
