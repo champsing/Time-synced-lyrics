@@ -255,18 +255,4 @@
     input:checked + .slider:before {
         @apply -translate-x-2 bg-white;
     }
-
-    /* Apple Music 風格播放按鈕光暈 */
-    .apple-play-btn {
-        box-shadow:
-            0 0 0 5px rgba(255, 255, 255, 0.05),
-            0 0 28px rgba(255, 255, 255, 0.10),
-            0 8px 32px rgba(142, 102, 102, 0.4);
-    }
-    .apple-play-btn:active {
-        box-shadow:
-            0 0 0 2px rgba(255, 255, 255, 0.03),
-            0 0 12px rgba(255, 255, 255, 0.06),
-            0 4px 16px rgba(0, 0, 0, 0.3);
-    }
 }

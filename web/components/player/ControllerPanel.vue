@@ -299,38 +299,31 @@ onMounted(() => {
                         </div>
                     </div>
 
-                    <!-- 播放核心按鈕：Apple Music 風格 -->
+                    <!-- 播放核心按鈕 -->
                     <div class="flex items-center gap-10">
-                        <!-- 倒轉 10 秒：純圖標 -->
                         <button
                             @click="emit('rewind')"
-                            class="text-white/70 hover:text-white active:scale-90 transition-all duration-200"
+                            class="text-white/60 hover:text-white transition-all transform active:scale-90"
                         >
-                            <span
-                                class="material-icons text-[28px] leading-none"
+                            <span class="material-icons text-2xl"
                                 >replay_10</span
                             >
                         </button>
 
-                        <!-- 播放 / 暫停：Apple Music 風格外光按鈕 -->
                         <button
                             @click="isPaused ? emit('play') : emit('pause')"
-                            class="apple-play-btn w-14 h-14 flex items-center justify-center bg-white text-black rounded-full hover:scale-105 active:scale-95 transition-all duration-200"
+                            class="w-14 h-14 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 transition-all"
                         >
-                            <span
-                                class="material-icons text-4xl leading-none"
-                                >{{
+                            <span class="material-icons text-4xl">{{
                                 isPaused ? "play_arrow" : "pause"
                             }}</span>
                         </button>
 
-                        <!-- 快轉 10 秒：純圖標 -->
                         <button
                             @click="emit('forward')"
-                            class="text-white/70 hover:text-white active:scale-90 transition-all duration-200"
+                            class="text-white/60 hover:text-white transition-all transform active:scale-90"
                         >
-                            <span
-                                class="material-icons text-[28px] leading-none"
+                            <span class="material-icons text-2xl"
                                 >forward_10</span
                             >
                         </button>
