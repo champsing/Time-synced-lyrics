@@ -5,9 +5,28 @@ export const formatTime = (seconds: number) => {
 };
 
 export const scrollToLineIndex = (index: number) => {
-    const currentLineId = document.getElementById(`line-button-${index}`);
+    // There are two LyricLine instances in the DOM (desktop + mobile),
+    // both with the same IDs. getElementById returns only the first one,
+    // which might be hidden. Use querySelectorAll and find the visible one.
+    const elements = document.querySelectorAll(`[id="line-button-${index}"]`);
 
-    currentLineId?.scrollIntoView({
+    for (const el of elements) {
+        const scrollParent = el.closest(
+            ".overflow-y-auto",
+        ) as HTMLElement | null;
+        if (scrollParent && scrollParent.offsetParent !== null) {
+            // This scroll container is visible (not display:none)
+            el.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+            return;
+        }
+    }
+
+    // Fallback: try the old method (works when only one instance exists)
+    const fallback = document.getElementById(`line-button-${index}`);
+    fallback?.scrollIntoView({
         behavior: "smooth",
         block: "center",
     });

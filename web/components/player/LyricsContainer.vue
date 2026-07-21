@@ -42,7 +42,7 @@ const { translationText, backgroundTranslationText, translationAuthor } =
         <div
             id="lyrics-container"
             class="scroll-smooth snap-y snap-proximity p-4 w-full h-full relative mr-4 md:mr-12"
-            :class="{ 'bg-[#3b3a3a]': !enableLyricBackground }"
+            :class="{ 'bg-[#201b1b]': !enableLyricBackground }"
             :style="{ '--lyric-font-size': lyricFontSize + 'px' }"
         >
             <div
