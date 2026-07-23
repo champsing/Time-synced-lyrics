@@ -43,11 +43,12 @@ export function useAlbumColors(imageUrl: () => string | undefined) {
 
                     // 收集量化後的顏色並計數
                     const colorCounts = new Map<string, number>();
+
                     for (let i = 0; i < pixels.length; i += 4) {
-                        const r = pixels[i];
-                        const g = pixels[i + 1];
-                        const b = pixels[i + 2];
-                        const a = pixels[i + 3];
+                        const r = pixels[i]!;
+                        const g = pixels[i + 1]!;
+                        const b = pixels[i + 2]!;
+                        const a = pixels[i + 3]!;
                         if (a < 128) continue; // 跳過透明像素
 
                         // 量化至 32 級以減少顏色數量
@@ -63,7 +64,7 @@ export function useAlbumColors(imageUrl: () => string | undefined) {
                         .sort((a, b) => b[1] - a[1])
                         .slice(0, 5);
 
-                    const palette = sorted.map(([key]) => {
+                    const palette: string[] = sorted.map(([key]) => {
                         const [r, g, b] = key.split(",").map(Number);
                         return `rgb(${r},${g},${b})`;
                     });
@@ -80,9 +81,9 @@ export function useAlbumColors(imageUrl: () => string | undefined) {
                     }
 
                     // 根據主色計算深色版本用於背景漸層
-                    const dark1 = darkenHex(palette[0], 0.25);
-                    const dark2 = darkenHex(palette[1] || palette[0], 0.2);
-                    const dark3 = darkenHex(palette[2] || palette[0], 0.3);
+                    const dark1 = darkenHex(palette[0]!, 0.25);
+                    const dark2 = darkenHex(palette[1] || palette[0]!, 0.2);
+                    const dark3 = darkenHex(palette[2] || palette[0]!, 0.3);
 
                     const gradient = `linear-gradient(135deg, ${dark1} 0%, ${dark2} 50%, ${dark3} 100%)`;
                     const dominant = dark1;
