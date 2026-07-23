@@ -669,11 +669,11 @@ onUnmounted(() => {
 
                             <button
                                 @click="isPaused ? playVideo() : pauseVideo()"
-                                class="w-16 h-16 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all"
+                                class="w-14 h-14 flex items-center justify-center bg-[#FC3C44] hover:bg-[#e8353d] text-white rounded-2xl hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-red-500/20"
                                 title="播放 / 暫停"
                                 aria-label="播放 / 暫停"
                             >
-                                <span class="material-icons text-4xl">
+                                <span class="material-icons text-[36px] leading-none">
                                     {{ isPaused ? "play_arrow" : "pause" }}
                                 </span>
                             </button>
@@ -1192,19 +1192,5 @@ onUnmounted(() => {
 }
 .left-panel::-webkit-scrollbar-track {
     background: transparent;
-}
-
-/* ── Apple Music 風格播放按鈕光暈 ── */
-.apple-play-btn {
-    box-shadow:
-        0 0 0 4px rgba(255, 255, 255, 0.06),
-        0 0 30px rgba(255, 255, 255, 0.12),
-        0 8px 32px rgba(0, 0, 0, 0.4);
-}
-.apple-play-btn:active {
-    box-shadow:
-        0 0 0 2px rgba(255, 255, 255, 0.04),
-        0 0 15px rgba(255, 255, 255, 0.08),
-        0 4px 16px rgba(0, 0, 0, 0.3);
 }
 </style>
