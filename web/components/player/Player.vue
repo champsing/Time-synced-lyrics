@@ -36,15 +36,15 @@ import {
     formatTime,
     scrollToLineIndex,
 } from "@/composables/utils/global";
-import AboutModal from "@components/player/AboutModal.vue";
-import CreditModal from "@components/player/CreditModal.vue";
+import AboutModal from "@components/player/modals/AboutModal.vue";
+import CreditModal from "@components/player/modals/CreditModal.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
 import LoadingOverlay from "@components/player/LoadingOverlay.vue";
-import LyricsContainer from "@components/player/LyricsContainer.vue";
+import LyricsContainer from "@components/player/lyrics/LyricsContainer.vue";
 import PlayerNav from "@components/player/PlayerNav.vue";
-import SettingModal from "@components/player/SettingModal.vue";
-import ShareModal from "@components/player/ShareModal.vue";
-import TranslationBar from "@components/player/TranslationBar.vue";
+import SettingModal from "@components/player/modals/SettingModal.vue";
+import ShareModal from "@components/player/modals/ShareModal.vue";
+import TranslationBar from "@components/player/lyrics/TranslationBar.vue";
 import YTPlayer from "@components/player/YTPlayer.vue";
 
 // ── URL 參數 ─────────────────────────────────────────────────────────────
@@ -70,7 +70,7 @@ const isMuted = ref(false);
 const isError = ref(false);
 const errorMessage = ref("");
 
-const currentSong = ref<SongWithDisplay | null>(null);
+const currentSong = ref<SongWithDisplay>({} as SongWithDisplay);
 
 // ── 字型大小設定 ─────────────────────────────────────────────────────────
 const lyricFontSize = ref<number>(
@@ -161,7 +161,7 @@ const onBarTouchStart = (event: TouchEvent) => {
     event.preventDefault();
     activeBarEl = event.currentTarget as HTMLElement;
     isDragging.value = true;
-    const ratio = getSeekRatio(event.touches[0].clientX, activeBarEl);
+    const ratio = getSeekRatio(event.touches[0]!.clientX, activeBarEl);
     dragPercent.value = ratio * 100;
     seekToRatio(ratio);
     document.addEventListener("touchmove", onBarTouchMove, { passive: false });
@@ -171,7 +171,7 @@ const onBarTouchStart = (event: TouchEvent) => {
 const onBarTouchMove = (event: TouchEvent) => {
     if (!isDragging.value || !activeBarEl) return;
     event.preventDefault();
-    const ratio = getSeekRatio(event.touches[0].clientX, activeBarEl);
+    const ratio = getSeekRatio(event.touches[0]!.clientX, activeBarEl);
     dragPercent.value = ratio * 100;
     seekToRatio(ratio);
 };
@@ -221,7 +221,7 @@ const onVolumeTouchStart = (event: TouchEvent) => {
     event.preventDefault();
     activeVolumeBarEl = event.currentTarget as HTMLElement;
     isDraggingVolume.value = true;
-    const ratio = getVolumeRatio(event.touches[0].clientX, activeVolumeBarEl);
+    const ratio = getVolumeRatio(event.touches[0]!.clientX, activeVolumeBarEl);
     changeVolume(Math.round(ratio * 100));
     document.addEventListener("touchmove", onVolumeTouchMove, {
         passive: false,
@@ -232,7 +232,7 @@ const onVolumeTouchStart = (event: TouchEvent) => {
 const onVolumeTouchMove = (event: TouchEvent) => {
     if (!isDraggingVolume.value || !activeVolumeBarEl) return;
     event.preventDefault();
-    const ratio = getVolumeRatio(event.touches[0].clientX, activeVolumeBarEl);
+    const ratio = getVolumeRatio(event.touches[0]!.clientX, activeVolumeBarEl);
     changeVolume(Math.round(ratio * 100));
 };
 
@@ -669,11 +669,13 @@ onUnmounted(() => {
 
                             <button
                                 @click="isPaused ? playVideo() : pauseVideo()"
-                                class="w-16 h-16 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all"
+                                class="w-14 h-14 flex items-center justify-center bg-[#FC3C44] hover:bg-[#e8353d] text-white rounded-2xl hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-red-500/20"
                                 title="播放 / 暫停"
                                 aria-label="播放 / 暫停"
                             >
-                                <span class="material-icons text-4xl">
+                                <span
+                                    class="material-icons text-[36px] leading-none"
+                                >
                                     {{ isPaused ? "play_arrow" : "pause" }}
                                 </span>
                             </button>
@@ -803,7 +805,7 @@ onUnmounted(() => {
                         :background-translation-text="backgroundTranslationText"
                         :translation-author="translationAuthor"
                         :translation-modified="translationModified"
-                        class="z-2 absolute bottom-6 md:bottom-10 left-4 right-auto max-w-md md:max-w-none md:w-1/2"
+                        class="z-2 absolute bottom-6 md:bottom-10 left-4 right-auto max-w-md md:max-w-none md:w-2/5"
                     />
                 </div>
             </div>
@@ -1014,60 +1016,12 @@ onUnmounted(() => {
                                 </span>
                             </div>
 
-                            <!-- 控制按鈕：Apple Music 風格 -->
-                            <div class="flex items-center justify-between pb-3">
-                                <!-- 音量（左側） -->
-                                <div class="flex items-center gap-1.5 w-[88px]">
-                                    <button
-                                        @click="toggleMute"
-                                        class="text-white/50 hover:text-white transition-colors shrink-0"
-                                        aria-label="靜音切換"
-                                    >
-                                        <span class="material-icons text-lg">
-                                            {{
-                                                volume === 0 || isMuted
-                                                    ? "volume_off"
-                                                    : "volume_up"
-                                            }}
-                                        </span>
-                                    </button>
-                                    <div
-                                        class="relative flex-1 cursor-pointer py-2 -my-2"
-                                        @mousedown="onVolumeMouseDown"
-                                        @touchstart.prevent="onVolumeTouchStart"
-                                        @mouseenter="isHoveringVolume = true"
-                                        @mouseleave="isHoveringVolume = false"
-                                    >
-                                        <div
-                                            class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
-                                            :class="{
-                                                'h-1':
-                                                    !isHoveringVolume &&
-                                                    !isDraggingVolume,
-                                                'h-1.5':
-                                                    isHoveringVolume &&
-                                                    !isDraggingVolume,
-                                                'h-4': isDraggingVolume,
-                                            }"
-                                            style="
-                                                background-color: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.12
-                                                );
-                                            "
-                                        >
-                                            <div
-                                                class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
-                                                :style="{ width: volume + '%' }"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 核心播放按鈕：Apple Music 風格 -->
-                                <div class="flex items-center gap-6">
+                            <!-- 播放控制 + 收合按鈕 -->
+                            <div class="flex items-center pb-3">
+                                <!-- 左側佔位：強制播放按鈕群組置中 -->
+                                <div class="flex-1" />
+                                <!-- 核心播放按鈕 -->
+                                <div class="flex items-center gap-5">
                                     <!-- 倒轉 10 秒 -->
                                     <button
                                         @click="rewind10Sec"
@@ -1080,18 +1034,18 @@ onUnmounted(() => {
                                         >
                                     </button>
 
-                                    <!-- 播放 / 暫停：Apple Music 風格外光按鈕 -->
+                                    <!-- 播放 / 暫停：彩色矩形按鈕 (2:1) -->
                                     <button
                                         @click="
                                             isPaused
                                                 ? playVideo()
                                                 : pauseVideo()
                                         "
-                                        class="apple-play-btn relative w-14 h-14 flex items-center justify-center bg-white rounded-full active:scale-95 transition-all duration-200"
+                                        class="flex items-center justify-center w-24 h-12 bg-[#FC3C44] hover:bg-[#e8353d] rounded-2xl active:scale-95 transition-all duration-200 shadow-lg shadow-red-500/20"
                                         aria-label="播放 / 暫停"
                                     >
                                         <span
-                                            class="material-icons text-4xl text-black leading-none"
+                                            class="material-icons text-[32px] text-white leading-none"
                                         >
                                             {{
                                                 isPaused
@@ -1113,24 +1067,76 @@ onUnmounted(() => {
                                         >
                                     </button>
                                 </div>
-
-                                <!-- 收合按鈕（右側） -->
-                                <button
-                                    @click="
-                                        mobilePanelCollapsed =
-                                            !mobilePanelCollapsed
-                                    "
-                                    class="w-[88px] flex justify-end text-white/40 hover:text-white/80 transition-colors"
-                                    aria-label="展開/收合"
-                                >
-                                    <span
-                                        class="material-icons transition-transform duration-300"
-                                        :class="{
-                                            'rotate-180': mobilePanelCollapsed,
-                                        }"
-                                        >expand_more</span
+                                <!-- 右側：收合按鈕 -->
+                                <div class="flex-1 flex justify-end">
+                                    <button
+                                        @click="
+                                            mobilePanelCollapsed =
+                                                !mobilePanelCollapsed
+                                        "
+                                        class="text-white/40 hover:text-white/80 transition-colors"
+                                        aria-label="展開/收合"
                                     >
+                                        <span
+                                            class="material-icons transition-transform duration-300"
+                                            :class="{
+                                                'rotate-180':
+                                                    mobilePanelCollapsed,
+                                            }"
+                                            >expand_more</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 音量控制列：全寬 -->
+                            <div class="flex items-center gap-1.5">
+                                <button
+                                    @click="toggleMute"
+                                    class="text-white/50 hover:text-white transition-colors shrink-0"
+                                    aria-label="靜音切換"
+                                >
+                                    <span class="material-icons text-lg">
+                                        {{
+                                            volume === 0 || isMuted
+                                                ? "volume_off"
+                                                : "volume_up"
+                                        }}
+                                    </span>
                                 </button>
+                                <div
+                                    class="relative flex-1 cursor-pointer py-2 -my-2"
+                                    @mousedown="onVolumeMouseDown"
+                                    @touchstart.prevent="onVolumeTouchStart"
+                                    @mouseenter="isHoveringVolume = true"
+                                    @mouseleave="isHoveringVolume = false"
+                                >
+                                    <div
+                                        class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
+                                        :class="{
+                                            'h-1':
+                                                !isHoveringVolume &&
+                                                !isDraggingVolume,
+                                            'h-1.5':
+                                                isHoveringVolume &&
+                                                !isDraggingVolume,
+                                            'h-4': isDraggingVolume,
+                                        }"
+                                        style="
+                                            background-color: rgba(
+                                                255,
+                                                255,
+                                                255,
+                                                0.12
+                                            );
+                                        "
+                                    >
+                                        <div
+                                            class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
+                                            :style="{ width: volume + '%' }"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1189,19 +1195,5 @@ onUnmounted(() => {
 }
 .left-panel::-webkit-scrollbar-track {
     background: transparent;
-}
-
-/* ── Apple Music 風格播放按鈕光暈 ── */
-.apple-play-btn {
-    box-shadow:
-        0 0 0 4px rgba(255, 255, 255, 0.06),
-        0 0 30px rgba(255, 255, 255, 0.12),
-        0 8px 32px rgba(0, 0, 0, 0.4);
-}
-.apple-play-btn:active {
-    box-shadow:
-        0 0 0 2px rgba(255, 255, 255, 0.04),
-        0 0 15px rgba(255, 255, 255, 0.08),
-        0 4px 16px rgba(0, 0, 0, 0.3);
 }
 </style>

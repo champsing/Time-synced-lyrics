@@ -167,19 +167,20 @@ function parseSubtitle(subtitle: string | null | undefined): string {
                                                 true
                                             "
                                             class="ml-1.5 px-1.5 py-0.5 rounded-md bg-zinc-300/15 text-[10px] text-zinc-300 font-normal"
-                                            >有更動</span
-                                        ></span
+                                        >
+                                            有更動
+                                        </span></span
                                     >
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <span class="material-icons text-xs"
-                                        >update</span
-                                    >
-                                    <span
-                                        >更新：{{
+                                    <span class="material-icons text-xs">
+                                        update
+                                    </span>
+                                    <span>
+                                        更新：{{
                                             song.updated_at?.split(" ")[0]
-                                        }}</span
-                                    >
+                                        }}
+                                    </span>
                                 </div>
                             </div>
 

@@ -38,20 +38,22 @@ defineEmits<{ (e: "disableTranslation"): void }>();
                         rel="noopener noreferrer"
                         class="text-[10px] md:text-xs font-medium text-zinc-300/70 hover:text-zinc-200 underline decoration-zinc-300/20 hover:decoration-zinc-300/50 underline-offset-2 transition-colors"
                     >
-                        翻譯作者：{{ translationAuthor
-                        }}<span
+                        翻譯作者：{{ translationAuthor }}
+                        <span
                             v-if="translationModified"
                             class="ml-1.5 px-1.5 py-0.5 rounded-md bg-zinc-300/20 text-[10px] text-zinc-300 font-normal no-underline"
-                            >有更動</span
                         >
+                            有更動
+                        </span>
                     </a>
                     <div v-else class="text-[10px] md:text-xs text-zinc-300/60">
-                        翻譯作者：{{ translationAuthor
-                        }}<span
+                        翻譯作者：{{ translationAuthor }}
+                        <span
                             v-if="translationModified"
                             class="ml-1.5 px-1.5 py-0.5 rounded-md bg-zinc-300/15 text-[10px] text-zinc-300/90 font-normal"
-                            >有更動</span
                         >
+                            有更動
+                        </span>
                     </div>
                 </div>
             </div>

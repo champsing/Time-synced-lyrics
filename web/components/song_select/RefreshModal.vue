@@ -21,9 +21,9 @@ const emit = defineEmits<{
                     class="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-6 w-[85%] max-w-md"
                 >
                     <div class="flex items-center mb-4">
-                        <span class="text-xl font-bold text-white"
-                            >重新整理歌曲資料</span
-                        >
+                        <span class="text-xl font-bold text-white">
+                            重新整理歌曲資料
+                        </span>
                         <div class="grow" />
                         <button
                             @click="emit('close')"
