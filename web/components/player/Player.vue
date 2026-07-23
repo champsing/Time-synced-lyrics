@@ -803,7 +803,7 @@ onUnmounted(() => {
                         :background-translation-text="backgroundTranslationText"
                         :translation-author="translationAuthor"
                         :translation-modified="translationModified"
-                        class="z-2 absolute bottom-6 md:bottom-10 left-4 right-auto max-w-md md:max-w-none md:w-1/2"
+                        class="z-2 absolute bottom-6 left-4 right-auto max-w-md"
                     />
                 </div>
             </div>
