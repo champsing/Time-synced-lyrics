@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { LyricPhrase } from "@/types/player";
 import type { CSSProperties } from "vue";
+import { computed } from "vue";
 
-defineProps<{
+const props = defineProps<{
     phrase: LyricPhrase;
     duration: number;
     delay: number;
@@ -11,6 +12,13 @@ defineProps<{
     isBackground?: boolean;
     enablePronounciation: boolean;
 }>();
+
+const computedStyle = computed<CSSProperties>(() => ({
+    ...props.phraseStyle,
+    fontSize: props.isBackground
+        ? "calc(var(--lyric-font-size) - 10px)"
+        : "var(--lyric-font-size)",
+}));
 </script>
 
 <template>
@@ -19,11 +27,10 @@ defineProps<{
         :class="{
             active: isActive,
             kiai: phrase.kiai,
-            'text-base': isBackground,
         }"
         :duration="duration * 100"
         :delay="delay * 100"
-        :style="phraseStyle"
+        :style="computedStyle"
     >
         <!-- 有注音且強制顯示 -->
         <template v-if="phrase.pronounciation && phrase.pncat_forced">
