@@ -26,7 +26,7 @@ export interface SongListItem {
     // ensureSongData 後才有的完整欄位
     versions?: SongVersion[];
     subtitle?: string;
-    translation?: { author?: string; available?: boolean };
+    translation?: { author?: string; available?: boolean; modified?: boolean };
     folder?: string;
     furigana?: boolean;
 }

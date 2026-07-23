@@ -97,7 +97,10 @@ export const parseLyrics = async (
             if (line.type === "interlude" || line.type === "prelude") {
                 lineText = [{ phrase: "● ● ●", duration: 0 }];
             } else if (line.type === "end") {
-                const creatorName = currentSong.displayLyricist || currentSong.displayArtist || "未知的創作者";
+                const creatorName =
+                    currentSong.displayLyricist ||
+                    currentSong.displayArtist ||
+                    "未知的創作者";
                 const totalDuration = (songDuration - startTime) * 100; // 厘秒
                 lineText = [
                     {

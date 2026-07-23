@@ -18,9 +18,13 @@ defineEmits<{ (e: "disableTranslation"): void }>();
             <div
                 class="p-3 md:p-5 flex flex-col items-start gap-1.5 md:gap-2 bg-white/4 backdrop-blur-xl rounded-2xl border border-white/6"
             >
-                <div class="text-lg md:text-2xl font-bold text-white/90 leading-snug">
+                <div
+                    class="text-lg md:text-2xl font-bold text-white/90 leading-snug"
+                >
                     {{ translationText }}
-                    <div class="mt-1 text-sm md:text-base font-normal text-white/50">
+                    <div
+                        class="mt-1 text-sm md:text-base font-normal text-white/50"
+                    >
                         {{ backgroundTranslationText }}
                     </div>
                 </div>
@@ -38,14 +42,16 @@ defineEmits<{ (e: "disableTranslation"): void }>();
                         }}<span
                             v-if="translationModified"
                             class="ml-1.5 px-1.5 py-0.5 rounded-md bg-zinc-300/20 text-[10px] text-zinc-300 font-normal no-underline"
-                        >有更動</span>
+                            >有更動</span
+                        >
                     </a>
                     <div v-else class="text-[10px] md:text-xs text-zinc-300/60">
                         翻譯作者：{{ translationAuthor
                         }}<span
                             v-if="translationModified"
                             class="ml-1.5 px-1.5 py-0.5 rounded-md bg-zinc-300/15 text-[10px] text-zinc-300/90 font-normal"
-                        >有更動</span>
+                            >有更動</span
+                        >
                     </div>
                 </div>
             </div>
@@ -54,7 +60,9 @@ defineEmits<{ (e: "disableTranslation"): void }>();
             <div
                 class="p-3 md:p-4 flex flex-col items-start gap-2 bg-white/3 backdrop-blur-xl rounded-2xl border border-white/4"
             >
-                <span class="text-white/25 text-xs md:text-sm">本歌曲尚未提供翻譯</span>
+                <span class="text-white/25 text-xs md:text-sm"
+                    >本歌曲尚未提供翻譯</span
+                >
             </div>
         </template>
     </div>

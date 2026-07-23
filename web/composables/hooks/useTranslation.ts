@@ -47,5 +47,10 @@ export function useTranslation(
         return song?.translation?.modified === true;
     });
 
-    return { translationAuthor, translationModified, translationText, backgroundTranslationText };
+    return {
+        translationAuthor,
+        translationModified,
+        translationText,
+        backgroundTranslationText,
+    };
 }
