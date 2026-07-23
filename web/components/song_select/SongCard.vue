@@ -47,9 +47,9 @@ const emit = defineEmits<{
                 v-if="!song.available"
                 class="absolute inset-0 bg-black/60 flex items-center justify-center"
             >
-                <span class="text-xl font-bold rotate-12 text-white/70"
-                    >COMING SOON</span
-                >
+                <span class="text-xl font-bold rotate-12 text-white/70">
+                    COMING SOON
+                </span>
             </div>
 
             <!-- 播放按鈕 -->

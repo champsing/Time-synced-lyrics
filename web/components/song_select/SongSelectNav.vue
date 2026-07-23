@@ -30,31 +30,6 @@ import { PLAYER_VERSION } from "@/composables/utils/config";
             >
                 返回首頁
             </a>
-
-            <!-- 
-                /* 基礎佈局與文字 */
-                select-none px-4 py-2 rounded-lg text-white font-medium
-                
-                /* 玻璃質感核心：半透明背景 + 磨砂濾鏡 */
-                bg-white/10 backdrop-blur-md 
-                
-                /* 邊框：定義玻璃邊緣的微光 */
-                border border-white/20 
-                
-                /* 外陰影：增加立體浮空感 */
-                shadow-lg 
-                
-                /* 動畫過渡設定 */
-                transition-all duration-400 ease-in-out
-                
-                /* Hover 狀態：亮度提升、邊框強化、外發光與放大 */
-                hover:bg-white/20 hover:border-white/40 
-                hover:shadow-xl hover:shadow-cyan-500/20 
-                hover:scale-110
-                
-                /* 按下狀態：縮小回饋 */
-                active:scale-95 active:bg-white/5 
-            -->
         </div>
     </div>
 </template>

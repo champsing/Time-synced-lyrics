@@ -138,14 +138,16 @@ const emit = defineEmits<{
                                 />
                                 <span
                                     class="text-sm font-medium hidden md:inline-block"
-                                    >{{ bgColorName }}</span
                                 >
+                                    {{ bgColorName }}
+                                </span>
                             </div>
                             <span
                                 class="material-icons text-sm opacity-50 transform transition-transform duration-200"
                                 :class="{ 'rotate-180': showColorPicker }"
-                                >expand_less</span
                             >
+                                expand_less
+                            </span>
                         </div>
                         <Transition name="fade">
                             <div

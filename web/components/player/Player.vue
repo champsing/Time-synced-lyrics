@@ -70,7 +70,7 @@ const isMuted = ref(false);
 const isError = ref(false);
 const errorMessage = ref("");
 
-const currentSong = ref<SongWithDisplay | null>(null);
+const currentSong = ref<SongWithDisplay>({} as SongWithDisplay);
 
 // ── 字型大小設定 ─────────────────────────────────────────────────────────
 const lyricFontSize = ref<number>(
@@ -161,7 +161,7 @@ const onBarTouchStart = (event: TouchEvent) => {
     event.preventDefault();
     activeBarEl = event.currentTarget as HTMLElement;
     isDragging.value = true;
-    const ratio = getSeekRatio(event.touches[0].clientX, activeBarEl);
+    const ratio = getSeekRatio(event.touches[0]!.clientX, activeBarEl);
     dragPercent.value = ratio * 100;
     seekToRatio(ratio);
     document.addEventListener("touchmove", onBarTouchMove, { passive: false });
@@ -171,7 +171,7 @@ const onBarTouchStart = (event: TouchEvent) => {
 const onBarTouchMove = (event: TouchEvent) => {
     if (!isDragging.value || !activeBarEl) return;
     event.preventDefault();
-    const ratio = getSeekRatio(event.touches[0].clientX, activeBarEl);
+    const ratio = getSeekRatio(event.touches[0]!.clientX, activeBarEl);
     dragPercent.value = ratio * 100;
     seekToRatio(ratio);
 };
@@ -221,7 +221,7 @@ const onVolumeTouchStart = (event: TouchEvent) => {
     event.preventDefault();
     activeVolumeBarEl = event.currentTarget as HTMLElement;
     isDraggingVolume.value = true;
-    const ratio = getVolumeRatio(event.touches[0].clientX, activeVolumeBarEl);
+    const ratio = getVolumeRatio(event.touches[0]!.clientX, activeVolumeBarEl);
     changeVolume(Math.round(ratio * 100));
     document.addEventListener("touchmove", onVolumeTouchMove, {
         passive: false,
@@ -232,7 +232,7 @@ const onVolumeTouchStart = (event: TouchEvent) => {
 const onVolumeTouchMove = (event: TouchEvent) => {
     if (!isDraggingVolume.value || !activeVolumeBarEl) return;
     event.preventDefault();
-    const ratio = getVolumeRatio(event.touches[0].clientX, activeVolumeBarEl);
+    const ratio = getVolumeRatio(event.touches[0]!.clientX, activeVolumeBarEl);
     changeVolume(Math.round(ratio * 100));
 };
 
@@ -1017,7 +1017,7 @@ onUnmounted(() => {
                             <!-- 控制按鈕：Apple Music 風格 -->
                             <div class="flex items-center justify-between pb-3">
                                 <!-- 音量（左側） -->
-                                <div class="flex items-center gap-1.5 w-[88px]">
+                                <div class="flex items-center gap-1.5 w-22">
                                     <button
                                         @click="toggleMute"
                                         class="text-white/50 hover:text-white transition-colors shrink-0"
@@ -1120,7 +1120,7 @@ onUnmounted(() => {
                                         mobilePanelCollapsed =
                                             !mobilePanelCollapsed
                                     "
-                                    class="w-[88px] flex justify-end text-white/40 hover:text-white/80 transition-colors"
+                                    class="w-22 flex justify-end text-white/40 hover:text-white/80 transition-colors"
                                     aria-label="展開/收合"
                                 >
                                     <span
