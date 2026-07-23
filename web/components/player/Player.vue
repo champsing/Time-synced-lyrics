@@ -19,6 +19,7 @@ import {
     loadSongData,
     parseLyrics,
 } from "@/composables/hooks/useSongs";
+import { useTranslation } from "@/composables/hooks/useTranslation";
 import {
     ALBUM_GOOGLE_LINK_BASE,
     DEBUG_INFO,
@@ -43,6 +44,7 @@ import LyricsContainer from "@components/player/LyricsContainer.vue";
 import PlayerNav from "@components/player/PlayerNav.vue";
 import SettingModal from "@components/player/SettingModal.vue";
 import ShareModal from "@components/player/ShareModal.vue";
+import TranslationBar from "@components/player/TranslationBar.vue";
 import YTPlayer from "@components/player/YTPlayer.vue";
 
 // ── URL 參數 ─────────────────────────────────────────────────────────────
@@ -80,6 +82,10 @@ watch(lyricFontSize, (newSize) => {
 
 // ── 手機版面板收合 ───────────────────────────────────────────────────────
 const mobilePanelCollapsed = ref(false);
+
+// ── 動態控制器面板高度（用於歌詞底部內邊距與翻譯列定位）───────────────
+const controllerPanelRef = ref<HTMLElement | null>(null);
+const controllerPanelHeight = ref(185); // 預設展開高度，ResizeObserver 啟動後覆寫
 
 // ── Modal 開關 ───────────────────────────────────────────────────────────
 const settingModalOpen = ref(false);
@@ -312,6 +318,18 @@ const currentLineIndex = computed(() => {
     return arr.length === 0 ? -1 : arr[arr.length - 1];
 });
 
+// ── 翻譯資料 ─────────────────────────────────────────────────────────────
+const {
+    translationText,
+    backgroundTranslationText,
+    translationAuthor,
+    translationModified,
+} = useTranslation(
+    () => currentSong.value,
+    () => processedLines.value,
+    () => activeLineIndices.value,
+);
+
 // ── 短語樣式 ─────────────────────────────────────────────────────────────
 const getPhraseStyle = (lineIndex: number, phraseIndex: number) => {
     if (!isCurrentLine(lineIndex)) return {};
@@ -446,6 +464,16 @@ watch(currentLineIndex, (newVal) => {
 onMounted(() => {
     window.addEventListener("keydown", onKeydown);
     setup();
+
+    // 觀測手機版控制器面板高度，動態調整歌詞底部內邊距與翻譯列位置
+    if (controllerPanelRef.value) {
+        const observer = new ResizeObserver((entries) => {
+            const height = entries[0]?.contentRect.height;
+            if (height) controllerPanelHeight.value = height;
+        });
+        observer.observe(controllerPanelRef.value);
+        onUnmounted(() => observer.disconnect());
+    }
 });
 
 onUnmounted(() => {
@@ -760,7 +788,6 @@ onUnmounted(() => {
                         :active-line-indices="activeLineIndices"
                         :current-time="currentTime"
                         :enable-lyric-background="enableLyricBackground"
-                        :enable-translation="enableTranslation"
                         :enable-pronounciation="enablePronounciation"
                         :lyric-font-size="lyricFontSize"
                         :is-active-phrase="isActivePhrase"
@@ -768,6 +795,15 @@ onUnmounted(() => {
                         :get-phrase-style="getPhraseStyle"
                         :get-background-phrase-style="getBackgroundPhraseStyle"
                         @jump="jumpToCurrentLine"
+                    />
+                    <TranslationBar
+                        v-if="enableTranslation"
+                        :song="currentSong"
+                        :translation-text="translationText"
+                        :background-translation-text="backgroundTranslationText"
+                        :translation-author="translationAuthor"
+                        :translation-modified="translationModified"
+                        class="z-2 absolute bottom-6 left-4 right-auto max-w-md"
                     />
                 </div>
             </div>
@@ -776,13 +812,10 @@ onUnmounted(() => {
             <!-- 手機版：全螢幕歌詞 + 底部固定控制欄                      -->
             <!-- ═══════════════════════════════════════════════════════════ -->
             <div class="md:hidden flex-1 flex flex-col overflow-hidden pt-16">
-                <!-- 歌詞區域：pb 值對應底部固定面板高度，確保 scrollIntoView 置中在可見區域內 -->
+                <!-- 歌詞區域：pb 動態對應底部固定面板高度，確保 scrollIntoView 置中在可見區域內 -->
                 <div
-                    class="flex-1 overflow-hidden"
-                    :class="{
-                        'pb-46.25': !mobilePanelCollapsed,
-                        'pb-33.75': mobilePanelCollapsed,
-                    }"
+                    class="flex-1 overflow-hidden transition-[padding-bottom] duration-300"
+                    :style="{ paddingBottom: controllerPanelHeight + 'px' }"
                 >
                     <LyricsContainer
                         :lines="processedLines"
@@ -790,7 +823,6 @@ onUnmounted(() => {
                         :active-line-indices="activeLineIndices"
                         :current-time="currentTime"
                         :enable-lyric-background="enableLyricBackground"
-                        :enable-translation="enableTranslation"
                         :enable-pronounciation="enablePronounciation"
                         :lyric-font-size="lyricFontSize"
                         :is-active-phrase="isActivePhrase"
@@ -801,8 +833,24 @@ onUnmounted(() => {
                     />
                 </div>
 
+                <!-- 翻譯列：浮動於歌詞容器底部邊界，與控制器面板頂部相交 -->
+                <div
+                    v-if="enableTranslation"
+                    class="fixed left-0 right-0 z-40 px-3 transition-[bottom] duration-300"
+                    :style="{ bottom: controllerPanelHeight + 'px' }"
+                >
+                    <TranslationBar
+                        :song="currentSong"
+                        :translation-text="translationText"
+                        :background-translation-text="backgroundTranslationText"
+                        :translation-author="translationAuthor"
+                        :translation-modified="translationModified"
+                    />
+                </div>
+
                 <!-- 手機版底部控制面板 -->
                 <section
+                    ref="controllerPanelRef"
                     class="fixed bottom-0 left-0 right-0 z-50 px-3 pb-3 pt-3 transition-all duration-300"
                 >
                     <div
