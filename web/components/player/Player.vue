@@ -36,15 +36,15 @@ import {
     formatTime,
     scrollToLineIndex,
 } from "@/composables/utils/global";
-import AboutModal from "@components/player/AboutModal.vue";
-import CreditModal from "@components/player/CreditModal.vue";
+import AboutModal from "@components/player/modals/AboutModal.vue";
+import CreditModal from "@components/player/modals/CreditModal.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
 import LoadingOverlay from "@components/player/LoadingOverlay.vue";
-import LyricsContainer from "@components/player/LyricsContainer.vue";
+import LyricsContainer from "@components/player/lyrics/LyricsContainer.vue";
 import PlayerNav from "@components/player/PlayerNav.vue";
-import SettingModal from "@components/player/SettingModal.vue";
-import ShareModal from "@components/player/ShareModal.vue";
-import TranslationBar from "@components/player/TranslationBar.vue";
+import SettingModal from "@components/player/modals/SettingModal.vue";
+import ShareModal from "@components/player/modals/ShareModal.vue";
+import TranslationBar from "@components/player/lyrics/TranslationBar.vue";
 import YTPlayer from "@components/player/YTPlayer.vue";
 
 // ── URL 參數 ─────────────────────────────────────────────────────────────
