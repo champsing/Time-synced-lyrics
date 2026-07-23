@@ -42,7 +42,7 @@ export interface Translation {
     available: number | false;
     author: string | "";
     cite?: string;
-    modified?: number | false;
+    modified?: boolean | false;
 }
 
 //  工作人員名單
