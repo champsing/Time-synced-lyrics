@@ -673,7 +673,9 @@ onUnmounted(() => {
                                 title="播放 / 暫停"
                                 aria-label="播放 / 暫停"
                             >
-                                <span class="material-icons text-[36px] leading-none">
+                                <span
+                                    class="material-icons text-[36px] leading-none"
+                                >
                                     {{ isPaused ? "play_arrow" : "pause" }}
                                 </span>
                             </button>
@@ -1078,7 +1080,8 @@ onUnmounted(() => {
                                         <span
                                             class="material-icons transition-transform duration-300"
                                             :class="{
-                                                'rotate-180': mobilePanelCollapsed,
+                                                'rotate-180':
+                                                    mobilePanelCollapsed,
                                             }"
                                             >expand_more</span
                                         >
