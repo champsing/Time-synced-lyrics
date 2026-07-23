@@ -157,13 +157,13 @@ function parseSubtitle(subtitle: string | null | undefined): string {
                                     <span class="material-icons text-xs"
                                         >translate</span
                                     >
-                                    <span
+                                    <span class="text-zinc-300/60"
                                         >譯者：{{
                                             song.translation?.author ?? "未提供"
                                         }}<span
-                                            v-if="song.translation?.modified === 1"
-                                            class="text-[11px] text-gray-500 font-normal"
-                                        > 已編輯</span></span
+                                            v-if="song.translation?.modified === true"
+                                            class="ml-1.5 px-1.5 py-0.5 rounded-md bg-zinc-300/15 text-[10px] text-zinc-300 font-normal"
+                                        >有更動</span></span
                                     >
                                 </div>
                                 <div class="flex items-center gap-2">

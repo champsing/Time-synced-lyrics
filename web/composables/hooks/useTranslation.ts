@@ -44,7 +44,7 @@ export function useTranslation(
 
     const translationModified = computed(() => {
         const song = toValue(songSource);
-        return song?.translation?.modified === 1;
+        return song?.translation?.modified === true;
     });
 
     return { translationAuthor, translationModified, translationText, backgroundTranslationText };
