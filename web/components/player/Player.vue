@@ -1014,60 +1014,12 @@ onUnmounted(() => {
                                 </span>
                             </div>
 
-                            <!-- 控制按鈕：Apple Music 風格 -->
-                            <div class="flex items-center justify-between pb-3">
-                                <!-- 音量（左側） -->
-                                <div class="flex items-center gap-1.5 w-22">
-                                    <button
-                                        @click="toggleMute"
-                                        class="text-white/50 hover:text-white transition-colors shrink-0"
-                                        aria-label="靜音切換"
-                                    >
-                                        <span class="material-icons text-lg">
-                                            {{
-                                                volume === 0 || isMuted
-                                                    ? "volume_off"
-                                                    : "volume_up"
-                                            }}
-                                        </span>
-                                    </button>
-                                    <div
-                                        class="relative flex-1 cursor-pointer py-2 -my-2"
-                                        @mousedown="onVolumeMouseDown"
-                                        @touchstart.prevent="onVolumeTouchStart"
-                                        @mouseenter="isHoveringVolume = true"
-                                        @mouseleave="isHoveringVolume = false"
-                                    >
-                                        <div
-                                            class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
-                                            :class="{
-                                                'h-1':
-                                                    !isHoveringVolume &&
-                                                    !isDraggingVolume,
-                                                'h-1.5':
-                                                    isHoveringVolume &&
-                                                    !isDraggingVolume,
-                                                'h-4': isDraggingVolume,
-                                            }"
-                                            style="
-                                                background-color: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.12
-                                                );
-                                            "
-                                        >
-                                            <div
-                                                class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
-                                                :style="{ width: volume + '%' }"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 核心播放按鈕：Apple Music 風格 -->
-                                <div class="flex items-center gap-6">
+                            <!-- 播放控制 + 收合按鈕 -->
+                            <div class="flex items-center pb-3">
+                                <!-- 左側佔位：強制播放按鈕群組置中 -->
+                                <div class="flex-1" />
+                                <!-- 核心播放按鈕 -->
+                                <div class="flex items-center gap-5">
                                     <!-- 倒轉 10 秒 -->
                                     <button
                                         @click="rewind10Sec"
@@ -1080,18 +1032,18 @@ onUnmounted(() => {
                                         >
                                     </button>
 
-                                    <!-- 播放 / 暫停：Apple Music 風格外光按鈕 -->
+                                    <!-- 播放 / 暫停：彩色矩形按鈕 (2:1) -->
                                     <button
                                         @click="
                                             isPaused
                                                 ? playVideo()
                                                 : pauseVideo()
                                         "
-                                        class="apple-play-btn relative w-14 h-14 flex items-center justify-center bg-white rounded-full active:scale-95 transition-all duration-200"
+                                        class="flex items-center justify-center w-24 h-12 bg-[#FC3C44] hover:bg-[#e8353d] rounded-2xl active:scale-95 transition-all duration-200 shadow-lg shadow-red-500/20"
                                         aria-label="播放 / 暫停"
                                     >
                                         <span
-                                            class="material-icons text-4xl text-black leading-none"
+                                            class="material-icons text-[32px] text-white leading-none"
                                         >
                                             {{
                                                 isPaused
@@ -1113,24 +1065,75 @@ onUnmounted(() => {
                                         >
                                     </button>
                                 </div>
-
-                                <!-- 收合按鈕（右側） -->
-                                <button
-                                    @click="
-                                        mobilePanelCollapsed =
-                                            !mobilePanelCollapsed
-                                    "
-                                    class="w-22 flex justify-end text-white/40 hover:text-white/80 transition-colors"
-                                    aria-label="展開/收合"
-                                >
-                                    <span
-                                        class="material-icons transition-transform duration-300"
-                                        :class="{
-                                            'rotate-180': mobilePanelCollapsed,
-                                        }"
-                                        >expand_more</span
+                                <!-- 右側：收合按鈕 -->
+                                <div class="flex-1 flex justify-end">
+                                    <button
+                                        @click="
+                                            mobilePanelCollapsed =
+                                                !mobilePanelCollapsed
+                                        "
+                                        class="text-white/40 hover:text-white/80 transition-colors"
+                                        aria-label="展開/收合"
                                     >
+                                        <span
+                                            class="material-icons transition-transform duration-300"
+                                            :class="{
+                                                'rotate-180': mobilePanelCollapsed,
+                                            }"
+                                            >expand_more</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 音量控制列：全寬 -->
+                            <div class="flex items-center gap-1.5">
+                                <button
+                                    @click="toggleMute"
+                                    class="text-white/50 hover:text-white transition-colors shrink-0"
+                                    aria-label="靜音切換"
+                                >
+                                    <span class="material-icons text-lg">
+                                        {{
+                                            volume === 0 || isMuted
+                                                ? "volume_off"
+                                                : "volume_up"
+                                        }}
+                                    </span>
                                 </button>
+                                <div
+                                    class="relative flex-1 cursor-pointer py-2 -my-2"
+                                    @mousedown="onVolumeMouseDown"
+                                    @touchstart.prevent="onVolumeTouchStart"
+                                    @mouseenter="isHoveringVolume = true"
+                                    @mouseleave="isHoveringVolume = false"
+                                >
+                                    <div
+                                        class="relative w-full rounded-full overflow-hidden transition-[height] duration-300 ease-out"
+                                        :class="{
+                                            'h-1':
+                                                !isHoveringVolume &&
+                                                !isDraggingVolume,
+                                            'h-1.5':
+                                                isHoveringVolume &&
+                                                !isDraggingVolume,
+                                            'h-4': isDraggingVolume,
+                                        }"
+                                        style="
+                                            background-color: rgba(
+                                                255,
+                                                255,
+                                                255,
+                                                0.12
+                                            );
+                                        "
+                                    >
+                                        <div
+                                            class="absolute top-0 left-0 h-full rounded-full transition-[width] duration-300 ease-out bg-[#FC3C44]"
+                                            :style="{ width: volume + '%' }"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
