@@ -36,15 +36,15 @@ import {
     formatTime,
     scrollToLineIndex,
 } from "@/composables/utils/global";
-import AboutModal from "@components/player/modals/AboutModal.vue";
-import CreditModal from "@components/player/modals/CreditModal.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
 import LoadingOverlay from "@components/player/LoadingOverlay.vue";
 import LyricsContainer from "@components/player/lyrics/LyricsContainer.vue";
-import PlayerNav from "@components/player/PlayerNav.vue";
+import TranslationBar from "@components/player/lyrics/TranslationBar.vue";
+import AboutModal from "@components/player/modals/AboutModal.vue";
+import CreditModal from "@components/player/modals/CreditModal.vue";
 import SettingModal from "@components/player/modals/SettingModal.vue";
 import ShareModal from "@components/player/modals/ShareModal.vue";
-import TranslationBar from "@components/player/lyrics/TranslationBar.vue";
+import PlayerNav from "@components/player/PlayerNav.vue";
 import YTPlayer from "@components/player/YTPlayer.vue";
 
 // ── URL 參數 ─────────────────────────────────────────────────────────────
@@ -563,15 +563,15 @@ onUnmounted(() => {
                             </button>
                             <span
                                 v-else
-                                class="text-white/40 text-sm lg:text-base"
+                                class="text-white/50 text-sm lg:text-base"
                             >
                                 {{ currentSong.displayArtist || "未知藝人" }}
                             </span>
                         </div>
 
                         <!-- 專輯 + 版本徽章 -->
-                        <div class="flex items-center gap-2 mt-2 flex-wrap">
-                            <span class="text-white/40 text-xs lg:text-sm">
+                        <div class="flex items-center gap-4 mt-2 flex-wrap">
+                            <span class="text-white/50 text-xs lg:text-sm">
                                 {{ currentSong.album?.name || "單曲" }}
                             </span>
                             <span
@@ -601,7 +601,7 @@ onUnmounted(() => {
                         <!-- 副標題 -->
                         <p
                             v-if="currentSong.subtitle"
-                            class="text-white/30 text-xs mt-2 line-clamp-2 italic"
+                            class="text-white/50 text-xs mt-2 line-clamp-2 italic"
                         >
                             {{ parseSubtitle(currentSong.subtitle) }}
                         </p>
