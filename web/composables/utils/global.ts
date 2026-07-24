@@ -49,8 +49,7 @@ function animateScrollTo(container: HTMLElement, targetScrollTop: number) {
 
         scrollAnimation.container.scrollTop =
             scrollAnimation.startScrollTop +
-            (scrollAnimation.targetScrollTop -
-                scrollAnimation.startScrollTop) *
+            (scrollAnimation.targetScrollTop - scrollAnimation.startScrollTop) *
                 eased;
 
         if (progress < 1) {
