@@ -64,3 +64,15 @@ const computedStyle = computed<CSSProperties>(() => {
         <template v-else>{{ phrase.phrase }}</template>
     </span>
 </template>
+
+<style>
+@reference "tailwindcss";
+
+.lyric-phrase {
+    @apply inline-block whitespace-pre relative text-transparent bg-clip-text bg-[#aaaaaa];
+}
+
+.lyric-phrase.active.kiai {
+    @apply stroke-[0.5px] text-shadow-[0_0_5px_rgba(255_255_255/0.5)];
+}
+</style>
