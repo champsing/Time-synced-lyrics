@@ -302,7 +302,7 @@ const activeLineIndices = computed(() => {
                     ? line.computedEndTime
                     : nextLine.time - 0.3;
         } else {
-            endTime = line.computedEndTime + 0.5;
+            endTime = Math.max(line.computedEndTime, songDuration.value) + 0.5;
         }
 
         if (now >= startTime && now < endTime) result.push(index);
