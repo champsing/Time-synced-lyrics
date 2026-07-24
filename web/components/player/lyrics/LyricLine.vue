@@ -84,3 +84,38 @@ defineEmits<{ (e: "jump", index: number): void }>();
         </button>
     </div>
 </template>
+
+<style>
+@reference "tailwindcss";
+
+.lyric-line {
+    @apply transition-opacity duration-300 text-center;
+}
+
+.lyric-line.is-duet {
+    @apply text-left;
+}
+
+.lyric-line.is-duet.is-secondary-vocalist {
+    @apply text-right;
+}
+
+.lyric-line.is-duet.is-together {
+    @apply text-center;
+}
+
+.lyric-button {
+    font-size: var(--lyric-font-size);
+}
+
+.lyric-button.active {
+    @apply max-w-60 md:max-w-[50%] p-2 font-bold text-pretty;
+    font-size: calc(var(--lyric-font-size) * 1.1);
+    @apply md:text-balance;
+}
+
+.lyric-button.active .lyric-phrase {
+    @apply transition-all ease-in duration-200;
+    @apply origin-right;
+}
+</style>
