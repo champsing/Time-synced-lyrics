@@ -209,7 +209,7 @@ export const generatePhraseStyle = (
     const linearGradient = `linear-gradient(to right,
         rgba(255, 255, 255, ${a}) 0%,
         rgba(255, 255, 255, ${a}) ${transitionStart}%,
-        rgba(132, 132, 132, 0.35) ${transitionEnd}%,
+        rgba(169, 163, 163, 0.35) ${transitionEnd}%,
         rgba(132, 132, 132, 0.35) 100%
     )`;
 
