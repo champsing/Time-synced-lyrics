@@ -13,12 +13,20 @@ const props = defineProps<{
     enablePronounciation: boolean;
 }>();
 
-const computedStyle = computed<CSSProperties>(() => ({
-    ...props.phraseStyle,
-    fontSize: props.isBackground
-        ? "calc(var(--lyric-font-size) - 10px)"
-        : "var(--lyric-font-size)",
-}));
+const computedStyle = computed<CSSProperties>(() => {
+    const style = { ...props.phraseStyle };
+    // Only apply default font size when the parent (generatePhraseStyle)
+    // didn't provide one — preserves per-line overrides like the
+    // 20px credit line
+    const hasCustomFontSize =
+        style.fontSize || (style as Record<string, unknown>)["font-size"];
+    if (!hasCustomFontSize) {
+        style.fontSize = props.isBackground
+            ? "calc(var(--lyric-font-size) - 10px)"
+            : "var(--lyric-font-size)";
+    }
+    return style;
+});
 </script>
 
 <template>
