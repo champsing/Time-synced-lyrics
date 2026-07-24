@@ -113,13 +113,21 @@ export function useAlbumColors(imageUrl: () => string | undefined) {
         });
     }
 
-    /** 將 rgb(r,g,b) 轉換為 hex 並調暗 */
+    /**
+     * Darken an rgb(r,g,b) color by the given factor.
+     * The factor controls how dark: 0 = full black, 1 = unchanged.
+     * The output is 50% less dark than a pure multiplicative darken —
+     * it interpolates halfway between the darkened color and the original.
+     */
     function darkenHex(rgb: string, factor: number): string {
         const match = rgb.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
         if (!match) return rgb;
-        const r = Math.round(Number(match[1]) * factor);
-        const g = Math.round(Number(match[2]) * factor);
-        const b = Math.round(Number(match[3]) * factor);
+        // 50% less dark: interpolate halfway back toward the original color
+        // multiplier = factor + (1 - factor) × 0.5 = (1 + factor) / 2
+        const multiplier = (1 + factor) / 2;
+        const r = Math.round(Number(match[1]) * multiplier);
+        const g = Math.round(Number(match[2]) * multiplier);
+        const b = Math.round(Number(match[3]) * multiplier);
         return `rgb(${r},${g},${b})`;
     }
 
