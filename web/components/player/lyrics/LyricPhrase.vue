@@ -23,7 +23,7 @@ const computedStyle = computed<CSSProperties>(() => {
     if (!hasCustomFontSize) {
         style.fontSize = props.isBackground
             ? "calc(var(--lyric-font-size) - 10px)"
-            : "var(--lyric-font-size)";
+            : "";
     }
     return style;
 });
