@@ -109,9 +109,9 @@ defineEmits<{ (e: "jump", index: number): void }>();
 }
 
 .lyric-button.active {
-    @apply max-w-60 md:max-w-[50%] p-2 font-bold text-pretty;
+    @apply max-w-60 md:max-w-[50%] p-2 font-bold text-pretty md:text-balance;
     font-size: calc(var(--lyric-font-size) * 1.1);
-    @apply md:text-balance;
+
 }
 
 .lyric-button.active .lyric-phrase {
