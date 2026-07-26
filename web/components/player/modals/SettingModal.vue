@@ -76,10 +76,10 @@ const emit = defineEmits<{
                                 </span>
                             </div>
                             <div class="flex items-center gap-3 w-full">
-                                <span class="text-xs text-white/40">16px</span>
+                                <span class="text-xs text-white/40">20px</span>
                                 <input
                                     type="range"
-                                    min="16"
+                                    min="20"
                                     max="40"
                                     :value="lyricFontSize"
                                     class="flex-1 h-1.5 bg-white/10 rounded-full appearance-none accent-teal-400 cursor-pointer"
@@ -264,7 +264,7 @@ input:checked + .slider {
     border-color: rgba(20, 184, 166, 0.5);
 }
 input:checked + .slider:before {
-    transform: translateX(28px);
+    transform: translateX(20px);
     background: white;
 }
 input:disabled + .slider {
