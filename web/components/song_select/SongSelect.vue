@@ -2,13 +2,13 @@
 import { useSongSelect } from "@/composables/hooks/useSongSelect";
 import { PLAYER_VERSION } from "@/composables/utils/config";
 import type { SortOption } from "@/types/song_select";
+import LoadingOverlay from "@components/LoadingOverlay.vue";
 import RefreshModal from "@components/song_select/RefreshModal.vue";
 import SearchBar from "@components/song_select/SearchBar.vue";
 import SongCard from "@components/song_select/SongCard.vue";
 import SongDetailModal from "@components/song_select/SongDetailModal.vue";
+import SongSelectNav from "@components/song_select/SongSelectNav.vue";
 import { ref } from "vue";
-import LoadingOverlay from "../player/LoadingOverlay.vue";
-import SongSelectNav from "./SongSelectNav.vue";
 
 const {
     searchQuery,
