@@ -27,8 +27,8 @@ import {
 import { copyToClipboard, scrollToLineIndex } from "@/composables/utils/global";
 
 // ── 子組件 ─────────────────────────────────────────────────────────────
+import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
-import LoadingOverlay from "@components/player/LoadingOverlay.vue";
 import LyricsContainer from "@components/player/lyrics/LyricsContainer.vue";
 import TranslationBar from "@components/player/lyrics/TranslationBar.vue";
 import AboutModal from "@components/player/modals/AboutModal.vue";
