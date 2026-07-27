@@ -3,7 +3,7 @@ import { ref, type Ref } from "vue";
 export function useVolumeControl(
     volume: Ref<number>,
     isMuted: Ref<boolean>,
-    onVolumeChange?: (vol: number) => void
+    onVolumeChange?: (vol: number) => void,
 ) {
     const isDraggingVolume = ref(false);
     const isHoveringVolume = ref(false);
@@ -60,7 +60,9 @@ export function useVolumeControl(
         activeVolumeBarEl = event.currentTarget as HTMLElement;
         isDraggingVolume.value = true;
         updateVolumeFromEvent(event.touches[0]!.clientX);
-        document.addEventListener("touchmove", onVolumeTouchMove, { passive: false });
+        document.addEventListener("touchmove", onVolumeTouchMove, {
+            passive: false,
+        });
         document.addEventListener("touchend", onVolumeTouchEnd);
     };
 

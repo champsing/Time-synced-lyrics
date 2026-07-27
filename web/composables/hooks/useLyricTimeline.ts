@@ -5,7 +5,7 @@ import { generatePhraseStyle } from "@/composables/hooks/useSongs";
 export function useLyricTimeline(
     jsonMappingContent: Ref<LyricData>,
     currentTime: Ref<number>,
-    songDuration: Ref<number>
+    songDuration: Ref<number>,
 ) {
     const processedLines = computed((): ProcessedLine[] => {
         if (!jsonMappingContent.value) return [];
@@ -14,12 +14,19 @@ export function useLyricTimeline(
             let maxEnd = line.time + mainTotal;
             const validDuration = mainTotal > 0 ? mainTotal : 3.0;
 
-            if (line.background_voice?.time !== undefined && line.background_voice?.duration) {
-                const bgTotal = line.background_voice.duration.reduce((a, b) => a + b, 0);
+            if (
+                line.background_voice?.time !== undefined &&
+                line.background_voice?.duration
+            ) {
+                const bgTotal = line.background_voice.duration.reduce(
+                    (a, b) => a + b,
+                    0,
+                );
                 maxEnd = Math.max(maxEnd, line.background_voice.time + bgTotal);
             }
 
-            const finalEnd = maxEnd > line.time ? maxEnd : line.time + validDuration;
+            const finalEnd =
+                maxEnd > line.time ? maxEnd : line.time + validDuration;
             return { ...line, computedEndTime: finalEnd };
         });
     });
@@ -34,9 +41,13 @@ export function useLyricTimeline(
 
             let endTime: number;
             if (nextLine) {
-                endTime = nextLine.time - 0.3 < line.computedEndTime ? line.computedEndTime : nextLine.time - 0.3;
+                endTime =
+                    nextLine.time - 0.3 < line.computedEndTime
+                        ? line.computedEndTime
+                        : nextLine.time - 0.3;
             } else {
-                endTime = Math.max(line.computedEndTime, songDuration.value) + 0.5;
+                endTime =
+                    Math.max(line.computedEndTime, songDuration.value) + 0.5;
             }
 
             if (now >= startTime && now < endTime) result.push(index);
@@ -44,7 +55,8 @@ export function useLyricTimeline(
         return result;
     });
 
-    const isCurrentLine = (index: number) => activeLineIndices.value.includes(index);
+    const isCurrentLine = (index: number) =>
+        activeLineIndices.value.includes(index);
 
     const currentLineIndex = computed(() => {
         const arr = activeLineIndices.value;
@@ -58,11 +70,18 @@ export function useLyricTimeline(
         return generatePhraseStyle(currentTime.value, line as any, phraseIndex);
     };
 
-    const getBackgroundPhraseStyle = (lineIndex: number, phraseIndex: number) => {
+    const getBackgroundPhraseStyle = (
+        lineIndex: number,
+        phraseIndex: number,
+    ) => {
         if (!isCurrentLine(lineIndex)) return {};
         const line = processedLines.value[lineIndex];
         if (!line?.background_voice) return {};
-        return generatePhraseStyle(currentTime.value, line.background_voice, phraseIndex);
+        return generatePhraseStyle(
+            currentTime.value,
+            line.background_voice,
+            phraseIndex,
+        );
     };
 
     return {

@@ -3,7 +3,7 @@ import { ref, computed, type Ref } from "vue";
 export function useProgressBar(
     currentTime: Ref<number>,
     songDuration: Ref<number>,
-    onSeek: (ratio: number) => void
+    onSeek: (ratio: number) => void,
 ) {
     const isDragging = ref(false);
     const isHoveringProgress = ref(false);
@@ -58,7 +58,9 @@ export function useProgressBar(
         activeBarEl = event.currentTarget as HTMLElement;
         isDragging.value = true;
         updateSeek(event.touches[0]!.clientX);
-        document.addEventListener("touchmove", onBarTouchMove, { passive: false });
+        document.addEventListener("touchmove", onBarTouchMove, {
+            passive: false,
+        });
         document.addEventListener("touchend", onBarTouchEnd);
     };
 
