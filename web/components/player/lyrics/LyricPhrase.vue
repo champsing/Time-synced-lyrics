@@ -66,8 +66,6 @@ const computedStyle = computed<CSSProperties>(() => {
 </template>
 
 <style>
-@reference "tailwindcss";
-
 .lyric-phrase {
     @apply inline-block whitespace-pre relative text-transparent bg-clip-text bg-[#aaaaaa];
 }
