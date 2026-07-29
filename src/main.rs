@@ -15,7 +15,6 @@ async fn main() -> Result<(), ServerError> {
             }
         }
         _ = tokio::signal::ctrl_c() => {
-            database::export_db_to_csv()?;
             println!("\n======== shutting down! ========");
         }
     }
