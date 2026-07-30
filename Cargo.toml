@@ -1,11 +1,7 @@
 [package]
 name = "tsl_api"
-version = "7.1.2"
+version = "7.1.3"
 edition = "2024"
-
-[[bin]]
-name = "tsl_exporter"
-path = "src/bin/exporter.rs"
 
 [dependencies]
 
@@ -38,7 +34,6 @@ r2d2_sqlite   = "0.25.0"
 sea-query         = "0.32.7"
 sea-query-rusqlite = "0.7.0"
 tempfile      = "3.25.0"
-csv           = "1.3"
 
 # ── Cloud Storage (Cloudflare R2 / S3-compatible) ─────────────────────────────
 aws-sdk-s3          = "1"

@@ -3,13 +3,11 @@ pub mod migration;
 pub mod song;
 
 use crate::error::ServerError;
-use csv::ReaderBuilder;
 use r2d2::Pool;
 use r2d2_sqlite::SqliteConnectionManager;
 use std::collections::HashMap;
 use std::fs;
 use std::panic::Location;
-use std::path::Path;
 use std::sync::Mutex;
 use std::sync::OnceLock;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -121,139 +119,6 @@ pub fn init() -> Result<(), ServerError> {
         tran.commit()?;
     }
 
-    // 放在 migration 之後，確保表結構已經建立
-    load_csv_data()?;
-
-    Ok(())
-}
-
-pub fn load_csv_data() -> Result<(), ServerError> {
-    let csv_dir = "data/csv";
-    let path = Path::new(csv_dir);
-
-    if !path.exists() {
-        log::warn!("CSV directory {} not found, skipping data load.", csv_dir);
-        return Ok(());
-    }
-
-    // 1. 取得連接並開啟事務
-    let mut conn_guard = get_connection()?;
-    let tx = conn_guard
-        .transaction()
-        .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-    for entry in fs::read_dir(path)? {
-        let entry = entry?;
-        let file_path = entry.path();
-
-        if file_path.extension().and_then(|s| s.to_str()) == Some("csv") {
-            let table_name = file_path
-                .file_stem()
-                .and_then(|s| s.to_str())
-                .ok_or_else(|| ServerError::Internal("Invalid CSV filename".into()))?;
-
-            // 在 load_csv_data 迴圈內處理每個表之前先檢查
-            let mut check_stmt = tx.prepare(&format!("SELECT COUNT(*) FROM {}", table_name))?;
-            let count: i64 = check_stmt.query_row([], |row| row.get(0))?;
-            if count > 0 {
-                log::info!("Table {} is not empty, skipping CSV import.", table_name);
-                continue; // 已經有資料就跳過，避免覆寫
-            }
-
-            log::info!("Importing {}...", table_name);
-
-            let mut rdr = ReaderBuilder::new()
-                .from_path(&file_path)
-                .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-            let headers = rdr
-                .headers()
-                .map_err(|e| ServerError::Internal(e.to_string()))?
-                .clone();
-
-            let columns = headers.iter().collect::<Vec<_>>().join(", ");
-            let placeholders = vec!["?"; headers.len()].join(", ");
-
-            // 使用 tx.prepare 而不是 conn.prepare
-            let sql = format!(
-                "INSERT OR REPLACE INTO {} ({}) VALUES ({});",
-                table_name, columns, placeholders
-            );
-
-            let mut stmt = tx
-                .prepare(&sql)
-                .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-            for result in rdr.records() {
-                let record = result.map_err(|e| ServerError::Internal(e.to_string()))?;
-                let params = rusqlite::params_from_iter(record.iter());
-                stmt.execute(params)
-                    .map_err(|e| ServerError::Internal(e.to_string()))?;
-            }
-            drop(stmt); // 釋放 statement 鎖定，以便後續操作
-        }
-    }
-
-    // 2. 關鍵：顯式提交事務
-    tx.commit()
-        .map_err(|e| ServerError::Internal(e.to_string()))?;
-    log::info!("All CSV data imported and committed successfully.");
-
-    Ok(())
-}
-
-pub fn export_db_to_csv() -> Result<(), ServerError> {
-    let conn = get_connection()?;
-    let tables = ["artist", "song"];
-
-    for table in tables {
-        let path = format!("data/csv/{}.csv", table);
-        let mut wtr = csv::WriterBuilder::new()
-            .from_path(&path)
-            .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-        // 這裡改用具體的 SQL 查詢，確保順序與 CSV 標題一致
-        let sql = format!("SELECT * FROM {}", table);
-        let mut stmt = conn
-            .prepare(&sql)
-            .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-        // 寫入標題
-        let headers = stmt.column_names();
-        wtr.write_record(headers)
-            .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-        // 讀取每一行並轉為字串
-        let column_count = stmt.column_count();
-        let mut rows = stmt
-            .query([])
-            .map_err(|e| ServerError::Internal(e.to_string()))?;
-
-        while let Some(row) = rows
-            .next()
-            .map_err(|e| ServerError::Internal(e.to_string()))?
-        {
-            let mut record = Vec::new();
-            for i in 0..column_count {
-                // 利用 rusqlite 的 Value 型別彈性處理
-                let val: rusqlite::types::Value = row
-                    .get(i)
-                    .map_err(|e| ServerError::Internal(e.to_string()))?;
-                record.push(match val {
-                    rusqlite::types::Value::Null => "".to_string(),
-                    rusqlite::types::Value::Integer(n) => n.to_string(),
-                    rusqlite::types::Value::Real(f) => f.to_string(),
-                    rusqlite::types::Value::Text(s) => s,
-                    rusqlite::types::Value::Blob(_) => "<BLOB>".to_string(),
-                });
-            }
-            wtr.write_record(&record)
-                .map_err(|e| ServerError::Internal(e.to_string()))?;
-        }
-        wtr.flush()
-            .map_err(|e| ServerError::Internal(e.to_string()))?;
-        println!("✅ Successfully exported [{}] as CSV file {}", table, path);
-    }
     Ok(())
 }
 
