@@ -173,7 +173,7 @@ const sortEmoji = computed(() =>
                                 }"
                             />
                             <span
-                                class="text-sm font-medium hidden md:inline-block"
+                                class="text-sm font-medium hidden md:inline-block text-white/85"
                             >
                                 {{ bgColorName }}
                             </span>
