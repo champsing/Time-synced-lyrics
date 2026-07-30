@@ -82,10 +82,7 @@ const sortEmoji = computed(() =>
                     >
                         <button
                             @click.stop="
-                                emit(
-                                    'update:showSortOptions',
-                                    !showSortOptions,
-                                )
+                                emit('update:showSortOptions', !showSortOptions)
                             "
                             class="flex items-center gap-1.5 px-3 py-2.5 bg-white/[0.07] border border-white/6 rounded-xl text-white/60 hover:bg-white/[0.14] hover:border-white/20 hover:text-white/85 transition-all duration-300"
                         >
@@ -153,10 +150,7 @@ const sortEmoji = computed(() =>
                     >
                         <button
                             @click.stop="
-                                emit(
-                                    'update:showColorPicker',
-                                    !showColorPicker,
-                                )
+                                emit('update:showColorPicker', !showColorPicker)
                             "
                             class="flex items-center gap-2 px-3 py-2.5 bg-white/[0.07] border border-white/6 rounded-xl text-white/60 hover:bg-white/[0.14] hover:border-white/20 hover:text-white/85 transition-all duration-300"
                         >
