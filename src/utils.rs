@@ -79,6 +79,6 @@ pub fn decode_bytes_with_japanese(bytes: &[u8]) -> String {
     if !has_errors {
         res.into_owned()
     } else {
-        format!("{:?}", bytes)
+        return format!("{:?}", bytes);
     }
 }
