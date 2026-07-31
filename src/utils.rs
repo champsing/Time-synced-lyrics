@@ -1,7 +1,6 @@
 use hmac::{Hmac, Mac};
 use sha2::Sha256;
 use std::convert::TryInto;
-use std::fs;
 use std::sync::LazyLock;
 
 pub fn get_system_uptime() -> f64 {
@@ -12,47 +11,48 @@ pub fn get_system_uptime() -> f64 {
 }
 
 static PRIVATE_KEY: LazyLock<[u8; 32]> = LazyLock::new(|| {
+    // 建立一個閉包來處理共用的解析邏輯：去空白 -> Hex 解碼 -> 轉為 32 bytes 陣列
+    let parse_key = |source: &str| -> Result<[u8; 32], String> {
+        let bytes_vec =
+            hex::decode(source.trim()).map_err(|e| format!("HEX-decode failed: {}", e))?;
+
+        bytes_vec.try_into().map_err(|_| {
+            "Incorrect PRIVATE_KEY length, must be a 32-byte (64 hex chars)".to_string()
+        })
+    };
+
     // 1. 優先嘗試從環境變數讀取 (HMAC_KEY)
     if let Ok(env_key) = std::env::var("HMAC_KEY") {
-        let trimmed = env_key.trim();
-        if let Ok(bytes_vec) = hex::decode(trimmed) {
-            if let Ok(bytes) = bytes_vec.try_into() {
+        return match parse_key(&env_key) {
+            Ok(bytes) => {
                 println!("[Auth] Successfully loaded PRIVATE_KEY from: environment variables");
-                return bytes;
+                bytes
             }
-        }
+            // 環境變數存在但內容無效時，直接 panic，避免錯誤配置被隱藏
+            Err(e) => panic!("[FATAL] Invalid HMAC_KEY in environment variables: {}", e),
+        };
     }
 
     // 2. 次要嘗試從檔案讀取
     let path = "data/hmac_private_key";
-    match fs::read_to_string(path) {
-        Ok(content_str) => {
-            let trimmed = content_str.trim();
-            match hex::decode(trimmed) {
-                Ok(bytes_vec) => match bytes_vec.try_into() {
-                    Ok(bytes) => {
-                        println!(
-                            "[Auth] Successfully loaded PRIVATE_KEY from: File ({})",
-                            path
-                        );
-                        return bytes;
-                    }
-                    Err(_) => {
-                        panic!(
-                            "[FATAL] Incorrect PRIVATE_KEY length, must be a 32-byte (64 hex chars)"
-                        )
-                    }
-                },
-                Err(e) => panic!("[FATAL] Failed to HEX-decode PRIVATE_KEY file: {}", e),
-            }
-        }
-        Err(e) => {
-            // 如果讀不到代表部署配置出錯，直接停機最安全
-            panic!(
-                "[FATAL] No PRIVATE_KEY file configured or no environment variables specified! Path: {}, Err: {}",
-                path, e
+    let content_str = match std::fs::read_to_string(path) {
+        Ok(content) => content,
+        Err(e) => panic!(
+            "[FATAL] No PRIVATE_KEY file configured or no environment variables specified! Path: {}, Err: {}",
+            path, e
+        ),
+    };
+
+    // 解析檔案內容
+    match parse_key(&content_str) {
+        Ok(bytes) => {
+            println!(
+                "[Auth] Successfully loaded PRIVATE_KEY from: File ({})",
+                path
             );
+            bytes
         }
+        Err(e) => panic!("[FATAL] Failed to parse PRIVATE_KEY from file: {}", e),
     }
 });
 
