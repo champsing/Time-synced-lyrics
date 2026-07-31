@@ -37,7 +37,7 @@ fn build_client() -> S3Client {
 
 // ── Key ───────────────────────────────────────────────────────────────────────
 pub fn key(song_id: i32, folder: &str, version: &str) -> String {
-    format!("{}_{}/{}.json", song_id, folder, version)
+    return format!("{}_{}/{}.json", song_id, folder, version);
 }
 
 // ── Operations ────────────────────────────────────────────────────────────────
