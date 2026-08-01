@@ -31,6 +31,7 @@ import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import ErrorDisplay from "@components/player/ErrorDisplay.vue";
 import LyricsContainer from "@components/player/lyrics/LyricsContainer.vue";
 import TranslationBar from "@components/player/lyrics/TranslationBar.vue";
+import MobileController from "@components/player/MobileController.vue";
 import AboutModal from "@components/player/modals/AboutModal.vue";
 import CreditModal from "@components/player/modals/CreditModal.vue";
 import SettingModal from "@components/player/modals/SettingModal.vue";
@@ -70,7 +71,6 @@ const enableTranslation = ref(true);
 const enablePronounciation = ref(false);
 const enableLyricBackground = ref(true);
 const mobilePanelCollapsed = ref(false);
-const controllerPanelRef = ref<HTMLElement | null>(null);
 const controllerPanelHeight = ref(185);
 
 // ── Modals ──────────────────────────────────────────────────────────────
@@ -227,14 +227,6 @@ function onKeydown(e: KeyboardEvent) {
 onMounted(() => {
     window.addEventListener("keydown", onKeydown);
     setup();
-    if (controllerPanelRef.value) {
-        const observer = new ResizeObserver((entries) => {
-            const height = entries[0]?.contentRect.height;
-            if (height) controllerPanelHeight.value = height;
-        });
-        observer.observe(controllerPanelRef.value);
-        onUnmounted(() => observer.disconnect());
-    }
 });
 
 onUnmounted(() => {
@@ -382,7 +374,7 @@ onUnmounted(() => {
 
                 <!-- 右側歌詞面板 -->
                 <div
-                    class="right-panel flex-1 overflow-hidden relative pr-10 pb-10"
+                    class="right-panel flex-1 overflow-hidden relative pr-10 pb-20"
                 >
                     <LyricsContainer
                         :lines="processedLines"
@@ -410,7 +402,84 @@ onUnmounted(() => {
                 </div>
             </div>
 
-            <!-- 手機版 Layout（略，可套用相同解耦後的按鈕與狀態） -->
+            <!-- 手機版：全螢幕歌詞 + 底部固定控制欄 -->
+            <div class="md:hidden flex-1 flex flex-col overflow-hidden pt-16">
+                <!-- 歌詞區域：pb 動態對應底部固定面板高度 -->
+                <div
+                    class="flex-1 overflow-hidden transition-[padding-bottom] duration-300"
+                    :style="{
+                        paddingBottom: controllerPanelHeight + 20 + 'px',
+                    }"
+                >
+                    <LyricsContainer
+                        :lines="processedLines"
+                        :song="currentSong"
+                        :active-line-indices="activeLineIndices"
+                        :current-time="currentTime"
+                        :enable-lyric-background="enableLyricBackground"
+                        :enable-pronounciation="enablePronounciation"
+                        :lyric-font-size="lyricFontSize"
+                        :is-active-phrase="isActivePhrase"
+                        :is-current-line="isCurrentLine"
+                        :get-phrase-style="getPhraseStyle"
+                        :get-background-phrase-style="getBackgroundPhraseStyle"
+                        @jump="jumpToCurrentLine"
+                    />
+                </div>
+
+                <!-- 翻譯列：浮動於歌詞容器底部邊界 -->
+                <div
+                    v-if="enableTranslation"
+                    class="fixed left-0 right-0 z-40 px-3 transition-[bottom] duration-300"
+                    :style="{ bottom: controllerPanelHeight + 22 + 'px' }"
+                >
+                    <TranslationBar
+                        :song="currentSong"
+                        :translation-text="translationText"
+                        :background-translation-text="backgroundTranslationText"
+                        :translation-author="translationAuthor"
+                        :translation-modified="translationModified"
+                    />
+                </div>
+
+                <MobileController
+                    :current-song="currentSong"
+                    :song-version="songVersion"
+                    :current-time="currentTime"
+                    :song-duration="songDuration"
+                    :display-percent="displayPercent"
+                    :is-dragging="isDragging"
+                    :is-hovering-progress="isHoveringProgress"
+                    :is-paused="isPaused"
+                    :volume="volume"
+                    :is-muted="isMuted"
+                    :is-dragging-volume="isDraggingVolume"
+                    :is-hovering-volume="isHoveringVolume"
+                    :current-video-id="currentVideoId"
+                    :mobile-panel-collapsed="mobilePanelCollapsed"
+                    @play="playVideo"
+                    @pause="pauseVideo"
+                    @rewind="rewind10Sec"
+                    @forward="moveForward10Sec"
+                    @toggle-mute="toggleMute"
+                    @volume-mouse-down="onVolumeMouseDown"
+                    @volume-touch-start="onVolumeTouchStart"
+                    @bar-mouse-down="onBarMouseDown"
+                    @bar-touch-start="onBarTouchStart"
+                    @update:is-hovering-progress="isHoveringProgress = $event"
+                    @update:is-hovering-volume="isHoveringVolume = $event"
+                    @update:mobile-panel-collapsed="
+                        mobilePanelCollapsed = $event
+                    "
+                    @update:current-time="currentTime = $event"
+                    @update:is-paused="isPaused = $event"
+                    @update:song-duration="songDuration = $event"
+                    @update:panel-height="controllerPanelHeight = $event"
+                    @open-share="shareModalOpen = true"
+                    @open-setting="settingModalOpen = true"
+                    @open-credit="creditModalOpen = true"
+                />
+            </div>
 
             <!-- Modals -->
             <SettingModal
