@@ -374,7 +374,7 @@ onUnmounted(() => {
 
                 <!-- 右側歌詞面板 -->
                 <div
-                    class="right-panel flex-1 overflow-hidden relative pr-10 pb-20"
+                    class="right-panel flex-1 overflow-hidden relative pr-10 pb-10"
                 >
                     <LyricsContainer
                         :lines="processedLines"
