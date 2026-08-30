@@ -22,3 +22,6 @@ keys
 
 # 插件
 .prettierrc
+
+# 編輯器
+.vscode
