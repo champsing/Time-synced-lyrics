@@ -38,15 +38,15 @@
 
 ## 技術棧
 
-| 層 | 技術 |
-|---|---|
-| **前端** | Vue 3.5（Composition API `<script setup lang="ts">`）、vue-router 4、Vite 8、TypeScript ~5.9、Tailwind CSS v4 |
-| **後端** | Rust edition 2024、Actix-web 4.12、Tokio |
-| **資料庫** | SQLite（`rusqlite` + `r2d2` 連線池，WAL 模式） |
-| **物件儲存** | Cloudflare R2（`aws-sdk-s3`，S3 相容 API） |
-| **認證** | GitHub OAuth + JWT（`jsonwebtoken`）、HMAC-SHA256 簽章 |
-| **部署** | Docker → Cloudflare Tunnel → 自託管主機 |
-| **CI** | GitHub Actions（PR 檢查 + 版本發布自動部署） |
+| 層           | 技術                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------- |
+| **前端**     | Vue 3.5（Composition API `<script setup lang="ts">`）、vue-router 4、Vite 8、TypeScript ~5.9、Tailwind CSS v4 |
+| **後端**     | Rust edition 2024、Actix-web 4.12、Tokio                                                                      |
+| **資料庫**   | SQLite（`rusqlite` + `r2d2` 連線池，WAL 模式）                                                                |
+| **物件儲存** | Cloudflare R2（`aws-sdk-s3`，S3 相容 API）                                                                    |
+| **認證**     | GitHub OAuth + JWT（`jsonwebtoken`）、HMAC-SHA256 簽章                                                        |
+| **部署**     | Docker → Cloudflare Tunnel → 自託管主機                                                                       |
+| **CI**       | GitHub Actions（PR 檢查 + 版本發布自動部署）                                                                  |
 
 ### 前端依賴
 
@@ -206,43 +206,48 @@
 
 遷移檔案位於 `src/database/migration/`，依序執行：
 
-| 編號 | 檔案 | 說明 |
-|---|---|---|
-| 001 | `001_create_songs_table.sql` | 建立 song 表（含 `id` 自動遞增主鍵、`translation_*` 獨立欄位） |
-| 002 | `002_fix_translation_field.sql` | 重構 translation 為 JSON 欄位、新增 `furigana` 欄位、新增 `idx_title` 索引 |
-| 003 | `003_drop_id_column.sql` | 移除 `id` 自動遞增欄位、以 `song_id` 作為唯一主鍵 |
-| 004 | `004_create_artists_table.sql` | 建立 artist 表（`artist_id`、`romaji_name`、`original_name`、`created_at`） |
-| 005 | `005_tighten_song_fields.sql` | 表名改為 `songs`、所有欄位設 NOT NULL 預設值、版本 JSON 修正 |
+| 編號 | 檔案                            | 說明                                                                        |
+| ---- | ------------------------------- | --------------------------------------------------------------------------- |
+| 001  | `001_create_songs_table.sql`    | 建立 song 表（含 `id` 自動遞增主鍵、`translation_*` 獨立欄位）              |
+| 002  | `002_fix_translation_field.sql` | 重構 translation 為 JSON 欄位、新增 `furigana` 欄位、新增 `idx_title` 索引  |
+| 003  | `003_drop_id_column.sql`        | 移除 `id` 自動遞增欄位、以 `song_id` 作為唯一主鍵                           |
+| 004  | `004_create_artists_table.sql`  | 建立 artist 表（`artist_id`、`romaji_name`、`original_name`、`created_at`） |
+| 005  | `005_tighten_song_fields.sql`   | 表名改為 `songs`、所有欄位設 NOT NULL 預設值、版本 JSON 修正                |
 
 遷移版本以 `PRAGMA user_version` 追蹤，當前版本：**4**（對應 005 遷移）。
 
 ### songs 表結構
 
-| 欄位 | 類型 | 說明 |
-|---|---|---|
-| `song_id` | INTEGER UNIQUE PK | 歌曲編號（手動指定，非自動遞增） |
-| `available` | BOOLEAN | 是否公開顯示 |
-| `hidden` | BOOLEAN | 是否隱藏（`null` = 未設定） |
-| `folder` | TEXT | R2 路徑中的目錄名（格式：`"{song_id}_{title}"`） |
-| `art` | TEXT | 專輯封面圖片 URL |
-| `artist` | TEXT | 藝人 ID（逗號分隔的數字字串，關聯 artist 表） |
-| `lyricist` | TEXT | 作詞者 ID（格式同 artist） |
-| `title` | TEXT | 歌曲標題 |
-| `subtitle` | TEXT | 副標題（`\n` 換行） |
-| `album` | JSON | `{"name": "", "link": ""}` |
-| `versions` | JSON | 版本陣列（見下方說明） |
-| `is_duet` | BOOLEAN | 是否為對唱歌曲 |
-| `furigana` | BOOLEAN | 是否提供日文假名讀音 |
-| `translation` | JSON | `{"available": bool, "author": "", "cite": "", "modified": bool}` |
-| `updated_at` | DATE | 最後更新日期（`YYYY-MM-DD`） |
-| `lang` | TEXT | 語言代碼（`zh`、`en`、`ja`、`kr`、`se` 等） |
-| `credits` | JSON | 製作名單（`performance`、`song_writing`、`engineering` 陣列） |
+| 欄位          | 類型              | 說明                                                              |
+| ------------- | ----------------- | ----------------------------------------------------------------- |
+| `song_id`     | INTEGER UNIQUE PK | 歌曲編號（手動指定，非自動遞增）                                  |
+| `available`   | BOOLEAN           | 是否公開顯示                                                      |
+| `hidden`      | BOOLEAN           | 是否隱藏（`null` = 未設定）                                       |
+| `folder`      | TEXT              | R2 路徑中的目錄名（格式：`"{song_id}_{title}"`）                  |
+| `art`         | TEXT              | 專輯封面圖片 URL                                                  |
+| `artist`      | TEXT              | 藝人 ID（逗號分隔的數字字串，關聯 artist 表）                     |
+| `lyricist`    | TEXT              | 作詞者 ID（格式同 artist）                                        |
+| `title`       | TEXT              | 歌曲標題                                                          |
+| `subtitle`    | TEXT              | 副標題（`\n` 換行）                                               |
+| `album`       | JSON              | `{"name": "", "link": ""}`                                        |
+| `versions`    | JSON              | 版本陣列（見下方說明）                                            |
+| `is_duet`     | BOOLEAN           | 是否為對唱歌曲                                                    |
+| `furigana`    | BOOLEAN           | 是否提供日文假名讀音                                              |
+| `translation` | JSON              | `{"available": bool, "author": "", "cite": "", "modified": bool}` |
+| `updated_at`  | DATE              | 最後更新日期（`YYYY-MM-DD`）                                      |
+| `lang`        | TEXT              | 語言代碼（`zh`、`en`、`ja`、`kr`、`se` 等）                       |
+| `credits`     | JSON              | 製作名單（`performance`、`song_writing`、`engineering` 陣列）     |
 
 **versions JSON 格式**：
 
 ```json
 [
-    { "version": "original", "id": "YouTube影片ID", "default": true, "duration": "M:SS" },
+    {
+        "version": "original",
+        "id": "YouTube影片ID",
+        "default": true,
+        "duration": "M:SS"
+    },
     { "version": "instrumental", "id": "YouTube影片ID", "duration": "M:SS" }
 ]
 ```
@@ -253,12 +258,12 @@
 
 ### artists 表結構
 
-| 欄位 | 類型 | 說明 |
-|---|---|---|
-| `artist_id` | INTEGER UNIQUE | 藝人編號 |
-| `romaji_name` | TEXT | 羅馬拼音名稱（用於英文顯示） |
-| `original_name` | TEXT | 原始語言名稱（如日文漢字、中文） |
-| `created_at` | DATE | 建立日期 |
+| 欄位            | 類型           | 說明                             |
+| --------------- | -------------- | -------------------------------- |
+| `artist_id`     | INTEGER UNIQUE | 藝人編號                         |
+| `romaji_name`   | TEXT           | 羅馬拼音名稱（用於英文顯示）     |
+| `original_name` | TEXT           | 原始語言名稱（如日文漢字、中文） |
+| `created_at`    | DATE           | 建立日期                         |
 
 ---
 
@@ -268,42 +273,42 @@
 
 ### 狀態
 
-| 方法 | 路徑 | 說明 |
-|---|---|---|
-| GET | `/api/status` | 伺服器狀態、版本、uptime |
+| 方法 | 路徑          | 說明                     |
+| ---- | ------------- | ------------------------ |
+| GET  | `/api/status` | 伺服器狀態、版本、uptime |
 
 ### 認證（GitHub OAuth）
 
-| 方法 | 路徑 | 說明 |
-|---|---|---|
-| GET | `/api/auth/github` | 發起 GitHub OAuth 登入流程 |
-| GET | `/api/auth/callback` | GitHub 回呼端點（簽發 JWT，重導回前端） |
-| GET | `/api/auth/me` 🔐 | 回傳當前登入使用者資訊 |
+| 方法 | 路徑                 | 說明                                    |
+| ---- | -------------------- | --------------------------------------- |
+| GET  | `/api/auth/github`   | 發起 GitHub OAuth 登入流程              |
+| GET  | `/api/auth/callback` | GitHub 回呼端點（簽發 JWT，重導回前端） |
+| GET  | `/api/auth/me` 🔐    | 回傳當前登入使用者資訊                  |
 
 ### 歌曲
 
-| 方法 | 路徑 | 說明 |
-|---|---|---|
-| GET | `/api/songs/list` | 歌曲摘要清單（含 HMAC 簽章） |
-| GET | `/api/songs/{song_id}` | 單首歌曲完整資料 |
-| POST | `/api/songs/create` 🔐 | 建立新歌曲（同時在 R2 建立空歌詞檔） |
+| 方法 | 路徑                   | 說明                                         |
+| ---- | ---------------------- | -------------------------------------------- |
+| GET  | `/api/songs/list`      | 歌曲摘要清單（含 HMAC 簽章）                 |
+| GET  | `/api/songs/{song_id}` | 單首歌曲完整資料                             |
+| POST | `/api/songs/create` 🔐 | 建立新歌曲（同時在 R2 建立空歌詞檔）         |
 | POST | `/api/songs/update` 🔐 | 更新歌曲中繼資料（自動同步 R2 version 變化） |
-| POST | `/api/songs/delete` 🔐 | 刪除歌曲（同時刪除 R2 歌詞檔） |
-| POST | `/api/songs/verify` | 驗證 HMAC 簽章（防止竄改 `available` 狀態） |
+| POST | `/api/songs/delete` 🔐 | 刪除歌曲（同時刪除 R2 歌詞檔）               |
+| POST | `/api/songs/verify`    | 驗證 HMAC 簽章（防止竄改 `available` 狀態）  |
 
 ### 歌詞
 
-| 方法 | 路徑 | 說明 |
-|---|---|---|
+| 方法 | 路徑                    | 說明                     |
+| ---- | ----------------------- | ------------------------ |
 | POST | `/api/lyrics/update` 🔐 | 上傳/更新歌詞 JSON 至 R2 |
 
 ### 藝人
 
-| 方法 | 路徑 | 說明 |
-|---|---|---|
-| GET | `/api/artists?id=1,2,3` | 批次查詢藝人（支援 `?id=` 或 `?ids=`） |
-| GET | `/api/artists/list` | 所有藝人清單 |
-| POST | `/api/artists/create` 🔐 | 建立藝人 |
+| 方法 | 路徑                     | 說明                                   |
+| ---- | ------------------------ | -------------------------------------- |
+| GET  | `/api/artists?id=1,2,3`  | 批次查詢藝人（支援 `?id=` 或 `?ids=`） |
+| GET  | `/api/artists/list`      | 所有藝人清單                           |
+| POST | `/api/artists/create` 🔐 | 建立藝人                               |
 
 ### 身分驗證流程
 
@@ -377,22 +382,22 @@
 
 ### 歌詞行屬性
 
-| 屬性 | 類型 | 必填 | 說明 |
-|---|---|---|---|
-| `time` | string | ✓ | 該行開始時間，格式 `"mm:ss.SS"`（如 `"01:56.57"`） |
-| `type` | string | | 特殊行類型：`"prelude"`（前奏）、`"interlude"`（間奏）、`"end"`（歌曲結束） |
-| `text` | array | | 主聲片語陣列（prelude/interlude/end 可省略，將自動生成） |
-| ↳ `phrase` | string | ✓ | 文字片段（可為空字串作為停頓） |
-| ↳ `duration` | number | ✓ | 持續時間，單位為**厘秒**（1/100 秒）。設為 `0` 時自動替換為預設值 `100`（即 1 秒） |
-| ↳ `kiai` | boolean | | 是否強調顯示（啟用時該片語會有白色光暈） |
-| ↳ `pronounciation` | string | | 讀音標註（主要為日文假名設計，以 `<ruby>` 標籤呈現） |
-| `translation` | string | | 該行歌詞的翻譯文字 |
-| `is_secondary` | boolean | | 對唱模式：該行為第二歌手（文字靠右顯示） |
-| `is_together` | boolean | | 對唱模式：該行為合唱（文字置中顯示） |
-| `background_voice` | object | | 背景和聲（結構同主聲：`time`、`text`、`translation`） |
-| ↳ `time` | string | ✓ | 和聲開始時間 |
-| ↳ `text` | array | ✓ | 和聲片語陣列（同 `text` 格式） |
-| ↳ `translation` | string | | 和聲翻譯 |
+| 屬性               | 類型    | 必填 | 說明                                                                               |
+| ------------------ | ------- | ---- | ---------------------------------------------------------------------------------- |
+| `time`             | string  | ✓    | 該行開始時間，格式 `"mm:ss.SS"`（如 `"01:56.57"`）                                 |
+| `type`             | string  |      | 特殊行類型：`"prelude"`（前奏）、`"interlude"`（間奏）、`"end"`（歌曲結束）        |
+| `text`             | array   |      | 主聲片語陣列（prelude/interlude/end 可省略，將自動生成）                           |
+| ↳ `phrase`         | string  | ✓    | 文字片段（可為空字串作為停頓）                                                     |
+| ↳ `duration`       | number  | ✓    | 持續時間，單位為**厘秒**（1/100 秒）。設為 `0` 時自動替換為預設值 `100`（即 1 秒） |
+| ↳ `kiai`           | boolean |      | 是否強調顯示（啟用時該片語會有白色光暈）                                           |
+| ↳ `pronounciation` | string  |      | 讀音標註（主要為日文假名設計，以 `<ruby>` 標籤呈現）                               |
+| `translation`      | string  |      | 該行歌詞的翻譯文字                                                                 |
+| `is_secondary`     | boolean |      | 對唱模式：該行為第二歌手（文字靠右顯示）                                           |
+| `is_together`      | boolean |      | 對唱模式：該行為合唱（文字置中顯示）                                               |
+| `background_voice` | object  |      | 背景和聲（結構同主聲：`time`、`text`、`translation`）                              |
+| ↳ `time`           | string  | ✓    | 和聲開始時間                                                                       |
+| ↳ `text`           | array   | ✓    | 和聲片語陣列（同 `text` 格式）                                                     |
+| ↳ `translation`    | string  |      | 和聲翻譯                                                                           |
 
 ### 特殊行類型行為
 
@@ -424,37 +429,42 @@
 
 ```html
 <!-- 標準玻璃卡片 -->
-<div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
-  <!-- 內容 -->
+<div
+    class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl"
+>
+    <!-- 內容 -->
 </div>
 
 <!-- 玻璃按鈕 -->
-<button class="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40
-               rounded-full transition-all duration-300 shadow-lg">
-</button>
+<button
+    class="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40
+               rounded-full transition-all duration-300 shadow-lg"
+></button>
 
 <!-- 模態框（一律使用 Teleport + Transition） -->
 <Teleport to="body">
-  <Transition name="modal">
-    <div class="bg-black/60 backdrop-blur-sm fixed inset-0 z-40">
-      <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl">
-        <!-- 內容 -->
-      </div>
-    </div>
-  </Transition>
+    <Transition name="modal">
+        <div class="bg-black/60 backdrop-blur-sm fixed inset-0 z-40">
+            <div
+                class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl"
+            >
+                <!-- 內容 -->
+            </div>
+        </div>
+    </Transition>
 </Teleport>
 ```
 
 ### 設計詞彙表
 
-| 類別 | 可用 class | 說明 |
-|---|---|---|
-| 玻璃填充 | `bg-white/3` ~ `/30` | 透明度越高越不透明；`/5`–`/10` 為卡片常用 |
-| 玻璃邊框 | `border-white/4` ~ `/40` | `/10` 為標準；hover 時可提升至 `/20`–`/40` |
-| 文字 | `text-white/25` → `text-white` | `/25`（disabled）→ `/40`–`/60`（次要）→ `/80`–`/90`（主要）→ `white`（標題） |
-| 模糊 | `backdrop-blur-sm`、`xl`、`2xl` | `xl` 最常見（導航/面板）；`2xl`（模態框） |
-| 圓角 | `rounded-2xl`（卡片）、`rounded-3xl`（模態框/手機面板）、`rounded-full`（按鈕） |
-| 陰影 | `shadow-2xl`、`shadow-lg` | 模態框/面板用 `2xl`；按鈕/導航用 `lg` |
+| 類別     | 可用 class                                                                      | 說明                                                                         |
+| -------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 玻璃填充 | `bg-white/3` ~ `/30`                                                            | 透明度越高越不透明；`/5`–`/10` 為卡片常用                                    |
+| 玻璃邊框 | `border-white/4` ~ `/40`                                                        | `/10` 為標準；hover 時可提升至 `/20`–`/40`                                   |
+| 文字     | `text-white/25` → `text-white`                                                  | `/25`（disabled）→ `/40`–`/60`（次要）→ `/80`–`/90`（主要）→ `white`（標題） |
+| 模糊     | `backdrop-blur-sm`、`xl`、`2xl`                                                 | `xl` 最常見（導航/面板）；`2xl`（模態框）                                    |
+| 圓角     | `rounded-2xl`（卡片）、`rounded-3xl`（模態框/手機面板）、`rounded-full`（按鈕） |
+| 陰影     | `shadow-2xl`、`shadow-lg`                                                       | 模態框/面板用 `2xl`；按鈕/導航用 `lg`                                        |
 
 ### 品牌色（`#FC3C44`）
 
@@ -524,18 +534,18 @@ cargo build --release       # 生產建置
 
 後端在啟動時從環境變數讀取所有機密設定（透過 `LazyLock` 延遲初始化）。
 
-| 變數 | 必要 | 說明 |
-|---|---|---|
-| `HMAC_KEY` | ✓ | HMAC-SHA256 私鑰（64 字元 hex，即 32 bytes） |
-| `JWT_SECRET` | ✓ | JWT 簽署密鑰（任意字串） |
-| `ALLOWED_GITHUB_ID` | ✓ | 允許登入的 GitHub 使用者數字 ID |
-| `GITHUB_CLIENT_ID` | ✓ | GitHub OAuth App Client ID |
-| `GITHUB_CLIENT_SECRET` | ✓ | GitHub OAuth App Client Secret |
-| `ALLOWED_ORIGINS` | | CORS 允許的來源（逗號分隔），預設 `https://tslyric.com, https://edit.tslyric.com` |
-| `R2_BUCKET_NAME` | ✓ | Cloudflare R2 儲存桶名稱 |
-| `R2_ENDPOINT` | ✓ | R2 端點 URL（`https://<account>.r2.cloudflarestorage.com`） |
-| `R2_ACCESS_KEY_ID` | ✓ | R2 Access Key ID |
-| `R2_SECRET_ACCESS_KEY` | ✓ | R2 Secret Access Key |
+| 變數                   | 必要 | 說明                                                                              |
+| ---------------------- | ---- | --------------------------------------------------------------------------------- |
+| `HMAC_KEY`             | ✓    | HMAC-SHA256 私鑰（64 字元 hex，即 32 bytes）                                      |
+| `JWT_SECRET`           | ✓    | JWT 簽署密鑰（任意字串）                                                          |
+| `ALLOWED_GITHUB_ID`    | ✓    | 允許登入的 GitHub 使用者數字 ID                                                   |
+| `GITHUB_CLIENT_ID`     | ✓    | GitHub OAuth App Client ID                                                        |
+| `GITHUB_CLIENT_SECRET` | ✓    | GitHub OAuth App Client Secret                                                    |
+| `ALLOWED_ORIGINS`      |      | CORS 允許的來源（逗號分隔），預設 `https://tslyric.com, https://edit.tslyric.com` |
+| `R2_BUCKET_NAME`       | ✓    | Cloudflare R2 儲存桶名稱                                                          |
+| `R2_ENDPOINT`          | ✓    | R2 端點 URL（`https://<account>.r2.cloudflarestorage.com`）                       |
+| `R2_ACCESS_KEY_ID`     | ✓    | R2 Access Key ID                                                                  |
+| `R2_SECRET_ACCESS_KEY` | ✓    | R2 Secret Access Key                                                              |
 
 `HMAC_KEY` 若未在環境變數中設定，後端會嘗試從 `data/hmac_private_key` 檔案讀取。
 
@@ -547,12 +557,12 @@ cargo build --release       # 生產建置
 
 在 PR 開啟/推送至 `main` 時觸發，以路徑過濾決定執行哪些 job：
 
-| Job | 觸發條件 | 檢查內容 |
-|---|---|---|
-| **Rust** | `Cargo.toml`、`src/**` 變更 | `cargo fmt --all -- --check` |
-| **Docker** | `Dockerfile`、`docker-compose.yml` 變更 | `docker build -t tsl .` |
-| **Vue.js** | `web/**`、`package.json` 等變更 | `npm ci` → `format:check` → `vue-tsc --noEmit` → `vite build` |
-| **Version** | `Cargo.toml`、`package.json` 變更 | 驗證兩者版本號一致 |
+| Job         | 觸發條件                                | 檢查內容                                                      |
+| ----------- | --------------------------------------- | ------------------------------------------------------------- |
+| **Rust**    | `Cargo.toml`、`src/**` 變更             | `cargo fmt --all -- --check`                                  |
+| **Docker**  | `Dockerfile`、`docker-compose.yml` 變更 | `docker build -t tsl .`                                       |
+| **Vue.js**  | `web/**`、`package.json` 等變更         | `npm ci` → `format:check` → `vue-tsc --noEmit` → `vite build` |
+| **Version** | `Cargo.toml`、`package.json` 變更       | 驗證兩者版本號一致                                            |
 
 ### 部署（`.github/workflows/build.yml`）
 
