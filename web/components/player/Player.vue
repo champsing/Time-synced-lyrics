@@ -70,6 +70,7 @@ const scrollToCurrentLine = ref(true);
 const enableTranslation = ref(true);
 const enablePronounciation = ref(false);
 const enableLyricBackground = ref(true);
+const showVideo = ref(true);
 const mobilePanelCollapsed = ref(false);
 const controllerPanelHeight = ref(185);
 
@@ -257,7 +258,12 @@ onUnmounted(() => {
                 >
                     <div class="video-container w-full max-w-95 lg:max-w-110">
                         <div
-                            class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black"
+                            class="relative rounded-2xl overflow-hidden shadow-2xl bg-black mx-auto"
+                            :class="
+                                showVideo
+                                    ? 'w-full aspect-video'
+                                    : 'w-3/4 aspect-square'
+                            "
                         >
                             <YTPlayer
                                 v-if="currentVideoId"
@@ -266,16 +272,14 @@ onUnmounted(() => {
                                 @update:is-paused="isPaused = $event"
                                 @update:song-duration="songDuration = $event"
                             />
-                            <div
-                                v-else
-                                class="w-full h-full flex items-center justify-center"
-                            >
-                                <img
-                                    :src="currentSong.art"
-                                    :alt="currentSong.folder"
-                                    class="w-full h-full object-cover opacity-60"
-                                />
-                            </div>
+                            <!-- 專輯封面：關閉影片畫面或無影片來源時覆蓋顯示 -->
+                            <img
+                                v-if="!showVideo || !currentVideoId"
+                                :src="currentSong.art"
+                                :alt="currentSong.folder"
+                                class="absolute inset-0 w-full h-full object-cover"
+                                :class="{ 'opacity-60': !currentVideoId }"
+                            />
                         </div>
                     </div>
 
@@ -484,6 +488,7 @@ onUnmounted(() => {
             <!-- Modals -->
             <SettingModal
                 :is-open="settingModalOpen"
+                v-model:show-video="showVideo"
                 v-model:enable-lyric-background="enableLyricBackground"
                 v-model:scroll-to-current-line="scrollToCurrentLine"
                 v-model:enable-translation="enableTranslation"

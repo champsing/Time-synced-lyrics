@@ -7,10 +7,12 @@ const props = defineProps<{
     enablePronounciation: boolean;
     furiganaAvailable: boolean | null;
     lyricFontSize: number;
+    showVideo: boolean;
 }>();
 
 const emit = defineEmits<{
     (e: "close"): void;
+    (e: "update:showVideo", val: boolean): void;
     (e: "update:enableLyricBackground", val: boolean): void;
     (e: "update:scrollToCurrentLine", val: boolean): void;
     (e: "update:enableTranslation", val: boolean): void;
@@ -106,6 +108,55 @@ const emit = defineEmits<{
                                 >
                                     歌詞預覽 Aa
                                 </span>
+                            </div>
+                        </div>
+
+                        <!-- 畫面顯示：專輯封面 / YouTube 影片 -->
+                        <div
+                            class="flex flex-col gap-2 p-3 rounded-2xl bg-white/5 border border-white/5"
+                        >
+                            <label class="text-sm font-medium text-white/80"
+                                >畫面顯示</label
+                            >
+                            <div class="flex gap-2 w-full">
+                                <button
+                                    type="button"
+                                    class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-sm border transition-colors"
+                                    :class="
+                                        !showVideo
+                                            ? 'bg-teal-400/20 border-teal-400/50 text-white'
+                                            : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:text-white'
+                                    "
+                                    @click="emit('update:showVideo', false)"
+                                >
+                                    <span class="material-icons text-base"
+                                        >album</span
+                                    >
+                                    專輯封面
+                                </button>
+                                <button
+                                    type="button"
+                                    class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-sm border transition-colors"
+                                    :class="
+                                        showVideo
+                                            ? 'bg-[#FC3C44]/20 border-[#FC3C44]/50 text-white'
+                                            : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:text-white'
+                                    "
+                                    @click="emit('update:showVideo', true)"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        class="w-4 h-4"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                                        />
+                                    </svg>
+                                    YouTube 影片
+                                </button>
                             </div>
                         </div>
 
