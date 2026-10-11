@@ -58,7 +58,7 @@ The signature visual style. Every surface layers glass on a dark, dynamically-co
 - **Glass card**: `bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl`. Darker mobile panels: `bg-[#1a1a1a]/90 backdrop-blur-xl rounded-3xl`.
 - **Modal**: always `Teleport to="body"` + `Transition name="modal"` + `bg-black/60 backdrop-blur-sm fixed inset-0 z-40` backdrop wrapping a `bg-white/5 backdrop-blur-2xl ... rounded-3xl` card.
 - **Fills** `bg-white/3`…`/30` (cards `/5`–`/10`); **borders** `border-white/4`…`/40` (standard `/10`); **text** `text-white/25`→`text-white` (disabled → headings); **blur** `backdrop-blur-sm`/`xl`/`2xl`; **corners** `rounded-2xl`/`3xl`/`full`; **shadows** `shadow-2xl`/`lg`.
-- **`#FC3C44` is sacred** — only on the play/pause button and progress/volume bar fills. Never for text, borders, or decoration.
+- **`#FC3C44`** is the YouTube-player accent — use it on any element that relates to the YouTube player: the play/pause button, progress/volume bar fills, and playback/video controls (e.g. the album-art ↔ video display toggle). Not for unrelated text, borders, or decoration.
 - Mobile: dual-layout via `hidden md:flex` / `md:hidden` (768px breakpoint); handle both touch (`@touchstart.prevent`) and mouse events; fixed bottom panels `fixed bottom-0 ... z-50`.
 
 ## Gotchas
