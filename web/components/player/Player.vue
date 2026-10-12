@@ -6,6 +6,7 @@ import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import { useAlbumColors } from "@/composables/hooks/useAlbumColors";
 import { getArtistDisplay } from "@/composables/hooks/useArtist";
 import { useLyricTimeline } from "@/composables/hooks/useLyricTimeline";
+import { usePlayerSettings } from "@/composables/hooks/usePlayerSettings";
 import { useProgressBar } from "@/composables/hooks/useProgressBar";
 import {
     getDefaultVersion,
@@ -63,14 +64,15 @@ const errorMessage = ref("");
 const currentSong = ref<SongWithDisplay>({} as SongWithDisplay);
 
 // ── 設定項目 ─────────────────────────────────────────────────────────────
-const lyricFontSize = ref<number>(
-    Number(localStorage.getItem("lyricFontSize")) || 24,
-);
-const scrollToCurrentLine = ref(true);
-const enableTranslation = ref(true);
-const enablePronounciation = ref(false);
-const enableLyricBackground = ref(true);
-const showVideo = ref(true);
+const {
+    lyricFontSize,
+    scrollToCurrentLine,
+    enableTranslation,
+    enablePronounciation,
+    enableLyricBackground,
+    showVideo,
+    resetSettings,
+} = usePlayerSettings();
 const mobilePanelCollapsed = ref(false);
 const controllerPanelHeight = ref(185);
 
@@ -202,9 +204,6 @@ async function setup() {
     }
 }
 
-watch(lyricFontSize, (newSize) =>
-    localStorage.setItem("lyricFontSize", String(newSize)),
-);
 watch(currentLineIndex, (newVal) => {
     if (
         newVal !== -1 &&
@@ -495,6 +494,7 @@ onUnmounted(() => {
                 v-model:enable-pronounciation="enablePronounciation"
                 v-model:lyric-font-size="lyricFontSize"
                 :furigana-available="currentSong.furigana == 1"
+                @reset="resetSettings"
                 @close="settingModalOpen = false"
             />
             <CreditModal

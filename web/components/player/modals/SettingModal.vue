@@ -18,6 +18,7 @@ const emit = defineEmits<{
     (e: "update:enableTranslation", val: boolean): void;
     (e: "update:enablePronounciation", val: boolean): void;
     (e: "update:lyricFontSize", val: number): void;
+    (e: "reset"): void;
 }>();
 </script>
 
@@ -36,7 +37,7 @@ const emit = defineEmits<{
 
                 <!-- Glass content card -->
                 <div
-                    class="relative w-full max-w-md bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden animate-modal-pop flex flex-col max-h-[90vh] md:max-h-[85vh]"
+                    class="relative w-full max-w-md bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden animate-modal-pop flex flex-col max-h-[70vh] md:max-h-[65vh]"
                 >
                     <!-- Header -->
                     <div
@@ -261,6 +262,20 @@ const emit = defineEmits<{
                                 </div>
                             </label>
                         </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="px-5 py-3 border-t border-white/10 shrink-0">
+                        <button
+                            type="button"
+                            class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-teal-500/15 border border-teal-500/25 hover:bg-teal-500/25 text-teal-300 text-sm font-medium transition-all active:scale-[0.98]"
+                            @click="emit('reset')"
+                        >
+                            <span class="material-icons text-base"
+                                >settings_backup_restore</span
+                            >
+                            <span>還原預設值</span>
+                        </button>
                     </div>
                 </div>
             </div>
