@@ -9,6 +9,8 @@ const DEFAULT_SETTINGS = {
     enablePronounciation: false,
     enableLyricBackground: true,
     showVideo: true,
+    volume: 70,
+    isMuted: false,
 } as const;
 
 // ── 持久化工具 ────────────────────────────────────────────────────────────────
@@ -58,6 +60,8 @@ export function usePlayerSettings() {
         "showVideo",
         DEFAULT_SETTINGS.showVideo,
     );
+    const volume = persistedRef<number>("volume", DEFAULT_SETTINGS.volume);
+    const isMuted = persistedRef<boolean>("isMuted", DEFAULT_SETTINGS.isMuted);
 
     // ── 重設 ─────────────────────────────────────────────────────────────────
     function resetSettings() {
@@ -76,6 +80,8 @@ export function usePlayerSettings() {
         enablePronounciation,
         enableLyricBackground,
         showVideo,
+        volume,
+        isMuted,
         resetSettings,
     };
 }

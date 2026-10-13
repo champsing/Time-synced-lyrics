@@ -53,12 +53,10 @@ const versionRequest = decodeURIComponent(params.get("version") ?? "")
 // ── 播放狀態 ─────────────────────────────────────────────────────────────
 const currentTime = ref(0);
 const songDuration = ref(0);
-const volume = ref<number>(Number(sessionStorage.getItem("volume")) || 70);
 const songVersion = ref<string | null>(null);
 const jsonMappingContent = ref<LyricData>([] as LyricData);
 const isPaused = ref(true);
 const isLoading = ref(true);
-const isMuted = ref(false);
 const isError = ref(false);
 const errorMessage = ref("");
 const currentSong = ref<SongWithDisplay>({} as SongWithDisplay);
@@ -71,6 +69,8 @@ const {
     enablePronounciation,
     enableLyricBackground,
     showVideo,
+    volume,
+    isMuted,
     resetSettings,
 } = usePlayerSettings();
 const mobilePanelCollapsed = ref(false);
@@ -267,6 +267,8 @@ onUnmounted(() => {
                             <YTPlayer
                                 v-if="currentVideoId"
                                 :video-id="currentVideoId"
+                                :volume="volume"
+                                :is-muted="isMuted"
                                 @update:current-time="currentTime = $event"
                                 @update:is-paused="isPaused = $event"
                                 @update:song-duration="songDuration = $event"

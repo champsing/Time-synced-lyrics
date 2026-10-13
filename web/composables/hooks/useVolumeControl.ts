@@ -12,7 +12,8 @@ export function useVolumeControl(
     const changeVolume = (newVolume: number) => {
         volume.value = newVolume;
         isMuted.value = newVolume === 0;
-        sessionStorage.setItem("volume", String(newVolume));
+        // 調整音量時若先前為靜音，需同步解除靜音（setVolume 不會改變靜音狀態）
+        if (newVolume > 0) window.ytPlayer?.unMute();
         if (onVolumeChange) onVolumeChange(newVolume);
     };
 

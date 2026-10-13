@@ -6,6 +6,10 @@ import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 const props = defineProps<{
     /** 已由父層解析好的 YouTube 影片 ID（v.link） */
     videoId: string | null;
+    /** 初始音量（0–100），來自已儲存的設定 */
+    volume: number;
+    /** 初始靜音狀態，來自已儲存的設定 */
+    isMuted: boolean;
 }>();
 
 // ── Emits ──────────────────────────────────────────────────────────────────
@@ -44,7 +48,8 @@ const createPlayer = (videoId: string) => {
 
 // ── Event handlers ─────────────────────────────────────────────────────────
 const onPlayerReady = () => {
-    ytPlayer.setVolume(70);
+    ytPlayer.setVolume(props.volume);
+    if (props.isMuted) ytPlayer.mute();
 
     if (!props.videoId) {
         console.error("找不到影片 ID");
