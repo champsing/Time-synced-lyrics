@@ -149,6 +149,8 @@ onMounted(() => {
                     <YTPlayer
                         v-if="currentVideoId"
                         :video-id="currentVideoId"
+                        :volume="volume"
+                        :is-muted="isMuted"
                         @update:current-time="
                             emit('update:currentTime', $event)
                         "

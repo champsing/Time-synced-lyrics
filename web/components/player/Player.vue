@@ -6,6 +6,7 @@ import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import { useAlbumColors } from "@/composables/hooks/useAlbumColors";
 import { getArtistDisplay } from "@/composables/hooks/useArtist";
 import { useLyricTimeline } from "@/composables/hooks/useLyricTimeline";
+import { usePlayerSettings } from "@/composables/hooks/usePlayerSettings";
 import { useProgressBar } from "@/composables/hooks/useProgressBar";
 import {
     getDefaultVersion,
@@ -52,25 +53,26 @@ const versionRequest = decodeURIComponent(params.get("version") ?? "")
 // ── 播放狀態 ─────────────────────────────────────────────────────────────
 const currentTime = ref(0);
 const songDuration = ref(0);
-const volume = ref<number>(Number(sessionStorage.getItem("volume")) || 70);
 const songVersion = ref<string | null>(null);
 const jsonMappingContent = ref<LyricData>([] as LyricData);
 const isPaused = ref(true);
 const isLoading = ref(true);
-const isMuted = ref(false);
 const isError = ref(false);
 const errorMessage = ref("");
 const currentSong = ref<SongWithDisplay>({} as SongWithDisplay);
 
 // ── 設定項目 ─────────────────────────────────────────────────────────────
-const lyricFontSize = ref<number>(
-    Number(localStorage.getItem("lyricFontSize")) || 24,
-);
-const scrollToCurrentLine = ref(true);
-const enableTranslation = ref(true);
-const enablePronounciation = ref(false);
-const enableLyricBackground = ref(true);
-const showVideo = ref(true);
+const {
+    lyricFontSize,
+    scrollToCurrentLine,
+    enableTranslation,
+    enablePronounciation,
+    enableLyricBackground,
+    showVideo,
+    volume,
+    isMuted,
+    resetSettings,
+} = usePlayerSettings();
 const mobilePanelCollapsed = ref(false);
 const controllerPanelHeight = ref(185);
 
@@ -202,9 +204,6 @@ async function setup() {
     }
 }
 
-watch(lyricFontSize, (newSize) =>
-    localStorage.setItem("lyricFontSize", String(newSize)),
-);
 watch(currentLineIndex, (newVal) => {
     if (
         newVal !== -1 &&
@@ -268,6 +267,8 @@ onUnmounted(() => {
                             <YTPlayer
                                 v-if="currentVideoId"
                                 :video-id="currentVideoId"
+                                :volume="volume"
+                                :is-muted="isMuted"
                                 @update:current-time="currentTime = $event"
                                 @update:is-paused="isPaused = $event"
                                 @update:song-duration="songDuration = $event"
@@ -495,6 +496,7 @@ onUnmounted(() => {
                 v-model:enable-pronounciation="enablePronounciation"
                 v-model:lyric-font-size="lyricFontSize"
                 :furigana-available="currentSong.furigana == 1"
+                @reset="resetSettings"
                 @close="settingModalOpen = false"
             />
             <CreditModal
